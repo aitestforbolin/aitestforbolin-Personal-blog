@@ -1,5 +1,13 @@
 const posts = [
   {
+    title: "大陆新闻早报｜2026-06-04",
+    date: "2026-06-04",
+    excerpt:
+      "高考报名人数、物流景气、平陆运河通水和内容消费监管，是这期早报的主要线索。",
+    tag: "早报",
+    url: "briefings/mainland-daily-brief-2026-06-04.html",
+  },
+  {
     title: "把最近的日子整理成一页纸",
     date: "2026-05-20",
     excerpt:

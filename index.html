@@ -15,6 +15,7 @@
       <a class="brand" href="#" aria-label="回到首页">你的名字</a>
       <nav class="nav-links" aria-label="主导航">
         <a href="#posts">文章</a>
+        <a href="#briefings">早报</a>
         <a href="#about">关于</a>
         <a href="#contact">联系</a>
       </nav>
@@ -67,6 +68,38 @@
       </section>
 
       <section
+        class="section briefing-home"
+        id="briefings"
+        aria-labelledby="briefings-title"
+      >
+        <div class="briefing-home-copy">
+          <p class="eyebrow">Daily Briefing</p>
+          <h2 id="briefings-title">每日早报</h2>
+          <p>
+            每天整理一页新闻要点，保留来源、背景判断和后续观察，方便之后回看。
+          </p>
+        </div>
+        <article class="briefing-home-card">
+          <div>
+            <div class="post-meta">
+              <span class="post-tag">早报</span>
+              <time datetime="2026-06-04">2026年06月04日</time>
+            </div>
+            <h3>大陆新闻早报｜2026-06-04</h3>
+            <p>
+              高考报名人数、物流景气、平陆运河通水和内容消费监管，是这期早报的主要线索。
+            </p>
+          </div>
+          <div class="briefing-home-actions">
+            <a class="button primary" href="briefings/mainland-daily-brief-2026-06-04.html">
+              阅读本期
+            </a>
+            <a class="button secondary" href="briefings/index.html">查看归档</a>
+          </div>
+        </article>
+      </section>
+
+      <section
         class="section more-posts"
         id="more-posts"
         aria-labelledby="more-posts-title"
@@ -75,14 +108,14 @@
           <p class="eyebrow">More Stories</p>
           <h2 id="more-posts-title">更多文章</h2>
           <p>
-            如果你想继续逛逛，可以从这里进入全部文章集合。现在先放上占位入口，
-            之后可以替换成真正的归档页。
+            如果你想继续逛逛，可以从这里进入每日早报归档。每篇早报都会保留
+            要点、来源和后续观察，方便回看。
           </p>
         </div>
         <div class="more-links" aria-label="更多文章入口">
-          <a href="#" aria-label="查看全部文章">
-            <span>全部文章</span>
-            <small>按时间慢慢翻看</small>
+          <a href="briefings/index.html" aria-label="查看每日早报归档">
+            <span>每日早报</span>
+            <small>按日期回看新闻要点</small>
           </a>
         </div>
       </section>
