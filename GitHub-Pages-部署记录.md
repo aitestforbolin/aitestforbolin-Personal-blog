@@ -126,6 +126,41 @@ https://aitestforbolin.github.io/aitestforbolin-Personal-blog/
 
 ## 6. 以后自动更新网站
 
+Codex 默认约定：
+
+只要用户要求运行每日早报更新，就必须自动完成 GitHub Pages 发布，不停在本地文件生成，也不要求用户手动上传。
+
+当前网站有两个早报频道：
+
+```text
+中国：个人网站/briefings/index.html
+全球：个人网站/briefings/global.html
+```
+
+每次更新后，Codex 应同步检查并更新：
+
+```text
+个人网站/index.html
+个人网站/briefings/index.html
+个人网站/briefings/global.html
+个人网站/briefings/当天中国早报.html
+个人网站/briefings/当天全球早报.html
+```
+
+如果只更新其中一个频道，则只需要更新该频道详情页、对应归档页和首页。
+
+优先发布方式：
+
+```text
+使用 Codex 的 GitHub 连接器写入 aitestforbolin/aitestforbolin-Personal-blog
+```
+
+原因：
+
+```text
+本机 git push 可能缺少命令行凭据，但 Codex GitHub 连接器已经授权写入仓库。
+```
+
 早报生成完成后，不需要再手动上传文件。让 AI 代理执行：
 
 ```bash
