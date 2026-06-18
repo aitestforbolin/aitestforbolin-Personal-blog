@@ -14,8 +14,9 @@
     <header class="site-header">
       <a class="brand" href="#" aria-label="回到首页">你的名字</a>
       <nav class="nav-links" aria-label="主导航">
-        <a href="#macro-calendar">宏观日历</a>
         <a href="#briefings">早报</a>
+        <a href="#market-prices">市场价格</a>
+        <a href="#macro-calendar">宏观日历</a>
         <a href="#about">关于</a>
         <a href="#contact">联系</a>
       </nav>
@@ -60,27 +61,6 @@
       </section>
 
       <section
-        class="section macro-calendar"
-        id="macro-calendar"
-        aria-labelledby="macro-calendar-title"
-      >
-        <div class="macro-calendar-head">
-          <div>
-            <p class="eyebrow">US Macro Calendar</p>
-            <h2 id="macro-calendar-title">美国宏观数据日历</h2>
-            <p>未来 14 天重点数据，北京时间显示。</p>
-          </div>
-        </div>
-
-        <div class="macro-calendar-panel">
-          <div class="macro-calendar-status" data-calendar-status>
-            正在载入日历...
-          </div>
-          <div class="macro-event-list" data-calendar-events></div>
-        </div>
-      </section>
-
-      <section
         class="section briefing-home"
         id="briefings"
         aria-labelledby="briefings-title"
@@ -91,14 +71,6 @@
           <p>
             每天整理一页新闻要点，保留来源、背景判断和后续观察，方便之后回看。
           </p>
-          <a
-            class="market-link-button"
-            href="https://www.tradingview.com/markets/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            查看Tradingview宏观行情
-          </a>
         </div>
         <div class="briefing-home-cards">
           <article class="briefing-home-card" data-channel="mainland-briefing">
@@ -141,6 +113,105 @@
         </div>
       </section>
 
+      <section
+        class="section market-prices"
+        id="market-prices"
+        aria-labelledby="market-prices-title"
+      >
+        <div class="market-prices-head">
+          <div>
+            <p class="eyebrow">Market Prices</p>
+            <h2 id="market-prices-title">主要资产价格</h2>
+            <p>用可嵌入代理资产观察美股昨晚与近期走势。</p>
+          </div>
+          <a
+            class="market-link-button"
+            href="https://www.tradingview.com/watchlists/331540587/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            查看Tradingview宏观行情
+          </a>
+        </div>
+
+        <div class="market-chart-card">
+          <div class="market-chart-toolbar" role="tablist" aria-label="切换资产走势">
+            <button
+              class="market-chart-tab is-active"
+              type="button"
+              data-market-symbol="BITSTAMP:BTCUSD"
+              aria-selected="true"
+            >
+              BTC
+            </button>
+            <button
+              class="market-chart-tab"
+              type="button"
+              data-market-symbol="AMEX:SPY"
+              aria-selected="false"
+            >
+              S&P 500
+            </button>
+            <button
+              class="market-chart-tab"
+              type="button"
+              data-market-symbol="NASDAQ:QQQ"
+              aria-selected="false"
+            >
+              纳斯达克100
+            </button>
+            <button
+              class="market-chart-tab"
+              type="button"
+              data-market-symbol="AMEX:DIA"
+              aria-selected="false"
+            >
+              道琼斯
+            </button>
+            <button
+              class="market-chart-tab"
+              type="button"
+              data-market-symbol="OANDA:XAUUSD"
+              aria-selected="false"
+            >
+              黄金
+            </button>
+          </div>
+
+          <div class="market-chart-label">
+            <span data-market-name>BTC</span>
+            <small data-market-proxy>BTC/USD · 24h</small>
+          </div>
+
+          <div
+            class="tradingview-widget-container"
+            data-market-chart
+            aria-live="polite"
+          ></div>
+        </div>
+      </section>
+
+      <section
+        class="section macro-calendar"
+        id="macro-calendar"
+        aria-labelledby="macro-calendar-title"
+      >
+        <div class="macro-calendar-head">
+          <div>
+            <p class="eyebrow">US Macro Calendar</p>
+            <h2 id="macro-calendar-title">美国宏观数据日历</h2>
+            <p>未来 14 天重点数据，北京时间显示。</p>
+          </div>
+        </div>
+
+        <div class="macro-calendar-panel">
+          <div class="macro-calendar-status" data-calendar-status>
+            正在载入日历...
+          </div>
+          <div class="macro-event-list" data-calendar-events></div>
+        </div>
+      </section>
+
       <section class="section about" id="about" aria-labelledby="about-title">
         <div>
           <p class="eyebrow">About</p>
@@ -169,6 +240,7 @@
     <footer class="site-footer">
       <p>© 2026 你的名字。慢慢写，慢慢更新。</p>
     </footer>
+    <script src="market-prices.js"></script>
     <script src="macro-calendar.js"></script>
   </body>
 </html>
