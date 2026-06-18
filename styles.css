@@ -536,6 +536,43 @@ h2 {
   font-size: 0.98rem;
 }
 
+.macro-tool-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.macro-tool-link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid rgba(117, 108, 97, 0.2);
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: rgba(255, 253, 248, 0.66);
+  transition: border-color 180ms ease, box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.macro-tool-link:hover {
+  border-color: rgba(184, 107, 75, 0.42);
+  box-shadow: 0 12px 28px rgba(67, 48, 32, 0.08);
+  transform: translateY(-1px);
+}
+
+.macro-tool-link span {
+  color: var(--accent-dark);
+  font-size: 0.92rem;
+  font-weight: 900;
+}
+
+.macro-tool-link small {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
 .macro-calendar-panel {
   border: 1px solid rgba(117, 108, 97, 0.2);
   border-radius: 8px;
@@ -1059,6 +1096,17 @@ h2 {
   }
 
   .macro-calendar-panel {
+    padding: 12px;
+  }
+
+  .macro-tool-links {
+    grid-template-columns: 1fr;
+  }
+
+  .macro-tool-link {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
     padding: 12px;
   }
 

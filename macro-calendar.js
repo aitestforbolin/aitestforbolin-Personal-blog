@@ -8,6 +8,25 @@
     fed: "美联储",
   };
   const HORIZON_DAYS = 14;
+  const FOMC_MEETINGS = [
+    { start: "2026-01-27", end: "2026-01-28" },
+    { start: "2026-03-17", end: "2026-03-18" },
+    { start: "2026-04-28", end: "2026-04-29" },
+    { start: "2026-06-16", end: "2026-06-17" },
+    { start: "2026-07-28", end: "2026-07-29" },
+    { start: "2026-09-15", end: "2026-09-16" },
+    { start: "2026-10-27", end: "2026-10-28" },
+    { start: "2026-12-08", end: "2026-12-09" },
+    { start: "2027-01-26", end: "2027-01-27" },
+    { start: "2027-03-16", end: "2027-03-17" },
+    { start: "2027-04-27", end: "2027-04-28" },
+    { start: "2027-06-08", end: "2027-06-09" },
+    { start: "2027-07-27", end: "2027-07-28" },
+    { start: "2027-09-14", end: "2027-09-15" },
+    { start: "2027-10-26", end: "2027-10-27" },
+    { start: "2027-12-07", end: "2027-12-08" },
+    { start: "2028-01-25", end: "2028-01-26", tentative: true },
+  ];
 
   const state = {
     events: [],
@@ -15,6 +34,7 @@
 
   const eventList = document.querySelector("[data-calendar-events]");
   const status = document.querySelector("[data-calendar-status]");
+  const nextFomcDate = document.querySelector("[data-next-fomc-date]");
 
   if (!eventList || !status) {
     return;
@@ -40,6 +60,59 @@
     const eventDate = parseDate(dateText);
     eventDate.setHours(0, 0, 0, 0);
     return Math.round((eventDate - today) / 86400000);
+  }
+
+  function getToday() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return today;
+  }
+
+  function getNextFomcMeeting() {
+    const today = getToday();
+
+    return FOMC_MEETINGS.find((meeting) => {
+      const meetingEnd = parseDate(meeting.end || meeting.start);
+      meetingEnd.setHours(23, 59, 59, 999);
+      return meetingEnd >= today;
+    });
+  }
+
+  function formatFomcMeeting(meeting) {
+    const start = parseDate(meeting.start);
+    const end = parseDate(meeting.end || meeting.start);
+    const sameYear = start.getFullYear() === end.getFullYear();
+    const sameMonth = sameYear && start.getMonth() === end.getMonth();
+    let dateText = "";
+
+    if (sameMonth) {
+      dateText = `${start.getFullYear()}年${
+        start.getMonth() + 1
+      }月${start.getDate()}-${end.getDate()}日`;
+    } else if (sameYear) {
+      dateText = `${start.getFullYear()}年${
+        start.getMonth() + 1
+      }月${start.getDate()}日-${end.getMonth() + 1}月${end.getDate()}日`;
+    } else {
+      dateText = `${start.getFullYear()}年${
+        start.getMonth() + 1
+      }月${start.getDate()}日-${end.getFullYear()}年${
+        end.getMonth() + 1
+      }月${end.getDate()}日`;
+    }
+
+    return `${dateText}${meeting.tentative ? "（暂定）" : ""}`;
+  }
+
+  function renderNextFomcDate() {
+    if (!nextFomcDate) {
+      return;
+    }
+
+    const meeting = getNextFomcMeeting();
+    nextFomcDate.textContent = meeting
+      ? `下次 FOMC：${formatFomcMeeting(meeting)}`
+      : "下次 FOMC：见美联储日历";
   }
 
   function getEventDateForWindow(event) {
@@ -179,6 +252,8 @@
 
     eventList.append(fragment);
   }
+
+  renderNextFomcDate();
 
   fetch(DATA_URL)
     .then((response) => {
