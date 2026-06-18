@@ -1,0 +1,39 @@
+name: Update US macro calendar
+
+on:
+  schedule:
+    # 08:10 Asia/Shanghai every Monday.
+    - cron: "10 0 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-calendar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Refresh calendar data
+        run: python scripts/update_us_macro_calendar.py
+
+      - name: Commit updated calendar
+        run: |
+          if git diff --quiet -- data/us-macro-calendar.json; then
+            echo "Calendar data is already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/us-macro-calendar.json
+          git commit -m "Update US macro calendar"
+          git push
