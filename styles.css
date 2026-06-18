@@ -423,6 +423,133 @@ h2 {
   transform: translateY(-2px);
 }
 
+.macro-calendar {
+  display: grid;
+  gap: 18px;
+}
+
+.macro-calendar-head {
+  display: grid;
+  gap: 8px;
+}
+
+.macro-calendar-head p:last-child {
+  max-width: 720px;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.macro-calendar-panel {
+  border: 1px solid rgba(117, 108, 97, 0.2);
+  border-radius: 8px;
+  padding: 14px;
+  background: rgba(255, 253, 248, 0.66);
+}
+
+.macro-calendar-status {
+  margin-bottom: 10px;
+  color: var(--accent-dark);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.macro-calendar-status:empty {
+  display: none;
+}
+
+.macro-event-list {
+  display: grid;
+  gap: 6px;
+}
+
+.macro-event {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 34px;
+  align-items: center;
+  border-top: 1px solid rgba(117, 108, 97, 0.14);
+  padding: 9px 0;
+}
+
+.macro-event:first-child {
+  border-top: 0;
+}
+
+.macro-date {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--text);
+}
+
+.macro-date span {
+  color: var(--accent-dark);
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.macro-date strong {
+  color: var(--accent-dark);
+  font-size: 0.98rem;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.macro-event-body {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 34px;
+  align-items: center;
+  min-width: 0;
+}
+
+.macro-event-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.macro-event-meta span {
+  border-radius: 999px;
+  padding: 2px 8px;
+  background: rgba(242, 234, 223, 0.82);
+}
+
+.macro-category {
+  color: var(--accent-dark);
+  font-weight: 800;
+}
+
+.macro-event-name {
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.macro-event-name:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.macro-empty {
+  margin: 0;
+  border: 1px dashed rgba(117, 108, 97, 0.3);
+  border-radius: 8px;
+  padding: 12px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
 .briefing-home-cards {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -722,6 +849,7 @@ h2 {
   }
 
   .briefing-home,
+  .macro-calendar-head,
   .about,
   .contact {
     grid-template-columns: 1fr;
@@ -738,6 +866,10 @@ h2 {
   .about,
   .contact {
     gap: 24px;
+  }
+
+  .macro-calendar-head {
+    align-items: start;
   }
 }
 
@@ -803,6 +935,24 @@ h2 {
 
   .section {
     padding: 54px 0;
+  }
+
+  .macro-calendar-panel {
+    padding: 12px;
+  }
+
+  .macro-event {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .macro-date {
+    justify-content: space-between;
+  }
+
+  .macro-event-body {
+    grid-template-columns: 1fr;
+    gap: 6px;
   }
 
   .post-card {
