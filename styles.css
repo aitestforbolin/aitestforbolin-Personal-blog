@@ -391,15 +391,16 @@ h2 {
 
 .briefing-home {
   display: grid;
-  grid-template-columns: 0.78fr 1.22fr;
-  gap: 42px;
-  align-items: stretch;
+  grid-template-columns: minmax(260px, 0.58fr) minmax(0, 1.42fr);
+  gap: 28px;
+  align-items: start;
 }
 
 .briefing-home-copy p:last-child {
-  max-width: 480px;
-  margin: 18px 0 0;
+  max-width: 420px;
+  margin: 12px 0 0;
   color: var(--muted);
+  font-size: 0.98rem;
 }
 
 .market-link-button {
@@ -647,8 +648,8 @@ h2 {
 
 .briefing-home-cards {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
 }
 
 .briefing-home-card {
@@ -657,29 +658,31 @@ h2 {
   justify-content: space-between;
   border: 1px solid rgba(117, 108, 97, 0.18);
   border-radius: 8px;
-  padding: 28px;
+  padding: 20px;
   background: rgba(255, 253, 248, 0.78);
-  box-shadow: 0 14px 38px rgba(67, 48, 32, 0.08);
+  box-shadow: 0 10px 28px rgba(67, 48, 32, 0.07);
 }
 
 .briefing-home-card h3 {
-  margin: 20px 0 12px;
+  margin: 14px 0 8px;
   font-family: "Songti SC", "STSong", "SimSun", serif;
-  font-size: 1.65rem;
+  font-size: 1.38rem;
   line-height: 1.32;
 }
 
 .briefing-home-card p {
-  max-width: 680px;
+  max-width: 520px;
   margin: 0;
   color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.62;
 }
 
 .briefing-home-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 28px;
+  gap: 10px;
+  margin-top: 18px;
 }
 
 .more-links {
@@ -963,6 +966,10 @@ h2 {
   .macro-calendar-head,
   .about,
   .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .briefing-home-cards {
     grid-template-columns: 1fr;
   }
 

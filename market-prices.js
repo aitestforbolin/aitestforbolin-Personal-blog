@@ -8,6 +8,10 @@
       name: "BTC",
       proxy: "BTC/USD",
     },
+    "OANDA:XAUUSD": {
+      name: "黄金",
+      proxy: "XAU/USD",
+    },
     "AMEX:SPY": {
       name: "S&P 500",
       proxy: "SPY ETF",
@@ -19,10 +23,6 @@
     "AMEX:DIA": {
       name: "道琼斯",
       proxy: "DIA ETF",
-    },
-    "OANDA:XAUUSD": {
-      name: "黄金",
-      proxy: "XAU/USD",
     },
   };
 
