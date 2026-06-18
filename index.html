@@ -14,6 +14,7 @@
     <header class="site-header">
       <a class="brand" href="#" aria-label="回到首页">你的名字</a>
       <nav class="nav-links" aria-label="主导航">
+        <a href="#macro-calendar">宏观日历</a>
         <a href="#briefings">早报</a>
         <a href="#about">关于</a>
         <a href="#contact">联系</a>
@@ -59,6 +60,27 @@
       </section>
 
       <section
+        class="section macro-calendar"
+        id="macro-calendar"
+        aria-labelledby="macro-calendar-title"
+      >
+        <div class="macro-calendar-head">
+          <div>
+            <p class="eyebrow">US Macro Calendar</p>
+            <h2 id="macro-calendar-title">美国宏观数据日历</h2>
+            <p>未来 14 天重点数据，北京时间显示。</p>
+          </div>
+        </div>
+
+        <div class="macro-calendar-panel">
+          <div class="macro-calendar-status" data-calendar-status>
+            正在载入日历...
+          </div>
+          <div class="macro-event-list" data-calendar-events></div>
+        </div>
+      </section>
+
+      <section
         class="section briefing-home"
         id="briefings"
         aria-labelledby="briefings-title"
@@ -83,15 +105,15 @@
           <div>
             <div class="post-meta">
               <span class="post-tag">大陆</span>
-              <time datetime="2026-06-17">2026年06月17日</time>
+              <time datetime="2026-06-18">2026年06月18日</time>
             </div>
             <h3>中国</h3>
             <p>
-              德国总统在马尼拉把南海紧张同霍尔木兹封锁相提并论，欧洲正在把中国周边海上风险纳入自身供应链安全叙事。
+              台湾把肯尼亚扣留代表事件定性为中国施压国际场合的“新常态”，说明北京正把一中压力更系统地外推到第三国会务与过境安排。
             </p>
           </div>
           <div class="briefing-home-actions">
-            <a class="button primary" href="briefings/mainland-daily-brief-2026-06-17.html">
+            <a class="button primary" href="briefings/mainland-daily-brief-2026-06-18.html">
               阅读本期
             </a>
             <a class="button secondary" href="briefings/index.html">查看归档</a>
@@ -102,15 +124,15 @@
           <div>
             <div class="post-meta">
               <span class="post-tag">全球</span>
-              <time datetime="2026-06-17">2026年06月17日</time>
+              <time datetime="2026-06-18">2026年06月18日</time>
             </div>
             <h3>全球</h3>
             <p>
-              G7 同意加大对俄罗斯能源出口和影子船队的制裁压力，乌克兰议题重新成为峰会核心。
+              美伊临时协议在 G7 场边落地，全球能源、核谈判和中东威慑逻辑同时进入新的 60 天窗口。
             </p>
           </div>
           <div class="briefing-home-actions">
-            <a class="button primary" href="briefings/global-daily-brief-2026-06-17.html">
+            <a class="button primary" href="briefings/global-daily-brief-2026-06-18.html">
               阅读本期
             </a>
             <a class="button secondary" href="briefings/global.html">查看归档</a>
@@ -147,5 +169,6 @@
     <footer class="site-footer">
       <p>© 2026 你的名字。慢慢写，慢慢更新。</p>
     </footer>
+    <script src="macro-calendar.js"></script>
   </body>
 </html>
