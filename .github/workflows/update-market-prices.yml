@@ -1,0 +1,34 @@
+name: Update market prices
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-market-prices:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch latest market prices
+        run: python scripts/update_market_prices.py
+      - name: Commit market price data
+        run: |
+          if git diff --quiet -- data/market-prices.json; then
+            echo "No market price changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/market-prices.json
+          git commit -m "Update market price data"
+          git push

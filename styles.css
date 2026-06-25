@@ -558,6 +558,51 @@ h2 {
   line-height: 1.7;
 }
 
+.market-quote {
+  display: grid;
+  gap: 4px;
+}
+
+.market-quote span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.market-quote strong {
+  color: var(--text);
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.market-quote small {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 900;
+}
+
+.market-quote em {
+  color: rgba(117, 108, 97, 0.72);
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.market-quote.up small {
+  color: #2f7d4f;
+}
+
+.market-quote.down small {
+  color: #b5473f;
+}
+
+.market-quote.unavailable strong,
+.market-quote.pending strong {
+  color: var(--muted);
+  font-size: 1.35rem;
+}
+
 .market-open-link {
   display: inline-flex;
   align-items: center;
@@ -611,6 +656,24 @@ h2 {
   color: var(--muted);
   font-size: 0.85rem;
   font-weight: 700;
+}
+
+.market-asset-card .market-quote {
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(117, 108, 97, 0.12);
+}
+
+.market-asset-card .market-quote strong {
+  font-size: 1.28rem;
+}
+
+.market-asset-card .market-quote small {
+  font-size: 0.82rem;
+}
+
+.market-asset-card .market-quote em {
+  display: none;
 }
 
 .market-chart-fallback {
