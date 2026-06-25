@@ -1,28 +1,32 @@
 (function () {
-  const WIDGET_SRC =
-    "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+  const WIDGET_ORIGIN = "https://s.tradingview.com";
   const DATE_RANGE = "1D";
   const CHART_HEIGHT = 420;
   const MARKETS = {
     "BITSTAMP:BTCUSD": {
       name: "BTC",
       proxy: "BTC/USD",
+      url: "https://www.tradingview.com/chart/?symbol=BITSTAMP%3ABTCUSD",
     },
     "OANDA:XAUUSD": {
       name: "黄金",
       proxy: "XAU/USD",
+      url: "https://www.tradingview.com/chart/?symbol=OANDA%3AXAUUSD",
     },
     "AMEX:SPY": {
       name: "S&P 500",
       proxy: "SPY ETF",
+      url: "https://www.tradingview.com/chart/?symbol=AMEX%3ASPY",
     },
     "NASDAQ:QQQ": {
       name: "纳斯达克100",
       proxy: "QQQ ETF",
+      url: "https://www.tradingview.com/chart/?symbol=NASDAQ%3AQQQ",
     },
     "AMEX:DIA": {
       name: "道琼斯",
       proxy: "DIA ETF",
+      url: "https://www.tradingview.com/chart/?symbol=AMEX%3ADIA",
     },
   };
 
@@ -33,6 +37,56 @@
 
   if (!chart || !tabs.length || !name || !proxy) {
     return;
+  }
+
+  function getExternalLinksMarkup(activeSymbol) {
+    const assetLinks = Object.entries(MARKETS)
+      .map(([symbol, market]) => {
+        const activeClass = symbol === activeSymbol ? " is-active" : "";
+        return `<a class="market-fallback-link${activeClass}" href="${market.url}" target="_blank" rel="noreferrer">${market.name}</a>`;
+      })
+      .join("");
+
+    return `
+      <div class="market-chart-fallback" aria-label="外部行情链接">
+        <p>如果图表加载较慢，可直接打开对应资产页面。</p>
+        <div class="market-fallback-links">${assetLinks}</div>
+      </div>
+    `;
+  }
+
+  function getChartUrl(symbol) {
+    const params = new URLSearchParams({
+      frameElementId: `market-chart-${symbol.replace(/[^a-z0-9]/gi, "-")}`,
+      symbol,
+      interval: "15",
+      range: DATE_RANGE,
+      timezone: "Asia/Shanghai",
+      theme: "light",
+      style: "2",
+      locale: "zh_CN",
+      hidesidetoolbar: "1",
+      symboledit: "0",
+      saveimage: "0",
+      toolbarbg: "fffdf8",
+      hideideas: "1",
+      withdateranges: "1",
+      studies: "[]",
+      studies_overrides: "{}",
+      overrides: JSON.stringify({
+        "paneProperties.background": "#fffdf8",
+        "paneProperties.vertGridProperties.color": "rgba(117, 108, 97, 0.14)",
+        "paneProperties.horzGridProperties.color": "rgba(117, 108, 97, 0.14)",
+      }),
+      enabled_features: "[]",
+      disabled_features: "[]",
+      utm_source: window.location.hostname || "localhost",
+      utm_medium: "widget",
+      utm_campaign: "chart",
+      utm_term: symbol,
+    });
+
+    return `${WIDGET_ORIGIN}/widgetembed/?${params.toString()}`;
   }
 
   function renderChart(symbol) {
@@ -52,35 +106,15 @@
 
     chart.innerHTML = "";
 
-    const widget = document.createElement("div");
-    widget.className = "tradingview-widget-container__widget";
-    chart.append(widget);
+    const frame = document.createElement("iframe");
+    frame.className = "market-chart-direct-frame";
+    frame.title = `${market.name} TradingView 走势图`;
+    frame.src = getChartUrl(symbol);
+    frame.loading = "lazy";
+    frame.allowFullscreen = true;
 
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = WIDGET_SRC;
-    script.async = true;
-    script.textContent = JSON.stringify({
-      autosize: false,
-      symbol,
-      width: "100%",
-      height: CHART_HEIGHT,
-      interval: "15",
-      timezone: "Asia/Shanghai",
-      theme: "light",
-      style: "2",
-      locale: "zh_CN",
-      range: DATE_RANGE,
-      backgroundColor: "rgba(255, 253, 248, 0)",
-      gridColor: "rgba(117, 108, 97, 0.14)",
-      hide_top_toolbar: true,
-      hide_legend: false,
-      save_image: false,
-      calendar: false,
-      allow_symbol_change: false,
-      support_host: "https://www.tradingview.com",
-    });
-    chart.append(script);
+    chart.append(frame);
+    chart.insertAdjacentHTML("beforeend", getExternalLinksMarkup(symbol));
   }
 
   tabs.forEach((tab) => {
@@ -89,5 +123,6 @@
     });
   });
 
+  chart.style.minHeight = `${CHART_HEIGHT}px`;
   renderChart(tabs[0].dataset.marketSymbol);
 })();
