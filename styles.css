@@ -528,6 +528,91 @@ h2 {
   background: #f2f2f2;
 }
 
+.market-asset-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+  gap: 20px;
+  min-height: 280px;
+  padding: 28px;
+  border: 1px solid rgba(117, 108, 97, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.82);
+}
+
+.market-asset-copy {
+  display: grid;
+  align-content: center;
+  justify-items: flex-start;
+  gap: 12px;
+}
+
+.market-asset-copy strong {
+  color: var(--text);
+  font-size: 1.5rem;
+}
+
+.market-asset-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+.market-open-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: var(--text);
+  color: #fffaf4;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.market-asset-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.market-asset-card {
+  display: grid;
+  gap: 6px;
+  min-height: 104px;
+  padding: 16px;
+  border: 1px solid rgba(117, 108, 97, 0.16);
+  border-radius: 8px;
+  background: #fffdf8;
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.market-asset-card:hover,
+.market-asset-card.is-active {
+  border-color: rgba(184, 107, 75, 0.52);
+  box-shadow: 0 12px 24px rgba(63, 48, 40, 0.08);
+  transform: translateY(-1px);
+}
+
+.market-asset-card span {
+  color: var(--accent-dark);
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.market-asset-card strong {
+  font-size: 1.15rem;
+}
+
+.market-asset-card small {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
 .market-chart-fallback {
   display: grid;
   min-height: 78px;
@@ -1185,6 +1270,15 @@ h2 {
   .tradingview-widget-container,
   .tradingview-widget-container__widget {
     min-height: 420px;
+  }
+
+  .market-asset-panel,
+  .market-asset-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .market-asset-panel {
+    padding: 18px;
   }
 
   .macro-event {
