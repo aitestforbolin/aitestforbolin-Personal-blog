@@ -598,6 +598,27 @@ h2 {
   font-size: 1.35rem;
 }
 
+.market-refresh-status {
+  display: inline-grid;
+  gap: 2px;
+  padding: 8px 10px;
+  border: 1px solid rgba(117, 108, 97, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.74);
+}
+
+.market-refresh-status span {
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.market-refresh-status small {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
 .market-open-link {
   display: inline-flex;
   align-items: center;

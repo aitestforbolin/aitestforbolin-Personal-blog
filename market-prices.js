@@ -1,6 +1,29 @@
 (function () {
   const LOCAL_QUOTE_ENDPOINT = "data/market-prices.json";
   const QUOTE_TIMEOUT = 6500;
+  const QUOTE_REFRESH_INTERVAL = 60 * 1000;
+  const LIVE_QUOTE_ENDPOINTS = [
+    {
+      quoteSymbol: "BTCUSD",
+      yahooSymbol: "BTC-USD",
+    },
+    {
+      quoteSymbol: "XAUUSD",
+      yahooSymbol: "GC=F",
+    },
+    {
+      quoteSymbol: "SPY.US",
+      yahooSymbol: "SPY",
+    },
+    {
+      quoteSymbol: "QQQ.US",
+      yahooSymbol: "QQQ",
+    },
+    {
+      quoteSymbol: "DIA.US",
+      yahooSymbol: "DIA",
+    },
+  ];
   const FALLBACK_QUOTES = {
     BTCUSD: {
       available: false,
@@ -72,6 +95,9 @@
 
   let quotes = {};
   let activeSymbol = tabs[0].dataset.marketSymbol;
+  let quoteSource = "载入中";
+  let isRefreshing = false;
+  let lastRefreshLabel = "";
 
   function formatNumber(value, decimals) {
     if (!Number.isFinite(value)) {
@@ -125,6 +151,17 @@
         <strong>${formatNumber(quote.price, market.decimals)}</strong>
         <small>${changeText}</small>
         <em>${quote.date} ${quote.time}</em>
+      </div>
+    `;
+  }
+
+  function getRefreshStatusMarkup() {
+    const suffix = lastRefreshLabel ? ` · ${lastRefreshLabel}` : "";
+
+    return `
+      <div class="market-refresh-status">
+        <span>${quoteSource}${suffix}</span>
+        <small>页面每 60 秒自动刷新</small>
       </div>
     `;
   }
@@ -226,6 +263,74 @@
     return Array.isArray(symbols) ? symbols : [symbols];
   }
 
+  function formatUtcMoment(timestamp) {
+    if (!timestamp) {
+      return {
+        date: "",
+        time: "",
+      };
+    }
+
+    const moment = new Date(Number(timestamp) * 1000);
+
+    if (Number.isNaN(moment.getTime())) {
+      return {
+        date: "",
+        time: "",
+      };
+    }
+
+    return {
+      date: moment.toISOString().slice(0, 10),
+      time: `${moment.toISOString().slice(11, 16)} UTC`,
+    };
+  }
+
+  function normalizeYahooChart(data, quoteSymbol) {
+    const result = data?.chart?.result?.[0];
+    const meta = result?.meta;
+
+    if (!result || !meta) {
+      return null;
+    }
+
+    const timestamps = result.timestamp || [];
+    const closes = result.indicators?.quote?.[0]?.close || [];
+    const price = Number(meta.regularMarketPrice);
+    const open = Number(
+      meta.chartPreviousClose ||
+        meta.previousClose ||
+        meta.regularMarketPreviousClose
+    );
+    const timestamp =
+      meta.regularMarketTime || timestamps[timestamps.length - 1] || null;
+    const moment = formatUtcMoment(timestamp);
+    const points = timestamps
+      .map((pointTimestamp, index) => ({
+        time: formatUtcMoment(pointTimestamp).time.replace(" UTC", ""),
+        timestamp: pointTimestamp,
+        value: closes[index],
+      }))
+      .filter((point) => Number.isFinite(Number(point.value)))
+      .slice(-180);
+
+    if (!Number.isFinite(price) || !Number.isFinite(open)) {
+      return null;
+    }
+
+    return {
+      symbol: quoteSymbol,
+      date: moment.date,
+      time: moment.time,
+      open,
+      high: meta.regularMarketDayHigh || price,
+      low: meta.regularMarketDayLow || price,
+      close: price,
+      points,
+      sourceSymbol: meta.symbol || quoteSymbol,
+    };
+  }
+
   function parseQuote(row) {
     const price = Number(row.close);
     const open = Number(row.open);
@@ -251,22 +356,75 @@
     };
   }
 
+  function getCacheBustedEndpoint(endpoint) {
+    const separator = endpoint.includes("?") ? "&" : "?";
+    return `${endpoint}${separator}refresh=${Date.now()}`;
+  }
+
+  function fetchJson(endpoint) {
+    return fetch(getCacheBustedEndpoint(endpoint), {
+      cache: "no-store",
+    }).then((response) => {
+      if (!response.ok) {
+        throw new Error("Quote request failed");
+      }
+
+      return response.json();
+    });
+  }
+
+  function applyQuoteData(data, options = {}) {
+    const parsedQuotes = normalizeQuoteRows(data).reduce((nextQuotes, row) => {
+      if (row.symbol) {
+        nextQuotes[String(row.symbol).toUpperCase()] = parseQuote(row);
+      }
+
+      return nextQuotes;
+    }, {});
+
+    if (!Object.keys(parsedQuotes).length) {
+      throw new Error("Quote response was empty");
+    }
+
+    quotes = options.merge ? { ...quotes, ...parsedQuotes } : parsedQuotes;
+    quoteSource =
+      data.source === "yahoo-live-browser" ? "实时接口" : "站内行情数据";
+    lastRefreshLabel = new Date().toLocaleTimeString("zh-CN", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  }
+
+  function fetchLiveQuotes() {
+    return Promise.allSettled(
+      LIVE_QUOTE_ENDPOINTS.map((item) =>
+        fetchJson(
+          `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(
+            item.yahooSymbol
+          )}?range=1d&interval=1m`
+        ).then((data) => normalizeYahooChart(data, item.quoteSymbol))
+      )
+    ).then((results) => {
+      const rows = results
+        .filter((result) => result.status === "fulfilled" && result.value)
+        .map((result) => result.value);
+
+      if (!rows.length) {
+        throw new Error("Live quotes unavailable");
+      }
+
+      return {
+        source: "yahoo-live-browser",
+        symbols: rows,
+      };
+    });
+  }
+
   function fetchQuotes() {
     if (!window.fetch) {
       quotes = FALLBACK_QUOTES;
+      quoteSource = "行情数据不可用";
       return Promise.resolve();
-    }
-
-    function fetchQuoteData(endpoint) {
-      return fetch(endpoint, {
-        cache: "no-store",
-      }).then((response) => {
-        if (!response.ok) {
-          throw new Error("Quote request failed");
-        }
-
-        return response.json();
-      });
     }
 
     const timeout = new Promise((_, reject) => {
@@ -275,22 +433,42 @@
       }, QUOTE_TIMEOUT);
     });
 
-    return Promise.race([fetchQuoteData(LOCAL_QUOTE_ENDPOINT), timeout])
+    return Promise.race([fetchJson(LOCAL_QUOTE_ENDPOINT), timeout])
       .then((data) => {
-        quotes = normalizeQuoteRows(data).reduce((nextQuotes, row) => {
-          if (row.symbol) {
-            nextQuotes[String(row.symbol).toUpperCase()] = parseQuote(row);
-          }
-
-          return nextQuotes;
-        }, {});
-
-        if (!Object.keys(quotes).length) {
-          throw new Error("Quote response was empty");
-        }
+        applyQuoteData(data);
+        renderChart(activeSymbol);
+        return fetchLiveQuotes()
+          .then((liveData) => {
+            applyQuoteData(liveData, {
+              merge: true,
+            });
+          })
+          .catch(() => {});
       })
       .catch(() => {
-        quotes = FALLBACK_QUOTES;
+        return fetchLiveQuotes()
+          .then((liveData) => {
+            applyQuoteData(liveData);
+          })
+          .catch(() => {
+            quotes = FALLBACK_QUOTES;
+            quoteSource = "行情数据不可用";
+          });
+      });
+  }
+
+  function refreshQuotes() {
+    if (isRefreshing) {
+      return;
+    }
+
+    isRefreshing = true;
+    fetchQuotes()
+      .then(() => {
+        renderChart(activeSymbol);
+      })
+      .finally(() => {
+        isRefreshing = false;
       });
   }
 
@@ -331,7 +509,8 @@
         <div class="market-asset-copy">
           <strong>${market.name}</strong>
           ${getQuoteMarkup(symbol)}
-          <p>${market.summary}。折线图使用站内自动更新行情数据绘制，并保留外部行情入口。</p>
+          ${getRefreshStatusMarkup()}
+          <p>${market.summary}。页面会自动刷新行情；实时接口不可用时，会回退到站内自动更新数据。</p>
           <a class="market-open-link" href="${market.url}" target="_blank" rel="noreferrer">打开 ${market.name} 行情</a>
         </div>
         ${getChartMarkup(symbol)}
@@ -347,7 +526,6 @@
   });
 
   renderChart(activeSymbol);
-  fetchQuotes().then(() => {
-    renderChart(activeSymbol);
-  });
+  refreshQuotes();
+  window.setInterval(refreshQuotes, QUOTE_REFRESH_INTERVAL);
 })();
