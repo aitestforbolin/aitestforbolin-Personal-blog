@@ -40,6 +40,13 @@ def normalize_chart(yahoo_symbol, site_symbol):
     data = fetch_chart(yahoo_symbol)
     result = data["chart"]["result"][0]
     meta = result["meta"]
+    timestamps = result.get("timestamp") or []
+    closes = (
+        result.get("indicators", {})
+        .get("quote", [{}])[0]
+        .get("close")
+        or []
+    )
     timestamp = meta.get("regularMarketTime") or result.get("timestamp", [None])[-1]
     price = meta.get("regularMarketPrice")
     previous_close = (
@@ -49,12 +56,34 @@ def normalize_chart(yahoo_symbol, site_symbol):
     )
 
     if timestamp:
-      moment = dt.datetime.fromtimestamp(int(timestamp), tz=dt.timezone.utc)
-      date = moment.strftime("%Y-%m-%d")
-      time = moment.strftime("%H:%M UTC")
+        moment = dt.datetime.fromtimestamp(int(timestamp), tz=dt.timezone.utc)
+        date = moment.strftime("%Y-%m-%d")
+        time = moment.strftime("%H:%M UTC")
     else:
-      date = ""
-      time = ""
+        date = ""
+        time = ""
+
+    points = []
+    for point_timestamp, close in zip(timestamps, closes):
+        if close is None:
+            continue
+        point_moment = dt.datetime.fromtimestamp(int(point_timestamp), tz=dt.timezone.utc)
+        points.append(
+            {
+                "time": point_moment.strftime("%H:%M"),
+                "timestamp": int(point_timestamp),
+                "value": close,
+            }
+        )
+
+    if not points and price is not None:
+        points.append(
+            {
+                "time": time.replace(" UTC", ""),
+                "timestamp": int(timestamp) if timestamp else None,
+                "value": price,
+            }
+        )
 
     return {
         "symbol": site_symbol,
@@ -66,6 +95,7 @@ def normalize_chart(yahoo_symbol, site_symbol):
         "close": price,
         "volume": meta.get("regularMarketVolume", "N/D"),
         "sourceSymbol": yahoo_symbol,
+        "points": points[-96:],
     }
 
 

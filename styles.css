@@ -519,18 +519,12 @@ h2 {
   min-height: 420px;
 }
 
-.market-chart-direct-frame {
-  display: block;
-  width: 100%;
-  height: 420px;
-  min-height: 420px;
-  border: 0;
-  background: #f2f2f2;
-}
-
 .market-asset-panel {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+  grid-template-areas:
+    "copy chart"
+    "cards cards";
   gap: 20px;
   min-height: 280px;
   padding: 28px;
@@ -541,6 +535,7 @@ h2 {
 
 .market-asset-copy {
   display: grid;
+  grid-area: copy;
   align-content: center;
   justify-items: flex-start;
   gap: 12px;
@@ -616,16 +611,81 @@ h2 {
   text-decoration: none;
 }
 
+.market-line-chart {
+  position: relative;
+  display: grid;
+  grid-area: chart;
+  min-height: 280px;
+  overflow: hidden;
+  border: 1px solid rgba(117, 108, 97, 0.16);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(249, 245, 237, 0.72));
+}
+
+.market-line-chart.empty {
+  place-items: center;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.market-line-chart svg {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+}
+
+.market-line-path {
+  fill: none;
+  stroke: #2f7d4f;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.market-line-area {
+  fill: rgba(47, 125, 79, 0.12);
+}
+
+.market-line-chart.down .market-line-path {
+  stroke: #b5473f;
+}
+
+.market-line-chart.down .market-line-area {
+  fill: rgba(181, 71, 63, 0.12);
+}
+
+.market-chart-scale,
+.market-chart-time {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(117, 108, 97, 0.78);
+  font-size: 0.76rem;
+  font-weight: 800;
+  pointer-events: none;
+}
+
+.market-chart-scale {
+  top: 12px;
+}
+
+.market-chart-time {
+  bottom: 12px;
+}
+
 .market-asset-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-area: cards;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 12px;
 }
 
 .market-asset-card {
   display: grid;
   gap: 6px;
-  min-height: 104px;
+  min-height: 128px;
   padding: 16px;
   border: 1px solid rgba(117, 108, 97, 0.16);
   border-radius: 8px;
@@ -1341,7 +1401,15 @@ h2 {
   }
 
   .market-asset-panel {
+    grid-template-areas:
+      "copy"
+      "chart"
+      "cards";
     padding: 18px;
+  }
+
+  .market-line-chart {
+    min-height: 240px;
   }
 
   .macro-event {

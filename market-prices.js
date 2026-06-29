@@ -1,7 +1,5 @@
 (function () {
   const LOCAL_QUOTE_ENDPOINT = "data/market-prices.json";
-  const REMOTE_QUOTE_ENDPOINT =
-    "https://api.allorigins.win/raw?url=https%3A%2F%2Fstooq.com%2Fq%2Fl%2F%3Fs%3Dbtcusd%2Cxauusd%2Cspy.us%2Cqqq.us%2Cdia.us%26f%3Dsd2t2ohlcv%26h%26e%3Djson";
   const QUOTE_TIMEOUT = 6500;
   const FALLBACK_QUOTES = {
     BTCUSD: {
@@ -131,6 +129,94 @@
     `;
   }
 
+  function escapeAttribute(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/"/g, "&quot;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  function getValidPoints(quote) {
+    if (!quote || !Array.isArray(quote.points)) {
+      return [];
+    }
+
+    return quote.points
+      .map((point) => ({
+        time: point.time || "",
+        value: Number(point.value),
+      }))
+      .filter((point) => Number.isFinite(point.value));
+  }
+
+  function getLinePath(points, width, height, padding) {
+    if (!points.length) {
+      return "";
+    }
+
+    const values = points.map((point) => point.value);
+    const min = Math.min(...values);
+    const max = Math.max(...values);
+    const spread = max - min || 1;
+    const innerWidth = width - padding * 2;
+    const innerHeight = height - padding * 2;
+
+    return points
+      .map((point, index) => {
+        const x =
+          padding + (points.length === 1 ? innerWidth : (index / (points.length - 1)) * innerWidth);
+        const y = padding + ((max - point.value) / spread) * innerHeight;
+        return `${index === 0 ? "M" : "L"} ${x.toFixed(2)} ${y.toFixed(2)}`;
+      })
+      .join(" ");
+  }
+
+  function getChartMarkup(symbol) {
+    const market = MARKETS[symbol];
+    const quote = getQuote(symbol);
+    const points = getValidPoints(quote);
+
+    if (!quote || !quote.available || points.length < 2) {
+      return `
+        <div class="market-line-chart empty">
+          <span>折线图载入中</span>
+        </div>
+      `;
+    }
+
+    const width = 640;
+    const height = 260;
+    const padding = 24;
+    const values = points.map((point) => point.value);
+    const min = Math.min(...values);
+    const max = Math.max(...values);
+    const direction = quote.change >= 0 ? "up" : "down";
+    const path = getLinePath(points, width, height, padding);
+    const areaPath = `${path} L ${width - padding} ${height - padding} L ${padding} ${
+      height - padding
+    } Z`;
+    const firstPoint = points[0];
+    const lastPoint = points[points.length - 1];
+
+    return `
+      <div class="market-line-chart ${direction}" aria-label="${market.name} 日内折线图">
+        <div class="market-chart-scale">
+          <span>${formatNumber(max, market.decimals)}</span>
+          <span>${formatNumber(min, market.decimals)}</span>
+        </div>
+        <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${market.name} price line">
+          <path class="market-line-area" d="${areaPath}"></path>
+          <path class="market-line-path" d="${path}"></path>
+        </svg>
+        <div class="market-chart-time">
+          <span>${escapeAttribute(firstPoint.time)}</span>
+          <span>${escapeAttribute(lastPoint.time)}</span>
+        </div>
+      </div>
+    `;
+  }
+
   function normalizeQuoteRows(data) {
     const symbols = data?.symbols;
     if (!symbols) {
@@ -157,6 +243,9 @@
       change,
       changePercent: (change / open) * 100,
       date: row.date || "",
+      high: Number(row.high),
+      low: Number(row.low),
+      points: Array.isArray(row.points) ? row.points : [],
       price,
       time: row.time || "",
     };
@@ -186,11 +275,7 @@
       }, QUOTE_TIMEOUT);
     });
 
-    const request = fetchQuoteData(LOCAL_QUOTE_ENDPOINT).catch(() =>
-      fetchQuoteData(REMOTE_QUOTE_ENDPOINT)
-    );
-
-    return Promise.race([request, timeout])
+    return Promise.race([fetchQuoteData(LOCAL_QUOTE_ENDPOINT), timeout])
       .then((data) => {
         quotes = normalizeQuoteRows(data).reduce((nextQuotes, row) => {
           if (row.symbol) {
@@ -246,9 +331,10 @@
         <div class="market-asset-copy">
           <strong>${market.name}</strong>
           ${getQuoteMarkup(symbol)}
-          <p>${market.summary}。当前网络环境下 TradingView 内嵌图表不可用，页面会尽量显示最新价格和日内涨跌幅。</p>
+          <p>${market.summary}。折线图使用站内自动更新行情数据绘制，并保留外部行情入口。</p>
           <a class="market-open-link" href="${market.url}" target="_blank" rel="noreferrer">打开 ${market.name} 行情</a>
         </div>
+        ${getChartMarkup(symbol)}
         <div class="market-asset-grid">${cards}</div>
       </div>
     `;
