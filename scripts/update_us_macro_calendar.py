@@ -17,17 +17,30 @@ from urllib.request import Request, urlopen
 SITE_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = SITE_ROOT / "data" / "us-macro-calendar.json"
 EASTERN_TO_SHANGHAI_HOURS = 12
+DEFAULT_DAYS = 35
 
 BLS_ICS_URL = "https://www.bls.gov/schedule/news_release/bls.ics"
 BLS_MONTH_URL = "https://www.bls.gov/schedule/{year}/{month:02d}_sched.htm"
 BEA_SCHEDULE_URL = "https://www.bea.gov/news/schedule"
 FED_CALENDAR_URL = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
 CENSUS_CALENDAR_URL = "https://www.census.gov/economic-indicators/"
+ISM_REPORTS_URL = "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/"
+US_RELEASE_HOLIDAYS = {
+    "2026-01-01",
+    "2026-01-19",
+    "2026-02-16",
+    "2026-05-25",
+    "2026-06-19",
+    "2026-07-03",
+    "2026-09-07",
+    "2026-11-26",
+    "2026-12-25",
+}
 
 EVENT_RULES = [
     {
         "needle": "Consumer Price Index",
-        "title_cn": "美国CPI",
+        "title_cn": "美国CPI / 核心CPI",
         "category": "inflation",
         "importance": "high",
     },
@@ -39,7 +52,7 @@ EVENT_RULES = [
     },
     {
         "needle": "Employment Situation",
-        "title_cn": "美国非农就业",
+        "title_cn": "美国非农 / 失业率 / 平均时薪",
         "category": "jobs",
         "importance": "high",
     },
@@ -51,7 +64,7 @@ EVENT_RULES = [
     },
     {
         "needle": "Personal Income and Outlays",
-        "title_cn": "美国PCE个人收入支出",
+        "title_cn": "美国PCE / 核心PCE",
         "category": "inflation",
         "importance": "high",
     },
@@ -81,7 +94,7 @@ FOMC_MEETINGS = [
 # Keep the core retail-sales release dates here as a stable fallback.
 CENSUS_RETAIL_RELEASES = [
     ("2026-06-17", "May 2026"),
-    ("2026-07-17", "June 2026"),
+    ("2026-07-16", "June 2026"),
     ("2026-08-14", "July 2026"),
 ]
 
@@ -94,6 +107,37 @@ BLS_FALLBACK_RELEASES = [
     ("2026-08-07", "08:30", "Employment Situation", "July 2026"),
     ("2026-08-12", "08:30", "Consumer Price Index", "July 2026"),
     ("2026-08-13", "08:30", "Producer Price Index", "July 2026"),
+]
+
+BEA_FALLBACK_RELEASES = [
+    (
+        "2026-07-30",
+        "08:30",
+        "Personal Income and Outlays",
+        "June 2026",
+        "美国PCE / 核心PCE",
+    ),
+    (
+        "2026-07-30",
+        "08:30",
+        "Gross Domestic Product, 2nd Quarter 2026 (Advance Estimate)",
+        "Q2 2026",
+        "美国GDP",
+    ),
+    (
+        "2026-08-27",
+        "08:30",
+        "Gross Domestic Product, 2nd Quarter 2026 (Second Estimate)",
+        "Q2 2026",
+        "美国GDP",
+    ),
+    (
+        "2026-08-28",
+        "08:30",
+        "Personal Income and Outlays",
+        "July 2026",
+        "美国PCE / 核心PCE",
+    ),
 ]
 
 
@@ -286,6 +330,29 @@ def shifted_month(year: int, month: int, offset: int) -> tuple[int, int]:
     return month_index // 12, (month_index % 12) + 1
 
 
+def add_month(year: int, month: int, offset: int) -> tuple[int, int]:
+    month_index = (year * 12) + (month - 1) + offset
+    return month_index // 12, (month_index % 12) + 1
+
+
+def is_business_day(day: date) -> bool:
+    return day.weekday() < 5 and day.isoformat() not in US_RELEASE_HOLIDAYS
+
+
+def nth_business_day(year: int, month: int, position: int) -> date:
+    cursor = date(year, month, 1)
+    found = 0
+
+    while cursor.month == month:
+        if is_business_day(cursor):
+            found += 1
+            if found == position:
+                return cursor
+        cursor += timedelta(days=1)
+
+    raise ValueError(f"month {year}-{month:02d} has fewer than {position} business days")
+
+
 def parse_bls_month_pages(start: date, end: date) -> list[dict[str, str]]:
     events: list[dict[str, str]] = []
 
@@ -414,6 +481,28 @@ def parse_bea_events(start: date, end: date) -> list[dict[str, str]]:
     return events
 
 
+def bea_fallback_events(start: date, end: date) -> list[dict[str, str]]:
+    events = []
+    for day_text, eastern_time, title, period, title_cn in BEA_FALLBACK_RELEASES:
+        day = date.fromisoformat(day_text)
+        rule = match_rule(title)
+        if rule and start <= day <= end:
+            events.append(
+                make_event(
+                    day=day,
+                    eastern_time=eastern_time,
+                    title=title,
+                    title_cn=title_cn,
+                    period=period,
+                    category=rule["category"],
+                    source="BEA",
+                    url=BEA_SCHEDULE_URL,
+                    importance=rule["importance"],
+                )
+            )
+    return events
+
+
 def fomc_events(start: date, end: date) -> list[dict[str, str]]:
     events = []
     for day_text, period, has_sep in FOMC_MEETINGS:
@@ -421,13 +510,25 @@ def fomc_events(start: date, end: date) -> list[dict[str, str]]:
         if start <= day <= end:
             title_cn = "FOMC 利率决议"
             if has_sep:
-                title_cn += " / 经济预测"
+                title_cn += " / 点阵图"
             events.append(
                 make_event(
                     day=day,
                     eastern_time="14:00",
                     title="FOMC Policy Decision",
                     title_cn=title_cn,
+                    period=period,
+                    category="fed",
+                    source="Federal Reserve",
+                    url=FED_CALENDAR_URL,
+                )
+            )
+            events.append(
+                make_event(
+                    day=day,
+                    eastern_time="14:30",
+                    title="FOMC Chair Press Conference",
+                    title_cn="FOMC 主席发布会",
                     period=period,
                     category="fed",
                     source="Federal Reserve",
@@ -457,6 +558,50 @@ def census_retail_events(start: date, end: date) -> list[dict[str, str]]:
     return events
 
 
+def ism_events(start: date, end: date) -> list[dict[str, str]]:
+    events = []
+    cursor = date(start.year, start.month, 1)
+
+    while cursor <= end:
+        year, month = cursor.year, cursor.month
+        period_year, period_month = add_month(year, month, -1)
+        period = date(period_year, period_month, 1).strftime("%B %Y")
+        releases = [
+            (
+                nth_business_day(year, month, 1),
+                "Manufacturing PMI Report on Business",
+                "美国ISM制造业PMI",
+            ),
+            (
+                nth_business_day(year, month, 3),
+                "Services PMI Report on Business",
+                "美国ISM服务业PMI",
+            ),
+        ]
+
+        for day, title, title_cn in releases:
+            if start <= day <= end:
+                events.append(
+                    make_event(
+                        day=day,
+                        eastern_time="10:00",
+                        title=title,
+                        title_cn=title_cn,
+                        period=period,
+                        category="growth",
+                        source="ISM",
+                        url=ISM_REPORTS_URL,
+                    )
+                )
+
+        if cursor.month == 12:
+            cursor = date(cursor.year + 1, 1, 1)
+        else:
+            cursor = date(cursor.year, cursor.month + 1, 1)
+
+    return events
+
+
 def dedupe(events: list[dict[str, str]]) -> list[dict[str, str]]:
     seen: set[tuple[str, str, str]] = set()
     unique = []
@@ -473,22 +618,35 @@ def build_calendar(start: date, days: int, offline: bool) -> list[dict[str, str]
     end = start + timedelta(days=days)
     events: list[dict[str, str]] = []
 
-    if not offline:
+    if offline:
+        events.extend(bls_fallback_events(start, end))
+        events.extend(bea_fallback_events(start, end))
+    else:
         for name, parser in (("BLS", parse_bls_events), ("BEA", parse_bea_events)):
             try:
-                events.extend(parser(start, end))
+                parsed_events = parser(start, end)
+                events.extend(parsed_events)
+                if name == "BLS" and not parsed_events:
+                    events.extend(bls_fallback_events(start, end))
+                if name == "BEA" and not parsed_events:
+                    events.extend(bea_fallback_events(start, end))
             except (URLError, TimeoutError, OSError, ValueError) as exc:
                 print(f"warning: skipped {name}: {exc}", file=sys.stderr)
+                if name == "BLS":
+                    events.extend(bls_fallback_events(start, end))
+                if name == "BEA":
+                    events.extend(bea_fallback_events(start, end))
 
     events.extend(fomc_events(start, end))
     events.extend(census_retail_events(start, end))
+    events.extend(ism_events(start, end))
     return dedupe(events)
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--start", default=date.today().isoformat())
-    parser.add_argument("--days", type=int, default=14)
+    parser.add_argument("--days", type=int, default=DEFAULT_DAYS)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--offline", action="store_true")
     args = parser.parse_args()
