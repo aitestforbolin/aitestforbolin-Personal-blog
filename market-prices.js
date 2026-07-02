@@ -87,6 +87,12 @@
       ${getExternalLinksMarkup(symbol)}
     `;
 
+    const widget = chart.querySelector(".tradingview-widget-container__widget");
+    if (widget) {
+      widget.style.height = `${CHART_HEIGHT}px`;
+      widget.style.minHeight = `${CHART_HEIGHT}px`;
+    }
+
     const script = document.createElement("script");
     script.src = WIDGET_SCRIPT;
     script.async = true;
