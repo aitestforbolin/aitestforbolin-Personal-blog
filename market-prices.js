@@ -1,6 +1,5 @@
 (function () {
-  const WIDGET_SCRIPT =
-    "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+  const WIDGET_ORIGIN = "https://s.tradingview.com";
   const CHART_HEIGHT = 520;
   const MARKETS = {
     "BINANCE:BTCUSDT": {
@@ -45,26 +44,38 @@
     `;
   }
 
-  function getWidgetConfig(symbol) {
-    return {
-      autosize: true,
+  function getChartUrl(symbol) {
+    const params = new URLSearchParams({
+      frameElementId: `market-chart-${symbol.replace(/[^a-z0-9]/gi, "-")}`,
       symbol,
-      interval: "5",
       range: "1D",
+      interval: "5",
       timezone: "Asia/Shanghai",
       theme: "light",
       style: "1",
       locale: "zh_CN",
-      withdateranges: true,
-      hide_side_toolbar: false,
-      allow_symbol_change: false,
-      save_image: false,
-      calendar: false,
-      support_host: "https://www.tradingview.com",
-      backgroundColor: "#fffdf8",
-      gridColor: "rgba(117, 108, 97, 0.14)",
-      studies: [],
-    };
+      toolbarbg: "fffdf8",
+      withdateranges: "1",
+      hidesidetoolbar: "0",
+      symboledit: "0",
+      saveimage: "0",
+      hideideas: "1",
+      studies: "[]",
+      studies_overrides: "{}",
+      overrides: JSON.stringify({
+        "paneProperties.background": "#fffdf8",
+        "paneProperties.vertGridProperties.color": "rgba(117, 108, 97, 0.14)",
+        "paneProperties.horzGridProperties.color": "rgba(117, 108, 97, 0.14)",
+      }),
+      enabled_features: "[]",
+      disabled_features: "[]",
+      utm_source: window.location.hostname || "localhost",
+      utm_medium: "widget",
+      utm_campaign: "chart",
+      utm_term: symbol,
+    });
+
+    return `${WIDGET_ORIGIN}/widgetembed/?${params.toString()}`;
   }
 
   function renderChart(symbol) {
@@ -82,22 +93,23 @@
       tab.setAttribute("aria-selected", String(isActive));
     });
 
-    chart.innerHTML = `
-      <div class="tradingview-widget-container__widget"></div>
-      ${getExternalLinksMarkup(symbol)}
-    `;
+    chart.innerHTML = "";
 
-    const widget = chart.querySelector(".tradingview-widget-container__widget");
-    if (widget) {
-      widget.style.height = `${CHART_HEIGHT}px`;
-      widget.style.minHeight = `${CHART_HEIGHT}px`;
-    }
+    const frame = document.createElement("iframe");
+    frame.className = "market-chart-direct-frame";
+    frame.title = `${market.name} TradingView 实时走势图`;
+    frame.src = getChartUrl(symbol);
+    frame.loading = "lazy";
+    frame.allowFullscreen = true;
+    frame.style.display = "block";
+    frame.style.width = "100%";
+    frame.style.height = `${CHART_HEIGHT}px`;
+    frame.style.minHeight = `${CHART_HEIGHT}px`;
+    frame.style.border = "0";
+    frame.style.background = "#f2f2f2";
 
-    const script = document.createElement("script");
-    script.src = WIDGET_SCRIPT;
-    script.async = true;
-    script.textContent = JSON.stringify(getWidgetConfig(symbol));
-    chart.append(script);
+    chart.append(frame);
+    chart.insertAdjacentHTML("beforeend", getExternalLinksMarkup(symbol));
   }
 
   tabs.forEach((tab) => {
