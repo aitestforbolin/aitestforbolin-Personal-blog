@@ -7,7 +7,7 @@
     consumption: "增长/消费",
     fed: "美联储",
   };
-  const HORIZON_DAYS = 14;
+  const HORIZON_DAYS = 35;
   const FOMC_MEETINGS = [
     { start: "2026-01-27", end: "2026-01-28" },
     { start: "2026-03-17", end: "2026-03-18" },
@@ -203,7 +203,7 @@
       return;
     }
 
-    status.textContent = events.length ? "" : "未来 14 天暂无重点事件。";
+    status.textContent = events.length ? "" : `未来 ${HORIZON_DAYS} 天暂无重点事件。`;
   }
 
   function renderEvents() {
@@ -214,7 +214,7 @@
     if (!events.length) {
       const empty = document.createElement("p");
       empty.className = "macro-empty";
-      empty.textContent = "未来 14 天暂无重点事件。";
+      empty.textContent = `未来 ${HORIZON_DAYS} 天暂无重点事件。`;
       eventList.append(empty);
       return;
     }
