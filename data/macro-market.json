@@ -1,0 +1,46 @@
+{
+  "updatedAt": "2026-07-06T12:05:00+08:00",
+  "source": {
+    "name": "FRED",
+    "url": "https://fred.stlouisfed.org/graph/?g=1KxvE",
+    "note": "非实时公开宏观数据；收益率通常为美国工作日日频，美元指数代理使用 FRED Trade Weighted U.S. Dollar Index。"
+  },
+  "items": [
+    {
+      "id": "dollar-index-proxy",
+      "label": "美元指数代理",
+      "value": 120.8866,
+      "unit": "",
+      "date": "2026-06-26",
+      "sourceSeries": "DTWEXBGS",
+      "description": "Trade Weighted U.S. Dollar Index: Broad, Goods"
+    },
+    {
+      "id": "us-2y",
+      "label": "美国2年期国债",
+      "value": 4.17,
+      "unit": "%",
+      "date": "2026-07-01",
+      "sourceSeries": "DGS2",
+      "description": "Market Yield on U.S. Treasury Securities at 2-Year Constant Maturity"
+    },
+    {
+      "id": "us-10y",
+      "label": "美国10年期国债",
+      "value": 4.48,
+      "unit": "%",
+      "date": "2026-07-01",
+      "sourceSeries": "DGS10",
+      "description": "Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity"
+    },
+    {
+      "id": "us-2y10y-spread",
+      "label": "2Y-10Y 利差",
+      "value": 0.31,
+      "unit": "pct pt",
+      "date": "2026-07-01",
+      "sourceSeries": "DGS10-DGS2",
+      "description": "10年期收益率减2年期收益率"
+    }
+  ]
+}
