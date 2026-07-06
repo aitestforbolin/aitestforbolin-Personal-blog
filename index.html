@@ -8,7 +8,7 @@
       name="description"
       content="一个记录生活、技术和日常观察的中文个人博客。"
     />
-    <link rel="stylesheet" href="styles.css?v=20260706-2" />
+    <link rel="stylesheet" href="styles.css?v=20260706-3" />
   </head>
   <body>
     <header class="site-header">
@@ -178,11 +178,41 @@
           <div class="macro-market-head">
             <div>
               <h3>美元与美债</h3>
-              <p>非实时宏观指标，使用公开日频或延迟数据；页面会定时检查站内数据是否更新。</p>
+              <p>DXY 使用 TradingView TVC:DXY；美债收益率使用公开日频或延迟数据。</p>
             </div>
             <span data-macro-market-updated>正在载入</span>
           </div>
-          <div class="macro-market-grid" data-macro-market-grid></div>
+          <div class="macro-market-layout">
+            <article class="macro-market-item macro-market-dxy">
+              <div class="macro-market-dxy-head">
+                <span>美元指数 DXY</span>
+                <a
+                  href="https://www.tradingview.com/symbols/TVC-DXY/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  TradingView
+                </a>
+              </div>
+              <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script
+                  type="text/javascript"
+                  src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js"
+                  async
+                >
+                  {
+                    "symbol": "TVC:DXY",
+                    "width": "100%",
+                    "locale": "zh_CN",
+                    "colorTheme": "light",
+                    "isTransparent": true
+                  }
+                </script>
+              </div>
+            </article>
+            <div class="macro-market-grid" data-macro-market-grid></div>
+          </div>
         </div>
       </section>
 
@@ -257,7 +287,7 @@
       <p>© 2026 你的名字。慢慢写，慢慢更新。</p>
     </footer>
     <script src="market-prices.js?v=20260706-2"></script>
-    <script src="macro-market.js?v=20260706-1"></script>
+    <script src="macro-market.js?v=20260706-2"></script>
     <script src="macro-calendar.js"></script>
   </body>
 </html>
