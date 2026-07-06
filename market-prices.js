@@ -424,20 +424,6 @@
       tab.setAttribute("aria-selected", String(isActive));
     });
 
-    const cards = marketList
-      .map((item) => {
-        const activeClass = item.symbol === symbol ? " is-active" : "";
-        return `
-          <a class="market-asset-card${activeClass}" href="${item.url}" target="_blank" rel="noreferrer">
-            <span>${escapeHtml(item.name)}</span>
-            <strong>${escapeHtml(item.proxy)}</strong>
-            <small>${escapeHtml(item.summary)}</small>
-            ${getQuoteMarkup(item.symbol)}
-          </a>
-        `;
-      })
-      .join("");
-
     chart.innerHTML = `
       <div class="market-asset-panel">
         <div class="market-asset-copy">
@@ -450,7 +436,6 @@
     )} 行情</a>
         </div>
         ${getChartMarkup(symbol)}
-        <div class="market-asset-grid">${cards}</div>
       </div>
     `;
   }
