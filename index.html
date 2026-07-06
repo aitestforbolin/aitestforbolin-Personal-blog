@@ -122,7 +122,7 @@
           <div>
             <p class="eyebrow">Market Prices</p>
             <h2 id="market-prices-title">主要资产价格</h2>
-            <p>显示 BTC、黄金代理与 ETH 的实时价格和 24 小时走势。</p>
+            <p>显示 BTC、黄金代理、ETH 的实时走势，以及美元与美债的非实时宏观指标。</p>
           </div>
           <a
             class="market-link-button"
@@ -172,6 +172,17 @@
             data-market-chart
             aria-live="polite"
           ></div>
+        </div>
+
+        <div class="macro-market-card" data-macro-market>
+          <div class="macro-market-head">
+            <div>
+              <h3>美元与美债</h3>
+              <p>非实时宏观指标，使用公开日频或延迟数据；页面会定时检查站内数据是否更新。</p>
+            </div>
+            <span data-macro-market-updated>正在载入</span>
+          </div>
+          <div class="macro-market-grid" data-macro-market-grid></div>
         </div>
       </section>
 
@@ -246,6 +257,7 @@
       <p>© 2026 你的名字。慢慢写，慢慢更新。</p>
     </footer>
     <script src="market-prices.js?v=20260706-2"></script>
+    <script src="macro-market.js?v=20260706-1"></script>
     <script src="macro-calendar.js"></script>
   </body>
 </html>
