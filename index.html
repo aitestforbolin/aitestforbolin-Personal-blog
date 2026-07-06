@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="styles.css?v=20260706-3" />
     <link rel="stylesheet" href="macro-alerts.css?v=20260706-1" />
+    <link rel="stylesheet" href="btc-etf-flow.css?v=20260706-1" />
   </head>
   <body>
     <header class="site-header">
@@ -17,6 +18,7 @@
       <nav class="nav-links" aria-label="主导航">
         <a href="#briefings">早报</a>
         <a href="#market-prices">市场价格</a>
+        <a href="#btc-etf-flow">ETF资金流</a>
         <a href="#macro-calendar">宏观日历</a>
         <a href="#about">关于</a>
         <a href="#contact">联系</a>
@@ -123,7 +125,7 @@
           <div>
             <p class="eyebrow">Market Prices</p>
             <h2 id="market-prices-title">主要资产价格</h2>
-            <p>显示 BTC、黄金代理、ETH 的实时走势，以及美元与美债的非实时宏观指标。</p>
+            <p>显示 BTC、黄金与 ETH 的实时走势。</p>
           </div>
           <a
             class="market-link-button"
@@ -175,45 +177,38 @@
           ></div>
         </div>
 
-        <div class="macro-market-card" data-macro-market>
-          <div class="macro-market-head">
-            <div>
-              <h3>美元与美债</h3>
-              <p>DXY 使用 TradingView TVC:DXY；美债收益率使用公开日频或延迟数据。</p>
-            </div>
-            <span data-macro-market-updated>正在载入</span>
+      </section>
+
+      <section
+        class="section btc-etf-flow"
+        id="btc-etf-flow"
+        aria-labelledby="btc-etf-flow-title"
+        data-btc-etf-flow
+      >
+        <div class="btc-etf-flow-head">
+          <div>
+            <p class="eyebrow">BTC ETF Flow</p>
+            <h2 id="btc-etf-flow-title">比特币现货ETF资金流</h2>
+            <p>观察美国现货 BTC ETF 的日度净流入/流出，单位为百万美元。</p>
           </div>
-          <div class="macro-market-layout">
-            <article class="macro-market-item macro-market-dxy">
-              <div class="macro-market-dxy-head">
-                <span>美元指数 DXY</span>
-                <a
-                  href="https://www.tradingview.com/symbols/TVC-DXY/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  TradingView
-                </a>
-              </div>
-              <div class="tradingview-widget-container">
-                <div class="tradingview-widget-container__widget"></div>
-                <script
-                  type="text/javascript"
-                  src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js"
-                  async
-                >
-                  {
-                    "symbol": "TVC:DXY",
-                    "width": "100%",
-                    "locale": "zh_CN",
-                    "colorTheme": "light",
-                    "isTransparent": true
-                  }
-                </script>
-              </div>
-            </article>
-            <div class="macro-market-grid" data-macro-market-grid></div>
+          <a
+            class="btc-etf-source-link"
+            href="https://farside.co.uk/bitcoin-etf-flow-all-data/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            查看 Farside 原始数据
+          </a>
+        </div>
+
+        <div class="btc-etf-panel">
+          <div class="btc-etf-meta">
+            <span data-btc-etf-updated>正在载入 ETF 资金流...</span>
+            <span>数据来源：Farside Investors</span>
           </div>
+          <div class="btc-etf-summary" data-btc-etf-summary></div>
+          <div class="btc-etf-chart" data-btc-etf-chart></div>
+          <div class="btc-etf-table-wrap btc-etf-flow-table" data-btc-etf-table></div>
         </div>
       </section>
 
@@ -288,7 +283,7 @@
       <p>© 2026 你的名字。慢慢写，慢慢更新。</p>
     </footer>
     <script src="market-prices.js?v=20260706-2"></script>
-    <script src="macro-market.js?v=20260706-2"></script>
+    <script src="btc-etf-flow.js?v=20260706-1"></script>
     <script src="macro-calendar.js"></script>
   </body>
 </html>
