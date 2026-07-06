@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-07-02",
-    "time_et": "08:30",
-    "time_shanghai": "20:30",
-    "title": "Employment Situation",
-    "title_cn": "美国非农 / 失业率 / 平均时薪",
-    "period": "June 2026",
-    "category": "jobs",
-    "importance": "high",
-    "source": "BLS",
-    "url": "https://www.bls.gov/schedule/news_release/"
-  },
-  {
     "date": "2026-07-06",
     "time_et": "10:00",
     "time_shanghai": "22:00",
@@ -89,7 +77,19 @@
     "date": "2026-07-30",
     "time_et": "08:30",
     "time_shanghai": "20:30",
-    "title": "Personal Income and Outlays",
+    "title": "GDP (Advance Estimate), 2nd Quarter 2026",
+    "title_cn": "美国GDP",
+    "period": "2nd Quarter 2026",
+    "category": "growth",
+    "importance": "high",
+    "source": "BEA",
+    "url": "https://www.bea.gov/news/schedule"
+  },
+  {
+    "date": "2026-07-30",
+    "time_et": "08:30",
+    "time_shanghai": "20:30",
+    "title": "Personal Income and Outlays, June 2026",
     "title_cn": "美国PCE / 核心PCE",
     "period": "June 2026",
     "category": "inflation",
@@ -132,5 +132,17 @@
     "importance": "high",
     "source": "ISM",
     "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/"
+  },
+  {
+    "date": "2026-08-07",
+    "time_et": "08:30",
+    "time_shanghai": "20:30",
+    "title": "Employment Situation",
+    "title_cn": "美国非农 / 失业率 / 平均时薪",
+    "period": "July 2026",
+    "category": "jobs",
+    "importance": "high",
+    "source": "BLS",
+    "url": "https://www.bls.gov/schedule/news_release/"
   }
 ]
