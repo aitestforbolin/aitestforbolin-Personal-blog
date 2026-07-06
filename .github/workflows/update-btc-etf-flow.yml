@@ -1,0 +1,39 @@
+name: Update BTC ETF flow
+
+on:
+  schedule:
+    # 07:30 Asia/Shanghai, Tuesday-Saturday after U.S. ETF trading days.
+    - cron: "30 23 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-btc-etf-flow:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Refresh BTC ETF flow data
+        run: python scripts/update_btc_etf_flow.py
+
+      - name: Commit updated BTC ETF flow
+        run: |
+          if git diff --quiet -- data/btc-etf-flow.json; then
+            echo "BTC ETF flow data is already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/btc-etf-flow.json
+          git commit -m "Update BTC ETF flow data"
+          git push
