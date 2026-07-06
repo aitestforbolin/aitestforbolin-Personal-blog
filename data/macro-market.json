@@ -3,18 +3,9 @@
   "source": {
     "name": "FRED",
     "url": "https://fred.stlouisfed.org/graph/?g=1KxvE",
-    "note": "非实时公开宏观数据；收益率通常为美国工作日日频，美元指数代理使用 FRED Trade Weighted U.S. Dollar Index。"
+    "note": "非实时公开宏观数据；收益率通常为美国工作日日频。美元指数 DXY 在页面中使用 TradingView TVC:DXY。"
   },
   "items": [
-    {
-      "id": "dollar-index-proxy",
-      "label": "美元指数代理",
-      "value": 120.8866,
-      "unit": "",
-      "date": "2026-06-26",
-      "sourceSeries": "DTWEXBGS",
-      "description": "Trade Weighted U.S. Dollar Index: Broad, Goods"
-    },
     {
       "id": "us-2y",
       "label": "美国2年期国债",
