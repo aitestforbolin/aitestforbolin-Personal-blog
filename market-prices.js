@@ -92,12 +92,21 @@
       return "";
     }
 
-    return new Intl.DateTimeFormat("zh-CN", {
+    const parts = new Intl.DateTimeFormat("zh-CN", {
+      month: "2-digit",
+      day: "2-digit",
       hour: "2-digit",
       minute: "2-digit",
       hour12: false,
       timeZone: "Asia/Shanghai",
-    }).format(timestamp);
+    })
+      .formatToParts(timestamp)
+      .reduce((next, part) => {
+        next[part.type] = part.value;
+        return next;
+      }, {});
+
+    return `${parts.month}/${parts.day} ${parts.hour}:${parts.minute}`;
   }
 
   function escapeHtml(value) {
@@ -455,12 +464,7 @@
     const results = await Promise.allSettled(marketList.map(loadMarket));
     const hasData = results.some((result) => result.status === "fulfilled");
     sourceLabel = hasData ? "行情已更新" : "行情暂不可用";
-    lastRefreshLabel = new Date().toLocaleTimeString("zh-CN", {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-      timeZone: "Asia/Shanghai",
-    });
+    lastRefreshLabel = formatTime(Date.now());
     isRefreshing = false;
     renderChart(activeSymbol);
   }
