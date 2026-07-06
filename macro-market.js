@@ -20,14 +20,6 @@
         date: "2026-07-01",
         sourceSeries: "DGS10",
       },
-      {
-        id: "us-2y10y-spread",
-        label: "2Y-10Y 利差",
-        value: 0.31,
-        unit: "pct pt",
-        date: "2026-07-01",
-        sourceSeries: "DGS10-DGS2",
-      },
     ],
   };
 
