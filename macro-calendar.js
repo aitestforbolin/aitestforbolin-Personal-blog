@@ -1,5 +1,6 @@
 (function () {
   const DATA_URL = "data/us-macro-calendar.json";
+  const FEDWATCH_URL = "data/fedwatch-probabilities.json";
   const FILTER_LABELS = {
     inflation: "通胀",
     jobs: "就业",
@@ -35,6 +36,11 @@
   const eventList = document.querySelector("[data-calendar-events]");
   const status = document.querySelector("[data-calendar-status]");
   const nextFomcDate = document.querySelector("[data-next-fomc-date]");
+  const fedwatchCard = document.querySelector("[data-fedwatch-probability]");
+  const fedwatchMeeting = document.querySelector("[data-fedwatch-meeting]");
+  const fedwatchCurrent = document.querySelector("[data-fedwatch-current]");
+  const fedwatchProbabilities = document.querySelector("[data-fedwatch-probabilities]");
+  const fedwatchUpdated = document.querySelector("[data-fedwatch-updated]");
 
   if (!eventList || !status) {
     return;
@@ -113,6 +119,81 @@
     nextFomcDate.textContent = meeting
       ? `下次 FOMC：${formatFomcMeeting(meeting)}`
       : "下次 FOMC：见美联储日历";
+  }
+
+  function formatFedwatchDate(dateText) {
+    if (!dateText) {
+      return "";
+    }
+
+    const date = parseDate(dateText);
+    return new Intl.DateTimeFormat("zh-CN", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }).format(date);
+  }
+
+  function renderFedwatchProbability(data) {
+    if (
+      !fedwatchCard ||
+      !fedwatchMeeting ||
+      !fedwatchCurrent ||
+      !fedwatchProbabilities ||
+      !fedwatchUpdated
+    ) {
+      return;
+    }
+
+    const probabilities = Array.isArray(data.probabilities)
+      ? data.probabilities
+      : [];
+
+    fedwatchMeeting.textContent =
+      data.meeting_label ||
+      (data.meeting_date
+        ? `${formatFedwatchDate(data.meeting_date)} FOMC`
+        : "下一次 FOMC");
+    fedwatchCurrent.textContent = data.current_target_rate
+      ? `当前 ${data.current_target_rate}`
+      : "当前目标利率";
+    fedwatchProbabilities.innerHTML = probabilities
+      .map((item) => {
+        const value = Number(item.probability) || 0;
+        const width = Math.max(2, Math.min(value, 100));
+        const target = item.target_rate ? `<em>${item.target_rate}</em>` : "";
+
+        return `
+          <div class="fedwatch-probability-item fedwatch-probability-${item.kind || "base"}">
+            <div>
+              <span>${item.label || "概率"}</span>
+              ${target}
+            </div>
+            <strong>${value.toFixed(1)}%</strong>
+            <i style="width: ${width}%"></i>
+          </div>
+        `;
+      })
+      .join("");
+    fedwatchUpdated.textContent = data.updated_at
+      ? `${data.source || "CME FedWatch"} · 更新于 ${formatFedwatchDate(data.updated_at)}`
+      : `${data.source || "CME FedWatch"} · 点击查看实时概率`;
+  }
+
+  function renderFedwatchFallback() {
+    if (
+      !fedwatchMeeting ||
+      !fedwatchCurrent ||
+      !fedwatchProbabilities ||
+      !fedwatchUpdated
+    ) {
+      return;
+    }
+
+    fedwatchMeeting.textContent = "点击查看 CME FedWatch";
+    fedwatchCurrent.textContent = "概率暂不可用";
+    fedwatchProbabilities.innerHTML = "";
+    fedwatchUpdated.textContent = "CME FedWatch API 需要单独权限，当前仅保留入口。";
   }
 
   function getEventDateForWindow(event) {
@@ -254,6 +335,16 @@
   }
 
   renderNextFomcDate();
+
+  fetch(FEDWATCH_URL)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`FedWatch request failed: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(renderFedwatchProbability)
+    .catch(renderFedwatchFallback);
 
   fetch(DATA_URL)
     .then((response) => {
