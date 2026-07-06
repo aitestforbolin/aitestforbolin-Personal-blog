@@ -8,6 +8,7 @@
     fed: "美联储",
   };
   const HORIZON_DAYS = 35;
+  const UPCOMING_DAYS = 3;
   const FOMC_MEETINGS = [
     { start: "2026-01-27", end: "2026-01-28" },
     { start: "2026-03-17", end: "2026-03-18" },
@@ -119,6 +120,11 @@
     return event.date_shanghai || event.date;
   }
 
+  function isUpcomingEvent(event) {
+    const distance = dateDistance(getEventDateForWindow(event));
+    return distance >= 0 && distance <= UPCOMING_DAYS;
+  }
+
   function normalizeCategory(event) {
     return event.category === "consumption" ? "growth" : event.category;
   }
@@ -222,8 +228,11 @@
     const fragment = document.createDocumentFragment();
 
     events.forEach((event) => {
+      const isUpcoming = isUpcomingEvent(event);
       const item = document.createElement("article");
-      item.className = `macro-event macro-event-${normalizeCategory(event)}`;
+      item.className = `macro-event macro-event-${normalizeCategory(event)}${
+        isUpcoming ? " macro-event-upcoming" : ""
+      }`;
 
       const chinaDate = getEventDateForWindow(event);
       const sourceUrl = event.url || "#";
@@ -236,6 +245,7 @@
         <div class="macro-date">
           <span>${formatCnDate(chinaDate)}</span>
           <strong>${event.time_shanghai || "待定"}</strong>
+          ${isUpcoming ? '<small class="macro-upcoming-badge">即将发布</small>' : ""}
         </div>
         <div class="macro-event-body">
           <div class="macro-event-meta">
