@@ -5,14 +5,6 @@
     updatedAt: "2026-07-06T12:05:00+08:00",
     items: [
       {
-        id: "dollar-index-proxy",
-        label: "美元指数代理",
-        value: 120.8866,
-        unit: "",
-        date: "2026-06-26",
-        sourceSeries: "DTWEXBGS",
-      },
-      {
         id: "us-2y",
         label: "美国2年期国债",
         value: 4.17,
@@ -97,7 +89,7 @@
         return next;
       }, {});
 
-    return `站内数据 ${parts.month}/${parts.day} ${parts.hour}:${parts.minute}`;
+    return `美债数据 ${parts.month}/${parts.day} ${parts.hour}:${parts.minute}`;
   }
 
   function renderEmpty(message) {
@@ -107,8 +99,8 @@
   function render(data) {
     const items = Array.isArray(data.items) ? data.items : [];
     if (!items.length) {
-      updated.textContent = "暂无数据";
-      renderEmpty("美元与美债数据暂时为空。");
+      updated.textContent = "暂无美债数据";
+      renderEmpty("美债数据暂时为空。");
       return;
     }
 
@@ -146,7 +138,7 @@
     }
   }
 
-  renderEmpty("正在载入美元与美债数据...");
+  renderEmpty("正在载入美债数据...");
   load();
   refreshTimer = window.setInterval(load, REFRESH_INTERVAL);
   window.addEventListener("beforeunload", () => {
