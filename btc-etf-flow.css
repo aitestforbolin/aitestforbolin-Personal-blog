@@ -1,0 +1,264 @@
+.btc-etf-flow {
+  display: grid;
+  gap: 18px;
+}
+
+.btc-etf-flow-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: end;
+}
+
+.btc-etf-flow-head p:last-child {
+  max-width: 720px;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.btc-etf-source-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  border: 1px solid rgba(67, 48, 32, 0.16);
+  border-radius: 999px;
+  padding: 0 18px;
+  background: rgba(255, 253, 248, 0.82);
+  color: var(--accent-dark);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.btc-etf-panel {
+  border: 1px solid rgba(117, 108, 97, 0.2);
+  border-radius: 8px;
+  padding: 16px;
+  background: rgba(255, 253, 248, 0.66);
+  min-width: 0;
+  overflow: hidden;
+}
+
+.btc-etf-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.btc-etf-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.btc-etf-stat {
+  border: 1px solid rgba(117, 108, 97, 0.16);
+  border-radius: 8px;
+  padding: 14px;
+  background: rgba(255, 253, 248, 0.76);
+}
+
+.btc-etf-stat span,
+.btc-etf-stat small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.btc-etf-stat strong {
+  display: block;
+  margin: 6px 0 4px;
+  color: var(--text);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 1;
+}
+
+.btc-etf-stat.up strong,
+.btc-etf-cell.up,
+.btc-etf-flow-table td.up {
+  color: #14846d;
+}
+
+.btc-etf-stat.down strong,
+.btc-etf-cell.down,
+.btc-etf-flow-table td.down {
+  color: #c23b4b;
+}
+
+.btc-etf-chart {
+  position: relative;
+  border: 1px solid rgba(117, 108, 97, 0.14);
+  border-radius: 8px;
+  padding: 12px;
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(249, 245, 237, 0.72));
+  overflow: hidden;
+}
+
+.btc-etf-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.btc-etf-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btc-etf-legend i {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+}
+
+.btc-etf-legend .inflow {
+  background: #2f8c68;
+}
+
+.btc-etf-legend .outflow {
+  background: #c45456;
+}
+
+.btc-etf-legend .price {
+  background: #b98533;
+}
+
+.btc-etf-chart svg {
+  display: block;
+  width: 100%;
+  min-height: 300px;
+}
+
+.btc-etf-zero {
+  stroke: rgba(117, 108, 97, 0.28);
+  stroke-dasharray: 5 5;
+}
+
+.btc-etf-axis {
+  fill: rgba(117, 108, 97, 0.72);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.btc-etf-bar.up {
+  fill: rgba(47, 140, 104, 0.72);
+}
+
+.btc-etf-bar.down {
+  fill: rgba(196, 84, 86, 0.72);
+}
+
+.btc-etf-bar.flat {
+  fill: rgba(117, 108, 97, 0.24);
+}
+
+.btc-etf-price-line {
+  fill: none;
+  stroke: #b98533;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.btc-etf-chart-dates {
+  position: relative;
+  height: 22px;
+  color: rgba(117, 108, 97, 0.72);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.btc-etf-chart-dates span {
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.btc-etf-table-wrap {
+  margin-top: 16px;
+  overflow-x: auto;
+  border: 1px solid rgba(117, 108, 97, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.8);
+}
+
+.btc-etf-flow-table table {
+  width: 100%;
+  min-width: 980px;
+  border-collapse: collapse;
+  color: var(--text);
+}
+
+.btc-etf-flow-table th,
+.btc-etf-flow-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(117, 108, 97, 0.14);
+  text-align: right;
+  white-space: nowrap;
+  font-size: 0.84rem;
+  font-weight: 900;
+}
+
+.btc-etf-flow-table th:first-child,
+.btc-etf-flow-table td:first-child {
+  text-align: left;
+}
+
+.btc-etf-flow-table thead th {
+  color: var(--muted);
+  background: rgba(117, 108, 97, 0.06);
+}
+
+.btc-etf-flow-table tbody tr.is-latest {
+  background: rgba(47, 140, 104, 0.1);
+}
+
+.btc-etf-flow-table tbody tr:hover {
+  background: rgba(184, 107, 75, 0.06);
+}
+
+.btc-etf-empty {
+  margin: 0;
+  padding: 18px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+@media (max-width: 720px) {
+  .btc-etf-flow-head {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .btc-etf-source-link {
+    width: fit-content;
+  }
+
+  .btc-etf-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .btc-etf-panel {
+    padding: 14px;
+  }
+
+  .btc-etf-chart svg {
+    min-height: 240px;
+  }
+}
