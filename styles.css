@@ -710,6 +710,17 @@ h2 {
 
 .market-chart-time {
   bottom: 12px;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+
+.market-chart-time span {
+  border: 1px solid rgba(117, 108, 97, 0.16);
+  border-radius: 999px;
+  padding: 3px 8px;
+  background: rgba(255, 253, 248, 0.84);
+  box-shadow: 0 6px 16px rgba(67, 48, 32, 0.08);
 }
 
 .market-asset-grid {
