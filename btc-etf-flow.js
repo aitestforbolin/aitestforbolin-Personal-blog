@@ -70,7 +70,7 @@
       return "-";
     }
     const sign = value > 0 ? "+" : value < 0 ? "-" : "";
-    return `${sign}${Math.abs(value).toFixed(1)}`;
+    return `${sign}${(Math.abs(value) / 100).toFixed(2)}亿美元`;
   }
 
   function formatAxis(value) {
