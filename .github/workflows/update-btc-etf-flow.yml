@@ -2,8 +2,9 @@ name: Update BTC ETF flow
 
 on:
   schedule:
-    # 07:30 Asia/Shanghai, Tuesday-Saturday after U.S. ETF trading days.
-    - cron: "30 23 * * 1-5"
+    # 14:30 and 18:30 Asia/Shanghai, Tuesday-Saturday after U.S. ETF trading days.
+    # Farside can publish a partial latest row first, then fill core fund values later.
+    - cron: "30 6,10 * * 2-6"
   workflow_dispatch:
 
 permissions:
