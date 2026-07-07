@@ -65,19 +65,20 @@
     }).format(date);
   }
 
-  function formatCompact(value) {
+  function formatFlow(value) {
     if (!Number.isFinite(value)) {
       return "-";
     }
-    const abs = Math.abs(value);
-    if (abs === 0) {
-      return "0";
+    const sign = value > 0 ? "+" : value < 0 ? "-" : "";
+    return `${sign}${Math.abs(value).toFixed(1)}`;
+  }
+
+  function formatAxis(value) {
+    if (!Number.isFinite(value)) {
+      return "-";
     }
     const sign = value > 0 ? "+" : value < 0 ? "-" : "";
-    if (abs >= 100) {
-      return `${sign}${(abs / 100).toFixed(2)}亿`;
-    }
-    return `${sign}${(abs * 100).toFixed(1)}万`;
+    return `${sign}${Math.abs(value).toFixed(0)}`;
   }
 
   function valueClass(value) {
@@ -101,7 +102,7 @@
         return `
           <article class="btc-etf-stat ${valueClass(numeric)}">
             <span>${escapeHtml(label)}</span>
-            <strong>${formatCompact(numeric)}</strong>
+            <strong>${formatFlow(numeric)}</strong>
             <small>${escapeHtml(note || "")}</small>
           </article>
         `;
@@ -121,12 +122,12 @@
         const values = DISPLAY_FUNDS.map((fund) => {
           const rawValue = row.funds?.[fund];
           const value = rawValue === null || rawValue === undefined ? NaN : Number(rawValue);
-          return `<td class="${valueClass(value)}">${formatCompact(value)}</td>`;
+          return `<td class="${valueClass(value)}">${formatFlow(value)}</td>`;
         }).join("");
         return `
           <tr class="${index === 0 ? "is-latest" : ""}">
             <th scope="row">${formatDate(row.date)}</th>
-            <td class="${valueClass(total)}">${formatCompact(total)}</td>
+            <td class="${valueClass(total)}">${formatFlow(total)}</td>
             ${values}
           </tr>
         `;
@@ -224,9 +225,9 @@
         <line class="btc-etf-zero" x1="${padding.left}" y1="${zeroY}" x2="${
       width - padding.right
     }" y2="${zeroY}" />
-        <text class="btc-etf-axis" x="10" y="${padding.top + 6}">${formatCompact(maxAbs)}</text>
+        <text class="btc-etf-axis" x="10" y="${padding.top + 6}">${formatAxis(maxAbs)}</text>
         <text class="btc-etf-axis" x="10" y="${zeroY + 4}">0</text>
-        <text class="btc-etf-axis" x="10" y="${height - padding.bottom + 4}">-${formatCompact(
+        <text class="btc-etf-axis" x="10" y="${height - padding.bottom + 4}">-${formatAxis(
       maxAbs
     ).replace("+", "")}</text>
         ${bars}
