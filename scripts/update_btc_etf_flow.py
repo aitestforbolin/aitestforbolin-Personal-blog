@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import re
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
@@ -19,6 +20,7 @@ BINANCE_URL = "https://data-api.binance.vision/api/v3/klines"
 FETCH_TIMEOUT = 90
 FETCH_RETRIES = 3
 MAX_OUTPUT_ROWS = 45
+REQUIRED_LATEST_FUNDS = ("IBIT", "FBTC", "GBTC")
 FUNDS = [
     "IBIT",
     "FBTC",
@@ -179,9 +181,24 @@ def rolling_sum(rows: list[dict[str, object]], size: int) -> float:
     )
 
 
+def validate_latest_row(rows: list[dict[str, object]]) -> None:
+    latest = rows[0]
+    funds = latest.get("funds", {})
+    if not isinstance(funds, dict):
+        raise RuntimeError("Latest Farside row has no fund values")
+
+    missing = [fund for fund in REQUIRED_LATEST_FUNDS if funds.get(fund) is None]
+    if missing:
+        missing_text = ", ".join(missing)
+        raise RuntimeError(
+            f"Latest Farside row for {latest.get('date')} still has missing core fund values: {missing_text}"
+        )
+
+
 def build_payload() -> dict[str, object]:
     html = fetch_text(FARSIDE_URL)
     rows = parse_farside_rows(html_text_lines(html))
+    validate_latest_row(rows)
     add_btc_prices(rows)
     latest = rows[0]
     output_rows = rows[:MAX_OUTPUT_ROWS]
