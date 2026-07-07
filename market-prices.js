@@ -324,18 +324,6 @@
     `;
   }
 
-  function getRefreshStatusMarkup() {
-    const status = socketConnected ? "实时连接中" : sourceLabel;
-    const suffix = lastRefreshLabel ? ` · ${lastRefreshLabel}` : "";
-
-    return `
-      <div class="market-refresh-status">
-        <span>${escapeHtml(status)}${escapeHtml(suffix)}</span>
-        <small>WebSocket 实时更新，页面每 60 秒补拉一次</small>
-      </div>
-    `;
-  }
-
   function getLinePath(points, width, height, padding) {
     if (!points.length) {
       return "";
@@ -426,14 +414,8 @@
 
     chart.innerHTML = `
       <div class="market-asset-panel">
-        <div class="market-asset-copy">
-          <strong>${escapeHtml(market.name)}</strong>
+        <div class="market-asset-summary">
           ${getQuoteMarkup(symbol, { prominent: true })}
-          ${getRefreshStatusMarkup()}
-          <p>${escapeHtml(market.summary)}。当前价格来自公开实时行情接口；黄金使用 PAXG/USDT 作为代理，不再伪装成 TradingView 内嵌报价。</p>
-          <a class="market-open-link" href="${market.url}" target="_blank" rel="noreferrer">打开 ${escapeHtml(
-      market.name
-    )} 行情</a>
         </div>
         ${getChartMarkup(symbol)}
       </div>
