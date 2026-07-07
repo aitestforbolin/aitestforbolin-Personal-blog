@@ -90,6 +90,13 @@ FOMC_MEETINGS = [
     ("2026-12-09", "December 2026 meeting", True),
 ]
 
+FOMC_MINUTES_RELEASES = [
+    ("2026-07-08", "June 2026 meeting"),
+    ("2026-08-19", "July 2026 meeting"),
+    ("2026-10-07", "September 2026 meeting"),
+    ("2026-11-18", "October 2026 meeting"),
+]
+
 # Census does not expose a simple static JSON endpoint on the briefing page.
 # Keep the core retail-sales release dates here as a stable fallback.
 CENSUS_RETAIL_RELEASES = [
@@ -246,7 +253,7 @@ def make_event(
 ) -> dict[str, str]:
     shanghai_date, shanghai_time = shanghai_fields(day, eastern_time)
     event = {
-        "date": day.isoformat(),
+        "date": shanghai_date,
         "time_et": eastern_time,
         "time_shanghai": shanghai_time,
         "title": title,
@@ -258,7 +265,7 @@ def make_event(
         "url": url,
     }
     if shanghai_date != day.isoformat():
-        event["date_shanghai"] = shanghai_date
+        event["date_et"] = day.isoformat()
     return event
 
 
@@ -529,6 +536,21 @@ def fomc_events(start: date, end: date) -> list[dict[str, str]]:
                     eastern_time="14:30",
                     title="FOMC Chair Press Conference",
                     title_cn="FOMC 主席发布会",
+                    period=period,
+                    category="fed",
+                    source="Federal Reserve",
+                    url=FED_CALENDAR_URL,
+                )
+            )
+    for day_text, period in FOMC_MINUTES_RELEASES:
+        day = date.fromisoformat(day_text)
+        if start <= day <= end:
+            events.append(
+                make_event(
+                    day=day,
+                    eastern_time="14:00",
+                    title="FOMC Meeting Minutes",
+                    title_cn="FOMC 会议纪要",
                     period=period,
                     category="fed",
                     source="Federal Reserve",
