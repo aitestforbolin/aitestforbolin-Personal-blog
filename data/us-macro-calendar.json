@@ -1,18 +1,5 @@
 [
   {
-    "date": "2026-07-09",
-    "time_et": "14:00",
-    "time_shanghai": "02:00",
-    "title": "FOMC Meeting Minutes",
-    "title_cn": "FOMC 会议纪要",
-    "period": "June 2026 meeting",
-    "category": "fed",
-    "importance": "high",
-    "source": "Federal Reserve",
-    "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-    "date_et": "2026-07-08"
-  },
-  {
     "date": "2026-07-14",
     "time_et": "08:30",
     "time_shanghai": "20:30",
@@ -52,7 +39,19 @@
     "date": "2026-07-30",
     "time_et": "08:30",
     "time_shanghai": "20:30",
-    "title": "Personal Income and Outlays",
+    "title": "GDP (Advance Estimate), 2nd Quarter 2026",
+    "title_cn": "美国GDP",
+    "period": "2nd Quarter 2026",
+    "category": "growth",
+    "importance": "high",
+    "source": "BEA",
+    "url": "https://www.bea.gov/news/schedule"
+  },
+  {
+    "date": "2026-07-30",
+    "time_et": "08:30",
+    "time_shanghai": "20:30",
+    "title": "Personal Income and Outlays, June 2026",
     "title_cn": "美国PCE / 核心PCE",
     "period": "June 2026",
     "category": "inflation",
@@ -133,5 +132,41 @@
     "importance": "high",
     "source": "BLS",
     "url": "https://www.bls.gov/schedule/news_release/"
+  },
+  {
+    "date": "2026-08-12",
+    "time_et": "08:30",
+    "time_shanghai": "20:30",
+    "title": "Consumer Price Index",
+    "title_cn": "美国CPI / 核心CPI",
+    "period": "July 2026",
+    "category": "inflation",
+    "importance": "high",
+    "source": "BLS",
+    "url": "https://www.bls.gov/schedule/news_release/"
+  },
+  {
+    "date": "2026-08-13",
+    "time_et": "08:30",
+    "time_shanghai": "20:30",
+    "title": "Producer Price Index",
+    "title_cn": "美国PPI",
+    "period": "July 2026",
+    "category": "inflation",
+    "importance": "high",
+    "source": "BLS",
+    "url": "https://www.bls.gov/schedule/news_release/"
+  },
+  {
+    "date": "2026-08-14",
+    "time_et": "08:30",
+    "time_shanghai": "20:30",
+    "title": "Advance Monthly Sales for Retail and Food Services",
+    "title_cn": "美国零售销售",
+    "period": "July 2026",
+    "category": "growth",
+    "importance": "high",
+    "source": "Census",
+    "url": "https://www.census.gov/economic-indicators/"
   }
 ]
