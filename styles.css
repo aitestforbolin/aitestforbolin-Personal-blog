@@ -1450,6 +1450,14 @@ h2 {
   margin-bottom: 0;
 }
 
+.market-key-line {
+  text-decoration-line: underline;
+  text-decoration-color: rgba(184, 107, 75, 0.68);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+  text-decoration-skip-ink: auto;
+}
+
 .market-review-sources {
   margin-top: 16px;
 }
