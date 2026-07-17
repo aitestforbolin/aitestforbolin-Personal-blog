@@ -1372,6 +1372,16 @@ h2 {
   line-height: 1.45;
 }
 
+.market-review-row .market-move.up,
+.market-change-table .market-move.up {
+  color: #2f7d4f;
+}
+
+.market-review-row .market-move.down,
+.market-change-table .market-move.down {
+  color: #b5473f;
+}
+
 .market-change-table {
   width: 100%;
   border-collapse: collapse;
@@ -1544,6 +1554,23 @@ h2 {
   .market-change-table td {
     padding: 3px 0;
     border-top: 0;
+  }
+
+  .market-change-table td {
+    padding-left: 88px;
+    position: relative;
+  }
+
+  .market-change-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 76px;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
   }
 }
 
