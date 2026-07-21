@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="styles.css?v=20260706-3" />
     <link rel="stylesheet" href="macro-alerts.css?v=20260706-1" />
     <link rel="stylesheet" href="btc-etf-flow.css?v=20260707-1" />
+    <link rel="stylesheet" href="tech-events.css?v=20260721-1" />
   </head>
   <body>
     <header class="site-header">
@@ -20,6 +21,7 @@
         <a href="#market-review">市场综述</a>
         <a href="#market-prices">市场价格</a>
         <a href="#btc-etf-flow">ETF资金流</a>
+        <a href="#tech-events">科技事件</a>
         <a href="#macro-calendar">宏观日历</a>
         <a href="#about">关于</a>
         <a href="#contact">联系</a>
@@ -214,6 +216,50 @@
       </section>
 
       <section
+        class="section tech-events"
+        id="tech-events"
+        aria-labelledby="tech-events-title"
+        data-tech-events
+      >
+        <div class="tech-events-head">
+          <div>
+            <p class="eyebrow">Technology Catalyst Calendar</p>
+            <h2 id="tech-events-title">科技巨头关键事件日历</h2>
+            <p>追踪未来 35 天财报、经营数据与关键活动，全部按北京时间显示。</p>
+          </div>
+          <div class="tech-events-source-note">
+            <strong>只收录官方来源</strong>
+            <span data-tech-events-updated>正在读取更新时间...</span>
+          </div>
+        </div>
+
+        <div class="tech-events-panel">
+          <div class="tech-events-toolbar" aria-label="筛选科技公司关键事件">
+            <div class="tech-events-category-filters" role="group" aria-label="按事件类型筛选">
+              <button class="tech-event-filter is-active" type="button" data-event-category="all" aria-pressed="true">全部</button>
+              <button class="tech-event-filter" type="button" data-event-category="earnings" aria-pressed="false">财报与指引</button>
+              <button class="tech-event-filter" type="button" data-event-category="operating_data" aria-pressed="false">经营数据</button>
+              <button class="tech-event-filter" type="button" data-event-category="product_event" aria-pressed="false">产品活动</button>
+              <button class="tech-event-filter" type="button" data-event-category="investor_event" aria-pressed="false">投资者日</button>
+              <button class="tech-event-filter" type="button" data-event-category="regulatory_legal" aria-pressed="false">监管法律</button>
+            </div>
+
+            <label class="tech-events-company-filter">
+              <span>公司</span>
+              <select data-tech-events-company aria-label="按公司筛选">
+                <option value="all">全部公司</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="tech-events-status" data-tech-events-status aria-live="polite">
+            正在载入科技事件...
+          </div>
+          <div class="tech-event-list" data-tech-events-list></div>
+        </div>
+      </section>
+
+      <section
         class="section macro-calendar"
         id="macro-calendar"
         aria-labelledby="macro-calendar-title"
@@ -285,6 +331,7 @@
     </footer>
     <script src="market-prices.js?v=20260706-2"></script>
     <script src="btc-etf-flow.js?v=20260707-1"></script>
+    <script src="tech-events.js?v=20260721-1"></script>
     <script src="macro-calendar.js"></script>
   </body>
 </html>

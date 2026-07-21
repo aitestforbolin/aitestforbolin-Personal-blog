@@ -1,0 +1,62 @@
+name: Update technology company events
+
+on:
+  schedule:
+    # 08:15 Asia/Shanghai every day.
+    - cron: "15 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-technology-company-events
+  cancel-in-progress: false
+
+jobs:
+  update-events:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Refresh official event sources
+        run: python scripts/update_tech_company_events.py
+
+      - name: Validate calendar data and updater behavior
+        run: |
+          python scripts/update_tech_company_events.py --validate-only
+          python -m unittest discover -s tests -p 'test_tech_company_events.py' -v
+
+      - name: Commit and push semantic changes
+        run: |
+          if git diff --quiet -- data/tech-company-events.json; then
+            echo "Technology company events are already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/tech-company-events.json
+          git commit -m "Update technology company events"
+
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push raced with another site update; retrying (${attempt}/3)."
+          done
+
+          echo "Unable to push technology company events after three attempts."
+          exit 1

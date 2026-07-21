@@ -1,0 +1,354 @@
+.tech-events {
+  display: grid;
+  gap: 18px;
+}
+
+.tech-events-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.tech-events-head p:last-child {
+  max-width: 720px;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.tech-events-source-note {
+  display: grid;
+  flex: 0 0 auto;
+  gap: 2px;
+  text-align: right;
+}
+
+.tech-events-source-note strong {
+  color: var(--accent-dark);
+  font-size: 0.9rem;
+}
+
+.tech-events-source-note span {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.tech-events-panel {
+  border: 1px solid rgba(117, 108, 97, 0.2);
+  border-radius: 12px;
+  padding: 16px;
+  background: rgba(255, 253, 248, 0.72);
+  box-shadow: 0 16px 40px rgba(67, 48, 32, 0.06);
+}
+
+.tech-events-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(117, 108, 97, 0.14);
+}
+
+.tech-events-category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.tech-event-filter {
+  min-height: 34px;
+  border: 1px solid rgba(117, 108, 97, 0.22);
+  border-radius: 999px;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.tech-event-filter:hover,
+.tech-event-filter.is-active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fffaf4;
+}
+
+.tech-event-filter:focus-visible,
+.tech-events-company-filter select:focus-visible,
+.tech-event-name:focus-visible,
+.tech-event-details a:focus-visible {
+  outline: 3px solid rgba(184, 107, 75, 0.25);
+  outline-offset: 2px;
+}
+
+.tech-events-company-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.tech-events-company-filter select {
+  min-height: 36px;
+  max-width: 210px;
+  border: 1px solid rgba(117, 108, 97, 0.24);
+  border-radius: 8px;
+  padding: 5px 30px 5px 10px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.84rem;
+}
+
+.tech-events-status {
+  min-height: 24px;
+  padding: 12px 2px 6px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.tech-event-list {
+  display: grid;
+  gap: 8px;
+}
+
+.tech-event {
+  position: relative;
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(117, 108, 97, 0.14);
+  border-radius: 10px;
+  padding: 14px 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.tech-event::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: #9b8b7b;
+}
+
+.tech-event-earnings::before {
+  background: #b86b4b;
+}
+
+.tech-event-operating_data::before {
+  background: #5d7b5a;
+}
+
+.tech-event-product_event::before {
+  background: #7b67a3;
+}
+
+.tech-event-investor_event::before {
+  background: #b48a2d;
+}
+
+.tech-event-regulatory_legal::before {
+  background: #58768d;
+}
+
+.tech-event-core {
+  background: rgba(255, 253, 248, 0.96);
+}
+
+.tech-event-date {
+  display: grid;
+  gap: 3px;
+  padding-left: 4px;
+}
+
+.tech-event-date strong {
+  color: var(--accent-dark);
+  font-size: 0.96rem;
+  line-height: 1.35;
+}
+
+.tech-event-date span,
+.tech-event-date small {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.tech-event-date small {
+  color: var(--green);
+  font-weight: 900;
+}
+
+.tech-event-body {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.tech-event-company-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.tech-event-company-row strong {
+  color: var(--text);
+  font-size: 0.88rem;
+}
+
+.tech-event-company-row span {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.tech-event-name {
+  width: fit-content;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.tech-event-name:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tech-event-badges,
+.tech-event-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.tech-event-badges span {
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.tech-event-category {
+  background: rgba(242, 234, 223, 0.9);
+  color: var(--accent-dark);
+}
+
+.tech-event-importance-core {
+  background: rgba(184, 107, 75, 0.14);
+  color: #91492f;
+}
+
+.tech-event-importance-important {
+  background: rgba(217, 164, 65, 0.16);
+  color: #7a5a17;
+}
+
+.tech-event-confirmation-confirmed {
+  background: rgba(93, 123, 90, 0.14);
+  color: #446342;
+}
+
+.tech-event-confirmation-guided,
+.tech-event-confirmation-inferred {
+  border: 1px dashed rgba(117, 108, 97, 0.36);
+  background: transparent;
+  color: var(--muted);
+}
+
+.tech-event-change {
+  background: rgba(88, 118, 141, 0.15);
+  color: #38586f;
+}
+
+.tech-event-details {
+  gap: 8px 16px;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.tech-event-details span::before {
+  content: "时间：";
+}
+
+.tech-event-details a {
+  color: var(--accent-dark);
+  font-weight: 800;
+}
+
+.tech-event-details a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.tech-events-empty {
+  margin: 0;
+  border: 1px dashed rgba(117, 108, 97, 0.3);
+  border-radius: 8px;
+  padding: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .tech-events-head,
+  .tech-events-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .tech-events-source-note {
+    text-align: left;
+  }
+
+  .tech-events-company-filter {
+    justify-content: space-between;
+  }
+
+  .tech-events-company-filter select {
+    flex: 1 1 auto;
+    max-width: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .tech-events-panel {
+    padding: 12px;
+  }
+
+  .tech-event-filter {
+    flex: 1 1 calc(50% - 7px);
+  }
+
+  .tech-event {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 13px 13px 13px 16px;
+  }
+
+  .tech-event-date {
+    grid-template-columns: auto 1fr;
+    align-items: baseline;
+    gap: 4px 10px;
+  }
+
+  .tech-event-date small {
+    grid-column: 1 / -1;
+  }
+}
