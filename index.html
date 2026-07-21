@@ -3,65 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>你的名字 | 个人博客</title>
+    <title>Bolin Brief | 全球新闻、市场与关键事件</title>
     <meta
       name="description"
-      content="一个记录生活、技术和日常观察的中文个人博客。"
+      content="每日整理全球新闻、跨资产市场、美国宏观数据与科技巨头关键事件。"
     />
     <link rel="stylesheet" href="styles.css?v=20260706-3" />
     <link rel="stylesheet" href="macro-alerts.css?v=20260706-1" />
     <link rel="stylesheet" href="btc-etf-flow.css?v=20260707-1" />
     <link rel="stylesheet" href="tech-events.css?v=20260721-1" />
+    <link rel="stylesheet" href="editorial-refresh.css?v=20260721-1" />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#" aria-label="回到首页">你的名字</a>
+      <a class="brand" href="#" aria-label="回到首页">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span class="brand-copy">
+          <strong>Bolin Brief</strong>
+          <small>Daily Intelligence</small>
+        </span>
+      </a>
       <nav class="nav-links" aria-label="主导航">
         <a href="#briefings">早报</a>
-        <a href="#market-review">市场综述</a>
-        <a href="#market-prices">市场价格</a>
-        <a href="#btc-etf-flow">ETF资金流</a>
+        <a href="#market-review">市场</a>
         <a href="#macro-calendar">宏观日历</a>
         <a href="#tech-events">科技事件</a>
+        <a href="#btc-etf-flow">ETF资金流</a>
         <a href="#about">关于</a>
-        <a href="#contact">联系</a>
       </nav>
     </header>
 
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">Personal Blog</p>
-          <h1 id="hero-title">写一点生活、技术和观察。</h1>
+          <p class="eyebrow">Independent Financial Notes · Beijing</p>
+          <h1 id="hero-title">每天，看清真正重要的变化。</h1>
           <p class="hero-intro">
-            这里是你的个人博客主页。可以放下最近在想的事、正在做的项目，
-            也可以慢慢收藏那些让日子变得清楚一点的瞬间。
+            把全球新闻、跨资产市场、宏观日历和科技巨头事件放在同一张桌面上，
+            保留来源，减少噪音，方便每天快速判断正在发生什么。
           </p>
           <div class="hero-actions">
             <a class="button primary" href="#briefings">阅读每日早报</a>
-            <a class="button secondary" href="#about">认识我</a>
+            <a class="button secondary" href="#macro-calendar">查看宏观日历</a>
+          </div>
+          <div class="hero-topics" aria-label="网站核心内容">
+            <span>全球新闻</span>
+            <span>跨资产市场</span>
+            <span>关键事件</span>
           </div>
         </div>
 
-        <div class="hero-visual" aria-label="窗边书桌与植物的温暖插图">
-          <div class="window">
-            <span class="sun"></span>
-            <span class="cloud cloud-one"></span>
-            <span class="cloud cloud-two"></span>
+        <div class="hero-visual editorial-board" aria-label="每日信息栏目导航">
+          <div class="editorial-board-head">
+            <span>Daily Desk</span>
+            <span>Asia / Shanghai</span>
           </div>
-          <div class="desk">
-            <div class="mug"></div>
-            <div class="notebook">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <div class="plant">
-              <span class="leaf leaf-left"></span>
-              <span class="leaf leaf-right"></span>
-              <span class="stem"></span>
-              <span class="pot"></span>
-            </div>
+
+          <a class="editorial-lead" href="#briefings">
+            <small>01 / Morning Brief</small>
+            <strong>从信息噪音中，留下真正改变局势的事实。</strong>
+            <span>全球新闻早报 →</span>
+          </a>
+
+          <div class="editorial-board-grid">
+            <a href="#market-review">
+              <small>02 / Market</small>
+              <strong>市场综述</strong>
+              <span>跨资产状态与驱动</span>
+            </a>
+            <a href="#macro-calendar">
+              <small>03 / Macro</small>
+              <strong>宏观日历</strong>
+              <span>未来 35 天重要数据</span>
+            </a>
+            <a href="#tech-events">
+              <small>04 / Technology</small>
+              <strong>科技事件</strong>
+              <span>巨头公司的关键日期</span>
+            </a>
+          </div>
+
+          <div class="editorial-board-foot">
+            <span>Sources first</span>
+            <span>Updated daily</span>
+            <span>Beijing time</span>
           </div>
         </div>
       </section>
@@ -303,31 +328,31 @@
 
       <section class="section about" id="about" aria-labelledby="about-title">
         <div>
-          <p class="eyebrow">About</p>
-          <h2 id="about-title">关于我</h2>
+          <p class="eyebrow">About the Desk</p>
+          <h2 id="about-title">关于这个网站</h2>
         </div>
         <p>
-          你好，我是“你的名字”。这个网站会慢慢变成一间小小的线上房间：
-          有工作里的复盘，也有生活里的片段；有认真写下来的经验，也有路过时
-          顺手捡起的灵感。
+          这是一个持续更新的个人信息桌面。我在这里整理全球新闻、市场变化、
+          宏观数据与科技公司的关键事件，尽量保留原始来源和时间边界，
+          让每天的阅读更短，也更接近真正重要的变化。
         </p>
       </section>
 
       <section class="section contact" id="contact" aria-labelledby="contact-title">
         <div>
-          <p class="eyebrow">Contact</p>
-          <h2 id="contact-title">保持联系</h2>
+          <p class="eyebrow">Elsewhere</p>
+          <h2 id="contact-title">继续探索</h2>
         </div>
         <div class="contact-links">
-          <a href="mailto:hello@example.com">Email</a>
-          <a href="https://github.com/yourname" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://example.com" target="_blank" rel="noreferrer">社交平台</a>
+          <a href="https://github.com/aitestforbolin" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="#briefings">返回今日早报</a>
+          <a href="#">回到顶部</a>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>© 2026 你的名字。慢慢写，慢慢更新。</p>
+      <p>© 2026 Bolin Brief · Independent notes from Asia / Shanghai.</p>
     </footer>
     <script src="market-prices.js?v=20260706-2"></script>
     <script src="btc-etf-flow.js?v=20260707-1"></script>

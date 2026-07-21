@@ -1,0 +1,722 @@
+/*
+ * Bolin Brief editorial refresh
+ * A reversible presentation layer: content and data behavior stay untouched.
+ */
+
+:root {
+  --bg: #f2f0e9;
+  --surface: #fbfaf6;
+  --surface-strong: #e9e5dc;
+  --text: #181916;
+  --muted: #66665f;
+  --line: #d4d0c6;
+  --accent: #a44f34;
+  --accent-dark: #733621;
+  --green: #2d6b4c;
+  --gold: #a77c2c;
+  --ink: #181916;
+  --paper: #fbfaf6;
+  --font-display: "Songti SC", "STSong", "SimSun", serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --shadow: 0 24px 64px rgba(31, 30, 25, 0.12);
+}
+
+body {
+  background:
+    linear-gradient(rgba(24, 25, 22, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 25, 22, 0.018) 1px, transparent 1px),
+    var(--bg);
+  background-size: 32px 32px;
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.68;
+}
+
+::selection {
+  background: rgba(164, 79, 52, 0.2);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  width: 100%;
+  margin: 0;
+  padding: 14px max(20px, calc((100vw - 1180px) / 2));
+  border-bottom: 1px solid rgba(24, 25, 22, 0.12);
+  background: rgba(242, 240, 233, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+}
+
+.brand-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.brand-copy {
+  display: grid;
+  gap: 1px;
+  line-height: 1.08;
+}
+
+.brand-copy strong {
+  font-family: Georgia, "Times New Roman", var(--font-display);
+  font-size: 0.98rem;
+  letter-spacing: 0.02em;
+}
+
+.brand-copy small {
+  color: var(--muted);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  flex-wrap: nowrap;
+  gap: 20px;
+  color: #53534d;
+  font-size: 0.82rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.nav-links a {
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 1px;
+  left: 0;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 180ms ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+main,
+.site-footer {
+  width: min(1180px, calc(100% - 40px));
+}
+
+.hero {
+  grid-template-columns: minmax(0, 1.08fr) minmax(380px, 0.92fr);
+  gap: clamp(42px, 6vw, 82px);
+  min-height: auto;
+  padding: clamp(72px, 9vw, 116px) 0 clamp(76px, 9vw, 108px);
+}
+
+.hero-copy {
+  max-width: 680px;
+}
+
+.eyebrow {
+  margin-bottom: 16px;
+  color: var(--accent-dark);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+}
+
+h1,
+h2,
+.briefing-home-card h3,
+.archive-card h2,
+.briefing-story h3 {
+  font-family: var(--font-display);
+}
+
+h1 {
+  max-width: 760px;
+  font-size: clamp(3.4rem, 7.2vw, 6rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+}
+
+h2 {
+  font-size: clamp(2rem, 3.6vw, 3.15rem);
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+
+.hero-intro {
+  max-width: 620px;
+  margin-top: 28px;
+  color: #565650;
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  line-height: 1.82;
+}
+
+.hero-actions {
+  margin-top: 32px;
+}
+
+.button,
+.market-link-button,
+.btc-etf-source-link,
+.contact-links a {
+  min-height: 44px;
+  border-radius: 6px;
+  padding: 9px 16px;
+  font-size: 0.86rem;
+  letter-spacing: 0.01em;
+}
+
+.button.primary {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: none;
+}
+
+.button.primary:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  box-shadow: 0 10px 26px rgba(115, 54, 33, 0.2);
+}
+
+.button.secondary {
+  border-color: rgba(24, 25, 22, 0.34);
+  background: transparent;
+  color: var(--ink);
+}
+
+.hero-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(24, 25, 22, 0.16);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.hero-topics span::before {
+  content: "•";
+  margin-right: 7px;
+  color: var(--accent);
+}
+
+.hero-visual.editorial-board {
+  position: relative;
+  display: grid;
+  min-height: 0;
+  border: 1px solid #11120f;
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--ink);
+  box-shadow: 24px 28px 0 #d6cec0, 0 30px 70px rgba(31, 30, 25, 0.15);
+  color: var(--paper);
+}
+
+.editorial-board-head,
+.editorial-board-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: rgba(251, 250, 246, 0.58);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.editorial-board-head {
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(251, 250, 246, 0.18);
+}
+
+.editorial-lead {
+  display: grid;
+  gap: 20px;
+  min-height: 260px;
+  align-content: space-between;
+  padding: 28px 26px;
+  transition: background 180ms ease;
+}
+
+.editorial-lead:hover {
+  background: #22231f;
+}
+
+.editorial-lead small,
+.editorial-board-grid small {
+  color: #cc8d72;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.editorial-lead strong {
+  max-width: 420px;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.55rem);
+  font-weight: 700;
+  line-height: 1.22;
+}
+
+.editorial-lead > span {
+  color: rgba(251, 250, 246, 0.72);
+  font-size: 0.8rem;
+  font-weight: 750;
+}
+
+.editorial-board-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgba(251, 250, 246, 0.18);
+  border-bottom: 1px solid rgba(251, 250, 246, 0.18);
+}
+
+.editorial-board-grid a {
+  display: grid;
+  gap: 7px;
+  min-height: 150px;
+  align-content: start;
+  padding: 18px 16px;
+  border-left: 1px solid rgba(251, 250, 246, 0.18);
+  transition: background 180ms ease;
+}
+
+.editorial-board-grid a:first-child {
+  border-left: 0;
+}
+
+.editorial-board-grid a:hover {
+  background: #2a2b26;
+}
+
+.editorial-board-grid strong {
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.editorial-board-grid span {
+  color: rgba(251, 250, 246, 0.55);
+  font-size: 0.69rem;
+  line-height: 1.45;
+}
+
+.editorial-board-foot {
+  padding: 15px 20px;
+}
+
+.section {
+  padding: clamp(62px, 7vw, 88px) 0;
+  border-top-color: rgba(24, 25, 22, 0.15);
+}
+
+.briefing-home {
+  grid-template-columns: minmax(260px, 0.62fr) minmax(0, 1.38fr);
+  gap: clamp(28px, 5vw, 64px);
+}
+
+.briefing-home-copy p:last-child,
+.market-prices-head p:last-child,
+.macro-calendar-head p:last-child,
+.tech-events-head p:last-child,
+.btc-etf-flow-head p:last-child {
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.briefing-home-card {
+  position: relative;
+  border-color: var(--line);
+  border-radius: 10px;
+  padding: 24px;
+  background: var(--surface);
+  box-shadow: none;
+}
+
+.briefing-home-card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: 24px;
+  left: 24px;
+  height: 3px;
+  background: var(--accent);
+}
+
+.briefing-home-card h3 {
+  margin-top: 18px;
+  font-size: 1.45rem;
+}
+
+.post-tag,
+.briefing-meta span,
+.macro-event-meta span,
+.tech-event-badges span {
+  border-radius: 4px;
+}
+
+.market-prices-head,
+.macro-calendar-head,
+.tech-events-head,
+.btc-etf-flow-head {
+  padding-bottom: 17px;
+  border-bottom: 1px solid rgba(24, 25, 22, 0.16);
+}
+
+.market-chart-card,
+.macro-market-card,
+.macro-calendar-panel,
+.tech-events-panel,
+.btc-etf-panel {
+  border-color: var(--line);
+  border-radius: 10px;
+  background: rgba(251, 250, 246, 0.94);
+  box-shadow: none;
+}
+
+.market-chart-card,
+.macro-calendar-panel,
+.tech-events-panel,
+.btc-etf-panel {
+  padding: 18px;
+}
+
+.market-chart-tab,
+.tech-event-filter,
+.tech-events-company-filter select {
+  border-radius: 5px;
+  background: transparent;
+}
+
+.market-chart-tab.is-active,
+.tech-event-filter.is-active,
+.tech-event-filter:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.market-link-button {
+  border-color: var(--ink);
+  background: var(--ink);
+}
+
+.market-link-button:hover {
+  background: var(--accent-dark);
+}
+
+.market-asset-panel,
+.market-quote.prominent,
+.macro-market-item,
+.btc-etf-stat,
+.btc-etf-chart {
+  border-color: rgba(24, 25, 22, 0.14);
+  border-radius: 7px;
+  background: #fffefa;
+}
+
+.macro-tool-links {
+  gap: 10px;
+}
+
+.macro-tool-link {
+  border-color: var(--line);
+  border-radius: 7px;
+  background: rgba(251, 250, 246, 0.76);
+  box-shadow: none;
+}
+
+.macro-tool-link:hover {
+  border-color: rgba(24, 25, 22, 0.46);
+  box-shadow: none;
+}
+
+.macro-event {
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 26px;
+  padding: 13px 4px;
+  border-top-color: rgba(24, 25, 22, 0.12);
+}
+
+.macro-event-upcoming {
+  border-radius: 0;
+  background: rgba(164, 79, 52, 0.045);
+  box-shadow: inset 3px 0 0 rgba(164, 79, 52, 0.64);
+}
+
+.macro-date strong,
+.macro-date span,
+.macro-category {
+  color: var(--accent-dark);
+}
+
+.tech-events-source-note strong {
+  color: var(--ink);
+}
+
+.tech-events-toolbar {
+  padding: 2px 2px 16px;
+}
+
+.tech-event-list {
+  gap: 0;
+}
+
+.tech-event {
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 26px;
+  border: 0;
+  border-top: 1px solid rgba(24, 25, 22, 0.12);
+  border-radius: 0;
+  padding: 17px 12px 17px 16px;
+  background: transparent;
+}
+
+.tech-event:first-child {
+  border-top: 0;
+}
+
+.tech-event::before {
+  width: 3px;
+  top: 14px;
+  bottom: 14px;
+  height: auto;
+}
+
+.tech-event-core {
+  background: rgba(164, 79, 52, 0.035);
+}
+
+.tech-event-date strong,
+.tech-event-name:hover,
+.tech-event-details a {
+  color: var(--accent-dark);
+}
+
+.btc-etf-source-link {
+  border-color: rgba(24, 25, 22, 0.34);
+  background: transparent;
+  color: var(--ink);
+}
+
+.btc-etf-summary {
+  gap: 10px;
+}
+
+.btc-etf-stat {
+  box-shadow: none;
+}
+
+.btc-etf-table-wrap {
+  border-radius: 7px;
+  background: #fffefa;
+}
+
+.about,
+.contact {
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: clamp(28px, 6vw, 80px);
+}
+
+.about p {
+  max-width: 760px;
+  color: #50514b;
+  font-size: 1.02rem;
+  line-height: 1.82;
+}
+
+.contact-links a {
+  border-color: rgba(24, 25, 22, 0.28);
+  background: transparent;
+  color: var(--ink);
+}
+
+.site-footer {
+  padding: 28px 0 42px;
+  border-top: 1px solid rgba(24, 25, 22, 0.14);
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.market-quote strong,
+.macro-market-item strong,
+.macro-date,
+.tech-event-date,
+.btc-etf-stat strong,
+.btc-etf-flow-table {
+  font-variant-numeric: tabular-nums;
+}
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 940px) {
+  .site-header {
+    align-items: center;
+    flex-direction: row;
+    gap: 18px;
+  }
+
+  .nav-links {
+    max-width: 62vw;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 58px;
+  }
+
+  .hero-copy {
+    max-width: 760px;
+  }
+
+  .hero-visual.editorial-board {
+    width: min(720px, calc(100% - 22px));
+  }
+}
+
+@media (max-width: 620px) {
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 12px 16px 10px;
+  }
+
+  .brand-mark {
+    width: 30px;
+    height: 30px;
+  }
+
+  .nav-links {
+    width: 100%;
+    max-width: none;
+    gap: 18px;
+    margin: 0;
+  }
+
+  main,
+  .site-footer {
+    width: min(100% - 32px, 1180px);
+  }
+
+  .hero {
+    gap: 42px;
+    padding: 56px 0 70px;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 15vw, 4.2rem);
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .hero-visual.editorial-board {
+    width: calc(100% - 10px);
+    box-shadow: 10px 12px 0 #d6cec0, 0 24px 56px rgba(31, 30, 25, 0.14);
+  }
+
+  .editorial-board-head,
+  .editorial-board-foot {
+    flex-wrap: wrap;
+  }
+
+  .editorial-lead {
+    min-height: 230px;
+    padding: 24px 20px;
+  }
+
+  .editorial-board-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .editorial-board-grid a {
+    min-height: 0;
+    padding: 17px 20px;
+    border-top: 1px solid rgba(251, 250, 246, 0.18);
+    border-left: 0;
+  }
+
+  .editorial-board-grid a:first-child {
+    border-top: 0;
+  }
+
+  .briefing-home,
+  .about,
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .market-prices-head,
+  .tech-events-head,
+  .btc-etf-flow-head {
+    align-items: flex-start;
+  }
+
+  .macro-event,
+  .tech-event {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
