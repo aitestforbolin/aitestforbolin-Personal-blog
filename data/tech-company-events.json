@@ -2,7 +2,7 @@
   "schema_version": 1,
   "timezone": "Asia/Shanghai",
   "horizon_days": 35,
-  "updated_at": "2026-07-22T11:45:19+08:00",
+  "updated_at": "2026-07-23T11:43:59+08:00",
   "companies": [
     {
       "id": "alphabet",
@@ -325,7 +325,7 @@
       "event_name": "AMD 2026 年第2季度财报与电话会",
       "reported_period": "2026 Q2",
       "importance": "core",
-      "status": "changed",
+      "status": "scheduled",
       "confirmation": "confirmed",
       "date_type": "exact",
       "date_bjt": "2026-08-05",
@@ -403,6 +403,32 @@
       "ticker": "CRM",
       "company_group": "enterprise_software",
       "company_group_zh": "企业软件",
+      "date_changed": false
+    },
+    {
+      "event_id": "nvidia-earnings-fy2027-q2",
+      "company_id": "nvidia",
+      "event_category": "earnings",
+      "event_name": "NVIDIA 2027 财年第二季度财报与电话会",
+      "reported_period": "FY2027 Q2",
+      "importance": "core",
+      "status": "scheduled",
+      "confirmation": "confirmed",
+      "date_type": "exact",
+      "start_at": "2026-08-27T05:00:00+08:00",
+      "date_bjt": "2026-08-27",
+      "time_bjt": "05:00",
+      "market_timing": "after_close",
+      "original_time": "2026-08-26 14:00 PT",
+      "original_timezone": "America/Los_Angeles",
+      "source_label": "NVIDIA Investor Relations",
+      "source_url": "https://investor.nvidia.com/events-and-presentations/events-and-presentations/event-details/2026/NVIDIA-2nd-Quarter-FY27-Financial-Results/default.aspx",
+      "source_published_at": null,
+      "updated_at": "2026-07-21T00:00:00+08:00",
+      "company": "NVIDIA",
+      "ticker": "NVDA",
+      "company_group": "ai_semiconductor",
+      "company_group_zh": "AI 与半导体",
       "date_changed": false
     }
   ]
