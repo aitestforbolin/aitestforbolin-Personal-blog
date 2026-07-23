@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="btc-etf-flow.css?v=20260707-1" />
     <link rel="stylesheet" href="tech-events.css?v=20260721-1" />
     <link rel="stylesheet" href="editorial-refresh.css?v=20260721-1" />
+    <link rel="stylesheet" href="market-pulse.css?v=20260723-1" />
   </head>
   <body>
     <header class="site-header">
@@ -123,9 +124,11 @@
       >
         <div class="market-prices-head">
           <div>
-            <p class="eyebrow">Market Prices</p>
+            <p class="eyebrow">Cross-Asset Market Pulse</p>
             <h2 id="market-prices-title">主要资产价格</h2>
-            <p>显示 BTC、黄金与 ETH 的实时走势。</p>
+            <p>
+              在同一张图上切换股指、美元、美债收益率、商品与比特币，观察盘中、5 日及 1 月走势。
+            </p>
           </div>
           <a
             class="market-link-button"
@@ -137,48 +140,60 @@
           </a>
         </div>
 
-        <div class="market-chart-card">
-          <div class="market-chart-toolbar" role="tablist" aria-label="切换资产走势">
-            <button
-              class="market-chart-tab is-active"
-              type="button"
-              data-market-symbol="BINANCE:BTCUSDT"
-              aria-selected="true"
-            >
-              BTC
-            </button>
-            <button
-              class="market-chart-tab"
-              type="button"
-              data-market-symbol="OANDA:XAUUSD"
-              aria-selected="false"
-            >
-              黄金
-            </button>
-            <button
-              class="market-chart-tab"
-              type="button"
-              data-market-symbol="BINANCE:ETHUSDT"
-              aria-selected="false"
-            >
-              ETH
-            </button>
+        <div class="market-chart-card market-pulse-card" data-market-module>
+          <div
+            class="market-pulse-tabs"
+            data-market-tabs
+            role="tablist"
+            aria-label="切换主要资产"
+          ></div>
+
+          <div class="market-pulse-head">
+            <div class="market-pulse-identity">
+              <div class="market-pulse-title">
+                <h3 data-market-name>标普 500</h3>
+                <span data-market-code>SPX</span>
+              </div>
+              <p data-market-session>美股常规交易时段 · 盘中</p>
+            </div>
+            <div class="market-pulse-quote">
+              <strong data-market-price>—</strong>
+              <span class="market-pulse-change" data-market-change>等待行情</span>
+            </div>
           </div>
 
-          <div class="market-chart-label">
-            <span data-market-name>BTC</span>
-            <small data-market-proxy>BTC/USDT · 24h</small>
+          <div class="market-pulse-controls">
+            <span class="market-pulse-status" data-market-status>
+              正在连接市场数据
+            </span>
+            <div
+              class="market-pulse-ranges"
+              data-market-ranges
+              aria-label="选择图表时间范围"
+            ></div>
           </div>
 
           <div
-            class="market-chart-container"
+            class="market-pulse-chart"
             data-market-chart
             aria-live="polite"
           ></div>
+
+          <div class="market-pulse-footer">
+            <span data-market-source>
+              Yahoo Finance · 价格可能延迟 · 仅供研究参考
+            </span>
+            <a
+              href="https://www.tradingview.com/chart/?symbol=TVC%3ASPX"
+              data-market-external
+              target="_blank"
+              rel="noreferrer"
+            >
+              在 TradingView 查看完整图表 ↗
+            </a>
+          </div>
         </div>
-
       </section>
-
       <section
         class="section btc-etf-flow"
         id="btc-etf-flow"
@@ -326,7 +341,7 @@
     <footer class="site-footer">
       <p>© 2026 Bolin Brief · Independent notes from Asia / Shanghai.</p>
     </footer>
-    <script src="market-prices.js?v=20260706-2"></script>
+    <script src="market-prices.js?v=20260723-1"></script>
     <script src="btc-etf-flow.js?v=20260707-1"></script>
     <script src="tech-events.js?v=20260721-1"></script>
     <script src="macro-calendar.js"></script>
