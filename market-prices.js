@@ -1,113 +1,200 @@
 (function () {
-  const API_BASES = [
-    "https://data-api.binance.vision",
-    "https://api1.binance.com",
-    "https://api2.binance.com",
-    "https://api3.binance.com",
-    "https://api.binance.com",
-  ];
-  const STREAM_BASE = "wss://data-stream.binance.vision/stream";
-  const INTERVAL = "5m";
-  const LIMIT = 288;
-  const FETCH_TIMEOUT = 8000;
-  const REFRESH_INTERVAL = 60 * 1000;
+  "use strict";
 
-  const MARKETS = {
-    "BINANCE:BTCUSDT": {
-      name: "BTC",
-      proxy: "BTC/USDT",
-      summary: "比特币兑 USDT",
-      liveSymbol: "BTCUSDT",
-      decimals: 0,
-      url: "https://www.tradingview.com/chart/?symbol=BINANCE%3ABTCUSDT",
+  const DEFAULT_API_URL =
+    "https://cross-asset-pulse.laibocszd.chatgpt.site/api/markets";
+  const DISPLAY_TIMEZONE = "Asia/Shanghai";
+  const REFRESH_INTERVAL = 60 * 1000;
+  const FETCH_TIMEOUT = 10 * 1000;
+
+  const MARKETS = [
+    {
+      id: "SPX",
+      name: "标普 500",
+      code: "SPX",
+      group: "美股指数",
+      session: "美股常规交易时段",
+      unit: "price",
+      decimals: 2,
+      tradingView: "TVC:SPX",
+      fallbackSymbol: "AMEX:SPY",
+      fallbackLabel: "SPY ETF",
     },
-    "OANDA:XAUUSD": {
+    {
+      id: "IXIC",
+      name: "纳斯达克",
+      code: "IXIC",
+      group: "美股指数",
+      session: "美股常规交易时段",
+      unit: "price",
+      decimals: 2,
+      tradingView: "NASDAQ:IXIC",
+      fallbackSymbol: "AMEX:ONEQ",
+      fallbackLabel: "ONEQ ETF",
+    },
+    {
+      id: "DJI",
+      name: "道琼斯",
+      code: "DJI",
+      group: "美股指数",
+      session: "美股常规交易时段",
+      unit: "price",
+      decimals: 2,
+      tradingView: "TVC:DJI",
+      fallbackSymbol: "AMEX:DIA",
+      fallbackLabel: "DIA ETF",
+    },
+    {
+      id: "RUT",
+      name: "罗素 2000",
+      code: "RUT",
+      group: "美股指数",
+      session: "美股常规交易时段",
+      unit: "price",
+      decimals: 2,
+      tradingView: "TVC:RUT",
+      fallbackSymbol: "AMEX:IWM",
+      fallbackLabel: "IWM ETF",
+    },
+    {
+      id: "VIX",
+      name: "VIX",
+      code: "VIX",
+      group: "美股指数",
+      session: "美股常规交易时段",
+      unit: "price",
+      decimals: 2,
+      tradingView: "TVC:VIX",
+      fallbackSymbol: "TVC:VIX",
+      fallbackLabel: "VIX",
+    },
+    {
+      id: "DXY",
+      name: "美元指数",
+      code: "DXY",
+      group: "美元与利率",
+      session: "全球外汇交易时段",
+      unit: "price",
+      decimals: 2,
+      tradingView: "TVC:DXY",
+      fallbackSymbol: "TVC:DXY",
+      fallbackLabel: "DXY",
+    },
+    {
+      id: "US02Y",
+      name: "美债 2 年期",
+      code: "US02Y",
+      group: "美元与利率",
+      session: "美国国债交易时段",
+      unit: "yield",
+      decimals: 3,
+      tradingView: "TVC:US02Y",
+      fallbackSymbol: "TVC:US02Y",
+      fallbackLabel: "US02Y",
+    },
+    {
+      id: "US10Y",
+      name: "美债 10 年期",
+      code: "US10Y",
+      group: "美元与利率",
+      session: "美国国债交易时段",
+      unit: "yield",
+      decimals: 3,
+      tradingView: "TVC:US10Y",
+      fallbackSymbol: "TVC:US10Y",
+      fallbackLabel: "US10Y",
+    },
+    {
+      id: "GOLD",
       name: "黄金",
-      proxy: "PAXG/USDT",
-      summary: "PAX Gold 兑 USDT，作为黄金代理行情",
-      liveSymbol: "PAXGUSDT",
-      decimals: 1,
-      isProxy: true,
-      url: "https://www.tradingview.com/chart/?symbol=BINANCE%3APAXGUSDT",
+      code: "GOLD",
+      group: "商品与加密",
+      session: "全球贵金属交易时段",
+      unit: "price",
+      decimals: 2,
+      tradingView: "COMEX:GC1!",
+      fallbackSymbol: "OANDA:XAUUSD",
+      fallbackLabel: "XAU/USD 现货",
     },
-    "BINANCE:ETHUSDT": {
-      name: "ETH",
-      proxy: "ETH/USDT",
-      summary: "以太坊兑 USDT",
-      liveSymbol: "ETHUSDT",
-      decimals: 1,
-      url: "https://www.tradingview.com/chart/?symbol=BINANCE%3AETHUSDT",
+    {
+      id: "BRN1!",
+      name: "布伦特原油",
+      code: "BRENT",
+      group: "商品与加密",
+      session: "全球原油期货交易时段",
+      unit: "price",
+      decimals: 2,
+      tradingView: "NYMEX:BRN1!",
+      fallbackSymbol: "TVC:UKOIL",
+      fallbackLabel: "Brent 现货",
     },
+    {
+      id: "BTCUSDT",
+      name: "比特币",
+      code: "BTC",
+      group: "商品与加密",
+      session: "24 小时市场",
+      unit: "price",
+      decimals: 0,
+      tradingView: "BINANCE:BTCUSDT",
+      fallbackSymbol: "BINANCE:BTCUSDT",
+      fallbackLabel: "BTC/USDT",
+    },
+  ];
+
+  const RANGE_LABELS = {
+    "1d": "盘中",
+    "5d": "5 日",
+    "1mo": "1 月",
   };
 
-  const chart = document.querySelector("[data-market-chart]");
-  const tabs = Array.from(document.querySelectorAll("[data-market-symbol]"));
-  const name = document.querySelector("[data-market-name]");
-  const proxy = document.querySelector("[data-market-proxy]");
+  const root = document.querySelector("[data-market-module]");
+  if (!root) {
+    return;
+  }
+  const API_URL = root.dataset.marketApi || DEFAULT_API_URL;
+  const previewProvider =
+    typeof window.__BOLIN_MARKET_PREVIEW__ === "function"
+      ? window.__BOLIN_MARKET_PREVIEW__
+      : null;
 
-  if (!chart || !tabs.length || !name || !proxy) {
+  const tabsRoot = root.querySelector("[data-market-tabs]");
+  const rangesRoot = root.querySelector("[data-market-ranges]");
+  const nameElement = root.querySelector("[data-market-name]");
+  const codeElement = root.querySelector("[data-market-code]");
+  const sessionElement = root.querySelector("[data-market-session]");
+  const priceElement = root.querySelector("[data-market-price]");
+  const changeElement = root.querySelector("[data-market-change]");
+  const statusElement = root.querySelector("[data-market-status]");
+  const sourceElement = root.querySelector("[data-market-source]");
+  const chartElement = root.querySelector("[data-market-chart]");
+  const externalLink = root.querySelector("[data-market-external]");
+
+  if (
+    !tabsRoot ||
+    !rangesRoot ||
+    !nameElement ||
+    !codeElement ||
+    !sessionElement ||
+    !priceElement ||
+    !changeElement ||
+    !statusElement ||
+    !sourceElement ||
+    !chartElement ||
+    !externalLink
+  ) {
     return;
   }
 
-  const marketList = Object.entries(MARKETS).map(([symbol, market]) => ({
-    ...market,
-    symbol,
-  }));
-  const marketByLiveSymbol = marketList.reduce((next, market) => {
-    next.set(market.liveSymbol, market);
-    return next;
-  }, new Map());
-
-  const quotes = new Map();
-  let activeSymbol = tabs[0].dataset.marketSymbol;
-  let socket = null;
-  let reconnectTimer = null;
-  let refreshTimer = null;
-  let isRefreshing = false;
-  let socketConnected = false;
-  let lastRefreshLabel = "";
-  let sourceLabel = "正在加载行情";
-
-  function formatNumber(value, decimals) {
-    if (!Number.isFinite(value)) {
-      return "--";
-    }
-
-    return value.toLocaleString("en-US", {
-      minimumFractionDigits: decimals,
-      maximumFractionDigits: decimals,
-    });
-  }
-
-  function formatPercent(value) {
-    if (!Number.isFinite(value)) {
-      return "--";
-    }
-
-    return `${value >= 0 ? "+" : ""}${value.toFixed(2)}%`;
-  }
-
-  function formatTime(timestamp) {
-    if (!Number.isFinite(timestamp)) {
-      return "";
-    }
-
-    const parts = new Intl.DateTimeFormat("zh-CN", {
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-      timeZone: "Asia/Shanghai",
-    })
-      .formatToParts(timestamp)
-      .reduce((next, part) => {
-        next[part.type] = part.value;
-        return next;
-      }, {});
-
-    return `${parts.month}/${parts.day} ${parts.hour}:${parts.minute}`;
-  }
+  const overview = new Map();
+  const detailCache = new Map();
+  let selectedId = "SPX";
+  let selectedRange = "1d";
+  let loadingOverview = true;
+  let loadingDetail = false;
+  let lastFetched = null;
+  let overviewError = false;
+  let requestSequence = 0;
 
   function escapeHtml(value) {
     return String(value)
@@ -117,434 +204,584 @@
       .replace(/"/g, "&quot;");
   }
 
-  function getQuote(symbol) {
-    return quotes.get(symbol);
+  function selectedMarket() {
+    return MARKETS.find((market) => market.id === selectedId) || MARKETS[0];
   }
 
-  function getValidPoints(quote) {
-    if (!quote || !Array.isArray(quote.points)) {
-      return [];
+  function selectedData() {
+    if (selectedRange === "1d") {
+      return overview.get(selectedId);
+    }
+    return detailCache.get(`${selectedId}:${selectedRange}`);
+  }
+
+  function formatNumber(value, market) {
+    if (!Number.isFinite(value)) {
+      return "—";
+    }
+    const suffix = market.unit === "yield" ? "%" : "";
+    return (
+      value.toLocaleString("en-US", {
+        minimumFractionDigits: market.decimals,
+        maximumFractionDigits: market.decimals,
+      }) + suffix
+    );
+  }
+
+  function formatAxis(value, market) {
+    if (!Number.isFinite(value)) {
+      return "—";
+    }
+    if (market.unit === "yield") {
+      return `${value.toFixed(2)}%`;
+    }
+    return value.toLocaleString("en-US", {
+      maximumFractionDigits: Math.abs(value) >= 10000 ? 0 : 2,
+    });
+  }
+
+  function formatPercent(value) {
+    if (!Number.isFinite(value)) {
+      return "等待行情";
+    }
+    return `${value >= 0 ? "+" : ""}${value.toFixed(2)}%`;
+  }
+
+  function formatClock(timestamp) {
+    if (!Number.isFinite(timestamp)) {
+      return "";
+    }
+    return new Intl.DateTimeFormat("zh-CN", {
+      timeZone: DISPLAY_TIMEZONE,
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }).format(timestamp);
+  }
+
+  function formatPointTime(timestamp, range) {
+    if (!Number.isFinite(timestamp)) {
+      return "";
+    }
+    const options =
+      range === "1mo"
+        ? {
+            timeZone: DISPLAY_TIMEZONE,
+            month: "numeric",
+            day: "numeric",
+          }
+        : {
+            timeZone: DISPLAY_TIMEZONE,
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+          };
+    return new Intl.DateTimeFormat("zh-CN", options).format(timestamp);
+  }
+
+  function periodChange(data) {
+    if (!data) {
+      return null;
+    }
+    if (selectedRange === "1d") {
+      return {
+        value: Number(data.change),
+        percent: Number(data.changePercent),
+      };
+    }
+    const first = Number(data.points?.[0]?.value);
+    const latest = Number(data.price);
+    if (!Number.isFinite(first) || !Number.isFinite(latest) || first === 0) {
+      return null;
+    }
+    return {
+      value: latest - first,
+      percent: ((latest - first) / first) * 100,
+    };
+  }
+
+  function samplePoints(points, maximum) {
+    if (points.length <= maximum) {
+      return points;
+    }
+    const step = Math.ceil(points.length / maximum);
+    const sampled = points.filter((_, index) => index % step === 0);
+    const last = points[points.length - 1];
+    if (sampled[sampled.length - 1] !== last) {
+      sampled.push(last);
+    }
+    return sampled;
+  }
+
+  function renderTabs() {
+    const groups = [...new Set(MARKETS.map((market) => market.group))];
+    tabsRoot.innerHTML = groups
+      .map(
+        (group) => `
+          <div class="market-pulse-tab-group">
+            <span class="market-pulse-group-label">${escapeHtml(group)}</span>
+            <div class="market-pulse-tab-row">
+              ${MARKETS.filter((market) => market.group === group)
+                .map(
+                  (market) => `
+                    <button
+                      class="market-chart-tab${
+                        market.id === selectedId ? " is-active" : ""
+                      }"
+                      type="button"
+                      data-market-id="${escapeHtml(market.id)}"
+                      aria-selected="${market.id === selectedId}"
+                      role="tab"
+                    >${escapeHtml(market.code)}</button>
+                  `
+                )
+                .join("")}
+            </div>
+          </div>
+        `
+      )
+      .join("");
+  }
+
+  function renderRanges() {
+    rangesRoot.innerHTML = Object.entries(RANGE_LABELS)
+      .map(
+        ([range, label]) => `
+          <button
+            type="button"
+            class="${range === selectedRange ? "is-active" : ""}"
+            data-market-range="${range}"
+            aria-pressed="${range === selectedRange}"
+          >${label}</button>
+        `
+      )
+      .join("");
+  }
+
+  function tradingViewUrl(market) {
+    return `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(
+      market.tradingView
+    )}`;
+  }
+
+  function fallbackMarkup(market) {
+    const interval =
+      selectedRange === "1d" ? "5" : selectedRange === "5d" ? "15" : "60";
+    const source = new URL("https://s.tradingview.com/widgetembed/");
+    source.searchParams.set("symbol", market.fallbackSymbol);
+    source.searchParams.set("interval", interval);
+    source.searchParams.set("hidesidetoolbar", "1");
+    source.searchParams.set("symboledit", "0");
+    source.searchParams.set("saveimage", "0");
+    source.searchParams.set("theme", "light");
+    source.searchParams.set("style", "2");
+    source.searchParams.set("timezone", DISPLAY_TIMEZONE);
+    source.searchParams.set("withdateranges", "1");
+    source.searchParams.set("hideideas", "1");
+    source.searchParams.set("locale", "zh_CN");
+
+    return `
+      <div class="market-pulse-fallback">
+        <span class="market-pulse-fallback-badge">
+          TradingView 备用图表 · ${escapeHtml(market.fallbackLabel)}
+        </span>
+        <iframe
+          src="${escapeHtml(source.toString())}"
+          title="${escapeHtml(market.name)} TradingView 图表"
+          loading="eager"
+          allowfullscreen
+        ></iframe>
+      </div>
+    `;
+  }
+
+  function loadingMarkup() {
+    return `
+      <div class="market-pulse-loading">
+        <span class="market-pulse-loader" aria-hidden="true"></span>
+        <strong>正在连接市场数据</strong>
+        <small>若主数据源暂时不可用，将自动显示备用图表</small>
+      </div>
+    `;
+  }
+
+  function renderLineChart(data, market, change) {
+    const rawPoints = Array.isArray(data?.points)
+      ? data.points
+          .map((point) => ({
+            time: Number(point.time),
+            value: Number(point.value),
+          }))
+          .filter(
+            (point) =>
+              Number.isFinite(point.time) && Number.isFinite(point.value)
+          )
+      : [];
+    const points = samplePoints(rawPoints, 720);
+
+    if (points.length < 2) {
+      return false;
     }
 
-    return quote.points.filter((point) => Number.isFinite(point.close));
+    const width = 960;
+    const height = 360;
+    const left = 18;
+    const right = 88;
+    const top = 16;
+    const bottom = 38;
+    const plotWidth = width - left - right;
+    const plotHeight = height - top - bottom;
+    const values = points.map((point) => point.value);
+    const rawMin = Math.min(...values);
+    const rawMax = Math.max(...values);
+    const padding =
+      (rawMax - rawMin || Math.max(Math.abs(rawMax) * 0.005, 1)) * 0.08;
+    const min = rawMin - padding;
+    const max = rawMax + padding;
+    const xFor = (index) =>
+      left + (index / Math.max(1, points.length - 1)) * plotWidth;
+    const yFor = (value) =>
+      top + ((max - value) / Math.max(max - min, 1)) * plotHeight;
+    const linePath = points
+      .map(
+        (point, index) =>
+          `${index ? "L" : "M"}${xFor(index).toFixed(2)},${yFor(
+            point.value
+          ).toFixed(2)}`
+      )
+      .join(" ");
+    const areaPath = `${linePath} L${xFor(points.length - 1)},${
+      top + plotHeight
+    } L${left},${top + plotHeight} Z`;
+    const direction = (change?.percent || 0) >= 0 ? "up" : "down";
+
+    const yTicks = [0, 1, 2, 3, 4]
+      .map((tick) => {
+        const y = top + (tick / 4) * plotHeight;
+        const value = max - (tick / 4) * (max - min);
+        return `
+          <g>
+            <line x1="${left}" x2="${left + plotWidth}" y1="${y}" y2="${y}" class="market-pulse-grid-line"></line>
+            <text x="${left + plotWidth + 12}" y="${
+          y + 4
+        }" class="market-pulse-axis-label">${escapeHtml(
+          formatAxis(value, market)
+        )}</text>
+          </g>
+        `;
+      })
+      .join("");
+
+    const xTicks = [0, 1, 2, 3, 4]
+      .map((tick) => {
+        const index = Math.round((tick / 4) * (points.length - 1));
+        const x = xFor(index);
+        const anchor = tick === 0 ? "start" : tick === 4 ? "end" : "middle";
+        return `
+          <text x="${x}" y="${
+          height - 13
+        }" text-anchor="${anchor}" class="market-pulse-axis-label">
+            ${escapeHtml(formatPointTime(points[index].time, selectedRange))}
+          </text>
+        `;
+      })
+      .join("");
+
+    chartElement.innerHTML = `
+      <div class="market-pulse-line-chart ${direction}">
+        <svg
+          viewBox="0 0 ${width} ${height}"
+          preserveAspectRatio="none"
+          role="img"
+          aria-label="${escapeHtml(market.name)} ${
+      RANGE_LABELS[selectedRange]
+    }价格折线图"
+          data-market-svg
+        >
+          <defs>
+            <linearGradient id="marketPulseArea" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-opacity="0.22"></stop>
+              <stop offset="100%" stop-opacity="0"></stop>
+            </linearGradient>
+          </defs>
+          ${yTicks}
+          ${xTicks}
+          <path d="${areaPath}" class="market-pulse-area"></path>
+          <path d="${linePath}" class="market-pulse-path" vector-effect="non-scaling-stroke"></path>
+          <g data-market-crosshair style="display:none">
+            <line y1="${top}" y2="${
+      top + plotHeight
+    }" class="market-pulse-crosshair" data-market-crosshair-line></line>
+            <circle r="5" class="market-pulse-point" data-market-crosshair-point></circle>
+            <g data-market-tooltip>
+              <rect width="202" height="54" rx="7" class="market-pulse-tooltip-bg"></rect>
+              <text x="12" y="21" class="market-pulse-tooltip-time" data-market-tooltip-time></text>
+              <text x="12" y="42" class="market-pulse-tooltip-price" data-market-tooltip-price></text>
+            </g>
+          </g>
+        </svg>
+      </div>
+    `;
+
+    const svg = chartElement.querySelector("[data-market-svg]");
+    const crosshair = chartElement.querySelector("[data-market-crosshair]");
+    const crosshairLine = chartElement.querySelector(
+      "[data-market-crosshair-line]"
+    );
+    const crosshairPoint = chartElement.querySelector(
+      "[data-market-crosshair-point]"
+    );
+    const tooltip = chartElement.querySelector("[data-market-tooltip]");
+    const tooltipTime = chartElement.querySelector(
+      "[data-market-tooltip-time]"
+    );
+    const tooltipPrice = chartElement.querySelector(
+      "[data-market-tooltip-price]"
+    );
+
+    if (
+      svg &&
+      crosshair &&
+      crosshairLine &&
+      crosshairPoint &&
+      tooltip &&
+      tooltipTime &&
+      tooltipPrice
+    ) {
+      const showPoint = (event) => {
+        const rect = svg.getBoundingClientRect();
+        if (!rect.width) {
+          return;
+        }
+        const viewX = ((event.clientX - rect.left) / rect.width) * width;
+        const index = Math.max(
+          0,
+          Math.min(
+            points.length - 1,
+            Math.round(
+              ((viewX - left) / plotWidth) * Math.max(1, points.length - 1)
+            )
+          )
+        );
+        const point = points[index];
+        const x = xFor(index);
+        const y = yFor(point.value);
+        const tooltipX = Math.min(Math.max(x + 12, left), width - 214);
+        const tooltipY = Math.min(
+          Math.max(y - 66, top + 4),
+          top + plotHeight - 58
+        );
+
+        crosshair.style.display = "";
+        crosshairLine.setAttribute("x1", x);
+        crosshairLine.setAttribute("x2", x);
+        crosshairPoint.setAttribute("cx", x);
+        crosshairPoint.setAttribute("cy", y);
+        tooltip.setAttribute(
+          "transform",
+          `translate(${tooltipX},${tooltipY})`
+        );
+        tooltipTime.textContent = formatPointTime(
+          point.time,
+          selectedRange
+        );
+        tooltipPrice.textContent = formatNumber(point.value, market);
+      };
+
+      svg.addEventListener("pointermove", showPoint);
+      svg.addEventListener("pointerleave", () => {
+        crosshair.style.display = "none";
+      });
+    }
+
+    return true;
   }
 
-  function withTimeout(promise, timeoutMs) {
-    let timeoutId = null;
-    const timeout = new Promise((_, reject) => {
-      timeoutId = window.setTimeout(() => {
-        reject(new Error("Market data request timed out"));
-      }, timeoutMs);
-    });
+  function render() {
+    const market = selectedMarket();
+    const data = selectedData();
+    const change = periodChange(data);
+    const isLoading =
+      selectedRange === "1d" ? loadingOverview : loadingDetail;
 
-    return Promise.race([promise, timeout]).finally(() => {
-      window.clearTimeout(timeoutId);
-    });
+    renderTabs();
+    renderRanges();
+
+    nameElement.textContent = market.name;
+    codeElement.textContent = market.code;
+    sessionElement.textContent =
+      market.id === "BTCUSDT" && selectedRange === "1d"
+        ? "过去 24 小时 · 5 分钟粒度"
+        : `${market.session} · ${RANGE_LABELS[selectedRange]}`;
+    priceElement.textContent = data
+      ? formatNumber(Number(data.price), market)
+      : "—";
+    changeElement.textContent = change
+      ? formatPercent(change.percent)
+      : "等待行情";
+    changeElement.classList.toggle(
+      "is-positive",
+      Boolean(change && change.percent >= 0)
+    );
+    changeElement.classList.toggle(
+      "is-negative",
+      Boolean(change && change.percent < 0)
+    );
+
+    externalLink.href = tradingViewUrl(market);
+
+    if (data && Array.isArray(data.points) && data.points.length >= 2) {
+      renderLineChart(data, market, change);
+      sourceElement.textContent =
+        "Yahoo Finance · 价格可能延迟 · 仅供研究参考";
+    } else if (isLoading) {
+      chartElement.innerHTML = loadingMarkup();
+      sourceElement.textContent = "正在获取主数据源";
+    } else {
+      chartElement.innerHTML = fallbackMarkup(market);
+      sourceElement.textContent = `主数据源暂不可用 · 已切换 ${market.fallbackLabel}`;
+    }
+
+    if (isLoading) {
+      statusElement.textContent = "正在更新行情";
+    } else if (overviewError && !overview.size) {
+      statusElement.textContent = "主数据源暂不可用 · 备用图表已启用";
+    } else {
+      statusElement.textContent = lastFetched
+        ? `自动刷新 · 60 秒 · ${formatClock(lastFetched)} 北京`
+        : "自动刷新 · 60 秒";
+    }
   }
 
-  async function fetchJson(path, params) {
+  async function fetchPayload(range, id) {
+    if (previewProvider) {
+      return previewProvider(range, id);
+    }
     if (!window.fetch) {
       throw new Error("Fetch is unavailable");
     }
-
-    const query = new URLSearchParams(params).toString();
-    let lastError = null;
-
-    for (const apiBase of API_BASES) {
-      try {
-        const response = await withTimeout(
-          fetch(`${apiBase}/api/v3/${path}?${query}`, {
-            cache: "no-store",
-          }),
-          FETCH_TIMEOUT
-        );
-
-        if (!response.ok) {
-          lastError = new Error(`Market data request failed: ${response.status}`);
-          continue;
-        }
-
-        return response.json();
-      } catch (error) {
-        lastError = error;
-      }
+    const controller = new AbortController();
+    const timeout = window.setTimeout(
+      () => controller.abort(),
+      FETCH_TIMEOUT
+    );
+    const url = new URL(API_URL);
+    url.searchParams.set("range", range);
+    if (id) {
+      url.searchParams.set("id", id);
     }
 
-    throw lastError || new Error("Market data request failed");
-  }
-
-  function normalizeKline(row) {
-    return {
-      time: Number(row[0]),
-      open: Number(row[1]),
-      high: Number(row[2]),
-      low: Number(row[3]),
-      close: Number(row[4]),
-      volume: Number(row[5]),
-    };
-  }
-
-  function normalizeRows(rows) {
-    if (!Array.isArray(rows)) {
-      return [];
-    }
-
-    return rows
-      .map(normalizeKline)
-      .filter((point) => Number.isFinite(point.time) && Number.isFinite(point.close))
-      .slice(-LIMIT);
-  }
-
-  function makeQuote(market, series, ticker) {
-    const points = series.slice(-LIMIT);
-    const lastPoint = points[points.length - 1];
-    const tickerPrice = Number(ticker?.lastPrice);
-    const latestPrice = Number.isFinite(tickerPrice) ? tickerPrice : lastPoint?.close;
-    const tickerTime = Number(ticker?.closeTime);
-    const latestTime = Number.isFinite(tickerTime) ? tickerTime : lastPoint?.time || Date.now();
-
-    if (!Number.isFinite(latestPrice)) {
-      return {
-        available: false,
-        points,
-      };
-    }
-
-    if (!lastPoint || latestTime > lastPoint.time) {
-      points.push({
-        time: latestTime,
-        open: latestPrice,
-        high: latestPrice,
-        low: latestPrice,
-        close: latestPrice,
-        volume: 0,
+    try {
+      const response = await fetch(url.toString(), {
+        cache: "no-store",
+        credentials: "omit",
+        signal: controller.signal,
       });
-    } else {
-      points[points.length - 1] = {
-        ...lastPoint,
-        time: latestTime,
-        close: latestPrice,
-      };
-    }
-
-    while (points.length > LIMIT) {
-      points.shift();
-    }
-
-    const openFromTicker = Number(ticker?.openPrice);
-    const firstPrice = Number.isFinite(openFromTicker)
-      ? openFromTicker
-      : points[0]?.close || latestPrice;
-    const changeFromTicker = Number(ticker?.priceChange);
-    const change = Number.isFinite(changeFromTicker)
-      ? changeFromTicker
-      : latestPrice - firstPrice;
-    const percentFromTicker = Number(ticker?.priceChangePercent);
-    const changePercent = Number.isFinite(percentFromTicker)
-      ? percentFromTicker
-      : firstPrice
-        ? (change / firstPrice) * 100
-        : 0;
-
-    return {
-      available: true,
-      change,
-      changePercent,
-      firstPrice,
-      market,
-      points,
-      price: latestPrice,
-      time: latestTime,
-    };
-  }
-
-  async function loadMarket(market) {
-    const [klineResult, tickerResult] = await Promise.allSettled([
-      fetchJson("klines", {
-        symbol: market.liveSymbol,
-        interval: INTERVAL,
-        limit: String(LIMIT),
-      }),
-      fetchJson("ticker/24hr", {
-        symbol: market.liveSymbol,
-      }),
-    ]);
-
-    const previous = quotes.get(market.symbol);
-    const rows = klineResult.status === "fulfilled" ? klineResult.value : null;
-    const ticker = tickerResult.status === "fulfilled" ? tickerResult.value : null;
-    const series = rows ? normalizeRows(rows) : previous?.points || [];
-
-    if (!series.length && !ticker) {
-      throw new Error(`${market.liveSymbol} data unavailable`);
-    }
-
-    quotes.set(market.symbol, makeQuote(market, series, ticker));
-  }
-
-  function getQuoteMarkup(symbol, options = {}) {
-    const market = MARKETS[symbol];
-    const quote = getQuote(symbol);
-    const sizeClass = options.prominent ? " prominent" : "";
-
-    if (!quote) {
-      return `
-        <div class="market-quote pending${sizeClass}">
-          <span>当前价格</span>
-          <strong>载入中</strong>
-          <small>正在获取最新行情</small>
-        </div>
-      `;
-    }
-
-    if (!quote.available) {
-      return `
-        <div class="market-quote unavailable${sizeClass}">
-          <span>当前价格</span>
-          <strong>暂不可用</strong>
-          <small>公开行情接口暂时不可连接</small>
-        </div>
-      `;
-    }
-
-    const direction = quote.change >= 0 ? "up" : "down";
-    const changeText = `${quote.change >= 0 ? "+" : ""}${formatNumber(
-      quote.change,
-      market.decimals
-    )} · ${formatPercent(quote.changePercent)}`;
-    const sourceText = market.isProxy ? "黄金代理" : "实时行情";
-
-    return `
-      <div class="market-quote ${direction}${sizeClass}">
-        <span>当前价格</span>
-        <strong>${formatNumber(quote.price, market.decimals)}</strong>
-        <small>${changeText}</small>
-        <em>${formatTime(quote.time)} · ${sourceText}</em>
-      </div>
-    `;
-  }
-
-  function getLinePath(points, width, height, padding) {
-    if (!points.length) {
-      return "";
-    }
-
-    const values = points.map((point) => point.close);
-    const min = Math.min(...values);
-    const max = Math.max(...values);
-    const spread = max - min || 1;
-    const innerWidth = width - padding * 2;
-    const innerHeight = height - padding * 2;
-
-    return points
-      .map((point, index) => {
-        const x =
-          padding +
-          (points.length === 1 ? innerWidth : (index / (points.length - 1)) * innerWidth);
-        const y = padding + ((max - point.close) / spread) * innerHeight;
-        return `${index === 0 ? "M" : "L"} ${x.toFixed(2)} ${y.toFixed(2)}`;
-      })
-      .join(" ");
-  }
-
-  function getChartMarkup(symbol) {
-    const market = MARKETS[symbol];
-    const quote = getQuote(symbol);
-    const points = getValidPoints(quote);
-
-    if (!quote || !quote.available || points.length < 2) {
-      return `
-        <div class="market-line-chart empty">
-          <span>折线图载入中</span>
-        </div>
-      `;
-    }
-
-    const width = 640;
-    const height = 260;
-    const padding = 24;
-    const values = points.map((point) => point.close);
-    const min = Math.min(...values);
-    const max = Math.max(...values);
-    const direction = quote.change >= 0 ? "up" : "down";
-    const path = getLinePath(points, width, height, padding);
-    const areaPath = `${path} L ${width - padding} ${height - padding} L ${padding} ${
-      height - padding
-    } Z`;
-    const firstPoint = points[0];
-    const lastPoint = points[points.length - 1];
-
-    return `
-      <div class="market-line-chart ${direction}" aria-label="${escapeHtml(
-        market.name
-      )} 24 小时折线图">
-        <div class="market-chart-scale">
-          <span>${formatNumber(max, market.decimals)}</span>
-          <span>${formatNumber(min, market.decimals)}</span>
-        </div>
-        <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(
-      market.name
-    )} price line">
-          <path class="market-line-area" d="${path ? areaPath : ""}"></path>
-          <path class="market-line-path" d="${path}"></path>
-        </svg>
-        <div class="market-chart-time">
-          <span>${escapeHtml(formatTime(firstPoint.time))}</span>
-          <span>${escapeHtml(formatTime(lastPoint.time))}</span>
-        </div>
-      </div>
-    `;
-  }
-
-  function renderChart(symbol) {
-    const market = MARKETS[symbol];
-    if (!market) {
-      return;
-    }
-
-    activeSymbol = symbol;
-    name.textContent = market.name;
-    proxy.textContent = `${market.proxy}${market.isProxy ? " · 黄金代理" : ""} · 24h · 5m`;
-
-    tabs.forEach((tab) => {
-      const isActive = tab.dataset.marketSymbol === symbol;
-      tab.classList.toggle("is-active", isActive);
-      tab.setAttribute("aria-selected", String(isActive));
-    });
-
-    chart.innerHTML = `
-      <div class="market-asset-panel">
-        <div class="market-asset-summary">
-          ${getQuoteMarkup(symbol, { prominent: true })}
-        </div>
-        ${getChartMarkup(symbol)}
-      </div>
-    `;
-  }
-
-  async function refreshMarkets() {
-    if (isRefreshing) {
-      return;
-    }
-
-    isRefreshing = true;
-    const results = await Promise.allSettled(marketList.map(loadMarket));
-    const hasData = results.some((result) => result.status === "fulfilled");
-    sourceLabel = hasData ? "行情已更新" : "行情暂不可用";
-    lastRefreshLabel = formatTime(Date.now());
-    isRefreshing = false;
-    renderChart(activeSymbol);
-  }
-
-  function upsertKline(liveSymbol, kline) {
-    const market = marketByLiveSymbol.get(liveSymbol);
-    if (!market) {
-      return;
-    }
-
-    const previous = quotes.get(market.symbol);
-    const points = previous?.points ? previous.points.slice() : [];
-    const point = {
-      time: Number(kline.t),
-      open: Number(kline.o),
-      high: Number(kline.h),
-      low: Number(kline.l),
-      close: Number(kline.c),
-      volume: Number(kline.v),
-    };
-
-    if (!Number.isFinite(point.time) || !Number.isFinite(point.close)) {
-      return;
-    }
-
-    const lastPoint = points[points.length - 1];
-    if (lastPoint && lastPoint.time === point.time) {
-      points[points.length - 1] = point;
-    } else {
-      points.push(point);
-    }
-
-    while (points.length > LIMIT) {
-      points.shift();
-    }
-
-    const firstPrice = previous?.firstPrice || points[0]?.close || point.close;
-    const change = point.close - firstPrice;
-    quotes.set(market.symbol, {
-      available: true,
-      change,
-      changePercent: firstPrice ? (change / firstPrice) * 100 : 0,
-      firstPrice,
-      market,
-      points,
-      price: point.close,
-      time: point.time,
-    });
-
-    renderChart(activeSymbol);
-  }
-
-  function connectStream() {
-    if (!window.WebSocket) {
-      return;
-    }
-
-    clearTimeout(reconnectTimer);
-
-    const streams = marketList
-      .map((market) => `${market.liveSymbol.toLowerCase()}@kline_${INTERVAL}`)
-      .join("/");
-
-    socket = new WebSocket(`${STREAM_BASE}?streams=${streams}`);
-
-    socket.addEventListener("open", () => {
-      socketConnected = true;
-      renderChart(activeSymbol);
-    });
-
-    socket.addEventListener("message", (event) => {
-      try {
-        const payload = JSON.parse(event.data);
-        const data = payload.data;
-        if (!data || !data.k) {
-          return;
-        }
-
-        upsertKline(data.s, data.k);
-      } catch (error) {
-        sourceLabel = "实时数据解析失败";
-        renderChart(activeSymbol);
+      if (!response.ok) {
+        throw new Error(`Market API ${response.status}`);
       }
-    });
-
-    socket.addEventListener("close", () => {
-      socketConnected = false;
-      sourceLabel = "实时连接已断开";
-      renderChart(activeSymbol);
-      reconnectTimer = window.setTimeout(connectStream, 5000);
-    });
-
-    socket.addEventListener("error", () => {
-      socketConnected = false;
-      sourceLabel = "实时连接已断开";
-      renderChart(activeSymbol);
-    });
+      return response.json();
+    } finally {
+      window.clearTimeout(timeout);
+    }
   }
 
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      renderChart(tab.dataset.marketSymbol);
-    });
+  async function loadOverview() {
+    if (!overview.size) {
+      loadingOverview = true;
+      render();
+    }
+
+    try {
+      const payload = await fetchPayload("1d");
+      const coreIds = new Set(MARKETS.map((market) => market.id));
+      (payload.data || []).forEach((item) => {
+        if (coreIds.has(item.id)) {
+          overview.set(item.id, item);
+        }
+      });
+      lastFetched = Number(payload.fetchedAt) || Date.now();
+      overviewError = false;
+    } catch (_error) {
+      overviewError = true;
+    } finally {
+      loadingOverview = false;
+      render();
+    }
+  }
+
+  async function loadDetail() {
+    const cacheKey = `${selectedId}:${selectedRange}`;
+    if (detailCache.has(cacheKey)) {
+      loadingDetail = false;
+      render();
+      return;
+    }
+
+    const currentRequest = ++requestSequence;
+    loadingDetail = true;
+    render();
+
+    try {
+      const payload = await fetchPayload(selectedRange, selectedId);
+      if (currentRequest !== requestSequence) {
+        return;
+      }
+      const item = payload.data?.[0];
+      if (item) {
+        detailCache.set(cacheKey, item);
+      }
+      lastFetched = Number(payload.fetchedAt) || Date.now();
+    } catch (_error) {
+      // The renderer will switch this individual asset to TradingView.
+    } finally {
+      if (currentRequest === requestSequence) {
+        loadingDetail = false;
+        render();
+      }
+    }
+  }
+
+  tabsRoot.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-market-id]");
+    if (!button) {
+      return;
+    }
+    selectedId = button.dataset.marketId;
+    selectedRange = "1d";
+    requestSequence += 1;
+    loadingDetail = false;
+    render();
   });
 
-  renderChart(activeSymbol);
-  refreshMarkets().then(connectStream);
-  refreshTimer = window.setInterval(refreshMarkets, REFRESH_INTERVAL);
-  window.addEventListener("beforeunload", () => {
-    window.clearInterval(refreshTimer);
-    window.clearTimeout(reconnectTimer);
-    if (socket) {
-      socket.close();
+  rangesRoot.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-market-range]");
+    if (!button || button.dataset.marketRange === selectedRange) {
+      return;
+    }
+    selectedRange = button.dataset.marketRange;
+    if (selectedRange === "1d") {
+      requestSequence += 1;
+      loadingDetail = false;
+      render();
+    } else {
+      loadDetail();
     }
   });
+
+  render();
+  loadOverview();
+
+  window.setInterval(() => {
+    if (document.visibilityState !== "visible") {
+      return;
+    }
+    loadOverview();
+    if (selectedRange !== "1d") {
+      detailCache.delete(`${selectedId}:${selectedRange}`);
+      loadDetail();
+    }
+  }, REFRESH_INTERVAL);
 })();
