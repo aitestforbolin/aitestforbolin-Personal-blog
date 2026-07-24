@@ -1,5 +1,7 @@
 :root {
   color-scheme: light;
+  --font-site: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif;
   --bg: #fbf7f0;
   --surface: #fffdf8;
   --surface-strong: #f2eadf;
@@ -15,6 +17,7 @@
 
 * {
   box-sizing: border-box;
+  font-family: var(--font-site) !important;
 }
 
 html {
@@ -28,8 +31,7 @@ body {
     radial-gradient(circle at 14% 16%, rgba(255, 236, 199, 0.8), transparent 26rem),
     linear-gradient(180deg, #fbf7f0 0%, #f6efe5 100%);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-family: var(--font-site);
   line-height: 1.7;
 }
 
