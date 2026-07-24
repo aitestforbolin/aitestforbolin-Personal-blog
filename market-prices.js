@@ -45,30 +45,6 @@
       fallbackLabel: "DIA ETF",
     },
     {
-      id: "RUT",
-      name: "罗素 2000",
-      code: "RUT",
-      group: "美股指数",
-      session: "美股常规交易时段",
-      unit: "price",
-      decimals: 2,
-      tradingView: "TVC:RUT",
-      fallbackSymbol: "AMEX:IWM",
-      fallbackLabel: "IWM ETF",
-    },
-    {
-      id: "VIX",
-      name: "VIX",
-      code: "VIX",
-      group: "美股指数",
-      session: "美股常规交易时段",
-      unit: "price",
-      decimals: 2,
-      tradingView: "TVC:VIX",
-      fallbackSymbol: "TVC:VIX",
-      fallbackLabel: "VIX",
-    },
-    {
       id: "DXY",
       name: "美元指数",
       code: "DXY",
@@ -142,6 +118,40 @@
     },
   ];
 
+
+  const SECTOR_GROUPS = [
+    {
+      id: "offense",
+      label: "进攻板块",
+      markets: [
+        { id: "SOX", name: "费城半导体", fullName: "Philadelphia Semiconductor Index", code: "SOX", group: "进攻板块", session: "美股常规交易时段", unit: "price", decimals: 2, tradingView: "NASDAQ:SOX", fallbackSymbol: "NASDAQ:SOXX", fallbackLabel: "SOXX ETF" },
+        { id: "XLK", name: "科技", fullName: "Technology Select Sector SPDR ETF", code: "XLK", group: "进攻板块", session: "美股常规交易时段", unit: "price", decimals: 2, tradingView: "AMEX:XLK", fallbackSymbol: "AMEX:XLK", fallbackLabel: "XLK" },
+        { id: "XLY", name: "可选消费", fullName: "Consumer Discretionary Select Sector SPDR ETF", code: "XLY", group: "进攻板块", session: "美股常规交易时段", unit: "price", decimals: 2, tradingView: "AMEX:XLY", fallbackSymbol: "AMEX:XLY", fallbackLabel: "XLY" },
+        { id: "XLC", name: "通讯服务", fullName: "Communication Services Select Sector SPDR ETF", code: "XLC", group: "进攻板块", session: "美股常规交易时段", unit: "price", decimals: 2, tradingView: "AMEX:XLC", fallbackSymbol: "AMEX:XLC", fallbackLabel: "XLC" },
+      ],
+    },
+    {
+      id: "defense",
+      label: "防御板块",
+      markets: [
+        { id: "XLV", name: "医疗保健", fullName: "Health Care Select Sector SPDR ETF", code: "XLV", group: "防御板块", session: "美股常规交易时段", unit: "price", decimals: 2, tradingView: "AMEX:XLV", fallbackSymbol: "AMEX:XLV", fallbackLabel: "XLV" },
+        { id: "XLU", name: "公共事业", fullName: "Utilities Select Sector SPDR ETF", code: "XLU", group: "防御板块", session: "美股常规交易时段", unit: "price", decimals: 2, tradingView: "AMEX:XLU", fallbackSymbol: "AMEX:XLU", fallbackLabel: "XLU" },
+        { id: "XLP", name: "必需消费", fullName: "Consumer Staples Select Sector SPDR ETF", code: "XLP", group: "防御板块", session: "美股常规交易时段", unit: "price", decimals: 2, tradingView: "AMEX:XLP", fallbackSymbol: "AMEX:XLP", fallbackLabel: "XLP" },
+      ],
+    },
+    {
+      id: "macro",
+      label: "宏观敏感板块",
+      markets: [
+        { id: "XLE", name: "能源", fullName: "Energy Select Sector SPDR ETF", code: "XLE", group: "宏观敏感板块", session: "美股常规交易时段", unit: "price", decimals: 2, tradingView: "AMEX:XLE", fallbackSymbol: "AMEX:XLE", fallbackLabel: "XLE" },
+        { id: "XLI", name: "工业", fullName: "Industrial Select Sector SPDR ETF", code: "XLI", group: "宏观敏感板块", session: "美股常规交易时段", unit: "price", decimals: 2, tradingView: "AMEX:XLI", fallbackSymbol: "AMEX:XLI", fallbackLabel: "XLI" },
+        { id: "XLF", name: "金融", fullName: "Financial Select Sector SPDR ETF", code: "XLF", group: "宏观敏感板块", session: "美股常规交易时段", unit: "price", decimals: 2, tradingView: "AMEX:XLF", fallbackSymbol: "AMEX:XLF", fallbackLabel: "XLF" },
+      ],
+    },
+  ];
+  const SECTOR_MARKETS = SECTOR_GROUPS.flatMap((group) => group.markets);
+  const ALL_MARKETS = [...MARKETS, ...SECTOR_MARKETS];
+
   const RANGE_LABELS = {
     "1d": "盘中",
     "5d": "5 日",
@@ -169,6 +179,7 @@
   const sourceElement = root.querySelector("[data-market-source]");
   const chartElement = root.querySelector("[data-market-chart]");
   const externalLink = root.querySelector("[data-market-external]");
+  const sectorsRoot = root.querySelector("[data-market-sectors]");
 
   if (
     !tabsRoot ||
@@ -181,7 +192,8 @@
     !statusElement ||
     !sourceElement ||
     !chartElement ||
-    !externalLink
+    !externalLink ||
+    !sectorsRoot
   ) {
     return;
   }
@@ -195,6 +207,7 @@
   let lastFetched = null;
   let overviewError = false;
   let requestSequence = 0;
+  const expandedSectorGroups = new Set(SECTOR_GROUPS.map((group) => group.id));
 
   function escapeHtml(value) {
     return String(value)
@@ -205,7 +218,7 @@
   }
 
   function selectedMarket() {
-    return MARKETS.find((market) => market.id === selectedId) || MARKETS[0];
+    return ALL_MARKETS.find((market) => market.id === selectedId) || MARKETS[0];
   }
 
   function selectedData() {
@@ -343,6 +356,62 @@
         `
       )
       .join("");
+  }
+
+
+  function formatSignedValue(value, market) {
+    if (!Number.isFinite(value)) return "—";
+    return `${value >= 0 ? "+" : ""}${value.toLocaleString("en-US", {
+      minimumFractionDigits: market.decimals,
+      maximumFractionDigits: market.decimals,
+    })}`;
+  }
+
+  function renderSectors() {
+    sectorsRoot.innerHTML = SECTOR_GROUPS.map((group) => {
+      const expanded = expandedSectorGroups.has(group.id);
+      const rows = group.markets.map((market) => {
+        const data = overview.get(market.id);
+        const change = Number(data?.change);
+        const percent = Number(data?.changePercent);
+        const direction = Number.isFinite(percent)
+          ? percent >= 0
+            ? " is-positive"
+            : " is-negative"
+          : "";
+        return `
+          <button
+            class="market-sector-row${market.id === selectedId ? " is-selected" : ""}"
+            type="button"
+            data-sector-market="${escapeHtml(market.id)}"
+            aria-label="查看${escapeHtml(market.name)}图表"
+          >
+            <span class="market-sector-identity">
+              <b>${escapeHtml(market.code)}</b>
+              <span><strong>${escapeHtml(market.name)}</strong><small>${escapeHtml(market.fullName)}</small></span>
+            </span>
+            <span class="market-sector-price">${data ? escapeHtml(formatNumber(Number(data.price), market)) : "—"}</span>
+            <span class="market-sector-percent${direction}">${Number.isFinite(percent) ? escapeHtml(formatPercent(percent)) : "—"}</span>
+            <span class="market-sector-absolute${direction}">${Number.isFinite(change) ? escapeHtml(formatSignedValue(change, market)) : "—"}</span>
+          </button>
+        `;
+      }).join("");
+      return `
+        <section class="market-sector-group">
+          <button
+            class="market-sector-toggle"
+            type="button"
+            data-sector-toggle="${escapeHtml(group.id)}"
+            aria-expanded="${expanded}"
+          >
+            <span class="market-sector-chevron" aria-hidden="true">⌄</span>
+            <strong>${escapeHtml(group.label)}</strong>
+            <small>${group.markets.length} 个标的</small>
+          </button>
+          <div class="market-sector-rows"${expanded ? "" : " hidden"}>${rows}</div>
+        </section>
+      `;
+    }).join("");
   }
 
   function renderRanges() {
@@ -608,13 +677,16 @@
 
     renderTabs();
     renderRanges();
+    renderSectors();
 
     nameElement.textContent = market.name;
     codeElement.textContent = market.code;
     sessionElement.textContent =
-      market.id === "BTCUSDT" && selectedRange === "1d"
-        ? "过去 24 小时 · 5 分钟粒度"
-        : `${market.session} · ${RANGE_LABELS[selectedRange]}`;
+      data?.granularity === "daily"
+        ? "FRED 官方日线 · 最近可用交易日"
+        : market.id === "BTCUSDT" && selectedRange === "1d"
+          ? "过去 24 小时 · 5 分钟粒度"
+          : `${market.session} · ${RANGE_LABELS[selectedRange]}`;
     priceElement.textContent = data
       ? formatNumber(Number(data.price), market)
       : "—";
@@ -635,7 +707,9 @@
     if (data && Array.isArray(data.points) && data.points.length >= 2) {
       renderLineChart(data, market, change);
       sourceElement.textContent =
-        "Yahoo Finance · 价格可能延迟 · 仅供研究参考";
+        data.source === "FRED"
+          ? "FRED · 美联储 H.15 DGS2 官方日线 · 仅供研究参考"
+          : "Yahoo Finance · 价格可能延迟 · 仅供研究参考";
     } else if (isLoading) {
       chartElement.innerHTML = loadingMarkup();
       sourceElement.textContent = "正在获取主数据源";
@@ -696,7 +770,7 @@
 
     try {
       const payload = await fetchPayload("1d");
-      const coreIds = new Set(MARKETS.map((market) => market.id));
+      const coreIds = new Set(ALL_MARKETS.map((market) => market.id));
       (payload.data || []).forEach((item) => {
         if (coreIds.has(item.id)) {
           overview.set(item.id, item);
@@ -754,6 +828,32 @@
     requestSequence += 1;
     loadingDetail = false;
     render();
+  });
+
+
+  sectorsRoot.addEventListener("click", (event) => {
+    const toggle = event.target.closest("[data-sector-toggle]");
+    if (toggle) {
+      const groupId = toggle.dataset.sectorToggle;
+      if (expandedSectorGroups.has(groupId)) {
+        expandedSectorGroups.delete(groupId);
+      } else {
+        expandedSectorGroups.add(groupId);
+      }
+      renderSectors();
+      return;
+    }
+    const row = event.target.closest("[data-sector-market]");
+    if (!row) return;
+    selectedId = row.dataset.sectorMarket;
+    selectedRange = "1d";
+    requestSequence += 1;
+    loadingDetail = false;
+    render();
+    root.querySelector(".market-pulse-head")?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+    });
   });
 
   rangesRoot.addEventListener("click", (event) => {
