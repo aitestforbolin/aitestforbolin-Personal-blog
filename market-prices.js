@@ -268,9 +268,16 @@
     }).format(timestamp);
   }
 
-  function formatPointTime(timestamp, range) {
+  function formatPointTime(timestamp, range, granularity) {
     if (!Number.isFinite(timestamp)) {
       return "";
+    }
+    if (granularity === "daily") {
+      return new Intl.DateTimeFormat("zh-CN", {
+        timeZone: DISPLAY_TIMEZONE,
+        month: "2-digit",
+        day: "2-digit",
+      }).format(timestamp);
     }
     const options =
       range === "1mo"
@@ -355,6 +362,7 @@
   }
 
   function renderRanges() {
+    const data = selectedData();
     rangesRoot.innerHTML = Object.entries(RANGE_LABELS)
       .map(
         ([range, label]) => `
@@ -363,7 +371,7 @@
             class="${range === selectedRange ? "is-active" : ""}"
             data-market-range="${range}"
             aria-pressed="${range === selectedRange}"
-          >${label}</button>
+          >${data?.granularity === "daily" && range === "1d" ? "日变动" : label}</button>
         `
       )
       .join("");
@@ -483,16 +491,30 @@
       })
       .join("");
 
-    const xTicks = [0, 1, 2, 3, 4]
-      .map((tick) => {
-        const index = Math.round((tick / 4) * (points.length - 1));
+    const xTickCount = Math.min(5, points.length);
+    const xTickIndexes = Array.from({ length: xTickCount }, (_, tick) =>
+      Math.round((tick / Math.max(1, xTickCount - 1)) * (points.length - 1))
+    );
+    const xTicks = xTickIndexes
+      .map((index, tick) => {
         const x = xFor(index);
-        const anchor = tick === 0 ? "start" : tick === 4 ? "end" : "middle";
+        const anchor =
+          tick === 0
+            ? "start"
+            : tick === xTickIndexes.length - 1
+              ? "end"
+              : "middle";
         return `
           <text x="${x}" y="${
           height - 13
         }" text-anchor="${anchor}" class="market-pulse-axis-label">
-            ${escapeHtml(formatPointTime(points[index].time, selectedRange))}
+            ${escapeHtml(
+              formatPointTime(
+                points[index].time,
+                selectedRange,
+                data?.granularity
+              )
+            )}
           </text>
         `;
       })
@@ -505,7 +527,9 @@
           preserveAspectRatio="none"
           role="img"
           aria-label="${escapeHtml(market.name)} ${
-      RANGE_LABELS[selectedRange]
+      data?.granularity === "daily" && selectedRange === "1d"
+        ? "日变动"
+        : RANGE_LABELS[selectedRange]
     }价格折线图"
           data-market-svg
         >
@@ -594,7 +618,8 @@
         );
         tooltipTime.textContent = formatPointTime(
           point.time,
-          selectedRange
+          selectedRange,
+          data?.granularity
         );
         tooltipPrice.textContent = formatNumber(point.value, market);
       };
