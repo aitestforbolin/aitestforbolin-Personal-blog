@@ -682,11 +682,13 @@
     nameElement.textContent = market.name;
     codeElement.textContent = market.code;
     sessionElement.textContent =
-      data?.granularity === "daily"
-        ? `${data.source === "U.S. Treasury" ? "美国财政部" : "FRED"}官方日线 · 最近可用交易日`
-        : market.id === "BTCUSDT" && selectedRange === "1d"
-          ? "过去 24 小时 · 5 分钟粒度"
-          : `${market.session} · ${RANGE_LABELS[selectedRange]}`;
+      data?.contractLabel
+        ? `${data.contractLabel} · 单一近月合约 · ${RANGE_LABELS[selectedRange]}`
+        : data?.granularity === "daily"
+          ? `${data.source === "U.S. Treasury" ? "美国财政部" : "FRED"}官方日线 · 最近可用交易日`
+          : market.id === "BTCUSDT" && selectedRange === "1d"
+            ? "过去 24 小时 · 5 分钟粒度"
+            : `${market.session} · ${RANGE_LABELS[selectedRange]}`;
     priceElement.textContent = data
       ? formatNumber(Number(data.price), market)
       : "—";
@@ -707,11 +709,13 @@
     if (data && Array.isArray(data.points) && data.points.length >= 2) {
       renderLineChart(data, market, change);
       sourceElement.textContent =
-        data.source === "U.S. Treasury"
-          ? "美国财政部 · 2 年期官方收益率日线 · 仅供研究参考"
-          : data.source === "FRED"
-            ? "FRED · 美联储 H.15 DGS2 官方日线 · 仅供研究参考"
-            : "Yahoo Finance · 价格可能延迟 · 仅供研究参考";
+        data.contractLabel
+          ? `Yahoo Finance · ${data.contractLabel} · 单一合约连续取值 · 避免换月断层`
+          : data.source === "U.S. Treasury"
+            ? "美国财政部 · 2 年期官方收益率日线 · 仅供研究参考"
+            : data.source === "FRED"
+              ? "FRED · 美联储 H.15 DGS2 官方日线 · 仅供研究参考"
+              : "Yahoo Finance · 价格可能延迟 · 仅供研究参考";
     } else if (isLoading) {
       chartElement.innerHTML = loadingMarkup();
       sourceElement.textContent = "正在获取主数据源";
