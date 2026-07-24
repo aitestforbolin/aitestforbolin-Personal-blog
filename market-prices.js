@@ -179,7 +179,6 @@
   const sourceElement = root.querySelector("[data-market-source]");
   const chartElement = root.querySelector("[data-market-chart]");
   const externalLink = root.querySelector("[data-market-external]");
-  const sectorsRoot = root.querySelector("[data-market-sectors]");
 
   if (
     !tabsRoot ||
@@ -192,8 +191,7 @@
     !statusElement ||
     !sourceElement ||
     !chartElement ||
-    !externalLink ||
-    !sectorsRoot
+    !externalLink
   ) {
     return;
   }
@@ -207,8 +205,6 @@
   let lastFetched = null;
   let overviewError = false;
   let requestSequence = 0;
-  const expandedSectorGroups = new Set(SECTOR_GROUPS.map((group) => group.id));
-
   function escapeHtml(value) {
     return String(value)
       .replace(/&/g, "&amp;")
@@ -329,14 +325,14 @@
   }
 
   function renderTabs() {
-    const groups = [...new Set(MARKETS.map((market) => market.group))];
+    const groups = [...new Set(ALL_MARKETS.map((market) => market.group))];
     tabsRoot.innerHTML = groups
       .map(
         (group) => `
           <div class="market-pulse-tab-group">
             <span class="market-pulse-group-label">${escapeHtml(group)}</span>
             <div class="market-pulse-tab-row">
-              ${MARKETS.filter((market) => market.group === group)
+              ${ALL_MARKETS.filter((market) => market.group === group)
                 .map(
                   (market) => `
                     <button
@@ -356,62 +352,6 @@
         `
       )
       .join("");
-  }
-
-
-  function formatSignedValue(value, market) {
-    if (!Number.isFinite(value)) return "—";
-    return `${value >= 0 ? "+" : ""}${value.toLocaleString("en-US", {
-      minimumFractionDigits: market.decimals,
-      maximumFractionDigits: market.decimals,
-    })}`;
-  }
-
-  function renderSectors() {
-    sectorsRoot.innerHTML = SECTOR_GROUPS.map((group) => {
-      const expanded = expandedSectorGroups.has(group.id);
-      const rows = group.markets.map((market) => {
-        const data = overview.get(market.id);
-        const change = Number(data?.change);
-        const percent = Number(data?.changePercent);
-        const direction = Number.isFinite(percent)
-          ? percent >= 0
-            ? " is-positive"
-            : " is-negative"
-          : "";
-        return `
-          <button
-            class="market-sector-row${market.id === selectedId ? " is-selected" : ""}"
-            type="button"
-            data-sector-market="${escapeHtml(market.id)}"
-            aria-label="查看${escapeHtml(market.name)}图表"
-          >
-            <span class="market-sector-identity">
-              <b>${escapeHtml(market.code)}</b>
-              <span><strong>${escapeHtml(market.name)}</strong><small>${escapeHtml(market.fullName)}</small></span>
-            </span>
-            <span class="market-sector-price">${data ? escapeHtml(formatNumber(Number(data.price), market)) : "—"}</span>
-            <span class="market-sector-percent${direction}">${Number.isFinite(percent) ? escapeHtml(formatPercent(percent)) : "—"}</span>
-            <span class="market-sector-absolute${direction}">${Number.isFinite(change) ? escapeHtml(formatSignedValue(change, market)) : "—"}</span>
-          </button>
-        `;
-      }).join("");
-      return `
-        <section class="market-sector-group">
-          <button
-            class="market-sector-toggle"
-            type="button"
-            data-sector-toggle="${escapeHtml(group.id)}"
-            aria-expanded="${expanded}"
-          >
-            <span class="market-sector-chevron" aria-hidden="true">⌄</span>
-            <strong>${escapeHtml(group.label)}</strong>
-            <small>${group.markets.length} 个标的</small>
-          </button>
-          <div class="market-sector-rows"${expanded ? "" : " hidden"}>${rows}</div>
-        </section>
-      `;
-    }).join("");
   }
 
   function renderRanges() {
@@ -677,7 +617,6 @@
 
     renderTabs();
     renderRanges();
-    renderSectors();
 
     nameElement.textContent = market.name;
     codeElement.textContent = market.code;
@@ -834,32 +773,6 @@
     requestSequence += 1;
     loadingDetail = false;
     render();
-  });
-
-
-  sectorsRoot.addEventListener("click", (event) => {
-    const toggle = event.target.closest("[data-sector-toggle]");
-    if (toggle) {
-      const groupId = toggle.dataset.sectorToggle;
-      if (expandedSectorGroups.has(groupId)) {
-        expandedSectorGroups.delete(groupId);
-      } else {
-        expandedSectorGroups.add(groupId);
-      }
-      renderSectors();
-      return;
-    }
-    const row = event.target.closest("[data-sector-market]");
-    if (!row) return;
-    selectedId = row.dataset.sectorMarket;
-    selectedRange = "1d";
-    requestSequence += 1;
-    loadingDetail = false;
-    render();
-    root.querySelector(".market-pulse-head")?.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-    });
   });
 
   rangesRoot.addEventListener("click", (event) => {
