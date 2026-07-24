@@ -707,9 +707,11 @@
     if (data && Array.isArray(data.points) && data.points.length >= 2) {
       renderLineChart(data, market, change);
       sourceElement.textContent =
-        data.source === "FRED"
-          ? "FRED · 美联储 H.15 DGS2 官方日线 · 仅供研究参考"
-          : "Yahoo Finance · 价格可能延迟 · 仅供研究参考";
+        data.source === "U.S. Treasury"
+          ? "美国财政部 · 2 年期官方收益率日线 · 仅供研究参考"
+          : data.source === "FRED"
+            ? "FRED · 美联储 H.15 DGS2 官方日线 · 仅供研究参考"
+            : "Yahoo Finance · 价格可能延迟 · 仅供研究参考";
     } else if (isLoading) {
       chartElement.innerHTML = loadingMarkup();
       sourceElement.textContent = "正在获取主数据源";
