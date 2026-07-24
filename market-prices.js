@@ -683,7 +683,7 @@
     codeElement.textContent = market.code;
     sessionElement.textContent =
       data?.granularity === "daily"
-        ? "FRED 官方日线 · 最近可用交易日"
+        ? `${data.source === "U.S. Treasury" ? "美国财政部" : "FRED"}官方日线 · 最近可用交易日`
         : market.id === "BTCUSDT" && selectedRange === "1d"
           ? "过去 24 小时 · 5 分钟粒度"
           : `${market.session} · ${RANGE_LABELS[selectedRange]}`;
