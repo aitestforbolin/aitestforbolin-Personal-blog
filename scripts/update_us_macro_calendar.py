@@ -12,12 +12,13 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.error import URLError
 from urllib.request import Request, urlopen
+from zoneinfo import ZoneInfo
 
 
 SITE_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = SITE_ROOT / "data" / "us-macro-calendar.json"
-EASTERN_TO_SHANGHAI_HOURS = 12
 DEFAULT_DAYS = 35
+DEFAULT_LOOKBACK_DAYS = 3
 
 BLS_ICS_URL = "https://www.bls.gov/schedule/news_release/bls.ics"
 BLS_MONTH_URL = "https://www.bls.gov/schedule/{year}/{month:02d}_sched.htm"
@@ -25,6 +26,7 @@ BEA_SCHEDULE_URL = "https://www.bea.gov/news/schedule"
 FED_CALENDAR_URL = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
 CENSUS_CALENDAR_URL = "https://www.census.gov/economic-indicators/"
 ISM_REPORTS_URL = "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/"
+SP_GLOBAL_PMI_CALENDAR_URL = "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
 US_RELEASE_HOLIDAYS = {
     "2026-01-01",
     "2026-01-19",
@@ -147,6 +149,35 @@ BEA_FALLBACK_RELEASES = [
     ),
 ]
 
+# S&P Global publishes its Flash U.S. manufacturing and services PMI together.
+# Its public release calendar is protected by anti-bot checks, so keep the
+# official 2026 dates here and refresh the list when S&P publishes a new year.
+SP_GLOBAL_FLASH_RELEASES = [
+    {
+        "date": "2026-07-24",
+        "period": "July 2026",
+        "url": (
+            "https://www.pmi.spglobal.com/Public/Home/PressRelease/"
+            "04dad02019414e5ebc89ec6a04b300bd"
+        ),
+        "manufacturing": {
+            "actual": "53.8",
+            "forecast": "54.4",
+            "previous": "53.9",
+        },
+        "services": {
+            "actual": "53.6",
+            "forecast": "51.3",
+            "previous": "51.2",
+        },
+    },
+    {"date": "2026-08-21", "period": "August 2026"},
+    {"date": "2026-09-23", "period": "September 2026"},
+    {"date": "2026-10-23", "period": "October 2026"},
+    {"date": "2026-11-23", "period": "November 2026"},
+    {"date": "2026-12-16", "period": "December 2026"},
+]
+
 
 class TextExtractor(HTMLParser):
     def __init__(self) -> None:
@@ -180,15 +211,23 @@ def html_text_lines(html: str) -> list[str]:
 
 def match_rule(title: str) -> dict[str, str] | None:
     for rule in EVENT_RULES:
-        if rule["needle"].lower() in title.lower():
+        needle = rule["needle"].lower()
+        normalized_title = title.lower()
+        if needle in normalized_title:
+            return rule
+        if needle == "gdp" and "gross domestic product" in normalized_title:
             return rule
     return None
 
 
 def shanghai_fields(day: date, eastern_time: str) -> tuple[str, str]:
     hour, minute = [int(part) for part in eastern_time.split(":")]
-    eastern_dt = datetime.combine(day, time(hour, minute))
-    shanghai_dt = eastern_dt + timedelta(hours=EASTERN_TO_SHANGHAI_HOURS)
+    eastern_dt = datetime.combine(
+        day,
+        time(hour, minute),
+        tzinfo=ZoneInfo("America/New_York"),
+    )
+    shanghai_dt = eastern_dt.astimezone(ZoneInfo("Asia/Shanghai"))
     return shanghai_dt.date().isoformat(), shanghai_dt.strftime("%H:%M")
 
 
@@ -624,6 +663,50 @@ def ism_events(start: date, end: date) -> list[dict[str, str]]:
     return events
 
 
+def sp_global_flash_events(start: date, end: date) -> list[dict[str, str]]:
+    events = []
+    series = (
+        (
+            "manufacturing",
+            "S&P Global Flash US Manufacturing PMI",
+            "美国S&P Global制造业PMI初值",
+        ),
+        (
+            "services",
+            "S&P Global Flash US Services PMI",
+            "美国S&P Global服务业PMI初值",
+        ),
+    )
+
+    for release in SP_GLOBAL_FLASH_RELEASES:
+        day = date.fromisoformat(str(release["date"]))
+        if not start <= day <= end:
+            continue
+
+        for series_key, title, title_cn in series:
+            event = make_event(
+                day=day,
+                eastern_time="09:45",
+                title=title,
+                title_cn=title_cn,
+                period=str(release["period"]),
+                category="growth",
+                source="S&P Global",
+                url=str(release.get("url", SP_GLOBAL_PMI_CALENDAR_URL)),
+            )
+            values = release.get(series_key, {})
+            if isinstance(values, dict):
+                for field in ("actual", "forecast", "previous"):
+                    value = values.get(field)
+                    if value not in (None, ""):
+                        event[field] = str(value)
+            if event.get("actual"):
+                event["release_status"] = "released"
+            events.append(event)
+
+    return events
+
+
 def dedupe(events: list[dict[str, str]]) -> list[dict[str, str]]:
     seen: set[tuple[str, str, str]] = set()
     unique = []
@@ -662,19 +745,35 @@ def build_calendar(start: date, days: int, offline: bool) -> list[dict[str, str]
     events.extend(fomc_events(start, end))
     events.extend(census_retail_events(start, end))
     events.extend(ism_events(start, end))
+    events.extend(sp_global_flash_events(start, end))
     return dedupe(events)
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--start", default=date.today().isoformat())
+    parser.add_argument(
+        "--start",
+        default=date.today().isoformat(),
+        help="Reference date used for the rolling calendar window (YYYY-MM-DD).",
+    )
     parser.add_argument("--days", type=int, default=DEFAULT_DAYS)
+    parser.add_argument(
+        "--lookback-days",
+        type=int,
+        default=DEFAULT_LOOKBACK_DAYS,
+        help="Number of recently published calendar days to retain.",
+    )
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--offline", action="store_true")
     args = parser.parse_args()
 
-    start = date.fromisoformat(args.start)
-    events = build_calendar(start, args.days, args.offline)
+    reference_date = date.fromisoformat(args.start)
+    start = reference_date - timedelta(days=args.lookback_days)
+    events = build_calendar(
+        start,
+        args.days + args.lookback_days,
+        args.offline,
+    )
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(events, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
