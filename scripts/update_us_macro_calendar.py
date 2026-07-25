@@ -27,6 +27,16 @@ FED_CALENDAR_URL = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.
 CENSUS_CALENDAR_URL = "https://www.census.gov/economic-indicators/"
 ISM_REPORTS_URL = "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/"
 SP_GLOBAL_PMI_CALENDAR_URL = "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
+SP_GLOBAL_RESULT_URLS = {
+    "manufacturing": (
+        "https://www.investing.com/economic-calendar/"
+        "united-states-manufacturing-purchasing-managers-index-%28pmi%29-829"
+    ),
+    "services": (
+        "https://www.investing.com/economic-calendar/"
+        "united-states-services-purchasing-managers-index-%28pmi%29-1062"
+    ),
+}
 US_RELEASE_HOLIDAYS = {
     "2026-01-01",
     "2026-01-19",
@@ -663,7 +673,74 @@ def ism_events(start: date, end: date) -> list[dict[str, str]]:
     return events
 
 
-def sp_global_flash_events(start: date, end: date) -> list[dict[str, str]]:
+def parse_investing_latest_release(html: str) -> dict[str, object]:
+    """Extract the latest structured occurrence from an Investing.com page."""
+    marker = '"closestOccurrences":{"latest_release":'
+    marker_position = html.find(marker)
+    if marker_position < 0:
+        raise ValueError("latest release data was not found")
+
+    payload_position = marker_position + len(marker)
+    payload, _ = json.JSONDecoder().raw_decode(html, payload_position)
+    if not isinstance(payload, dict):
+        raise ValueError("latest release data was not an object")
+    return payload
+
+
+def format_release_value(value: object, precision: object) -> str:
+    if isinstance(value, bool):
+        return str(value)
+    if isinstance(value, (int, float)):
+        if isinstance(precision, int) and precision >= 0:
+            return f"{value:.{precision}f}"
+        return str(value)
+    return str(value)
+
+
+def fetch_sp_global_flash_results() -> dict[str, dict[str, str]]:
+    """Fetch the latest preliminary PMI values used to enrich flash events."""
+    results: dict[str, dict[str, str]] = {}
+
+    for series_key, url in SP_GLOBAL_RESULT_URLS.items():
+        try:
+            latest = parse_investing_latest_release(fetch_text(url))
+            if latest.get("preliminary") is not True:
+                continue
+
+            occurrence_time = latest.get("occurrence_time")
+            if not isinstance(occurrence_time, str):
+                raise ValueError("latest release has no occurrence time")
+
+            release_day = datetime.fromisoformat(
+                occurrence_time.replace("Z", "+00:00")
+            ).date()
+            values = {
+                "date": release_day.isoformat(),
+                "result_source": "Investing.com",
+                "result_url": url,
+            }
+            precision = latest.get("precision")
+            for field in ("actual", "forecast", "previous"):
+                value = latest.get(field)
+                if value is not None:
+                    values[field] = format_release_value(value, precision)
+
+            if values.get("actual"):
+                results[series_key] = values
+        except (URLError, TimeoutError, OSError, ValueError, json.JSONDecodeError) as exc:
+            print(
+                f"warning: skipped S&P Global {series_key} results: {exc}",
+                file=sys.stderr,
+            )
+
+    return results
+
+
+def sp_global_flash_events(
+    start: date,
+    end: date,
+    fetched_results: dict[str, dict[str, str]] | None = None,
+) -> list[dict[str, str]]:
     events = []
     series = (
         (
@@ -695,8 +772,17 @@ def sp_global_flash_events(start: date, end: date) -> list[dict[str, str]]:
                 url=str(release.get("url", SP_GLOBAL_PMI_CALENDAR_URL)),
             )
             values = release.get(series_key, {})
+            fetched_values = (fetched_results or {}).get(series_key, {})
+            if fetched_values.get("date") == release["date"]:
+                values = {**values, **fetched_values}
             if isinstance(values, dict):
-                for field in ("actual", "forecast", "previous"):
+                for field in (
+                    "actual",
+                    "forecast",
+                    "previous",
+                    "result_source",
+                    "result_url",
+                ):
                     value = values.get(field)
                     if value not in (None, ""):
                         event[field] = str(value)
@@ -722,11 +808,13 @@ def dedupe(events: list[dict[str, str]]) -> list[dict[str, str]]:
 def build_calendar(start: date, days: int, offline: bool) -> list[dict[str, str]]:
     end = start + timedelta(days=days)
     events: list[dict[str, str]] = []
+    sp_global_results: dict[str, dict[str, str]] = {}
 
     if offline:
         events.extend(bls_fallback_events(start, end))
         events.extend(bea_fallback_events(start, end))
     else:
+        sp_global_results = fetch_sp_global_flash_results()
         for name, parser in (("BLS", parse_bls_events), ("BEA", parse_bea_events)):
             try:
                 parsed_events = parser(start, end)
@@ -745,7 +833,7 @@ def build_calendar(start: date, days: int, offline: bool) -> list[dict[str, str]
     events.extend(fomc_events(start, end))
     events.extend(census_retail_events(start, end))
     events.extend(ism_events(start, end))
-    events.extend(sp_global_flash_events(start, end))
+    events.extend(sp_global_flash_events(start, end, sp_global_results))
     return dedupe(events)
 
 
