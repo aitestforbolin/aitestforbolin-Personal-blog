@@ -8,6 +8,7 @@
     fed: "美联储",
   };
   const HORIZON_DAYS = 35;
+  const LOOKBACK_DAYS = 3;
   const UPCOMING_DAYS = 3;
   const FOMC_MEETINGS = [
     { start: "2026-01-27", end: "2026-01-28" },
@@ -122,7 +123,16 @@
 
   function isUpcomingEvent(event) {
     const distance = dateDistance(getEventDateForWindow(event));
-    return distance >= 0 && distance <= UPCOMING_DAYS;
+    return (
+      event.release_status !== "released" &&
+      distance >= 0 &&
+      distance <= UPCOMING_DAYS
+    );
+  }
+
+  function isRecentEvent(event) {
+    const distance = dateDistance(getEventDateForWindow(event));
+    return distance < 0 && distance >= -LOOKBACK_DAYS;
   }
 
   function normalizeCategory(event) {
@@ -190,11 +200,50 @@
     return period ? `${title} ${period}` : title;
   }
 
+  function escapeHtml(value) {
+    const node = document.createElement("span");
+    node.textContent = String(value);
+    return node.innerHTML;
+  }
+
+  function formatEventResults(event) {
+    const fields = [
+      ["actual", "实际"],
+      ["forecast", "预期"],
+      ["previous", "前值"],
+    ];
+    const values = fields.filter(
+      ([field]) =>
+        event[field] !== undefined &&
+        event[field] !== null &&
+        event[field] !== ""
+    );
+
+    if (!values.length) {
+      return "";
+    }
+
+    return `
+      <div class="macro-event-results" aria-label="数据公布结果">
+        ${values
+          .map(
+            ([field, label]) => `
+              <span class="macro-result macro-result-${field}">
+                <small>${label}</small>
+                <strong>${escapeHtml(event[field])}</strong>
+              </span>
+            `
+          )
+          .join("")}
+      </div>
+    `;
+  }
+
   function filterEvents() {
     return state.events
       .filter((event) => {
         const distance = dateDistance(getEventDateForWindow(event));
-        return distance >= 0 && distance <= HORIZON_DAYS;
+        return distance >= -LOOKBACK_DAYS && distance <= HORIZON_DAYS;
       })
       .sort((a, b) => {
         const aStamp = `${getEventDateForWindow(a)} ${a.time_shanghai || ""}`;
@@ -209,7 +258,9 @@
       return;
     }
 
-    status.textContent = events.length ? "" : `未来 ${HORIZON_DAYS} 天暂无重点事件。`;
+    status.textContent = events.length
+      ? ""
+      : `最近 ${LOOKBACK_DAYS} 天及未来 ${HORIZON_DAYS} 天暂无重点事件。`;
   }
 
   function renderEvents() {
@@ -220,7 +271,7 @@
     if (!events.length) {
       const empty = document.createElement("p");
       empty.className = "macro-empty";
-      empty.textContent = `未来 ${HORIZON_DAYS} 天暂无重点事件。`;
+      empty.textContent = `最近 ${LOOKBACK_DAYS} 天及未来 ${HORIZON_DAYS} 天暂无重点事件。`;
       eventList.append(empty);
       return;
     }
@@ -229,10 +280,12 @@
 
     events.forEach((event) => {
       const isUpcoming = isUpcomingEvent(event);
+      const isRecent =
+        isRecentEvent(event) || event.release_status === "released";
       const item = document.createElement("article");
       item.className = `macro-event macro-event-${normalizeCategory(event)}${
         isUpcoming ? " macro-event-upcoming" : ""
-      }`;
+      }${isRecent ? " macro-event-recent" : ""}`;
 
       const chinaDate = getEventDateForWindow(event);
       const sourceUrl = event.url || "#";
@@ -240,20 +293,32 @@
         FILTER_LABELS[event.category] ||
         FILTER_LABELS[normalizeCategory(event)] ||
         "宏观";
+      const statusBadge = isUpcoming
+        ? '<small class="macro-upcoming-badge">即将发布</small>'
+        : isRecent
+          ? '<small class="macro-released-badge">已公布</small>'
+          : "";
+      const sourceBadge = event.source
+        ? `<span class="macro-source">${escapeHtml(event.source)}</span>`
+        : "";
 
       item.innerHTML = `
         <div class="macro-date">
           <span>${formatCnDate(chinaDate)}</span>
           <strong>${event.time_shanghai || "待定"}</strong>
-          ${isUpcoming ? '<small class="macro-upcoming-badge">即将发布</small>' : ""}
+          ${statusBadge}
         </div>
         <div class="macro-event-body">
           <div class="macro-event-meta">
             <span class="macro-category">${category}</span>
+            ${sourceBadge}
           </div>
-          <a class="macro-event-name" href="${sourceUrl}" target="_blank" rel="noreferrer">
-            ${formatEventName(event)}
-          </a>
+          <div class="macro-event-main">
+            <a class="macro-event-name" href="${sourceUrl}" target="_blank" rel="noreferrer">
+              ${formatEventName(event)}
+            </a>
+            ${formatEventResults(event)}
+          </div>
         </div>
       `;
 
