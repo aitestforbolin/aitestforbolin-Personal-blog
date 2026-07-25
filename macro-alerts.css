@@ -11,6 +11,19 @@
   border-top: 0;
 }
 
+.macro-event.macro-event-recent {
+  position: relative;
+  border-radius: 8px;
+  padding-right: 10px;
+  padding-left: 10px;
+  background: rgba(46, 112, 87, 0.055);
+  box-shadow: inset 3px 0 0 rgba(46, 112, 87, 0.62);
+}
+
+.macro-event.macro-event-recent:first-child {
+  border-top: 0;
+}
+
 .macro-upcoming-badge {
   display: inline-flex;
   align-items: center;
@@ -24,8 +37,61 @@
   white-space: nowrap;
 }
 
+.macro-released-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  border-radius: 999px;
+  padding: 1px 8px;
+  background: rgba(46, 112, 87, 0.13);
+  color: #235e49;
+  font-size: 0.76rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.macro-event-main {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.macro-source {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.macro-event-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  align-items: center;
+}
+
+.macro-result {
+  display: inline-flex;
+  gap: 5px;
+  align-items: baseline;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.macro-result small {
+  font-size: 0.75rem;
+}
+
+.macro-result strong {
+  color: var(--text);
+  font-size: 0.88rem;
+}
+
+.macro-result-actual strong {
+  color: #235e49;
+}
+
 @media (max-width: 560px) {
-  .macro-event-upcoming {
+  .macro-event-upcoming,
+  .macro-event.macro-event-recent {
     padding-right: 8px;
     padding-left: 8px;
   }
