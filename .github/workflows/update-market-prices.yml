@@ -1,9 +1,6 @@
 name: Update market prices
 
 on:
-  push:
-    branches:
-      - main
   schedule:
     - cron: "*/30 * * * *"
   workflow_dispatch:
@@ -11,11 +8,17 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: repository-data-writer
+  cancel-in-progress: false
+
 jobs:
   update-market-prices:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -27,8 +30,24 @@ jobs:
             echo "No market price changes."
             exit 0
           fi
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/market-prices.json
           git commit -m "Update market price data"
-          git push
+
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if git rebase origin/main; then
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+            else
+              git rebase --abort
+            fi
+            echo "Push attempt $attempt failed; retrying."
+            sleep $((attempt * 5))
+          done
+
+          echo "Could not push market price data after 3 attempts."
+          exit 1
