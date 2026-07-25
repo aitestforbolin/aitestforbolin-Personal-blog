@@ -20,6 +20,47 @@ SPEC.loader.exec_module(updater)
 
 
 class UsMacroCalendarTests(unittest.TestCase):
+    def test_investing_latest_release_parser_reads_flash_values(self):
+        html = (
+            '<script>{"closestOccurrences":{"latest_release":'
+            '{"actual":53.8,"forecast":54.4,'
+            '"occurrence_time":"2026-07-24T13:45:00Z",'
+            '"precision":1,"preliminary":true,"previous":53.9},'
+            '"next_release":{}}}</script>'
+        )
+
+        latest = updater.parse_investing_latest_release(html)
+
+        self.assertEqual(latest["actual"], 53.8)
+        self.assertEqual(latest["forecast"], 54.4)
+        self.assertEqual(latest["previous"], 53.9)
+        self.assertTrue(latest["preliminary"])
+
+    def test_fetched_flash_values_override_static_values_for_matching_date(self):
+        events = updater.sp_global_flash_events(
+            date(2026, 7, 24),
+            date(2026, 7, 24),
+            {
+                "manufacturing": {
+                    "date": "2026-07-24",
+                    "actual": "54.0",
+                    "forecast": "53.0",
+                    "previous": "52.0",
+                    "result_source": "Investing.com",
+                    "result_url": "https://example.com/manufacturing",
+                }
+            },
+        )
+
+        manufacturing = next(
+            event for event in events if "Manufacturing" in event["title"]
+        )
+        services = next(event for event in events if "Services" in event["title"])
+
+        self.assertEqual(manufacturing["actual"], "54.0")
+        self.assertEqual(manufacturing["result_source"], "Investing.com")
+        self.assertEqual(services["actual"], "53.6")
+
     def test_sp_global_flash_release_includes_both_july_results(self):
         events = updater.sp_global_flash_events(
             date(2026, 7, 24),
