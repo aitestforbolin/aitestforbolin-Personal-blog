@@ -37,6 +37,10 @@ FUNDS = [
 ]
 
 
+class IncompleteLatestRowError(RuntimeError):
+    """The latest source row exists but is not fully published yet."""
+
+
 class TextExtractor(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
@@ -190,7 +194,7 @@ def validate_latest_row(rows: list[dict[str, object]]) -> None:
     missing = [fund for fund in REQUIRED_LATEST_FUNDS if funds.get(fund) is None]
     if missing:
         missing_text = ", ".join(missing)
-        raise RuntimeError(
+        raise IncompleteLatestRowError(
             f"Latest Farside row for {latest.get('date')} still has missing core fund values: {missing_text}"
         )
 
@@ -219,7 +223,12 @@ def build_payload() -> dict[str, object]:
 
 
 def main() -> None:
-    payload = build_payload()
+    try:
+        payload = build_payload()
+    except IncompleteLatestRowError as error:
+        print(f"{error}. Keeping the previous complete dataset; a later run will retry.")
+        return
+
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
