@@ -2,7 +2,7 @@
   "schema_version": 1,
   "timezone": "Asia/Shanghai",
   "horizon_days": 35,
-  "updated_at": "2026-07-24T11:43:07+08:00",
+  "updated_at": "2026-07-25T11:36:00+08:00",
   "companies": [
     {
       "id": "alphabet",
@@ -111,32 +111,6 @@
     }
   ],
   "events": [
-    {
-      "event_id": "intel-earnings-2026-q2",
-      "company_id": "intel",
-      "event_category": "earnings",
-      "event_name": "Intel 2026 年第二季度财报与电话会",
-      "reported_period": "2026 Q2",
-      "importance": "core",
-      "status": "scheduled",
-      "confirmation": "confirmed",
-      "date_type": "exact",
-      "start_at": "2026-07-24T05:00:00+08:00",
-      "date_bjt": "2026-07-24",
-      "time_bjt": "05:00",
-      "market_timing": "after_close",
-      "original_time": "2026-07-23 14:00 PDT",
-      "original_timezone": "America/Los_Angeles",
-      "source_label": "Intel Investor Relations",
-      "source_url": "https://www.intc.com/news-events/press-releases/detail/1774/intel-to-report-second-quarter-2026-financial-results",
-      "source_published_at": "2026-06-30",
-      "updated_at": "2026-06-30T00:00:00+08:00",
-      "company": "Intel",
-      "ticker": "INTC",
-      "company_group": "ai_semiconductor",
-      "company_group_zh": "AI 与半导体",
-      "date_changed": false
-    },
     {
       "event_id": "meta-earnings-2026-q2",
       "company_id": "meta",
