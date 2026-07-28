@@ -40,6 +40,58 @@ SP_GLOBAL_RESULT_URLS = {
         "united-states-services-purchasing-managers-index-%28pmi%29-1062"
     ),
 }
+FOREX_FACTORY_CALENDAR_URL = "https://nfs.faireconomy.media/ff_calendar_thisweek.json"
+FOREX_FACTORY_SOURCE_URL = "https://www.forexfactory.com/calendar"
+
+EVENT_SOURCE_FALLBACKS = {
+    "美国JOLTS职位空缺": ("https://fred.stlouisfed.org/series/JTSJOL", "FRED 备用"),
+    "美国非农 / 失业率 / 平均时薪": (
+        "https://fred.stlouisfed.org/release?rid=50",
+        "FRED 备用",
+    ),
+    "美国CPI / 核心CPI": ("https://fred.stlouisfed.org/release?rid=10", "FRED 备用"),
+    "美国PPI": ("https://fred.stlouisfed.org/release?rid=46", "FRED 备用"),
+    "美国零售销售": ("https://fred.stlouisfed.org/release?rid=9", "FRED 备用"),
+    "美国耐用品订单 / 核心资本品订单": (
+        FRED_CORE_CAPITAL_GOODS_URL,
+        "FRED 备用",
+    ),
+    "美国S&P Global制造业PMI初值": (SP_GLOBAL_PMI_CALENDAR_URL, "S&P 日历备用"),
+    "美国S&P Global服务业PMI初值": (SP_GLOBAL_PMI_CALENDAR_URL, "S&P 日历备用"),
+}
+
+FOREX_FACTORY_SERIES = {
+    "FOMC 利率决议": (("", ("Federal Funds Rate",)),),
+    "美国GDP": (("", ("Advance GDP q/q", "Prelim GDP q/q", "Final GDP q/q")),),
+    "美国PCE / 核心PCE": (("", ("Core PCE Price Index m/m",)),),
+    "美国ISM制造业PMI": (("", ("ISM Manufacturing PMI",)),),
+    "美国JOLTS职位空缺": (("", ("JOLTS Job Openings",)),),
+    "美国ISM服务业PMI": (("", ("ISM Services PMI",)),),
+    "美国非农 / 失业率 / 平均时薪": (
+        ("非农", ("Non-Farm Employment Change",)),
+        ("失业率", ("Unemployment Rate",)),
+        ("时薪", ("Average Hourly Earnings m/m",)),
+    ),
+    "美国CPI / 核心CPI": (
+        ("CPI", ("CPI m/m",)),
+        ("核心CPI", ("Core CPI m/m",)),
+    ),
+    "美国PPI": (
+        ("PPI", ("PPI m/m",)),
+        ("核心PPI", ("Core PPI m/m",)),
+    ),
+    "美国零售销售": (
+        ("零售", ("Retail Sales m/m",)),
+        ("核心零售", ("Core Retail Sales m/m",)),
+    ),
+    "美国耐用品订单 / 核心资本品订单": (
+        ("耐用品", ("Durable Goods Orders m/m",)),
+        ("核心耐用品", ("Core Durable Goods Orders m/m",)),
+    ),
+    "美国S&P Global制造业PMI初值": (("", ("Flash Manufacturing PMI",)),),
+    "美国S&P Global服务业PMI初值": (("", ("Flash Services PMI",)),),
+}
+
 US_RELEASE_HOLIDAYS = {
     "2026-01-01",
     "2026-01-19",
@@ -351,6 +403,11 @@ def make_event(
     }
     if shanghai_date != day.isoformat():
         event["date_et"] = day.isoformat()
+
+    fallback = EVENT_SOURCE_FALLBACKS.get(title_cn)
+    if fallback and url != fallback[0]:
+        event["fallback_url"] = fallback[0]
+        event["fallback_label"] = fallback[1]
     return event
 
 
@@ -770,6 +827,81 @@ def ism_events(start: date, end: date) -> list[dict[str, str]]:
     return events
 
 
+def parse_forex_factory_calendar(payload: str) -> list[dict[str, str]]:
+    """Normalize the public weekly calendar used for consensus and prior values."""
+    parsed = json.loads(payload)
+    if not isinstance(parsed, list):
+        raise ValueError("Forex Factory calendar was not a list")
+
+    events: list[dict[str, str]] = []
+    eastern = ZoneInfo("America/New_York")
+    for item in parsed:
+        if not isinstance(item, dict) or item.get("country") != "USD":
+            continue
+        title = item.get("title")
+        timestamp = item.get("date")
+        if not isinstance(title, str) or not isinstance(timestamp, str):
+            continue
+        released_at = datetime.fromisoformat(timestamp)
+        normalized = {
+            "title": title,
+            "date_et": released_at.astimezone(eastern).date().isoformat(),
+        }
+        for field in ("actual", "forecast", "previous"):
+            value = item.get(field)
+            if value not in (None, ""):
+                normalized[field] = str(value)
+        events.append(normalized)
+    return events
+
+
+def enrich_events_with_market_values(
+    events: list[dict[str, str]],
+    market_events: list[dict[str, str]],
+) -> None:
+    """Add actual, consensus and prior values to matching calendar events."""
+    lookup = {
+        (item["date_et"], item["title"]): item
+        for item in market_events
+        if item.get("date_et") and item.get("title")
+    }
+
+    for event in events:
+        series = FOREX_FACTORY_SERIES.get(event.get("title_cn", ""))
+        if not series:
+            continue
+        event_day = event.get("date_et", event["date"])
+        matched = False
+
+        for field in ("actual", "forecast", "previous"):
+            parts: list[str] = []
+            for label, candidate_titles in series:
+                market_item = next(
+                    (
+                        lookup[(event_day, candidate)]
+                        for candidate in candidate_titles
+                        if (event_day, candidate) in lookup
+                    ),
+                    None,
+                )
+                if not market_item:
+                    continue
+                value = market_item.get(field)
+                if value in (None, ""):
+                    continue
+                parts.append(f"{label} {value}" if label else str(value))
+
+            if parts:
+                event[field] = " · ".join(parts)
+                matched = True
+
+        if matched:
+            event["result_source"] = "Forex Factory 市场日历"
+            event["result_url"] = FOREX_FACTORY_SOURCE_URL
+            if event.get("actual"):
+                event["release_status"] = "released"
+
+
 def parse_investing_latest_release(html: str) -> dict[str, object]:
     """Extract the latest structured occurrence from an Investing.com page."""
     marker = '"closestOccurrences":{"latest_release":'
@@ -941,7 +1073,56 @@ def build_calendar(start: date, days: int, offline: bool) -> list[dict[str, str]
     events.extend(census_retail_events(start, end))
     events.extend(ism_events(start, end))
     events.extend(sp_global_flash_events(start, end, sp_global_results))
+
+    if not offline:
+        try:
+            market_events = parse_forex_factory_calendar(
+                fetch_text(FOREX_FACTORY_CALENDAR_URL)
+            )
+            enrich_events_with_market_values(events, market_events)
+        except (URLError, TimeoutError, OSError, ValueError, json.JSONDecodeError) as exc:
+            print(f"warning: skipped market reference values: {exc}", file=sys.stderr)
+
     return dedupe(events)
+
+
+def merge_existing_reference_values(
+    events: list[dict[str, str]],
+    output_path: Path,
+) -> list[dict[str, str]]:
+    """Keep previously collected values until a fresher feed replaces them."""
+    if not output_path.exists():
+        return events
+    try:
+        existing = json.loads(output_path.read_text(encoding="utf-8"))
+    except (OSError, ValueError, json.JSONDecodeError):
+        return events
+    if not isinstance(existing, list):
+        return events
+
+    existing_by_key = {
+        (item.get("date"), item.get("time_et"), item.get("title")): item
+        for item in existing
+        if isinstance(item, dict)
+    }
+    carry_fields = (
+        "actual",
+        "forecast",
+        "previous",
+        "result_source",
+        "result_url",
+        "release_status",
+    )
+    for event in events:
+        prior = existing_by_key.get(
+            (event.get("date"), event.get("time_et"), event.get("title"))
+        )
+        if not prior:
+            continue
+        for field in carry_fields:
+            if event.get(field) in (None, "") and prior.get(field) not in (None, ""):
+                event[field] = str(prior[field])
+    return events
 
 
 def main() -> int:
@@ -969,6 +1150,7 @@ def main() -> int:
         args.days + args.lookback_days,
         args.offline,
     )
+    events = merge_existing_reference_values(events, args.output)
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(events, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
