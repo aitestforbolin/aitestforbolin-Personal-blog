@@ -9,6 +9,7 @@ import re
 import sys
 from datetime import date, datetime, time, timedelta
 from html.parser import HTMLParser
+from http.client import IncompleteRead
 from pathlib import Path
 from urllib.error import URLError
 from urllib.request import Request, urlopen
@@ -25,6 +26,7 @@ BLS_MONTH_URL = "https://www.bls.gov/schedule/{year}/{month:02d}_sched.htm"
 BEA_SCHEDULE_URL = "https://www.bea.gov/news/schedule"
 FED_CALENDAR_URL = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
 CENSUS_CALENDAR_URL = "https://www.census.gov/economic-indicators/"
+CENSUS_M3_SCHEDULE_URL = "https://www.census.gov/manufacturing/m3/release_schedule.html"
 ISM_REPORTS_URL = "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/"
 SP_GLOBAL_PMI_CALENDAR_URL = "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
 SP_GLOBAL_RESULT_URLS = {
@@ -54,43 +56,50 @@ EVENT_RULES = [
         "needle": "Consumer Price Index",
         "title_cn": "美国CPI / 核心CPI",
         "category": "inflation",
-        "importance": "high",
+        "importance": "critical",
+        "stars": 5,
     },
     {
         "needle": "Producer Price Index",
         "title_cn": "美国PPI",
         "category": "inflation",
-        "importance": "high",
+        "importance": "medium",
+        "stars": 3,
     },
     {
         "needle": "Employment Situation",
         "title_cn": "美国非农 / 失业率 / 平均时薪",
         "category": "jobs",
-        "importance": "high",
+        "importance": "critical",
+        "stars": 5,
     },
     {
         "needle": "Job Openings and Labor Turnover",
         "title_cn": "美国JOLTS职位空缺",
         "category": "jobs",
-        "importance": "high",
+        "importance": "medium",
+        "stars": 3,
     },
     {
         "needle": "Personal Income and Outlays",
         "title_cn": "美国PCE / 核心PCE",
         "category": "inflation",
         "importance": "high",
+        "stars": 4,
     },
     {
         "needle": "GDP",
         "title_cn": "美国GDP",
         "category": "growth",
         "importance": "high",
+        "stars": 4,
     },
     {
         "needle": "Advance Monthly Sales for Retail and Food Services",
         "title_cn": "美国零售销售",
         "category": "growth",
         "importance": "high",
+        "stars": 4,
     },
 ]
 
@@ -117,6 +126,18 @@ CENSUS_RETAIL_RELEASES = [
     ("2026-08-14", "July 2026"),
 ]
 
+# Stable fallback for the Census M3 advance durable-goods schedule. The online
+# updater reads the official release table first; these dates keep the calendar
+# complete if Census is temporarily unavailable.
+CENSUS_DURABLE_GOODS_RELEASES = [
+    ("2026-07-27", "June 2026"),
+    ("2026-08-26", "July 2026"),
+    ("2026-09-25", "August 2026"),
+    ("2026-10-27", "September 2026"),
+    ("2026-11-25", "October 2026"),
+    ("2026-12-23", "November 2026"),
+]
+
 BLS_FALLBACK_RELEASES = [
     ("2026-06-30", "10:00", "Job Openings and Labor Turnover Survey", "May 2026"),
     ("2026-07-02", "08:30", "Employment Situation", "June 2026"),
@@ -132,28 +153,28 @@ BEA_FALLBACK_RELEASES = [
     (
         "2026-07-30",
         "08:30",
-        "Personal Income and Outlays",
+        "Personal Income and Outlays, June 2026",
         "June 2026",
         "美国PCE / 核心PCE",
     ),
     (
         "2026-07-30",
         "08:30",
-        "Gross Domestic Product, 2nd Quarter 2026 (Advance Estimate)",
-        "Q2 2026",
+        "GDP (Advance Estimate), 2nd Quarter 2026",
+        "2nd Quarter 2026",
         "美国GDP",
     ),
     (
-        "2026-08-27",
+        "2026-08-26",
         "08:30",
-        "Gross Domestic Product, 2nd Quarter 2026 (Second Estimate)",
-        "Q2 2026",
+        "GDP (Second Estimate) and Corporate Profits, 2nd Quarter 2026",
+        "2nd Quarter 2026",
         "美国GDP",
     ),
     (
-        "2026-08-28",
+        "2026-08-26",
         "08:30",
-        "Personal Income and Outlays",
+        "Personal Income and Outlays, July 2026",
         "July 2026",
         "美国PCE / 核心PCE",
     ),
@@ -298,8 +319,21 @@ def make_event(
     category: str,
     source: str,
     url: str,
-    importance: str = "high",
+    importance: str | None = None,
+    stars: int = 3,
 ) -> dict[str, str]:
+    if not 1 <= stars <= 5:
+        raise ValueError("event stars must be between 1 and 5")
+
+    if importance is None:
+        importance = {
+            1: "background",
+            2: "low",
+            3: "medium",
+            4: "high",
+            5: "critical",
+        }[stars]
+
     shanghai_date, shanghai_time = shanghai_fields(day, eastern_time)
     event = {
         "date": shanghai_date,
@@ -310,6 +344,7 @@ def make_event(
         "period": period,
         "category": category,
         "importance": importance,
+        "stars": stars,
         "source": source,
         "url": url,
     }
@@ -321,10 +356,10 @@ def make_event(
 def parse_bls_events(start: date, end: date) -> list[dict[str, str]]:
     try:
         return parse_bls_ics_events(start, end)
-    except (URLError, TimeoutError, OSError, ValueError):
+    except (URLError, TimeoutError, OSError, ValueError, IncompleteRead):
         try:
             return parse_bls_month_pages(start, end)
-        except (URLError, TimeoutError, OSError, ValueError):
+        except (URLError, TimeoutError, OSError, ValueError, IncompleteRead):
             return bls_fallback_events(start, end)
 
 
@@ -354,6 +389,7 @@ def parse_bls_ics_events(start: date, end: date) -> list[dict[str, str]]:
                             source="BLS",
                             url="https://www.bls.gov/schedule/news_release/",
                             importance=rule["importance"],
+                            stars=rule["stars"],
                         )
                     )
             current = None
@@ -463,6 +499,7 @@ def parse_bls_month_pages(start: date, end: date) -> list[dict[str, str]]:
                                 source="BLS",
                                 url="https://www.bls.gov/schedule/news_release/",
                                 importance=rule["importance"],
+                                stars=rule["stars"],
                             )
                         )
                     j += 3
@@ -489,6 +526,7 @@ def bls_fallback_events(start: date, end: date) -> list[dict[str, str]]:
                     source="BLS",
                     url="https://www.bls.gov/schedule/news_release/",
                     importance=rule["importance"],
+                    stars=rule["stars"],
                 )
             )
     return events
@@ -528,6 +566,7 @@ def parse_bea_events(start: date, end: date) -> list[dict[str, str]]:
                                 source="BEA",
                                 url=BEA_SCHEDULE_URL,
                                 importance=rule["importance"],
+                                stars=rule["stars"],
                             )
                         )
                 i += 5
@@ -554,6 +593,7 @@ def bea_fallback_events(start: date, end: date) -> list[dict[str, str]]:
                     source="BEA",
                     url=BEA_SCHEDULE_URL,
                     importance=rule["importance"],
+                    stars=rule["stars"],
                 )
             )
     return events
@@ -577,6 +617,7 @@ def fomc_events(start: date, end: date) -> list[dict[str, str]]:
                     category="fed",
                     source="Federal Reserve",
                     url=FED_CALENDAR_URL,
+                    stars=5,
                 )
             )
             events.append(
@@ -589,6 +630,7 @@ def fomc_events(start: date, end: date) -> list[dict[str, str]]:
                     category="fed",
                     source="Federal Reserve",
                     url=FED_CALENDAR_URL,
+                    stars=5,
                 )
             )
     for day_text, period in FOMC_MINUTES_RELEASES:
@@ -604,6 +646,7 @@ def fomc_events(start: date, end: date) -> list[dict[str, str]]:
                     category="fed",
                     source="Federal Reserve",
                     url=FED_CALENDAR_URL,
+                    stars=3,
                 )
             )
     return events
@@ -624,8 +667,58 @@ def census_retail_events(start: date, end: date) -> list[dict[str, str]]:
                     category="growth",
                     source="Census",
                     url=CENSUS_CALENDAR_URL,
+                    stars=4,
                 )
             )
+    return events
+
+
+def durable_goods_event(day: date, period: str) -> dict[str, str]:
+    return make_event(
+        day=day,
+        eastern_time="08:30",
+        title="Advance Report on Durable Goods and Advance Total Manufacturing",
+        title_cn="美国耐用品订单 / 核心资本品订单",
+        period=period,
+        category="growth",
+        source="Census",
+        url=CENSUS_M3_SCHEDULE_URL,
+        stars=3,
+    )
+
+
+def parse_census_durable_goods_events(start: date, end: date) -> list[dict[str, str]]:
+    lines = html_text_lines(fetch_text(CENSUS_M3_SCHEDULE_URL))
+    events: list[dict[str, str]] = []
+    period_pattern = re.compile(
+        r"^(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{4}$"
+    )
+    date_pattern = re.compile(r"^\d{1,2}/\d{1,2}/\d{4}$")
+
+    for index, period in enumerate(lines):
+        if not period_pattern.match(period):
+            continue
+
+        release_text = next(
+            (line for line in lines[index + 1 : index + 5] if date_pattern.match(line)),
+            None,
+        )
+        if not release_text:
+            continue
+
+        day = datetime.strptime(release_text, "%m/%d/%Y").date()
+        if start <= day <= end:
+            events.append(durable_goods_event(day, period))
+
+    return events
+
+
+def census_durable_goods_fallback_events(start: date, end: date) -> list[dict[str, str]]:
+    events = []
+    for day_text, period in CENSUS_DURABLE_GOODS_RELEASES:
+        day = date.fromisoformat(day_text)
+        if start <= day <= end:
+            events.append(durable_goods_event(day, period))
     return events
 
 
@@ -813,6 +906,7 @@ def build_calendar(start: date, days: int, offline: bool) -> list[dict[str, str]
     if offline:
         events.extend(bls_fallback_events(start, end))
         events.extend(bea_fallback_events(start, end))
+        events.extend(census_durable_goods_fallback_events(start, end))
     else:
         sp_global_results = fetch_sp_global_flash_results()
         for name, parser in (("BLS", parse_bls_events), ("BEA", parse_bea_events)):
@@ -823,12 +917,21 @@ def build_calendar(start: date, days: int, offline: bool) -> list[dict[str, str]
                     events.extend(bls_fallback_events(start, end))
                 if name == "BEA" and not parsed_events:
                     events.extend(bea_fallback_events(start, end))
-            except (URLError, TimeoutError, OSError, ValueError) as exc:
+            except (URLError, TimeoutError, OSError, ValueError, IncompleteRead) as exc:
                 print(f"warning: skipped {name}: {exc}", file=sys.stderr)
                 if name == "BLS":
                     events.extend(bls_fallback_events(start, end))
                 if name == "BEA":
                     events.extend(bea_fallback_events(start, end))
+
+        try:
+            census_events = parse_census_durable_goods_events(start, end)
+            events.extend(census_events)
+            if not census_events:
+                events.extend(census_durable_goods_fallback_events(start, end))
+        except (URLError, TimeoutError, OSError, ValueError, IncompleteRead) as exc:
+            print(f"warning: skipped Census M3: {exc}", file=sys.stderr)
+            events.extend(census_durable_goods_fallback_events(start, end))
 
     events.extend(fomc_events(start, end))
     events.extend(census_retail_events(start, end))
