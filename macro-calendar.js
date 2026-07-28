@@ -323,6 +323,13 @@
       const sourceBadge = event.source
         ? `<span class="macro-source">${escapeHtml(event.source)}</span>`
         : "";
+      const fallbackLink = event.fallback_url
+        ? `<a class="macro-fallback-link" href="${escapeHtml(
+            event.fallback_url
+          )}" target="_blank" rel="noreferrer">${escapeHtml(
+            event.fallback_label || "备用链接"
+          )}</a>`
+        : "";
 
       item.innerHTML = `
         <div class="macro-date">
@@ -335,9 +342,10 @@
             <span class="macro-category">${category}</span>
             ${renderImportanceStars(event)}
             ${sourceBadge}
+            ${fallbackLink}
           </div>
           <div class="macro-event-main">
-            <a class="macro-event-name" href="${sourceUrl}" target="_blank" rel="noreferrer">
+            <a class="macro-event-name" href="${escapeHtml(sourceUrl)}" target="_blank" rel="noreferrer">
               ${formatEventName(event)}
             </a>
             ${formatEventResults(event)}
