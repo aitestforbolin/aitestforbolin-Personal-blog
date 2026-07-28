@@ -90,6 +90,83 @@ class UsMacroCalendarTests(unittest.TestCase):
         self.assertEqual(events[0]["date"], "2026-08-26")
         self.assertEqual(events[0]["stars"], 3)
 
+    def test_blocked_primary_sources_receive_readable_fallbacks(self):
+        bls_event = updater.make_event(
+            day=date(2026, 8, 7),
+            eastern_time="08:30",
+            title="Employment Situation",
+            title_cn="美国非农 / 失业率 / 平均时薪",
+            period="July 2026",
+            category="jobs",
+            source="BLS",
+            url=updater.BLS_ICS_URL,
+            stars=5,
+        )
+        self.assertEqual(
+            bls_event["fallback_url"],
+            "https://fred.stlouisfed.org/release?rid=50",
+        )
+        self.assertEqual(bls_event["fallback_label"], "FRED 备用")
+
+    def test_forex_factory_values_enrich_matching_events(self):
+        event = updater.make_event(
+            day=date(2026, 7, 30),
+            eastern_time="08:30",
+            title="GDP (Advance Estimate), 2nd Quarter 2026",
+            title_cn="美国GDP",
+            period="2nd Quarter 2026",
+            category="growth",
+            source="BEA",
+            url=updater.BEA_SCHEDULE_URL,
+            stars=4,
+        )
+        payload = json.dumps(
+            [
+                {
+                    "title": "Advance GDP q/q",
+                    "country": "USD",
+                    "date": "2026-07-30T08:30:00-04:00",
+                    "impact": "High",
+                    "forecast": "2.0%",
+                    "previous": "2.0%",
+                }
+            ]
+        )
+
+        market_events = updater.parse_forex_factory_calendar(payload)
+        updater.enrich_events_with_market_values([event], market_events)
+
+        self.assertEqual(event["forecast"], "2.0%")
+        self.assertEqual(event["previous"], "2.0%")
+        self.assertEqual(event["result_source"], "Forex Factory 市场日历")
+
+    def test_forex_factory_values_combine_composite_releases(self):
+        event = updater.durable_goods_event(date(2026, 7, 27), "June 2026")
+        payload = json.dumps(
+            [
+                {
+                    "title": "Durable Goods Orders m/m",
+                    "country": "USD",
+                    "date": "2026-07-27T08:30:00-04:00",
+                    "forecast": "1.6%",
+                    "previous": "-4.5%",
+                },
+                {
+                    "title": "Core Durable Goods Orders m/m",
+                    "country": "USD",
+                    "date": "2026-07-27T08:30:00-04:00",
+                    "forecast": "0.9%",
+                    "previous": "1.3%",
+                },
+            ]
+        )
+
+        market_events = updater.parse_forex_factory_calendar(payload)
+        updater.enrich_events_with_market_values([event], market_events)
+
+        self.assertEqual(event["forecast"], "耐用品 1.6% · 核心耐用品 0.9%")
+        self.assertEqual(event["previous"], "耐用品 -4.5% · 核心耐用品 1.3%")
+
     def test_investing_latest_release_parser_reads_flash_values(self):
         html = (
             '<script>{"closestOccurrences":{"latest_release":'
