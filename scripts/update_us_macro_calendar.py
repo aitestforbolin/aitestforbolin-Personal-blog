@@ -27,6 +27,7 @@ BEA_SCHEDULE_URL = "https://www.bea.gov/news/schedule"
 FED_CALENDAR_URL = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
 CENSUS_CALENDAR_URL = "https://www.census.gov/economic-indicators/"
 CENSUS_M3_SCHEDULE_URL = "https://www.census.gov/manufacturing/m3/release_schedule.html"
+FRED_CORE_CAPITAL_GOODS_URL = "https://fred.stlouisfed.org/series/NEWORDER"
 ISM_REPORTS_URL = "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/"
 SP_GLOBAL_PMI_CALENDAR_URL = "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
 SP_GLOBAL_RESULT_URLS = {
@@ -674,7 +675,7 @@ def census_retail_events(start: date, end: date) -> list[dict[str, str]]:
 
 
 def durable_goods_event(day: date, period: str) -> dict[str, str]:
-    return make_event(
+    event = make_event(
         day=day,
         eastern_time="08:30",
         title="Advance Report on Durable Goods and Advance Total Manufacturing",
@@ -685,6 +686,9 @@ def durable_goods_event(day: date, period: str) -> dict[str, str]:
         url=CENSUS_M3_SCHEDULE_URL,
         stars=3,
     )
+    event["fallback_url"] = FRED_CORE_CAPITAL_GOODS_URL
+    event["fallback_label"] = "FRED 备用"
+    return event
 
 
 def parse_census_durable_goods_events(start: date, end: date) -> list[dict[str, str]]:
