@@ -7,13 +7,14 @@
     "title_cn": "美国S&P Global制造业PMI初值",
     "period": "July 2026",
     "category": "growth",
-    "importance": "high",
+    "importance": "medium",
     "source": "S&P Global",
     "url": "https://www.pmi.spglobal.com/Public/Home/PressRelease/04dad02019414e5ebc89ec6a04b300bd",
     "actual": "53.8",
     "forecast": "54.4",
     "previous": "53.9",
-    "release_status": "released"
+    "release_status": "released",
+    "stars": 3
   },
   {
     "date": "2026-07-24",
@@ -23,13 +24,42 @@
     "title_cn": "美国S&P Global服务业PMI初值",
     "period": "July 2026",
     "category": "growth",
-    "importance": "high",
+    "importance": "medium",
     "source": "S&P Global",
     "url": "https://www.pmi.spglobal.com/Public/Home/PressRelease/04dad02019414e5ebc89ec6a04b300bd",
     "actual": "53.6",
     "forecast": "51.3",
     "previous": "51.2",
-    "release_status": "released"
+    "release_status": "released",
+    "stars": 3
+  },
+  {
+    "date": "2026-07-30",
+    "time_et": "14:00",
+    "time_shanghai": "02:00",
+    "title": "FOMC Policy Decision",
+    "title_cn": "FOMC 利率决议",
+    "period": "July 2026 meeting",
+    "category": "fed",
+    "importance": "critical",
+    "source": "Federal Reserve",
+    "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+    "date_et": "2026-07-29",
+    "stars": 5
+  },
+  {
+    "date": "2026-07-30",
+    "time_et": "14:30",
+    "time_shanghai": "02:30",
+    "title": "FOMC Chair Press Conference",
+    "title_cn": "FOMC 主席发布会",
+    "period": "July 2026 meeting",
+    "category": "fed",
+    "importance": "critical",
+    "source": "Federal Reserve",
+    "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+    "date_et": "2026-07-29",
+    "stars": 5
   },
   {
     "date": "2026-07-30",
@@ -41,7 +71,8 @@
     "category": "growth",
     "importance": "high",
     "source": "BEA",
-    "url": "https://www.bea.gov/news/schedule"
+    "url": "https://www.bea.gov/news/schedule",
+    "stars": 4
   },
   {
     "date": "2026-07-30",
@@ -53,33 +84,8 @@
     "category": "inflation",
     "importance": "high",
     "source": "BEA",
-    "url": "https://www.bea.gov/news/schedule"
-  },
-  {
-    "date": "2026-07-30",
-    "time_et": "14:00",
-    "time_shanghai": "02:00",
-    "title": "FOMC Policy Decision",
-    "title_cn": "FOMC 利率决议",
-    "period": "July 2026 meeting",
-    "category": "fed",
-    "importance": "high",
-    "source": "Federal Reserve",
-    "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-    "date_et": "2026-07-29"
-  },
-  {
-    "date": "2026-07-30",
-    "time_et": "14:30",
-    "time_shanghai": "02:30",
-    "title": "FOMC Chair Press Conference",
-    "title_cn": "FOMC 主席发布会",
-    "period": "July 2026 meeting",
-    "category": "fed",
-    "importance": "high",
-    "source": "Federal Reserve",
-    "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-    "date_et": "2026-07-29"
+    "url": "https://www.bea.gov/news/schedule",
+    "stars": 4
   },
   {
     "date": "2026-08-03",
@@ -89,9 +95,10 @@
     "title_cn": "美国ISM制造业PMI",
     "period": "July 2026",
     "category": "growth",
-    "importance": "high",
+    "importance": "medium",
     "source": "ISM",
-    "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/"
+    "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/",
+    "stars": 3
   },
   {
     "date": "2026-08-04",
@@ -101,9 +108,10 @@
     "title_cn": "美国JOLTS职位空缺",
     "period": "June 2026",
     "category": "jobs",
-    "importance": "high",
+    "importance": "medium",
     "source": "BLS",
-    "url": "https://www.bls.gov/schedule/news_release/"
+    "url": "https://www.bls.gov/schedule/news_release/",
+    "stars": 3
   },
   {
     "date": "2026-08-05",
@@ -113,9 +121,10 @@
     "title_cn": "美国ISM服务业PMI",
     "period": "July 2026",
     "category": "growth",
-    "importance": "high",
+    "importance": "medium",
     "source": "ISM",
-    "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/"
+    "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/",
+    "stars": 3
   },
   {
     "date": "2026-08-07",
@@ -125,9 +134,10 @@
     "title_cn": "美国非农 / 失业率 / 平均时薪",
     "period": "July 2026",
     "category": "jobs",
-    "importance": "high",
+    "importance": "critical",
     "source": "BLS",
-    "url": "https://www.bls.gov/schedule/news_release/"
+    "url": "https://www.bls.gov/schedule/news_release/",
+    "stars": 5
   },
   {
     "date": "2026-08-12",
@@ -137,9 +147,10 @@
     "title_cn": "美国CPI / 核心CPI",
     "period": "July 2026",
     "category": "inflation",
-    "importance": "high",
+    "importance": "critical",
     "source": "BLS",
-    "url": "https://www.bls.gov/schedule/news_release/"
+    "url": "https://www.bls.gov/schedule/news_release/",
+    "stars": 5
   },
   {
     "date": "2026-08-13",
@@ -149,9 +160,10 @@
     "title_cn": "美国PPI",
     "period": "July 2026",
     "category": "inflation",
-    "importance": "high",
+    "importance": "medium",
     "source": "BLS",
-    "url": "https://www.bls.gov/schedule/news_release/"
+    "url": "https://www.bls.gov/schedule/news_release/",
+    "stars": 3
   },
   {
     "date": "2026-08-14",
@@ -163,7 +175,8 @@
     "category": "growth",
     "importance": "high",
     "source": "Census",
-    "url": "https://www.census.gov/economic-indicators/"
+    "url": "https://www.census.gov/economic-indicators/",
+    "stars": 4
   },
   {
     "date": "2026-08-20",
@@ -173,10 +186,11 @@
     "title_cn": "FOMC 会议纪要",
     "period": "July 2026 meeting",
     "category": "fed",
-    "importance": "high",
+    "importance": "medium",
     "source": "Federal Reserve",
     "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-    "date_et": "2026-08-19"
+    "date_et": "2026-08-19",
+    "stars": 3
   },
   {
     "date": "2026-08-21",
@@ -186,9 +200,10 @@
     "title_cn": "美国S&P Global制造业PMI初值",
     "period": "August 2026",
     "category": "growth",
-    "importance": "high",
+    "importance": "medium",
     "source": "S&P Global",
-    "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
+    "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
+    "stars": 3
   },
   {
     "date": "2026-08-21",
@@ -198,9 +213,23 @@
     "title_cn": "美国S&P Global服务业PMI初值",
     "period": "August 2026",
     "category": "growth",
-    "importance": "high",
+    "importance": "medium",
     "source": "S&P Global",
-    "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates"
+    "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
+    "stars": 3
+  },
+  {
+    "date": "2026-08-26",
+    "time_et": "08:30",
+    "time_shanghai": "20:30",
+    "title": "Advance Report on Durable Goods and Advance Total Manufacturing",
+    "title_cn": "美国耐用品订单 / 核心资本品订单",
+    "period": "July 2026",
+    "category": "growth",
+    "importance": "medium",
+    "stars": 3,
+    "source": "Census",
+    "url": "https://www.census.gov/manufacturing/m3/release_schedule.html"
   },
   {
     "date": "2026-08-26",
@@ -212,7 +241,8 @@
     "category": "growth",
     "importance": "high",
     "source": "BEA",
-    "url": "https://www.bea.gov/news/schedule"
+    "url": "https://www.bea.gov/news/schedule",
+    "stars": 4
   },
   {
     "date": "2026-08-26",
@@ -224,6 +254,7 @@
     "category": "inflation",
     "importance": "high",
     "source": "BEA",
-    "url": "https://www.bea.gov/news/schedule"
+    "url": "https://www.bea.gov/news/schedule",
+    "stars": 4
   }
 ]
