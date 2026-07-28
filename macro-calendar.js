@@ -230,7 +230,7 @@
 
   function formatEventResults(event) {
     const fields = [
-      ["actual", "实际"],
+      ["actual", "本期"],
       ["forecast", "预期"],
       ["previous", "前值"],
     ];
