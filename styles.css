@@ -932,6 +932,20 @@ h2 {
   font-weight: 800;
 }
 
+.macro-importance {
+  color: var(--accent-dark);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.macro-importance[data-stars="5"] {
+  background: rgba(164, 79, 52, 0.14);
+}
+
 .macro-event-name {
   color: var(--text);
   font-size: 0.95rem;
