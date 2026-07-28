@@ -8,6 +8,7 @@ import tempfile
 import unittest
 from datetime import date
 from pathlib import Path
+from unittest.mock import patch
 
 
 SCRIPT_PATH = (
@@ -20,6 +21,70 @@ SPEC.loader.exec_module(updater)
 
 
 class UsMacroCalendarTests(unittest.TestCase):
+    def test_star_rating_is_saved_with_importance_label(self):
+        event = updater.make_event(
+            day=date(2026, 8, 12),
+            eastern_time="08:30",
+            title="Consumer Price Index",
+            title_cn="美国CPI / 核心CPI",
+            period="July 2026",
+            category="inflation",
+            source="BLS",
+            url="https://www.bls.gov/",
+            stars=5,
+        )
+
+        self.assertEqual(event["stars"], 5)
+        self.assertEqual(event["importance"], "critical")
+
+    def test_star_rating_must_be_between_one_and_five(self):
+        with self.assertRaises(ValueError):
+            updater.make_event(
+                day=date(2026, 8, 12),
+                eastern_time="08:30",
+                title="Example",
+                title_cn="示例",
+                period="",
+                category="growth",
+                source="Example",
+                url="https://example.com/",
+                stars=6,
+            )
+
+    def test_offline_calendar_includes_durable_goods_and_ratings(self):
+        events = updater.build_calendar(date(2026, 7, 27), 35, offline=True)
+        durable = next(
+            event
+            for event in events
+            if event["title_cn"] == "美国耐用品订单 / 核心资本品订单"
+        )
+
+        self.assertEqual(durable["date"], "2026-07-27")
+        self.assertEqual(durable["time_shanghai"], "20:30")
+        self.assertEqual(durable["stars"], 3)
+        gdp = next(event for event in events if event["title_cn"] == "美国GDP")
+        self.assertEqual(gdp["stars"], 4)
+        self.assertTrue(all(1 <= int(event["stars"]) <= 5 for event in events))
+
+    def test_official_m3_schedule_parser_uses_advance_release_date(self):
+        html = """
+        <table>
+          <tr><th>Survey Month</th><th>Advance Report</th><th>Full Report</th></tr>
+          <tr><td>June 2026</td><td>7/27/2026</td><td>8/4/2026</td></tr>
+          <tr><td>July 2026</td><td>8/26/2026</td><td>9/2/2026</td></tr>
+        </table>
+        """
+
+        with patch.object(updater, "fetch_text", return_value=html):
+            events = updater.parse_census_durable_goods_events(
+                date(2026, 8, 1), date(2026, 8, 31)
+            )
+
+        self.assertEqual(len(events), 1)
+        self.assertEqual(events[0]["period"], "July 2026")
+        self.assertEqual(events[0]["date"], "2026-08-26")
+        self.assertEqual(events[0]["stars"], 3)
+
     def test_investing_latest_release_parser_reads_flash_values(self):
         html = (
             '<script>{"closestOccurrences":{"latest_release":'
