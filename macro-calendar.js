@@ -139,6 +139,28 @@
     return event.category === "consumption" ? "growth" : event.category;
   }
 
+  function getImportanceStars(event) {
+    const stars = Number(event.stars);
+    if (Number.isInteger(stars) && stars >= 1 && stars <= 5) {
+      return stars;
+    }
+
+    const legacyImportance = {
+      critical: 5,
+      high: 4,
+      medium: 3,
+      low: 2,
+      background: 1,
+    };
+    return legacyImportance[event.importance] || 3;
+  }
+
+  function renderImportanceStars(event) {
+    const stars = getImportanceStars(event);
+    const symbols = `${"★".repeat(stars)}${"☆".repeat(5 - stars)}`;
+    return `<span class="macro-importance" data-stars="${stars}" role="img" aria-label="重要性 ${stars} 星，满分 5 星" title="重要性 ${stars}/5">${symbols}</span>`;
+  }
+
   function formatPeriod(period) {
     if (!period) {
       return "";
@@ -311,6 +333,7 @@
         <div class="macro-event-body">
           <div class="macro-event-meta">
             <span class="macro-category">${category}</span>
+            ${renderImportanceStars(event)}
             ${sourceBadge}
           </div>
           <div class="macro-event-main">
