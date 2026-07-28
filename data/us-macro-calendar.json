@@ -1,43 +1,5 @@
 [
   {
-    "date": "2026-07-24",
-    "time_et": "09:45",
-    "time_shanghai": "21:45",
-    "title": "S&P Global Flash US Manufacturing PMI",
-    "title_cn": "美国S&P Global制造业PMI初值",
-    "period": "July 2026",
-    "category": "growth",
-    "importance": "medium",
-    "source": "S&P Global",
-    "url": "https://www.pmi.spglobal.com/Public/Home/PressRelease/04dad02019414e5ebc89ec6a04b300bd",
-    "actual": "53.8",
-    "forecast": "54.4",
-    "previous": "53.9",
-    "release_status": "released",
-    "stars": 3,
-    "fallback_url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
-    "fallback_label": "S&P 日历备用"
-  },
-  {
-    "date": "2026-07-24",
-    "time_et": "09:45",
-    "time_shanghai": "21:45",
-    "title": "S&P Global Flash US Services PMI",
-    "title_cn": "美国S&P Global服务业PMI初值",
-    "period": "July 2026",
-    "category": "growth",
-    "importance": "medium",
-    "source": "S&P Global",
-    "url": "https://www.pmi.spglobal.com/Public/Home/PressRelease/04dad02019414e5ebc89ec6a04b300bd",
-    "actual": "53.6",
-    "forecast": "51.3",
-    "previous": "51.2",
-    "release_status": "released",
-    "stars": 3,
-    "fallback_url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
-    "fallback_label": "S&P 日历备用"
-  },
-  {
     "date": "2026-07-27",
     "time_et": "08:30",
     "time_shanghai": "20:30",
@@ -51,44 +13,12 @@
     "url": "https://www.census.gov/manufacturing/m3/release_schedule.html",
     "fallback_url": "https://fred.stlouisfed.org/series/NEWORDER",
     "fallback_label": "FRED 备用",
-    "actual": "耐用品 0.3% · 核心资本品 0.9%",
-    "forecast": "耐用品 1.6% · 核心资本品 0.8%",
-    "previous": "耐用品 -4.0% · 核心资本品 1.9%",
-    "result_source": "U.S. Census Bureau / Reuters",
-    "result_url": "https://www.investing.com/news/economic-indicators/us-core-capital-goods-orders-increase-strongly-in-june-4814170",
-    "release_status": "released"
-  },
-  {
-    "date": "2026-07-30",
-    "time_et": "14:00",
-    "time_shanghai": "02:00",
-    "title": "FOMC Policy Decision",
-    "title_cn": "FOMC 利率决议",
-    "period": "July 2026 meeting",
-    "category": "fed",
-    "importance": "critical",
-    "source": "Federal Reserve",
-    "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-    "date_et": "2026-07-29",
-    "stars": 5,
-    "forecast": "3.75%",
-    "previous": "3.75%",
+    "forecast": "耐用品 1.6% · 核心耐用品 0.9%",
+    "previous": "耐用品 -4.5% · 核心耐用品 1.3%",
     "result_source": "Forex Factory 市场日历",
-    "result_url": "https://www.forexfactory.com/calendar"
-  },
-  {
-    "date": "2026-07-30",
-    "time_et": "14:30",
-    "time_shanghai": "02:30",
-    "title": "FOMC Chair Press Conference",
-    "title_cn": "FOMC 主席发布会",
-    "period": "July 2026 meeting",
-    "category": "fed",
-    "importance": "critical",
-    "source": "Federal Reserve",
-    "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-    "date_et": "2026-07-29",
-    "stars": 5
+    "result_url": "https://www.forexfactory.com/calendar",
+    "actual": "耐用品 0.3% · 核心资本品 0.9%",
+    "release_status": "released"
   },
   {
     "date": "2026-07-30",
@@ -99,9 +29,9 @@
     "period": "2nd Quarter 2026",
     "category": "growth",
     "importance": "high",
+    "stars": 4,
     "source": "BEA",
     "url": "https://www.bea.gov/news/schedule",
-    "stars": 4,
     "forecast": "2.0%",
     "previous": "2.0%",
     "result_source": "Forex Factory 市场日历",
@@ -116,13 +46,45 @@
     "period": "June 2026",
     "category": "inflation",
     "importance": "high",
+    "stars": 4,
     "source": "BEA",
     "url": "https://www.bea.gov/news/schedule",
-    "stars": 4,
     "forecast": "0.2%",
     "previous": "0.3%",
     "result_source": "Forex Factory 市场日历",
     "result_url": "https://www.forexfactory.com/calendar"
+  },
+  {
+    "date": "2026-07-30",
+    "time_et": "14:00",
+    "time_shanghai": "02:00",
+    "title": "FOMC Policy Decision",
+    "title_cn": "FOMC 利率决议",
+    "period": "July 2026 meeting",
+    "category": "fed",
+    "importance": "critical",
+    "stars": 5,
+    "source": "Federal Reserve",
+    "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+    "date_et": "2026-07-29",
+    "forecast": "3.75%",
+    "previous": "3.75%",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar"
+  },
+  {
+    "date": "2026-07-30",
+    "time_et": "14:30",
+    "time_shanghai": "02:30",
+    "title": "FOMC Chair Press Conference",
+    "title_cn": "FOMC 主席发布会",
+    "period": "July 2026 meeting",
+    "category": "fed",
+    "importance": "critical",
+    "stars": 5,
+    "source": "Federal Reserve",
+    "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+    "date_et": "2026-07-29"
   },
   {
     "date": "2026-08-03",
@@ -133,9 +95,9 @@
     "period": "July 2026",
     "category": "growth",
     "importance": "medium",
+    "stars": 3,
     "source": "ISM",
     "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/",
-    "stars": 3,
     "previous": "53.3"
   },
   {
@@ -147,9 +109,9 @@
     "period": "June 2026",
     "category": "jobs",
     "importance": "medium",
+    "stars": 3,
     "source": "BLS",
     "url": "https://www.bls.gov/schedule/news_release/",
-    "stars": 3,
     "fallback_url": "https://fred.stlouisfed.org/series/JTSJOL",
     "fallback_label": "FRED 备用",
     "previous": "7.594M"
@@ -163,9 +125,9 @@
     "period": "July 2026",
     "category": "growth",
     "importance": "medium",
+    "stars": 3,
     "source": "ISM",
     "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/",
-    "stars": 3,
     "previous": "54.0"
   },
   {
@@ -177,9 +139,9 @@
     "period": "July 2026",
     "category": "jobs",
     "importance": "critical",
+    "stars": 5,
     "source": "BLS",
     "url": "https://www.bls.gov/schedule/news_release/",
-    "stars": 5,
     "fallback_url": "https://fred.stlouisfed.org/release?rid=50",
     "fallback_label": "FRED 备用",
     "previous": "非农 57K · 失业率 4.2% · 时薪 0.3%"
@@ -193,9 +155,9 @@
     "period": "July 2026",
     "category": "inflation",
     "importance": "critical",
+    "stars": 5,
     "source": "BLS",
     "url": "https://www.bls.gov/schedule/news_release/",
-    "stars": 5,
     "fallback_url": "https://fred.stlouisfed.org/release?rid=10",
     "fallback_label": "FRED 备用",
     "previous": "CPI -0.4% · 核心CPI 0.0%"
@@ -209,9 +171,9 @@
     "period": "July 2026",
     "category": "inflation",
     "importance": "medium",
+    "stars": 3,
     "source": "BLS",
     "url": "https://www.bls.gov/schedule/news_release/",
-    "stars": 3,
     "fallback_url": "https://fred.stlouisfed.org/release?rid=46",
     "fallback_label": "FRED 备用",
     "previous": "-0.3%"
@@ -225,9 +187,9 @@
     "period": "July 2026",
     "category": "growth",
     "importance": "high",
+    "stars": 4,
     "source": "Census",
     "url": "https://www.census.gov/economic-indicators/",
-    "stars": 4,
     "fallback_url": "https://fred.stlouisfed.org/release?rid=9",
     "fallback_label": "FRED 备用",
     "previous": "0.2%"
@@ -241,10 +203,10 @@
     "period": "July 2026 meeting",
     "category": "fed",
     "importance": "medium",
+    "stars": 3,
     "source": "Federal Reserve",
     "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-    "date_et": "2026-08-19",
-    "stars": 3
+    "date_et": "2026-08-19"
   },
   {
     "date": "2026-08-21",
@@ -255,9 +217,9 @@
     "period": "August 2026",
     "category": "growth",
     "importance": "medium",
+    "stars": 3,
     "source": "S&P Global",
     "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
-    "stars": 3,
     "previous": "53.8"
   },
   {
@@ -269,9 +231,9 @@
     "period": "August 2026",
     "category": "growth",
     "importance": "medium",
+    "stars": 3,
     "source": "S&P Global",
     "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
-    "stars": 3,
     "previous": "53.6"
   },
   {
@@ -299,9 +261,9 @@
     "period": "2nd Quarter 2026",
     "category": "growth",
     "importance": "high",
+    "stars": 4,
     "source": "BEA",
-    "url": "https://www.bea.gov/news/schedule",
-    "stars": 4
+    "url": "https://www.bea.gov/news/schedule"
   },
   {
     "date": "2026-08-26",
@@ -312,8 +274,21 @@
     "period": "July 2026",
     "category": "inflation",
     "importance": "high",
+    "stars": 4,
     "source": "BEA",
-    "url": "https://www.bea.gov/news/schedule",
-    "stars": 4
+    "url": "https://www.bea.gov/news/schedule"
+  },
+  {
+    "date": "2026-09-01",
+    "time_et": "10:00",
+    "time_shanghai": "22:00",
+    "title": "Manufacturing PMI Report on Business",
+    "title_cn": "美国ISM制造业PMI",
+    "period": "August 2026",
+    "category": "growth",
+    "importance": "medium",
+    "stars": 3,
+    "source": "ISM",
+    "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/"
   }
 ]
