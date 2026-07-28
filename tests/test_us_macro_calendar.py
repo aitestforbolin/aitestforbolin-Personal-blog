@@ -62,6 +62,11 @@ class UsMacroCalendarTests(unittest.TestCase):
         self.assertEqual(durable["date"], "2026-07-27")
         self.assertEqual(durable["time_shanghai"], "20:30")
         self.assertEqual(durable["stars"], 3)
+        self.assertEqual(
+            durable["fallback_url"],
+            "https://fred.stlouisfed.org/series/NEWORDER",
+        )
+        self.assertEqual(durable["fallback_label"], "FRED 备用")
         gdp = next(event for event in events if event["title_cn"] == "美国GDP")
         self.assertEqual(gdp["stars"], 4)
         self.assertTrue(all(1 <= int(event["stars"]) <= 5 for event in events))
