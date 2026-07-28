@@ -14,7 +14,9 @@
     "forecast": "54.4",
     "previous": "53.9",
     "release_status": "released",
-    "stars": 3
+    "stars": 3,
+    "fallback_url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
+    "fallback_label": "S&P 日历备用"
   },
   {
     "date": "2026-07-24",
@@ -31,7 +33,30 @@
     "forecast": "51.3",
     "previous": "51.2",
     "release_status": "released",
-    "stars": 3
+    "stars": 3,
+    "fallback_url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
+    "fallback_label": "S&P 日历备用"
+  },
+  {
+    "date": "2026-07-27",
+    "time_et": "08:30",
+    "time_shanghai": "20:30",
+    "title": "Advance Report on Durable Goods and Advance Total Manufacturing",
+    "title_cn": "美国耐用品订单 / 核心资本品订单",
+    "period": "June 2026",
+    "category": "growth",
+    "importance": "medium",
+    "stars": 3,
+    "source": "Census",
+    "url": "https://www.census.gov/manufacturing/m3/release_schedule.html",
+    "fallback_url": "https://fred.stlouisfed.org/series/NEWORDER",
+    "fallback_label": "FRED 备用",
+    "actual": "耐用品 0.3% · 核心资本品 0.9%",
+    "forecast": "耐用品 1.6% · 核心资本品 0.8%",
+    "previous": "耐用品 -4.0% · 核心资本品 1.9%",
+    "result_source": "U.S. Census Bureau / Reuters",
+    "result_url": "https://www.investing.com/news/economic-indicators/us-core-capital-goods-orders-increase-strongly-in-june-4814170",
+    "release_status": "released"
   },
   {
     "date": "2026-07-30",
@@ -45,7 +70,11 @@
     "source": "Federal Reserve",
     "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
     "date_et": "2026-07-29",
-    "stars": 5
+    "stars": 5,
+    "forecast": "3.75%",
+    "previous": "3.75%",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar"
   },
   {
     "date": "2026-07-30",
@@ -72,7 +101,11 @@
     "importance": "high",
     "source": "BEA",
     "url": "https://www.bea.gov/news/schedule",
-    "stars": 4
+    "stars": 4,
+    "forecast": "2.0%",
+    "previous": "2.0%",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar"
   },
   {
     "date": "2026-07-30",
@@ -85,7 +118,11 @@
     "importance": "high",
     "source": "BEA",
     "url": "https://www.bea.gov/news/schedule",
-    "stars": 4
+    "stars": 4,
+    "forecast": "0.2%",
+    "previous": "0.3%",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar"
   },
   {
     "date": "2026-08-03",
@@ -98,7 +135,8 @@
     "importance": "medium",
     "source": "ISM",
     "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/",
-    "stars": 3
+    "stars": 3,
+    "previous": "53.3"
   },
   {
     "date": "2026-08-04",
@@ -111,7 +149,10 @@
     "importance": "medium",
     "source": "BLS",
     "url": "https://www.bls.gov/schedule/news_release/",
-    "stars": 3
+    "stars": 3,
+    "fallback_url": "https://fred.stlouisfed.org/series/JTSJOL",
+    "fallback_label": "FRED 备用",
+    "previous": "7.594M"
   },
   {
     "date": "2026-08-05",
@@ -124,7 +165,8 @@
     "importance": "medium",
     "source": "ISM",
     "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/",
-    "stars": 3
+    "stars": 3,
+    "previous": "54.0"
   },
   {
     "date": "2026-08-07",
@@ -137,7 +179,10 @@
     "importance": "critical",
     "source": "BLS",
     "url": "https://www.bls.gov/schedule/news_release/",
-    "stars": 5
+    "stars": 5,
+    "fallback_url": "https://fred.stlouisfed.org/release?rid=50",
+    "fallback_label": "FRED 备用",
+    "previous": "非农 57K · 失业率 4.2% · 时薪 0.3%"
   },
   {
     "date": "2026-08-12",
@@ -150,7 +195,10 @@
     "importance": "critical",
     "source": "BLS",
     "url": "https://www.bls.gov/schedule/news_release/",
-    "stars": 5
+    "stars": 5,
+    "fallback_url": "https://fred.stlouisfed.org/release?rid=10",
+    "fallback_label": "FRED 备用",
+    "previous": "CPI -0.4% · 核心CPI 0.0%"
   },
   {
     "date": "2026-08-13",
@@ -163,7 +211,10 @@
     "importance": "medium",
     "source": "BLS",
     "url": "https://www.bls.gov/schedule/news_release/",
-    "stars": 3
+    "stars": 3,
+    "fallback_url": "https://fred.stlouisfed.org/release?rid=46",
+    "fallback_label": "FRED 备用",
+    "previous": "-0.3%"
   },
   {
     "date": "2026-08-14",
@@ -176,7 +227,10 @@
     "importance": "high",
     "source": "Census",
     "url": "https://www.census.gov/economic-indicators/",
-    "stars": 4
+    "stars": 4,
+    "fallback_url": "https://fred.stlouisfed.org/release?rid=9",
+    "fallback_label": "FRED 备用",
+    "previous": "0.2%"
   },
   {
     "date": "2026-08-20",
@@ -203,7 +257,8 @@
     "importance": "medium",
     "source": "S&P Global",
     "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
-    "stars": 3
+    "stars": 3,
+    "previous": "53.8"
   },
   {
     "date": "2026-08-21",
@@ -216,7 +271,8 @@
     "importance": "medium",
     "source": "S&P Global",
     "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
-    "stars": 3
+    "stars": 3,
+    "previous": "53.6"
   },
   {
     "date": "2026-08-26",
@@ -231,7 +287,8 @@
     "source": "Census",
     "url": "https://www.census.gov/manufacturing/m3/release_schedule.html",
     "fallback_url": "https://fred.stlouisfed.org/series/NEWORDER",
-    "fallback_label": "FRED 备用"
+    "fallback_label": "FRED 备用",
+    "previous": "耐用品 0.3% · 核心资本品 0.9%"
   },
   {
     "date": "2026-08-26",
