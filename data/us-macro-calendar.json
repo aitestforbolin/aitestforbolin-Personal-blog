@@ -229,7 +229,9 @@
     "importance": "medium",
     "stars": 3,
     "source": "Census",
-    "url": "https://www.census.gov/manufacturing/m3/release_schedule.html"
+    "url": "https://www.census.gov/manufacturing/m3/release_schedule.html",
+    "fallback_url": "https://fred.stlouisfed.org/series/NEWORDER",
+    "fallback_label": "FRED 备用"
   },
   {
     "date": "2026-08-26",
