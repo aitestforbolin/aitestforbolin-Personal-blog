@@ -126,6 +126,14 @@ https://aitestforbolin.github.io/aitestforbolin-Personal-blog/
 
 ## 6. 以后自动更新网站
 
+当前主要工作方式：
+
+```text
+使用 ChatGPT 云端 Work 编辑个人网站，并通过 GitHub 连接器直接写入仓库。
+```
+
+默认不再采用“先在本地制作，再由本地 git push 到 GitHub”的流程。本地副本只用于必要的预览、排错或备用发布；除非用户明确要求，否则应优先让云端 Work 完成编辑、验证与 GitHub 写入。
+
 Codex 默认约定：
 
 只要用户要求运行每日早报更新，就必须自动完成 GitHub Pages 发布，不停在本地文件生成，也不要求用户手动上传。
