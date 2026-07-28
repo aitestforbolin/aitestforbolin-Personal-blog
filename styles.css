@@ -979,6 +979,46 @@ h2 {
   text-underline-offset: 3px;
 }
 
+.macro-event-main {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.macro-event-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  align-items: center;
+  margin-left: auto;
+}
+
+.macro-result {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  gap: 4px;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+.macro-result small {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.macro-result strong {
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.macro-result-actual strong {
+  color: var(--accent-dark);
+}
+
 .macro-empty {
   margin: 0;
   border: 1px dashed rgba(117, 108, 97, 0.3);
@@ -1733,6 +1773,16 @@ h2 {
   .macro-event-body {
     grid-template-columns: 1fr;
     gap: 6px;
+  }
+
+  .macro-event-main {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .macro-event-results {
+    margin-left: 0;
   }
 
   .post-card {
