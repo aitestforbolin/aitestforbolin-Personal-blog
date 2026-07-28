@@ -946,6 +946,25 @@ h2 {
   background: rgba(164, 79, 52, 0.14);
 }
 
+.macro-fallback-link {
+  border: 1px solid rgba(164, 79, 52, 0.38);
+  border-radius: 999px;
+  padding: 2px 8px;
+  color: var(--accent-dark);
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1.35;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.macro-fallback-link:hover {
+  border-color: var(--accent-dark);
+  background: rgba(164, 79, 52, 0.08);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .macro-event-name {
   color: var(--text);
   font-size: 0.95rem;
