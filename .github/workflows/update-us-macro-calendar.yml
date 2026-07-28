@@ -25,6 +25,9 @@ jobs:
       - name: Refresh calendar data
         run: python scripts/update_us_macro_calendar.py
 
+      - name: Validate calendar data and updater behavior
+        run: python -m unittest discover -s tests -p 'test_us_macro_calendar.py' -v
+
       - name: Commit updated calendar
         run: |
           if git diff --quiet -- data/us-macro-calendar.json; then
