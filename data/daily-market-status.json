@@ -1,6 +1,6 @@
 {
   "asOf": "2026-07-28",
-  "publishedAt": "2026-07-29T16:00:00+08:00",
+  "publishedAt": "2026-07-29T17:30:00+08:00",
   "fallback": {
     "markets": [
       {"id": "SPX", "price": 7428.78, "previousClose": 7413.18, "changePercent": 0.21, "updatedAt": 1785268800000},
@@ -16,71 +16,63 @@
       {"id": "XLE", "changePercent": -1.35, "updatedAt": 1785268800000},
       {"id": "XLI", "changePercent": -0.39, "updatedAt": 1785268800000},
       {"id": "XLF", "changePercent": 1.27, "updatedAt": 1785268800000},
-      {"id": "DXY", "price": 101.287, "previousClose": 101.417, "updatedAt": 1785304818000},
-      {"id": "US02Y", "price": 4.26, "previousClose": 4.31, "updatedAt": 1785268800000},
-      {"id": "US10Y", "price": 4.604, "previousClose": 4.641, "updatedAt": 1785268800000},
-      {"id": "US30Y", "price": 5.096, "previousClose": 5.125, "updatedAt": 1785268800000},
-      {"id": "BRN1!", "price": 84.09, "previousClose": 85.87, "updatedAt": 1785268800000, "contractLabel": "2026年9月合约"},
-      {"id": "GOLD", "price": 4036.30, "previousClose": 4074.60, "updatedAt": 1785268800000},
-      {"id": "BTCUSDT", "price": 63632, "previousClose": 63853, "updatedAt": 1785268800000}
+      {"id": "DXY", "price": 101.320, "previousClose": 101.470, "updatedAt": 1785316598000},
+      {"id": "US02Y", "price": 4.299, "previousClose": 4.281, "updatedAt": 1785317200270},
+      {"id": "US10Y", "price": 4.604, "previousClose": 4.657, "updatedAt": 1785265194000},
+      {"id": "US30Y", "price": 5.096, "previousClose": 5.147, "updatedAt": 1785265194000},
+      {"id": "BRN1!", "price": 84.70, "previousClose": 82.08, "updatedAt": 1785317200270, "contractLabel": "TradingView连续近月"},
+      {"id": "GOLD", "price": 4034.75, "previousClose": 4028.67, "updatedAt": 1785317200270},
+      {"id": "BTCUSDT", "price": 64384.36, "previousClose": 64311.812, "updatedAt": 1785317196000}
     ],
     "breadth": [
-      {"id": "SP500", "label": "标普 500", "advancers": 357, "decliners": 145, "unchanged": 1, "advancePercent": 71.1, "updatedAt": 1785268800000},
-      {"id": "NASDAQ", "label": "Nasdaq 交易所", "advancers": 2391, "decliners": 2358, "unchanged": 225, "advancePercent": 50.3, "updatedAt": 1785268800000}
+      {"id": "SP500", "label": "标普 500", "advancers": 357, "decliners": 145, "unchanged": 1, "advancePercent": 71.1, "updatedAt": 1785317206589},
+      {"id": "NASDAQ", "label": "纳斯达克交易所", "advancers": 2383, "decliners": 2353, "unchanged": 225, "advancePercent": 50.3, "updatedAt": 1785317206639}
     ]
   },
+  "macro24h": [
+    {"id": "DXY", "provider": "Yahoo Finance", "symbol": "DX-Y.NYB", "reference": 101.539, "referenceTime": 1785230100000, "current": 101.320, "currentTime": 1785316598000},
+    {"id": "US02Y", "provider": "TradingView", "symbol": "TVC:US02Y", "reference": null, "referenceTime": null, "current": 4.299, "currentTime": 1785317200270, "status": "同源24小时历史序列未由当前Sites API提供"},
+    {"id": "US10Y", "provider": "Yahoo Finance", "symbol": "^TNX", "reference": 4.641, "referenceTime": 1785178200000, "current": 4.604, "currentTime": 1785265194000},
+    {"id": "US30Y", "provider": "Yahoo Finance", "symbol": "^TYX", "reference": 5.125, "referenceTime": 1785178200000, "current": 5.096, "currentTime": 1785265194000},
+    {"id": "BRN1!", "provider": "TradingView", "symbol": "ICEEUR:BRN1!", "reference": null, "referenceTime": null, "current": 84.70, "currentTime": 1785317200270, "status": "当前Sites仍为Brent期货且未提供同源24小时历史序列"},
+    {"id": "GOLD", "provider": "TradingView", "symbol": "OANDA:XAUUSD", "reference": null, "referenceTime": null, "current": 4034.75, "currentTime": 1785317200270, "status": "同源24小时历史序列未由当前Sites API提供"},
+    {"id": "BTCUSDT", "provider": "Yahoo Finance", "symbol": "BTC-USD", "reference": 63420.35, "referenceTime": 1785230100000, "current": 64384.36, "currentTime": 1785317196000}
+  ],
   "fedProbability": {
     "label": "Fed 下一次加息概率",
-    "previous": 38,
-    "current": 29,
+    "previous": 32.1,
+    "current": 29.4,
     "unit": "%",
-    "asOf": "2026-07-28",
-    "source": "CME FedWatch，经 Reuters 核验",
+    "previousAsOf": "2026-07-28 22:55 北京时间",
+    "currentAsOf": "2026-07-29 17:30 北京时间",
+    "source": "CME FedWatch口径，经 WSJ 核验",
     "sourceUrl": "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html"
   },
   "drivers": [
     {
       "group": "半导体",
-      "name": "英伟达",
-      "ticker": "NVDA",
-      "changePercent": 0.25,
-      "reason": "费半大跌时仍小幅收涨，与板块方向相反，说明抛压集中在部分高估值与存储链。",
-      "sourceLabel": "Reuters",
-      "sourceUrl": "https://www.reuters.com/business/nasdaq-futures-drop-ai-chip-worries-ahead-pivotal-earnings-2026-07-28/"
-    },
-    {
-      "group": "半导体",
       "name": "超威半导体",
       "ticker": "AMD",
       "changePercent": -8.15,
-      "reason": "跌幅显著并拖累半导体风险偏好，市场重新审视 AI 芯片融资与竞争强度。",
-      "sourceLabel": "Reuters",
-      "sourceUrl": "https://www.reuters.com/world/china/samsung-sk-hynix-slide-amid-nvidia-financing-worries-china-competition-2026-07-28/"
+      "reason": "未发现当日公司级负面公告；AMD被直接列入芯片抛售，异动与AI资本开支可持续性及融资担忧一致。",
+      "sourceLabel": "Financial Times",
+      "sourceUrl": "https://www.ft.com/content/f8c03b5b-e194-4236-82c3-389b6f5dd7ae"
     },
     {
       "group": "半导体",
       "name": "美光科技",
       "ticker": "MU",
       "changePercent": -8.85,
-      "reason": "存储龙头大跌，强化半导体板块的独立去风险信号。",
-      "sourceLabel": "Reuters",
-      "sourceUrl": "https://www.reuters.com/world/china/samsung-sk-hynix-slide-amid-nvidia-financing-worries-china-competition-2026-07-28/"
-    },
-    {
-      "group": "大型科技",
-      "name": "谷歌",
-      "ticker": "GOOGL",
-      "changePercent": 2.19,
-      "reason": "涨幅超过 2%，与半导体下跌形成分化，支撑通讯服务板块。",
-      "sourceLabel": "Reuters",
-      "sourceUrl": "https://www.reuters.com/business/nasdaq-futures-drop-ai-chip-worries-ahead-pivotal-earnings-2026-07-28/"
+      "reason": "未发现当日公司级负面公告；美光领跌芯片股，报道将其与存储竞争和AI融资忧虑直接联系。",
+      "sourceLabel": "Barron's",
+      "sourceUrl": "https://www.barrons.com/articles/micron-stock-price-chip-selloff-e64a807e"
     },
     {
       "group": "其他显著个股",
       "name": "可口可乐",
       "ticker": "KO",
       "changePercent": 5.00,
-      "reason": "上调全年指引，股价大涨并解释必需消费与道指的相对强势。",
+      "reason": "二季度收入和利润增长，并上调全年有机收入与可比EPS指引，解释必需消费与道指的相对强势。",
       "sourceLabel": "公司公告",
       "sourceUrl": "https://investors.coca-colacompany.com/news-events/press-releases/detail/1168/coca-cola-reports-second-quarter-2026-results-and-raises-full-year-guidance"
     },
@@ -89,7 +81,7 @@
       "name": "波音",
       "ticker": "BA",
       "changePercent": 4.76,
-      "reason": "季度业绩与交付进展推动股价上涨，是道指明显跑赢的重要个股驱动。",
+      "reason": "二季度收入246亿美元、自由现金流转正且积压订单达到7150亿美元，是道指明显跑赢的重要驱动。",
       "sourceLabel": "公司公告",
       "sourceUrl": "https://investors.boeing.com/investors/news/press-release-details/2026/Boeing-Reports-Second-Quarter-Results/default.aspx"
     },
@@ -98,23 +90,23 @@
       "name": "康宁",
       "ticker": "GLW",
       "changePercent": -12.10,
-      "reason": "大幅下跌且与工业板块方向形成显著偏离，反映公司层面的预期重估。",
+      "reason": "三季度销售预测略低于预期，且光通信业务增长放缓，触发公司层面的预期重估。",
       "sourceLabel": "Reuters",
-      "sourceUrl": "https://www.reuters.com/business/nasdaq-futures-drop-ai-chip-worries-ahead-pivotal-earnings-2026-07-28/"
+      "sourceUrl": "https://www.reuters.com/business/corning-falls-16-after-forecasting-weaker-than-expected-q3-sales-2026-07-28/"
     },
     {
       "group": "其他显著个股",
       "name": "艾昆纬",
       "ticker": "IQV",
       "changePercent": 13.94,
-      "reason": "财报后大涨，是医疗保健板块领涨的直接个股解释之一。",
+      "reason": "新签订单增长19%，并上调全年收入、EBITDA和调整后EPS指引，是医疗保健板块领涨的直接解释。",
       "sourceLabel": "公司公告",
       "sourceUrl": "https://ir.iqvia.com/press-releases/press-release-details/2026/IQVIA-Reports-Second-Quarter-2026-Results/default.aspx"
     }
   ],
   "etfFlow": {
-    "date": "2026-07-27",
-    "totalMillions": -11.6,
+    "date": "2026-07-28",
+    "totalMillions": -49.7,
     "source": "Farside Investors",
     "sourceUrl": "https://farside.co.uk/bitcoin-etf-flow-all-data/"
   },
@@ -128,13 +120,13 @@
     {"startAt": "2026-07-31T05:00:00+08:00", "name": "Amazon 财报与电话会", "impact": "主要影响：AWS 增速、AI 资本开支与自由现金流。", "sourceUrl": "https://ir.aboutamazon.com/"}
   ],
   "view": [
-    "标普 500 上涨、Nasdaq 下跌，但标普内部上涨家数占明显多数；指数与宽度并非全面背离，而是大型 AI 硬件对市值加权指数形成集中拖累。",
+    "标普500上涨、纳斯达克下跌，但标普内部上涨家数占明显多数；指数与宽度并非全面背离，而是大型AI硬件对市值加权指数形成集中拖累。",
     "真正的上涨驱动来自医疗保健、必需消费与通讯服务；费城半导体显著下跌，是当日最清晰的负向板块信号。",
     "可口可乐、波音与艾昆纬的财报和指引分别解释了必需消费、道指和医疗保健的强势，个股层面的基本面催化比单纯风格标签更有解释力。",
-    "半导体内部也不是一致下跌：AMD 与美光显著走弱，英伟达却逆板块小幅上涨。更合理的描述是估值、融资与竞争担忧触发选择性去风险，而不是订单全面坍塌。",
-    "美债收益率与美元同步回落，确认油价回落带来的短期通胀压力缓和；但下一次加息概率仍约 29%，不足以定义为政策转向宽松。",
-    "黄金与 Brent 同跌，更接近地缘溢价回吐，而不是增长恐慌；若是增长冲击，通常还需要更强的长债上涨与信用压力确认。",
-    "BTC 维持在 6.3 万美元附近，但 ETF 最新为小幅净流出，加密资产没有确认股票市场宽度扩张。"
+    "AMD与美光的显著下跌说明抛压集中在半导体链条；由于没有找到二者当日公司级负面公告，更稳妥的解释是板块与融资担忧，而不是把跌幅归因于并不存在的财报或指引。",
+    "美元指数及10年、30年美债收益率均低于各自24小时前同源参照；Fed下一次加息概率的最新核验约为29.4%，利率和美元没有强化成长股的折现率压力。",
+    "当前Sites接口对2Y、Brent和黄金只返回TradingView当前报价，没有同源历史点，因此这三项暂不能用于滚动24小时确认，也不能借用前一日收盘涨跌替代。",
+    "BTC高于24小时前的Yahoo BTC-USD同源参照，但ETF最新已完成统计日仍为小幅净流出；加密价格与资金流没有形成一致确认。"
   ],
   "verdict": "昨日属于：广度扩张，但 AI 硬件单独去杠杆的结构性轮动。"
 }
