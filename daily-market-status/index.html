@@ -10,7 +10,7 @@
     />
     <link rel="stylesheet" href="../styles.css?v=20260728-3" />
     <link rel="stylesheet" href="../editorial-refresh.css?v=20260721-1" />
-    <link rel="stylesheet" href="daily-market-status.css?v=20260729-1" />
+    <link rel="stylesheet" href="daily-market-status.css?v=20260729-2" />
   </head>
   <body>
     <header class="site-header">
@@ -35,7 +35,6 @@
       <header class="status-hero">
         <p class="eyebrow">Daily Market Status · Beijing Time</p>
         <h1>每日市场状态</h1>
-        <p class="status-deck">四个部分，看清价格、宽度、催化剂与解释。</p>
         <div class="status-mast-meta">
           <span data-page-date>读取交易日…</span>
           <span class="status-dot" aria-hidden="true"></span>
@@ -52,23 +51,29 @@
             <p class="module-state" data-state="equities">正在载入行情…</p>
           </header>
 
-          <div class="index-line" data-indices aria-live="polite"></div>
+          <div class="editorial-block first-block">
+            <div class="block-title">
+              <h3>1）三大核心指数</h3>
+              <span>最新完成交易日收盘涨跌</span>
+            </div>
+            <div class="index-line" data-indices aria-live="polite"></div>
+          </div>
 
           <div class="editorial-block">
             <div class="block-title">
-              <h3>市场宽度</h3>
+              <h3>2）市场宽度</h3>
               <span data-breadth-time>等待数据</span>
             </div>
             <div class="breadth-list" data-breadth></div>
             <p class="method-note">
-              数据源：TradingView Stock Screener。标普 500 按成分股统计；Nasdaq
+              数据源：TradingView Stock Screener。标普500按成分股统计；纳斯达克
               按交易所股票、基金及存托凭证统计。上涨比例 = 上涨 ÷（上涨 + 下跌），平盘展示但不进入分母。
             </p>
           </div>
 
           <div class="editorial-block">
             <div class="block-title">
-              <h3>板块</h3>
+              <h3>3）细分板块</h3>
               <span>收盘涨跌｜Yahoo Finance</span>
             </div>
             <div class="sector-groups" data-sectors></div>
@@ -76,7 +81,7 @@
 
           <div class="editorial-block drivers-block">
             <div class="block-title">
-              <h3>核心个股驱动</h3>
+              <h3>4）核心个股驱动</h3>
               <span data-driver-date>筛选中</span>
             </div>
             <div data-drivers></div>
@@ -95,9 +100,10 @@
             <h2 id="macro-assets-title">｜宏观资产数据</h2>
             <p class="module-state" data-state="macro">正在载入行情…</p>
           </header>
+          <p class="macro-clock" data-macro-clock>正在核验当前时间与24小时前参照时间…</p>
           <div class="macro-rows" data-macro></div>
           <p class="method-note">
-            行情来自现有 markets API；收益率单位为百分比。Brent 沿用单一近月合约，避免把连续合约换月断层误判为真实涨跌。Fed 概率与 ETF 资金流为每日核验快照。
+            “24小时前”采用同一标的、同一提供商、同一单位的滚动比较；没有恰好报价时，取不晚于目标时刻的最近有效点。休市报价标为“最近可用”。Fed 概率与 ETF 资金流单独核验。
           </p>
         </div>
       </section>
@@ -110,6 +116,7 @@
             <h2 id="events-title">｜日历、事件及其影响</h2>
             <p class="module-state" data-state="events">正在筛选未来事件…</p>
           </header>
+          <p class="calendar-timezone">以下均为北京时间</p>
           <div class="event-list" data-events></div>
         </div>
       </section>
@@ -135,6 +142,6 @@
     <footer class="site-footer">
       <p>© 2026 Bolin Brief · Independent notes from Asia / Shanghai.</p>
     </footer>
-    <script src="daily-market-status.js?v=20260729-1"></script>
+    <script src="daily-market-status.js?v=20260729-2"></script>
   </body>
 </html>
