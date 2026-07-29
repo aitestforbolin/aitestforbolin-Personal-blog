@@ -16,28 +16,29 @@
 
   const indexConfig = [
     ["SPX", "标普500"],
-    ["IXIC", "Nasdaq"],
+    ["IXIC", "纳斯达克"],
     ["DJI", "道琼斯"],
   ];
   const sectorConfig = [
-    ["进攻和成长", [["SOX", "SOX"], ["XLK", "XLK"], ["XLY", "XLY"], ["XLC", "XLC"]]],
-    ["防御", [["XLV", "XLV"], ["XLU", "XLU"], ["XLP", "XLP"]]],
-    ["宏观敏感", [["XLE", "XLE"], ["XLI", "XLI"], ["XLF", "XLF"]]],
+    ["进攻和成长", [["SOX", "SOX（半导体指数）"], ["XLK", "XLK（信息技术）"], ["XLY", "XLY（可选消费）"], ["XLC", "XLC（通信服务）"]]],
+    ["防御", [["XLV", "XLV（医疗保健）"], ["XLU", "XLU（公共事业）"], ["XLP", "XLP（必需消费）"]]],
+    ["宏观敏感", [["XLE", "XLE（能源）"], ["XLI", "XLI（工业）"], ["XLF", "XLF（金融）"]]],
   ];
   const macroConfig = [
-    ["DXY", "美元指数", 3, ""],
-    ["US02Y", "2Y 美债收益率", 3, "%"],
-    ["US10Y", "10Y 美债收益率", 3, "%"],
-    ["US30Y", "30Y 美债收益率", 3, "%"],
-    ["BRN1!", "Brent", 2, ""],
-    ["GOLD", "黄金", 2, ""],
-    ["BTCUSDT", "BTC", 0, ""],
+    ["DXY", "美元指数", 3, "", "Yahoo Finance · DX-Y.NYB"],
+    ["US02Y", "2年期美债收益率", 3, "%", "TradingView · TVC:US02Y"],
+    ["US10Y", "10年期美债收益率", 3, "%", "Yahoo Finance · ^TNX"],
+    ["US30Y", "30年期美债收益率", 3, "%", "Yahoo Finance · ^TYX"],
+    ["BRN1!", "Brent期货", 2, "", "TradingView · ICEEUR:BRN1!"],
+    ["GOLD", "黄金", 2, "", "TradingView · OANDA:XAUUSD"],
+    ["BTCUSDT", "BTC", 0, "", "Yahoo Finance · BTC-USD"],
   ];
 
   let snapshot = null;
   let etfData = null;
   let marketMap = new Map();
   let breadthData = [];
+  let marketsFetchedAt = 0;
   let retryIndex = 0;
   let timer = null;
 
@@ -88,11 +89,17 @@
     }).format(new Date(numeric));
   }
 
-  function formatEventTime(iso) {
+  function formatEventDay(iso) {
     return new Intl.DateTimeFormat("zh-CN", {
       timeZone: DISPLAY_TIMEZONE,
       month: "2-digit",
       day: "2-digit",
+    }).format(new Date(iso));
+  }
+
+  function formatEventTime(iso) {
+    return new Intl.DateTimeFormat("zh-CN", {
+      timeZone: DISPLAY_TIMEZONE,
       hour: "2-digit",
       minute: "2-digit",
       hour12: false,
@@ -151,13 +158,8 @@
       .map(
         (item) => `
           <div class="breadth-row">
-            <strong>${escapeHtml(item.label)}</strong>
-            <span>
-              <span class="is-up">涨 ${formatNumber(item.advancers, 0)} 支</span>｜
-              <span class="is-down">跌 ${formatNumber(item.decliners, 0)} 支</span>｜
-              <span class="is-up">${formatNumber(item.advancePercent, 1)}% 上涨</span>
-              ${Number(item.unchanged) ? `｜平 ${formatNumber(item.unchanged, 0)} 支` : ""}
-            </span>
+            <strong>${escapeHtml(item.id === "SP500" ? "标普500" : "纳斯达克交易所")}：</strong>
+            <span>涨${formatNumber(item.advancers, 0)}支、跌${formatNumber(item.decliners, 0)}支、平${formatNumber(item.unchanged, 0)}支（${formatNumber(item.advancePercent, 1)}%上涨）</span>
           </div>`
       )
       .join("");
@@ -223,32 +225,120 @@
       `${formatDate(snapshot.asOf)} 收盘筛选`;
   }
 
-  function macroRow(label, previous, current, decimals, suffix, time, extra) {
-    const change = Number(current) - Number(previous);
+  function finiteNumber(value) {
+    const number = Number(value);
+    return value !== null && value !== "" && Number.isFinite(number)
+      ? number
+      : null;
+  }
+
+  function snapshotComparison(id) {
+    return (snapshot?.macro24h || []).find((item) => item.id === id) || null;
+  }
+
+  function rollingComparison(id, item) {
+    const stored = snapshotComparison(id);
+    const current = finiteNumber(item?.price) ?? finiteNumber(stored?.current);
+    const currentTime =
+      finiteNumber(item?.updatedAt) ?? finiteNumber(stored?.currentTime);
+    if (current === null || currentTime === null) {
+      return {
+        current,
+        currentTime,
+        reference: null,
+        referenceTime: null,
+        status: "数据不可用",
+      };
+    }
+
+    const targetTime = currentTime - 24 * 60 * 60 * 1000;
+    const referencePoint = (Array.isArray(item?.points) ? item.points : [])
+      .filter(
+        (point) =>
+          finiteNumber(point?.time) !== null &&
+          finiteNumber(point?.value) !== null &&
+          Number(point.time) <= targetTime
+      )
+      .sort((a, b) => Number(a.time) - Number(b.time))
+      .at(-1);
+    const storedReference =
+      stored &&
+      finiteNumber(stored.reference) !== null &&
+      finiteNumber(stored.referenceTime) !== null &&
+      Number(stored.referenceTime) <= targetTime
+        ? stored
+        : null;
+    const reference =
+      finiteNumber(referencePoint?.value) ??
+      finiteNumber(storedReference?.reference);
+    const referenceTime =
+      finiteNumber(referencePoint?.time) ??
+      finiteNumber(storedReference?.referenceTime);
+    const age = Math.max(0, (marketsFetchedAt || Date.now()) - currentTime);
+    const availability =
+      age > 45 * 60 * 1000 ? "最近可用" : "当前";
+
+    return {
+      current,
+      currentTime,
+      reference,
+      referenceTime,
+      targetTime,
+      status:
+        reference === null
+          ? `${availability}｜同源24小时序列不可用`
+          : availability,
+    };
+  }
+
+  function directionIcon(previous, current) {
+    const before = finiteNumber(previous);
+    const now = finiteNumber(current);
+    if (before === null || now === null || before === now) return "—";
+    return now > before ? "📈" : "📉";
+  }
+
+  function macroRow(label, previous, current, decimals, suffix, source, status, iconOverride) {
     return `
       <div class="macro-row">
-        <span>${escapeHtml(label)}</span>
-        <strong class="macro-value ${directionClass(change)}">
-          ${formatNumber(previous, decimals)}${suffix} → ${formatNumber(current, decimals)}${suffix}
-          ${extra ? `<small>｜${escapeHtml(extra)}</small>` : ""}
-        </strong>
-        <span class="macro-time">${escapeHtml(time)}</span>
+        <span>${iconOverride || directionIcon(previous, current)} ${escapeHtml(label)}</span>
+        <div class="macro-reading">
+          <strong class="macro-value">${formatNumber(previous, decimals)}${previous === null ? "" : suffix} → ${formatNumber(current, decimals)}${current === null ? "" : suffix}</strong>
+          <span class="macro-source">${escapeHtml(source)}｜${escapeHtml(status)}</span>
+        </div>
       </div>`;
   }
 
   function renderMacro() {
-    const rows = macroConfig.map(([id, label, decimals, suffix]) => {
-      const item = marketMap.get(id);
-      return macroRow(
-        label,
-        item?.previousClose,
-        item?.price,
-        decimals,
-        suffix,
-        item?.updatedAt ? `口径 ${formatClock(item.updatedAt)}` : "快照时间待核验",
-        id === "BRN1!" ? item?.contractLabel : ""
-      );
+    const comparisons = macroConfig.map(([id, label, decimals, suffix, source]) => {
+      const comparison = rollingComparison(id, marketMap.get(id));
+      return { id, label, decimals, suffix, source, ...comparison };
     });
+    const rows = comparisons.map((item) =>
+      macroRow(
+        item.label,
+        item.reference,
+        item.current,
+        item.decimals,
+        item.suffix,
+        item.source,
+        item.status
+      )
+    );
+    const timed = comparisons.filter(
+      (item) => item.currentTime && item.referenceTime
+    );
+    const latestCurrent = Math.max(
+      0,
+      ...comparisons.map((item) => item.currentTime || 0)
+    );
+    const commonTarget = latestCurrent
+      ? latestCurrent - 24 * 60 * 60 * 1000
+      : 0;
+    root.querySelector("[data-macro-clock]").textContent = latestCurrent
+      ? `当前更新时间 ${formatClock(latestCurrent)}｜24小时前目标 ${formatClock(commonTarget)}｜${timed.length}/${comparisons.length} 项取得同源滚动参照`
+      : "当前时间与24小时前参照时间待核验";
+
     const fed = snapshot.fedProbability;
     rows.splice(
       4,
@@ -257,10 +347,11 @@
         fed.label,
         fed.previous,
         fed.current,
-        0,
+        1,
         fed.unit,
-        `快照 ${fed.asOf}｜${fed.source}`,
-        ""
+        fed.source,
+        `上次核验 ${fed.previousAsOf}｜当前核验 ${fed.currentAsOf}`,
+        "—"
       )
     );
     const etf = etfData?.latest || {
@@ -270,11 +361,11 @@
     const total = Number(etf.total);
     rows.push(`
       <div class="macro-row">
-        <span>BTC ETF 资金流</span>
-        <strong class="macro-value ${directionClass(total)}">
-          ${total >= 0 ? "净流入" : "净流出"} $${formatNumber(Math.abs(total), 1)}m
-        </strong>
-        <span class="macro-time">${escapeHtml(etf.date)}｜Farside Investors</span>
+        <span>— BTC ETF资金流</span>
+        <div class="macro-reading">
+          <strong class="macro-value">${total >= 0 ? "净流入" : "净流出"} $${formatNumber(Math.abs(total), 1)}m</strong>
+          <span class="macro-source">${escapeHtml(etf.date)}｜Farside Investors｜最新已完成统计日</span>
+        </div>
       </div>`);
     root.querySelector("[data-macro]").innerHTML = rows.join("");
   }
@@ -284,15 +375,29 @@
     const events = (snapshot.events || [])
       .filter((item) => new Date(item.startAt).getTime() > now)
       .sort((a, b) => new Date(a.startAt) - new Date(b.startAt));
+    const groups = new Map();
+    events.forEach((item) => {
+      const day = formatEventDay(item.startAt);
+      if (!groups.has(day)) groups.set(day, []);
+      groups.get(day).push(item);
+    });
     root.querySelector("[data-events]").innerHTML = events.length
-      ? events
+      ? [...groups.entries()]
           .map(
-            (item) => `
-              <div class="event-row">
-                <time class="event-time" datetime="${escapeHtml(item.startAt)}">${formatEventTime(item.startAt)} 北京</time>
-                <strong class="event-name"><a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(item.name)} ↗</a></strong>
-                <span class="event-impact">${escapeHtml(item.impact)}</span>
-              </div>`
+            ([day, items]) => `
+              <section class="event-group">
+                <h3 class="event-day">${escapeHtml(day)}</h3>
+                ${items
+                  .map(
+                    (item) => `
+                      <div class="event-row">
+                        <time class="event-time" datetime="${escapeHtml(item.startAt)}">${formatEventTime(item.startAt)}</time>
+                        <strong class="event-name"><a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(item.name)} ↗</a></strong>
+                        <span class="event-impact">${escapeHtml(item.impact)}</span>
+                      </div>`
+                  )
+                  .join("")}
+              </section>`
           )
           .join("")
       : '<p class="module-state">当前快照内没有尚未发生的重点事件。</p>';
@@ -340,12 +445,13 @@
     }
     try {
       const [marketsResponse, breadthResponse] = await Promise.all([
-        fetchJson(MARKETS_API),
+        fetchJson(`${MARKETS_API}?range=5d`),
         fetchJson(BREADTH_API),
       ]);
       const liveMarkets = Array.isArray(marketsResponse.data)
         ? marketsResponse.data
         : [];
+      marketsFetchedAt = Number(marketsResponse.fetchedAt) || Date.now();
       const merged = fallbackMap();
       liveMarkets
         .filter((item) => item?.status === "ok" && Number.isFinite(Number(item.price)))
@@ -360,7 +466,15 @@
       renderMacro();
       const liveCount = liveMarkets.filter((item) => item?.status === "ok").length;
       setState("equities", `实时接口正常｜${liveCount} 项行情｜每 60 秒刷新`, "fresh");
-      setState("macro", "实时接口正常｜盘中资产按各自口径更新", "fresh");
+      const comparableCount = macroConfig.filter(([id]) => {
+        const comparison = rollingComparison(id, marketMap.get(id));
+        return comparison.reference !== null;
+      }).length;
+      setState(
+        "macro",
+        `统一接口正常｜${comparableCount}/${macroConfig.length} 项取得同源滚动24小时参照`,
+        comparableCount === macroConfig.length ? "fresh" : "stale"
+      );
       root.querySelector("[data-page-state]").textContent = "实时数据已连接";
       retryIndex = 0;
       scheduleRefresh(RETRY_DELAYS[0]);
