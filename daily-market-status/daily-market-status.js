@@ -37,8 +37,10 @@
   let snapshot = null;
   let etfData = null;
   let marketMap = new Map();
+  let macroHistoryMap = new Map();
   let breadthData = [];
   let marketsFetchedAt = 0;
+  let macroHistoryFetchedAt = 0;
   let retryIndex = 0;
   let timer = null;
 
@@ -120,6 +122,7 @@
   }
 
   function formatNumber(value, decimals) {
+    if (value === null || value === "" || typeof value === "undefined") return "—";
     const number = Number(value);
     if (!Number.isFinite(number)) return "—";
     return number.toLocaleString("en-US", {
@@ -252,7 +255,14 @@
     }
 
     const targetTime = currentTime - 24 * 60 * 60 * 1000;
-    const referencePoint = (Array.isArray(item?.points) ? item.points : [])
+    const historyItem = macroHistoryMap.get(id);
+    const referencePoint = (
+      Array.isArray(historyItem?.points)
+        ? historyItem.points
+        : Array.isArray(item?.points)
+          ? item.points
+          : []
+    )
       .filter(
         (point) =>
           finiteNumber(point?.time) !== null &&
@@ -444,14 +454,27 @@
       return;
     }
     try {
-      const [marketsResponse, breadthResponse] = await Promise.all([
-        fetchJson(`${MARKETS_API}?range=5d`),
+      const refreshHistory =
+        !macroHistoryFetchedAt ||
+        Date.now() - macroHistoryFetchedAt >= 5 * 60 * 1000;
+      const [marketsResponse, breadthResponse, historyResponse] = await Promise.all([
+        fetchJson(`${MARKETS_API}?range=1d`),
         fetchJson(BREADTH_API),
+        refreshHistory
+          ? fetchJson(`${MARKETS_API}?range=5d`)
+          : Promise.resolve(null),
       ]);
       const liveMarkets = Array.isArray(marketsResponse.data)
         ? marketsResponse.data
         : [];
       marketsFetchedAt = Number(marketsResponse.fetchedAt) || Date.now();
+      if (Array.isArray(historyResponse?.data)) {
+        macroHistoryMap = new Map(
+          historyResponse.data.map((item) => [item.id, item])
+        );
+        macroHistoryFetchedAt =
+          Number(historyResponse.fetchedAt) || Date.now();
+      }
       const merged = fallbackMap();
       liveMarkets
         .filter((item) => item?.status === "ok" && Number.isFinite(Number(item.price)))
