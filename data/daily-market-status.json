@@ -1,0 +1,140 @@
+{
+  "asOf": "2026-07-28",
+  "publishedAt": "2026-07-29T16:00:00+08:00",
+  "fallback": {
+    "markets": [
+      {"id": "SPX", "price": 7428.78, "previousClose": 7413.18, "changePercent": 0.21, "updatedAt": 1785268800000},
+      {"id": "IXIC", "price": 24876.91, "previousClose": 24932.08, "changePercent": -0.22, "updatedAt": 1785268800000},
+      {"id": "DJI", "price": 52747.32, "previousClose": 52210.08, "changePercent": 1.03, "updatedAt": 1785268800000},
+      {"id": "SOX", "changePercent": -4.49, "updatedAt": 1785268800000},
+      {"id": "XLK", "changePercent": -1.84, "updatedAt": 1785268800000},
+      {"id": "XLY", "changePercent": 1.48, "updatedAt": 1785268800000},
+      {"id": "XLC", "changePercent": 1.87, "updatedAt": 1785268800000},
+      {"id": "XLV", "changePercent": 2.36, "updatedAt": 1785268800000},
+      {"id": "XLU", "changePercent": -0.35, "updatedAt": 1785268800000},
+      {"id": "XLP", "changePercent": 1.99, "updatedAt": 1785268800000},
+      {"id": "XLE", "changePercent": -1.35, "updatedAt": 1785268800000},
+      {"id": "XLI", "changePercent": -0.39, "updatedAt": 1785268800000},
+      {"id": "XLF", "changePercent": 1.27, "updatedAt": 1785268800000},
+      {"id": "DXY", "price": 101.287, "previousClose": 101.417, "updatedAt": 1785304818000},
+      {"id": "US02Y", "price": 4.26, "previousClose": 4.31, "updatedAt": 1785268800000},
+      {"id": "US10Y", "price": 4.604, "previousClose": 4.641, "updatedAt": 1785268800000},
+      {"id": "US30Y", "price": 5.096, "previousClose": 5.125, "updatedAt": 1785268800000},
+      {"id": "BRN1!", "price": 84.09, "previousClose": 85.87, "updatedAt": 1785268800000, "contractLabel": "2026年9月合约"},
+      {"id": "GOLD", "price": 4036.30, "previousClose": 4074.60, "updatedAt": 1785268800000},
+      {"id": "BTCUSDT", "price": 63632, "previousClose": 63853, "updatedAt": 1785268800000}
+    ],
+    "breadth": [
+      {"id": "SP500", "label": "标普 500", "advancers": 357, "decliners": 145, "unchanged": 1, "advancePercent": 71.1, "updatedAt": 1785268800000},
+      {"id": "NASDAQ", "label": "Nasdaq 交易所", "advancers": 2391, "decliners": 2358, "unchanged": 225, "advancePercent": 50.3, "updatedAt": 1785268800000}
+    ]
+  },
+  "fedProbability": {
+    "label": "Fed 下一次加息概率",
+    "previous": 38,
+    "current": 29,
+    "unit": "%",
+    "asOf": "2026-07-28",
+    "source": "CME FedWatch，经 Reuters 核验",
+    "sourceUrl": "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html"
+  },
+  "drivers": [
+    {
+      "group": "半导体",
+      "name": "英伟达",
+      "ticker": "NVDA",
+      "changePercent": 0.25,
+      "reason": "费半大跌时仍小幅收涨，与板块方向相反，说明抛压集中在部分高估值与存储链。",
+      "sourceLabel": "Reuters",
+      "sourceUrl": "https://www.reuters.com/business/nasdaq-futures-drop-ai-chip-worries-ahead-pivotal-earnings-2026-07-28/"
+    },
+    {
+      "group": "半导体",
+      "name": "超威半导体",
+      "ticker": "AMD",
+      "changePercent": -8.15,
+      "reason": "跌幅显著并拖累半导体风险偏好，市场重新审视 AI 芯片融资与竞争强度。",
+      "sourceLabel": "Reuters",
+      "sourceUrl": "https://www.reuters.com/world/china/samsung-sk-hynix-slide-amid-nvidia-financing-worries-china-competition-2026-07-28/"
+    },
+    {
+      "group": "半导体",
+      "name": "美光科技",
+      "ticker": "MU",
+      "changePercent": -8.85,
+      "reason": "存储龙头大跌，强化半导体板块的独立去风险信号。",
+      "sourceLabel": "Reuters",
+      "sourceUrl": "https://www.reuters.com/world/china/samsung-sk-hynix-slide-amid-nvidia-financing-worries-china-competition-2026-07-28/"
+    },
+    {
+      "group": "大型科技",
+      "name": "谷歌",
+      "ticker": "GOOGL",
+      "changePercent": 2.19,
+      "reason": "涨幅超过 2%，与半导体下跌形成分化，支撑通讯服务板块。",
+      "sourceLabel": "Reuters",
+      "sourceUrl": "https://www.reuters.com/business/nasdaq-futures-drop-ai-chip-worries-ahead-pivotal-earnings-2026-07-28/"
+    },
+    {
+      "group": "其他显著个股",
+      "name": "可口可乐",
+      "ticker": "KO",
+      "changePercent": 5.00,
+      "reason": "上调全年指引，股价大涨并解释必需消费与道指的相对强势。",
+      "sourceLabel": "公司公告",
+      "sourceUrl": "https://investors.coca-colacompany.com/news-events/press-releases/detail/1168/coca-cola-reports-second-quarter-2026-results-and-raises-full-year-guidance"
+    },
+    {
+      "group": "其他显著个股",
+      "name": "波音",
+      "ticker": "BA",
+      "changePercent": 4.76,
+      "reason": "季度业绩与交付进展推动股价上涨，是道指明显跑赢的重要个股驱动。",
+      "sourceLabel": "公司公告",
+      "sourceUrl": "https://investors.boeing.com/investors/news/press-release-details/2026/Boeing-Reports-Second-Quarter-Results/default.aspx"
+    },
+    {
+      "group": "其他显著个股",
+      "name": "康宁",
+      "ticker": "GLW",
+      "changePercent": -12.10,
+      "reason": "大幅下跌且与工业板块方向形成显著偏离，反映公司层面的预期重估。",
+      "sourceLabel": "Reuters",
+      "sourceUrl": "https://www.reuters.com/business/nasdaq-futures-drop-ai-chip-worries-ahead-pivotal-earnings-2026-07-28/"
+    },
+    {
+      "group": "其他显著个股",
+      "name": "艾昆纬",
+      "ticker": "IQV",
+      "changePercent": 13.94,
+      "reason": "财报后大涨，是医疗保健板块领涨的直接个股解释之一。",
+      "sourceLabel": "公司公告",
+      "sourceUrl": "https://ir.iqvia.com/press-releases/press-release-details/2026/IQVIA-Reports-Second-Quarter-2026-Results/default.aspx"
+    }
+  ],
+  "etfFlow": {
+    "date": "2026-07-27",
+    "totalMillions": -11.6,
+    "source": "Farside Investors",
+    "sourceUrl": "https://farside.co.uk/bitcoin-etf-flow-all-data/"
+  },
+  "events": [
+    {"startAt": "2026-07-30T02:00:00+08:00", "name": "FOMC 利率决议", "impact": "主要影响：美元、2Y 收益率、Fed 定价与成长股折现率。", "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"},
+    {"startAt": "2026-07-30T02:30:00+08:00", "name": "FOMC 主席发布会", "impact": "主要影响：9 月政策路径、美元与收益率曲线。", "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"},
+    {"startAt": "2026-07-30T04:30:00+08:00", "name": "Meta 财报与电话会", "impact": "主要影响：AI 广告收入、资本开支与自由现金流。", "sourceUrl": "https://investor.atmeta.com/"},
+    {"startAt": "2026-07-30T05:30:00+08:00", "name": "Microsoft 财报与电话会", "impact": "主要影响：Azure 与 AI 收入、数据中心资本开支及现金回收。", "sourceUrl": "https://www.microsoft.com/en-us/Investor"},
+    {"startAt": "2026-07-30T20:30:00+08:00", "name": "美国 GDP 初值", "impact": "主要影响：增长预期、美元、美债收益率与企业盈利预期。", "sourceUrl": "https://www.bea.gov/news/schedule"},
+    {"startAt": "2026-07-30T20:30:00+08:00", "name": "美国 PCE / 核心 PCE", "impact": "主要影响：2Y 收益率、Fed 定价、美元与黄金。", "sourceUrl": "https://www.bea.gov/news/schedule"},
+    {"startAt": "2026-07-31T05:00:00+08:00", "name": "Amazon 财报与电话会", "impact": "主要影响：AWS 增速、AI 资本开支与自由现金流。", "sourceUrl": "https://ir.aboutamazon.com/"}
+  ],
+  "view": [
+    "标普 500 上涨、Nasdaq 下跌，但标普内部上涨家数占明显多数；指数与宽度并非全面背离，而是大型 AI 硬件对市值加权指数形成集中拖累。",
+    "真正的上涨驱动来自医疗保健、必需消费与通讯服务；费城半导体显著下跌，是当日最清晰的负向板块信号。",
+    "可口可乐、波音与艾昆纬的财报和指引分别解释了必需消费、道指和医疗保健的强势，个股层面的基本面催化比单纯风格标签更有解释力。",
+    "半导体内部也不是一致下跌：AMD 与美光显著走弱，英伟达却逆板块小幅上涨。更合理的描述是估值、融资与竞争担忧触发选择性去风险，而不是订单全面坍塌。",
+    "美债收益率与美元同步回落，确认油价回落带来的短期通胀压力缓和；但下一次加息概率仍约 29%，不足以定义为政策转向宽松。",
+    "黄金与 Brent 同跌，更接近地缘溢价回吐，而不是增长恐慌；若是增长冲击，通常还需要更强的长债上涨与信用压力确认。",
+    "BTC 维持在 6.3 万美元附近，但 ETF 最新为小幅净流出，加密资产没有确认股票市场宽度扩张。"
+  ],
+  "verdict": "昨日属于：广度扩张，但 AI 硬件单独去杠杆的结构性轮动。"
+}

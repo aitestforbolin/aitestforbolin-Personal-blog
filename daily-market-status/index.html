@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>每日市场状态 | Bolin Brief</title>
+    <meta
+      name="description"
+      content="每日更新美股、市场宽度、宏观资产、关键事件与市场观点。"
+    />
+    <link rel="stylesheet" href="../styles.css?v=20260728-3" />
+    <link rel="stylesheet" href="../editorial-refresh.css?v=20260721-1" />
+    <link rel="stylesheet" href="daily-market-status.css?v=20260729-1" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../" aria-label="回到首页">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span class="brand-copy">
+          <strong>Bolin Brief</strong>
+          <small>Daily Intelligence</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="../#briefings">早报</a>
+        <a href="./" aria-current="page">每日市场状态</a>
+        <a href="../#macro-calendar">宏观日历</a>
+        <a href="../#tech-events">科技事件</a>
+        <a href="../#btc-etf-flow">ETF资金流</a>
+        <a href="../#about">关于</a>
+      </nav>
+    </header>
+
+    <main class="daily-status-page" data-daily-status>
+      <header class="status-hero">
+        <p class="eyebrow">Daily Market Status · Beijing Time</p>
+        <h1>每日市场状态</h1>
+        <p class="status-deck">四个部分，看清价格、宽度、催化剂与解释。</p>
+        <div class="status-mast-meta">
+          <span data-page-date>读取交易日…</span>
+          <span class="status-dot" aria-hidden="true"></span>
+          <span data-page-state>正在载入数据</span>
+        </div>
+      </header>
+
+      <section class="status-section" id="us-equities" aria-labelledby="us-equities-title">
+        <div class="section-number" aria-hidden="true">01</div>
+        <div class="section-body">
+          <header class="section-heading">
+            <p class="eyebrow">US Equities</p>
+            <h2 id="us-equities-title">｜美股</h2>
+            <p class="module-state" data-state="equities">正在载入行情…</p>
+          </header>
+
+          <div class="index-line" data-indices aria-live="polite"></div>
+
+          <div class="editorial-block">
+            <div class="block-title">
+              <h3>市场宽度</h3>
+              <span data-breadth-time>等待数据</span>
+            </div>
+            <div class="breadth-list" data-breadth></div>
+            <p class="method-note">
+              数据源：TradingView Stock Screener。标普 500 按成分股统计；Nasdaq
+              按交易所股票、基金及存托凭证统计。上涨比例 = 上涨 ÷（上涨 + 下跌），平盘展示但不进入分母。
+            </p>
+          </div>
+
+          <div class="editorial-block">
+            <div class="block-title">
+              <h3>板块</h3>
+              <span>收盘涨跌｜Yahoo Finance</span>
+            </div>
+            <div class="sector-groups" data-sectors></div>
+          </div>
+
+          <div class="editorial-block drivers-block">
+            <div class="block-title">
+              <h3>核心个股驱动</h3>
+              <span data-driver-date>筛选中</span>
+            </div>
+            <div data-drivers></div>
+            <p class="method-note">
+              仅展示单日绝对涨跌超过 2%、显著影响板块、逆板块运行，或有财报、指引及重大消息的个股；无合格项目的分组自动隐藏。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="status-section" id="macro-assets" aria-labelledby="macro-assets-title">
+        <div class="section-number" aria-hidden="true">02</div>
+        <div class="section-body">
+          <header class="section-heading">
+            <p class="eyebrow">Macro Assets</p>
+            <h2 id="macro-assets-title">｜宏观资产数据</h2>
+            <p class="module-state" data-state="macro">正在载入行情…</p>
+          </header>
+          <div class="macro-rows" data-macro></div>
+          <p class="method-note">
+            行情来自现有 markets API；收益率单位为百分比。Brent 沿用单一近月合约，避免把连续合约换月断层误判为真实涨跌。Fed 概率与 ETF 资金流为每日核验快照。
+          </p>
+        </div>
+      </section>
+
+      <section class="status-section" id="events" aria-labelledby="events-title">
+        <div class="section-number" aria-hidden="true">03</div>
+        <div class="section-body">
+          <header class="section-heading">
+            <p class="eyebrow">Calendar & Catalysts</p>
+            <h2 id="events-title">｜日历、事件及其影响</h2>
+            <p class="module-state" data-state="events">正在筛选未来事件…</p>
+          </header>
+          <div class="event-list" data-events></div>
+        </div>
+      </section>
+
+      <section class="status-section" id="view" aria-labelledby="view-title">
+        <div class="section-number" aria-hidden="true">04</div>
+        <div class="section-body">
+          <header class="section-heading">
+            <p class="eyebrow">Interpretation</p>
+            <h2 id="view-title">｜看法和观点</h2>
+            <p class="module-state" data-state="view">观点对应所示交易日，不随盘中价格自动改写。</p>
+          </header>
+          <div class="view-copy" data-view></div>
+          <p class="verdict" data-verdict></p>
+          <div class="source-strip">
+            <span>事实与观点已分开</span>
+            <a href="../markets/index.html">查看旧市场综述归档 →</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Bolin Brief · Independent notes from Asia / Shanghai.</p>
+    </footer>
+    <script src="daily-market-status.js?v=20260729-1"></script>
+  </body>
+</html>
