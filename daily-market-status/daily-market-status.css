@@ -12,13 +12,6 @@
   font-size: clamp(2.9rem, 8vw, 5.3rem);
 }
 
-.status-deck {
-  max-width: 650px;
-  margin: 20px 0 0;
-  color: var(--muted);
-  font-size: 1.05rem;
-}
-
 .status-mast-meta {
   display: flex;
   align-items: center;
@@ -88,7 +81,6 @@
   flex-wrap: wrap;
   gap: 9px 0;
   padding: 19px 0;
-  border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: clamp(0.86rem, 2vw, 1rem);
@@ -115,6 +107,10 @@
 
 .editorial-block {
   margin-top: 34px;
+}
+
+.editorial-block.first-block {
+  margin-top: 0;
 }
 
 .block-title {
@@ -169,6 +165,11 @@
 .breadth-row > span {
   min-width: 0;
   text-align: right;
+}
+
+.breadth-row > span,
+.breadth-row strong {
+  white-space: normal;
 }
 
 .sector-groups {
@@ -236,16 +237,33 @@
   border-top: 1px solid var(--line);
 }
 
+.macro-clock,
+.calendar-timezone {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
 .macro-row {
-  grid-template-columns: minmax(135px, 0.75fr) minmax(0, 1fr) minmax(150px, 0.75fr);
+  grid-template-columns: minmax(185px, 0.8fr) minmax(0, 1.2fr);
 }
 
 .macro-value {
+  display: block;
   text-align: right;
   white-space: nowrap;
+  color: var(--ink);
 }
 
-.macro-time {
+.macro-reading {
+  min-width: 0;
+  text-align: right;
+}
+
+.macro-source {
+  display: block;
+  margin-top: 3px;
   color: var(--muted);
   font-size: 0.68rem;
   text-align: right;
@@ -255,9 +273,17 @@
   border-top: 1px solid var(--line);
 }
 
+.event-day {
+  padding: 22px 0 8px;
+  color: var(--accent-dark);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
 .event-row {
   display: grid;
-  grid-template-columns: 138px minmax(180px, 0.8fr) minmax(0, 1.2fr);
+  grid-template-columns: 72px minmax(180px, 0.8fr) minmax(0, 1.2fr);
   gap: 22px;
   padding: 18px 0;
   border-bottom: 1px solid rgba(24, 25, 22, 0.1);
@@ -328,7 +354,7 @@
   }
 
   .event-row {
-    grid-template-columns: 110px minmax(0, 1fr);
+    grid-template-columns: 72px minmax(0, 1fr);
   }
 
   .event-impact {
@@ -336,11 +362,7 @@
   }
 
   .macro-row {
-    grid-template-columns: minmax(105px, 0.7fr) minmax(0, 1.3fr);
-  }
-
-  .macro-time {
-    grid-column: 2;
+    grid-template-columns: minmax(160px, 0.85fr) minmax(0, 1.15fr);
   }
 }
 
@@ -403,10 +425,18 @@
   }
 
   .macro-value,
-  .macro-time {
+  .macro-source {
     grid-column: 1;
     text-align: left;
     white-space: normal;
+  }
+
+  .macro-reading {
+    text-align: left;
+  }
+
+  .macro-row > span:first-child {
+    overflow-wrap: anywhere;
   }
 
   .pipe-item:not(:last-child)::after {
