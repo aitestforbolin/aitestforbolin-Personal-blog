@@ -3,6 +3,8 @@
 
   const DEFAULT_API_URL =
     "https://cross-asset-pulse.laibocszd.chatgpt.site/api/markets";
+  const DEFAULT_BREADTH_API_URL =
+    "https://cross-asset-pulse.laibocszd.chatgpt.site/api/breadth";
   const DISPLAY_TIMEZONE = "Asia/Shanghai";
   const REFRESH_INTERVAL = 60 * 1000;
   const FETCH_TIMEOUT = 10 * 1000;
@@ -163,12 +165,15 @@
     return;
   }
   const API_URL = root.dataset.marketApi || DEFAULT_API_URL;
+  const BREADTH_API_URL =
+    root.dataset.marketBreadthApi || DEFAULT_BREADTH_API_URL;
   const previewProvider =
     typeof window.__BOLIN_MARKET_PREVIEW__ === "function"
       ? window.__BOLIN_MARKET_PREVIEW__
       : null;
 
   const tabsRoot = root.querySelector("[data-market-tabs]");
+  const breadthRoot = root.querySelector("[data-market-breadth]");
   const rangesRoot = root.querySelector("[data-market-ranges]");
   const nameElement = root.querySelector("[data-market-name]");
   const codeElement = root.querySelector("[data-market-code]");
@@ -183,6 +188,7 @@
   if (
     !tabsRoot ||
     !rangesRoot ||
+    !breadthRoot ||
     !nameElement ||
     !codeElement ||
     !sessionElement ||
@@ -197,6 +203,7 @@
   }
 
   const overview = new Map();
+  const breadth = new Map();
   const detailCache = new Map();
   let selectedId = "SPX";
   let selectedRange = "1d";
@@ -204,6 +211,8 @@
   let loadingDetail = false;
   let lastFetched = null;
   let overviewError = false;
+  let breadthLoading = true;
+  let breadthError = false;
   let requestSequence = 0;
   function escapeHtml(value) {
     return String(value)
@@ -235,6 +244,12 @@
         maximumFractionDigits: market.decimals,
       }) + suffix
     );
+  }
+
+  function formatCount(value) {
+    return Number.isFinite(value)
+      ? value.toLocaleString("zh-CN", { maximumFractionDigits: 0 })
+      : "—";
   }
 
   function formatAxis(value, market) {
@@ -375,6 +390,66 @@
         `
       )
       .join("");
+  }
+
+  function renderBreadth() {
+    const universes = [
+      { id: "SP500", label: "标普 500" },
+      { id: "NASDAQ", label: "Nasdaq 交易所" },
+    ];
+
+    breadthRoot.innerHTML = `
+      <div class="market-pulse-breadth-intro">
+        <span class="market-pulse-breadth-eyebrow">Market Breadth</span>
+        <strong>市场宽度</strong>
+        <span>TradingView Screener · 平盘不计入比例</span>
+      </div>
+      ${universes
+        .map(({ id, label }) => {
+          const item = breadth.get(id);
+          const advancePercent = Number(item?.advancePercent);
+          const hasData = Number.isFinite(advancePercent);
+          const positive = hasData && advancePercent >= 50;
+          const status = hasData
+            ? `${advancePercent.toFixed(1)}% 上涨`
+            : breadthLoading
+              ? "正在统计"
+              : breadthError
+                ? "数据暂不可用"
+                : "等待数据";
+          const barPercent = hasData ? advancePercent : 50;
+
+          return `
+            <article class="market-pulse-breadth-card">
+              <div class="market-pulse-breadth-head">
+                <strong>${escapeHtml(label)}</strong>
+                <span class="${
+                  hasData
+                    ? positive
+                      ? "is-positive"
+                      : "is-negative"
+                    : ""
+                }">${escapeHtml(status)}</span>
+              </div>
+              <div class="market-pulse-breadth-counts">
+                <span class="is-positive">涨 <strong>${formatCount(
+                  Number(item?.advancers)
+                )}</strong> 支</span>
+                <span class="is-negative">跌 <strong>${formatCount(
+                  Number(item?.decliners)
+                )}</strong> 支</span>
+              </div>
+              <div class="market-pulse-breadth-bar" aria-hidden="true">
+                <span class="market-pulse-breadth-advance" style="width:${barPercent}%"></span>
+                <span class="market-pulse-breadth-decline" style="width:${
+                  100 - barPercent
+                }%"></span>
+              </div>
+            </article>
+          `;
+        })
+        .join("")}
+    `;
   }
 
   function tradingViewUrl(market) {
@@ -642,6 +717,7 @@
 
     renderTabs();
     renderRanges();
+    renderBreadth();
 
     nameElement.textContent = market.name;
     codeElement.textContent = market.code;
@@ -732,6 +808,55 @@
     }
   }
 
+  async function fetchBreadthPayload() {
+    if (!window.fetch) {
+      throw new Error("Fetch is unavailable");
+    }
+    const controller = new AbortController();
+    const timeout = window.setTimeout(
+      () => controller.abort(),
+      FETCH_TIMEOUT
+    );
+
+    try {
+      const response = await fetch(BREADTH_API_URL, {
+        cache: "no-store",
+        credentials: "omit",
+        signal: controller.signal,
+      });
+      if (!response.ok) {
+        throw new Error(`Breadth API ${response.status}`);
+      }
+      return response.json();
+    } finally {
+      window.clearTimeout(timeout);
+    }
+  }
+
+  async function loadBreadth() {
+    if (!breadth.size) {
+      breadthLoading = true;
+      renderBreadth();
+    }
+
+    try {
+      const payload = await fetchBreadthPayload();
+      const allowedIds = new Set(["SP500", "NASDAQ"]);
+      breadth.clear();
+      (payload.data || []).forEach((item) => {
+        if (allowedIds.has(item.id)) {
+          breadth.set(item.id, item);
+        }
+      });
+      breadthError = breadth.size !== allowedIds.size;
+    } catch (_error) {
+      breadthError = true;
+    } finally {
+      breadthLoading = false;
+      renderBreadth();
+    }
+  }
+
   async function loadOverview() {
     if (!overview.size) {
       loadingOverview = true;
@@ -817,12 +942,14 @@
 
   render();
   loadOverview();
+  loadBreadth();
 
   window.setInterval(() => {
     if (document.visibilityState !== "visible") {
       return;
     }
     loadOverview();
+    loadBreadth();
     if (selectedRange !== "1d") {
       detailCache.delete(`${selectedId}:${selectedRange}`);
       loadDetail();
