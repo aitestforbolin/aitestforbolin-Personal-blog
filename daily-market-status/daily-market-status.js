@@ -352,7 +352,7 @@
     );
   }
 
-  function buildDocumentText() {
+  function buildDocumentCopyText() {
     if (!snapshot) throw new Error("Snapshot is not ready");
 
     const lines = ["｜美股", "", "三大指数"];
@@ -540,7 +540,7 @@
     if (!button || button.disabled) return;
     button.disabled = true;
     try {
-      const text = buildDocumentText();
+      const text = buildDocumentCopyText();
       button.copyPayload = text;
       await copyDocumentBody(text);
       setCopyStatus("已复制", "success");
