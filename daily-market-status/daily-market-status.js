@@ -522,8 +522,7 @@
     if (!copied) throw new Error("Fallback copy failed");
   }
 
-  async function copyDocumentBody() {
-    const text = buildDocumentText();
+  async function copyDocumentBody(text) {
     if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
       try {
         await navigator.clipboard.writeText(text);
@@ -541,7 +540,9 @@
     if (!button || button.disabled) return;
     button.disabled = true;
     try {
-      await copyDocumentBody();
+      const text = buildDocumentText();
+      button.copyPayload = text;
+      await copyDocumentBody(text);
       setCopyStatus("已复制", "success");
     } catch (error) {
       setCopyStatus("复制失败，请手动选择", "error");
