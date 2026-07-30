@@ -10,7 +10,7 @@
     />
     <link rel="stylesheet" href="../styles.css?v=20260728-3" />
     <link rel="stylesheet" href="../editorial-refresh.css?v=20260721-1" />
-    <link rel="stylesheet" href="daily-market-status.css?v=20260729-2" />
+    <link rel="stylesheet" href="daily-market-status.css?v=20260730-1" />
   </head>
   <body>
     <header class="site-header">
@@ -39,6 +39,18 @@
           <span data-page-date>读取交易日…</span>
           <span class="status-dot" aria-hidden="true"></span>
           <span data-page-state>正在载入数据</span>
+        </div>
+        <div class="copy-controls">
+          <button
+            class="copy-body-button"
+            type="button"
+            data-copy-body
+            aria-label="复制每日市场状态正文"
+            disabled
+          >
+            复制正文
+          </button>
+          <span class="copy-body-status" data-copy-status aria-live="polite"></span>
         </div>
       </header>
 
@@ -142,6 +154,6 @@
     <footer class="site-footer">
       <p>© 2026 Bolin Brief · Independent notes from Asia / Shanghai.</p>
     </footer>
-    <script src="daily-market-status.js?v=20260729-3"></script>
+    <script src="daily-market-status.js?v=20260730-1"></script>
   </body>
 </html>
