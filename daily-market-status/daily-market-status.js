@@ -33,6 +33,11 @@
     ["GOLD", "黄金", 2, "", "TradingView · OANDA:XAUUSD"],
     ["BTCUSDT", "BTC", 0, "", "Yahoo Finance · BTC-USD"],
   ];
+  const documentSectorConfig = [
+    ["进攻和成长板块", [["SOX", "SOX（半导体）"], ["XLK", "XLK（信息技术）"], ["XLY", "XLY（可选消费）"], ["XLC", "XLC（通讯服务）"]]],
+    ["防御板块", [["XLV", "XLV（健康医疗）"], ["XLU", "XLU（公共事业）"], ["XLP", "XLP（必需消费）"]]],
+    ["宏观敏感板块", [["XLE", "XLE（能源）"], ["XLI", "XLI（工业）"], ["XLF", "XLF（金融）"]]],
+  ];
 
   let snapshot = null;
   let etfData = null;
@@ -308,6 +313,244 @@
     return now > before ? "📈" : "📉";
   }
 
+  function formatDocumentPercent(value) {
+    const number = finiteNumber(value);
+    if (number === null) return "—";
+    const sign = number > 0 ? "+" : number < 0 ? "−" : "";
+    return sign + Math.abs(number).toFixed(2) + "%";
+  }
+
+  function visibleEvents() {
+    const now = Date.now();
+    return (snapshot?.events || [])
+      .filter((item) => new Date(item.startAt).getTime() > now)
+      .sort((a, b) => new Date(a.startAt) - new Date(b.startAt));
+  }
+
+  function formatDocumentEventDay(iso) {
+    const date = new Date(iso);
+    const weekday = new Intl.DateTimeFormat("zh-CN", {
+      timeZone: DISPLAY_TIMEZONE,
+      weekday: "short",
+    }).format(date);
+    return formatEventDay(iso) + " " + weekday;
+  }
+
+  function documentAssetLine(label, comparison, decimals, suffix) {
+    const previous = comparison.reference;
+    const current = comparison.current;
+    return (
+      directionIcon(previous, current) +
+      " " +
+      label +
+      "：" +
+      formatNumber(previous, decimals) +
+      (previous === null ? "" : suffix) +
+      " → " +
+      formatNumber(current, decimals) +
+      (current === null ? "" : suffix)
+    );
+  }
+
+  function buildDocumentText() {
+    if (!snapshot) throw new Error("Snapshot is not ready");
+
+    const lines = ["｜美股", "", "三大指数"];
+    indexConfig.forEach(([id, label]) => {
+      lines.push(label + "：" + formatDocumentPercent(marketMap.get(id)?.changePercent));
+    });
+
+    lines.push("", "市场宽度");
+    [
+      ["SP500", "标普500上涨股票比例"],
+      ["NASDAQ", "Nasdaq交易所上涨股票比例"],
+    ].forEach(([id, label]) => {
+      const item = breadthData.find((entry) => entry?.id === id);
+      if (!item) return;
+      lines.push(
+        label +
+          "：" +
+          formatNumber(item.advancePercent, 1) +
+          "%（涨" +
+          formatNumber(item.advancers, 0) +
+          "支、跌" +
+          formatNumber(item.decliners, 0) +
+          "支、平" +
+          formatNumber(item.unchanged, 0) +
+          "支）"
+      );
+    });
+
+    documentSectorConfig.forEach(([group, items]) => {
+      lines.push("", group);
+      items.forEach(([id, label]) => {
+        lines.push(label + "：" + formatDocumentPercent(marketMap.get(id)?.changePercent));
+      });
+    });
+
+    lines.push("", "核心个股驱动");
+    const driverGroups = new Map();
+    (snapshot.drivers || []).forEach((item) => {
+      if (!item?.group || !item?.ticker || !item?.reason) return;
+      if (!driverGroups.has(item.group)) driverGroups.set(item.group, []);
+      driverGroups.get(item.group).push(item);
+    });
+    ["半导体", "大型科技", "其他显著个股"].forEach((group) => {
+      const items = driverGroups.get(group) || [];
+      if (!items.length) return;
+      lines.push("", group);
+      items.forEach((item) => {
+        lines.push(
+          item.name +
+            "（" +
+            item.ticker +
+            "）：" +
+            formatDocumentPercent(item.changePercent) +
+            "，" +
+            item.reason
+        );
+      });
+    });
+
+    const comparisons = new Map(
+      macroConfig.map(([id]) => [id, rollingComparison(id, marketMap.get(id))])
+    );
+    lines.push(
+      "",
+      "｜宏观资产数据",
+      "",
+      documentAssetLine("美元指数", comparisons.get("DXY"), 3, ""),
+      documentAssetLine("2年期美债收益率", comparisons.get("US02Y"), 3, "%"),
+      documentAssetLine("10年期美债收益率", comparisons.get("US10Y"), 3, "%"),
+      documentAssetLine("30年期美债收益率", comparisons.get("US30Y"), 3, "%")
+    );
+
+    const fed = snapshot.fedProbability || {};
+    lines.push(
+      directionIcon(fed.previous, fed.current) +
+        " 美联储加息可能性：" +
+        formatNumber(fed.previous, 1) +
+        (finiteNumber(fed.previous) === null ? "" : fed.unit || "") +
+        " → " +
+        formatNumber(fed.current, 1) +
+        (finiteNumber(fed.current) === null ? "" : fed.unit || ""),
+      documentAssetLine("原油", comparisons.get("BRN1!"), 2, ""),
+      documentAssetLine("黄金", comparisons.get("GOLD"), 2, ""),
+      documentAssetLine("BTC", comparisons.get("BTCUSDT"), 0, "")
+    );
+
+    const etf = etfData?.latest || {
+      date: snapshot.etfFlow?.date,
+      total: snapshot.etfFlow?.totalMillions,
+    };
+    const etfTotal = finiteNumber(etf.total);
+    lines.push(
+      "BTC ETF资金流：" +
+        (etf.date || "日期待核验") +
+        "，" +
+        (etfTotal === null
+          ? "数据不可用"
+          : (etfTotal >= 0 ? "净流入 " : "净流出 ") +
+            "$" +
+            formatNumber(Math.abs(etfTotal), 1) +
+            "m")
+    );
+
+    lines.push("", "｜日历、事件及其影响");
+    const eventGroups = new Map();
+    visibleEvents().forEach((item) => {
+      const day = formatDocumentEventDay(item.startAt);
+      if (!eventGroups.has(day)) eventGroups.set(day, []);
+      eventGroups.get(day).push(item);
+    });
+    eventGroups.forEach((items, day) => {
+      lines.push("", day);
+      items.forEach((item) => {
+        lines.push(formatEventTime(item.startAt) + " " + item.name);
+        const impact = String(item.impact || "").replace(/^主要影响：?\s*/, "");
+        lines.push("主要影响：" + impact);
+      });
+    });
+
+    lines.push("", "｜看法和观点", "");
+    (snapshot.view || []).slice(0, 10).forEach((paragraph, index) => {
+      if (index > 0) lines.push("");
+      lines.push(String(paragraph).replace(/^[—–-]\s*/, ""));
+    });
+    if (snapshot.verdict) {
+      if ((snapshot.view || []).length) lines.push("");
+      lines.push(String(snapshot.verdict).replace(/^[—–-]\s*/, ""));
+    }
+
+    return lines.join("\n");
+  }
+
+  function setCopyStatus(message, level) {
+    const status = root.querySelector("[data-copy-status]");
+    if (!status) return;
+    status.textContent = message;
+    status.dataset.level = level || "";
+    window.clearTimeout(setCopyStatus.timer);
+    setCopyStatus.timer = window.setTimeout(() => {
+      status.textContent = "";
+      status.dataset.level = "";
+    }, level === "error" ? 5000 : 2400);
+  }
+
+  function fallbackCopy(text) {
+    const textarea = document.createElement("textarea");
+    const activeElement = document.activeElement;
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.setAttribute("aria-hidden", "true");
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
+    textarea.style.top = "0";
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    textarea.setSelectionRange(0, textarea.value.length);
+    let copied = false;
+    try {
+      copied = document.execCommand("copy");
+    } finally {
+      textarea.remove();
+      if (activeElement && typeof activeElement.focus === "function") {
+        activeElement.focus();
+      }
+    }
+    if (!copied) throw new Error("Fallback copy failed");
+  }
+
+  async function copyDocumentBody() {
+    const text = buildDocumentText();
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+      try {
+        await navigator.clipboard.writeText(text);
+        return;
+      } catch (error) {
+        fallbackCopy(text);
+        return;
+      }
+    }
+    fallbackCopy(text);
+  }
+
+  async function handleCopyBody() {
+    const button = root.querySelector("[data-copy-body]");
+    if (!button || button.disabled) return;
+    button.disabled = true;
+    try {
+      await copyDocumentBody();
+      setCopyStatus("已复制", "success");
+    } catch (error) {
+      setCopyStatus("复制失败，请手动选择", "error");
+    } finally {
+      button.disabled = false;
+      button.focus();
+    }
+  }
+
   function macroRow(label, previous, current, decimals, suffix, source, status, iconOverride) {
     return `
       <div class="macro-row">
@@ -381,10 +624,7 @@
   }
 
   function renderEvents() {
-    const now = Date.now();
-    const events = (snapshot.events || [])
-      .filter((item) => new Date(item.startAt).getTime() > now)
-      .sort((a, b) => new Date(a.startAt) - new Date(b.startAt));
+    const events = visibleEvents();
     const groups = new Map();
     events.forEach((item) => {
       const day = formatEventDay(item.startAt);
@@ -436,6 +676,8 @@
     renderView();
     root.querySelector("[data-page-date]").textContent =
       `${formatDate(snapshot.asOf)}｜最新完成交易日`;
+    const copyButton = root.querySelector("[data-copy-body]");
+    if (copyButton) copyButton.disabled = false;
   }
 
   async function loadStatic() {
@@ -522,6 +764,8 @@
       refreshLive();
     }
   });
+
+  root.querySelector("[data-copy-body]")?.addEventListener("click", handleCopyBody);
 
   loadStatic()
     .then(() => refreshLive())
