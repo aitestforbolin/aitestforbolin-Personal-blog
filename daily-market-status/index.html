@@ -10,7 +10,7 @@
     />
     <link rel="stylesheet" href="../styles.css?v=20260728-3" />
     <link rel="stylesheet" href="../editorial-refresh.css?v=20260721-1" />
-    <link rel="stylesheet" href="daily-market-status.css?v=20260730-copy-3" />
+    <link rel="stylesheet" href="daily-market-status.css?v=20260731-dual-anchor-11" />
   </head>
   <body>
     <header class="site-header">
@@ -112,10 +112,10 @@
             <h2 id="macro-assets-title">｜宏观资产数据</h2>
             <p class="module-state" data-state="macro">正在载入行情…</p>
           </header>
-          <p class="macro-clock" data-macro-clock>正在核验当前时间与24小时前参照时间…</p>
+          <p class="macro-clock" data-macro-clock>正在核验各资产对应的比较时点…</p>
           <div class="macro-rows" data-macro></div>
           <p class="method-note">
-            “24小时前”采用同一标的、同一提供商、同一单位的滚动比较；没有恰好报价时，取不晚于目标时刻的最近有效点。休市报价标为“最近可用”。Fed 概率与 ETF 资金流单独核验。
+            “完整交易日”以美股收盘 16:00 ET 为固定锚点，与前一有效交易日同一时点比较；“收盘锚点后”显示最新行情相对该锚点的变化。美债采用美国财政部官方日频曲线，Fed 概率采用同一固定时点快照，两者不使用伪实时替代。
           </p>
         </div>
       </section>
@@ -154,6 +154,6 @@
     <footer class="site-footer">
       <p>© 2026 Bolin Brief · Independent notes from Asia / Shanghai.</p>
     </footer>
-    <script src="daily-market-status.js?v=20260730-copy-3"></script>
+    <script src="daily-market-status.js?v=20260731-dual-anchor-11"></script>
   </body>
 </html>

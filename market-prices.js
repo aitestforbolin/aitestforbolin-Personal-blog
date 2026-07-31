@@ -63,7 +63,7 @@
       name: "美债 2 年期",
       code: "US02Y",
       group: "美元与利率",
-      session: "美国国债交易时段",
+      session: "美国财政部官方日线",
       unit: "yield",
       decimals: 3,
       tradingView: "TVC:US02Y",
@@ -75,7 +75,7 @@
       name: "美债 10 年期",
       code: "US10Y",
       group: "美元与利率",
-      session: "美国国债交易时段",
+      session: "美国财政部官方日线",
       unit: "yield",
       decimals: 3,
       tradingView: "TVC:US10Y",
@@ -84,27 +84,27 @@
     },
     {
       id: "GOLD",
-      name: "黄金",
+      name: "COMEX 黄金期货",
       code: "GOLD",
       group: "商品与加密",
-      session: "全球贵金属交易时段",
+      session: "COMEX 黄金期货交易时段",
       unit: "price",
       decimals: 2,
       tradingView: "COMEX:GC1!",
-      fallbackSymbol: "OANDA:XAUUSD",
-      fallbackLabel: "XAU/USD 现货",
+      fallbackSymbol: "COMEX:GC1!",
+      fallbackLabel: "GC 连续合约",
     },
     {
       id: "BRN1!",
-      name: "布伦特原油",
+      name: "Brent 原油期货",
       code: "BRENT",
       group: "商品与加密",
       session: "全球原油期货交易时段",
       unit: "price",
       decimals: 2,
-      tradingView: "NYMEX:BRN1!",
-      fallbackSymbol: "TVC:UKOIL",
-      fallbackLabel: "Brent 现货",
+      tradingView: "NYMEX:BZ1!",
+      fallbackSymbol: "NYMEX:BZ1!",
+      fallbackLabel: "BZ 连续合约",
     },
     {
       id: "BTCUSDT",
@@ -752,7 +752,7 @@
         data.contractLabel
           ? `Yahoo Finance · ${data.contractLabel} · 单一合约连续取值 · 避免换月断层`
           : data.source === "U.S. Treasury"
-            ? "美国财政部 · 2 年期官方收益率日线 · 仅供研究参考"
+            ? `美国财政部 · ${market.name}官方收益率日线 · 仅供研究参考`
             : data.source === "FRED"
               ? "FRED · 美联储 H.15 DGS2 官方日线 · 仅供研究参考"
               : "Yahoo Finance · 价格可能延迟 · 仅供研究参考";
