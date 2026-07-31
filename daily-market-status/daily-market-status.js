@@ -11,8 +11,13 @@
   const SNAPSHOT_URL = "../data/daily-market-status.json";
   const ETF_URL = "../data/btc-etf-flow.json";
   const DISPLAY_TIMEZONE = "Asia/Shanghai";
+  const MARKET_TIMEZONE = "America/New_York";
+  const CLOSE_ANCHOR_MINUTES = 16 * 60;
+  const CLOSE_ANCHOR_LOOKBACK_MINUTES = 60;
   const FETCH_TIMEOUT = 10000;
   const RETRY_DELAYS = [60000, 120000, 300000, 900000];
+  const treasuryIds = new Set(["US02Y", "US10Y", "US30Y"]);
+  const closeAnchorIds = new Set(["DXY", "BRN1!", "GOLD", "BTCUSDT"]);
 
   const indexConfig = [
     ["SPX", "标普500"],
@@ -25,13 +30,13 @@
     ["宏观敏感", [["XLE", "XLE（能源）"], ["XLI", "XLI（工业）"], ["XLF", "XLF（金融）"]]],
   ];
   const macroConfig = [
-    ["DXY", "美元指数", 3, "", "Yahoo Finance · DX-Y.NYB"],
-    ["US02Y", "2年期美债收益率", 3, "%", "TradingView · TVC:US02Y"],
-    ["US10Y", "10年期美债收益率", 3, "%", "Yahoo Finance · ^TNX"],
-    ["US30Y", "30年期美债收益率", 3, "%", "Yahoo Finance · ^TYX"],
-    ["BRN1!", "Brent期货", 2, "", "TradingView · ICEEUR:BRN1!"],
-    ["GOLD", "黄金", 2, "", "TradingView · OANDA:XAUUSD"],
+    ["BRN1!", "Brent期货", 2, "", "Yahoo Finance · BZ=F"],
+    ["GOLD", "COMEX黄金期货", 2, "", "Yahoo Finance · GC=F"],
     ["BTCUSDT", "BTC", 0, "", "Yahoo Finance · BTC-USD"],
+    ["DXY", "美元指数", 3, "", "Yahoo Finance · DX-Y.NYB"],
+    ["US02Y", "2年期美债收益率", 3, "%", "美国财政部 · 2-Year Par Yield"],
+    ["US10Y", "10年期美债收益率", 3, "%", "美国财政部 · 10-Year Par Yield"],
+    ["US30Y", "30年期美债收益率", 3, "%", "美国财政部 · 30-Year Par Yield"],
   ];
   const documentSectorConfig = [
     ["进攻和成长板块", [["SOX", "SOX（半导体）"], ["XLK", "XLK（信息技术）"], ["XLY", "XLY（可选消费）"], ["XLC", "XLC（通讯服务）"]]],
@@ -244,6 +249,83 @@
     return (snapshot?.macro24h || []).find((item) => item.id === id) || null;
   }
 
+  function snapshotAnchor(id) {
+    return (snapshot?.macroAnchors || []).find((item) => item.id === id) || null;
+  }
+
+  function trustedMacroSource(id, item) {
+    if (!item) return false;
+    if (treasuryIds.has(id)) return item.source === "U.S. Treasury";
+    if (closeAnchorIds.has(id)) return item.source === "Yahoo Finance";
+    return true;
+  }
+
+  function marketClockParts(timestamp) {
+    const parts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: MARKET_TIMEZONE,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }).formatToParts(timestamp);
+    const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+    return {
+      date: `${values.year}-${values.month}-${values.day}`,
+      minutes: Number(values.hour) * 60 + Number(values.minute),
+    };
+  }
+
+  function historyCloseAnchors(id) {
+    const historyItem = macroHistoryMap.get(id);
+    if (!trustedMacroSource(id, historyItem)) return null;
+    const points = Array.isArray(historyItem?.points) ? historyItem.points : [];
+    const byDate = new Map();
+    points.forEach((point) => {
+      const time = finiteNumber(point?.time);
+      const value = finiteNumber(point?.value);
+      if (time === null || value === null) return;
+      const clock = marketClockParts(time);
+      const ageMinutes = CLOSE_ANCHOR_MINUTES - clock.minutes;
+      if (
+        ageMinutes < 0 ||
+        ageMinutes > CLOSE_ANCHOR_LOOKBACK_MINUTES
+      ) {
+        return;
+      }
+      const existing = byDate.get(clock.date);
+      if (!existing || time > existing.observedAt) {
+        byDate.set(clock.date, {
+          value,
+          observedAt: time,
+          anchorTime: time + ageMinutes * 60 * 1000,
+          ageMinutes,
+        });
+      }
+    });
+    const anchors = [...byDate.entries()]
+      .sort(([dateA], [dateB]) => dateA.localeCompare(dateB))
+      .map(([, value]) => value);
+    if (anchors.length < 2) return null;
+    const previous = anchors.at(-2);
+    const current = anchors.at(-1);
+    return {
+      previous: previous.value,
+      previousAnchorTime: previous.anchorTime,
+      previousObservedAt: previous.observedAt,
+      anchor: current.value,
+      anchorTime: current.anchorTime,
+      anchorObservedAt: current.observedAt,
+      status:
+        current.ageMinutes > 30
+          ? `16:00 ET前最后报价；距锚点${current.ageMinutes}分钟`
+          : current.ageMinutes > 0
+            ? `16:00 ET前${current.ageMinutes}分钟最后报价`
+            : "16:00 ET完整锚点",
+    };
+  }
+
   function rollingComparison(id, item) {
     const stored = snapshotComparison(id);
     const current = finiteNumber(item?.price) ?? finiteNumber(stored?.current);
@@ -256,6 +338,40 @@
         reference: null,
         referenceTime: null,
         status: "数据不可用",
+      };
+    }
+
+    if (item?.source === "U.S. Treasury") {
+      const historyItem = macroHistoryMap.get(id);
+      const referencePoint = (
+        historyItem?.source === "U.S. Treasury" && Array.isArray(historyItem?.points)
+          ? historyItem.points
+          : Array.isArray(item?.points)
+            ? item.points
+            : []
+      )
+        .filter(
+          (point) =>
+            finiteNumber(point?.time) !== null &&
+            finiteNumber(point?.value) !== null &&
+            Number(point.time) < currentTime
+        )
+        .sort((a, b) => Number(a.time) - Number(b.time))
+        .at(-1);
+      const reference =
+        finiteNumber(referencePoint?.value) ?? finiteNumber(stored?.reference);
+      const referenceTime =
+        finiteNumber(referencePoint?.time) ?? finiteNumber(stored?.referenceTime);
+      return {
+        current,
+        currentTime,
+        reference,
+        referenceTime,
+        targetTime: null,
+        status:
+          reference === null
+            ? "美国财政部官方前一交易日数据不可用"
+            : "美国财政部官方前一交易日",
       };
     }
 
@@ -303,6 +419,72 @@
         reference === null
           ? `${availability}｜同源24小时序列不可用`
           : availability,
+    };
+  }
+
+  function percentageChange(previous, current) {
+    const before = finiteNumber(previous);
+    const now = finiteNumber(current);
+    if (before === null || now === null || before === 0) return null;
+    return ((now - before) / before) * 100;
+  }
+
+  function anchorComparison(id, item) {
+    if (treasuryIds.has(id)) {
+      const officialItem = trustedMacroSource(id, item)
+        ? item
+        : (snapshot?.fallback?.markets || []).find(
+            (candidate) => candidate.id === id && candidate.source === "U.S. Treasury"
+          );
+      const official = rollingComparison(id, officialItem);
+      const change =
+        finiteNumber(official.current) !== null &&
+        finiteNumber(official.reference) !== null
+          ? Number(official.current) - Number(official.reference)
+          : null;
+      return {
+        id,
+        previous: official.reference,
+        previousTime: official.referenceTime,
+        anchor: official.current,
+        anchorTime: official.currentTime,
+        latest: official.current,
+        latestTime: official.currentTime,
+        dailyChange: change,
+        liveChange: null,
+        kind: "official",
+        status: official.status,
+      };
+    }
+
+    const stored = snapshotAnchor(id);
+    const history = historyCloseAnchors(id);
+    const anchors = history || stored || {};
+    const storedLatestTime = finiteNumber(stored?.latestTime);
+    const itemLatestTime = trustedMacroSource(id, item)
+      ? finiteNumber(item?.updatedAt)
+      : null;
+    const useLiveItem =
+      itemLatestTime !== null &&
+      (storedLatestTime === null || itemLatestTime >= storedLatestTime);
+    const latest = useLiveItem
+      ? finiteNumber(item?.price)
+      : finiteNumber(stored?.latest);
+    const latestTime = useLiveItem ? itemLatestTime : storedLatestTime;
+    const previous = finiteNumber(anchors.previous);
+    const anchor = finiteNumber(anchors.anchor);
+    return {
+      id,
+      previous,
+      previousTime: finiteNumber(anchors.previousAnchorTime),
+      anchor,
+      anchorTime: finiteNumber(anchors.anchorTime),
+      latest,
+      latestTime,
+      dailyChange: percentageChange(previous, anchor),
+      liveChange: percentageChange(anchor, latest),
+      kind: "price",
+      status: anchors.status || "16:00 ET锚点待核验",
     };
   }
 
@@ -413,7 +595,19 @@
     });
 
     const comparisons = new Map(
-      macroConfig.map(([id]) => [id, rollingComparison(id, marketMap.get(id))])
+      macroConfig.map(([id]) => {
+        const comparison = anchorComparison(id, marketMap.get(id));
+        return [
+          id,
+          {
+            reference: comparison.previous,
+            referenceTime: comparison.previousTime,
+            current: comparison.anchor,
+            currentTime: comparison.anchorTime,
+            status: comparison.status,
+          },
+        ];
+      })
     );
     lines.push(
       "",
@@ -435,7 +629,7 @@
         formatNumber(fed.current, 1) +
         (finiteNumber(fed.current) === null ? "" : fed.unit || ""),
       documentAssetLine("原油", comparisons.get("BRN1!"), 2, ""),
-      documentAssetLine("黄金", comparisons.get("GOLD"), 2, ""),
+      documentAssetLine("COMEX黄金期货", comparisons.get("GOLD"), 2, ""),
       documentAssetLine("BTC", comparisons.get("BTCUSDT"), 0, "")
     );
 
@@ -552,12 +746,127 @@
     }
   }
 
-  function macroRow(label, previous, current, decimals, suffix, source, status, iconOverride) {
+  function signedChange(value, decimals, suffix) {
+    const number = finiteNumber(value);
+    if (number === null) return "—";
+    const sign = number > 0 ? "+" : number < 0 ? "−" : "";
+    return `${sign}${Math.abs(number).toFixed(decimals)}${suffix}`;
+  }
+
+  function changeTone(value) {
+    const number = finiteNumber(value);
+    if (number === null || number === 0) return "is-flat";
+    return number > 0 ? "is-up" : "is-down";
+  }
+
+  function formatMarketAnchor(timestamp) {
+    const number = finiteNumber(timestamp);
+    if (number === null) return "锚点待核验";
+    return `${new Intl.DateTimeFormat("zh-CN", {
+      timeZone: MARKET_TIMEZONE,
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }).format(number)} ET`;
+  }
+
+  function macroLayer(label, previous, current, decimals, suffix, change, changeLabel, className, valueTone) {
     return `
-      <div class="macro-row">
-        <span>${iconOverride || directionIcon(previous, current)} ${escapeHtml(label)}</span>
+      <div class="macro-layer ${className || ""}">
+        <span class="macro-layer-label">${escapeHtml(label)}</span>
+        <strong class="macro-layer-value"><span class="macro-layer-start">${formatNumber(previous, decimals)}${finiteNumber(previous) === null ? "" : suffix}</span><span class="macro-layer-arrow"> → </span><span class="macro-layer-end ${valueTone || ""}">${formatNumber(current, decimals)}${finiteNumber(current) === null ? "" : suffix}</span></strong>
+        <span class="macro-change ${changeTone(change)}">${escapeHtml(changeLabel)}</span>
+      </div>`;
+  }
+
+  function layeredMacroRow(item) {
+    const dailyValue =
+      item.kind === "official"
+        ? finiteNumber(item.dailyChange) === null
+          ? null
+          : Number(item.dailyChange) * 100
+        : item.dailyChange;
+    const dailyLabel =
+      item.kind === "official"
+        ? signedChange(dailyValue, 1, " bp")
+        : signedChange(dailyValue, 2, "%");
+    const liveLayer =
+      item.kind === "official"
+        ? `
+          <div class="macro-layer macro-layer-live macro-layer-muted">
+            <span class="macro-layer-label">实时状态</span>
+            <span class="macro-layer-message">官方日频，不提供伪实时</span>
+            <span class="macro-change is-flat">—</span>
+          </div>`
+        : macroLayer(
+            "收盘锚点后",
+            item.anchor,
+            item.latest,
+            item.decimals,
+            item.suffix,
+            item.liveChange,
+            signedChange(item.liveChange, 2, "%"),
+            "macro-layer-live",
+            changeTone(item.liveChange)
+          );
+    const timing =
+      item.kind === "official"
+        ? `${item.status}｜官方数据日 ${formatMarketAnchor(item.anchorTime)}`
+        : `${item.status}｜实时截至 ${formatClock(item.latestTime)} 北京`;
+    return `
+      <div class="macro-row macro-row-layered">
+        <div class="macro-identity">
+          <span class="macro-name">${directionIcon(item.previous, item.anchor)} ${escapeHtml(item.label)}</span>
+        </div>
         <div class="macro-reading">
-          <strong class="macro-value">${formatNumber(previous, decimals)}${previous === null ? "" : suffix} → ${formatNumber(current, decimals)}${current === null ? "" : suffix}</strong>
+          <div class="macro-layer-grid">
+            ${macroLayer(
+              item.kind === "official" ? "官方日度" : "完整交易日",
+              item.previous,
+              item.anchor,
+              item.decimals,
+              item.suffix,
+              dailyValue,
+              dailyLabel,
+              "macro-layer-primary"
+            )}
+            ${liveLayer}
+          </div>
+          <span class="macro-source">${escapeHtml(item.source)}｜${escapeHtml(timing)}</span>
+        </div>
+      </div>`;
+  }
+
+  function fixedSnapshotRow(label, previous, current, unit, source, status) {
+    const change =
+      finiteNumber(previous) !== null && finiteNumber(current) !== null
+        ? Number(current) - Number(previous)
+        : null;
+    return `
+      <div class="macro-row macro-row-layered">
+        <div class="macro-identity">
+          <span class="macro-name">${directionIcon(previous, current)} ${escapeHtml(label)}</span>
+        </div>
+        <div class="macro-reading">
+          <div class="macro-layer-grid">
+            ${macroLayer(
+              "固定快照",
+              previous,
+              current,
+              1,
+              unit,
+              change,
+              signedChange(change, 1, " pp"),
+              "macro-layer-primary"
+            )}
+            <div class="macro-layer macro-layer-live macro-layer-muted">
+              <span class="macro-layer-label">实时状态</span>
+              <span class="macro-layer-message">等待下一次同一时点快照</span>
+              <span class="macro-change is-flat">—</span>
+            </div>
+          </div>
           <span class="macro-source">${escapeHtml(source)}｜${escapeHtml(status)}</span>
         </div>
       </div>`;
@@ -565,47 +874,38 @@
 
   function renderMacro() {
     const comparisons = macroConfig.map(([id, label, decimals, suffix, source]) => {
-      const comparison = rollingComparison(id, marketMap.get(id));
+      const comparison = anchorComparison(id, marketMap.get(id));
       return { id, label, decimals, suffix, source, ...comparison };
     });
-    const rows = comparisons.map((item) =>
-      macroRow(
-        item.label,
-        item.reference,
-        item.current,
-        item.decimals,
-        item.suffix,
-        item.source,
-        item.status
-      )
-    );
-    const timed = comparisons.filter(
-      (item) => item.currentTime && item.referenceTime
-    );
-    const latestCurrent = Math.max(
+    const rows = comparisons.map(layeredMacroRow);
+    const fixedCount = comparisons.filter(
+      (item) => item.previous !== null && item.anchor !== null
+    ).length;
+    const latestAnchor = Math.max(
       0,
-      ...comparisons.map((item) => item.currentTime || 0)
+      ...comparisons
+        .filter((item) => item.kind === "price")
+        .map((item) => item.anchorTime || 0)
     );
-    const commonTarget = latestCurrent
-      ? latestCurrent - 24 * 60 * 60 * 1000
-      : 0;
-    root.querySelector("[data-macro-clock]").textContent = latestCurrent
-      ? `当前更新时间 ${formatClock(latestCurrent)}｜24小时前目标 ${formatClock(commonTarget)}｜${timed.length}/${comparisons.length} 项取得同源滚动参照`
-      : "当前时间与24小时前参照时间待核验";
+    const latestQuote = Math.max(
+      0,
+      ...comparisons.map((item) => item.latestTime || 0)
+    );
+    root.querySelector("[data-macro-clock]").innerHTML = latestAnchor
+      ? `<strong>日度锚点 ${escapeHtml(formatMarketAnchor(latestAnchor))}</strong><span>实时截至 ${escapeHtml(formatClock(latestQuote))} 北京</span><span>${fixedCount}/${comparisons.length} 项完成固定比较</span>`
+      : "正在建立美股收盘锚点…";
 
     const fed = snapshot.fedProbability;
     rows.splice(
-      4,
+      7,
       0,
-      macroRow(
+      fixedSnapshotRow(
         fed.label,
         fed.previous,
         fed.current,
-        1,
         fed.unit,
         fed.source,
-        `上次核验 ${fed.previousAsOf}｜当前核验 ${fed.currentAsOf}`,
-        "—"
+        `上次 ${fed.previousAsOf}｜本次 ${fed.currentAsOf}`
       )
     );
     const etf = etfData?.latest || {
@@ -613,11 +913,19 @@
       total: snapshot.etfFlow.totalMillions,
     };
     const total = Number(etf.total);
-    rows.push(`
-      <div class="macro-row">
-        <span>— BTC ETF资金流</span>
+    rows.splice(3, 0, `
+      <div class="macro-row macro-row-layered macro-row-static">
+        <div class="macro-identity">
+          <span class="macro-name">${directionIcon(0, total)} BTC ETF资金流</span>
+        </div>
         <div class="macro-reading">
-          <strong class="macro-value">${total >= 0 ? "净流入" : "净流出"} $${formatNumber(Math.abs(total), 1)}m</strong>
+          <div class="macro-layer-grid macro-layer-grid-single">
+            <div class="macro-layer macro-layer-primary macro-layer-muted">
+              <span class="macro-layer-label">最新统计日</span>
+              <span class="macro-layer-message">${escapeHtml(etf.date)} · ${total >= 0 ? "净流入" : "净流出"} $${formatNumber(Math.abs(total), 1)}m</span>
+              <span class="macro-change ${total >= 0 ? "is-up" : "is-down"}">${total >= 0 ? "流入" : "流出"}</span>
+            </div>
+          </div>
           <span class="macro-source">${escapeHtml(etf.date)}｜Farside Investors｜最新已完成统计日</span>
         </div>
       </div>`);
@@ -720,7 +1028,14 @@
       }
       const merged = fallbackMap();
       liveMarkets
-        .filter((item) => item?.status === "ok" && Number.isFinite(Number(item.price)))
+        .filter(
+          (item) =>
+            item?.status === "ok" &&
+            Number.isFinite(Number(item.price)) &&
+            (!treasuryIds.has(item.id) && !closeAnchorIds.has(item.id)
+              ? true
+              : trustedMacroSource(item.id, item))
+        )
         .forEach((item) => merged.set(item.id, { ...merged.get(item.id), ...item }));
       marketMap = merged;
       if (Array.isArray(breadthResponse.data) && breadthResponse.data.length) {
@@ -733,12 +1048,12 @@
       const liveCount = liveMarkets.filter((item) => item?.status === "ok").length;
       setState("equities", `实时接口正常｜${liveCount} 项行情｜每 60 秒刷新`, "fresh");
       const comparableCount = macroConfig.filter(([id]) => {
-        const comparison = rollingComparison(id, marketMap.get(id));
-        return comparison.reference !== null;
+        const comparison = anchorComparison(id, marketMap.get(id));
+        return comparison.previous !== null && comparison.anchor !== null;
       }).length;
       setState(
         "macro",
-        `统一接口正常｜${comparableCount}/${macroConfig.length} 项取得同源滚动24小时参照`,
+        `双层口径正常｜${comparableCount}/${macroConfig.length} 项完成固定比较`,
         comparableCount === macroConfig.length ? "fresh" : "stale"
       );
       root.querySelector("[data-page-state]").textContent = "实时数据已连接";
