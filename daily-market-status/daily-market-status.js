@@ -306,10 +306,11 @@
     });
     const anchors = [...byDate.entries()]
       .sort(([dateA], [dateB]) => dateA.localeCompare(dateB))
-      .map(([, value]) => value);
+      .map(([date, value]) => ({ ...value, date }));
     if (anchors.length < 2) return null;
     const previous = anchors.at(-2);
     const current = anchors.at(-1);
+    if (snapshot?.asOf && current.date !== snapshot.asOf) return null;
     return {
       previous: previous.value,
       previousAnchorTime: previous.anchorTime,
