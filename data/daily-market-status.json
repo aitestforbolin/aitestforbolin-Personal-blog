@@ -1,6 +1,6 @@
 {
   "asOf": "2026-07-31",
-  "publishedAt": "2026-08-01T08:48:00+08:00",
+  "publishedAt": "2026-08-01T13:42:00+08:00",
   "fallback": {
     "markets": [
       {
@@ -110,59 +110,116 @@
       {
         "id": "DXY",
         "price": 99.803,
-        "previousClose": 99.864,
-        "changePercent": -0.061083073,
+        "previousClose": 99.942,
+        "change": -0.139,
+        "changePercent": -0.0480278566,
         "updatedAt": 1785531599000,
-        "source": "Yahoo Finance"
+        "source": "Yahoo Finance",
+        "symbol": "DX-Y.NYB",
+        "status": "latest"
       },
       {
         "id": "US02Y",
-        "price": 4.262,
-        "previousClose": 4.25,
-        "changePercent": 0.2823529412,
-        "updatedAt": 1785544271520,
-        "source": "TradingView"
+        "price": 4.28,
+        "previousClose": 4.23,
+        "change": 0.05,
+        "changePercent": 1.1820330969,
+        "updatedAt": 1785526200000,
+        "source": "U.S. Treasury",
+        "granularity": "daily",
+        "interval": "1d",
+        "asOfDate": "2026-07-31",
+        "symbol": "BC_2YEAR",
+        "points": [
+          {
+            "time": 1785439800000,
+            "value": 4.23
+          },
+          {
+            "time": 1785526200000,
+            "value": 4.28
+          }
+        ]
       },
       {
         "id": "US10Y",
-        "price": 4.745,
-        "previousClose": 4.663,
-        "changePercent": 1.758524555,
-        "updatedAt": 1785524395000,
-        "source": "Yahoo Finance"
+        "price": 4.75,
+        "previousClose": 4.68,
+        "change": 0.07,
+        "changePercent": 1.4957264957,
+        "updatedAt": 1785526200000,
+        "source": "U.S. Treasury",
+        "granularity": "daily",
+        "interval": "1d",
+        "asOfDate": "2026-07-31",
+        "symbol": "BC_10YEAR",
+        "points": [
+          {
+            "time": 1785439800000,
+            "value": 4.68
+          },
+          {
+            "time": 1785526200000,
+            "value": 4.75
+          }
+        ]
       },
       {
         "id": "US30Y",
-        "price": 5.275,
-        "previousClose": 5.208,
-        "changePercent": 1.2864823349,
-        "updatedAt": 1785524395000,
-        "source": "Yahoo Finance"
+        "price": 5.27,
+        "previousClose": 5.21,
+        "change": 0.06,
+        "changePercent": 1.1516314779,
+        "updatedAt": 1785526200000,
+        "source": "U.S. Treasury",
+        "granularity": "daily",
+        "interval": "1d",
+        "asOfDate": "2026-07-31",
+        "symbol": "BC_30YEAR",
+        "points": [
+          {
+            "time": 1785439800000,
+            "value": 5.21
+          },
+          {
+            "time": 1785526200000,
+            "value": 5.27
+          }
+        ]
       },
       {
         "id": "BRN1!",
-        "price": 87.93,
-        "previousClose": 86.88,
-        "changePercent": 1.2085635359,
-        "updatedAt": 1785544271520,
-        "source": "TradingView",
-        "contractLabel": "ICE Europe Brent Crude continuous front month · ICEEUR:BRN1!"
+        "price": 90.12,
+        "previousClose": null,
+        "change": null,
+        "changePercent": null,
+        "updatedAt": 1785522499000,
+        "source": "Yahoo Finance",
+        "symbol": "BZ=F",
+        "contractLabel": "Brent Crude Oil Futures · BZ=F",
+        "status": "latest-only"
       },
       {
         "id": "GOLD",
-        "price": 4045.165,
-        "previousClose": 4103.27,
-        "changePercent": -1.4160657232,
-        "updatedAt": 1785544271520,
-        "source": "TradingView"
+        "price": 4107,
+        "previousClose": 4104.4,
+        "change": 2.6,
+        "changePercent": 0.0633466523,
+        "updatedAt": 1785531594000,
+        "source": "Yahoo Finance",
+        "symbol": "GC=F",
+        "status": "latest"
       },
       {
         "id": "BTCUSDT",
-        "price": 62920.58,
-        "previousClose": 62823.297,
-        "changePercent": 0.1548517901,
-        "updatedAt": 1785544268000,
-        "source": "Yahoo Finance"
+        "price": 63023.58,
+        "previousClose": 62933.11,
+        "change": 90.47,
+        "changePercent": 0.1437573631,
+        "updatedAt": 1785562597000,
+        "source": "Yahoo Finance",
+        "symbol": "BTC-USD",
+        "status": "latest"
       }
     ],
     "breadth": [
@@ -188,98 +245,166 @@
       }
     ]
   },
-  "macroAnchors": [],
+  "macroAnchors": [
+    {
+      "id": "DXY",
+      "provider": "Yahoo Finance",
+      "symbol": "DX-Y.NYB",
+      "previous": 99.942,
+      "previousAnchorTime": 1785441600000,
+      "previousObservedAt": 1785441600000,
+      "anchor": 99.894,
+      "anchorTime": 1785528000000,
+      "anchorObservedAt": 1785528000000,
+      "latest": 99.803,
+      "latestTime": 1785531599000,
+      "status": "16:00 ET完整锚点"
+    },
+    {
+      "id": "BRN1!",
+      "provider": "Yahoo Finance",
+      "symbol": "BZ=F",
+      "previous": 89.28,
+      "previousAnchorTime": 1785441600000,
+      "previousObservedAt": 1785441600000,
+      "anchor": null,
+      "anchorTime": 1785528000000,
+      "anchorObservedAt": null,
+      "latest": 90.12,
+      "latestTime": 1785522499000,
+      "status": "07/31 16:00 ET前60分钟内无有效报价；最近可用14:28 ET"
+    },
+    {
+      "id": "GOLD",
+      "provider": "Yahoo Finance",
+      "symbol": "GC=F",
+      "previous": 4173.2,
+      "previousAnchorTime": 1785441600000,
+      "previousObservedAt": 1785441600000,
+      "anchor": 4104.4,
+      "anchorTime": 1785528000000,
+      "anchorObservedAt": 1785528000000,
+      "latest": 4107,
+      "latestTime": 1785531594000,
+      "status": "16:00 ET完整锚点"
+    },
+    {
+      "id": "BTCUSDT",
+      "provider": "Yahoo Finance",
+      "symbol": "BTC-USD",
+      "previous": 64723.77,
+      "previousAnchorTime": 1785441600000,
+      "previousObservedAt": 1785441600000,
+      "anchor": 62933.11,
+      "anchorTime": 1785528000000,
+      "anchorObservedAt": 1785528000000,
+      "latest": 63023.58,
+      "latestTime": 1785562597000,
+      "status": "16:00 ET完整锚点"
+    }
+  ],
   "macro24h": [
     {
       "id": "DXY",
       "provider": "Yahoo Finance",
       "symbol": "DX-Y.NYB",
       "unit": "index points",
-      "historyMapping": "Yahoo Chart 5d/15m",
-      "reference": 99.979,
-      "referenceTime": 1785444300000,
-      "current": 99.803,
-      "currentTime": 1785531599000,
-      "status": "同源滚动24小时；参照点为不晚于目标时刻的最近有效报价"
+      "historyMapping": "Yahoo Chart 5d/15m；16:00 ET固定锚点",
+      "reference": 99.942,
+      "referenceTime": 1785441600000,
+      "current": 99.894,
+      "currentTime": 1785528000000,
+      "status": "前一有效交易日16:00 ET → 当前交易日16:00 ET"
     },
     {
       "id": "US02Y",
-      "provider": "TradingView",
-      "symbol": "TVC:US02Y",
+      "provider": "U.S. Treasury",
+      "symbol": "BC_2YEAR",
       "unit": "%",
-      "historyMapping": null,
-      "reference": null,
-      "referenceTime": null,
-      "current": 4.262,
-      "currentTime": 1785544271520,
-      "status": "同源24小时序列不可用"
+      "historyMapping": "Daily Treasury Par Yield Curve Rates",
+      "reference": 4.23,
+      "referenceTime": 1785439800000,
+      "current": 4.28,
+      "currentTime": 1785526200000,
+      "status": "美国财政部官方前一数据日 → 当前数据日"
     },
     {
       "id": "US10Y",
-      "provider": "Yahoo Finance",
-      "symbol": "^TNX",
+      "provider": "U.S. Treasury",
+      "symbol": "BC_10YEAR",
       "unit": "%",
-      "historyMapping": "Yahoo Chart 5d/5m",
-      "reference": 4.663,
-      "referenceTime": 1785437400000,
-      "current": 4.745,
-      "currentTime": 1785524395000,
-      "status": "最近可用；同源滚动24小时"
+      "historyMapping": "Daily Treasury Par Yield Curve Rates",
+      "reference": 4.68,
+      "referenceTime": 1785439800000,
+      "current": 4.75,
+      "currentTime": 1785526200000,
+      "status": "美国财政部官方前一数据日 → 当前数据日"
     },
     {
       "id": "US30Y",
-      "provider": "Yahoo Finance",
-      "symbol": "^TYX",
+      "provider": "U.S. Treasury",
+      "symbol": "BC_30YEAR",
       "unit": "%",
-      "historyMapping": "Yahoo Chart 5d/5m",
-      "reference": 5.208,
-      "referenceTime": 1785437400000,
-      "current": 5.275,
-      "currentTime": 1785524395000,
-      "status": "最近可用；同源滚动24小时"
+      "historyMapping": "Daily Treasury Par Yield Curve Rates",
+      "reference": 5.21,
+      "referenceTime": 1785439800000,
+      "current": 5.27,
+      "currentTime": 1785526200000,
+      "status": "美国财政部官方前一数据日 → 当前数据日"
     },
     {
       "id": "BRN1!",
-      "provider": "TradingView",
-      "symbol": "ICEEUR:BRN1!",
+      "provider": "Yahoo Finance",
+      "symbol": "BZ=F",
       "unit": "USD/barrel",
-      "historyMapping": null,
-      "reference": null,
-      "referenceTime": null,
-      "current": 87.93,
-      "currentTime": 1785544271520,
-      "status": "Brent连续近月期货；同源24小时序列不可用"
+      "historyMapping": "Yahoo Chart 5d/15m；16:00 ET固定锚点",
+      "reference": 89.28,
+      "referenceTime": 1785441600000,
+      "current": null,
+      "currentTime": 1785528000000,
+      "status": "当前交易日16:00 ET前60分钟内无有效报价；不以14:28 ET冒充锚点"
     },
     {
       "id": "GOLD",
-      "provider": "TradingView",
-      "symbol": "OANDA:XAUUSD",
+      "provider": "Yahoo Finance",
+      "symbol": "GC=F",
       "unit": "USD/troy oz",
-      "historyMapping": null,
-      "reference": null,
-      "referenceTime": null,
-      "current": 4045.165,
-      "currentTime": 1785544271520,
-      "status": "黄金现货/CFD；同源24小时序列不可用"
+      "historyMapping": "Yahoo Chart 5d/15m；16:00 ET固定锚点",
+      "reference": 4173.2,
+      "referenceTime": 1785441600000,
+      "current": 4104.4,
+      "currentTime": 1785528000000,
+      "status": "前一有效交易日16:00 ET → 当前交易日16:00 ET"
     },
     {
       "id": "BTCUSDT",
       "provider": "Yahoo Finance",
       "symbol": "BTC-USD",
       "unit": "USD",
-      "historyMapping": "Yahoo Chart 5d/5m",
-      "reference": 64733.28,
-      "referenceTime": 1785457800000,
-      "current": 62920.58,
-      "currentTime": 1785544268000,
-      "status": "Sites内部ID为BTCUSDT，实际提供商标的是Yahoo BTC-USD；同源滚动24小时"
+      "historyMapping": "Yahoo Chart 5d/15m；16:00 ET固定锚点",
+      "reference": 64723.77,
+      "referenceTime": 1785441600000,
+      "current": 62933.11,
+      "currentTime": 1785528000000,
+      "status": "前一有效交易日16:00 ET → 当前交易日16:00 ET"
     }
   ],
   "sourceAudit": {
-    "deployedSitesVersion": 17,
-    "sourceCommit": "cf37cb43b5f74be95b9a4aad71f5cd5a0accf74b",
-    "responseCheckedAt": "2026-08-01T08:31:20+08:00",
-    "mismatch": "版本17源码声明US02Y/US10Y/US30Y为美国财政部日度曲线、BRN1!/GOLD为Yahoo；公开API仍返回版本15映射。正式页按公开API实际提供商与代码记录，未将源码声明冒充已部署响应。"
+    "deployedSitesVersion": 18,
+    "sourceCommit": "d4e788a340327f87b23536ba1c016ae0d8d2f861",
+    "sourceRevision": "treasury-yahoo-anchor-20260801",
+    "responseCheckedAt": "2026-08-01T13:36:42+08:00",
+    "mismatch": null,
+    "mappings": {
+      "DXY": "Yahoo Finance · DX-Y.NYB",
+      "US02Y": "U.S. Treasury · BC_2YEAR",
+      "US10Y": "U.S. Treasury · BC_10YEAR",
+      "US30Y": "U.S. Treasury · BC_30YEAR",
+      "BRN1!": "Yahoo Finance · BZ=F",
+      "GOLD": "Yahoo Finance · GC=F",
+      "BTCUSDT": "Yahoo Finance · BTC-USD"
+    },
+    "note": "美国财政部收益率按官方数据日比较；Yahoo资产按相邻有效交易日16:00 ET固定锚点比较。Brent当日锚点缺失，保留最近可用报价但不判定方向。"
   },
   "fedProbability": {
     "label": "Fed 9月加息概率",
@@ -386,14 +511,14 @@
     }
   ],
   "view": [
-    "7月31日三大指数收高：标普500上涨0.70%、纳斯达克上涨1.00%、道琼斯上涨0.53%。推动力主要来自亚马逊业绩与微软的后续重估，而不是全市场同步走强。",
-    "市场宽度给出了明确反证。标普500仅221只上涨、281只下跌、1只持平，上涨比例44.0%；纳斯达克交易所上涨比例44.4%。指数向上而多数股票下跌，属于权重股集中的窄幅上涨。",
-    "板块结构同样不均衡。可选消费上涨3.29%、通信服务上涨1.56%，能源和工业温和上行；信息技术、医疗、公用事业与必需消费均下跌，费城半导体指数几乎持平。AI交易内部也在分化。",
-    "亚马逊上涨15.25%是核心催化，AWS增速缓解了对AI资本开支回报的担忧；微软延续业绩后涨势，英伟达受益于云厂商资本开支预期。苹果、高通和美光的下跌说明供应、成本与高预期仍在筛选赢家。",
-    "利率端没有确认全面风险偏好。10年期和30年期收益率的最近可用值均高于同源24小时前参照，CME口径的9月加息概率由65.2%升至约69%。盈利利好与更高折现率同时存在。",
-    "美元指数低于同源24小时前参照，暂时缓冲了长端收益率上升的压力；但2年期收益率只有TradingView当前报价，没有同源历史点，不能据此判断24小时方向。",
-    "Brent连续近月期货和黄金现货/CFD也只有TradingView当前值，没有同源24小时序列，方向保持中性。BTC则低于Yahoo BTC-USD同源24小时前参照，但ETF最新完成统计日录得2.331亿美元净流入，价格与资金流相互矛盾。",
-    "下一个确认点仍是宽度：若指数继续上涨且标普与Nasdaq上涨比例回到50%以上，盈利驱动才有扩散迹象；若长端收益率继续上行而宽度低于50%，应继续把行情视为少数权重股支撑。"
+    "7月31日三大指数收高：标普500上涨0.70%、纳斯达克上涨1.00%、道琼斯上涨0.53%。但推动力集中在亚马逊、微软等权重科技股，并不是全市场同步走强。",
+    "市场宽度与指数方向不一致。标普500仅221只上涨、281只下跌、1只持平，上涨比例44.0%；纳斯达克交易所上涨比例44.4%。多数股票下跌而指数上涨，属于权重股主导的窄幅行情。",
+    "板块结构也很集中：可选消费上涨3.29%、通信服务上涨1.56%，主要受亚马逊与大型平台股推动；信息技术、医疗保健、公用事业和必需消费均下跌，费城半导体指数几乎持平。",
+    "个股进一步解释了分化。亚马逊因AWS增速与AI云需求上涨15.25%，微软延续业绩后的重估；苹果因收入指引和供应约束下跌7.14%，美光与高通也承压。指数上涨不能掩盖科技内部仍在筛选赢家。",
+    "利率并未确认全面风险偏好。美国财政部7月31日官方曲线显示，2年期收益率由4.23%升至4.28%，10年期由4.68%升至4.75%，30年期由5.21%升至5.27%；Fed 9月加息概率固定核验由65.2%升至约69%。",
+    "美元指数在7月30日与7月31日两个16:00 ET锚点之间由99.942降至99.894，幅度很小。美元略弱提供了有限缓冲，但不足以抵消短端和长端收益率同步上升。",
+    "COMEX黄金期货同一锚点口径由4173.2降至4104.4，BTC由64723.77降至62933.11；BTC ETF最新完成统计日虽净流入2.331亿美元，价格与资金流并未形成一致确认。Brent因16:00 ET前60分钟内没有有效报价，方向保持中性。",
+    "后续确认仍看市场宽度和利率：若标普与纳斯达克上涨比例回到50%以上，同时2年期收益率不再继续上行，盈利驱动才可能扩散；否则应继续把行情视为少数权重股支撑。"
   ],
-  "verdict": "昨日属于：亚马逊业绩托举指数、但宽度与利率均未确认的窄幅权重股上涨。"
+  "verdict": "昨日属于：亚马逊业绩托举指数、但市场宽度与利率均未确认的窄幅权重股上涨。"
 }
