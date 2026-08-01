@@ -718,16 +718,37 @@
   }
 
   async function copyDocumentBody(text) {
+    let nativeWrite = null;
+    let fallbackSucceeded = false;
+    let fallbackError = null;
+
     if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
       try {
-        await navigator.clipboard.writeText(text);
-        return;
+        nativeWrite = navigator.clipboard.writeText(text);
       } catch (error) {
-        fallbackCopy(text);
-        return;
+        nativeWrite = null;
       }
     }
-    fallbackCopy(text);
+
+    try {
+      fallbackCopy(text);
+      fallbackSucceeded = true;
+    } catch (error) {
+      fallbackError = error;
+    }
+
+    if (nativeWrite) {
+      try {
+        await nativeWrite;
+        return;
+      } catch (error) {
+        if (fallbackSucceeded) return;
+        throw fallbackError || error;
+      }
+    }
+
+    if (fallbackSucceeded) return;
+    throw fallbackError || new Error("Clipboard copy failed");
   }
 
   async function handleCopyBody() {
