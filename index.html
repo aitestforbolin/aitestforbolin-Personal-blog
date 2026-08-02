@@ -234,9 +234,20 @@
       >
         <div class="macro-calendar-head">
           <div>
-            <p class="eyebrow">US Macro Calendar</p>
-            <h2 id="macro-calendar-title">美国宏观数据日历</h2>
-            <p>未来 35 天重点数据，北京时间显示；星级越高，通常越可能引发跨资产波动。</p>
+            <p class="eyebrow">China &amp; US Macro Calendar</p>
+            <h2 id="macro-calendar-title">中美重要宏观数据日历</h2>
+            <p>未来 35 天重点数据统一按北京时间显示；中国数据仅采用官方公开来源且不填造预测值。</p>
+          </div>
+          <div class="macro-country-filters" aria-label="按国家筛选宏观事件">
+            <button class="is-active" type="button" data-macro-country="ALL" aria-pressed="true">
+              全部 <span data-filter-count>0</span>
+            </button>
+            <button type="button" data-macro-country="CN" aria-pressed="false">
+              中国 <span data-filter-count>0</span>
+            </button>
+            <button type="button" data-macro-country="US" aria-pressed="false">
+              美国 <span data-filter-count>0</span>
+            </button>
           </div>
         </div>
 
@@ -344,6 +355,7 @@
     <script src="market-prices.js?v=20260729-1"></script>
     <script src="btc-etf-flow.js?v=20260707-1"></script>
     <script src="tech-events.js?v=20260721-1"></script>
-    <script src="macro-calendar.js?v=20260728-3"></script>
+    <script src="macro-calendar-model.js?v=20260802-1"></script>
+    <script src="macro-calendar.js?v=20260802-1"></script>
   </body>
 </html>
