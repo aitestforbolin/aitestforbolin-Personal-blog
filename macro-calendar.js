@@ -1,14 +1,25 @@
 (function () {
-  const DATA_URL = "data/us-macro-calendar.json";
+  const DATA_URL = "data/macro-calendar.json";
   const FILTER_LABELS = {
     inflation: "通胀",
     jobs: "就业",
     growth: "增长/消费",
     consumption: "增长/消费",
     fed: "美联储",
+    pmi: "景气",
+    trade: "外贸",
+    credit: "金融",
+    housing: "房地产",
+    profits: "企业利润",
+    policy: "政策会议",
+    rates: "利率",
+  };
+  const COUNTRY_LABELS = {
+    CN: "中国",
+    US: "美国",
   };
   const HORIZON_DAYS = 35;
-  const LOOKBACK_DAYS = 3;
+  const LOOKBACK_DAYS = 7;
   const UPCOMING_DAYS = 3;
   const FOMC_MEETINGS = [
     { start: "2026-01-27", end: "2026-01-28" },
@@ -32,19 +43,25 @@
 
   const state = {
     events: [],
+    country: "all",
+    highOnly: false,
   };
 
   const eventList = document.querySelector("[data-calendar-events]");
   const status = document.querySelector("[data-calendar-status]");
   const nextFomcDate = document.querySelector("[data-next-fomc-date]");
+  const countryButtons = Array.from(
+    document.querySelectorAll("[data-calendar-country]")
+  );
+  const highOnlyButton = document.querySelector("[data-calendar-high-only]");
 
   if (!eventList || !status) {
     return;
   }
 
   function parseDate(dateText) {
-    const [year, month, day] = dateText.split("-").map(Number);
-    return new Date(year, month - 1, day);
+    const parts = String(dateText).split("-").map(Number);
+    return new Date(parts[0], parts[1] - 1, parts[2]);
   }
 
   function formatCnDate(dateText) {
@@ -72,8 +89,7 @@
 
   function getNextFomcMeeting() {
     const today = getToday();
-
-    return FOMC_MEETINGS.find((meeting) => {
+    return FOMC_MEETINGS.find(function (meeting) {
       const meetingEnd = parseDate(meeting.end || meeting.start);
       meetingEnd.setHours(23, 59, 59, 999);
       return meetingEnd >= today;
@@ -88,32 +104,53 @@
     let dateText = "";
 
     if (sameMonth) {
-      dateText = `${start.getFullYear()}年${
-        start.getMonth() + 1
-      }月${start.getDate()}-${end.getDate()}日`;
+      dateText =
+        start.getFullYear() +
+        "年" +
+        (start.getMonth() + 1) +
+        "月" +
+        start.getDate() +
+        "-" +
+        end.getDate() +
+        "日";
     } else if (sameYear) {
-      dateText = `${start.getFullYear()}年${
-        start.getMonth() + 1
-      }月${start.getDate()}日-${end.getMonth() + 1}月${end.getDate()}日`;
+      dateText =
+        start.getFullYear() +
+        "年" +
+        (start.getMonth() + 1) +
+        "月" +
+        start.getDate() +
+        "日-" +
+        (end.getMonth() + 1) +
+        "月" +
+        end.getDate() +
+        "日";
     } else {
-      dateText = `${start.getFullYear()}年${
-        start.getMonth() + 1
-      }月${start.getDate()}日-${end.getFullYear()}年${
-        end.getMonth() + 1
-      }月${end.getDate()}日`;
+      dateText =
+        start.getFullYear() +
+        "年" +
+        (start.getMonth() + 1) +
+        "月" +
+        start.getDate() +
+        "日-" +
+        end.getFullYear() +
+        "年" +
+        (end.getMonth() + 1) +
+        "月" +
+        end.getDate() +
+        "日";
     }
 
-    return `${dateText}${meeting.tentative ? "（暂定）" : ""}`;
+    return dateText + (meeting.tentative ? "（暂定）" : "");
   }
 
   function renderNextFomcDate() {
     if (!nextFomcDate) {
       return;
     }
-
     const meeting = getNextFomcMeeting();
     nextFomcDate.textContent = meeting
-      ? `下次 FOMC：${formatFomcMeeting(meeting)}`
+      ? "下次 FOMC：" + formatFomcMeeting(meeting)
       : "下次 FOMC：见美联储日历";
   }
 
@@ -121,18 +158,27 @@
     return event.date_shanghai || event.date;
   }
 
+  function getEventEndDate(event) {
+    return event.date_end || event.dateEnd || getEventDateForWindow(event);
+  }
+
+  function getDateStatus(event) {
+    return event.dateStatus || event.date_status || "confirmed";
+  }
+
   function isUpcomingEvent(event) {
-    const distance = dateDistance(getEventDateForWindow(event));
+    const startDistance = dateDistance(getEventDateForWindow(event));
+    const endDistance = dateDistance(getEventEndDate(event));
     return (
       event.release_status !== "released" &&
-      distance >= 0 &&
-      distance <= UPCOMING_DAYS
+      endDistance >= 0 &&
+      startDistance <= UPCOMING_DAYS
     );
   }
 
   function isRecentEvent(event) {
-    const distance = dateDistance(getEventDateForWindow(event));
-    return distance < 0 && distance >= -LOOKBACK_DAYS;
+    const endDistance = dateDistance(getEventEndDate(event));
+    return endDistance < 0 && endDistance >= -LOOKBACK_DAYS;
   }
 
   function normalizeCategory(event) {
@@ -144,7 +190,6 @@
     if (Number.isInteger(stars) && stars >= 1 && stars <= 5) {
       return stars;
     }
-
     const legacyImportance = {
       critical: 5,
       high: 4,
@@ -157,15 +202,24 @@
 
   function renderImportanceStars(event) {
     const stars = getImportanceStars(event);
-    const symbols = `${"★".repeat(stars)}${"☆".repeat(5 - stars)}`;
-    return `<span class="macro-importance" data-stars="${stars}" role="img" aria-label="重要性 ${stars} 星，满分 5 星" title="重要性 ${stars}/5">${symbols}</span>`;
+    const symbols = "★".repeat(stars) + "☆".repeat(5 - stars);
+    return (
+      '<span class="macro-importance" data-stars="' +
+      stars +
+      '" role="img" aria-label="重要性 ' +
+      stars +
+      ' 星，满分 5 星" title="重要性 ' +
+      stars +
+      '/5">' +
+      symbols +
+      "</span>"
+    );
   }
 
   function formatPeriod(period) {
     if (!period) {
       return "";
     }
-
     const monthMatch = period.match(
       /^(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})$/
     );
@@ -184,14 +238,12 @@
         November: "11月",
         December: "12月",
       };
-      return `${monthMatch[2]}年${months[monthMatch[1]]}`;
+      return monthMatch[2] + "年" + months[monthMatch[1]];
     }
-
     const quarterMatch = period.match(/^Q([1-4])\s+(\d{4})$/);
     if (quarterMatch) {
-      return `${quarterMatch[2]}年${quarterMatch[1]}季度`;
+      return quarterMatch[2] + "年" + quarterMatch[1] + "季度";
     }
-
     const meetingMatch = period.match(
       /^(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})\s+meeting$/
     );
@@ -210,16 +262,15 @@
         November: "11月",
         December: "12月",
       };
-      return `${meetingMatch[2]}年${months[meetingMatch[1]]}会议`;
+      return meetingMatch[2] + "年" + months[meetingMatch[1]] + "会议";
     }
-
     return period;
   }
 
   function formatEventName(event) {
-    const title = event.title_cn.replace(/\s+/g, "");
+    const title = String(event.title_cn || event.title || "").replace(/\s+/g, "");
     const period = formatPeriod(event.period);
-    return period ? `${title} ${period}` : title;
+    return period ? title + " " + period : title;
   }
 
   function escapeHtml(value) {
@@ -230,46 +281,85 @@
 
   function formatEventResults(event) {
     const fields = [
-      ["actual", "本期"],
+      ["actual", "公布"],
       ["forecast", "预期"],
       ["previous", "前值"],
     ];
-    const values = fields.filter(
-      ([field]) =>
-        event[field] !== undefined &&
-        event[field] !== null &&
-        event[field] !== ""
-    );
-
+    const values = fields.filter(function (entry) {
+      const value = event[entry[0]];
+      return value !== undefined && value !== null && value !== "";
+    });
     if (!values.length) {
       return "";
     }
+    return (
+      '<div class="macro-event-results" aria-label="数据公布结果">' +
+      values
+        .map(function (entry) {
+          const field = entry[0];
+          const label = entry[1];
+          return (
+            '<span class="macro-result macro-result-' +
+            field +
+            '"><small>' +
+            label +
+            "</small><strong>" +
+            escapeHtml(event[field]) +
+            "</strong></span>"
+          );
+        })
+        .join("") +
+      "</div>"
+    );
+  }
 
-    return `
-      <div class="macro-event-results" aria-label="数据公布结果">
-        ${values
-          .map(
-            ([field, label]) => `
-              <span class="macro-result macro-result-${field}">
-                <small>${label}</small>
-                <strong>${escapeHtml(event[field])}</strong>
-              </span>
-            `
-          )
-          .join("")}
-      </div>
-    `;
+  function formatDateLabel(event) {
+    const start = getEventDateForWindow(event);
+    const end = getEventEndDate(event);
+    if (end && end !== start) {
+      return formatCnDate(start) + "—" + formatCnDate(end);
+    }
+    return formatCnDate(start);
+  }
+
+  function getStatusBadge(event) {
+    const dateStatus = getDateStatus(event);
+    if (dateStatus === "after_confirmed") {
+      return '<small class="macro-released-badge">会后确认</small>';
+    }
+    if (dateStatus === "window") {
+      return '<small class="macro-window-badge">观察窗口</small>';
+    }
+    if (dateStatus === "tentative") {
+      return '<small class="macro-tentative-badge">待定</small>';
+    }
+    if (event.release_status === "released" || isRecentEvent(event)) {
+      return '<small class="macro-released-badge">已公布</small>';
+    }
+    if (isUpcomingEvent(event)) {
+      return '<small class="macro-upcoming-badge">即将发布</small>';
+    }
+    return "";
   }
 
   function filterEvents() {
     return state.events
-      .filter((event) => {
-        const distance = dateDistance(getEventDateForWindow(event));
-        return distance >= -LOOKBACK_DAYS && distance <= HORIZON_DAYS;
+      .filter(function (event) {
+        const startDistance = dateDistance(getEventDateForWindow(event));
+        const endDistance = dateDistance(getEventEndDate(event));
+        const inWindow =
+          endDistance >= -LOOKBACK_DAYS && startDistance <= HORIZON_DAYS;
+        const matchesCountry =
+          state.country === "all" || event.country === state.country;
+        const matchesImportance =
+          !state.highOnly || getImportanceStars(event) >= 4;
+        return inWindow && matchesCountry && matchesImportance;
       })
-      .sort((a, b) => {
-        const aStamp = `${getEventDateForWindow(a)} ${a.time_shanghai || ""}`;
-        const bStamp = `${getEventDateForWindow(b)} ${b.time_shanghai || ""}`;
+      .sort(function (a, b) {
+        const aStamp =
+          getEventDateForWindow(a) + " " + (a.time_shanghai || "99:99");
+        const bStamp =
+          getEventDateForWindow(b) + " " + (b.time_shanghai || "99:99");
         return aStamp.localeCompare(bStamp);
       });
   }
@@ -279,10 +369,9 @@
       status.textContent = "暂时没有可显示的宏观事件。";
       return;
     }
-
     status.textContent = events.length
       ? ""
-      : `最近 ${LOOKBACK_DAYS} 天及未来 ${HORIZON_DAYS} 天暂无重点事件。`;
+      : "当前筛选下，最近 7 天及未来 35 天暂无重点事件。";
   }
 
   function renderEvents() {
@@ -293,86 +382,113 @@
     if (!events.length) {
       const empty = document.createElement("p");
       empty.className = "macro-empty";
-      empty.textContent = `最近 ${LOOKBACK_DAYS} 天及未来 ${HORIZON_DAYS} 天暂无重点事件。`;
+      empty.textContent = "当前筛选下，最近 7 天及未来 35 天暂无重点事件。";
       eventList.append(empty);
       return;
     }
 
     const fragment = document.createDocumentFragment();
-
-    events.forEach((event) => {
+    events.forEach(function (event) {
       const isUpcoming = isUpcomingEvent(event);
       const isRecent =
         isRecentEvent(event) || event.release_status === "released";
       const item = document.createElement("article");
-      item.className = `macro-event macro-event-${normalizeCategory(event)}${
-        isUpcoming ? " macro-event-upcoming" : ""
-      }${isRecent ? " macro-event-recent" : ""}`;
+      item.className =
+        "macro-event macro-event-" +
+        normalizeCategory(event) +
+        (isUpcoming ? " macro-event-upcoming" : "") +
+        (isRecent ? " macro-event-recent" : "");
 
-      const chinaDate = getEventDateForWindow(event);
-      const sourceUrl = event.url || "#";
+      const sourceUrl = event.sourceUrl || event.url || "#";
       const category =
         FILTER_LABELS[event.category] ||
         FILTER_LABELS[normalizeCategory(event)] ||
         "宏观";
-      const statusBadge = isUpcoming
-        ? '<small class="macro-upcoming-badge">即将发布</small>'
-        : isRecent
-          ? '<small class="macro-released-badge">已公布</small>'
-          : "";
+      const country = event.country || "US";
       const sourceBadge = event.source
-        ? `<span class="macro-source">${escapeHtml(event.source)}</span>`
+        ? '<span class="macro-source">' + escapeHtml(event.source) + "</span>"
         : "";
       const fallbackLink = event.fallback_url
-        ? `<a class="macro-fallback-link" href="${escapeHtml(
-            event.fallback_url
-          )}" target="_blank" rel="noreferrer">${escapeHtml(
-            event.fallback_label || "备用链接"
-          )}</a>`
+        ? '<a class="macro-fallback-link" href="' +
+          escapeHtml(event.fallback_url) +
+          '" target="_blank" rel="noreferrer">' +
+          escapeHtml(event.fallback_label || "备用链接") +
+          "</a>"
         : "";
+      const timeText =
+        getDateStatus(event) === "window" || !event.time_shanghai
+          ? "时间待定"
+          : event.time_shanghai;
 
-      item.innerHTML = `
-        <div class="macro-date">
-          <span>${formatCnDate(chinaDate)}</span>
-          <strong>${event.time_shanghai || "待定"}</strong>
-          ${statusBadge}
-        </div>
-        <div class="macro-event-body">
-          <div class="macro-event-meta">
-            <span class="macro-category">${category}</span>
-            ${renderImportanceStars(event)}
-            ${sourceBadge}
-            ${fallbackLink}
-          </div>
-          <div class="macro-event-main">
-            <a class="macro-event-name" href="${escapeHtml(sourceUrl)}" target="_blank" rel="noreferrer">
-              ${formatEventName(event)}
-            </a>
-            ${formatEventResults(event)}
-          </div>
-        </div>
-      `;
+      item.innerHTML =
+        '<div class="macro-date"><span class="macro-date-range">' +
+        formatDateLabel(event) +
+        "</span><strong>" +
+        escapeHtml(timeText) +
+        "</strong>" +
+        getStatusBadge(event) +
+        '</div><div class="macro-event-body"><div class="macro-event-meta">' +
+        '<span class="macro-event-country" data-country="' +
+        escapeHtml(country) +
+        '">' +
+        escapeHtml(COUNTRY_LABELS[country] || country) +
+        "</span>" +
+        '<span class="macro-category">' +
+        escapeHtml(category) +
+        "</span>" +
+        renderImportanceStars(event) +
+        sourceBadge +
+        fallbackLink +
+        '</div><div class="macro-event-main"><a class="macro-event-name" href="' +
+        escapeHtml(sourceUrl) +
+        '" target="_blank" rel="noreferrer">' +
+        escapeHtml(formatEventName(event)) +
+        "</a>" +
+        formatEventResults(event) +
+        "</div></div>";
 
       fragment.append(item);
     });
-
     eventList.append(fragment);
+  }
+
+  countryButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      state.country = button.dataset.calendarCountry || "all";
+      countryButtons.forEach(function (candidate) {
+        const active = candidate === button;
+        candidate.classList.toggle("is-active", active);
+        candidate.setAttribute("aria-pressed", String(active));
+      });
+      renderEvents();
+    });
+  });
+
+  if (highOnlyButton) {
+    highOnlyButton.addEventListener("click", function () {
+      state.highOnly = !state.highOnly;
+      highOnlyButton.classList.toggle("is-active", state.highOnly);
+      highOnlyButton.setAttribute("aria-pressed", String(state.highOnly));
+      renderEvents();
+    });
   }
 
   renderNextFomcDate();
 
   fetch(DATA_URL)
-    .then((response) => {
+    .then(function (response) {
       if (!response.ok) {
-        throw new Error(`Calendar request failed: ${response.status}`);
+        throw new Error("Calendar request failed: " + response.status);
       }
       return response.json();
     })
-    .then((events) => {
+    .then(function (events) {
       state.events = Array.isArray(events) ? events : [];
       renderEvents();
     })
-    .catch(() => {
-      status.textContent = "日历数据暂时无法载入，请检查 data/us-macro-calendar.json。";
+    .catch(function () {
+      status.textContent =
+        "日历数据暂时无法载入，请检查 data/macro-calendar.json。";
     });
 })();
+
