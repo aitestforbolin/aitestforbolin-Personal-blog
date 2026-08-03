@@ -1,11 +1,381 @@
 {
   "schemaVersion": 1,
-  "status": "static_sample",
-  "generatedAt": "2026-08-02T10:00:00+08:00",
+  "status": "partial",
+  "generatedAt": "2026-08-03T13:21:30+00:00",
   "timezone": "Asia/Shanghai",
   "sourcePolicy": "official_only",
-  "failedSources": [],
+  "failedSources": [
+    "gacc",
+    "mof"
+  ],
   "events": [
+    {
+      "id": "cn-lpr-2026-06",
+      "country": "CN",
+      "period": "2026-06",
+      "scheduledAt": "2026-06-22T09:00:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "中国贷款市场报价利率（LPR）",
+      "category": "monetary_policy",
+      "importance": "high",
+      "source": "中国人民银行",
+      "sourceUrl": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/3876551/2026062208495122562/index.html",
+      "metrics": [
+        {
+          "id": "lpr_1y",
+          "label": "1年期LPR",
+          "actual": "3.0",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/3876551/2026062208495122562/index.html"
+        },
+        {
+          "id": "lpr_5y",
+          "label": "5年期以上LPR",
+          "actual": "3.5",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/3876551/2026062208495122562/index.html"
+        }
+      ],
+      "releasedAt": "2026-06-22T09:00:00+08:00",
+      "retrievedAt": "2026-08-03T13:21:30+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
+      "group": "lpr",
+      "fallbackSourceUrl": "https://www.chinamoney.com.cn/chinese/bklpr/"
+    },
+    {
+      "id": "cn-reserves-2026-06",
+      "country": "CN",
+      "period": "2026-06",
+      "scheduledAt": "2026-07-07T16:08:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "中国外汇储备",
+      "category": "reserves",
+      "importance": "medium",
+      "source": "国家外汇管理局",
+      "sourceUrl": "https://www.safe.gov.cn/safe/2026/0706/27661.html",
+      "metrics": [
+        {
+          "id": "fx_reserves",
+          "label": "外汇储备规模",
+          "actual": "34163",
+          "previous": null,
+          "unit": "亿美元",
+          "sourceUrl": "https://www.safe.gov.cn/safe/2026/0706/27661.html"
+        }
+      ],
+      "releasedAt": "2026-07-07T16:08:00+08:00",
+      "retrievedAt": "2026-08-03T13:21:30+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
+      "group": "reserves"
+    },
+    {
+      "id": "cn-housing-2026-06",
+      "country": "CN",
+      "period": "2026-06",
+      "scheduledAt": "2026-07-15T09:30:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "中国70城房价",
+      "category": "housing",
+      "importance": "medium",
+      "source": "国家统计局",
+      "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202607/t20260715_1964114.html",
+      "metrics": [
+        {
+          "id": "tier1_new_home_mom",
+          "label": "一线新房环比",
+          "actual": "0.1",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202607/t20260715_1964114.html"
+        },
+        {
+          "id": "tier2_new_home_mom",
+          "label": "二线新房环比",
+          "actual": "0.0",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202607/t20260715_1964114.html"
+        },
+        {
+          "id": "tier3_new_home_mom",
+          "label": "三线新房环比",
+          "actual": "-0.3",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202607/t20260715_1964114.html"
+        },
+        {
+          "id": "tier1_resale_mom",
+          "label": "一线二手房环比",
+          "actual": "0.3",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202607/t20260715_1964114.html"
+        },
+        {
+          "id": "tier2_resale_mom",
+          "label": "二线二手房环比",
+          "actual": "-0.3",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202607/t20260715_1964114.html"
+        },
+        {
+          "id": "tier3_resale_mom",
+          "label": "三线二手房环比",
+          "actual": "-0.4",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202607/t20260715_1964114.html"
+        }
+      ],
+      "releasedAt": "2026-07-15T09:30:00+08:00",
+      "retrievedAt": "2026-08-03T13:21:30+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
+      "group": "housing",
+      "scheduleSourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html"
+    },
+    {
+      "id": "cn-activity-2026-06",
+      "country": "CN",
+      "period": "2026-06",
+      "scheduledAt": "2026-07-15T10:00:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "中国工业 / 社零 / 投资 / 房地产 / 失业率",
+      "category": "activity",
+      "importance": "critical",
+      "source": "国家统计局",
+      "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964121.html",
+      "metrics": [
+        {
+          "id": "industrial_output_yoy",
+          "label": "规模以上工业增加值同比",
+          "actual": "5.3",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964121.html"
+        },
+        {
+          "id": "retail_sales_yoy",
+          "label": "社会消费品零售总额同比",
+          "actual": "1.0",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964121.html"
+        },
+        {
+          "id": "fixed_asset_investment_ytd",
+          "label": "固定资产投资累计同比",
+          "actual": "-5.7",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964121.html"
+        },
+        {
+          "id": "property_investment_ytd",
+          "label": "房地产开发投资累计同比",
+          "actual": "-18.0",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964121.html"
+        },
+        {
+          "id": "surveyed_unemployment",
+          "label": "全国城镇调查失业率",
+          "actual": "5.0",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964121.html"
+        }
+      ],
+      "releasedAt": "2026-07-15T10:00:00+08:00",
+      "retrievedAt": "2026-08-03T13:21:30+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
+      "group": "activity",
+      "scheduleSourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html"
+    },
+    {
+      "id": "cn-prices-2026-06",
+      "country": "CN",
+      "period": "2026-06",
+      "scheduledAt": "2026-07-15T10:00:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "中国CPI / 核心CPI / PPI",
+      "category": "prices",
+      "importance": "high",
+      "source": "国家统计局",
+      "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964121.html",
+      "metrics": [
+        {
+          "id": "cpi_yoy",
+          "label": "CPI同比",
+          "actual": "1.0",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260709_1964084.html"
+        },
+        {
+          "id": "core_cpi_yoy",
+          "label": "核心CPI同比",
+          "actual": "1.0",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964121.html"
+        },
+        {
+          "id": "ppi_yoy",
+          "label": "PPI同比",
+          "actual": "4.1",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260709_1964083.html"
+        }
+      ],
+      "releasedAt": "2026-07-15T10:00:00+08:00",
+      "retrievedAt": "2026-08-03T13:21:30+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
+      "group": "prices",
+      "scheduleSourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html"
+    },
+    {
+      "id": "cn-credit-2026-06",
+      "country": "CN",
+      "period": "2026-06",
+      "scheduledAt": "2026-07-15T18:49:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "中国货币与融资数据",
+      "category": "credit",
+      "importance": "high",
+      "source": "中国人民银行",
+      "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071518015458230/index.html",
+      "metrics": [
+        {
+          "id": "m1_yoy",
+          "label": "M1同比",
+          "actual": "4",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html"
+        },
+        {
+          "id": "m2_yoy",
+          "label": "M2同比",
+          "actual": "8.0",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071518015458230/index.html",
+          "revisionStatus": "revised"
+        },
+        {
+          "id": "new_yuan_loans",
+          "label": "人民币贷款累计新增",
+          "actual": "10.72",
+          "previous": null,
+          "unit": "万亿元",
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071518015458230/index.html"
+        },
+        {
+          "id": "tsf_increment",
+          "label": "社融增量累计",
+          "actual": "20.84",
+          "previous": null,
+          "unit": "万亿元",
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071518015458230/index.html"
+        }
+      ],
+      "releasedAt": "2026-07-15T18:49:00+08:00",
+      "retrievedAt": "2026-08-03T13:21:30+00:00",
+      "revisionStatus": "revised",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
+      "group": "credit"
+    },
+    {
+      "id": "cn-lpr-2026-07",
+      "country": "CN",
+      "period": "2026-07",
+      "scheduledAt": "2026-07-20T09:00:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "中国贷款市场报价利率（LPR）",
+      "category": "monetary_policy",
+      "importance": "high",
+      "source": "中国人民银行",
+      "sourceUrl": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/3876551/2026072008093186869/index.html",
+      "metrics": [
+        {
+          "id": "lpr_1y",
+          "label": "1年期LPR",
+          "actual": "3.0",
+          "previous": "3.0",
+          "unit": "%",
+          "sourceUrl": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/3876551/2026072008093186869/index.html"
+        },
+        {
+          "id": "lpr_5y",
+          "label": "5年期以上LPR",
+          "actual": "3.5",
+          "previous": "3.5",
+          "unit": "%",
+          "sourceUrl": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/3876551/2026072008093186869/index.html"
+        }
+      ],
+      "releasedAt": "2026-07-20T09:00:00+08:00",
+      "retrievedAt": "2026-08-03T13:21:30+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
+      "group": "lpr",
+      "fallbackSourceUrl": "https://www.chinamoney.com.cn/chinese/bklpr/"
+    },
+    {
+      "id": "cn-profits-2026-01-06",
+      "country": "CN",
+      "period": "2026-01/06",
+      "scheduledAt": "2026-07-27T09:30:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "中国规模以上工业企业利润",
+      "category": "profits",
+      "importance": "medium",
+      "source": "国家统计局",
+      "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260727_1964194.html",
+      "metrics": [
+        {
+          "id": "industrial_profits_ytd",
+          "label": "规模以上工业企业利润累计同比",
+          "actual": "18.7",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260727_1964194.html"
+        },
+        {
+          "id": "industrial_profits_monthly",
+          "label": "规模以上工业企业利润当月同比",
+          "actual": "15.1",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260727_1964194.html"
+        }
+      ],
+      "releasedAt": "2026-07-27T09:30:00+08:00",
+      "retrievedAt": "2026-08-03T13:21:30+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
+      "group": "profits",
+      "scheduleSourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html"
+    },
     {
       "id": "cn-pmi-2026-07",
       "country": "CN",
@@ -194,9 +564,10 @@
           "id": "m1_yoy",
           "label": "M1同比",
           "actual": null,
-          "previous": "4.0",
+          "previous": "4",
           "unit": "%",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html"
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html",
+          "previousPeriod": "2026-06"
         },
         {
           "id": "m2_yoy",
@@ -204,7 +575,8 @@
           "actual": null,
           "previous": "8.0",
           "unit": "%",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html"
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071518015458230/index.html",
+          "previousPeriod": "2026-06"
         },
         {
           "id": "new_yuan_loans",
