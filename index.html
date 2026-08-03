@@ -6,10 +6,10 @@
     <title>Bolin Brief | 全球新闻、市场与关键事件</title>
     <meta
       name="description"
-      content="每日整理全球新闻、跨资产市场、美国宏观数据与科技巨头关键事件。"
+      content="每日整理全球新闻、跨资产市场、中美宏观数据与政策日历、科技巨头关键事件。"
     />
     <link rel="stylesheet" href="styles.css?v=20260728-3" />
-    <link rel="stylesheet" href="macro-alerts.css?v=20260725-1" />
+    <link rel="stylesheet" href="macro-alerts.css?v=20260803-1" />
     <link rel="stylesheet" href="btc-etf-flow.css?v=20260707-1" />
     <link rel="stylesheet" href="tech-events.css?v=20260721-1" />
     <link rel="stylesheet" href="editorial-refresh.css?v=20260721-1" />
@@ -74,7 +74,7 @@
             <a href="#macro-calendar">
               <small>03 / Macro</small>
               <strong>宏观日历</strong>
-              <span>未来 35 天重要数据</span>
+              <span>中美数据与政策事件</span>
             </a>
             <a href="#tech-events">
               <small>04 / Technology</small>
@@ -234,9 +234,9 @@
       >
         <div class="macro-calendar-head">
           <div>
-            <p class="eyebrow">US Macro Calendar</p>
-            <h2 id="macro-calendar-title">美国宏观数据日历</h2>
-            <p>未来 35 天重点数据，北京时间显示；星级越高，通常越可能引发跨资产波动。</p>
+            <p class="eyebrow">China &amp; US Macro Calendar</p>
+            <h2 id="macro-calendar-title">中美宏观与政策日历</h2>
+            <p>回看最近 7 天、展望未来 35 天；全部按北京时间显示，并明确区分确定日期、发布窗口与会后确认。</p>
           </div>
         </div>
 
@@ -261,8 +261,19 @@
           </a>
         </div>
 
+        <div class="macro-calendar-toolbar" aria-label="筛选中美宏观与政策事件">
+          <div class="macro-country-filters" role="group" aria-label="按国家筛选">
+            <button class="macro-filter-button is-active" type="button" data-calendar-country="all" aria-pressed="true">全部</button>
+            <button class="macro-filter-button" type="button" data-calendar-country="CN" aria-pressed="false">中国</button>
+            <button class="macro-filter-button" type="button" data-calendar-country="US" aria-pressed="false">美国</button>
+          </div>
+          <button class="macro-filter-button macro-high-filter" type="button" data-calendar-high-only aria-pressed="false">
+            仅看高重要性（4–5星）
+          </button>
+        </div>
+
         <div class="macro-calendar-panel">
-          <div class="macro-calendar-status" data-calendar-status>
+          <div class="macro-calendar-status" data-calendar-status aria-live="polite">
             正在载入日历...
           </div>
           <div class="macro-event-list" data-calendar-events></div>
@@ -344,6 +355,7 @@
     <script src="market-prices.js?v=20260729-1"></script>
     <script src="btc-etf-flow.js?v=20260707-1"></script>
     <script src="tech-events.js?v=20260721-1"></script>
-    <script src="macro-calendar.js?v=20260728-3"></script>
+    <script src="macro-calendar.js?v=20260803-1"></script>
   </body>
 </html>
+
