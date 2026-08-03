@@ -9,11 +9,13 @@ import hashlib
 import json
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlparse
 
 
 SITE_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_US = SITE_ROOT / "data" / "us-macro-calendar.json"
 DEFAULT_CHINA = SITE_ROOT / "data" / "china-macro-calendar.json"
+DEFAULT_POLICY_EVENTS = SITE_ROOT / "data" / "china-policy-events.json"
 DEFAULT_OUTPUT = SITE_ROOT / "data" / "macro-calendar.json"
 IMPORTANCE_STARS = {
     "critical": 5,
@@ -22,6 +24,12 @@ IMPORTANCE_STARS = {
     "low": 2,
     "background": 1,
 }
+POLICY_OFFICIAL_HOST_SUFFIXES = (
+    "gov.cn",
+    "news.cn",
+    "pbc.gov.cn",
+    "ndrc.gov.cn",
+)
 
 
 def stable_us_id(event: dict) -> str:
@@ -64,6 +72,7 @@ def normalize_us_event(event: dict) -> dict:
     stars = event.get("stars") or IMPORTANCE_STARS.get(event.get("importance"), 3)
     normalized = {
         "id": event.get("id") or stable_us_id(event),
+        "eventType": "data",
         "country": "US",
         "period": event.get("period"),
         "scheduledAt": scheduled_at,
@@ -90,10 +99,67 @@ def normalize_us_event(event: dict) -> dict:
 def event_sort_key(event: dict) -> tuple[str, str, str]:
     if event.get("scheduledAt"):
         stamp = event["scheduledAt"]
+    elif event.get("eventDate"):
+        stamp = f"{event['eventDate']}T12:00:00+08:00"
     else:
         window = event.get("expectedWindow") or {}
         stamp = f"{window.get('start', '9999-12-31')}T23:59:59+08:00"
     return stamp, event.get("country", ""), event.get("id", "")
+
+
+def is_official_policy_url(url: str | None) -> bool:
+    if not url:
+        return False
+    host = (urlparse(url).hostname or "").lower()
+    return any(host == suffix or host.endswith(f".{suffix}") for suffix in POLICY_OFFICIAL_HOST_SUFFIXES)
+
+
+def validate_policy_payload(payload: dict) -> None:
+    if payload.get("sourcePolicy") != "official_only":
+        raise ValueError("China policy events must use the official-only source policy")
+    events = payload.get("events")
+    if not isinstance(events, list):
+        raise ValueError("China policy events must be a list")
+    ids: set[str] = set()
+    for event in events:
+        required = {
+            "id",
+            "eventType",
+            "country",
+            "scheduledAt",
+            "eventDate",
+            "dateStatus",
+            "title",
+            "category",
+            "importance",
+            "source",
+            "sourceUrl",
+            "metrics",
+            "releasedAt",
+            "retrievedAt",
+            "revisionStatus",
+            "releaseStatus",
+            "summary",
+            "scheduleNote",
+        }
+        missing = required - set(event)
+        if missing:
+            raise ValueError(f"{event.get('id')} missing policy fields: {sorted(missing)}")
+        if event["id"] in ids:
+            raise ValueError(f"Duplicate China policy event id: {event['id']}")
+        ids.add(event["id"])
+        if event["eventType"] != "policy_event" or event["country"] != "CN":
+            raise ValueError(f"{event['id']} is not a China policy event")
+        if event["metrics"] != []:
+            raise ValueError(f"{event['id']} policy metrics must be an empty list")
+        if not is_official_policy_url(event["sourceUrl"]):
+            raise ValueError(f"{event['id']} uses a non-official policy source URL")
+        if event.get("outcomeUrl") and not is_official_policy_url(event["outcomeUrl"]):
+            raise ValueError(f"{event['id']} uses a non-official outcome URL")
+        if event["dateStatus"] == "confirmed_date" and not event.get("eventDate"):
+            raise ValueError(f"{event['id']} confirmed_date requires eventDate")
+        if event["dateStatus"] == "expected_window" and not event.get("expectedWindow"):
+            raise ValueError(f"{event['id']} expected_window requires expectedWindow")
 
 
 def validate_unified(payload: dict) -> None:
@@ -102,6 +168,7 @@ def validate_unified(payload: dict) -> None:
         raise ValueError("Unified macro calendar is empty")
     required = {
         "id",
+        "eventType",
         "country",
         "period",
         "scheduledAt",
@@ -126,15 +193,32 @@ def validate_unified(payload: dict) -> None:
             raise ValueError(f"Duplicate unified event id: {event['id']}")
         ids.add(event["id"])
         countries.add(event["country"])
+        if not isinstance(event["metrics"], list):
+            raise ValueError(f"{event['id']} metrics must be a list")
+        if event["eventType"] == "policy_event":
+            if event["country"] != "CN" or event["metrics"]:
+                raise ValueError(f"{event['id']} has an invalid policy event shape")
+        elif event["eventType"] != "data":
+            raise ValueError(f"{event['id']} has an unknown eventType")
     if not {"CN", "US"}.issubset(countries):
         raise ValueError("Unified calendar must include both CN and US")
     if events != sorted(events, key=event_sort_key):
         raise ValueError("Unified events are not sorted by Asia/Shanghai display time")
 
 
-def build_payload(us_events: list[dict], china_payload: dict, generated_at: str) -> dict:
+def build_payload(
+    us_events: list[dict],
+    china_payload: dict,
+    generated_at: str,
+    policy_payload: dict | None = None,
+) -> dict:
     events = [normalize_us_event(event) for event in us_events]
-    events.extend(copy.deepcopy(china_payload["events"]))
+    for china_event in copy.deepcopy(china_payload["events"]):
+        china_event.setdefault("eventType", "data")
+        events.append(china_event)
+    if policy_payload is not None:
+        validate_policy_payload(policy_payload)
+        events.extend(copy.deepcopy(policy_payload["events"]))
     payload = {
         "schemaVersion": 1,
         "generatedAt": generated_at,
@@ -142,6 +226,9 @@ def build_payload(us_events: list[dict], china_payload: dict, generated_at: str)
         "status": china_payload.get("status", "unknown"),
         "failedSources": china_payload.get("failedSources", []),
         "sourcePolicy": "China official-only; U.S. legacy calendar preserved",
+        "policyEventsUpdatedAt": (
+            policy_payload.get("updatedAt") if policy_payload is not None else None
+        ),
         "events": sorted(events, key=event_sort_key),
     }
     validate_unified(payload)
@@ -173,6 +260,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--us", type=Path, default=DEFAULT_US)
     parser.add_argument("--china", type=Path, default=DEFAULT_CHINA)
+    parser.add_argument("--policy-events", type=Path, default=DEFAULT_POLICY_EVENTS)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--validate-only", action="store_true")
     return parser.parse_args()
@@ -181,15 +269,17 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     if args.validate_only:
+        validate_policy_payload(json.loads(args.policy_events.read_text(encoding="utf-8")))
         validate_unified(json.loads(args.output.read_text(encoding="utf-8")))
         print(f"Validated {args.output}")
         return 0
     us_events = json.loads(args.us.read_text(encoding="utf-8"))
     china_payload = json.loads(args.china.read_text(encoding="utf-8"))
+    policy_payload = json.loads(args.policy_events.read_text(encoding="utf-8"))
     if not isinstance(us_events, list):
         raise ValueError("The preserved U.S. calendar must remain an array")
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
-    payload = build_payload(us_events, china_payload, now)
+    payload = build_payload(us_events, china_payload, now, policy_payload)
     wrote = write_if_changed(args.output, payload)
     print("Updated unified macro calendar" if wrote else "Unified macro calendar is unchanged")
     return 0

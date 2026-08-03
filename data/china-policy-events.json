@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "status": "official_static",
+  "updatedAt": "2026-08-03T12:00:00+08:00",
+  "timezone": "Asia/Shanghai",
+  "sourcePolicy": "official_only",
+  "trackingNotes": [
+    "政治局经济会议等未提前公布日程的事件，只在官方通稿发布后确认日期，不推测具体时刻。",
+    "已经官方宣布月份但尚无具体日期的会议使用预计窗口；官方日期公布后再改为确认日期。",
+    "会议新闻稿发布时间不得冒充会议召开时间。"
+  ],
+  "events": [
+    {
+      "id": "cn-policy-politburo-economy-2026-07-30",
+      "eventType": "policy_event",
+      "country": "CN",
+      "period": null,
+      "scheduledAt": null,
+      "eventDate": "2026-07-30",
+      "dateStatus": "confirmed_date",
+      "title": "中共中央政治局会议：分析研究当前经济形势，部署下半年经济工作",
+      "category": "policy_meeting",
+      "importance": "critical",
+      "stars": 5,
+      "source": "新华社",
+      "sourceUrl": "https://www.news.cn/20260730/13ecbfd4cd9b455281a0649232b98ad0/c.html",
+      "metrics": [],
+      "releasedAt": null,
+      "retrievedAt": "2026-08-03T12:00:00+08:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "released",
+      "eventStatus": "completed",
+      "summary": "会议分析研究当前经济形势并部署下半年经济工作，同时决定二十届五中全会于2026年10月在北京召开。",
+      "scheduleNote": "官方通稿确认会议于7月30日召开，但未公开具体召开时刻。",
+      "outcomeLabel": "查看会议公报",
+      "outcomeUrl": "https://www.news.cn/20260730/13ecbfd4cd9b455281a0649232b98ad0/c.html",
+      "trackingMode": "post_release"
+    },
+    {
+      "id": "cn-policy-fifth-plenum-2026-10",
+      "eventType": "policy_event",
+      "country": "CN",
+      "period": null,
+      "scheduledAt": null,
+      "eventDate": null,
+      "dateStatus": "expected_window",
+      "expectedWindow": {
+        "start": "2026-10-01",
+        "end": "2026-10-31",
+        "timezone": "Asia/Shanghai"
+      },
+      "title": "中国共产党第二十届中央委员会第五次全体会议",
+      "category": "party_plenum",
+      "importance": "critical",
+      "stars": 5,
+      "source": "新华社",
+      "sourceUrl": "https://www.news.cn/20260730/13ecbfd4cd9b455281a0649232b98ad0/c.html",
+      "metrics": [],
+      "releasedAt": null,
+      "retrievedAt": "2026-08-03T12:00:00+08:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "scheduled",
+      "eventStatus": "announced",
+      "summary": "官方已宣布会议将于2026年10月在北京召开；具体日期、时刻和完整议程仍待正式公布。",
+      "scheduleNote": "当前只确认到月份，因此按10月预计窗口展示，不虚构具体日期。",
+      "outcomeLabel": "查看官方公告",
+      "outcomeUrl": "https://www.news.cn/20260730/13ecbfd4cd9b455281a0649232b98ad0/c.html",
+      "trackingMode": "announced_window"
+    }
+  ]
+}

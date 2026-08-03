@@ -930,7 +930,44 @@ h2 {
 
 .macro-event-list {
   display: grid;
-  gap: 6px;
+  gap: 20px;
+}
+
+.macro-calendar-group {
+  min-width: 0;
+}
+
+.macro-calendar-group-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid rgba(117, 108, 97, 0.2);
+  padding: 8px 0 10px;
+}
+
+.macro-calendar-group-head h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.08rem;
+  letter-spacing: 0.01em;
+}
+
+.macro-calendar-group-head span {
+  border-radius: 999px;
+  padding: 3px 8px;
+  background: rgba(242, 234, 223, 0.82);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.macro-calendar-group-policy_event .macro-calendar-group-head {
+  border-color: rgba(164, 79, 52, 0.22);
+}
+
+.macro-calendar-group-list {
+  display: grid;
 }
 
 .macro-event {
@@ -966,6 +1003,17 @@ h2 {
   font-size: 0.98rem;
   line-height: 1.1;
   white-space: nowrap;
+}
+
+.macro-event-type-policy_event .macro-date {
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.macro-event-type-policy_event .macro-date strong {
+  font-size: 0.8rem;
+  line-height: 1.35;
+  white-space: normal;
 }
 
 .macro-event-body {
@@ -1065,6 +1113,42 @@ h2 {
   min-width: 0;
 }
 
+.macro-event-type-policy_event .macro-event-main {
+  align-items: stretch;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.macro-policy-details {
+  display: grid;
+  gap: 5px;
+  border-left: 2px solid rgba(164, 79, 52, 0.22);
+  padding-left: 10px;
+}
+
+.macro-policy-summary {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.macro-policy-schedule {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.macro-policy-outcome {
+  width: fit-content;
+  color: var(--accent-dark);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .macro-event-results {
   display: grid;
   grid-template-columns: repeat(2, minmax(150px, 1fr));
@@ -1154,6 +1238,13 @@ h2 {
   color: var(--muted);
   font-size: 0.9rem;
   text-align: center;
+}
+
+.macro-group-empty {
+  margin: 0;
+  padding: 12px 0 2px;
+  color: var(--muted);
+  font-size: 0.82rem;
 }
 
 .briefing-home-cards {

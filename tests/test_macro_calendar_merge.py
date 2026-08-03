@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 import sys
 import unittest
 from pathlib import Path
@@ -29,6 +30,52 @@ merger = load_module(
 
 
 class MacroCalendarMergeTests(unittest.TestCase):
+    def test_policy_events_keep_confirmed_date_without_inventing_meeting_time(self):
+        policy = json.loads(
+            (ROOT / "data" / "china-policy-events.json").read_text(encoding="utf-8")
+        )
+        merger.validate_policy_payload(policy)
+        china = {
+            "status": "healthy",
+            "events": [
+                updater.make_event(
+                    "prices",
+                    "2026-07",
+                    scheduled_at="2026-08-09T09:30:00+08:00",
+                )
+            ],
+        }
+        us = [
+            {
+                "date": "2026-08-08",
+                "time_shanghai": "20:30",
+                "title": "Example",
+                "title_cn": "美国示例",
+                "source": "Official",
+                "url": "https://www.bls.gov/",
+            }
+        ]
+        payload = merger.build_payload(
+            us, china, "2026-08-03T00:00:00Z", policy
+        )
+        meeting = next(
+            event
+            for event in payload["events"]
+            if event["id"] == "cn-policy-politburo-economy-2026-07-30"
+        )
+        self.assertEqual(meeting["eventType"], "policy_event")
+        self.assertEqual(meeting["eventDate"], "2026-07-30")
+        self.assertIsNone(meeting["scheduledAt"])
+        self.assertIn("未公开具体召开时刻", meeting["scheduleNote"])
+
+    def test_policy_validator_rejects_aggregator_source(self):
+        policy = json.loads(
+            (ROOT / "data" / "china-policy-events.json").read_text(encoding="utf-8")
+        )
+        policy["events"][0]["sourceUrl"] = "https://example.com/calendar"
+        with self.assertRaises(ValueError):
+            merger.validate_policy_payload(policy)
+
     def test_legacy_us_fields_are_preserved_without_overwriting_normalized_title(self):
         legacy = {
             "date": "2026-08-12",

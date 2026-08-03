@@ -3,6 +3,7 @@
   const MODEL = window.MacroCalendarModel;
   const HORIZON_DAYS = 35;
   const LOOKBACK_DAYS = 3;
+  const POLICY_LOOKBACK_DAYS = 30;
   const UPCOMING_DAYS = 3;
   const CATEGORY_LABELS = {
     inflation: "通胀",
@@ -20,6 +21,8 @@
     reserves: "外储",
     fiscal: "财政",
     profits: "工业利润",
+    policy_meeting: "经济政策会议",
+    party_plenum: "中央全会",
   };
   const COUNTRY_LABELS = {
     CN: "中国",
@@ -58,6 +61,7 @@
     country: "ALL",
     dataStatus: "unknown",
     failedSources: [],
+    policyEventsUpdatedAt: null,
   };
 
   const eventList = document.querySelector("[data-calendar-events]");
@@ -308,18 +312,28 @@
       };
     }
     const day = MODEL.eventDisplayDay(event);
-    const time = event.scheduledAt ? event.scheduledAt.slice(11, 16) : "待定";
+    const time = event.scheduledAt
+      ? event.scheduledAt.slice(11, 16)
+      : event.eventType === "policy_event"
+      ? "时间未公开"
+      : "待定";
     return { date: formatCnDate(day), time };
   }
 
   function eventStatusBadge(event) {
     const distance = MODEL.dayDistance(event, todayShanghai());
     const released = event.releaseStatus === "released" || Boolean(event.releasedAt);
-    if (released && distance >= -LOOKBACK_DAYS && distance <= 0) {
-      return '<small class="macro-released-badge">已公布</small>';
+    const policyEvent = event.eventType === "policy_event";
+    const lookbackDays = policyEvent ? POLICY_LOOKBACK_DAYS : LOOKBACK_DAYS;
+    if (released && distance >= -lookbackDays && distance <= 0) {
+      return `<small class="macro-released-badge">${
+        policyEvent ? "已举行" : "已公布"
+      }</small>`;
     }
     if (!released && distance >= 0 && distance <= UPCOMING_DAYS) {
-      return '<small class="macro-upcoming-badge">即将发布</small>';
+      return `<small class="macro-upcoming-badge">${
+        policyEvent ? "即将举行" : "即将发布"
+      }</small>`;
     }
     if (event.dateStatus === "expected_window") {
       return '<small class="macro-window-badge">预计窗口</small>';
@@ -327,17 +341,22 @@
     return "";
   }
 
-  function visibleEvents(country) {
+  function visibleEvents(country, eventType) {
     return MODEL.visibleEvents(state.events, {
       country,
+      eventType,
       today: todayShanghai(),
-      lookbackDays: LOOKBACK_DAYS,
+      lookbackDays:
+        eventType === "policy_event" ? POLICY_LOOKBACK_DAYS : LOOKBACK_DAYS,
       horizonDays: HORIZON_DAYS,
     });
   }
 
   function updateFilterCounts() {
-    const allWindowEvents = visibleEvents("ALL");
+    const allWindowEvents = MODEL.sortEvents([
+      ...visibleEvents("ALL", "data"),
+      ...visibleEvents("ALL", "policy_event"),
+    ]);
     const counts = {
       ALL: allWindowEvents.length,
       CN: allWindowEvents.filter((event) => event.country === "CN").length,
@@ -354,7 +373,8 @@
     });
   }
 
-  function renderStatus(events) {
+  function renderStatus(dataEvents, policyEvents) {
+    const events = [...dataEvents, ...policyEvents];
     if (!state.events.length) {
       status.textContent = "暂时没有可显示的宏观事件。";
       status.dataset.state = "empty";
@@ -371,75 +391,133 @@
       return;
     }
     if (state.dataStatus === "static_sample") {
-      status.textContent = "中国数据为已核对的官方静态样本；自动采集失败时会保留上一份有效数据。";
+      status.textContent = "中国数据为已核对的官方静态样本；政策会议来自官方通稿，未公开时刻不会被推测。";
       status.dataset.state = "notice";
       return;
     }
     status.textContent = events.length
       ? ""
-      : `最近 ${LOOKBACK_DAYS} 天及未来 ${HORIZON_DAYS} 天暂无重点事件。`;
+      : `最近 ${LOOKBACK_DAYS} 天的数据、最近 ${POLICY_LOOKBACK_DAYS} 天的政策事件及未来 ${HORIZON_DAYS} 天暂无重点事项。`;
     status.dataset.state = events.length ? "ready" : "empty";
   }
 
+  function renderPolicyDetails(event) {
+    const summary = event.summary
+      ? `<p class="macro-policy-summary">${escapeHtml(event.summary)}</p>`
+      : "";
+    const scheduleNote = event.scheduleNote
+      ? `<small class="macro-policy-schedule">${escapeHtml(event.scheduleNote)}</small>`
+      : "";
+    const outcomeUrl = event.outcomeUrl || event.sourceUrl;
+    const outcomeLink = outcomeUrl
+      ? `<a class="macro-policy-outcome" href="${escapeHtml(
+          outcomeUrl
+        )}" target="_blank" rel="noreferrer">${escapeHtml(
+          event.outcomeLabel || "查看官方通稿"
+        )}</a>`
+      : "";
+    return `<div class="macro-policy-details">${summary}${scheduleNote}${outcomeLink}</div>`;
+  }
+
+  function renderCalendarItem(event) {
+    const item = document.createElement("article");
+    const eventType = event.eventType || "data";
+    item.className = `macro-event macro-event-${escapeHtml(
+      event.category || "macro"
+    )} macro-event-type-${escapeHtml(eventType)} macro-country-${String(
+      event.country || ""
+    ).toLowerCase()}`;
+    const date = eventDatePresentation(event);
+    const sourceUrl = event.sourceUrl || "#";
+    const fallbackLink = event.fallbackSourceUrl
+      ? `<a class="macro-fallback-link" href="${escapeHtml(
+          event.fallbackSourceUrl
+        )}" target="_blank" rel="noreferrer">${escapeHtml(
+          event.fallbackSourceLabel || "备用官方源"
+        )}</a>`
+      : "";
+    const period = formatPeriod(event.period);
+    const title = period ? `${event.title} ${period}` : event.title;
+    const content =
+      eventType === "policy_event"
+        ? renderPolicyDetails(event)
+        : renderMetrics(event);
+    item.innerHTML = `
+      <div class="macro-date">
+        <span>${escapeHtml(date.date)}</span>
+        <strong>${escapeHtml(date.time)}</strong>
+        ${eventStatusBadge(event)}
+      </div>
+      <div class="macro-event-body">
+        <div class="macro-event-meta">
+          <span class="macro-country-badge macro-country-badge-${String(
+            event.country || ""
+          ).toLowerCase()}">${escapeHtml(COUNTRY_LABELS[event.country] || event.country)}</span>
+          <span class="macro-category">${escapeHtml(
+            CATEGORY_LABELS[event.category] || (eventType === "policy_event" ? "政策事件" : "宏观")
+          )}</span>
+          ${renderImportanceStars(event)}
+          ${event.source ? `<span class="macro-source">${escapeHtml(event.source)}</span>` : ""}
+          ${fallbackLink}
+        </div>
+        <div class="macro-event-main">
+          <a class="macro-event-name" href="${escapeHtml(
+            sourceUrl
+          )}" target="_blank" rel="noreferrer">${escapeHtml(title)}</a>
+          ${content}
+        </div>
+      </div>
+    `;
+    return item;
+  }
+
+  function renderEventGroup(fragment, title, events, eventType) {
+    const group = document.createElement("section");
+    group.className = `macro-calendar-group macro-calendar-group-${eventType}`;
+    const heading = document.createElement("div");
+    heading.className = "macro-calendar-group-head";
+    heading.innerHTML = `<h3>${escapeHtml(title)}</h3><span>${events.length} 项</span>`;
+    const list = document.createElement("div");
+    list.className = "macro-calendar-group-list";
+    if (events.length) {
+      events.forEach((event) => list.append(renderCalendarItem(event)));
+    } else {
+      const empty = document.createElement("p");
+      empty.className = "macro-group-empty";
+      empty.textContent =
+        eventType === "policy_event"
+          ? "当前窗口暂无可确认的重要会议或政策事件。"
+          : "当前窗口暂无重点宏观数据。";
+      list.append(empty);
+    }
+    group.append(heading, list);
+    fragment.append(group);
+  }
+
   function renderEvents() {
-    const events = visibleEvents(state.country);
+    const dataEvents = visibleEvents(state.country, "data");
+    const policyEvents = visibleEvents(state.country, "policy_event");
+    const events = MODEL.sortEvents([...dataEvents, ...policyEvents]);
     eventList.innerHTML = "";
-    renderStatus(events);
+    renderStatus(dataEvents, policyEvents);
     updateFilterCounts();
 
     if (!events.length) {
       const empty = document.createElement("p");
       empty.className = "macro-empty";
-      empty.textContent = `最近 ${LOOKBACK_DAYS} 天及未来 ${HORIZON_DAYS} 天暂无重点事件。`;
+      empty.textContent = `最近 ${LOOKBACK_DAYS} 天的数据、最近 ${POLICY_LOOKBACK_DAYS} 天的政策事件及未来 ${HORIZON_DAYS} 天暂无重点事项。`;
       eventList.append(empty);
       return;
     }
 
     const fragment = document.createDocumentFragment();
-    events.forEach((event) => {
-      const item = document.createElement("article");
-      item.className = `macro-event macro-event-${escapeHtml(
-        event.category || "macro"
-      )} macro-country-${String(event.country || "").toLowerCase()}`;
-      const date = eventDatePresentation(event);
-      const sourceUrl = event.sourceUrl || "#";
-      const fallbackLink = event.fallbackSourceUrl
-        ? `<a class="macro-fallback-link" href="${escapeHtml(
-            event.fallbackSourceUrl
-          )}" target="_blank" rel="noreferrer">${escapeHtml(
-            event.fallbackSourceLabel || "备用官方源"
-          )}</a>`
-        : "";
-      const period = formatPeriod(event.period);
-      const title = period ? `${event.title} ${period}` : event.title;
-      item.innerHTML = `
-        <div class="macro-date">
-          <span>${escapeHtml(date.date)}</span>
-          <strong>${escapeHtml(date.time)}</strong>
-          ${eventStatusBadge(event)}
-        </div>
-        <div class="macro-event-body">
-          <div class="macro-event-meta">
-            <span class="macro-country-badge macro-country-badge-${String(
-              event.country || ""
-            ).toLowerCase()}">${escapeHtml(COUNTRY_LABELS[event.country] || event.country)}</span>
-            <span class="macro-category">${escapeHtml(
-              CATEGORY_LABELS[event.category] || "宏观"
-            )}</span>
-            ${renderImportanceStars(event)}
-            ${event.source ? `<span class="macro-source">${escapeHtml(event.source)}</span>` : ""}
-            ${fallbackLink}
-          </div>
-          <div class="macro-event-main">
-            <a class="macro-event-name" href="${escapeHtml(
-              sourceUrl
-            )}" target="_blank" rel="noreferrer">${escapeHtml(title)}</a>
-            ${renderMetrics(event)}
-          </div>
-        </div>
-      `;
-      fragment.append(item);
-    });
+    renderEventGroup(fragment, "宏观数据", dataEvents, "data");
+    renderEventGroup(
+      fragment,
+      "重要会议与政策事件",
+      policyEvents,
+      "policy_event"
+    );
     eventList.append(fragment);
   }
 
@@ -463,6 +541,7 @@
       state.events = normalized.events;
       state.dataStatus = normalized.status;
       state.failedSources = normalized.failedSources || [];
+      state.policyEventsUpdatedAt = normalized.policyEventsUpdatedAt;
       renderEvents();
     })
     .catch(() => {

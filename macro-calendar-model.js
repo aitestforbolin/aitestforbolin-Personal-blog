@@ -17,6 +17,10 @@
         payload && Array.isArray(payload.failedSources)
           ? payload.failedSources
           : [],
+      policyEventsUpdatedAt:
+        payload && payload.policyEventsUpdatedAt
+          ? payload.policyEventsUpdatedAt
+          : null,
       events:
         payload && Array.isArray(payload.events) ? payload.events : [],
     };
@@ -33,6 +37,9 @@
   function eventDisplayDay(event) {
     if (event.scheduledAt) {
       return event.scheduledAt.slice(0, 10);
+    }
+    if (event.eventDate) {
+      return event.eventDate;
     }
     if (event.expectedWindow && event.expectedWindow.start) {
       return event.expectedWindow.start;
@@ -82,6 +89,15 @@
     return events.filter((event) => event.country === country);
   }
 
+  function filterByType(events, eventType) {
+    if (!eventType || eventType === "ALL") {
+      return [...events];
+    }
+    return events.filter(
+      (event) => (event.eventType || "data") === eventType
+    );
+  }
+
   function dayDistance(event, today) {
     const day = eventDisplayDay(event);
     const eventDate = parseShanghaiDay(day);
@@ -125,7 +141,10 @@
 
   function visibleEvents(events, options) {
     return sortEvents(
-      filterWindow(filterByCountry(events, options.country), options)
+      filterWindow(
+        filterByType(filterByCountry(events, options.country), options.eventType),
+        options
+      )
     );
   }
 
@@ -136,6 +155,7 @@
     eventSortTimestamp,
     sortEvents,
     filterByCountry,
+    filterByType,
     dayDistance,
     filterWindow,
     visibleEvents,
