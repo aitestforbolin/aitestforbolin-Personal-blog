@@ -19,7 +19,7 @@ from zoneinfo import ZoneInfo
 SITE_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = SITE_ROOT / "data" / "us-macro-calendar.json"
 DEFAULT_DAYS = 35
-DEFAULT_LOOKBACK_DAYS = 3
+DEFAULT_LOOKBACK_DAYS = 7
 
 BLS_ICS_URL = "https://www.bls.gov/schedule/news_release/bls.ics"
 BLS_MONTH_URL = "https://www.bls.gov/schedule/{year}/{month:02d}_sched.htm"
@@ -1160,3 +1160,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
