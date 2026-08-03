@@ -248,7 +248,8 @@ class UsMacroCalendarTests(unittest.TestCase):
             any(event["title_cn"] == "美国GDP" for event in events),
         )
 
-    def test_cli_retains_three_recent_days_and_future_flash_release(self):
+    def test_cli_retains_seven_recent_days_and_future_flash_release(self):
+        self.assertEqual(updater.DEFAULT_LOOKBACK_DAYS, 7)
         with tempfile.TemporaryDirectory() as temp_dir:
             output = Path(temp_dir) / "calendar.json"
             subprocess.run(
@@ -287,3 +288,4 @@ class UsMacroCalendarTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
