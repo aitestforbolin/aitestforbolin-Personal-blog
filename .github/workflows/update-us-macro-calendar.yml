@@ -1,10 +1,19 @@
-name: Update US macro calendar
+name: Update China and US macro calendar
 
 on:
   schedule:
     # 08:10 and 23:10 Asia/Shanghai every day.
     - cron: "10 0,15 * * *"
   workflow_dispatch:
+  pull_request:
+    paths:
+      - "index.html"
+      - "macro-calendar.js"
+      - "macro-alerts.css"
+      - "data/*macro-calendar.json"
+      - "scripts/*macro_calendar.py"
+      - "tests/test_*macro_calendar.py"
+      - ".github/workflows/update-us-macro-calendar.yml"
 
 permissions:
   contents: write
@@ -22,21 +31,37 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Refresh calendar data
+      - name: Refresh US calendar data
         run: python scripts/update_us_macro_calendar.py
 
-      - name: Validate calendar data and updater behavior
-        run: python -m unittest discover -s tests -p 'test_us_macro_calendar.py' -v
+      - name: Refresh China calendar data
+        run: python scripts/update_china_macro_calendar.py
 
-      - name: Commit updated calendar
+      - name: Build combined calendar data
+        run: python scripts/build_macro_calendar.py
+
+      - name: Run macro calendar tests
+        run: python -m unittest discover -s tests -p 'test_*macro_calendar.py' -v
+
+      - name: Validate JSON and JavaScript syntax
         run: |
-          if git diff --quiet -- data/us-macro-calendar.json; then
+          python -m json.tool data/us-macro-calendar.json >/dev/null
+          python -m json.tool data/china-macro-calendar.json >/dev/null
+          python -m json.tool data/macro-calendar.json >/dev/null
+          node --check macro-calendar.js
+          git diff --check
+
+      - name: Commit updated calendars
+        if: github.event_name != 'pull_request'
+        run: |
+          if git diff --quiet -- data/us-macro-calendar.json data/china-macro-calendar.json data/macro-calendar.json; then
             echo "Calendar data is already up to date."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/us-macro-calendar.json
-          git commit -m "Update US macro calendar"
+          git add data/us-macro-calendar.json data/china-macro-calendar.json data/macro-calendar.json
+          git commit -m "Update China and US macro calendars"
           git push
+
