@@ -476,6 +476,82 @@ h2 {
   box-shadow: inset 3px 0 0 rgba(164, 79, 52, 0.64);
 }
 
+/* Country is encoded at row level so China and U.S. releases stay distinct
+   even when they share the same publication status. */
+.macro-event.macro-country-cn {
+  border-radius: 8px;
+  padding-right: 14px;
+  padding-left: 14px;
+  background: linear-gradient(
+    90deg,
+    rgba(178, 70, 50, 0.14) 0%,
+    rgba(178, 70, 50, 0.075) 58%,
+    rgba(178, 70, 50, 0.035) 100%
+  );
+  box-shadow: inset 5px 0 0 #ad4b39;
+}
+
+.macro-event.macro-country-us {
+  border-radius: 8px;
+  padding-right: 14px;
+  padding-left: 14px;
+  background: linear-gradient(
+    90deg,
+    rgba(52, 103, 137, 0.14) 0%,
+    rgba(52, 103, 137, 0.075) 58%,
+    rgba(52, 103, 137, 0.035) 100%
+  );
+  box-shadow: inset 5px 0 0 #356b8a;
+}
+
+.macro-event.macro-country-cn .macro-date strong,
+.macro-event.macro-country-cn .macro-date span,
+.macro-event.macro-country-cn .macro-category,
+.macro-event.macro-country-cn .macro-importance {
+  color: #873626;
+}
+
+.macro-event.macro-country-us .macro-date strong,
+.macro-event.macro-country-us .macro-date span,
+.macro-event.macro-country-us .macro-category,
+.macro-event.macro-country-us .macro-importance {
+  color: #2c5e78;
+}
+
+.macro-event.macro-country-cn .macro-country-badge-cn {
+  color: #fffefa;
+  background: #a94734 !important;
+}
+
+.macro-event.macro-country-us .macro-country-badge-us {
+  color: #fffefa;
+  background: #356b8a !important;
+}
+
+.macro-country-filters button[data-macro-country="CN"]:not(.is-active) {
+  color: #873626;
+  border-color: rgba(169, 71, 52, 0.34);
+  background: rgba(178, 70, 50, 0.08);
+}
+
+.macro-country-filters button[data-macro-country="US"]:not(.is-active) {
+  color: #2c5e78;
+  border-color: rgba(53, 107, 138, 0.34);
+  background: rgba(52, 103, 137, 0.08);
+}
+
+.macro-country-filters button[data-macro-country="CN"].is-active {
+  color: #fffefa;
+  border-color: #a94734;
+  background: #a94734;
+}
+
+.macro-country-filters button[data-macro-country="US"].is-active {
+  color: #fffefa;
+  border-color: #356b8a;
+  background: #356b8a;
+}
+
 .macro-date strong,
 .macro-date span,
 .macro-category {
@@ -703,6 +779,12 @@ select:focus-visible {
   .tech-events-head,
   .btc-etf-flow-head {
     align-items: flex-start;
+  }
+
+  .macro-event.macro-country-cn,
+  .macro-event.macro-country-us {
+    padding-right: 10px;
+    padding-left: 12px;
   }
 
   .macro-event,
