@@ -798,8 +798,10 @@ h2 {
 }
 
 .macro-calendar-head {
-  display: grid;
-  gap: 8px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 .macro-calendar-head p:last-child {
@@ -807,6 +809,56 @@ h2 {
   margin: 10px 0 0;
   color: var(--muted);
   font-size: 0.98rem;
+}
+
+.macro-country-filters {
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 6px;
+  border: 1px solid rgba(117, 108, 97, 0.16);
+  border-radius: 999px;
+  padding: 4px;
+  background: rgba(255, 253, 248, 0.82);
+}
+
+.macro-country-filters button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 0;
+  border-radius: 999px;
+  padding: 7px 11px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.macro-country-filters button:hover,
+.macro-country-filters button:focus-visible {
+  color: var(--accent-dark);
+  outline: none;
+}
+
+.macro-country-filters button.is-active {
+  background: var(--accent-dark);
+  color: #fffdf8;
+  box-shadow: 0 6px 14px rgba(67, 48, 32, 0.16);
+}
+
+.macro-country-filters span {
+  min-width: 18px;
+  border-radius: 999px;
+  padding: 1px 5px;
+  background: rgba(117, 108, 97, 0.12);
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.macro-country-filters button.is-active span {
+  background: rgba(255, 253, 248, 0.2);
 }
 
 .macro-tool-links {
@@ -860,13 +912,62 @@ h2 {
   font-weight: 800;
 }
 
+.macro-calendar-status[data-state="warning"] {
+  border: 1px solid rgba(164, 79, 52, 0.24);
+  border-radius: 7px;
+  padding: 8px 10px;
+  background: rgba(164, 79, 52, 0.07);
+}
+
+.macro-calendar-status[data-state="notice"] {
+  color: var(--muted);
+  font-weight: 700;
+}
+
 .macro-calendar-status:empty {
   display: none;
 }
 
 .macro-event-list {
   display: grid;
-  gap: 6px;
+  gap: 20px;
+}
+
+.macro-calendar-group {
+  min-width: 0;
+}
+
+.macro-calendar-group-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid rgba(117, 108, 97, 0.2);
+  padding: 8px 0 10px;
+}
+
+.macro-calendar-group-head h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.08rem;
+  letter-spacing: 0.01em;
+}
+
+.macro-calendar-group-head span {
+  border-radius: 999px;
+  padding: 3px 8px;
+  background: rgba(242, 234, 223, 0.82);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.macro-calendar-group-policy_event .macro-calendar-group-head {
+  border-color: rgba(164, 79, 52, 0.22);
+}
+
+.macro-calendar-group-list {
+  display: grid;
 }
 
 .macro-event {
@@ -904,10 +1005,21 @@ h2 {
   white-space: nowrap;
 }
 
+.macro-event-type-policy_event .macro-date {
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.macro-event-type-policy_event .macro-date strong {
+  font-size: 0.8rem;
+  line-height: 1.35;
+  white-space: normal;
+}
+
 .macro-event-body {
   display: grid;
-  grid-template-columns: 104px minmax(0, 1fr);
-  gap: 34px;
+  grid-template-columns: 142px minmax(0, 1fr);
+  gap: 20px;
   align-items: center;
   min-width: 0;
 }
@@ -925,6 +1037,20 @@ h2 {
   border-radius: 999px;
   padding: 2px 8px;
   background: rgba(242, 234, 223, 0.82);
+}
+
+.macro-country-badge {
+  font-weight: 900;
+}
+
+.macro-country-badge-cn {
+  color: #8a3f2b;
+  background: rgba(184, 107, 75, 0.14) !important;
+}
+
+.macro-country-badge-us {
+  color: #3e6275;
+  background: rgba(77, 117, 138, 0.12) !important;
 }
 
 .macro-category {
@@ -982,17 +1108,76 @@ h2 {
 .macro-event-main {
   display: flex;
   gap: 16px;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   min-width: 0;
 }
 
+.macro-event-type-policy_event .macro-event-main {
+  align-items: stretch;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.macro-policy-details {
+  display: grid;
+  gap: 5px;
+  border-left: 2px solid rgba(164, 79, 52, 0.22);
+  padding-left: 10px;
+}
+
+.macro-policy-summary {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.macro-policy-schedule {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.macro-policy-outcome {
+  width: fit-content;
+  color: var(--accent-dark);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .macro-event-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(150px, 1fr));
+  gap: 6px 10px;
+  align-items: start;
+  width: min(100%, 470px);
+  margin-left: auto;
+}
+
+.macro-metric {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  border-left: 2px solid rgba(117, 108, 97, 0.14);
+  padding-left: 8px;
+}
+
+.macro-metric-label {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.macro-metric-values {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px 12px;
+  gap: 3px 9px;
   align-items: center;
-  margin-left: auto;
 }
 
 .macro-result {
@@ -1019,6 +1204,32 @@ h2 {
   color: var(--accent-dark);
 }
 
+.macro-upcoming-badge,
+.macro-released-badge,
+.macro-window-badge {
+  border-radius: 999px;
+  padding: 2px 7px;
+  font-size: 0.68rem;
+  font-weight: 900;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.macro-upcoming-badge {
+  background: rgba(164, 79, 52, 0.12);
+  color: var(--accent-dark);
+}
+
+.macro-released-badge {
+  background: rgba(69, 116, 88, 0.12);
+  color: #35694d;
+}
+
+.macro-window-badge {
+  background: rgba(117, 108, 97, 0.1);
+  color: var(--muted);
+}
+
 .macro-empty {
   margin: 0;
   border: 1px dashed rgba(117, 108, 97, 0.3);
@@ -1027,6 +1238,13 @@ h2 {
   color: var(--muted);
   font-size: 0.9rem;
   text-align: center;
+}
+
+.macro-group-empty {
+  margin: 0;
+  padding: 12px 0 2px;
+  color: var(--muted);
+  font-size: 0.82rem;
 }
 
 .briefing-home-cards {
@@ -1585,6 +1803,7 @@ h2 {
 
   .macro-calendar-head {
     align-items: start;
+    flex-direction: column;
   }
 
   .market-prices-head {
@@ -1724,6 +1943,11 @@ h2 {
     padding: 12px;
   }
 
+  .macro-country-filters {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
   .macro-tool-links {
     grid-template-columns: 1fr;
   }
@@ -1782,6 +2006,8 @@ h2 {
   }
 
   .macro-event-results {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
     margin-left: 0;
   }
 

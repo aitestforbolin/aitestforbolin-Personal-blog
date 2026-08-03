@@ -1,0 +1,86 @@
+name: Update China and unified macro calendar
+
+on:
+  schedule:
+    # 10:15 and 18:15 Asia/Shanghai every day.
+    - cron: "15 2,10 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repository-data-writer
+  cancel-in-progress: false
+
+jobs:
+  update-calendar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Refresh official China sources
+        id: refresh
+        shell: bash
+        run: |
+          python scripts/update_china_macro_calendar.py \
+            --status-file /tmp/china-macro-status.json
+          status=$(python -c 'import json; print(json.load(open("/tmp/china-macro-status.json", encoding="utf-8"))["status"])')
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          if [ "$status" = "partial" ]; then
+            echo "::warning::China macro refresh is partial; failed sources retained their previous valid events."
+          elif [ "$status" = "stale" ]; then
+            echo "::warning::China macro refresh is stale; all previous valid data was preserved and no empty output was written."
+          fi
+
+      - name: Build unified China-US calendar
+        run: python scripts/merge_macro_calendars.py
+
+      - name: Validate parsers, fallback and page model
+        run: |
+          python scripts/update_china_macro_calendar.py --validate-only
+          python scripts/merge_macro_calendars.py --validate-only
+          python -m unittest discover -s tests -p 'test_china_macro_calendar.py' -v
+          python -m unittest discover -s tests -p 'test_macro_calendar_merge.py' -v
+          node --test tests/test_macro_calendar_frontend.mjs
+
+      - name: Commit semantic calendar changes
+        shell: bash
+        run: |
+          if git diff --quiet -- data/china-macro-calendar.json data/macro-calendar.json; then
+            echo "China and unified macro calendars are already up to date (refresh: ${{ steps.refresh.outputs.status }})."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/china-macro-calendar.json data/macro-calendar.json
+          git commit -m "Update China macro calendar"
+
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if git rebase origin/main && git push origin HEAD:main; then
+              exit 0
+            fi
+            git rebase --abort || true
+            echo "Calendar push raced with another data writer; retrying (${attempt}/3)."
+            sleep $((attempt * 5))
+          done
+
+          echo "Unable to push China macro calendar after three attempts."
+          exit 1
