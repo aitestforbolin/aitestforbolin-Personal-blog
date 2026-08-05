@@ -99,42 +99,9 @@
     return String(value || "").replace(/\s+/g, " ").trim();
   }
 
-  function extractBriefingItem(article, tier) {
+  function extractBriefingItem(article) {
     const title = compactCopyText(article.querySelector("h2, h3")?.textContent);
-    const contentParagraphs = Array.from(article.querySelectorAll("p"))
-      .filter(
-        (item) =>
-          !item.matches(
-            ".briefing-number, .briefing-kicker, .briefing-asof, .briefing-sources"
-          )
-      )
-      .map((item) => compactCopyText(item.textContent))
-      .filter(Boolean);
-    const summary =
-      tier === "A" && contentParagraphs.length > 1
-        ? contentParagraphs[1]
-        : contentParagraphs[0];
-    const sources = Array.from(article.querySelectorAll(".briefing-sources a"))
-      .map((item) => compactCopyText(item.textContent))
-      .filter((item, index, items) => item && items.indexOf(item) === index);
-
-    if (!title || !summary || !sources.length) return null;
-
-    let category = "A类重点";
-    if (tier === "A") {
-      const tags = Array.from(article.querySelectorAll(".briefing-tags span"))
-        .map((item) => compactCopyText(item.textContent))
-        .filter(Boolean)
-        .slice(0, 2);
-      if (tags.length) category = tags.join("·");
-    } else {
-      category = compactCopyText(
-        article.querySelector(".briefing-kicker")?.textContent
-      ).replace(/^B\d+\s*[·｜/]\s*/, "");
-      if (!category) category = "今日还值得知道";
-    }
-
-    return { tier, category, title, summary, sources };
+    return title ? { title } : null;
   }
 
   async function loadLatestBriefingCopyData() {
@@ -159,12 +126,12 @@
       const featureItems = Array.from(
         briefingDocument.querySelectorAll(".briefing-item-feature")
       )
-        .map((article) => extractBriefingItem(article, "A"))
+        .map((article) => extractBriefingItem(article))
         .filter(Boolean);
       const compactItems = Array.from(
         briefingDocument.querySelectorAll(".briefing-item-compact")
       )
-        .map((article) => extractBriefingItem(article, "B"))
+        .map((article) => extractBriefingItem(article))
         .filter(Boolean);
       const items = [...featureItems, ...compactItems].slice(0, COPY_NEWS_LIMIT);
 
@@ -649,13 +616,10 @@
 
     const lines = ["今日关键新闻｜" + formatDate(briefing.date), ""];
     briefing.items.forEach((item, index) => {
-      if (index > 0) lines.push("");
-      lines.push(
-        index + 1 + "/" + briefing.items.length + "｜" + item.category,
-        "结论：" + item.title,
-        "影响：" + item.summary,
-        "来源：" + item.sources.join("、")
-      );
+      const sentence = /[。！？!?]$/.test(item.title)
+        ? item.title
+        : item.title + "。";
+      lines.push(index + 1 + "/" + briefing.items.length + "｜" + sentence);
     });
 
     lines.push(
