@@ -27,9 +27,9 @@
     ["DJI", "道琼斯"],
   ];
   const sectorConfig = [
-    ["进攻和成长", [["SOX", "SOX（半导体指数）"], ["XLK", "XLK（信息技术）"], ["XLY", "XLY（可选消费）"], ["XLC", "XLC（通信服务）"]]],
+    ["进攻和成长", [["SOX", "SOX（半导体指数·补充）"], ["XLK", "XLK（信息技术）"], ["XLY", "XLY（可选消费）"], ["XLC", "XLC（通信服务）"]]],
     ["防御", [["XLV", "XLV（医疗保健）"], ["XLU", "XLU（公共事业）"], ["XLP", "XLP（必需消费）"]]],
-    ["宏观敏感", [["XLE", "XLE（能源）"], ["XLI", "XLI（工业）"], ["XLF", "XLF（金融）"]]],
+    ["宏观敏感", [["XLE", "XLE（能源）"], ["XLI", "XLI（工业）"], ["XLB", "XLB（材料）"], ["XLRE", "XLRE（房地产）"], ["XLF", "XLF（金融）"]]],
   ];
   const macroConfig = [
     ["BRN1!", "Brent期货", 2, "", "Yahoo Finance · BZ=F"],
@@ -41,9 +41,9 @@
     ["US30Y", "30年期美债收益率", 3, "%", "美国财政部 · 30-Year Par Yield"],
   ];
   const documentSectorConfig = [
-    ["进攻和成长板块", [["SOX", "SOX（半导体）"], ["XLK", "XLK（信息技术）"], ["XLY", "XLY（可选消费）"], ["XLC", "XLC（通讯服务）"]]],
+    ["进攻和成长板块", [["SOX", "SOX（半导体·补充行业指数）"], ["XLK", "XLK（信息技术）"], ["XLY", "XLY（可选消费）"], ["XLC", "XLC（通讯服务）"]]],
     ["防御板块", [["XLV", "XLV（健康医疗）"], ["XLU", "XLU（公共事业）"], ["XLP", "XLP（必需消费）"]]],
-    ["宏观敏感板块", [["XLE", "XLE（能源）"], ["XLI", "XLI（工业）"], ["XLF", "XLF（金融）"]]],
+    ["宏观敏感板块", [["XLE", "XLE（能源）"], ["XLI", "XLI（工业）"], ["XLB", "XLB（材料）"], ["XLRE", "XLRE（房地产）"], ["XLF", "XLF（金融）"]]],
   ];
 
   let snapshot = null;

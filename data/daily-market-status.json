@@ -88,6 +88,20 @@
         "updatedAt": 1785873600000
       },
       {
+        "id": "XLB",
+        "price": 52,
+        "previousClose": 51.01,
+        "changePercent": 1.940795922368167,
+        "updatedAt": 1785873600000
+      },
+      {
+        "id": "XLRE",
+        "price": 45.17,
+        "previousClose": 45.18,
+        "changePercent": -0.022133687472328488,
+        "updatedAt": 1785873600000
+      },
+      {
         "id": "XLF",
         "price": 55.56,
         "previousClose": 55.08,
@@ -318,10 +332,10 @@
     }
   ],
   "sourceAudit": {
-    "deployedSitesVersion": 18,
-    "sourceCommit": "d4e788a340327f87b23536ba1c016ae0d8d2f861",
-    "sourceRevision": "treasury-yahoo-anchor-20260801",
-    "responseCheckedAt": "2026-08-05T08:45:00+08:00",
+    "deployedSitesVersion": 19,
+    "sourceCommit": "33865e95b9d4afc07935d554522dd55a7b41d9b1",
+    "sourceRevision": "treasury-yahoo-sp500-sectors-20260805",
+    "responseCheckedAt": "2026-08-05T11:35:00+08:00",
     "mismatch": false,
     "mappings": {
       "DXY": "Yahoo Finance · DX-Y.NYB",
@@ -330,9 +344,11 @@
       "US30Y": "U.S. Treasury · BC_30YEAR",
       "BRN1!": "Yahoo Finance · BZ=F",
       "GOLD": "Yahoo Finance · GC=F",
-      "BTCUSDT": "Yahoo Finance · BTC-USD"
+      "BTCUSDT": "Yahoo Finance · BTC-USD",
+      "XLB": "Yahoo Finance · XLB",
+      "XLRE": "Yahoo Finance · XLRE"
     },
-    "note": "Sites第18版与treasury-yahoo-anchor-20260801合约一致。三期限为美国财政部官方日频；四个Yahoo资产均以不晚于2026-08-04 16:00 ET的同源报价核验。正式页实时计算目前会选取16:10 ET邻近点，读回审计中单独披露该10分钟偏差。"
+    "note": "Sites第19版已覆盖标普500全部11个标准行业ETF，并将SOX保留为补充行业指数；XLB与XLRE公开接口读回正常。三期限为美国财政部官方日频；四个Yahoo宏观资产均以不晚于2026-08-04 16:00 ET的同源报价核验。正式页实时计算目前会选取16:10 ET邻近点，读回审计中单独披露该10分钟偏差。"
   },
   "fedProbability": {
     "label": "9月加息概率",
