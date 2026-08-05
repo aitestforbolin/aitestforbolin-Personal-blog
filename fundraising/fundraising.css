@@ -1,0 +1,275 @@
+.fundraising-page {
+  min-height: calc(100vh - 190px);
+  padding: clamp(58px, 8vw, 104px) 0 84px;
+}
+
+.fundraising-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 32px;
+  align-items: end;
+  padding-bottom: 34px;
+  border-bottom: 1px solid rgba(24, 25, 22, 0.17);
+}
+
+.fundraising-hero h1 {
+  max-width: 860px;
+  font-family: var(--font-display) !important;
+  font-size: clamp(2.8rem, 6.5vw, 5.3rem);
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+}
+
+.fundraising-intro {
+  max-width: 660px;
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.6vw, 1.12rem);
+}
+
+.fundraising-source-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  border: 1px solid rgba(24, 25, 22, 0.34);
+  border-radius: 7px;
+  padding: 10px 18px;
+  background: rgba(251, 250, 246, 0.68);
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 850;
+  transition: border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.fundraising-source-link:hover,
+.fundraising-source-link:focus-visible {
+  border-color: var(--accent-dark);
+  color: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+.fundraising-panel {
+  margin-top: 30px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: clamp(18px, 3vw, 30px);
+  background: rgba(251, 250, 246, 0.78);
+  box-shadow: 0 20px 48px rgba(31, 30, 25, 0.07);
+}
+
+.fundraising-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.fundraising-list {
+  border-top: 1px solid rgba(24, 25, 22, 0.13);
+}
+
+.fundraising-project {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(260px, 1.55fr) minmax(108px, 0.55fr) minmax(128px, 0.62fr) minmax(132px, 0.58fr) 24px;
+  gap: 22px;
+  align-items: center;
+  min-height: 128px;
+  border-bottom: 1px solid rgba(24, 25, 22, 0.13);
+  padding: 22px 10px;
+  transition: background 180ms ease, padding 180ms ease;
+}
+
+.fundraising-project:hover,
+.fundraising-project:focus-visible {
+  padding-right: 16px;
+  padding-left: 16px;
+  background: rgba(164, 79, 52, 0.055);
+  outline: none;
+}
+
+.fundraising-project-name {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  min-width: 0;
+}
+
+.fundraising-rank {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(164, 79, 52, 0.28);
+  color: var(--accent-dark);
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.fundraising-project-name strong {
+  display: block;
+  overflow-wrap: anywhere;
+  font-family: var(--font-display) !important;
+  font-size: clamp(1.3rem, 2.3vw, 1.75rem);
+  line-height: 1.2;
+}
+
+.fundraising-field {
+  display: grid;
+  gap: 5px;
+}
+
+.fundraising-field small {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.fundraising-field strong {
+  color: var(--ink);
+  font-size: 0.94rem;
+  line-height: 1.4;
+}
+
+.fundraising-amount strong {
+  color: var(--accent-dark);
+  font-size: 1.04rem;
+}
+
+.fundraising-arrow {
+  color: var(--accent-dark);
+  font-size: 1.25rem;
+  transition: transform 180ms ease;
+}
+
+.fundraising-project:hover .fundraising-arrow,
+.fundraising-project:focus-visible .fundraising-arrow {
+  transform: translate(3px, -3px);
+}
+
+.fundraising-note,
+.fundraising-error {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.fundraising-error {
+  border: 1px solid rgba(164, 79, 52, 0.2);
+  padding: 18px;
+  background: rgba(164, 79, 52, 0.05);
+  color: var(--accent-dark);
+  font-weight: 750;
+}
+
+.fundraising-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid rgba(24, 25, 22, 0.15);
+  padding: 24px 0 36px;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.fundraising-footer a {
+  color: var(--accent-dark);
+  font-weight: 800;
+}
+
+@media (max-width: 840px) {
+  .fundraising-hero {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .fundraising-source-link {
+    justify-self: start;
+  }
+
+  .fundraising-project {
+    grid-template-columns: minmax(210px, 1.5fr) repeat(3, minmax(92px, 0.6fr)) 20px;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 720px) {
+  .fundraising-page {
+    padding: 48px 0 64px;
+  }
+
+  .fundraising-hero h1 {
+    font-size: clamp(2.7rem, 14vw, 4rem);
+  }
+
+  .fundraising-source-link {
+    width: 100%;
+  }
+
+  .fundraising-panel {
+    margin-top: 22px;
+    padding: 16px;
+  }
+
+  .fundraising-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 12px;
+  }
+
+  .fundraising-project {
+    grid-template-columns: 1fr auto;
+    gap: 14px 12px;
+    min-height: 0;
+    padding: 22px 4px;
+  }
+
+  .fundraising-project:hover,
+  .fundraising-project:focus-visible {
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .fundraising-project-name {
+    grid-column: 1 / -1;
+  }
+
+  .fundraising-field {
+    gap: 3px;
+  }
+
+  .fundraising-field-date {
+    grid-column: 1;
+  }
+
+  .fundraising-field-round {
+    grid-column: 2;
+    text-align: right;
+  }
+
+  .fundraising-amount {
+    grid-column: 1;
+  }
+
+  .fundraising-arrow {
+    grid-column: 2;
+    grid-row: 3;
+    align-self: end;
+    justify-self: end;
+  }
+
+  .fundraising-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
