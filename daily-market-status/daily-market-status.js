@@ -10,6 +10,8 @@
     "https://cross-asset-pulse.laibocszd.chatgpt.site/api/breadth";
   const SNAPSHOT_URL = "../data/daily-market-status.json";
   const ETF_URL = "../data/btc-etf-flow.json";
+  const BRIEFING_ARCHIVE_URL = "../briefings/global.html";
+  const COPY_NEWS_LIMIT = 5;
   const DISPLAY_TIMEZONE = "Asia/Shanghai";
   const MARKET_TIMEZONE = "America/New_York";
   const CLOSE_ANCHOR_MINUTES = 16 * 60;
@@ -53,6 +55,7 @@
   let macroHistoryFetchedAt = 0;
   let retryIndex = 0;
   let timer = null;
+  let latestBriefingCopyPromise = null;
 
   function escapeHtml(value) {
     return String(value ?? "")
@@ -75,6 +78,106 @@
     } finally {
       window.clearTimeout(timeout);
     }
+  }
+
+  async function fetchText(url) {
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), FETCH_TIMEOUT);
+    try {
+      const response = await fetch(url, {
+        cache: "no-store",
+        signal: controller.signal,
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return await response.text();
+    } finally {
+      window.clearTimeout(timeout);
+    }
+  }
+
+  function compactCopyText(value) {
+    return String(value || "").replace(/\s+/g, " ").trim();
+  }
+
+  function extractBriefingItem(article, tier) {
+    const title = compactCopyText(article.querySelector("h2, h3")?.textContent);
+    const contentParagraphs = Array.from(article.querySelectorAll("p"))
+      .filter(
+        (item) =>
+          !item.matches(
+            ".briefing-number, .briefing-kicker, .briefing-asof, .briefing-sources"
+          )
+      )
+      .map((item) => compactCopyText(item.textContent))
+      .filter(Boolean);
+    const summary =
+      tier === "A" && contentParagraphs.length > 1
+        ? contentParagraphs[1]
+        : contentParagraphs[0];
+    const sources = Array.from(article.querySelectorAll(".briefing-sources a"))
+      .map((item) => compactCopyText(item.textContent))
+      .filter((item, index, items) => item && items.indexOf(item) === index);
+
+    if (!title || !summary || !sources.length) return null;
+
+    let category = "A类重点";
+    if (tier === "A") {
+      const tags = Array.from(article.querySelectorAll(".briefing-tags span"))
+        .map((item) => compactCopyText(item.textContent))
+        .filter(Boolean)
+        .slice(0, 2);
+      if (tags.length) category = tags.join("·");
+    } else {
+      category = compactCopyText(
+        article.querySelector(".briefing-kicker")?.textContent
+      ).replace(/^B\d+\s*[·｜/]\s*/, "");
+      if (!category) category = "今日还值得知道";
+    }
+
+    return { tier, category, title, summary, sources };
+  }
+
+  async function loadLatestBriefingCopyData() {
+    if (latestBriefingCopyPromise) return latestBriefingCopyPromise;
+
+    latestBriefingCopyPromise = (async () => {
+      const archiveHtml = await fetchText(BRIEFING_ARCHIVE_URL);
+      const parser = new DOMParser();
+      const archiveDocument = parser.parseFromString(archiveHtml, "text/html");
+      const latestLink = archiveDocument.querySelector(
+        '.archive-card a[href*="global-daily-brief-"]'
+      );
+      if (!latestLink) throw new Error("Latest briefing link is unavailable");
+
+      const archiveUrl = new URL(BRIEFING_ARCHIVE_URL, window.location.href);
+      const briefingUrl = new URL(latestLink.getAttribute("href"), archiveUrl);
+      const briefingHtml = await fetchText(briefingUrl.href);
+      const briefingDocument = parser.parseFromString(briefingHtml, "text/html");
+      const date = briefingDocument.querySelector("main time[datetime]")?.getAttribute(
+        "datetime"
+      );
+      const featureItems = Array.from(
+        briefingDocument.querySelectorAll(".briefing-item-feature")
+      )
+        .map((article) => extractBriefingItem(article, "A"))
+        .filter(Boolean);
+      const compactItems = Array.from(
+        briefingDocument.querySelectorAll(".briefing-item-compact")
+      )
+        .map((article) => extractBriefingItem(article, "B"))
+        .filter(Boolean);
+      const items = [...featureItems, ...compactItems].slice(0, COPY_NEWS_LIMIT);
+
+      if (!date || !items.length) {
+        throw new Error("Latest briefing content is incomplete");
+      }
+      return { date, items };
+    })().catch((error) => {
+      latestBriefingCopyPromise = null;
+      throw error;
+    });
+
+    return latestBriefingCopyPromise;
   }
 
   function formatDate(dateValue) {
@@ -512,11 +615,16 @@
 
   function formatDocumentEventDay(iso) {
     const date = new Date(iso);
+    const day = new Intl.DateTimeFormat("zh-CN", {
+      timeZone: DISPLAY_TIMEZONE,
+      month: "long",
+      day: "numeric",
+    }).format(date);
     const weekday = new Intl.DateTimeFormat("zh-CN", {
       timeZone: DISPLAY_TIMEZONE,
       weekday: "short",
     }).format(date);
-    return formatEventDay(iso) + " " + weekday;
+    return day + "｜" + weekday;
   }
 
   function documentAssetLine(label, comparison, decimals, suffix) {
@@ -535,63 +643,106 @@
     );
   }
 
-  function buildDocumentCopyText() {
+  function buildDocumentCopyText(briefing) {
     if (!snapshot) throw new Error("Snapshot is not ready");
+    if (!briefing?.items?.length) throw new Error("Briefing is not ready");
 
-    const lines = ["｜美股", "", "三大指数"];
-    indexConfig.forEach(([id, label]) => {
-      lines.push(label + "：" + formatDocumentPercent(marketMap.get(id)?.changePercent));
+    const lines = ["今日关键新闻｜" + formatDate(briefing.date), ""];
+    briefing.items.forEach((item, index) => {
+      if (index > 0) lines.push("");
+      lines.push(
+        index + 1 + "/" + briefing.items.length + "｜" + item.category,
+        "结论：" + item.title,
+        "影响：" + item.summary,
+        "来源：" + item.sources.join("、")
+      );
     });
 
-    lines.push("", "市场宽度");
+    lines.push(
+      "",
+      "每日市场状态｜" + formatDate(snapshot.asOf),
+      "",
+      "01｜美股",
+      "",
+      "▍三大核心指数"
+    );
+    indexConfig.forEach(([id, label]) => {
+      lines.push(
+        "• " +
+          label +
+          "：" +
+          formatDocumentPercent(marketMap.get(id)?.changePercent)
+      );
+    });
+
+    lines.push("", "▍市场宽度");
     [
-      ["SP500", "标普500上涨股票比例"],
-      ["NASDAQ", "Nasdaq交易所上涨股票比例"],
+      ["SP500", "标普500"],
+      ["NASDAQ", "Nasdaq交易所"],
     ].forEach(([id, label]) => {
       const item = breadthData.find((entry) => entry?.id === id);
       if (!item) return;
+      const advancingPercent = finiteNumber(
+        item.advancePercent ?? item.advancingPercent
+      );
       lines.push(
-        label +
-          "：" +
-          formatNumber(item.advancePercent, 1) +
-          "%（涨" +
+        "• " +
+          label +
+          "：涨" +
           formatNumber(item.advancers, 0) +
-          "支、跌" +
+          "｜跌" +
           formatNumber(item.decliners, 0) +
-          "支、平" +
+          "｜平" +
           formatNumber(item.unchanged, 0) +
-          "支）"
+          "｜" +
+          (advancingPercent === null
+            ? "上涨比例待核验"
+            : formatNumber(advancingPercent, 1) + "%上涨")
       );
     });
 
     documentSectorConfig.forEach(([group, items]) => {
-      lines.push("", group);
+      lines.push("", "▍" + group);
       items.forEach(([id, label]) => {
-        lines.push(label + "：" + formatDocumentPercent(marketMap.get(id)?.changePercent));
+        lines.push(
+          "• " +
+            label +
+            "：" +
+            formatDocumentPercent(marketMap.get(id)?.changePercent)
+        );
       });
     });
 
-    lines.push("", "核心个股驱动");
+    lines.push("", "▍核心个股驱动");
     const driverGroups = new Map();
     (snapshot.drivers || []).forEach((item) => {
       if (!item?.group || !item?.ticker || !item?.reason) return;
-      if (!driverGroups.has(item.group)) driverGroups.set(item.group, []);
-      driverGroups.get(item.group).push(item);
+      const normalizedGroup =
+        {
+          semiconductor: "半导体",
+          semiconductors: "半导体",
+          megacap: "大型科技",
+          mega_cap: "大型科技",
+          large_tech: "大型科技",
+          other: "其他显著个股",
+        }[item.group] || item.group;
+      if (!driverGroups.has(normalizedGroup)) driverGroups.set(normalizedGroup, []);
+      driverGroups.get(normalizedGroup).push(item);
     });
     ["半导体", "大型科技", "其他显著个股"].forEach((group) => {
       const items = driverGroups.get(group) || [];
       if (!items.length) return;
-      lines.push("", group);
+      lines.push("", "【" + group + "】");
       items.forEach((item) => {
         lines.push(
-          item.name +
+          "• " +
+            item.name +
             "（" +
             item.ticker +
             "）：" +
-            formatDocumentPercent(item.changePercent) +
-            "，" +
-            item.reason
+            formatDocumentPercent(item.changePercent)
         );
+        lines.push("  驱动：" + item.reason);
       });
     });
 
@@ -612,26 +763,27 @@
     );
     lines.push(
       "",
-      "｜宏观资产数据",
+      "02｜宏观资产数据",
       "",
-      documentAssetLine("美元指数", comparisons.get("DXY"), 3, ""),
-      documentAssetLine("2年期美债收益率", comparisons.get("US02Y"), 3, "%"),
-      documentAssetLine("10年期美债收益率", comparisons.get("US10Y"), 3, "%"),
-      documentAssetLine("30年期美债收益率", comparisons.get("US30Y"), 3, "%")
+      "• " + documentAssetLine("美元指数", comparisons.get("DXY"), 3, ""),
+      "• " + documentAssetLine("2年期美债收益率", comparisons.get("US02Y"), 3, "%"),
+      "• " + documentAssetLine("10年期美债收益率", comparisons.get("US10Y"), 3, "%"),
+      "• " + documentAssetLine("30年期美债收益率", comparisons.get("US30Y"), 3, "%")
     );
 
     const fed = snapshot.fedProbability || {};
     lines.push(
-      directionIcon(fed.previous, fed.current) +
+      "• " +
+        directionIcon(fed.previous, fed.current) +
         " 美联储加息可能性：" +
         formatNumber(fed.previous, 1) +
         (finiteNumber(fed.previous) === null ? "" : fed.unit || "") +
         " → " +
         formatNumber(fed.current, 1) +
         (finiteNumber(fed.current) === null ? "" : fed.unit || ""),
-      documentAssetLine("原油", comparisons.get("BRN1!"), 2, ""),
-      documentAssetLine("COMEX黄金期货", comparisons.get("GOLD"), 2, ""),
-      documentAssetLine("BTC", comparisons.get("BTCUSDT"), 0, "")
+      "• " + documentAssetLine("原油", comparisons.get("BRN1!"), 2, ""),
+      "• " + documentAssetLine("COMEX黄金期货", comparisons.get("GOLD"), 2, ""),
+      "• " + documentAssetLine("BTC", comparisons.get("BTCUSDT"), 0, "")
     );
 
     const etf = etfData?.latest || {
@@ -640,7 +792,7 @@
     };
     const etfTotal = finiteNumber(etf.total);
     lines.push(
-      "BTC ETF资金流：" +
+      "• BTC ETF资金流：" +
         (etf.date || "日期待核验") +
         "，" +
         (etfTotal === null
@@ -651,7 +803,7 @@
             "m")
     );
 
-    lines.push("", "｜日历、事件及其影响");
+    lines.push("", "03｜日历、事件及其影响");
     const eventGroups = new Map();
     visibleEvents().forEach((item) => {
       const day = formatDocumentEventDay(item.startAt);
@@ -659,22 +811,29 @@
       eventGroups.get(day).push(item);
     });
     eventGroups.forEach((items, day) => {
-      lines.push("", day);
+      lines.push("", "📅 " + day);
       items.forEach((item) => {
-        lines.push(formatEventTime(item.startAt) + " " + item.name);
+        lines.push("• " + formatEventTime(item.startAt) + "｜" + item.name);
         const impact = String(item.impact || "").replace(/^主要影响：?\s*/, "");
-        lines.push("主要影响：" + impact);
+        lines.push("  影响：" + impact);
       });
     });
 
-    lines.push("", "｜看法和观点", "");
+    lines.push("", "04｜看法和观点", "");
     (snapshot.view || []).slice(0, 10).forEach((paragraph, index) => {
       if (index > 0) lines.push("");
-      lines.push(String(paragraph).replace(/^[—–-]\s*/, ""));
+      lines.push(
+        index +
+          1 +
+          ". " +
+          String(paragraph).replace(/^[—–-]\s*/, "")
+      );
     });
     if (snapshot.verdict) {
       if ((snapshot.view || []).length) lines.push("");
-      lines.push(String(snapshot.verdict).replace(/^[—–-]\s*/, ""));
+      lines.push(
+        "结论｜" + String(snapshot.verdict).replace(/^[—–-]\s*/, "")
+      );
     }
 
     return lines.join("\n");
@@ -756,7 +915,8 @@
     if (!button || button.disabled) return;
     button.disabled = true;
     try {
-      const text = buildDocumentCopyText();
+      const briefing = await loadLatestBriefingCopyData();
+      const text = buildDocumentCopyText(briefing);
       button.copyPayload = text;
       await copyDocumentBody(text);
       setCopyStatus("已复制", "success");
