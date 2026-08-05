@@ -1,12 +1,11 @@
 {
   "schemaVersion": 1,
   "status": "partial",
-  "generatedAt": "2026-08-05T05:25:19+00:00",
+  "generatedAt": "2026-08-05T12:18:10+00:00",
   "timezone": "Asia/Shanghai",
   "sourcePolicy": "official_only",
   "failedSources": [
-    "gacc",
-    "mof"
+    "gacc"
   ],
   "events": [
     {
@@ -296,7 +295,7 @@
         }
       ],
       "releasedAt": "2026-07-15T18:49:00+08:00",
-      "retrievedAt": "2026-08-05T05:25:19+00:00",
+      "retrievedAt": "2026-08-05T12:18:10+00:00",
       "revisionStatus": "revised",
       "releaseStatus": "released",
       "sourceStatus": "fresh",
@@ -2897,6 +2896,58 @@
       "sourceStatus": "static_official_sample",
       "group": "pmi",
       "scheduleSourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html"
+    },
+    {
+      "id": "cn-fiscal-2026-01-06",
+      "country": "CN",
+      "period": "2026-01/06",
+      "scheduledAt": null,
+      "dateStatus": "date_tbd",
+      "title": "中国财政收支",
+      "category": "fiscal",
+      "importance": "medium",
+      "source": "财政部",
+      "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202607/t20260722_3993943.htm",
+      "metrics": [
+        {
+          "id": "general_revenue",
+          "label": "一般公共预算收入",
+          "actual": "121047",
+          "previous": null,
+          "unit": "亿元",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202607/t20260722_3993943.htm"
+        },
+        {
+          "id": "general_revenue_yoy",
+          "label": "一般公共预算收入同比",
+          "actual": "4.7",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202607/t20260722_3993943.htm"
+        },
+        {
+          "id": "general_spending",
+          "label": "一般公共预算支出",
+          "actual": "143329",
+          "previous": null,
+          "unit": "亿元",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202607/t20260722_3993943.htm"
+        },
+        {
+          "id": "general_spending_yoy",
+          "label": "一般公共预算支出同比",
+          "actual": "1.5",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202607/t20260722_3993943.htm"
+        }
+      ],
+      "releasedAt": null,
+      "retrievedAt": "2026-08-05T12:18:10+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
+      "group": "fiscal"
     }
   ]
 }
