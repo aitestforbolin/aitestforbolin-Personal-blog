@@ -727,7 +727,7 @@
     );
     lines.push(
       "",
-      "02｜宏观资产数据",
+      "02｜宏观资产数据（美股交易时段涨跌）",
       "",
       "• " + documentAssetLine("美元指数", comparisons.get("DXY"), 3, ""),
       "• " + documentAssetLine("2年期美债收益率", comparisons.get("US02Y"), 3, "%"),
