@@ -1,0 +1,64 @@
+name: Update crypto fundraising
+
+on:
+  schedule:
+    # 09:05 and 21:05 Asia/Shanghai every day.
+    - cron: "5 1,13 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repository-data-writer
+  cancel-in-progress: false
+
+jobs:
+  update-crypto-fundraising:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Refresh latest fundraising projects
+        run: python scripts/update_crypto_fundraising.py
+
+      - name: Validate fundraising parser and data
+        run: python -m unittest tests.test_crypto_fundraising
+
+      - name: Commit updated fundraising data
+        run: |
+          if git diff --quiet -- data/crypto-fundraising.json; then
+            echo "Crypto fundraising data is already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/crypto-fundraising.json
+          git commit -m "Update crypto fundraising data"
+
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if git rebase origin/main; then
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+            else
+              git rebase --abort
+            fi
+            echo "Push attempt $attempt failed; retrying."
+            sleep $((attempt * 5))
+          done
+
+          echo "Could not push crypto fundraising data after 3 attempts."
+          exit 1
