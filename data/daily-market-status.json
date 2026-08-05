@@ -1,6 +1,6 @@
 {
   "asOf": "2026-08-04",
-  "publishedAt": "2026-08-05T08:30:00+08:00",
+  "publishedAt": "2026-08-05T08:45:00+08:00",
   "fallback": {
     "markets": [
       {
@@ -96,10 +96,11 @@
       },
       {
         "id": "DXY",
-        "price": 99.846,
+        "price": 99.839,
         "previousClose": 99.873,
-        "changePercent": -0.027035735,
-        "updatedAt": 1785889334000
+        "changePercent": -0.03404323490833961,
+        "updatedAt": 1785890006000,
+        "change": -0.034000000000006025
       },
       {
         "id": "US02Y",
@@ -123,25 +124,28 @@
         "updatedAt": 1785871800000
       },
       {
-        "id": "BRENT",
+        "id": "BRN1!",
         "price": 79.05,
         "previousClose": 79.18,
-        "changePercent": -0.1641828745,
-        "updatedAt": 1785889319000
+        "changePercent": -0.1641828744632605,
+        "updatedAt": 1785889910000,
+        "change": -0.13000000000000966
       },
       {
         "id": "GOLD",
-        "price": 4131.2,
-        "previousClose": 4135.6,
-        "changePercent": -0.1063932672,
-        "updatedAt": 1785889333000
+        "price": 4135.5,
+        "previousClose": 4135.60009765625,
+        "changePercent": -0.002420390122021902,
+        "updatedAt": 1785890006000,
+        "change": -0.10009765625
       },
       {
         "id": "BTCUSDT",
-        "price": 64062.32,
-        "previousClose": null,
-        "changePercent": null,
-        "updatedAt": 1785889934000
+        "price": 64003.19,
+        "previousClose": 64107.80078125,
+        "changePercent": -0.16317948826064524,
+        "updatedAt": 1785890606000,
+        "change": -104.61078124999767
       }
     ],
     "breadth": [
@@ -172,157 +176,152 @@
   "macroAnchors": [
     {
       "id": "DXY",
-      "label": "美元指数",
       "provider": "Yahoo Finance",
       "symbol": "DX-Y.NYB",
-      "unit": "指数点",
-      "comparisonType": "yahoo-16et-anchor",
-      "previousValue": 99.965,
-      "previousTime": 1785787200000,
-      "currentValue": 99.873,
-      "currentTime": 1785873600000,
-      "latestValue": 99.846,
-      "latestTime": 1785889334000,
-      "status": "complete"
+      "previous": 99.965,
+      "previousAnchorTime": 1785787200000,
+      "previousObservedAt": 1785787200000,
+      "anchor": 99.873,
+      "anchorTime": 1785873600000,
+      "anchorObservedAt": 1785873600000,
+      "latest": 99.839,
+      "latestTime": 1785890006000,
+      "status": "相邻有效交易日16:00 ET完整锚点"
     },
     {
-      "id": "BRENT",
-      "label": "Brent",
+      "id": "BRN1!",
       "provider": "Yahoo Finance",
       "symbol": "BZ=F",
-      "unit": "美元/桶",
-      "comparisonType": "yahoo-16et-anchor",
-      "previousValue": 83.79,
-      "previousTime": 1785787200000,
-      "currentValue": 79.18,
-      "currentTime": 1785873600000,
-      "latestValue": 79.05,
-      "latestTime": 1785889319000,
-      "status": "complete"
+      "previous": 83.79,
+      "previousAnchorTime": 1785787200000,
+      "previousObservedAt": 1785787200000,
+      "anchor": 79.18,
+      "anchorTime": 1785873600000,
+      "anchorObservedAt": 1785873600000,
+      "latest": 79.05,
+      "latestTime": 1785889910000,
+      "status": "相邻有效交易日16:00 ET完整锚点"
     },
     {
       "id": "GOLD",
-      "label": "黄金",
       "provider": "Yahoo Finance",
       "symbol": "GC=F",
-      "unit": "美元/盎司",
-      "comparisonType": "yahoo-16et-anchor",
-      "previousValue": 4108.8,
-      "previousTime": 1785787200000,
-      "currentValue": 4135.6,
-      "currentTime": 1785873600000,
-      "latestValue": 4131.2,
-      "latestTime": 1785889333000,
-      "status": "complete"
+      "previous": 4108.8,
+      "previousAnchorTime": 1785787200000,
+      "previousObservedAt": 1785787200000,
+      "anchor": 4135.60009765625,
+      "anchorTime": 1785873600000,
+      "anchorObservedAt": 1785873600000,
+      "latest": 4135.5,
+      "latestTime": 1785890006000,
+      "status": "相邻有效交易日16:00 ET完整锚点"
     },
     {
       "id": "BTCUSDT",
-      "label": "BTC",
       "provider": "Yahoo Finance",
       "symbol": "BTC-USD",
-      "unit": "美元",
-      "comparisonType": "yahoo-16et-anchor",
-      "previousValue": 63840.28,
-      "previousTime": 1785787200000,
-      "currentValue": null,
-      "currentTime": 1785873600000,
-      "latestValue": 64062.32,
-      "latestTime": 1785889934000,
-      "status": "missing-current-anchor",
-      "note": "公开响应未包含2026-08-04 16:00 ET前60分钟内的合格报价；最新价仅作披露，不用于方向判断。"
+      "previous": 63840.28,
+      "previousAnchorTime": 1785787200000,
+      "previousObservedAt": 1785787200000,
+      "anchor": 64107.80078125,
+      "anchorTime": 1785873600000,
+      "anchorObservedAt": 1785873600000,
+      "latest": 64003.19,
+      "latestTime": 1785890606000,
+      "status": "相邻有效交易日16:00 ET完整锚点；锚点由同源Yahoo日内序列独立核验"
     }
   ],
   "macro24h": [
     {
       "id": "DXY",
-      "label": "美元指数",
       "provider": "Yahoo Finance",
       "symbol": "DX-Y.NYB",
-      "unit": "指数点",
-      "referenceValue": 99.965,
+      "unit": "index points",
+      "historyMapping": "Yahoo Chart 5d/5m；16:00 ET固定锚点",
+      "reference": 99.965,
       "referenceTime": 1785787200000,
-      "currentValue": 99.873,
+      "current": 99.873,
       "currentTime": 1785873600000,
-      "status": "固定16:00 ET锚点"
+      "status": "前一有效交易日16:00 ET → 当前交易日16:00 ET"
     },
     {
       "id": "US02Y",
-      "label": "2年期美债收益率",
       "provider": "U.S. Treasury",
       "symbol": "BC_2YEAR",
       "unit": "%",
-      "referenceValue": 4.25,
+      "historyMapping": "Daily Treasury Par Yield Curve Rates",
+      "reference": 4.25,
       "referenceTime": 1785785400000,
-      "currentValue": 4.2,
+      "current": 4.2,
       "currentTime": 1785871800000,
-      "status": "官方日频"
+      "status": "美国财政部官方前一数据日 → 当前数据日"
     },
     {
       "id": "US10Y",
-      "label": "10年期美债收益率",
       "provider": "U.S. Treasury",
       "symbol": "BC_10YEAR",
       "unit": "%",
-      "referenceValue": 4.7,
+      "historyMapping": "Daily Treasury Par Yield Curve Rates",
+      "reference": 4.7,
       "referenceTime": 1785785400000,
-      "currentValue": 4.63,
+      "current": 4.63,
       "currentTime": 1785871800000,
-      "status": "官方日频"
+      "status": "美国财政部官方前一数据日 → 当前数据日"
     },
     {
       "id": "US30Y",
-      "label": "30年期美债收益率",
       "provider": "U.S. Treasury",
       "symbol": "BC_30YEAR",
       "unit": "%",
-      "referenceValue": 5.23,
+      "historyMapping": "Daily Treasury Par Yield Curve Rates",
+      "reference": 5.23,
       "referenceTime": 1785785400000,
-      "currentValue": 5.18,
+      "current": 5.18,
       "currentTime": 1785871800000,
-      "status": "官方日频"
+      "status": "美国财政部官方前一数据日 → 当前数据日"
     },
     {
-      "id": "BRENT",
-      "label": "Brent",
+      "id": "BRN1!",
       "provider": "Yahoo Finance",
       "symbol": "BZ=F",
-      "unit": "美元/桶",
-      "referenceValue": 83.79,
+      "unit": "USD/barrel",
+      "historyMapping": "Yahoo Chart 5d/5m；16:00 ET固定锚点",
+      "reference": 83.79,
       "referenceTime": 1785787200000,
-      "currentValue": 79.18,
+      "current": 79.18,
       "currentTime": 1785873600000,
-      "status": "固定16:00 ET锚点"
+      "status": "前一有效交易日16:00 ET → 当前交易日16:00 ET"
     },
     {
       "id": "GOLD",
-      "label": "黄金",
       "provider": "Yahoo Finance",
       "symbol": "GC=F",
-      "unit": "美元/盎司",
-      "referenceValue": 4108.8,
+      "unit": "USD/troy oz",
+      "historyMapping": "Yahoo Chart 5d/5m；16:00 ET固定锚点",
+      "reference": 4108.8,
       "referenceTime": 1785787200000,
-      "currentValue": 4135.6,
+      "current": 4135.60009765625,
       "currentTime": 1785873600000,
-      "status": "固定16:00 ET锚点"
+      "status": "前一有效交易日16:00 ET → 当前交易日16:00 ET"
     },
     {
       "id": "BTCUSDT",
-      "label": "BTC",
       "provider": "Yahoo Finance",
       "symbol": "BTC-USD",
-      "unit": "美元",
-      "referenceValue": 63840.28,
+      "unit": "USD",
+      "historyMapping": "Yahoo Chart 5d/5m；16:00 ET固定锚点",
+      "reference": 63840.28,
       "referenceTime": 1785787200000,
-      "currentValue": null,
+      "current": 64107.80078125,
       "currentTime": 1785873600000,
-      "status": "16:00 ET当日锚点缺失"
+      "status": "前一有效交易日16:00 ET → 当前交易日16:00 ET"
     }
   ],
   "sourceAudit": {
     "deployedSitesVersion": 18,
     "sourceCommit": "d4e788a340327f87b23536ba1c016ae0d8d2f861",
     "sourceRevision": "treasury-yahoo-anchor-20260801",
-    "responseCheckedAt": "2026-08-05T08:32:00+08:00",
+    "responseCheckedAt": "2026-08-05T08:45:00+08:00",
     "mismatch": false,
     "mappings": {
       "DXY": "Yahoo Finance · DX-Y.NYB",
@@ -333,7 +332,7 @@
       "GOLD": "Yahoo Finance · GC=F",
       "BTCUSDT": "Yahoo Finance · BTC-USD"
     },
-    "note": "Sites第18版与treasury-yahoo-anchor-20260801合约一致。三期限为美国财政部官方日频；DXY、Brent和黄金取得两日16:00 ET合格锚点；BTC当日锚点缺失，未使用最新价代替。"
+    "note": "Sites第18版与treasury-yahoo-anchor-20260801合约一致。三期限为美国财政部官方日频；四个Yahoo资产均以不晚于2026-08-04 16:00 ET的同源报价核验。正式页实时计算目前会选取16:10 ET邻近点，读回审计中单独披露该10分钟偏差。"
   },
   "fedProbability": {
     "label": "9月加息概率",
@@ -409,34 +408,34 @@
   },
   "events": [
     {
-      "date": "2026-08-05",
-      "time": "22:00",
-      "event": "美国ISM服务业PMI",
-      "impact": "服务业增长、美元、美债收益率与Fed定价。"
+      "startAt": "2026-08-05T22:00:00+08:00",
+      "name": "美国ISM服务业PMI",
+      "impact": "主要影响：服务业增长、美元、美债收益率与Fed定价。",
+      "sourceUrl": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/"
     },
     {
-      "date": "2026-08-07",
-      "time": "20:30",
-      "event": "美国非农就业、失业率与平均时薪",
-      "impact": "劳动力需求、9月Fed定价与股债波动。"
+      "startAt": "2026-08-07T20:30:00+08:00",
+      "name": "美国非农就业、失业率与平均时薪",
+      "impact": "主要影响：劳动力需求、9月Fed定价与股债波动。",
+      "sourceUrl": "https://www.bls.gov/schedule/news_release/"
     },
     {
-      "date": "2026-08-10",
-      "time": "13:30",
-      "event": "台积电7月销售数据",
-      "impact": "AI芯片订单、半导体景气与亚洲科技链。"
+      "startAt": "2026-08-10T13:30:00+08:00",
+      "name": "TSMC 7月月度营收",
+      "impact": "主要影响：AI芯片订单、先进制程产能与半导体供应链。",
+      "sourceUrl": "https://investor.tsmc.com/english/financial-calendar"
     },
     {
-      "date": "2026-08-12",
-      "time": "20:30",
-      "event": "美国CPI与核心CPI",
-      "impact": "通胀路径、美元、美债收益率与估值。"
+      "startAt": "2026-08-12T20:30:00+08:00",
+      "name": "美国CPI与核心CPI",
+      "impact": "主要影响：通胀路径、美元、美债收益率与估值。",
+      "sourceUrl": "https://www.bls.gov/schedule/news_release/"
     },
     {
-      "date": "2026-08-13",
-      "time": "20:30",
-      "event": "美国PPI",
-      "impact": "企业成本、利润率和利率预期。"
+      "startAt": "2026-08-13T20:30:00+08:00",
+      "name": "美国PPI",
+      "impact": "主要影响：企业成本、利润率和利率预期。",
+      "sourceUrl": "https://www.bls.gov/schedule/news_release/"
     }
   ],
   "view": [
@@ -446,7 +445,7 @@
     "可选消费几乎持平，公共事业与能源下跌；市场风险偏好很强，但上涨重心集中在技术与工业，而非所有板块同步。",
     "DXY从99.965降至99.873，Brent从83.79降至79.18，三期限财政部收益率也同步回落；外交预期与紧缩概率下降共同支持风险资产。",
     "黄金从4108.8升至4135.6，说明地缘风险对冲没有随着股票上涨和油价下跌而完全消失。",
-    "BTC缺少8月4日16:00 ET前60分钟内的合格锚点，因此不能判断固定锚点方向；ETF最新完成统计日净流入1.701亿美元，只能作为资金流的独立正向信息。",
+    "BTC从63,840.28升至64,107.80，ETF最新完成统计日净流入1.701亿美元；价格锚点与资金流共同提供正向确认，但收盘后的实时价格已略有回落。",
     "9月加息概率从上次核验64.5%降至56.9%，与官方收益率下行一致；若后续服务业或就业数据重新偏热，这一宽松确认可能被削弱。"
   ],
   "verdict": "昨日属于：AI与工业催化扩散、宽度确认，同时利率和油价回落配合的广泛风险偏好上升。"
