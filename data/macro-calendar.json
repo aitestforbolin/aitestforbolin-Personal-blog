@@ -1,10 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-06T05:28:28+00:00",
+  "generatedAt": "2026-08-06T12:21:08+00:00",
   "timezone": "Asia/Shanghai",
   "status": "partial",
   "failedSources": [
-    "gacc"
+    "gacc",
+    "mof"
   ],
   "sourcePolicy": "China official-only; U.S. legacy calendar preserved",
   "policyEventsUpdatedAt": "2026-08-03T12:00:00+08:00",
@@ -258,13 +259,13 @@
       "id": "cn-credit-2026-06",
       "country": "CN",
       "period": "2026-06",
-      "scheduledAt": "2026-07-15T18:49:00+08:00",
+      "scheduledAt": "2026-07-15T15:00:00+08:00",
       "dateStatus": "confirmed",
       "title": "中国货币与融资数据",
       "category": "credit",
       "importance": "high",
       "source": "中国人民银行",
-      "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071518015458230/index.html",
+      "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html",
       "metrics": [
         {
           "id": "m1_yoy",
@@ -277,10 +278,10 @@
         {
           "id": "m2_yoy",
           "label": "M2同比",
-          "actual": "8.0",
+          "actual": "8",
           "previous": null,
           "unit": "%",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071518015458230/index.html",
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html",
           "revisionStatus": "revised"
         },
         {
@@ -289,7 +290,7 @@
           "actual": "10.72",
           "previous": null,
           "unit": "万亿元",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071518015458230/index.html"
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html"
         },
         {
           "id": "tsf_increment",
@@ -297,11 +298,11 @@
           "actual": "20.84",
           "previous": null,
           "unit": "万亿元",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071518015458230/index.html"
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html"
         }
       ],
-      "releasedAt": "2026-07-15T18:49:00+08:00",
-      "retrievedAt": "2026-08-06T05:27:41+00:00",
+      "releasedAt": "2026-07-15T15:00:00+08:00",
+      "retrievedAt": "2026-08-06T12:20:21+00:00",
       "revisionStatus": "revised",
       "releaseStatus": "released",
       "sourceStatus": "fresh",
@@ -803,9 +804,9 @@
           "id": "m2_yoy",
           "label": "M2同比",
           "actual": null,
-          "previous": "8.0",
+          "previous": "8",
           "unit": "%",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071518015458230/index.html",
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html",
           "previousPeriod": "2026-06"
         },
         {
