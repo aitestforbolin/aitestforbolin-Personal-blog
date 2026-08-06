@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-05T12:18:59+00:00",
+  "generatedAt": "2026-08-06T05:28:28+00:00",
   "timezone": "Asia/Shanghai",
   "status": "partial",
   "failedSources": [
@@ -301,7 +301,7 @@
         }
       ],
       "releasedAt": "2026-07-15T18:49:00+08:00",
-      "retrievedAt": "2026-08-05T12:18:10+00:00",
+      "retrievedAt": "2026-08-06T05:27:41+00:00",
       "revisionStatus": "revised",
       "releaseStatus": "released",
       "sourceStatus": "fresh",
@@ -3642,6 +3642,59 @@
       "eventType": "data"
     },
     {
+      "id": "cn-fiscal-2026-01-05",
+      "country": "CN",
+      "period": "2026-01/05",
+      "scheduledAt": null,
+      "dateStatus": "date_tbd",
+      "title": "中国财政收支",
+      "category": "fiscal",
+      "importance": "medium",
+      "source": "财政部",
+      "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm",
+      "metrics": [
+        {
+          "id": "general_revenue",
+          "label": "一般公共预算收入",
+          "actual": "100465",
+          "previous": null,
+          "unit": "亿元",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm"
+        },
+        {
+          "id": "general_revenue_yoy",
+          "label": "一般公共预算收入同比",
+          "actual": "4",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm"
+        },
+        {
+          "id": "general_spending",
+          "label": "一般公共预算支出",
+          "actual": "113877",
+          "previous": null,
+          "unit": "亿元",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm"
+        },
+        {
+          "id": "general_spending_yoy",
+          "label": "一般公共预算支出同比",
+          "actual": "0.8",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm"
+        }
+      ],
+      "releasedAt": null,
+      "retrievedAt": "2026-08-06T05:27:41+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
+      "group": "fiscal",
+      "eventType": "data"
+    },
+    {
       "id": "cn-fiscal-2026-01-06",
       "country": "CN",
       "period": "2026-01/06",
@@ -3657,33 +3710,37 @@
           "id": "general_revenue",
           "label": "一般公共预算收入",
           "actual": "121047",
-          "previous": null,
+          "previous": "100465",
           "unit": "亿元",
-          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202607/t20260722_3993943.htm"
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm",
+          "previousPeriod": "2026-01/05"
         },
         {
           "id": "general_revenue_yoy",
           "label": "一般公共预算收入同比",
           "actual": "4.7",
-          "previous": null,
+          "previous": "4",
           "unit": "%",
-          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202607/t20260722_3993943.htm"
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm",
+          "previousPeriod": "2026-01/05"
         },
         {
           "id": "general_spending",
           "label": "一般公共预算支出",
           "actual": "143329",
-          "previous": null,
+          "previous": "113877",
           "unit": "亿元",
-          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202607/t20260722_3993943.htm"
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm",
+          "previousPeriod": "2026-01/05"
         },
         {
           "id": "general_spending_yoy",
           "label": "一般公共预算支出同比",
           "actual": "1.5",
-          "previous": null,
+          "previous": "0.8",
           "unit": "%",
-          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202607/t20260722_3993943.htm"
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm",
+          "previousPeriod": "2026-01/05"
         }
       ],
       "releasedAt": null,
