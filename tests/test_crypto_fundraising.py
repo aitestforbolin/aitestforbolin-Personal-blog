@@ -110,6 +110,14 @@ class CryptoFundraisingTests(unittest.TestCase):
         self.assertIn('../data/crypto-fundraising.json', frontend)
         self.assertIn('href="fundraising/">融资追踪</a>', homepage)
 
+    def test_marks_only_new_project_ids(self):
+        previous_payload = {"projects": [{"id": "crypto-fundraising-201"}, {"id": "crypto-fundraising-202"}, {"id": "crypto-fundraising-203"}]}
+        payload = updater.build_payload(FIXTURE, previous_payload)
+        self.assertEqual([project["is_new"] for project in payload["projects"]], [False, False, False])
+
+        newer_fixture = FIXTURE.replace('data-eid="201"', 'data-eid="999"')
+        payload = updater.build_payload(newer_fixture, previous_payload)
+        self.assertEqual([project["is_new"] for project in payload["projects"]], [True, False, False])
 
 if __name__ == "__main__":
     unittest.main()
