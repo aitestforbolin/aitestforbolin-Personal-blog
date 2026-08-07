@@ -2,7 +2,7 @@
   "schema_version": 1,
   "timezone": "Asia/Shanghai",
   "horizon_days": 35,
-  "updated_at": "2026-08-05T11:31:34+08:00",
+  "updated_at": "2026-08-07T11:14:41+08:00",
   "companies": [
     {
       "id": "alphabet",
@@ -111,32 +111,6 @@
     }
   ],
   "events": [
-    {
-      "event_id": "apple-earnings-fy2026-q3",
-      "company_id": "apple",
-      "event_category": "earnings",
-      "event_name": "Apple 2026 财年第三季度财报（待确认）",
-      "reported_period": "FY2026 Q3",
-      "importance": "core",
-      "status": "scheduled",
-      "confirmation": "inferred",
-      "date_type": "window",
-      "window_start": "2026-07-30",
-      "window_end": "2026-08-06",
-      "time_bjt": null,
-      "market_timing": "time_tbd",
-      "original_time": "根据 Apple 官方历史披露节奏形成的宽泛窗口",
-      "original_timezone": "America/Los_Angeles",
-      "source_label": "Apple Investor Relations",
-      "source_url": "https://investor.apple.com/",
-      "source_published_at": null,
-      "updated_at": "2026-07-21T00:00:00+08:00",
-      "company": "Apple",
-      "ticker": "AAPL",
-      "company_group": "consumer_auto",
-      "company_group_zh": "消费终端与汽车",
-      "date_changed": false
-    },
     {
       "event_id": "tsmc-operating-2026-07-monthly-sales",
       "company_id": "tsmc",
