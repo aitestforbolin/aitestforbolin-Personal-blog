@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-06T12:21:08+00:00",
+  "generatedAt": "2026-08-07T03:13:25+00:00",
   "timezone": "Asia/Shanghai",
   "status": "partial",
   "failedSources": [
@@ -456,52 +456,6 @@
       "group": "pmi",
       "scheduleSourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html",
       "eventType": "data"
-    },
-    {
-      "id": "us-4d09251f2c18",
-      "eventType": "data",
-      "country": "US",
-      "period": "July 2026",
-      "scheduledAt": "2026-08-03T22:00:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "美国ISM制造业PMI",
-      "category": "growth",
-      "importance": "medium",
-      "stars": 3,
-      "source": "ISM",
-      "sourceUrl": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/",
-      "metrics": [
-        {
-          "id": "headline",
-          "label": "综合值",
-          "actual": null,
-          "forecast": "54.0",
-          "previous": "53.3",
-          "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
-        }
-      ],
-      "releasedAt": null,
-      "retrievedAt": null,
-      "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "legacy": {
-        "date": "2026-08-03",
-        "time_et": "10:00",
-        "time_shanghai": "22:00",
-        "title": "Manufacturing PMI Report on Business",
-        "title_cn": "美国ISM制造业PMI",
-        "period": "July 2026",
-        "category": "growth",
-        "importance": "medium",
-        "stars": 3,
-        "source": "ISM",
-        "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/",
-        "forecast": "54.0",
-        "previous": "53.3",
-        "result_source": "Forex Factory 市场日历",
-        "result_url": "https://www.forexfactory.com/calendar"
-      }
     },
     {
       "id": "us-1fe3e9bb99d4",
