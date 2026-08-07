@@ -613,7 +613,7 @@
 
     lines.push(
       "",
-      "每日市场状态｜" + formatDate(snapshot.asOf),
+      "每日市场早报｜" + formatDate(snapshot.asOf),
       "",
       "01｜美股",
       "",
