@@ -267,7 +267,24 @@ def fetch_homepage() -> str:
     raise RuntimeError(f"Could not fetch {SOURCE_URL}") from last_error
 
 
-def build_payload(\n    html: str | None = None, previous_payload: dict[str, object] | None = None\n) -> dict[str, object]:\n    projects = parse_recent_events(html if html is not None else fetch_homepage())\n    previous_projects = (\n        previous_payload.get("projects")\n        if isinstance(previous_payload, dict)\n        and isinstance(previous_payload.get("projects"), list)\n        else None\n    )\n    previous_ids = (\n        {str(project.get("id")) for project in previous_projects if isinstance(project, dict)}\n        if previous_projects is not None\n        else None\n    )\n    for project in projects:\n        project["is_new"] = previous_ids is not None and str(project["id"]) not in previous_ids\n    return {
+def build_payload(
+    html: str | None = None, previous_payload: dict[str, object] | None = None
+) -> dict[str, object]:
+    projects = parse_recent_events(html if html is not None else fetch_homepage())
+    previous_projects = (
+        previous_payload.get("projects")
+        if isinstance(previous_payload, dict)
+        and isinstance(previous_payload.get("projects"), list)
+        else None
+    )
+    previous_ids = (
+        {str(project.get("id")) for project in previous_projects if isinstance(project, dict)}
+        if previous_projects is not None
+        else None
+    )
+    for project in projects:
+        project["is_new"] = previous_ids is not None and str(project["id"]) not in previous_ids
+    return {
         "updated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "source": "Crypto-Fundraising",
         "source_url": SOURCE_URL,
@@ -276,7 +293,24 @@ def build_payload(\n    html: str | None = None, previous_payload: dict[str, obj
     }
 
 
-def load_previous_payload() -> dict[str, object] | None:\n    if not OUTPUT.exists():\n        return None\n    try:\n        payload = json.loads(OUTPUT.read_text(encoding="utf-8"))\n    except (OSError, json.JSONDecodeError):\n        return None\n    return payload if isinstance(payload, dict) else None\n\n\ndef project_data_changed(\n    payload: dict[str, object], previous: dict[str, object] | None = None\n) -> bool:\n    if previous is None:\n        previous = load_previous_payload()\n    if previous is None:\n        return True\n    return any(
+def load_previous_payload() -> dict[str, object] | None:
+    if not OUTPUT.exists():
+        return None
+    try:
+        payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    return payload if isinstance(payload, dict) else None
+
+
+def project_data_changed(
+    payload: dict[str, object], previous: dict[str, object] | None = None
+) -> bool:
+    if previous is None:
+        previous = load_previous_payload()
+    if previous is None:
+        return True
+    return any(
         previous.get(key) != payload.get(key)
         for key in ("source", "source_url", "selection", "projects")
     )
@@ -284,7 +318,8 @@ def load_previous_payload() -> dict[str, object] | None:\n    if not OUTPUT.exis
 
 def write_payload(payload: dict[str, object]) -> None:
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    rendered = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+    rendered = json.dumps(payload, ensure_ascii=False, indent=2) + "
+"
     with tempfile.NamedTemporaryFile(
         "w",
         encoding="utf-8",
@@ -297,7 +332,10 @@ def write_payload(payload: dict[str, object]) -> None:
     os.replace(temporary_path, OUTPUT)
 
 
-def main() -> None:\n    previous = load_previous_payload()\n    payload = build_payload(previous_payload=previous)\n    if not project_data_changed(payload, previous):
+def main() -> None:
+    previous = load_previous_payload()
+    payload = build_payload(previous_payload=previous)
+    if not project_data_changed(payload, previous):
         print("Latest Crypto-Fundraising projects are unchanged.")
         return
     write_payload(payload)
