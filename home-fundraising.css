@@ -1,0 +1,112 @@
+.fundraising-home-panel {
+  overflow: hidden;
+  border: 1px solid rgba(117, 108, 97, 0.18);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.78);
+  box-shadow: 0 10px 28px rgba(67, 48, 32, 0.07);
+}
+
+.home-fundraising-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(117, 108, 97, 0.16);
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.home-fundraising-list { display: grid; }
+
+.home-fundraising-item {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: 14px;
+  min-height: 76px;
+  padding: 14px 20px;
+  border-top: 1px solid rgba(117, 108, 97, 0.13);
+  transition: background 180ms ease, padding 180ms ease;
+}
+
+.home-fundraising-item:first-child { border-top: 0; }
+
+.home-fundraising-item:hover,
+.home-fundraising-item:focus-visible {
+  padding-right: 24px;
+  padding-left: 24px;
+  background: rgba(184, 107, 75, 0.06);
+  outline: none;
+}
+
+.home-fundraising-rank {
+  color: var(--accent-dark);
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.home-fundraising-project { min-width: 0; }
+
+.home-fundraising-project strong {
+  font-family: "Songti SC", "STSong", "SimSun", serif !important;
+  font-size: 1.12rem;
+  line-height: 1.28;
+}
+
+.home-fundraising-project small {
+  display: block;
+  margin-top: 2px;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-fundraising-new {
+  display: inline-block;
+  margin-left: 8px;
+  color: #bd352f;
+  font-family: var(--font-site) !important;
+  font-size: 0.84rem;
+  font-style: normal;
+  font-weight: 850;
+  vertical-align: 0.08em;
+}
+
+.home-fundraising-arrow {
+  color: var(--accent-dark);
+  font-size: 1.15rem;
+  transition: transform 180ms ease;
+}
+
+.home-fundraising-item:hover .home-fundraising-arrow,
+.home-fundraising-item:focus-visible .home-fundraising-arrow { transform: translate(2px, -2px); }
+
+.home-fundraising-footer {
+  padding: 14px 20px;
+  border-top: 1px solid rgba(117, 108, 97, 0.16);
+}
+
+.home-fundraising-footer a {
+  color: var(--accent-dark);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.home-fundraising-error {
+  margin: 0;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 560px) {
+  .home-fundraising-meta { align-items: flex-start; flex-direction: column; }
+  .home-fundraising-item { padding-right: 14px; padding-left: 14px; }
+  .home-fundraising-item:hover, .home-fundraising-item:focus-visible { padding-right: 17px; padding-left: 17px; }
+}
