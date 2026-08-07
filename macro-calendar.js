@@ -1,7 +1,7 @@
 (function () {
   const DATA_URL = "data/macro-calendar.json";
   const MODEL = window.MacroCalendarModel;
-  const HORIZON_DAYS = 35;
+  const HORIZON_DAYS = 7;
   const LOOKBACK_DAYS = 3;
   const POLICY_LOOKBACK_DAYS = 30;
   const UPCOMING_DAYS = 3;
