@@ -1,11 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-07T03:13:25+00:00",
+  "generatedAt": "2026-08-07T11:09:13+00:00",
   "timezone": "Asia/Shanghai",
   "status": "partial",
   "failedSources": [
-    "gacc",
-    "mof"
+    "gacc"
   ],
   "sourcePolicy": "China official-only; U.S. legacy calendar preserved",
   "policyEventsUpdatedAt": "2026-08-03T12:00:00+08:00",
@@ -557,34 +556,29 @@
       "id": "cn-reserves-2026-07",
       "country": "CN",
       "period": "2026-07",
-      "scheduledAt": null,
-      "dateStatus": "expected_window",
+      "scheduledAt": "2026-08-07T16:10:00+08:00",
+      "dateStatus": "confirmed",
       "title": "中国外汇储备",
       "category": "reserves",
       "importance": "medium",
       "source": "国家外汇管理局",
-      "sourceUrl": "https://www.safe.gov.cn/safe/index.html",
+      "sourceUrl": "https://www.safe.gov.cn/safe/2026/0806/27770.html",
       "metrics": [
         {
           "id": "fx_reserves",
           "label": "外汇储备规模",
-          "actual": null,
+          "actual": "34188",
           "previous": "34163",
           "unit": "亿美元",
-          "sourceUrl": "https://www.safe.gov.cn/safe/2026/0706/27661.html"
+          "sourceUrl": "https://www.safe.gov.cn/safe/2026/0806/27770.html"
         }
       ],
-      "releasedAt": null,
-      "retrievedAt": "2026-08-02T10:00:00+08:00",
+      "releasedAt": "2026-08-07T16:10:00+08:00",
+      "retrievedAt": "2026-08-07T11:08:29+00:00",
       "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "sourceStatus": "static_official_sample",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
       "group": "reserves",
-      "expectedWindow": {
-        "start": "2026-08-06",
-        "end": "2026-08-08",
-        "timezone": "Asia/Shanghai"
-      },
       "eventType": "data"
     },
     {
@@ -1561,9 +1555,10 @@
           "id": "fx_reserves",
           "label": "外汇储备规模",
           "actual": null,
-          "previous": "34163",
+          "previous": "34188",
           "unit": "亿美元",
-          "sourceUrl": "https://www.safe.gov.cn/safe/2026/0706/27661.html"
+          "sourceUrl": "https://www.safe.gov.cn/safe/2026/0806/27770.html",
+          "previousPeriod": "2026-07"
         }
       ],
       "releasedAt": null,
