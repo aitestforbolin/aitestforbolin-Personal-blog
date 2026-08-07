@@ -27,9 +27,9 @@
     ["DJI", "道琼斯"],
   ];
   const sectorConfig = [
-    ["进攻和成长", [["SOX", "SOX（半导体指数·补充）"], ["XLK", "XLK（信息技术）"], ["XLY", "XLY（可选消费）"], ["XLC", "XLC（通信服务）"]]],
-    ["防御", [["XLV", "XLV（医疗保健）"], ["XLU", "XLU（公共事业）"], ["XLP", "XLP（必需消费）"]]],
-    ["宏观敏感", [["XLE", "XLE（能源）"], ["XLI", "XLI（工业）"], ["XLB", "XLB（材料）"], ["XLRE", "XLRE（房地产）"], ["XLF", "XLF（金融）"]]],
+    ["进攻和成长板块", [["SOX", "SOX（半导体指数·补充）"], ["XLK", "XLK（信息技术）"], ["XLY", "XLY（可选消费）"], ["XLC", "XLC（通信服务）"]]],
+    ["防御板块", [["XLV", "XLV（医疗保健）"], ["XLU", "XLU（公共事业）"], ["XLP", "XLP（必需消费）"]]],
+    ["宏观敏感板块", [["XLE", "XLE（能源）"], ["XLI", "XLI（工业）"], ["XLB", "XLB（材料）"], ["XLRE", "XLRE（房地产）"], ["XLF", "XLF（金融）"]]],
   ];
   const macroConfig = [
     ["BRN1!", "Brent期货", 2, "", "Yahoo Finance · BZ=F"],
@@ -275,39 +275,28 @@
 
   function renderDrivers() {
     const target = root.querySelector("[data-drivers]");
-    const groups = new Map();
-    (snapshot.drivers || []).forEach((item) => {
-      if (!item || !item.ticker || !item.reason) return;
-      if (!groups.has(item.group)) groups.set(item.group, []);
-      groups.get(item.group).push(item);
-    });
-    target.innerHTML = [...groups.entries()]
-      .filter(([, items]) => items.length)
-      .map(
-        ([group, items]) => `
-          <div class="driver-group">
-            <h4>${escapeHtml(group)}</h4>
-            ${items
-              .map(
-                (item) => `
-                  <div class="driver-row">
-                    <div class="driver-name">
-                      ${escapeHtml(item.name)} · ${escapeHtml(item.ticker)}
-                      <small class="${directionClass(item.changePercent)}">${formatPercent(item.changePercent)}</small>
-                    </div>
-                    <p>${escapeHtml(item.reason)}
-                      <a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(item.sourceLabel)} ↗</a>
-                    </p>
-                  </div>`
-              )
-              .join("")}
-          </div>`
-      )
-      .join("");
+    const items = (snapshot.drivers || []).filter(
+      (item) => item && item.ticker && item.reason
+    );
+    target.innerHTML = items.length
+      ? items
+          .map(
+            (item) => `
+              <div class="driver-row">
+                <div class="driver-name">
+                  ${escapeHtml(item.name)} · ${escapeHtml(item.ticker)}
+                  <small class="${directionClass(item.changePercent)}">${formatPercent(item.changePercent)}</small>
+                </div>
+                <p>${escapeHtml(item.reason)}
+                  <a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(item.sourceLabel || item.source)} ↗</a>
+                </p>
+              </div>`
+          )
+          .join("")
+      : '<p class="module-state">当前快照内没有符合门槛的个股驱动。</p>';
     root.querySelector("[data-driver-date]").textContent =
       `${formatDate(snapshot.asOf)} 收盘筛选`;
   }
-
   function finiteNumber(value) {
     const number = Number(value);
     return value !== null && value !== "" && Number.isFinite(number)
@@ -677,37 +666,22 @@
       });
     });
 
-    lines.push("", "▍核心个股驱动");
-    const driverGroups = new Map();
-    (snapshot.drivers || []).forEach((item) => {
-      if (!item?.group || !item?.ticker || !item?.reason) return;
-      const normalizedGroup =
-        {
-          semiconductor: "半导体",
-          semiconductors: "半导体",
-          megacap: "大型科技",
-          mega_cap: "大型科技",
-          large_tech: "大型科技",
-          other: "其他显著个股",
-        }[item.group] || item.group;
-      if (!driverGroups.has(normalizedGroup)) driverGroups.set(normalizedGroup, []);
-      driverGroups.get(normalizedGroup).push(item);
-    });
-    ["半导体", "大型科技", "其他显著个股"].forEach((group) => {
-      const items = driverGroups.get(group) || [];
-      if (!items.length) return;
-      lines.push("", "【" + group + "】");
-      items.forEach((item) => {
-        lines.push(
-          "• " +
-            item.name +
-            "（" +
-            item.ticker +
-            "）：" +
-            formatDocumentPercent(item.changePercent)
-        );
-        lines.push("  驱动：" + item.reason);
-      });
+    lines.push("", "▍核心个股驱动", "");
+    const drivers = (snapshot.drivers || [])
+      .filter((item) => item?.ticker && item?.reason)
+      .slice(0, 8);
+    drivers.forEach((item, index) => {
+      lines.push(
+        "• " +
+          item.name +
+          "（" +
+          item.ticker +
+          "）：" +
+          formatDocumentPercent(item.changePercent) +
+          " " +
+          String(item.reason).replace(/\s+/g, " ").trim()
+      );
+      if (index < drivers.length - 1) lines.push("");
     });
 
     const comparisons = new Map(
@@ -784,20 +758,13 @@
     });
 
     lines.push("", "04｜看法和观点", "");
-    (snapshot.view || []).slice(0, 10).forEach((paragraph, index) => {
+    (snapshot.view || []).slice(0, 8).forEach((paragraph, index) => {
       if (index > 0) lines.push("");
-      lines.push(
-        index +
-          1 +
-          ". " +
-          String(paragraph).replace(/^[—–-]\s*/, "")
-      );
+      lines.push(String(paragraph).replace(/^[—–-]\s*/, ""));
     });
     if (snapshot.verdict) {
       if ((snapshot.view || []).length) lines.push("");
-      lines.push(
-        "结论｜" + String(snapshot.verdict).replace(/^[—–-]\s*/, "")
-      );
+      lines.push(String(snapshot.verdict).replace(/^[—–-]\s*/, ""));
     }
 
     return lines.join("\n");
