@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="tech-events.css?v=20260721-1" />
     <link rel="stylesheet" href="editorial-refresh.css?v=20260803-2" />
     <link rel="stylesheet" href="market-pulse.css?v=20260729-1" />
+    <link rel="stylesheet" href="home-fundraising.css?v=20260807-1" />
   </head>
   <body>
     <header class="site-header">
@@ -231,25 +232,24 @@
         class="section briefing-home"
         id="fundraising"
         aria-labelledby="fundraising-title"
+        data-home-fundraising
       >
         <div class="briefing-home-copy">
           <p class="eyebrow">Crypto Fundraising</p>
           <h2 id="fundraising-title">最新加密项目融资</h2>
           <p>
-            展示最近 3 个加密项目融资，点击项目可跳转至 Crypto-Fundraising 原站。
+            展示最近公开收录的 3 个融资项目，点击项目可跳转至 Crypto-Fundraising 原站。
           </p>
         </div>
-        <div class="briefing-home-cards">
-          <article class="briefing-home-card" data-channel="crypto-fundraising">
-            <div>
-              <div class="post-meta"><span class="post-tag">融资</span></div>
-              <h3>融资追踪</h3>
-              <p>快速查看近期公开披露的加密项目融资信息。</p>
-            </div>
-            <div class="briefing-home-actions">
-              <a class="button primary" href="fundraising/">查看最新融资</a>
-            </div>
-          </article>
+        <div class="fundraising-home-panel">
+          <div class="home-fundraising-meta">
+            <span data-home-fundraising-updated>正在载入融资项目...</span>
+            <span>数据来源：Crypto-Fundraising</span>
+          </div>
+          <div class="home-fundraising-list" data-home-fundraising-list></div>
+          <div class="home-fundraising-footer">
+            <a href="fundraising/">查看完整融资追踪 →</a>
+          </div>
         </div>
       </section>
 
@@ -382,5 +382,6 @@
     <script src="tech-events.js?v=20260721-1"></script>
     <script src="macro-calendar-model.js?v=20260803-1"></script>
     <script src="macro-calendar.js?v=20260803-1"></script>
+    <script src="home-fundraising.js?v=20260807-1"></script>
   </body>
 </html>
