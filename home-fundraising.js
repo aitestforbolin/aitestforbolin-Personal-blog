@@ -27,8 +27,8 @@
   function formatAmount(value) {
     const amount = Number(value);
     if (!Number.isFinite(amount) || amount <= 0) return "金额未披露";
-    if (amount >= 100000000) return `${(amount / 100000000).toFixed(2).replace(/\\.?0+$/, "")}亿美元`;
-    if (amount >= 10000) return `${(amount / 10000).toFixed(1).replace(/\\.?0+$/, "")}万美元`;
+    if (amount >= 100000000) return `${(amount / 100000000).toFixed(2).replace(/\.?0+$/, "")}亿美元`;
+    if (amount >= 10000) return `${(amount / 10000).toFixed(1).replace(/\.?0+$/, "")}万美元`;
     return `${new Intl.NumberFormat("zh-CN").format(amount)}美元`;
   }
 
