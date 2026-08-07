@@ -1,7 +1,7 @@
 (function () {
   const DATA_URL = "data/tech-company-events.json";
   const SHANGHAI_OFFSET = "+08:00";
-  const DEFAULT_HORIZON_DAYS = 35;
+  const DEFAULT_HORIZON_DAYS = 7;
   const DAY_MS = 86400000;
 
   const CATEGORY_LABELS = {
@@ -314,7 +314,7 @@
     .then((payload) => {
       state.companies = Array.isArray(payload.companies) ? payload.companies : [];
       state.events = Array.isArray(payload.events) ? payload.events : [];
-      state.horizonDays = Number(payload.horizon_days) || DEFAULT_HORIZON_DAYS;
+      state.horizonDays = DEFAULT_HORIZON_DAYS;
       state.updatedAt = payload.updated_at || "";
       updated.textContent = formatUpdatedAt(state.updatedAt);
       populateCompanies();
