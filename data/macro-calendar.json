@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-08T02:19:33+00:00",
+  "generatedAt": "2026-08-09T02:26:44+00:00",
   "timezone": "Asia/Shanghai",
   "status": "partial",
   "failedSources": [
@@ -455,52 +455,6 @@
       "group": "pmi",
       "scheduleSourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html",
       "eventType": "data"
-    },
-    {
-      "id": "us-d08d923e63e6",
-      "eventType": "data",
-      "country": "US",
-      "period": "July 2026",
-      "scheduledAt": "2026-08-05T22:00:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "美国ISM服务业PMI",
-      "category": "growth",
-      "importance": "medium",
-      "stars": 3,
-      "source": "ISM",
-      "sourceUrl": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/",
-      "metrics": [
-        {
-          "id": "headline",
-          "label": "综合值",
-          "actual": null,
-          "forecast": "54.5",
-          "previous": "54.0",
-          "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
-        }
-      ],
-      "releasedAt": null,
-      "retrievedAt": null,
-      "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "legacy": {
-        "date": "2026-08-05",
-        "time_et": "10:00",
-        "time_shanghai": "22:00",
-        "title": "Services PMI Report on Business",
-        "title_cn": "美国ISM服务业PMI",
-        "period": "July 2026",
-        "category": "growth",
-        "importance": "medium",
-        "stars": 3,
-        "source": "ISM",
-        "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/",
-        "forecast": "54.5",
-        "previous": "54.0",
-        "result_source": "Forex Factory 市场日历",
-        "result_url": "https://www.forexfactory.com/calendar"
-      }
     },
     {
       "id": "cn-reserves-2026-07",
