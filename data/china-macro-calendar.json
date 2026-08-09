@@ -1,11 +1,12 @@
 {
   "schemaVersion": 1,
   "status": "partial",
-  "generatedAt": "2026-08-07T11:08:29+00:00",
+  "generatedAt": "2026-08-09T03:53:34+00:00",
   "timezone": "Asia/Shanghai",
   "sourcePolicy": "official_only",
   "failedSources": [
-    "gacc"
+    "gacc",
+    "mof"
   ],
   "events": [
     {
@@ -507,15 +508,15 @@
       "category": "prices",
       "importance": "high",
       "source": "国家统计局",
-      "sourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html",
+      "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202608/t20260809_1965007.html",
       "metrics": [
         {
           "id": "cpi_yoy",
           "label": "CPI同比",
-          "actual": null,
+          "actual": "0.5",
           "previous": "1.0",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260709_1964084.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202608/t20260809_1965008.html"
         },
         {
           "id": "core_cpi_yoy",
@@ -528,17 +529,17 @@
         {
           "id": "ppi_yoy",
           "label": "PPI同比",
-          "actual": null,
+          "actual": "3.5",
           "previous": "4.1",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260709_1964083.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202608/t20260809_1965007.html"
         }
       ],
-      "releasedAt": null,
-      "retrievedAt": "2026-08-02T10:00:00+08:00",
+      "releasedAt": "2026-08-09T09:30:00+08:00",
+      "retrievedAt": "2026-08-09T03:53:34+00:00",
       "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "sourceStatus": "static_official_sample",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
       "group": "prices",
       "scheduleSourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html"
     },
@@ -1011,9 +1012,10 @@
           "id": "cpi_yoy",
           "label": "CPI同比",
           "actual": null,
-          "previous": "1.0",
+          "previous": "0.5",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260709_1964084.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202608/t20260809_1965008.html",
+          "previousPeriod": "2026-07"
         },
         {
           "id": "core_cpi_yoy",
@@ -1027,9 +1029,10 @@
           "id": "ppi_yoy",
           "label": "PPI同比",
           "actual": null,
-          "previous": "4.1",
+          "previous": "3.5",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260709_1964083.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202608/t20260809_1965007.html",
+          "previousPeriod": "2026-07"
         }
       ],
       "releasedAt": null,
