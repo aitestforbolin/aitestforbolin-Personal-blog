@@ -318,8 +318,7 @@ def project_data_changed(
 
 def write_payload(payload: dict[str, object]) -> None:
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    rendered = json.dumps(payload, ensure_ascii=False, indent=2) + "
-"
+    rendered = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
     with tempfile.NamedTemporaryFile(
         "w",
         encoding="utf-8",
