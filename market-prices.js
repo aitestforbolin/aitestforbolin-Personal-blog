@@ -139,6 +139,7 @@
         { id: "XLV", name: "医疗保健", fullName: "Health Care Select Sector SPDR ETF", code: "XLV", group: "防御板块", session: "美股常规交易时段", unit: "price", decimals: 2, tradingView: "AMEX:XLV", fallbackSymbol: "AMEX:XLV", fallbackLabel: "XLV" },
         { id: "XLU", name: "公共事业", fullName: "Utilities Select Sector SPDR ETF", code: "XLU", group: "防御板块", session: "美股常规交易时段", unit: "price", decimals: 2, tradingView: "AMEX:XLU", fallbackSymbol: "AMEX:XLU", fallbackLabel: "XLU" },
         { id: "XLP", name: "必需消费", fullName: "Consumer Staples Select Sector SPDR ETF", code: "XLP", group: "防御板块", session: "美股常规交易时段", unit: "price", decimals: 2, tradingView: "AMEX:XLP", fallbackSymbol: "AMEX:XLP", fallbackLabel: "XLP" },
+        { id: "XLRE", name: "房地产", fullName: "Real Estate Select Sector SPDR ETF", code: "XLRE", group: "防御板块", session: "美股常规交易时段", unit: "price", decimals: 2, tradingView: "AMEX:XLRE", fallbackSymbol: "AMEX:XLRE", fallbackLabel: "XLRE" },
       ],
     },
     {
@@ -148,6 +149,7 @@
         { id: "XLE", name: "能源", fullName: "Energy Select Sector SPDR ETF", code: "XLE", group: "宏观敏感板块", session: "美股常规交易时段", unit: "price", decimals: 2, tradingView: "AMEX:XLE", fallbackSymbol: "AMEX:XLE", fallbackLabel: "XLE" },
         { id: "XLI", name: "工业", fullName: "Industrial Select Sector SPDR ETF", code: "XLI", group: "宏观敏感板块", session: "美股常规交易时段", unit: "price", decimals: 2, tradingView: "AMEX:XLI", fallbackSymbol: "AMEX:XLI", fallbackLabel: "XLI" },
         { id: "XLF", name: "金融", fullName: "Financial Select Sector SPDR ETF", code: "XLF", group: "宏观敏感板块", session: "美股常规交易时段", unit: "price", decimals: 2, tradingView: "AMEX:XLF", fallbackSymbol: "AMEX:XLF", fallbackLabel: "XLF" },
+        { id: "XLB", name: "材料", fullName: "Materials Select Sector SPDR ETF", code: "XLB", group: "宏观敏感板块", session: "美股常规交易时段", unit: "price", decimals: 2, tradingView: "AMEX:XLB", fallbackSymbol: "AMEX:XLB", fallbackLabel: "XLB" },
       ],
     },
   ];
