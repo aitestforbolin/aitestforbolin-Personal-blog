@@ -321,12 +321,42 @@
     return { date: formatCnDate(day), time };
   }
 
+  function isWindowEvent(event) {
+    return Boolean(
+      event &&
+        event.dateStatus === "expected_window" &&
+        event.expectedWindow &&
+        event.expectedWindow.start
+    );
+  }
+
+  function releasedWithin48Hours(event) {
+    const releasedAt = event.releasedAt || event.scheduledAt;
+    let releasedTimestamp = releasedAt ? Date.parse(releasedAt) : NaN;
+
+    if (Number.isNaN(releasedTimestamp)) {
+      const releaseDay = MODEL.eventDisplayDay(event);
+      releasedTimestamp = releaseDay
+        ? Date.parse(`${releaseDay}T23:59:59+08:00`)
+        : NaN;
+    }
+
+    if (Number.isNaN(releasedTimestamp)) {
+      return false;
+    }
+
+    const ageMs = Date.now() - releasedTimestamp;
+    return ageMs >= 0 && ageMs <= RELEASE_LOOKBACK_HOURS * 60 * 60 * 1000;
+  }
+
   function eventStatusBadge(event) {
     const distance = MODEL.dayDistance(event, todayShanghai());
     const released = event.releaseStatus === "released" || Boolean(event.releasedAt);
     const policyEvent = event.eventType === "policy_event";
-    const lookbackDays = policyEvent ? POLICY_LOOKBACK_DAYS : LOOKBACK_DAYS;
-    if (released && distance >= -lookbackDays && distance <= 0) {
+    const recentlyReleased = policyEvent
+      ? distance >= -POLICY_LOOKBACK_DAYS && distance <= 0
+      : releasedWithin48Hours(event);
+    if (released && recentlyReleased) {
       return `<small class="macro-released-badge">${
         policyEvent ? "已举行" : "已公布"
       }</small>`;
