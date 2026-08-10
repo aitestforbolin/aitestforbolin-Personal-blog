@@ -2,7 +2,8 @@
   const DATA_URL = "data/macro-calendar.json";
   const MODEL = window.MacroCalendarModel;
   const HORIZON_DAYS = 7;
-  const LOOKBACK_DAYS = 3;
+  const RELEASE_LOOKBACK_HOURS = 48;
+  const RELEASE_LOOKBACK_DAYS = 2;
   const POLICY_LOOKBACK_DAYS = 30;
   const UPCOMING_DAYS = 3;
   const CATEGORY_LABELS = {
@@ -342,13 +343,17 @@
   }
 
   function visibleEvents(country, eventType) {
-    return MODEL.visibleEvents(state.events, {
+    const events = MODEL.visibleEvents(state.events, {
       country,
       eventType,
       today: todayShanghai(),
       lookbackDays:
-        eventType === "policy_event" ? POLICY_LOOKBACK_DAYS : LOOKBACK_DAYS,
+        eventType === "policy_event" ? POLICY_LOOKBACK_DAYS : RELEASE_LOOKBACK_DAYS,
       horizonDays: HORIZON_DAYS,
+    });
+    return events.filter((event) => {
+      const released = event.releaseStatus === "released" || Boolean(event.releasedAt);
+      return eventType === "policy_event" || !released || releasedWithin48Hours(event);
     });
   }
 
@@ -397,7 +402,7 @@
     }
     status.textContent = events.length
       ? ""
-      : `最近 ${LOOKBACK_DAYS} 天的数据、最近 ${POLICY_LOOKBACK_DAYS} 天的政策事件及未来 ${HORIZON_DAYS} 天暂无重点事项。`;
+      : `最近 ${RELEASE_LOOKBACK_HOURS} 小时已公布的数据、最近 ${POLICY_LOOKBACK_DAYS} 天的政策事件及未来 ${HORIZON_DAYS} 天暂无重点事项。`;
     status.dataset.state = events.length ? "ready" : "empty";
   }
 
@@ -496,8 +501,10 @@
 
   function renderEvents() {
     const dataEvents = visibleEvents(state.country, "data");
+    const scheduledDataEvents = dataEvents.filter((event) => !isWindowEvent(event));
+    const windowDataEvents = dataEvents.filter(isWindowEvent);
     const policyEvents = visibleEvents(state.country, "policy_event");
-    const events = MODEL.sortEvents([...dataEvents, ...policyEvents]);
+    const events = MODEL.sortEvents([...scheduledDataEvents, ...policyEvents, ...windowDataEvents]);
     eventList.innerHTML = "";
     renderStatus(dataEvents, policyEvents);
     updateFilterCounts();
@@ -505,19 +512,27 @@
     if (!events.length) {
       const empty = document.createElement("p");
       empty.className = "macro-empty";
-      empty.textContent = `最近 ${LOOKBACK_DAYS} 天的数据、最近 ${POLICY_LOOKBACK_DAYS} 天的政策事件及未来 ${HORIZON_DAYS} 天暂无重点事项。`;
+      empty.textContent = `最近 ${RELEASE_LOOKBACK_HOURS} 小时已公布的数据、最近 ${POLICY_LOOKBACK_DAYS} 天的政策事件及未来 ${HORIZON_DAYS} 天暂无重点事项。`;
       eventList.append(empty);
       return;
     }
 
     const fragment = document.createDocumentFragment();
-    renderEventGroup(fragment, "宏观数据", dataEvents, "data");
+    renderEventGroup(fragment, "宏观数据", scheduledDataEvents, "data");
     renderEventGroup(
       fragment,
       "重要会议与政策事件",
       policyEvents,
       "policy_event"
     );
+    if (windowDataEvents.length) {
+      renderEventGroup(
+        fragment,
+        "发布时间窗口待定",
+        windowDataEvents,
+        "expected-window"
+      );
+    }
     eventList.append(fragment);
   }
 
