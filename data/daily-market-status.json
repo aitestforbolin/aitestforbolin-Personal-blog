@@ -1,207 +1,297 @@
 {
-  "asOf": "2026-08-07",
-  "publishedAt": "2026-08-08T08:38:27+08:00",
+  "asOf": "2026-08-10",
+  "publishedAt": "2026-08-11T10:49:18+08:00",
   "fallback": {
     "markets": [
       {
         "id": "SPX",
-        "price": 7757.64,
-        "previousClose": 7709.96,
-        "changePercent": 0.6184208478,
-        "updatedAt": 1786135824000,
-        "change": 47.68000000000029
+        "name": "S&P 500",
+        "price": 7753.11,
+        "previousClose": 7757.64,
+        "change": -4.530000000000655,
+        "changePercent": -0.05839404767430114,
+        "currency": "USD",
+        "updatedAt": 1786394316000,
+        "source": "Yahoo Finance",
+        "status": "ok"
       },
       {
         "id": "IXIC",
-        "price": 26690.615,
-        "previousClose": 26348.352,
-        "changePercent": 1.2989920584,
-        "updatedAt": 1786137359000,
-        "change": 342.26300000000265
+        "name": "Nasdaq Composite",
+        "price": 26605.357,
+        "previousClose": 26690.615,
+        "change": -85.25800000000163,
+        "changePercent": -0.3194306313286585,
+        "currency": "USD",
+        "updatedAt": 1786396559000,
+        "source": "Yahoo Finance",
+        "status": "ok"
       },
       {
         "id": "DJI",
-        "price": 54036.93,
-        "previousClose": 53885.1,
-        "changePercent": 0.2817662025,
-        "updatedAt": 1786135836000,
-        "change": 151.83000000000175
+        "name": "Dow Jones",
+        "price": 53975.98,
+        "previousClose": 54036.93,
+        "change": -60.94999999999709,
+        "changePercent": -0.11279323233203124,
+        "currency": "USD",
+        "updatedAt": 1786394436000,
+        "source": "Yahoo Finance",
+        "status": "ok"
       },
       {
         "id": "SOX",
-        "price": 12356.787,
-        "previousClose": 12048.693,
-        "changePercent": 2.5570740328,
-        "updatedAt": 1786137359000,
-        "change": 308.09400000000096
+        "name": "PHLX Semiconductor",
+        "price": 11993.861,
+        "previousClose": 12356.787,
+        "change": -362.9259999999995,
+        "changePercent": -2.937057990883872,
+        "currency": "USD",
+        "updatedAt": 1786396559000,
+        "source": "Yahoo Finance",
+        "status": "ok"
       },
       {
         "id": "XLK",
-        "price": 187.97,
-        "previousClose": 185.33,
-        "changePercent": 1.4244860519,
-        "updatedAt": 1786132800000,
-        "change": 2.6399999999999864
+        "name": "Technology",
+        "price": 186.32,
+        "previousClose": 187.97,
+        "change": -1.6500000000000057,
+        "changePercent": -0.8777996488801435,
+        "currency": "USD",
+        "updatedAt": 1786392000000,
+        "source": "Yahoo Finance",
+        "status": "ok"
       },
       {
         "id": "XLY",
-        "price": 119.86,
-        "previousClose": 118.1,
-        "changePercent": 1.4902624894,
-        "updatedAt": 1786132800000,
-        "change": 1.7600000000000051
+        "name": "Consumer Discretionary",
+        "price": 119.67,
+        "previousClose": 119.86,
+        "change": -0.18999999999999773,
+        "changePercent": -0.15851827131653407,
+        "currency": "USD",
+        "updatedAt": 1786392000000,
+        "source": "Yahoo Finance",
+        "status": "ok"
       },
       {
         "id": "XLC",
-        "price": 111.25,
-        "previousClose": 111.18,
-        "changePercent": 0.0629609642,
-        "updatedAt": 1786132800000,
-        "change": 0.06999999999999318
+        "name": "Communication Services",
+        "price": 111.83,
+        "previousClose": 111.25,
+        "change": 0.5799999999999983,
+        "changePercent": 0.52134831460674,
+        "currency": "USD",
+        "updatedAt": 1786392000000,
+        "source": "Yahoo Finance",
+        "status": "ok"
       },
       {
         "id": "XLP",
-        "price": 85.12,
-        "previousClose": 85.11,
-        "changePercent": 0.0117495006,
-        "updatedAt": 1786132800000,
-        "change": 0.010000000000005116
+        "name": "Consumer Staples",
+        "price": 84.95,
+        "previousClose": 85.12,
+        "change": -0.1700000000000017,
+        "changePercent": -0.19971804511278393,
+        "currency": "USD",
+        "updatedAt": 1786392000000,
+        "source": "Yahoo Finance",
+        "status": "ok"
       },
       {
         "id": "XLV",
-        "price": 165.68,
-        "previousClose": 164.45,
-        "changePercent": 0.7479477045,
-        "updatedAt": 1786132800000,
-        "change": 1.2300000000000182
+        "name": "Health Care",
+        "price": 168.44,
+        "previousClose": 165.68,
+        "change": 2.759999999999991,
+        "changePercent": 1.6658619024625727,
+        "currency": "USD",
+        "updatedAt": 1786392000000,
+        "source": "Yahoo Finance",
+        "status": "ok"
       },
       {
         "id": "XLU",
-        "price": 43.61,
-        "previousClose": 43.38,
-        "changePercent": 0.530198248,
-        "updatedAt": 1786132800000,
-        "change": 0.22999999999999687
+        "name": "Utilities",
+        "price": 43.13,
+        "previousClose": 43.61,
+        "change": -0.4799999999999969,
+        "changePercent": -1.1006649850951546,
+        "currency": "USD",
+        "updatedAt": 1786392000000,
+        "source": "Yahoo Finance",
+        "status": "ok"
       },
       {
         "id": "XLE",
-        "price": 57.5,
-        "previousClose": 58.16,
-        "changePercent": -1.1348005502,
-        "updatedAt": 1786132800000,
-        "change": -0.6599999999999966
+        "name": "Energy",
+        "price": 60.18,
+        "previousClose": 57.5,
+        "change": 2.6799999999999997,
+        "changePercent": 4.660869565217391,
+        "currency": "USD",
+        "updatedAt": 1786392000000,
+        "source": "Yahoo Finance",
+        "status": "ok"
       },
       {
         "id": "XLI",
-        "price": 185.18,
-        "previousClose": 184.76,
-        "changePercent": 0.2273219312,
-        "updatedAt": 1786132800000,
-        "change": 0.4200000000000159
+        "name": "Industrials",
+        "price": 184.6,
+        "previousClose": 185.18,
+        "change": -0.5800000000000125,
+        "changePercent": -0.3132087698455624,
+        "currency": "USD",
+        "updatedAt": 1786392000000,
+        "source": "Yahoo Finance",
+        "status": "ok"
       },
       {
         "id": "XLB",
-        "price": 52.86,
-        "previousClose": 52.17,
-        "changePercent": 1.3225991949,
-        "updatedAt": 1786132800000,
-        "change": 0.6899999999999977
+        "name": "Materials",
+        "price": 53.18,
+        "previousClose": 52.86,
+        "change": 0.3200000000000003,
+        "changePercent": 0.6053726825577002,
+        "currency": "USD",
+        "updatedAt": 1786392000000,
+        "source": "Yahoo Finance",
+        "status": "ok"
       },
       {
         "id": "XLRE",
-        "price": 44.98,
-        "previousClose": 44.81,
-        "changePercent": 0.3793796028,
-        "updatedAt": 1786132800000,
-        "change": 0.1699999999999946
+        "name": "Real Estate",
+        "price": 44.4,
+        "previousClose": 44.98,
+        "change": -0.5799999999999983,
+        "changePercent": -1.2894619831035978,
+        "currency": "USD",
+        "updatedAt": 1786392000000,
+        "source": "Yahoo Finance",
+        "status": "ok"
       },
       {
         "id": "XLF",
-        "price": 57.6,
-        "previousClose": 57.81,
-        "changePercent": -0.3632589517,
-        "updatedAt": 1786132800000,
-        "change": -0.21000000000000085
+        "name": "Financials",
+        "price": 57.81,
+        "previousClose": 57.6,
+        "change": 0.21000000000000085,
+        "changePercent": 0.3645833333333348,
+        "currency": "USD",
+        "updatedAt": 1786392000000,
+        "source": "Yahoo Finance",
+        "status": "ok"
       },
       {
         "id": "DXY",
-        "price": 99.604,
-        "previousClose": 99.93,
-        "changePercent": -0.3262283599,
-        "updatedAt": 1786136399000,
-        "change": -0.3260000000000076
+        "name": "U.S. Dollar Index",
+        "price": 99.817,
+        "previousClose": 99.811,
+        "change": 0.0059999999999860165,
+        "changePercent": 0.006011361473170308,
+        "currency": "USD",
+        "updatedAt": 1786415067000,
+        "source": "Yahoo Finance",
+        "status": "ok"
       },
       {
         "id": "BTCUSDT",
-        "price": 64848.42,
-        "previousClose": 64884.16,
-        "changePercent": -0.067782337,
-        "updatedAt": 1786149220000,
-        "change": -35.74000000000524
+        "name": "Bitcoin / U.S. Dollar",
+        "price": 63972.04,
+        "previousClose": 63912.504,
+        "change": 59.53600000000006,
+        "changePercent": 0.09315235090773483,
+        "currency": "USD",
+        "updatedAt": 1786415668000,
+        "source": "Yahoo Finance",
+        "status": "ok"
       },
       {
         "id": "GOLD",
-        "price": 4401.3,
-        "previousClose": 4299.6,
-        "changePercent": 2.3653363104,
-        "updatedAt": 1786136395000,
-        "change": 101.69999999999982
+        "name": "COMEX Gold Futures",
+        "price": 4487.9,
+        "previousClose": 4419.7,
+        "change": 68.19999999999982,
+        "changePercent": 1.5430911600334825,
+        "currency": "USD",
+        "updatedAt": 1786415072000,
+        "source": "Yahoo Finance",
+        "status": "ok"
       },
       {
         "id": "BRN1!",
-        "price": 82.27,
-        "previousClose": 82.49,
-        "changePercent": -0.2666989938,
-        "updatedAt": 1786136398000,
-        "change": -0.21999999999999886
+        "name": "Brent Crude Oil Futures",
+        "price": 87.94,
+        "previousClose": 87.72,
+        "change": 0.21999999999999886,
+        "changePercent": 0.25079799361604976,
+        "currency": "USD",
+        "updatedAt": 1786415029000,
+        "source": "Yahoo Finance",
+        "status": "ok"
       },
       {
         "id": "US02Y",
-        "price": 4.19,
-        "previousClose": 4.25,
-        "changePercent": -1.4117647059,
-        "updatedAt": 1786131000000,
-        "change": -0.05999999999999961
+        "name": "U.S. Treasury 2-Year Par Yield",
+        "price": 4.25,
+        "previousClose": 4.19,
+        "change": 0.05999999999999961,
+        "changePercent": 1.4319809069212315,
+        "currency": "%",
+        "updatedAt": 1786390200000,
+        "source": "U.S. Treasury",
+        "status": "ok"
       },
       {
         "id": "US10Y",
-        "price": 4.65,
-        "previousClose": 4.69,
-        "changePercent": -0.8528784648,
-        "updatedAt": 1786131000000,
-        "change": -0.040000000000000036
+        "name": "U.S. Treasury 10-Year Par Yield",
+        "price": 4.72,
+        "previousClose": 4.65,
+        "change": 0.0699999999999994,
+        "changePercent": 1.5053763440860084,
+        "currency": "%",
+        "updatedAt": 1786390200000,
+        "source": "U.S. Treasury",
+        "status": "ok"
       },
       {
         "id": "US30Y",
-        "price": 5.19,
-        "previousClose": 5.22,
-        "changePercent": -0.5747126437,
-        "updatedAt": 1786131000000,
-        "change": -0.02999999999999936
+        "name": "U.S. Treasury 30-Year Par Yield",
+        "price": 5.25,
+        "previousClose": 5.19,
+        "change": 0.05999999999999961,
+        "changePercent": 1.156069364161842,
+        "currency": "%",
+        "updatedAt": 1786390200000,
+        "source": "U.S. Treasury",
+        "status": "ok"
       }
     ],
     "breadth": [
       {
         "id": "SP500",
-        "label": "标普500",
-        "advancers": 321,
-        "decliners": 180,
-        "unchanged": 2,
-        "advancingPercent": 64.07185628742515,
+        "label": "标普 500",
+        "advancers": 230,
+        "decliners": 270,
+        "unchanged": 3,
         "observed": 503,
+        "updatedAt": 1786415677610,
         "source": "TradingView Stock Screener",
-        "updatedAt": 1786149233646
+        "status": "ok",
+        "advancingPercent": 46
       },
       {
         "id": "NASDAQ",
-        "label": "纳斯达克交易所",
-        "advancers": 3241,
-        "decliners": 1529,
-        "unchanged": 180,
-        "advancingPercent": 67.9454926624738,
-        "observed": 4950,
+        "label": "Nasdaq 交易所",
+        "advancers": 1909,
+        "decliners": 2854,
+        "unchanged": 190,
+        "observed": 4953,
+        "updatedAt": 1786415677672,
         "source": "TradingView Stock Screener",
-        "updatedAt": 1786149233753
+        "status": "ok",
+        "advancingPercent": 40.07978165022045
       }
     ]
   },
@@ -210,57 +300,57 @@
       "id": "DXY",
       "provider": "Yahoo Finance",
       "symbol": "DX-Y.NYB",
-      "previous": 99.963,
-      "previousAnchorTime": 1786046400000,
-      "previousObservedAt": 1786046400000,
-      "anchor": 99.59,
-      "anchorTime": 1786132800000,
-      "anchorObservedAt": 1786132800000,
-      "latest": 99.604,
-      "latestTime": 1786136399000,
-      "status": "相邻有效交易日16:00 ET完整锚点"
+      "previous": 99.59,
+      "previousAnchorTime": 1786132800000,
+      "previousObservedAt": 1786132800000,
+      "anchor": 99.812,
+      "anchorTime": 1786392000000,
+      "anchorObservedAt": 1786392000000,
+      "latest": 99.817,
+      "latestTime": 1786415067000,
+      "status": "前一有效交易日16:00 ET → 当前完整交易日16:00 ET"
     },
     {
       "id": "BRN1!",
       "provider": "Yahoo Finance",
       "symbol": "BZ=F",
-      "previous": null,
-      "previousAnchorTime": 1786046400000,
-      "previousObservedAt": null,
-      "anchor": 82.14,
-      "anchorTime": 1786132800000,
-      "anchorObservedAt": 1786132800000,
-      "latest": 82.27,
-      "latestTime": 1786136398000,
-      "status": "前一有效交易日16:00 ET前60分钟内无合格报价；方向留空"
+      "previous": 82.14,
+      "previousAnchorTime": 1786132800000,
+      "previousObservedAt": 1786132800000,
+      "anchor": 87.61,
+      "anchorTime": 1786392000000,
+      "anchorObservedAt": 1786391400000,
+      "latest": 87.94,
+      "latestTime": 1786415029000,
+      "status": "前一有效交易日16:00 ET → 当前完整交易日16:00 ET"
     },
     {
       "id": "GOLD",
       "provider": "Yahoo Finance",
       "symbol": "GC=F",
-      "previous": 4303.5,
-      "previousAnchorTime": 1786046400000,
-      "previousObservedAt": 1786046400000,
-      "anchor": 4401.8,
-      "anchorTime": 1786132800000,
-      "anchorObservedAt": 1786132800000,
-      "latest": 4401.3,
-      "latestTime": 1786136395000,
-      "status": "相邻有效交易日16:00 ET完整锚点"
+      "previous": 4401.8,
+      "previousAnchorTime": 1786132800000,
+      "previousObservedAt": 1786132800000,
+      "anchor": 4447.4,
+      "anchorTime": 1786392000000,
+      "anchorObservedAt": 1786392000000,
+      "latest": 4487.9,
+      "latestTime": 1786415072000,
+      "status": "前一有效交易日16:00 ET → 当前完整交易日16:00 ET"
     },
     {
       "id": "BTCUSDT",
       "provider": "Yahoo Finance",
       "symbol": "BTC-USD",
-      "previous": 64472,
-      "previousAnchorTime": 1786046400000,
-      "previousObservedAt": 1786046400000,
-      "anchor": 64949.98,
-      "anchorTime": 1786132800000,
-      "anchorObservedAt": 1786132800000,
-      "latest": 64848.42,
-      "latestTime": 1786149220000,
-      "status": "相邻有效交易日16:00 ET完整锚点"
+      "previous": 64949.98,
+      "previousAnchorTime": 1786132800000,
+      "previousObservedAt": 1786132800000,
+      "anchor": null,
+      "anchorTime": 1786392000000,
+      "anchorObservedAt": null,
+      "latest": 63972.04,
+      "latestTime": 1786415668000,
+      "status": "当前交易日16:00 ET前60分钟内无合格报价；方向留空"
     }
   ],
   "macro24h": [
@@ -270,11 +360,47 @@
       "symbol": "DX-Y.NYB",
       "unit": "index points",
       "historyMapping": "Yahoo Chart 5d/5m；16:00 ET固定锚点",
-      "reference": 99.963,
-      "referenceTime": 1786046400000,
-      "current": 99.59,
-      "currentTime": 1786132800000,
-      "status": "前一有效交易日16:00 ET → 当前交易日16:00 ET"
+      "reference": 99.59,
+      "referenceTime": 1786132800000,
+      "current": 99.812,
+      "currentTime": 1786392000000,
+      "status": "前一有效交易日16:00 ET → 当前完整交易日16:00 ET"
+    },
+    {
+      "id": "BRN1!",
+      "provider": "Yahoo Finance",
+      "symbol": "BZ=F",
+      "unit": "USD/barrel",
+      "historyMapping": "Yahoo Chart 5d/5m；16:00 ET固定锚点",
+      "reference": 82.14,
+      "referenceTime": 1786132800000,
+      "current": 87.61,
+      "currentTime": 1786392000000,
+      "status": "前一有效交易日16:00 ET → 当前完整交易日16:00 ET"
+    },
+    {
+      "id": "GOLD",
+      "provider": "Yahoo Finance",
+      "symbol": "GC=F",
+      "unit": "USD/troy oz",
+      "historyMapping": "Yahoo Chart 5d/5m；16:00 ET固定锚点",
+      "reference": 4401.8,
+      "referenceTime": 1786132800000,
+      "current": 4447.4,
+      "currentTime": 1786392000000,
+      "status": "前一有效交易日16:00 ET → 当前完整交易日16:00 ET"
+    },
+    {
+      "id": "BTCUSDT",
+      "provider": "Yahoo Finance",
+      "symbol": "BTC-USD",
+      "unit": "USD",
+      "historyMapping": "Yahoo Chart 5d/5m；16:00 ET固定锚点",
+      "reference": 64949.98,
+      "referenceTime": 1786132800000,
+      "current": null,
+      "currentTime": 1786392000000,
+      "status": "当前交易日16:00 ET前60分钟内无合格报价；方向留空"
     },
     {
       "id": "US02Y",
@@ -282,10 +408,10 @@
       "symbol": "BC_2YEAR",
       "unit": "%",
       "historyMapping": "Daily Treasury Par Yield Curve Rates",
-      "reference": 4.25,
-      "referenceTime": 1786044600000,
-      "current": 4.19,
-      "currentTime": 1786131000000,
+      "reference": 4.19,
+      "referenceTime": 1786131000000,
+      "current": 4.25,
+      "currentTime": 1786390200000,
       "status": "美国财政部官方前一数据日 → 当前数据日"
     },
     {
@@ -294,10 +420,10 @@
       "symbol": "BC_10YEAR",
       "unit": "%",
       "historyMapping": "Daily Treasury Par Yield Curve Rates",
-      "reference": 4.69,
-      "referenceTime": 1786044600000,
-      "current": 4.65,
-      "currentTime": 1786131000000,
+      "reference": 4.65,
+      "referenceTime": 1786131000000,
+      "current": 4.72,
+      "currentTime": 1786390200000,
       "status": "美国财政部官方前一数据日 → 当前数据日"
     },
     {
@@ -306,57 +432,22 @@
       "symbol": "BC_30YEAR",
       "unit": "%",
       "historyMapping": "Daily Treasury Par Yield Curve Rates",
-      "reference": 5.22,
-      "referenceTime": 1786044600000,
-      "current": 5.19,
-      "currentTime": 1786131000000,
+      "reference": 5.19,
+      "referenceTime": 1786131000000,
+      "current": 5.25,
+      "currentTime": 1786390200000,
       "status": "美国财政部官方前一数据日 → 当前数据日"
-    },
-    {
-      "id": "BRN1!",
-      "provider": "Yahoo Finance",
-      "symbol": "BZ=F",
-      "unit": "USD/barrel",
-      "historyMapping": "Yahoo Chart 5d/5m；16:00 ET固定锚点",
-      "reference": null,
-      "referenceTime": 1786046400000,
-      "current": 82.14,
-      "currentTime": 1786132800000,
-      "status": "前一锚点60分钟内无合格报价 → 当前交易日16:00 ET；方向留空"
-    },
-    {
-      "id": "GOLD",
-      "provider": "Yahoo Finance",
-      "symbol": "GC=F",
-      "unit": "USD/troy oz",
-      "historyMapping": "Yahoo Chart 5d/5m；16:00 ET固定锚点",
-      "reference": 4303.5,
-      "referenceTime": 1786046400000,
-      "current": 4401.8,
-      "currentTime": 1786132800000,
-      "status": "前一有效交易日16:00 ET → 当前交易日16:00 ET"
-    },
-    {
-      "id": "BTCUSDT",
-      "provider": "Yahoo Finance",
-      "symbol": "BTC-USD",
-      "unit": "USD",
-      "historyMapping": "Yahoo Chart 5d/5m；16:00 ET固定锚点",
-      "reference": 64472,
-      "referenceTime": 1786046400000,
-      "current": 64949.98,
-      "currentTime": 1786132800000,
-      "status": "前一有效交易日16:00 ET → 当前交易日16:00 ET"
     }
   ],
   "sourceAudit": {
     "deployedSitesVersion": 19,
     "sourceCommit": "33865e95b9d4afc07935d554522dd55a7b41d9b1",
     "sourceRevision": "treasury-yahoo-sp500-sectors-20260805",
-    "responseCheckedAt": "2026-08-08T08:38:27+08:00",
+    "responseCheckedAt": "2026-08-11T10:49:18+08:00",
     "mismatch": false,
+    "fallbackReason": "market-briefing-data 分支尚未建立；使用已验证的 codex/market-briefing-packet-v3 数据包并完成定向核验。",
     "missingAnchors": [
-      "BRN1! · Yahoo BZ=F · 2026-08-06 16:00 ET前60分钟无合格报价"
+      "BTCUSDT · Yahoo BTC-USD · 2026-08-10 16:00 ET前60分钟无合格报价"
     ],
     "mappings": {
       "DXY": "Yahoo Finance · DX-Y.NYB",
@@ -378,97 +469,82 @@
       "XLRE": "Yahoo Finance · XLRE",
       "XLF": "Yahoo Finance · XLF"
     },
-    "note": "公开接口revision与上一版一致，三大指数、SOX及11个标准行业ETF均完整。三期限来自美国财政部官方日频；DXY、黄金与BTC完成8月6日和8月7日16:00 ET同源锚点。Brent（BZ=F）前一目标时刻60分钟内无合格点，按契约保留null且不推断方向；当前锚点82.14美元/桶、最新82.27美元/桶。"
+    "note": "三大指数、SOX、11个标准行业ETF及两组宽度完整。三期限来自美国财政部官方日频；DXY、Brent与黄金完成8月7日和8月10日16:00 ET同源锚点。BTC当前目标锚点缺失，按契约保留null且不推断方向。"
   },
   "fedProbability": {
     "label": "9月加息概率",
-    "previous": 55,
-    "current": 44,
+    "previous": 44,
+    "current": 52,
     "unit": "%",
-    "previousAsOf": "2026-08-06 收盘",
-    "currentAsOf": "2026-08-07 收盘后",
+    "previousAsOf": "2026-08-07 收盘后",
+    "currentAsOf": "2026-08-10 收盘后",
     "source": "CME FedWatch，Reuters复核",
-    "sourceUrl": "https://www.reuters.com/business/sp-500-dow-futures-muted-ahead-jobs-data-chips-software-stocks-rise-2026-08-07/"
+    "sourceUrl": "https://www.reuters.com/business/sp-500-nasdaq-futures-tick-higher-with-hormuz-outlook-focus-2026-08-10/"
   },
   "drivers": [
     {
       "group": "semiconductor",
       "ticker": "NVDA",
       "name": "英伟达",
-      "changePercent": 2.25,
-      "reason": "弱于预期的非农降低9月加息预期，成长股估值压力缓解；英伟达上涨并与SOX的2.56%涨幅共同确认芯片板块领涨。",
-      "source": "Yahoo Finance / Investopedia",
-      "sourceUrl": "https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-nasdaq-08072026-12036199"
+      "changePercent": -2.86,
+      "reason": "芯片股整体承压；同时市场关注其与Apollo、Blackstone等机构筹组约5,000亿美元AI基础设施融资方案，股价仍下跌并拖累SOX。",
+      "source": "Reuters",
+      "sourceUrl": "https://www.reuters.com/business/sp-500-nasdaq-futures-tick-higher-with-hormuz-outlook-focus-2026-08-10/"
     },
     {
       "group": "semiconductor",
-      "ticker": "MCHP",
-      "name": "Microchip Technology",
-      "changePercent": 13.9,
-      "reason": "季度营收指引高于市场预期，推动股价创逾15个月最大单日涨幅，并直接强化半导体板块。",
+      "ticker": "INTC",
+      "name": "英特尔",
+      "changePercent": -4.1,
+      "reason": "公司宣布计划通过售股筹资150亿美元，稀释担忧令股价下跌，并加重半导体板块压力。",
       "source": "Reuters",
-      "sourceUrl": "https://www.reuters.com/business/sp-500-dow-futures-muted-ahead-jobs-data-chips-software-stocks-rise-2026-08-07/"
+      "sourceUrl": "https://www.reuters.com/business/sp-500-nasdaq-futures-tick-higher-with-hormuz-outlook-focus-2026-08-10/"
+    },
+    {
+      "group": "semiconductor",
+      "ticker": "AMD",
+      "name": "AMD",
+      "changePercent": -2.86,
+      "reason": "在油价跳升、长端收益率回升与芯片板块普跌背景下回落，方向与SOX下跌一致。",
+      "source": "Yahoo Finance / Reuters",
+      "sourceUrl": "https://www.reuters.com/business/sp-500-nasdaq-futures-tick-higher-with-hormuz-outlook-focus-2026-08-10/"
+    },
+    {
+      "group": "semiconductor",
+      "ticker": "AMAT",
+      "name": "应用材料",
+      "changePercent": -3.16,
+      "reason": "财报发布前遭遇芯片股整体去风险，跌幅超过2%，放大SOX的弱势。",
+      "source": "Yahoo Finance / Reuters",
+      "sourceUrl": "https://www.reuters.com/business/sp-500-nasdaq-futures-tick-higher-with-hormuz-outlook-focus-2026-08-10/"
     },
     {
       "group": "other",
-      "ticker": "SPCX",
-      "name": "SpaceX",
-      "changePercent": 15.8,
-      "reason": "6月上市后的首批股份锁定限制到期后，股价大幅反弹，成为风险偏好回升的代表性个股。",
-      "source": "Reuters",
-      "sourceUrl": "https://www.reuters.com/business/sp-500-dow-futures-muted-ahead-jobs-data-chips-software-stocks-rise-2026-08-07/"
-    },
-    {
-      "group": "other",
-      "ticker": "TEAM",
-      "name": "Atlassian",
-      "changePercent": 35.3,
-      "reason": "第四财季利润和营收超预期，并给出高于预期的季度营收展望，录得上市以来最大单日涨幅。",
-      "source": "Reuters",
-      "sourceUrl": "https://www.reuters.com/business/sp-500-dow-futures-muted-ahead-jobs-data-chips-software-stocks-rise-2026-08-07/"
-    },
-    {
-      "group": "other",
-      "ticker": "ABNB",
-      "name": "Airbnb",
-      "changePercent": 17.4,
-      "reason": "第二季度营收超过市场预期，成为标普500当日表现最强个股。",
-      "source": "Reuters",
-      "sourceUrl": "https://www.reuters.com/business/sp-500-dow-futures-muted-ahead-jobs-data-chips-software-stocks-rise-2026-08-07/"
-    },
-    {
-      "group": "other",
-      "ticker": "TTD",
-      "name": "Trade Desk",
-      "changePercent": -21.9,
-      "reason": "第三季度营收指引低于市场预期，成为标普500当日跌幅最大的个股。",
-      "source": "Reuters",
-      "sourceUrl": "https://www.reuters.com/business/sp-500-dow-futures-muted-ahead-jobs-data-chips-software-stocks-rise-2026-08-07/"
+      "ticker": "MSFT",
+      "name": "微软",
+      "changePercent": 1.21,
+      "reason": "在信息技术ETF与大盘回落时逆势上涨，显示资金并未全面撤出大型科技，而是集中回避半导体。",
+      "source": "Yahoo Finance",
+      "sourceUrl": "https://finance.yahoo.com/quote/MSFT/history/"
     }
   ],
   "etfFlow": {
-    "date": "2026-08-06",
-    "totalMillions": 137.6,
+    "date": "2026-08-07",
+    "totalMillions": 101.7,
     "source": "Farside Investors",
     "sourceUrl": "https://farside.co.uk/bitcoin-etf-flow-all-data/"
   },
   "events": [
     {
-      "startAt": "2026-08-10T13:30:00+08:00",
-      "name": "TSMC 7月月度营收",
-      "impact": "主要影响：AI芯片需求、晶圆代工景气与半导体链预期。",
-      "sourceUrl": "https://investor.tsmc.com/english/financial-calendar"
-    },
-    {
       "startAt": "2026-08-12T20:30:00+08:00",
       "name": "美国CPI / 核心CPI",
-      "impact": "主要影响：9月Fed加息概率、美元、美债收益率与成长股估值。",
+      "impact": "主要影响：Fed加息概率、美元、美债收益率与成长股估值。",
       "sourceUrl": "https://www.bls.gov/schedule/news_release/"
     },
     {
       "startAt": "2026-08-13T20:30:00+08:00",
       "name": "美国PPI",
-      "impact": "主要影响：企业成本、利润率与通胀传导。",
+      "impact": "主要影响：Fed加息概率、美元、美债收益率与成长股估值。",
       "sourceUrl": "https://www.bls.gov/schedule/news_release/"
     },
     {
@@ -479,20 +555,20 @@
     },
     {
       "startAt": "2026-08-20T02:00:00+08:00",
-      "name": "FOMC会议纪要",
-      "impact": "主要影响：委员会对通胀和就业的权衡及9月政策路径。",
+      "name": "FOMC 会议纪要",
+      "impact": "主要影响：委员会对通胀、就业与政策路径的权衡。",
       "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
     }
   ],
   "view": [
-    "8月7日三大指数全线上涨，标普500涨0.62%并创收盘新高，纳斯达克涨1.30%，道琼斯涨0.28%；标普500与纳斯达克上涨比例分别为64.1%和67.9%，宽度与指数方向一致，属于较广泛的风险偏好回升。",
-    "直接催化剂是7月非农意外减少2.3万人，而市场原本预计增加8万人，前两个月还合计下修10.3万人。市场把9月加息概率从约55%压低至44%，因此这轮上涨首先是“就业转弱换来政策压力下降”。",
-    "SOX上涨2.56%、信息技术上涨1.42%、可选消费上涨1.49%，明显强于通信服务的0.06%。成长板块重新占优，但并非所有高估值个股同步上涨，市场仍在根据财报与指引筛选。",
-    "Microchip因营收展望高于预期上涨13.9%，英伟达上涨2.25%，共同解释半导体领涨；Atlassian上涨35.3%、Airbnb上涨17.4%，而Trade Desk因指引不及预期下跌21.9%，说明宏观利好放大了好业绩，却没有掩盖公司层面的失望。",
-    "防御板块也多数上涨，但强度较弱；宏观敏感板块内部则分化，材料上涨1.32%，能源下跌1.13%，金融下跌0.36%。这更像利率预期下降驱动的成长反弹，而不是对经济增长全面上修。",
-    "美国财政部官方曲线显示，2年期从4.25%降至4.19%，10年期从4.69%降至4.65%，30年期从5.22%降至5.19%；美元指数16:00 ET锚点从99.963降至99.590。债券与美元都确认了加息预期后退。",
-    "COMEX黄金16:00 ET锚点从4,303.5升至4,401.8美元/盎司，和美元、美债一起反映政策预期转鸽。Brent最新约82.27美元/桶，但前一交易日目标锚点缺失，因此不对固定时点方向作推断。",
-    "BTC的16:00 ET锚点从64,472升至64,949.98美元，BTC ETF最新完整统计日8月6日净流入1.376亿美元。下一项真正可能改变方向的是8月12日CPI：若通胀低于预期，暂停加息叙事可延续；若核心通胀重新走强，当前由弱就业带来的估值利好可能被部分收回。"
+    "8月10日三大指数小幅收低：标普500跌0.06%，纳斯达克跌0.32%，道琼斯跌0.11%。标普500上涨比例46.0%，纳斯达克仅40.1%，宽度弱于指数表面，说明回落并非只由少数权重股造成。",
+    "核心冲击来自霍尔木兹海峡重开协议希望降温。Brent当日结算上涨约5%，能源ETF上涨4.66%并显著领跑；油价重新抬升通胀风险，使上周弱就业带来的政策宽松想象部分逆转。",
+    "SOX下跌2.94%，明显弱于标普500；英伟达、AMD和应用材料均跌近3%，英特尔又因150亿美元售股计划下跌4.1%。这解释了纳斯达克和信息技术板块为何跑输。",
+    "大型科技并非同步撤退：微软上涨1.21%，亚马逊上涨1.32%，通信服务ETF也上涨0.52%。市场更像在高油价和利率压力下从半导体做局部降风险，而不是全面抛售成长资产。",
+    "美国财政部曲线显示2年期由4.19%升至4.25%，10年期由4.65%升至4.72%，30年期由5.19%升至5.25%；9月加息概率由44%回升至52%。收益率与Fed定价共同确认油价带来的通胀担忧。",
+    "美元指数16:00 ET锚点由99.590升至99.812，黄金锚点由4,401.8升至4,447.4美元/盎司。美元、收益率与黄金同升，反映地缘风险、通胀风险和避险需求同时存在。",
+    "BTC最新约63,972美元，BTC ETF 8月7日净流入1.017亿美元；但8月10日16:00 ET前60分钟缺少合格BTC锚点，因此不对固定时点方向作推断。",
+    "下一项真正可能改变方向的是8月12日CPI。若核心通胀低于预期且油价回落，Fed加息概率可能再次下降、半导体有望修复；若通胀偏强或油价继续上冲，长端收益率与成长股估值仍将承压。"
   ],
-  "verdict": "昨日属于：弱非农压低加息预期、科技与成长领涨且市场宽度同步改善的广泛风险偏好回升日。"
+  "verdict": "昨日属于：霍尔木兹协议希望降温推高油价与利率预期、能源独强而半导体领跌的温和去风险日。"
 }
