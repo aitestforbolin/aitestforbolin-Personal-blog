@@ -10,8 +10,6 @@
     "https://cross-asset-pulse.laibocszd.chatgpt.site/api/breadth";
   const SNAPSHOT_URL = "../data/daily-market-status.json";
   const ETF_URL = "../data/btc-etf-flow.json";
-  const BRIEFING_ARCHIVE_URL = "../briefings/global.html";
-  const COPY_NEWS_LIMIT = 5;
   const DISPLAY_TIMEZONE = "Asia/Shanghai";
   const MARKET_TIMEZONE = "America/New_York";
   const CLOSE_ANCHOR_MINUTES = 16 * 60;
@@ -55,7 +53,6 @@
   let macroHistoryFetchedAt = 0;
   let retryIndex = 0;
   let timer = null;
-  let latestBriefingCopyPromise = null;
 
   function escapeHtml(value) {
     return String(value ?? "")
@@ -78,73 +75,6 @@
     } finally {
       window.clearTimeout(timeout);
     }
-  }
-
-  async function fetchText(url) {
-    const controller = new AbortController();
-    const timeout = window.setTimeout(() => controller.abort(), FETCH_TIMEOUT);
-    try {
-      const response = await fetch(url, {
-        cache: "no-store",
-        signal: controller.signal,
-      });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return await response.text();
-    } finally {
-      window.clearTimeout(timeout);
-    }
-  }
-
-  function compactCopyText(value) {
-    return String(value || "").replace(/\s+/g, " ").trim();
-  }
-
-  function extractBriefingItem(article) {
-    const title = compactCopyText(article.querySelector("h2, h3")?.textContent);
-    return title ? { title } : null;
-  }
-
-  async function loadLatestBriefingCopyData() {
-    if (latestBriefingCopyPromise) return latestBriefingCopyPromise;
-
-    latestBriefingCopyPromise = (async () => {
-      const archiveHtml = await fetchText(BRIEFING_ARCHIVE_URL);
-      const parser = new DOMParser();
-      const archiveDocument = parser.parseFromString(archiveHtml, "text/html");
-      const latestLink = archiveDocument.querySelector(
-        '.archive-card a[href*="global-daily-brief-"]'
-      );
-      if (!latestLink) throw new Error("Latest briefing link is unavailable");
-
-      const archiveUrl = new URL(BRIEFING_ARCHIVE_URL, window.location.href);
-      const briefingUrl = new URL(latestLink.getAttribute("href"), archiveUrl);
-      const briefingHtml = await fetchText(briefingUrl.href);
-      const briefingDocument = parser.parseFromString(briefingHtml, "text/html");
-      const date = briefingDocument.querySelector("main time[datetime]")?.getAttribute(
-        "datetime"
-      );
-      const featureItems = Array.from(
-        briefingDocument.querySelectorAll(".briefing-item-feature")
-      )
-        .map((article) => extractBriefingItem(article))
-        .filter(Boolean);
-      const compactItems = Array.from(
-        briefingDocument.querySelectorAll(".briefing-item-compact")
-      )
-        .map((article) => extractBriefingItem(article))
-        .filter(Boolean);
-      const items = [...featureItems, ...compactItems].slice(0, COPY_NEWS_LIMIT);
-
-      if (!date || !items.length) {
-        throw new Error("Latest briefing content is incomplete");
-      }
-      return { date, items };
-    })().catch((error) => {
-      latestBriefingCopyPromise = null;
-      throw error;
-    });
-
-    return latestBriefingCopyPromise;
   }
 
   function formatDate(dateValue) {
@@ -599,26 +529,15 @@
     );
   }
 
-  function buildDocumentCopyText(briefing) {
+  function buildDocumentCopyText() {
     if (!snapshot) throw new Error("Snapshot is not ready");
-    if (!briefing?.items?.length) throw new Error("Briefing is not ready");
-
-    const lines = ["今日关键新闻｜" + formatDate(briefing.date), ""];
-    briefing.items.forEach((item, index) => {
-      const sentence = /[。！？!?]$/.test(item.title)
-        ? item.title
-        : item.title + "。";
-      lines.push(index + 1 + "/" + briefing.items.length + "｜" + sentence);
-    });
-
-    lines.push(
-      "",
+    const lines = [
       "每日市场早报｜" + formatDate(snapshot.asOf),
       "",
       "01｜美股",
       "",
       "▍三大核心指数"
-    );
+    ];
     indexConfig.forEach(([id, label]) => {
       lines.push(
         "• " +
@@ -846,8 +765,7 @@
     if (!button || button.disabled) return;
     button.disabled = true;
     try {
-      const briefing = await loadLatestBriefingCopyData();
-      const text = buildDocumentCopyText(briefing);
+      const text = buildDocumentCopyText();
       button.copyPayload = text;
       await copyDocumentBody(text);
       setCopyStatus("已复制", "success");
