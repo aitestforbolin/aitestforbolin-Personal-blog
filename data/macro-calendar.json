@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-09T15:44:46+00:00",
+  "generatedAt": "2026-08-11T02:25:29+00:00",
   "timezone": "Asia/Shanghai",
   "status": "partial",
   "failedSources": [
@@ -485,56 +485,6 @@
       "sourceStatus": "fresh",
       "group": "reserves",
       "eventType": "data"
-    },
-    {
-      "id": "us-d4a2807866cb",
-      "eventType": "data",
-      "country": "US",
-      "period": "July 2026",
-      "scheduledAt": "2026-08-07T20:30:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "美国非农 / 失业率 / 平均时薪",
-      "category": "jobs",
-      "importance": "critical",
-      "stars": 5,
-      "source": "BLS",
-      "sourceUrl": "https://www.bls.gov/schedule/news_release/",
-      "metrics": [
-        {
-          "id": "headline",
-          "label": "综合值",
-          "actual": null,
-          "forecast": "非农 85K · 失业率 4.2% · 时薪 0.3%",
-          "previous": "非农 57K · 失业率 4.2% · 时薪 0.3%",
-          "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
-        }
-      ],
-      "releasedAt": null,
-      "retrievedAt": null,
-      "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "legacy": {
-        "date": "2026-08-07",
-        "time_et": "08:30",
-        "time_shanghai": "20:30",
-        "title": "Employment Situation",
-        "title_cn": "美国非农 / 失业率 / 平均时薪",
-        "period": "July 2026",
-        "category": "jobs",
-        "importance": "critical",
-        "stars": 5,
-        "source": "BLS",
-        "url": "https://www.bls.gov/schedule/news_release/",
-        "fallback_url": "https://fred.stlouisfed.org/release?rid=50",
-        "fallback_label": "FRED 备用",
-        "forecast": "非农 85K · 失业率 4.2% · 时薪 0.3%",
-        "previous": "非农 57K · 失业率 4.2% · 时薪 0.3%",
-        "result_source": "Forex Factory 市场日历",
-        "result_url": "https://www.forexfactory.com/calendar"
-      },
-      "fallbackSourceUrl": "https://fred.stlouisfed.org/release?rid=50",
-      "fallbackSourceLabel": "FRED 备用"
     },
     {
       "id": "cn-trade-2026-07",
