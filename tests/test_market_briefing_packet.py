@@ -24,3 +24,9 @@ def test_required_sector_contract_is_complete():
     sectors = {"XLK", "XLY", "XLC", "XLV", "XLU", "XLP", "XLE", "XLI", "XLB", "XLRE", "XLF"}
     assert sectors <= MODULE.REQUIRED_MARKETS
     assert "SOX" in MODULE.REQUIRED_MARKETS
+
+
+def test_compact_market_drops_history_points():
+    row = {"id": "SPX", "price": 10, "changePercent": 1, "points": [{"time": 1, "value": 9}]}
+    compact = MODULE.compact_market(row)
+    assert compact == {"id": "SPX", "price": 10, "changePercent": 1}

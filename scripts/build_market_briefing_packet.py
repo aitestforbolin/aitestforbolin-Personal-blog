@@ -8,6 +8,7 @@ import json
 import os
 from pathlib import Path
 from urllib.request import Request, urlopen
+from zoneinfo import ZoneInfo
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -66,6 +67,59 @@ def market_date(row: dict) -> str | None:
             timestamp /= 1000
         return dt.datetime.fromtimestamp(timestamp, tz=dt.timezone.utc).date().isoformat()
     return None
+
+
+def compact_market(row: dict) -> dict:
+    keys = (
+        "id", "name", "price", "previousClose", "change", "changePercent",
+        "currency", "updatedAt", "source", "status", "seriesStatus",
+    )
+    return {key: row.get(key) for key in keys if key in row}
+
+
+def macro_asset(row: dict, trading_date: str | None) -> dict:
+    item = compact_market(row)
+    points = row.get("points") if isinstance(row.get("points"), list) else []
+    valid = [
+        point for point in points
+        if isinstance(point, dict)
+        and isinstance(point.get("time"), (int, float))
+        and isinstance(point.get("value"), (int, float))
+    ]
+    valid.sort(key=lambda point: point["time"])
+    if row.get("id") in {"US02Y", "US10Y", "US30Y"}:
+        daily = []
+        for point in valid:
+            if not daily or daily[-1]["value"] != point["value"]:
+                daily.append({"time": point["time"], "value": point["value"]})
+        item["comparison"] = {
+            "kind": "official_daily",
+            "previous": daily[-2] if len(daily) >= 2 else None,
+            "current": daily[-1] if daily else None,
+        }
+        return item
+
+    by_date: dict[str, dict] = {}
+    eastern = ZoneInfo("America/New_York")
+    for point in valid:
+        timestamp = point["time"] / 1000 if point["time"] > 10_000_000_000 else point["time"]
+        moment = dt.datetime.fromtimestamp(timestamp, tz=dt.timezone.utc).astimezone(eastern)
+        minutes = moment.hour * 60 + moment.minute
+        age = 16 * 60 - minutes
+        if 0 <= age <= 60:
+            key = moment.date().isoformat()
+            existing = by_date.get(key)
+            if not existing or point["time"] > existing["observedAt"]:
+                by_date[key] = {"value": point["value"], "observedAt": point["time"], "minutesBeforeClose": age}
+    anchors = sorted(by_date.items())
+    if trading_date:
+        anchors = [entry for entry in anchors if entry[0] <= trading_date]
+    item["comparison"] = {
+        "kind": "16:00_ET",
+        "previous": {"date": anchors[-2][0], **anchors[-2][1]} if len(anchors) >= 2 else None,
+        "current": {"date": anchors[-1][0], **anchors[-1][1]} if anchors else None,
+    }
+    return item
 
 
 def fetch_candidate(symbol: str) -> dict:
@@ -181,10 +235,10 @@ def build_packet() -> dict:
         "generatedAt": generated.isoformat(timespec="seconds"),
         "tradingDate": trading_date,
         "sourceAudit": source_audit,
-        "markets": markets,
+        "markets": [compact_market(row) for row in markets],
         "breadth": breadth,
         "macroAssets": [
-            row for row in markets
+            macro_asset(row, trading_date) for row in markets
             if row.get("id") in {"DXY", "US02Y", "US10Y", "US30Y", "BRN1!", "GOLD", "BTCUSDT"}
         ],
         "fed": {"status": "requires_model_verification", "method": "CME FedWatch"},
