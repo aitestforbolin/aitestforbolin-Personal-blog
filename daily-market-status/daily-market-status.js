@@ -689,6 +689,182 @@
     return lines.join("\n");
   }
 
+  const X_POST_WEIGHT_LIMIT = 260;
+  const X_POST_SEPARATOR = "\n\n──────────\n\n";
+
+  function xCharacterWeight(character) {
+    const codePoint = character.codePointAt(0);
+    return codePoint <= 0x10ff ||
+      (codePoint >= 0x2000 && codePoint <= 0x200d) ||
+      (codePoint >= 0x2010 && codePoint <= 0x201f) ||
+      (codePoint >= 0x2032 && codePoint <= 0x2037)
+      ? 1
+      : 2;
+  }
+
+  function xWeightedLength(text) {
+    return Array.from(String(text)).reduce(
+      (total, character) => total + xCharacterWeight(character),
+      0
+    );
+  }
+
+  function splitXText(text, limit) {
+    const source = String(text || "").replace(/\s+/g, " ").trim();
+    if (!source) return [];
+    if (xWeightedLength(source) <= limit) return [source];
+
+    const sentences = source.match(/[^。！？；.!?;]+[。！？；.!?;]?/g) || [source];
+    const chunks = [];
+    let current = "";
+    const pushCurrent = () => {
+      if (current.trim()) chunks.push(current.trim());
+      current = "";
+    };
+
+    sentences.forEach((sentence) => {
+      const candidate = current ? current + sentence : sentence;
+      if (xWeightedLength(candidate) <= limit) {
+        current = candidate;
+        return;
+      }
+      pushCurrent();
+      let fragment = "";
+      Array.from(sentence).forEach((character) => {
+        if (xWeightedLength(fragment + character) > limit) {
+          if (fragment.trim()) chunks.push(fragment.trim());
+          fragment = character;
+        } else {
+          fragment += character;
+        }
+      });
+      current = fragment;
+    });
+    pushCurrent();
+    return chunks;
+  }
+
+  function splitXBlock(text, limit) {
+    const chunks = [];
+    let current = "";
+    String(text || "").split("\n").forEach((line) => {
+      const candidate = current ? current + "\n" + line : line;
+      if (xWeightedLength(candidate) <= limit) {
+        current = candidate;
+        return;
+      }
+      if (current.trim()) chunks.push(current.trim());
+      const pieces = splitXText(line, limit);
+      chunks.push(...pieces.slice(0, -1));
+      current = pieces.at(-1) || "";
+    });
+    if (current.trim()) chunks.push(current.trim());
+    return chunks;
+  }
+
+  function packXBlocks(blocks) {
+    const posts = [];
+    let current = "";
+    blocks.filter(Boolean).forEach((block) => {
+      const normalized = String(block).trim();
+      if (!normalized) return;
+      const candidate = current ? current + "\n\n" + normalized : normalized;
+      if (xWeightedLength(candidate) <= X_POST_WEIGHT_LIMIT) {
+        current = candidate;
+        return;
+      }
+      if (current) posts.push(current);
+      const pieces = splitXBlock(normalized, X_POST_WEIGHT_LIMIT);
+      posts.push(...pieces.slice(0, -1));
+      current = pieces.at(-1) || "";
+    });
+    if (current) posts.push(current);
+    return posts;
+  }
+
+  function buildXThreadText() {
+    if (!snapshot) throw new Error("Snapshot is not ready");
+    const blocks = [];
+    const title = "每日市场早报｜" + formatDate(snapshot.asOf);
+    const indexLines = indexConfig.map(([id, label]) =>
+      "• " + label + "：" + formatDocumentPercent(marketMap.get(id)?.changePercent)
+    );
+    const breadthLines = [
+      ["SP500", "标普500"],
+      ["NASDAQ", "Nasdaq交易所"],
+    ].map(([id, label]) => {
+      const item = breadthData.find((entry) => entry?.id === id);
+      if (!item) return "";
+      const percent = finiteNumber(item.advancePercent ?? item.advancingPercent);
+      return "• " + label + "：涨" + formatNumber(item.advancers, 0) +
+        "｜跌" + formatNumber(item.decliners, 0) + "｜平" +
+        formatNumber(item.unchanged, 0) + "｜" +
+        (percent === null ? "上涨比例待核验" : formatNumber(percent, 1) + "%上涨");
+    }).filter(Boolean);
+    blocks.push(
+      title + "\n\n01｜美股\n\n▍三大核心指数\n" + indexLines.join("\n") +
+      "\n\n▍市场宽度\n" + breadthLines.join("\n") +
+      "\n\n▍细分板块如下"
+    );
+
+    const drivers = (snapshot.drivers || [])
+      .filter((item) => item?.ticker)
+      .slice(0, 8)
+      .map((item) => "• " + item.name + "（" + item.ticker + "）：" +
+        formatDocumentPercent(item.changePercent));
+    if (drivers.length) blocks.push("01｜核心个股驱动\n\n" + drivers.join("\n"));
+
+    const comparisons = new Map(macroConfig.map(([id]) => {
+      const comparison = anchorComparison(id, marketMap.get(id));
+      return [id, { reference: comparison.previous, current: comparison.anchor }];
+    }));
+    const fed = snapshot.fedProbability || {};
+    const macroLines = [
+      documentAssetLine("美元", comparisons.get("DXY"), 3, ""),
+      documentAssetLine("美债2Y", comparisons.get("US02Y"), 3, "%"),
+      documentAssetLine("美债10Y", comparisons.get("US10Y"), 3, "%"),
+      documentAssetLine("美债30Y", comparisons.get("US30Y"), 3, "%"),
+      directionIcon(fed.previous, fed.current) + " 加息概率：" +
+        formatNumber(fed.previous, 1) + (fed.unit || "") + " → " +
+        formatNumber(fed.current, 1) + (fed.unit || ""),
+      documentAssetLine("Brent", comparisons.get("BRN1!"), 2, ""),
+      documentAssetLine("黄金", comparisons.get("GOLD"), 2, ""),
+      documentAssetLine("BTC", comparisons.get("BTCUSDT"), 0, ""),
+    ].map((line) => "• " + line);
+    blocks.push("02｜宏观资产数据\n\n" + macroLines.join("\n"));
+
+    const eventGroups = new Map();
+    visibleEvents().forEach((item) => {
+      const day = formatDocumentEventDay(item.startAt);
+      if (!eventGroups.has(day)) eventGroups.set(day, []);
+      eventGroups.get(day).push(item);
+    });
+    const eventBlocks = [];
+    Array.from(eventGroups.entries()).slice(0, 3).forEach(([day, items]) => {
+      const lines = [day];
+      items.forEach((item) => {
+        lines.push("• " + formatEventTime(item.startAt) + "｜" + item.name);
+        const impact = String(item.impact || "")
+          .replace(/^主要影响：?\s*/, "")
+          .replace("Fed加息概率、美元、美债收益率与成长股估值", "加息概率、美元、美债与成长股")
+          .replace("消费韧性、增长预期与周期股", "消费、增长与周期股");
+        if (impact) lines.push("影响：" + impact);
+      });
+      eventBlocks.push(lines.join("\n"));
+    });
+    if (eventBlocks.length) blocks.push("03｜日历、事件及其影响\n\n" + eventBlocks.join("\n\n"));
+
+    if (snapshot.verdict) {
+      blocks.push("04｜看法和观点\n\n" +
+        String(snapshot.verdict).replace(/^[—–-]\s*/, ""));
+    }
+
+    const posts = packXBlocks(blocks);
+    const total = posts.length;
+    return posts.map((post, index) => post + "\n\n" + (index + 1) + "/" + total)
+      .join(X_POST_SEPARATOR);
+  }
+
   function setCopyStatus(message, level) {
     const status = root.querySelector("[data-copy-status]");
     if (!status) return;
@@ -771,6 +947,24 @@
       setCopyStatus("已复制", "success");
     } catch (error) {
       setCopyStatus("复制失败，请手动选择", "error");
+    } finally {
+      button.disabled = false;
+      button.focus();
+    }
+  }
+
+  async function handleCopyX() {
+    const button = root.querySelector("[data-copy-x]");
+    if (!button || button.disabled) return;
+    button.disabled = true;
+    try {
+      const text = buildXThreadText();
+      button.copyPayload = text;
+      await copyDocumentBody(text);
+      const count = text.split(X_POST_SEPARATOR).length;
+      setCopyStatus("已复制 " + count + " 条 X Post", "success");
+    } catch (error) {
+      setCopyStatus("X 串文复制失败，请稍后重试", "error");
     } finally {
       button.disabled = false;
       button.focus();
@@ -1018,6 +1212,8 @@
       `${formatDate(snapshot.asOf)}｜最新完成交易日`;
     const copyButton = root.querySelector("[data-copy-body]");
     if (copyButton) copyButton.disabled = false;
+    const xButton = root.querySelector("[data-copy-x]");
+    if (xButton) xButton.disabled = false;
   }
 
   async function loadStatic() {
@@ -1113,6 +1309,7 @@
   });
 
   root.querySelector("[data-copy-body]")?.addEventListener("click", handleCopyBody);
+  root.querySelector("[data-copy-x]")?.addEventListener("click", handleCopyX);
 
   loadStatic()
     .then(() => refreshLive())
