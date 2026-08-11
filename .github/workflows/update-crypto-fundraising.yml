@@ -2,8 +2,8 @@ name: Update crypto fundraising
 
 on:
   schedule:
-    # 09:05 and 21:05 Asia/Shanghai every day.
-    - cron: "5 1,13 * * *"
+    # 08:30 Asia/Shanghai, Tuesday through Saturday (00:30 UTC).
+    - cron: "30 0 * * 2-6"
   workflow_dispatch:
 
 permissions:
