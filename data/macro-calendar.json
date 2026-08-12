@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-11T02:25:29+00:00",
+  "generatedAt": "2026-08-12T11:12:07+00:00",
   "timezone": "Asia/Shanghai",
   "status": "partial",
   "failedSources": [
@@ -8,7 +8,7 @@
     "mof"
   ],
   "sourcePolicy": "China official-only; U.S. legacy calendar preserved",
-  "policyEventsUpdatedAt": "2026-08-03T12:00:00+08:00",
+  "policyEventsUpdatedAt": "2026-08-12T10:40:00+08:00",
   "events": [
     {
       "id": "cn-lpr-2026-06",
@@ -384,32 +384,6 @@
       "group": "profits",
       "scheduleSourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html",
       "eventType": "data"
-    },
-    {
-      "id": "cn-policy-politburo-economy-2026-07-30",
-      "eventType": "policy_event",
-      "country": "CN",
-      "period": null,
-      "scheduledAt": null,
-      "eventDate": "2026-07-30",
-      "dateStatus": "confirmed_date",
-      "title": "中共中央政治局会议：分析研究当前经济形势，部署下半年经济工作",
-      "category": "policy_meeting",
-      "importance": "critical",
-      "stars": 5,
-      "source": "新华社",
-      "sourceUrl": "https://www.news.cn/20260730/13ecbfd4cd9b455281a0649232b98ad0/c.html",
-      "metrics": [],
-      "releasedAt": null,
-      "retrievedAt": "2026-08-03T12:00:00+08:00",
-      "revisionStatus": "not_revised",
-      "releaseStatus": "released",
-      "eventStatus": "completed",
-      "summary": "会议分析研究当前经济形势并部署下半年经济工作，同时决定二十届五中全会于2026年10月在北京召开。",
-      "scheduleNote": "官方通稿确认会议于7月30日召开，但未公开具体召开时刻。",
-      "outcomeLabel": "查看会议公报",
-      "outcomeUrl": "https://www.news.cn/20260730/13ecbfd4cd9b455281a0649232b98ad0/c.html",
-      "trackingMode": "post_release"
     },
     {
       "id": "cn-pmi-2026-07",
