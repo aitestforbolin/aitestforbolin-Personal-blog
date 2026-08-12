@@ -4,7 +4,7 @@
   const HORIZON_DAYS = 7;
   const RELEASE_LOOKBACK_HOURS = 48;
   const RELEASE_LOOKBACK_DAYS = 2;
-  const POLICY_LOOKBACK_DAYS = 30;
+  const POLICY_LOOKBACK_DAYS = RELEASE_LOOKBACK_DAYS;
   const UPCOMING_DAYS = 3;
   const CATEGORY_LABELS = {
     inflation: "通胀",
@@ -432,7 +432,7 @@
     }
     status.textContent = events.length
       ? ""
-      : `最近 ${RELEASE_LOOKBACK_HOURS} 小时已公布的数据、最近 ${POLICY_LOOKBACK_DAYS} 天的政策事件及未来 ${HORIZON_DAYS} 天暂无重点事项。`;
+      : `最近 ${RELEASE_LOOKBACK_HOURS} 小时已公布的数据、最近 ${POLICY_LOOKBACK_DAYS} 天已举行的政策事件及未来 ${HORIZON_DAYS} 天暂无重点事项。`;
     status.dataset.state = events.length ? "ready" : "empty";
   }
 
