@@ -118,6 +118,23 @@ class MacroCalendarMergeTests(unittest.TestCase):
         self.assertEqual(event["legacy"], legacy)
         self.assertEqual(event["metrics"][0]["forecast"], "0.2%")
 
+    def test_structured_us_metrics_keep_each_indicator_in_its_own_row(self):
+        event = merger.normalize_us_event(
+            {
+                "date": "2026-08-12",
+                "time_shanghai": "20:30",
+                "title_cn": "美国CPI / 核心CPI",
+                "source": "BLS",
+                "url": "https://www.bls.gov/",
+                "metric_values": [
+                    {"label": "CPI同比", "actual": "3.4%", "forecast": "3.4%", "previous": "3.5%"},
+                    {"label": "核心CPI同比", "actual": "2.5%", "forecast": "2.5%", "previous": "2.6%"},
+                ],
+            }
+        )
+        self.assertEqual([metric["label"] for metric in event["metrics"]], ["CPI同比", "核心CPI同比"])
+        self.assertEqual(event["metrics"][0]["actual"], "3.4%")
+
     def test_unified_merge_keeps_one_event_for_multi_metric_china_release(self):
         china = {
             "status": "static_sample",
