@@ -55,8 +55,26 @@ def normalize_us_event(event: dict) -> dict:
     actual = event.get("actual")
     forecast = event.get("forecast")
     previous = event.get("previous")
+    structured_metrics = event.get("metric_values")
     metrics = []
-    if any(value not in (None, "") for value in (actual, forecast, previous)):
+    if isinstance(structured_metrics, list):
+        for index, metric in enumerate(structured_metrics, start=1):
+            if not isinstance(metric, dict):
+                continue
+            if not any(metric.get(field) not in (None, "") for field in ("actual", "forecast", "previous")):
+                continue
+            metrics.append(
+                {
+                    "id": f"metric-{index}",
+                    "label": metric.get("label") or "综合值",
+                    "actual": metric.get("actual"),
+                    "forecast": metric.get("forecast"),
+                    "previous": metric.get("previous"),
+                    "unit": None,
+                    "sourceUrl": event.get("result_url") or event.get("url"),
+                }
+            )
+    if not metrics and any(value not in (None, "") for value in (actual, forecast, previous)):
         metrics.append(
             {
                 "id": "headline",
