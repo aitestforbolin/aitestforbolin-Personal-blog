@@ -454,6 +454,28 @@
     return `<div class="macro-policy-details">${summary}${scheduleNote}${outcomeLink}</div>`;
   }
 
+  function directOfficialReportUrl(event) {
+    const scheduledDay = event.scheduledAt && event.scheduledAt.slice(0, 10);
+    const isReleased =
+      event.releaseStatus === "released" ||
+      (scheduledDay && scheduledDay < todayShanghai());
+    if (!isReleased) return null;
+
+    const blsArchives = {
+      "美国CPI / 核心CPI": "cpi",
+      "美国PPI": "ppi",
+      "美国就业报告": "empsit",
+    };
+    const archive = blsArchives[event.title];
+    if (archive && scheduledDay) {
+      return `https://www.bls.gov/news.release/archives/${archive}_${scheduledDay.replaceAll("-", "")}.htm`;
+    }
+    if (event.title === "美国零售销售") {
+      return "https://www.census.gov/retail/sales.html";
+    }
+    return null;
+  }
+
   function renderCalendarItem(event) {
     const item = document.createElement("article");
     const eventType = event.eventType || "data";
@@ -464,6 +486,11 @@
     ).toLowerCase()}`;
     const date = eventDatePresentation(event);
     const sourceUrl = event.sourceUrl || "#";
+    const reportUrl = directOfficialReportUrl(event);
+    const primaryUrl = reportUrl || sourceUrl;
+    const sourceLabel = reportUrl
+      ? `${event.source || "官方"} 报告 ↗`
+      : `${event.source || "官方"} 日程 ↗`;
     const fallbackLink = event.fallbackSourceUrl
       ? `<a class="macro-fallback-link" href="${escapeHtml(
           event.fallbackSourceUrl
@@ -492,12 +519,12 @@
             CATEGORY_LABELS[event.category] || (eventType === "policy_event" ? "政策事件" : "宏观")
           )}</span>
           ${renderImportanceStars(event)}
-          ${event.source ? `<span class="macro-source">${escapeHtml(event.source)}</span>` : ""}
+          ${event.source ? `<a class="macro-source-link" href="${escapeHtml(primaryUrl)}" target="_blank" rel="noreferrer">${escapeHtml(sourceLabel)}</a>` : ""}
           ${fallbackLink}
         </div>
         <div class="macro-event-main">
           <a class="macro-event-name" href="${escapeHtml(
-            sourceUrl
+            primaryUrl
           )}" target="_blank" rel="noreferrer">${escapeHtml(title)}</a>
           ${content}
         </div>
