@@ -1,6 +1,9 @@
+Warning: truncated output (original token count: 30964)
+Total output lines: 3664
+
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-12T16:07:52+00:00",
+  "generatedAt": "2026-08-13T08:25:26+00:00",
   "timezone": "Asia/Shanghai",
   "status": "partial",
   "failedSources": [
@@ -631,11 +634,38 @@
       "sourceUrl": "https://www.bls.gov/schedule/news_release/",
       "metrics": [
         {
-          "id": "headline",
-          "label": "综合值",
-          "actual": null,
-          "forecast": "CPI 0.1% · 核心CPI 0.2%",
-          "previous": "CPI -0.4% · 核心CPI 0.0%",
+          "id": "metric-1",
+          "label": "CPI同比",
+          "actual": "3.4%",
+          "forecast": "3.4%",
+          "previous": "3.5%",
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        },
+        {
+          "id": "metric-2",
+          "label": "CPI环比",
+          "actual": "0.1%",
+          "forecast": "0.1%",
+          "previous": "-0.4%",
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        },
+        {
+          "id": "metric-3",
+          "label": "核心CPI环比",
+          "actual": "0.2%",
+          "forecast": "0.2%",
+          "previous": "0.0%",
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        },
+        {
+          "id": "metric-4",
+          "label": "核心CPI同比",
+          "actual": "2.5%",
+          "forecast": "2.5%",
+          "previous": "2.6%",
           "unit": null,
           "sourceUrl": "https://www.forexfactory.com/calendar"
         }
@@ -660,6 +690,32 @@
         "fallback_label": "FRED 备用",
         "forecast": "CPI 0.1% · 核心CPI 0.2%",
         "previous": "CPI -0.4% · 核心CPI 0.0%",
+        "metric_values": [
+          {
+            "label": "CPI同比",
+            "actual": "3.4%",
+            "forecast": "3.4%",
+            "previous": "3.5%"
+          },
+          {
+            "label": "CPI环比",
+            "actual": "0.1%",
+            "forecast": "0.1%",
+            "previous": "-0.4%"
+          },
+          {
+            "label": "核心CPI环比",
+            "actual": "0.2%",
+            "forecast": "0.2%",
+            "previous": "0.0%"
+          },
+          {
+            "label": "核心CPI同比",
+            "actual": "2.5%",
+            "forecast": "2.5%",
+            "previous": "2.6%"
+          }
+        ],
         "result_source": "Forex Factory 市场日历",
         "result_url": "https://www.forexfactory.com/calendar"
       },
@@ -1726,123 +1782,7 @@
           "actual": null,
           "previous": "4.7",
           "unit": "%",
-          "sourceUrl": "https://m.mof.gov.cn/czsj/202607/t20260722_3993943.htm"
-        },
-        {
-          "id": "general_spending",
-          "label": "一般公共预算支出",
-          "actual": null,
-          "previous": "143329",
-          "unit": "亿元",
-          "sourceUrl": "https://m.mof.gov.cn/czsj/202607/t20260722_3993943.htm"
-        },
-        {
-          "id": "general_spending_yoy",
-          "label": "一般公共预算支出同比",
-          "actual": null,
-          "previous": "1.5",
-          "unit": "%",
-          "sourceUrl": "https://m.mof.gov.cn/czsj/202607/t20260722_3993943.htm"
-        }
-      ],
-      "releasedAt": null,
-      "retrievedAt": "2026-08-02T10:00:00+08:00",
-      "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "sourceStatus": "static_official_sample",
-      "group": "fiscal",
-      "expectedWindow": {
-        "start": "2026-09-15",
-        "end": "2026-09-25",
-        "timezone": "Asia/Shanghai"
-      },
-      "eventType": "data"
-    },
-    {
-      "id": "us-433d0bbf7a2e",
-      "eventType": "data",
-      "country": "US",
-      "period": "September 2026 meeting",
-      "scheduledAt": "2026-09-17T02:00:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "FOMC 利率决议 / 点阵图",
-      "category": "fed",
-      "importance": "critical",
-      "stars": 5,
-      "source": "Federal Reserve",
-      "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "metrics": [],
-      "releasedAt": null,
-      "retrievedAt": null,
-      "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "legacy": {
-        "date": "2026-09-17",
-        "time_et": "14:00",
-        "time_shanghai": "02:00",
-        "title": "FOMC Policy Decision",
-        "title_cn": "FOMC 利率决议 / 点阵图",
-        "period": "September 2026 meeting",
-        "category": "fed",
-        "importance": "critical",
-        "stars": 5,
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-        "date_et": "2026-09-16"
-      }
-    },
-    {
-      "id": "us-d9343b9ba0a5",
-      "eventType": "data",
-      "country": "US",
-      "period": "September 2026 meeting",
-      "scheduledAt": "2026-09-17T02:30:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "FOMC 主席发布会",
-      "category": "fed",
-      "importance": "critical",
-      "stars": 5,
-      "source": "Federal Reserve",
-      "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "metrics": [],
-      "releasedAt": null,
-      "retrievedAt": null,
-      "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "legacy": {
-        "date": "2026-09-17",
-        "time_et": "14:30",
-        "time_shanghai": "02:30",
-        "title": "FOMC Chair Press Conference",
-        "title_cn": "FOMC 主席发布会",
-        "period": "September 2026 meeting",
-        "category": "fed",
-        "importance": "critical",
-        "stars": 5,
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-        "date_et": "2026-09-16"
-      }
-    },
-    {
-      "id": "cn-lpr-2026-09",
-      "country": "CN",
-      "period": "2026-09",
-      "scheduledAt": null,
-      "dateStatus": "expected_window",
-      "title": "中国贷款市场报价利率（LPR）",
-      "category": "monetary_policy",
-      "importance": "high",
-      "source": "中国人民银行",
-      "sourceUrl": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/3876551/index.html",
-      "metrics": [
-        {
-          "id": "lpr_1y",
-          "label": "1年期LPR",
-          "actual": null,
-          "previous": "3.0",
-          "unit": "%",
-          "sourceUrl": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/3876551/2026072008093186869/index.html"
+          "sourceUrl": "https://m.mof.gov.cn/czsj/20…964 tokens truncated…9/index.html"
         },
         {
           "id": "lpr_5y",
