@@ -249,55 +249,27 @@
     if (!Array.isArray(event.metrics) || !event.metrics.length) {
       return "";
     }
+    const showForecast = event.country !== "CN" && event.metrics.some(
+      (metric) => metric.forecast !== null && metric.forecast !== undefined && metric.forecast !== ""
+    );
+    const metricHeader = `<div class="macro-metric-table-head"><span>指标</span>${event.country !== "CN" ? "<span>实际</span>" : ""}${showForecast ? "<span>预期</span>" : ""}<span>前值</span></div>`;
     const metrics = event.metrics
       .map((metric) => {
-        const values = [];
-        if (metric.actual !== null && metric.actual !== undefined && metric.actual !== "") {
-          values.push(
-            `<span class="macro-result macro-result-actual"><small>实际</small><strong>${escapeHtml(
-              formatMetricValue(metric.actual, metric.unit)
-            )}</strong></span>`
-          );
-        }
-        if (
-          event.country !== "CN" &&
-          metric.forecast !== null &&
-          metric.forecast !== undefined &&
-          metric.forecast !== ""
-        ) {
-          values.push(
-            `<span class="macro-result macro-result-forecast"><small>预期</small><strong>${escapeHtml(
-              formatMetricValue(metric.forecast, metric.unit)
-            )}</strong></span>`
-          );
-        }
-        if (
-          metric.previous !== null &&
-          metric.previous !== undefined &&
-          metric.previous !== ""
-        ) {
-          values.push(
-            `<span class="macro-result macro-result-previous"><small>前值</small><strong>${escapeHtml(
-              formatMetricValue(metric.previous, metric.unit)
-            )}</strong></span>`
-          );
-        }
-        if (!values.length) {
+        if (![metric.actual, metric.forecast, metric.previous].some(
+          (value) => value !== null && value !== undefined && value !== ""
+        )) {
           return "";
         }
-        const label =
-          event.country === "US" && event.metrics.length === 1
-            ? ""
-            : `<span class="macro-metric-label">${escapeHtml(metric.label)}</span>`;
-        return `<div class="macro-metric">${label}<div class="macro-metric-values">${values.join(
-          ""
-        )}</div></div>`;
+        const value = (value, className) => `<strong class="${className}">${escapeHtml(
+          value === null || value === undefined || value === "" ? "—" : formatMetricValue(value, metric.unit)
+        )}</strong>`;
+        return `<div class="macro-metric"><span class="macro-metric-label">${escapeHtml(metric.label || "综合值")}</span>${event.country !== "CN" ? value(metric.actual, "macro-result-actual") : ""}${showForecast ? value(metric.forecast, "macro-result-forecast") : ""}${value(metric.previous, "macro-result-previous")}</div>`;
       })
       .filter(Boolean);
     if (!metrics.length) {
       return "";
     }
-    return `<div class="macro-event-results" aria-label="数据公布结果">${metrics.join(
+    return `<div class="macro-event-results" aria-label="数据公布结果">${metricHeader}${metrics.join(
       ""
     )}</div>`;
   }
