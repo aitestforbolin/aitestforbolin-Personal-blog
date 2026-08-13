@@ -73,8 +73,10 @@ FOREX_FACTORY_SERIES = {
         ("时薪", ("Average Hourly Earnings m/m",)),
     ),
     "美国CPI / 核心CPI": (
-        ("CPI", ("CPI m/m",)),
-        ("核心CPI", ("Core CPI m/m",)),
+        ("CPI同比", ("CPI y/y",)),
+        ("CPI环比", ("CPI m/m",)),
+        ("核心CPI环比", ("Core CPI m/m",)),
+        ("核心CPI同比", ("Core CPI y/y",)),
     ),
     "美国PPI": (
         ("PPI", ("PPI m/m",)),
@@ -873,27 +875,42 @@ def enrich_events_with_market_values(
         event_day = event.get("date_et", event["date"])
         matched = False
 
-        for field in ("actual", "forecast", "previous"):
-            parts: list[str] = []
-            for label, candidate_titles in series:
-                market_item = next(
-                    (
-                        lookup[(event_day, candidate)]
-                        for candidate in candidate_titles
-                        if (event_day, candidate) in lookup
-                    ),
-                    None,
-                )
-                if not market_item:
-                    continue
-                value = market_item.get(field)
-                if value in (None, ""):
-                    continue
-                parts.append(f"{label} {value}" if label else str(value))
+        metric_values: list[dict[str, str | None]] = []
+        for label, candidate_titles in series:
+            market_item = next(
+                (
+                    lookup[(event_day, candidate)]
+                    for candidate in candidate_titles
+                    if (event_day, candidate) in lookup
+                ),
+                None,
+            )
+            if not market_item:
+                continue
+            metric = {
+                "label": label or "综合值",
+                "actual": market_item.get("actual"),
+                "forecast": market_item.get("forecast"),
+                "previous": market_item.get("previous"),
+            }
+            if any(metric[field] not in (None, "") for field in ("actual", "forecast", "previous")):
+                metric_values.append(metric)
 
-            if parts:
-                event[field] = " · ".join(parts)
-                matched = True
+        if metric_values:
+            event["metric_values"] = metric_values
+            for field in ("actual", "forecast", "previous"):
+                parts = [
+                    (
+                        str(metric[field])
+                        if metric["label"] == "综合值"
+                        else f"{metric['label']} {metric[field]}"
+                    )
+                    for metric in metric_values
+                    if metric[field] not in (None, "")
+                ]
+                if parts:
+                    event[field] = " · ".join(parts)
+            matched = True
 
         if matched:
             event["result_source"] = "Forex Factory 市场日历"
