@@ -166,6 +166,13 @@ class UsMacroCalendarTests(unittest.TestCase):
 
         self.assertEqual(event["forecast"], "耐用品 1.6% · 核心耐用品 0.9%")
         self.assertEqual(event["previous"], "耐用品 -4.5% · 核心耐用品 1.3%")
+        self.assertEqual(
+            event["metric_values"],
+            [
+                {"label": "耐用品", "actual": None, "forecast": "1.6%", "previous": "-4.5%"},
+                {"label": "核心耐用品", "actual": None, "forecast": "0.9%", "previous": "1.3%"},
+            ],
+        )
 
     def test_investing_latest_release_parser_reads_flash_values(self):
         html = (
