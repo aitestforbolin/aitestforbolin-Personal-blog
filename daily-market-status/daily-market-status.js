@@ -88,6 +88,17 @@
     }).format(date);
   }
 
+  function formatBriefingDate() {
+    const publishedAt = Number(new Date(snapshot?.publishedAt));
+    if (!Number.isFinite(publishedAt)) return formatDate(snapshot?.asOf);
+    return new Intl.DateTimeFormat("zh-CN", {
+      timeZone: DISPLAY_TIMEZONE,
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }).format(new Date(publishedAt));
+  }
+
   function formatClock(timestamp) {
     const numeric = Number(timestamp);
     if (!Number.isFinite(numeric)) return "时间待核验";
@@ -532,7 +543,7 @@
   function buildDocumentCopyText() {
     if (!snapshot) throw new Error("Snapshot is not ready");
     const lines = [
-      "每日市场早报｜" + formatDate(snapshot.asOf),
+      "每日市场早报｜" + formatBriefingDate(),
       "",
       "01｜美股",
       "",
@@ -785,7 +796,7 @@
   function buildXThreadText() {
     if (!snapshot) throw new Error("Snapshot is not ready");
     const blocks = [];
-    const title = "每日市场早报｜" + formatDate(snapshot.asOf);
+    const title = "每日市场早报｜" + formatBriefingDate();
     const indexLines = indexConfig.map(([id, label]) =>
       "• " + label + "：" + formatDocumentPercent(marketMap.get(id)?.changePercent)
     );
