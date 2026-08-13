@@ -643,7 +643,7 @@
     );
     lines.push(
       "",
-      "02｜宏观资产数据（美股交易时段涨跌）",
+      "02｜宏观资产数据（美股交易时段变化）",
       "",
       "• " + documentAssetLine("美元指数", comparisons.get("DXY"), 3, ""),
       "• " + documentAssetLine("2年期美债收益率", comparisons.get("US02Y"), 3, "%"),
@@ -853,7 +853,7 @@
       documentAssetLine("黄金", comparisons.get("GOLD"), 2, ""),
       documentAssetLine("BTC", comparisons.get("BTCUSDT"), 0, ""),
     ].map((line) => "• " + line);
-    blocks.push("02｜宏观资产数据\n\n" + macroLines.join("\n"));
+    blocks.push("02｜宏观资产数据（美股交易时段变化）\n\n" + macroLines.join("\n"));
 
     const eventGroups = new Map();
     visibleEvents().forEach((item) => {
