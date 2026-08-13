@@ -216,9 +216,7 @@
 
   function renderDrivers() {
     const target = root.querySelector("[data-drivers]");
-    const items = (snapshot.drivers || []).filter(
-      (item) => item && item.ticker && item.reason
-    );
+    const items = sortedDrivers();
     target.innerHTML = items.length
       ? items
           .map(
@@ -243,6 +241,22 @@
     return value !== null && value !== "" && Number.isFinite(number)
       ? number
       : null;
+  }
+
+  function sortedDrivers() {
+    return (snapshot?.drivers || [])
+      .filter((item) => item?.ticker && item?.reason)
+      .slice()
+      .sort((left, right) => {
+        const leftChange = finiteNumber(left.changePercent);
+        const rightChange = finiteNumber(right.changePercent);
+        if (leftChange === null && rightChange === null) {
+          return String(left.ticker).localeCompare(String(right.ticker));
+        }
+        if (leftChange === null) return 1;
+        if (rightChange === null) return -1;
+        return rightChange - leftChange;
+      });
   }
 
   function snapshotComparison(id) {
@@ -597,9 +611,7 @@
     });
 
     lines.push("", "▍核心个股驱动", "");
-    const drivers = (snapshot.drivers || [])
-      .filter((item) => item?.ticker && item?.reason)
-      .slice(0, 8);
+    const drivers = sortedDrivers().slice(0, 8);
     drivers.forEach((item, index) => {
       lines.push(
         "• " +
@@ -818,8 +830,7 @@
       "\n\n▍细分板块如下"
     );
 
-    const drivers = (snapshot.drivers || [])
-      .filter((item) => item?.ticker)
+    const drivers = sortedDrivers()
       .slice(0, 8)
       .map((item) => "• " + item.name + "（" + item.ticker + "）：" +
         formatDocumentPercent(item.changePercent));
