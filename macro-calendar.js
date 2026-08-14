@@ -1,5 +1,5 @@
 (function () {
-  const DATA_URL = "data/macro-calendar.json";
+  const DATA_URL = "data/macro-calendar.json?v=20260814-cpi-ppi-1";
   const MODEL = window.MacroCalendarModel;
   const HORIZON_DAYS = 7;
   const RELEASE_LOOKBACK_HOURS = 48;
