@@ -1,10 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-14T04:19:55+00:00",
+  "generatedAt": "2026-08-14T11:09:59+00:00",
   "timezone": "Asia/Shanghai",
   "status": "partial",
   "failedSources": [
-    "gacc"
+    "gacc",
+    "mof"
   ],
   "sourcePolicy": "China official-only; U.S. legacy calendar preserved",
   "policyEventsUpdatedAt": "2026-08-12T10:40:00+08:00",
@@ -556,66 +557,6 @@
       "eventType": "data"
     },
     {
-      "id": "cn-credit-2026-07",
-      "country": "CN",
-      "period": "2026-07",
-      "scheduledAt": null,
-      "dateStatus": "expected_window",
-      "title": "中国货币与融资数据",
-      "category": "credit",
-      "importance": "high",
-      "source": "中国人民银行",
-      "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/index.html",
-      "metrics": [
-        {
-          "id": "m1_yoy",
-          "label": "M1同比",
-          "actual": null,
-          "previous": "4",
-          "unit": "%",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html",
-          "previousPeriod": "2026-06"
-        },
-        {
-          "id": "m2_yoy",
-          "label": "M2同比",
-          "actual": null,
-          "previous": "8",
-          "unit": "%",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html",
-          "previousPeriod": "2026-06"
-        },
-        {
-          "id": "new_yuan_loans",
-          "label": "人民币贷款累计新增",
-          "actual": null,
-          "previous": "10.72",
-          "unit": "万亿元",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html"
-        },
-        {
-          "id": "tsf_increment",
-          "label": "社融增量累计",
-          "actual": null,
-          "previous": "20.84",
-          "unit": "万亿元",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html"
-        }
-      ],
-      "releasedAt": null,
-      "retrievedAt": "2026-08-02T10:00:00+08:00",
-      "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "sourceStatus": "static_official_sample",
-      "group": "credit",
-      "expectedWindow": {
-        "start": "2026-08-09",
-        "end": "2026-08-15",
-        "timezone": "Asia/Shanghai"
-      },
-      "eventType": "data"
-    },
-    {
       "id": "us-358cd387c5eb",
       "eventType": "data",
       "country": "US",
@@ -796,6 +737,61 @@
       },
       "fallbackSourceUrl": "https://fred.stlouisfed.org/release?rid=46",
       "fallbackSourceLabel": "FRED 备用"
+    },
+    {
+      "id": "cn-credit-2026-07",
+      "country": "CN",
+      "period": "2026-07",
+      "scheduledAt": "2026-08-14T16:30:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "中国货币与融资数据",
+      "category": "credit",
+      "importance": "high",
+      "source": "中国人民银行",
+      "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026081414193264304/index.html",
+      "metrics": [
+        {
+          "id": "m1_yoy",
+          "label": "M1同比",
+          "actual": "4",
+          "previous": "4",
+          "unit": "%",
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026081414193264304/index.html",
+          "previousPeriod": "2026-06"
+        },
+        {
+          "id": "m2_yoy",
+          "label": "M2同比",
+          "actual": "7.7",
+          "previous": "8",
+          "unit": "%",
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026081414193264304/index.html",
+          "previousPeriod": "2026-06"
+        },
+        {
+          "id": "new_yuan_loans",
+          "label": "人民币贷款累计新增",
+          "actual": null,
+          "previous": "10.72",
+          "unit": "万亿元",
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html"
+        },
+        {
+          "id": "tsf_increment",
+          "label": "社融增量累计",
+          "actual": "22.25",
+          "previous": "20.84",
+          "unit": "万亿元",
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026081414193264304/index.html"
+        }
+      ],
+      "releasedAt": "2026-08-14T16:30:00+08:00",
+      "retrievedAt": "2026-08-14T11:09:27+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
+      "group": "credit",
+      "eventType": "data"
     },
     {
       "id": "us-a155e026639f",
@@ -1607,17 +1603,19 @@
           "id": "m1_yoy",
           "label": "M1同比",
           "actual": null,
-          "previous": "4.0",
+          "previous": "4",
           "unit": "%",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html"
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026081414193264304/index.html",
+          "previousPeriod": "2026-07"
         },
         {
           "id": "m2_yoy",
           "label": "M2同比",
           "actual": null,
-          "previous": "8.0",
+          "previous": "7.7",
           "unit": "%",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html"
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026081414193264304/index.html",
+          "previousPeriod": "2026-07"
         },
         {
           "id": "new_yuan_loans",
@@ -1631,9 +1629,10 @@
           "id": "tsf_increment",
           "label": "社融增量累计",
           "actual": null,
-          "previous": "20.84",
+          "previous": "22.25",
           "unit": "万亿元",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html"
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026081414193264304/index.html",
+          "previousPeriod": "2026-07"
         }
       ],
       "releasedAt": null,
