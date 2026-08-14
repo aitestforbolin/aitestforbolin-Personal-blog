@@ -174,6 +174,41 @@ class UsMacroCalendarTests(unittest.TestCase):
             ],
         )
 
+    def test_official_bls_overrides_preserve_published_cpi_and_ppi_values(self):
+        events = [
+            updater.make_event(
+                day=date(2026, 8, 12),
+                eastern_time="08:30",
+                title="Consumer Price Index",
+                title_cn="美国CPI / 核心CPI",
+                period="July 2026",
+                category="inflation",
+                source="BLS",
+                url=updater.BLS_ICS_URL,
+                stars=5,
+            ),
+            updater.make_event(
+                day=date(2026, 8, 13),
+                eastern_time="08:30",
+                title="Producer Price Index",
+                title_cn="美国PPI",
+                period="July 2026",
+                category="inflation",
+                source="BLS",
+                url=updater.BLS_ICS_URL,
+                stars=3,
+            ),
+        ]
+
+        updater.apply_official_release_overrides(events)
+
+        self.assertEqual(events[0]["release_status"], "released")
+        self.assertEqual(events[0]["metric_values"][0]["actual"], "3.4%")
+        self.assertEqual(events[1]["release_status"], "released")
+        self.assertEqual(events[1]["metric_values"][0]["actual"], "0.0%")
+        self.assertEqual(events[1]["metric_values"][1]["actual"], "0.4%")
+        self.assertIn("ppi_08132026.htm", events[1]["result_url"])
+
     def test_investing_latest_release_parser_reads_flash_values(self):
         html = (
             '<script>{"closestOccurrences":{"latest_release":'

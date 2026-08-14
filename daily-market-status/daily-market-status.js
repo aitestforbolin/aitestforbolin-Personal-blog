@@ -841,19 +841,36 @@
       return [id, { reference: comparison.previous, current: comparison.anchor }];
     }));
     const fed = snapshot.fedProbability || {};
+    // Keep the entire macro block in one X Post. Eight separate bullet lines are
+    // easily split by the weighted-character limit, which used to leave BTC alone
+    // in the next post. The X-specific presentation is deliberately compact, while
+    // the full "复制正文" version above remains unchanged.
+    const compactXAssetLine = (label, comparison, decimals, suffix) =>
+      directionIcon(comparison.reference, comparison.current) + label + " " +
+      formatNumber(comparison.reference, decimals) +
+      (comparison.reference === null ? "" : suffix) + "→" +
+      formatNumber(comparison.current, decimals) +
+      (comparison.current === null ? "" : suffix);
     const macroLines = [
-      documentAssetLine("美元", comparisons.get("DXY"), 3, ""),
-      documentAssetLine("美债2Y", comparisons.get("US02Y"), 3, "%"),
-      documentAssetLine("美债10Y", comparisons.get("US10Y"), 3, "%"),
-      documentAssetLine("美债30Y", comparisons.get("US30Y"), 3, "%"),
-      directionIcon(fed.previous, fed.current) + " 加息概率：" +
-        formatNumber(fed.previous, 1) + (fed.unit || "") + " → " +
+      compactXAssetLine("美元", comparisons.get("DXY"), 3, ""),
+      compactXAssetLine("美债2Y", comparisons.get("US02Y"), 3, "%"),
+      compactXAssetLine("美债10Y", comparisons.get("US10Y"), 3, "%"),
+      compactXAssetLine("美债30Y", comparisons.get("US30Y"), 3, "%"),
+      directionIcon(fed.previous, fed.current) + "加息概率 " +
+        formatNumber(fed.previous, 1) + (fed.unit || "") + "→" +
         formatNumber(fed.current, 1) + (fed.unit || ""),
-      documentAssetLine("Brent", comparisons.get("BRN1!"), 2, ""),
-      documentAssetLine("黄金", comparisons.get("GOLD"), 2, ""),
-      documentAssetLine("BTC", comparisons.get("BTCUSDT"), 0, ""),
-    ].map((line) => "• " + line);
-    blocks.push("02｜宏观资产数据（美股交易时段变化）\n\n" + macroLines.join("\n"));
+      compactXAssetLine("Brent", comparisons.get("BRN1!"), 2, ""),
+      compactXAssetLine("黄金", comparisons.get("GOLD"), 2, ""),
+      compactXAssetLine("BTC", comparisons.get("BTCUSDT"), 0, ""),
+    ];
+    const compactMacroLines = [];
+    for (let index = 0; index < macroLines.length; index += 2) {
+      compactMacroLines.push(macroLines.slice(index, index + 2).join("｜"));
+    }
+    blocks.push(
+      "02｜宏观资产数据（美股交易时段变化）\n\n" +
+        compactMacroLines.join("\n")
+    );
 
     const eventGroups = new Map();
     visibleEvents().forEach((item) => {

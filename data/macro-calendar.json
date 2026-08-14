@@ -1,10 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-13T16:08:20+00:00",
+  "generatedAt": "2026-08-14T02:53:41+00:00",
   "timezone": "Asia/Shanghai",
   "status": "partial",
   "failedSources": [
-    "gacc"
+    "gacc",
+    "mof"
   ],
   "sourcePolicy": "China official-only; U.S. legacy calendar preserved",
   "policyEventsUpdatedAt": "2026-08-12T10:40:00+08:00",
@@ -627,49 +628,49 @@
       "importance": "critical",
       "stars": 5,
       "source": "BLS",
-      "sourceUrl": "https://www.bls.gov/schedule/news_release/",
+      "sourceUrl": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
       "metrics": [
         {
           "id": "metric-1",
           "label": "CPI同比",
-          "actual": null,
+          "actual": "3.4%",
           "forecast": "3.4%",
           "previous": "3.5%",
           "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
+          "sourceUrl": "https://www.bls.gov/news.release/archives/cpi_08122026.htm"
         },
         {
           "id": "metric-2",
           "label": "CPI环比",
-          "actual": null,
+          "actual": "0.1%",
           "forecast": "0.1%",
           "previous": "-0.4%",
           "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
+          "sourceUrl": "https://www.bls.gov/news.release/archives/cpi_08122026.htm"
         },
         {
           "id": "metric-3",
           "label": "核心CPI环比",
-          "actual": null,
+          "actual": "0.2%",
           "forecast": "0.2%",
           "previous": "0.0%",
           "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
+          "sourceUrl": "https://www.bls.gov/news.release/archives/cpi_08122026.htm"
         },
         {
           "id": "metric-4",
           "label": "核心CPI同比",
-          "actual": null,
+          "actual": "2.5%",
           "forecast": "2.5%",
           "previous": "2.6%",
           "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
+          "sourceUrl": "https://www.bls.gov/news.release/archives/cpi_08122026.htm"
         }
       ],
-      "releasedAt": null,
+      "releasedAt": "2026-08-12T08:30:00-04:00",
       "retrievedAt": null,
       "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
+      "releaseStatus": "released",
       "legacy": {
         "date": "2026-08-12",
         "time_et": "08:30",
@@ -681,39 +682,42 @@
         "importance": "critical",
         "stars": 5,
         "source": "BLS",
-        "url": "https://www.bls.gov/schedule/news_release/",
+        "url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
         "fallback_url": "https://fred.stlouisfed.org/release?rid=10",
         "fallback_label": "FRED 备用",
+        "forecast": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
+        "previous": "CPI同比 3.5% · CPI环比 -0.4% · 核心CPI环比 0.0% · 核心CPI同比 2.6%",
+        "result_source": "BLS 2026年7月CPI报告",
+        "result_url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
         "metric_values": [
           {
             "label": "CPI同比",
-            "actual": null,
+            "actual": "3.4%",
             "forecast": "3.4%",
             "previous": "3.5%"
           },
           {
             "label": "CPI环比",
-            "actual": null,
+            "actual": "0.1%",
             "forecast": "0.1%",
             "previous": "-0.4%"
           },
           {
             "label": "核心CPI环比",
-            "actual": null,
+            "actual": "0.2%",
             "forecast": "0.2%",
             "previous": "0.0%"
           },
           {
             "label": "核心CPI同比",
-            "actual": null,
+            "actual": "2.5%",
             "forecast": "2.5%",
             "previous": "2.6%"
           }
         ],
-        "forecast": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
-        "previous": "CPI同比 3.5% · CPI环比 -0.4% · 核心CPI环比 0.0% · 核心CPI同比 2.6%",
-        "result_source": "Forex Factory 市场日历",
-        "result_url": "https://www.forexfactory.com/calendar"
+        "actual": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
+        "release_status": "released",
+        "released_at": "2026-08-12T08:30:00-04:00"
       },
       "fallbackSourceUrl": "https://fred.stlouisfed.org/release?rid=10",
       "fallbackSourceLabel": "FRED 备用"
@@ -730,31 +734,31 @@
       "importance": "medium",
       "stars": 3,
       "source": "BLS",
-      "sourceUrl": "https://www.bls.gov/schedule/news_release/",
+      "sourceUrl": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
       "metrics": [
         {
           "id": "metric-1",
-          "label": "PPI",
-          "actual": null,
+          "label": "PPI环比",
+          "actual": "0.0%",
           "forecast": "0.2%",
           "previous": "-0.3%",
           "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
+          "sourceUrl": "https://www.bls.gov/news.release/archives/ppi_08132026.htm"
         },
         {
           "id": "metric-2",
-          "label": "核心PPI",
-          "actual": null,
+          "label": "核心PPI环比",
+          "actual": "0.4%",
           "forecast": "0.3%",
           "previous": "0.2%",
           "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
+          "sourceUrl": "https://www.bls.gov/news.release/archives/ppi_08132026.htm"
         }
       ],
-      "releasedAt": null,
+      "releasedAt": "2026-08-13T08:30:00-04:00",
       "retrievedAt": null,
       "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
+      "releaseStatus": "released",
       "legacy": {
         "date": "2026-08-13",
         "time_et": "08:30",
@@ -766,27 +770,30 @@
         "importance": "medium",
         "stars": 3,
         "source": "BLS",
-        "url": "https://www.bls.gov/schedule/news_release/",
+        "url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
         "fallback_url": "https://fred.stlouisfed.org/release?rid=46",
         "fallback_label": "FRED 备用",
+        "forecast": "PPI环比 0.2% · 核心PPI环比 0.3%",
+        "previous": "PPI环比 -0.3% · 核心PPI环比 0.2%",
+        "result_source": "BLS 2026年7月PPI报告",
+        "result_url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
         "metric_values": [
           {
-            "label": "PPI",
-            "actual": null,
+            "label": "PPI环比",
+            "actual": "0.0%",
             "forecast": "0.2%",
             "previous": "-0.3%"
           },
           {
-            "label": "核心PPI",
-            "actual": null,
+            "label": "核心PPI环比",
+            "actual": "0.4%",
             "forecast": "0.3%",
             "previous": "0.2%"
           }
         ],
-        "forecast": "PPI 0.2% · 核心PPI 0.3%",
-        "previous": "PPI -0.3% · 核心PPI 0.2%",
-        "result_source": "Forex Factory 市场日历",
-        "result_url": "https://www.forexfactory.com/calendar"
+        "actual": "PPI环比 0.0% · 核心PPI环比 0.4%",
+        "release_status": "released",
+        "released_at": "2026-08-13T08:30:00-04:00"
       },
       "fallbackSourceUrl": "https://fred.stlouisfed.org/release?rid=46",
       "fallbackSourceLabel": "FRED 备用"
@@ -806,20 +813,11 @@
       "sourceUrl": "https://www.census.gov/economic-indicators/",
       "metrics": [
         {
-          "id": "metric-1",
-          "label": "零售",
+          "id": "headline",
+          "label": "综合值",
           "actual": null,
-          "forecast": "0.1%",
-          "previous": "0.2%",
-          "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
-        },
-        {
-          "id": "metric-2",
-          "label": "核心零售",
-          "actual": null,
-          "forecast": "0.2%",
-          "previous": "-0.2%",
+          "forecast": "零售 0.1% · 核心零售 0.2%",
+          "previous": "零售 0.2% · 核心零售 -0.2%",
           "unit": null,
           "sourceUrl": "https://www.forexfactory.com/calendar"
         }
@@ -842,20 +840,6 @@
         "url": "https://www.census.gov/economic-indicators/",
         "fallback_url": "https://fred.stlouisfed.org/release?rid=9",
         "fallback_label": "FRED 备用",
-        "metric_values": [
-          {
-            "label": "零售",
-            "actual": null,
-            "forecast": "0.1%",
-            "previous": "0.2%"
-          },
-          {
-            "label": "核心零售",
-            "actual": null,
-            "forecast": "0.2%",
-            "previous": "-0.2%"
-          }
-        ],
         "forecast": "零售 0.1% · 核心零售 0.2%",
         "previous": "零售 0.2% · 核心零售 -0.2%",
         "result_source": "Forex Factory 市场日历",
@@ -3666,7 +3650,7 @@
           "actual": "121047",
           "previous": "100465",
           "unit": "亿元",
-          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202607/t20260722_3993943.htm",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm",
           "previousPeriod": "2026-01/05"
         },
         {
@@ -3675,7 +3659,7 @@
           "actual": "4.7",
           "previous": "4",
           "unit": "%",
-          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202607/t20260722_3993943.htm",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm",
           "previousPeriod": "2026-01/05"
         },
         {
@@ -3684,7 +3668,7 @@
           "actual": "143329",
           "previous": "113877",
           "unit": "亿元",
-          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202607/t20260722_3993943.htm",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm",
           "previousPeriod": "2026-01/05"
         },
         {
@@ -3693,12 +3677,12 @@
           "actual": "1.5",
           "previous": "0.8",
           "unit": "%",
-          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202607/t20260722_3993943.htm",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm",
           "previousPeriod": "2026-01/05"
         }
       ],
       "releasedAt": null,
-      "retrievedAt": "2026-08-13T11:12:01+00:00",
+      "retrievedAt": "2026-08-05T12:18:10+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "sourceStatus": "fresh",

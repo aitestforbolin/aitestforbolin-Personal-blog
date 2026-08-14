@@ -94,6 +94,47 @@ FOREX_FACTORY_SERIES = {
     "美国S&P Global服务业PMI初值": (("", ("Flash Services PMI",)),),
 }
 
+# Once a release is published, retain its official result even if the market
+# calendar feed is unavailable. These entries also ensure the site links to the
+# specific BLS report instead of leaving a completed item pointed at a schedule.
+OFFICIAL_RELEASE_OVERRIDES = {
+    ("2026-08-12", "08:30", "Consumer Price Index"): {
+        "metric_values": [
+            {"label": "CPI同比", "actual": "3.4%", "forecast": "3.4%", "previous": "3.5%"},
+            {"label": "CPI环比", "actual": "0.1%", "forecast": "0.1%", "previous": "-0.4%"},
+            {"label": "核心CPI环比", "actual": "0.2%", "forecast": "0.2%", "previous": "0.0%"},
+            {"label": "核心CPI同比", "actual": "2.5%", "forecast": "2.5%", "previous": "2.6%"},
+        ],
+        "actual": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
+        "forecast": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
+        "previous": "CPI同比 3.5% · CPI环比 -0.4% · 核心CPI环比 0.0% · 核心CPI同比 2.6%",
+        "url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
+        "result_source": "BLS 2026年7月CPI报告",
+        "result_url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
+        "release_status": "released",
+        "released_at": "2026-08-12T08:30:00-04:00",
+    },
+    ("2026-08-13", "08:30", "Producer Price Index"): {
+        "metric_values": [
+            {"label": "PPI环比", "actual": "0.0%", "forecast": "0.2%", "previous": "-0.3%"},
+            {
+                "label": "核心PPI环比",
+                "actual": "0.4%",
+                "forecast": "0.3%",
+                "previous": "0.2%",
+            },
+        ],
+        "actual": "PPI环比 0.0% · 核心PPI环比 0.4%",
+        "forecast": "PPI环比 0.2% · 核心PPI环比 0.3%",
+        "previous": "PPI环比 -0.3% · 核心PPI环比 0.2%",
+        "url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
+        "result_source": "BLS 2026年7月PPI报告",
+        "result_url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
+        "release_status": "released",
+        "released_at": "2026-08-13T08:30:00-04:00",
+    },
+}
+
 US_RELEASE_HOLIDAYS = {
     "2026-01-01",
     "2026-01-19",
@@ -1142,6 +1183,15 @@ def merge_existing_reference_values(
     return events
 
 
+def apply_official_release_overrides(events: list[dict[str, str]]) -> None:
+    """Apply verified BLS outcomes after any live-feed or cache fallback."""
+    for event in events:
+        key = (event.get("date"), event.get("time_et"), event.get("title"))
+        override = OFFICIAL_RELEASE_OVERRIDES.get(key)
+        if override:
+            event.update(override)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -1168,6 +1218,7 @@ def main() -> int:
         args.offline,
     )
     events = merge_existing_reference_values(events, args.output)
+    apply_official_release_overrides(events)
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(events, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
