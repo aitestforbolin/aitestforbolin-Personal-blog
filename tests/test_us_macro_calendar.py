@@ -166,6 +166,48 @@ class UsMacroCalendarTests(unittest.TestCase):
 
         self.assertEqual(event["forecast"], "耐用品 1.6% · 核心耐用品 0.9%")
         self.assertEqual(event["previous"], "耐用品 -4.5% · 核心耐用品 1.3%")
+        self.assertEqual(
+            event["metric_values"],
+            [
+                {"label": "耐用品", "actual": None, "forecast": "1.6%", "previous": "-4.5%"},
+                {"label": "核心耐用品", "actual": None, "forecast": "0.9%", "previous": "1.3%"},
+            ],
+        )
+
+    def test_official_bls_overrides_preserve_published_cpi_and_ppi_values(self):
+        events = [
+            updater.make_event(
+                day=date(2026, 8, 12),
+                eastern_time="08:30",
+                title="Consumer Price Index",
+                title_cn="美国CPI / 核心CPI",
+                period="July 2026",
+                category="inflation",
+                source="BLS",
+                url=updater.BLS_ICS_URL,
+                stars=5,
+            ),
+            updater.make_event(
+                day=date(2026, 8, 13),
+                eastern_time="08:30",
+                title="Producer Price Index",
+                title_cn="美国PPI",
+                period="July 2026",
+                category="inflation",
+                source="BLS",
+                url=updater.BLS_ICS_URL,
+                stars=3,
+            ),
+        ]
+
+        updater.apply_official_release_overrides(events)
+
+        self.assertEqual(events[0]["release_status"], "released")
+        self.assertEqual(events[0]["metric_values"][0]["actual"], "3.4%")
+        self.assertEqual(events[1]["release_status"], "released")
+        self.assertEqual(events[1]["metric_values"][0]["actual"], "0.0%")
+        self.assertEqual(events[1]["metric_values"][1]["actual"], "0.4%")
+        self.assertIn("ppi_08132026.htm", events[1]["result_url"])
 
     def test_investing_latest_release_parser_reads_flash_values(self):
         html = (

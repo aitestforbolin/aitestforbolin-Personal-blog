@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-11T02:25:29+00:00",
+  "generatedAt": "2026-08-14T16:04:19+00:00",
   "timezone": "Asia/Shanghai",
   "status": "partial",
   "failedSources": [
@@ -8,7 +8,7 @@
     "mof"
   ],
   "sourcePolicy": "China official-only; U.S. legacy calendar preserved",
-  "policyEventsUpdatedAt": "2026-08-03T12:00:00+08:00",
+  "policyEventsUpdatedAt": "2026-08-12T10:40:00+08:00",
   "events": [
     {
       "id": "cn-lpr-2026-06",
@@ -386,32 +386,6 @@
       "eventType": "data"
     },
     {
-      "id": "cn-policy-politburo-economy-2026-07-30",
-      "eventType": "policy_event",
-      "country": "CN",
-      "period": null,
-      "scheduledAt": null,
-      "eventDate": "2026-07-30",
-      "dateStatus": "confirmed_date",
-      "title": "中共中央政治局会议：分析研究当前经济形势，部署下半年经济工作",
-      "category": "policy_meeting",
-      "importance": "critical",
-      "stars": 5,
-      "source": "新华社",
-      "sourceUrl": "https://www.news.cn/20260730/13ecbfd4cd9b455281a0649232b98ad0/c.html",
-      "metrics": [],
-      "releasedAt": null,
-      "retrievedAt": "2026-08-03T12:00:00+08:00",
-      "revisionStatus": "not_revised",
-      "releaseStatus": "released",
-      "eventStatus": "completed",
-      "summary": "会议分析研究当前经济形势并部署下半年经济工作，同时决定二十届五中全会于2026年10月在北京召开。",
-      "scheduleNote": "官方通稿确认会议于7月30日召开，但未公开具体召开时刻。",
-      "outcomeLabel": "查看会议公报",
-      "outcomeUrl": "https://www.news.cn/20260730/13ecbfd4cd9b455281a0649232b98ad0/c.html",
-      "trackingMode": "post_release"
-    },
-    {
       "id": "cn-pmi-2026-07",
       "country": "CN",
       "period": "2026-07",
@@ -583,66 +557,6 @@
       "eventType": "data"
     },
     {
-      "id": "cn-credit-2026-07",
-      "country": "CN",
-      "period": "2026-07",
-      "scheduledAt": null,
-      "dateStatus": "expected_window",
-      "title": "中国货币与融资数据",
-      "category": "credit",
-      "importance": "high",
-      "source": "中国人民银行",
-      "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/index.html",
-      "metrics": [
-        {
-          "id": "m1_yoy",
-          "label": "M1同比",
-          "actual": null,
-          "previous": "4",
-          "unit": "%",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html",
-          "previousPeriod": "2026-06"
-        },
-        {
-          "id": "m2_yoy",
-          "label": "M2同比",
-          "actual": null,
-          "previous": "8",
-          "unit": "%",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html",
-          "previousPeriod": "2026-06"
-        },
-        {
-          "id": "new_yuan_loans",
-          "label": "人民币贷款累计新增",
-          "actual": null,
-          "previous": "10.72",
-          "unit": "万亿元",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html"
-        },
-        {
-          "id": "tsf_increment",
-          "label": "社融增量累计",
-          "actual": null,
-          "previous": "20.84",
-          "unit": "万亿元",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html"
-        }
-      ],
-      "releasedAt": null,
-      "retrievedAt": "2026-08-02T10:00:00+08:00",
-      "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "sourceStatus": "static_official_sample",
-      "group": "credit",
-      "expectedWindow": {
-        "start": "2026-08-09",
-        "end": "2026-08-15",
-        "timezone": "Asia/Shanghai"
-      },
-      "eventType": "data"
-    },
-    {
       "id": "us-358cd387c5eb",
       "eventType": "data",
       "country": "US",
@@ -654,22 +568,49 @@
       "importance": "critical",
       "stars": 5,
       "source": "BLS",
-      "sourceUrl": "https://www.bls.gov/schedule/news_release/",
+      "sourceUrl": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
       "metrics": [
         {
-          "id": "headline",
-          "label": "综合值",
-          "actual": null,
-          "forecast": "CPI 0.1% · 核心CPI 0.2%",
-          "previous": "CPI -0.4% · 核心CPI 0.0%",
+          "id": "metric-1",
+          "label": "CPI同比",
+          "actual": "3.4%",
+          "forecast": "3.4%",
+          "previous": "3.5%",
           "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
+          "sourceUrl": "https://www.bls.gov/news.release/archives/cpi_08122026.htm"
+        },
+        {
+          "id": "metric-2",
+          "label": "CPI环比",
+          "actual": "0.1%",
+          "forecast": "0.1%",
+          "previous": "-0.4%",
+          "unit": null,
+          "sourceUrl": "https://www.bls.gov/news.release/archives/cpi_08122026.htm"
+        },
+        {
+          "id": "metric-3",
+          "label": "核心CPI环比",
+          "actual": "0.2%",
+          "forecast": "0.2%",
+          "previous": "0.0%",
+          "unit": null,
+          "sourceUrl": "https://www.bls.gov/news.release/archives/cpi_08122026.htm"
+        },
+        {
+          "id": "metric-4",
+          "label": "核心CPI同比",
+          "actual": "2.5%",
+          "forecast": "2.5%",
+          "previous": "2.6%",
+          "unit": null,
+          "sourceUrl": "https://www.bls.gov/news.release/archives/cpi_08122026.htm"
         }
       ],
-      "releasedAt": null,
+      "releasedAt": "2026-08-12T08:30:00-04:00",
       "retrievedAt": null,
       "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
+      "releaseStatus": "released",
       "legacy": {
         "date": "2026-08-12",
         "time_et": "08:30",
@@ -681,13 +622,42 @@
         "importance": "critical",
         "stars": 5,
         "source": "BLS",
-        "url": "https://www.bls.gov/schedule/news_release/",
+        "url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
         "fallback_url": "https://fred.stlouisfed.org/release?rid=10",
         "fallback_label": "FRED 备用",
-        "forecast": "CPI 0.1% · 核心CPI 0.2%",
-        "previous": "CPI -0.4% · 核心CPI 0.0%",
-        "result_source": "Forex Factory 市场日历",
-        "result_url": "https://www.forexfactory.com/calendar"
+        "metric_values": [
+          {
+            "label": "CPI同比",
+            "actual": "3.4%",
+            "forecast": "3.4%",
+            "previous": "3.5%"
+          },
+          {
+            "label": "CPI环比",
+            "actual": "0.1%",
+            "forecast": "0.1%",
+            "previous": "-0.4%"
+          },
+          {
+            "label": "核心CPI环比",
+            "actual": "0.2%",
+            "forecast": "0.2%",
+            "previous": "0.0%"
+          },
+          {
+            "label": "核心CPI同比",
+            "actual": "2.5%",
+            "forecast": "2.5%",
+            "previous": "2.6%"
+          }
+        ],
+        "forecast": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
+        "previous": "CPI同比 3.5% · CPI环比 -0.4% · 核心CPI环比 0.0% · 核心CPI同比 2.6%",
+        "result_source": "BLS 2026年7月CPI报告",
+        "result_url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
+        "actual": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
+        "release_status": "released",
+        "released_at": "2026-08-12T08:30:00-04:00"
       },
       "fallbackSourceUrl": "https://fred.stlouisfed.org/release?rid=10",
       "fallbackSourceLabel": "FRED 备用"
@@ -704,22 +674,31 @@
       "importance": "medium",
       "stars": 3,
       "source": "BLS",
-      "sourceUrl": "https://www.bls.gov/schedule/news_release/",
+      "sourceUrl": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
       "metrics": [
         {
-          "id": "headline",
-          "label": "综合值",
-          "actual": null,
-          "forecast": "PPI 0.2% · 核心PPI 0.3%",
-          "previous": "PPI -0.3% · 核心PPI 0.2%",
+          "id": "metric-1",
+          "label": "PPI环比",
+          "actual": "0.0%",
+          "forecast": "0.2%",
+          "previous": "-0.3%",
           "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
+          "sourceUrl": "https://www.bls.gov/news.release/archives/ppi_08132026.htm"
+        },
+        {
+          "id": "metric-2",
+          "label": "核心PPI环比",
+          "actual": "0.4%",
+          "forecast": "0.3%",
+          "previous": "0.2%",
+          "unit": null,
+          "sourceUrl": "https://www.bls.gov/news.release/archives/ppi_08132026.htm"
         }
       ],
-      "releasedAt": null,
+      "releasedAt": "2026-08-13T08:30:00-04:00",
       "retrievedAt": null,
       "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
+      "releaseStatus": "released",
       "legacy": {
         "date": "2026-08-13",
         "time_et": "08:30",
@@ -731,16 +710,88 @@
         "importance": "medium",
         "stars": 3,
         "source": "BLS",
-        "url": "https://www.bls.gov/schedule/news_release/",
+        "url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
         "fallback_url": "https://fred.stlouisfed.org/release?rid=46",
         "fallback_label": "FRED 备用",
-        "forecast": "PPI 0.2% · 核心PPI 0.3%",
-        "previous": "PPI -0.3% · 核心PPI 0.2%",
-        "result_source": "Forex Factory 市场日历",
-        "result_url": "https://www.forexfactory.com/calendar"
+        "metric_values": [
+          {
+            "label": "PPI环比",
+            "actual": "0.0%",
+            "forecast": "0.2%",
+            "previous": "-0.3%"
+          },
+          {
+            "label": "核心PPI环比",
+            "actual": "0.4%",
+            "forecast": "0.3%",
+            "previous": "0.2%"
+          }
+        ],
+        "forecast": "PPI环比 0.2% · 核心PPI环比 0.3%",
+        "previous": "PPI环比 -0.3% · 核心PPI环比 0.2%",
+        "result_source": "BLS 2026年7月PPI报告",
+        "result_url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
+        "actual": "PPI环比 0.0% · 核心PPI环比 0.4%",
+        "release_status": "released",
+        "released_at": "2026-08-13T08:30:00-04:00"
       },
       "fallbackSourceUrl": "https://fred.stlouisfed.org/release?rid=46",
       "fallbackSourceLabel": "FRED 备用"
+    },
+    {
+      "id": "cn-credit-2026-07",
+      "country": "CN",
+      "period": "2026-07",
+      "scheduledAt": "2026-08-14T16:30:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "中国货币与融资数据",
+      "category": "credit",
+      "importance": "high",
+      "source": "中国人民银行",
+      "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026081414193264304/index.html",
+      "metrics": [
+        {
+          "id": "m1_yoy",
+          "label": "M1同比",
+          "actual": "4",
+          "previous": "4",
+          "unit": "%",
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026081414193264304/index.html",
+          "previousPeriod": "2026-06"
+        },
+        {
+          "id": "m2_yoy",
+          "label": "M2同比",
+          "actual": "7.7",
+          "previous": "8",
+          "unit": "%",
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026081414193264304/index.html",
+          "previousPeriod": "2026-06"
+        },
+        {
+          "id": "new_yuan_loans",
+          "label": "人民币贷款累计新增",
+          "actual": null,
+          "previous": "10.72",
+          "unit": "万亿元",
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html"
+        },
+        {
+          "id": "tsf_increment",
+          "label": "社融增量累计",
+          "actual": "22.25",
+          "previous": "20.84",
+          "unit": "万亿元",
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026081414193264304/index.html"
+        }
+      ],
+      "releasedAt": "2026-08-14T16:30:00+08:00",
+      "retrievedAt": "2026-08-14T11:09:27+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
+      "group": "credit",
+      "eventType": "data"
     },
     {
       "id": "us-a155e026639f",
@@ -757,11 +808,20 @@
       "sourceUrl": "https://www.census.gov/economic-indicators/",
       "metrics": [
         {
-          "id": "headline",
-          "label": "综合值",
+          "id": "metric-1",
+          "label": "零售",
           "actual": null,
-          "forecast": "零售 0.1% · 核心零售 0.2%",
-          "previous": "零售 0.2% · 核心零售 -0.2%",
+          "forecast": "0.1%",
+          "previous": "0.2%",
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        },
+        {
+          "id": "metric-2",
+          "label": "核心零售",
+          "actual": null,
+          "forecast": "0.2%",
+          "previous": "-0.2%",
           "unit": null,
           "sourceUrl": "https://www.forexfactory.com/calendar"
         }
@@ -784,6 +844,20 @@
         "url": "https://www.census.gov/economic-indicators/",
         "fallback_url": "https://fred.stlouisfed.org/release?rid=9",
         "fallback_label": "FRED 备用",
+        "metric_values": [
+          {
+            "label": "零售",
+            "actual": null,
+            "forecast": "0.1%",
+            "previous": "0.2%"
+          },
+          {
+            "label": "核心零售",
+            "actual": null,
+            "forecast": "0.2%",
+            "previous": "-0.2%"
+          }
+        ],
         "forecast": "零售 0.1% · 核心零售 0.2%",
         "previous": "零售 0.2% · 核心零售 -0.2%",
         "result_source": "Forex Factory 市场日历",
@@ -1552,17 +1626,19 @@
           "id": "m1_yoy",
           "label": "M1同比",
           "actual": null,
-          "previous": "4.0",
+          "previous": "4",
           "unit": "%",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html"
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026081414193264304/index.html",
+          "previousPeriod": "2026-07"
         },
         {
           "id": "m2_yoy",
           "label": "M2同比",
           "actual": null,
-          "previous": "8.0",
+          "previous": "7.7",
           "unit": "%",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html"
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026081414193264304/index.html",
+          "previousPeriod": "2026-07"
         },
         {
           "id": "new_yuan_loans",
@@ -1576,9 +1652,10 @@
           "id": "tsf_increment",
           "label": "社融增量累计",
           "actual": null,
-          "previous": "20.84",
+          "previous": "22.25",
           "unit": "万亿元",
-          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026071512340454869/index.html"
+          "sourceUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026081414193264304/index.html",
+          "previousPeriod": "2026-07"
         }
       ],
       "releasedAt": null,
@@ -1783,6 +1860,72 @@
         "timezone": "Asia/Shanghai"
       },
       "eventType": "data"
+    },
+    {
+      "id": "us-433d0bbf7a2e",
+      "eventType": "data",
+      "country": "US",
+      "period": "September 2026 meeting",
+      "scheduledAt": "2026-09-17T02:00:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "FOMC 利率决议 / 点阵图",
+      "category": "fed",
+      "importance": "critical",
+      "stars": 5,
+      "source": "Federal Reserve",
+      "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "metrics": [],
+      "releasedAt": null,
+      "retrievedAt": null,
+      "revisionStatus": "not_revised",
+      "releaseStatus": "scheduled",
+      "legacy": {
+        "date": "2026-09-17",
+        "time_et": "14:00",
+        "time_shanghai": "02:00",
+        "title": "FOMC Policy Decision",
+        "title_cn": "FOMC 利率决议 / 点阵图",
+        "period": "September 2026 meeting",
+        "category": "fed",
+        "importance": "critical",
+        "stars": 5,
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+        "date_et": "2026-09-16"
+      }
+    },
+    {
+      "id": "us-d9343b9ba0a5",
+      "eventType": "data",
+      "country": "US",
+      "period": "September 2026 meeting",
+      "scheduledAt": "2026-09-17T02:30:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "FOMC 主席发布会",
+      "category": "fed",
+      "importance": "critical",
+      "stars": 5,
+      "source": "Federal Reserve",
+      "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "metrics": [],
+      "releasedAt": null,
+      "retrievedAt": null,
+      "revisionStatus": "not_revised",
+      "releaseStatus": "scheduled",
+      "legacy": {
+        "date": "2026-09-17",
+        "time_et": "14:30",
+        "time_shanghai": "02:30",
+        "title": "FOMC Chair Press Conference",
+        "title_cn": "FOMC 主席发布会",
+        "period": "September 2026 meeting",
+        "category": "fed",
+        "importance": "critical",
+        "stars": 5,
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+        "date_et": "2026-09-16"
+      }
     },
     {
       "id": "cn-lpr-2026-09",
@@ -3528,7 +3671,7 @@
           "actual": "121047",
           "previous": "100465",
           "unit": "亿元",
-          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202607/t20260722_3993943.htm",
           "previousPeriod": "2026-01/05"
         },
         {
@@ -3537,7 +3680,7 @@
           "actual": "4.7",
           "previous": "4",
           "unit": "%",
-          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202607/t20260722_3993943.htm",
           "previousPeriod": "2026-01/05"
         },
         {
@@ -3546,7 +3689,7 @@
           "actual": "143329",
           "previous": "113877",
           "unit": "亿元",
-          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202607/t20260722_3993943.htm",
           "previousPeriod": "2026-01/05"
         },
         {
@@ -3555,12 +3698,12 @@
           "actual": "1.5",
           "previous": "0.8",
           "unit": "%",
-          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202607/t20260722_3993943.htm",
           "previousPeriod": "2026-01/05"
         }
       ],
       "releasedAt": null,
-      "retrievedAt": "2026-08-05T12:18:10+00:00",
+      "retrievedAt": "2026-08-13T11:12:01+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "sourceStatus": "fresh",

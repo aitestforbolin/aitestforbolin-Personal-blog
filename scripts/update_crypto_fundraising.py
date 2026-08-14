@@ -23,7 +23,7 @@ SOURCE_URL = "https://crypto-fundraising.info/"
 SOURCE_HOST = "crypto-fundraising.info"
 FETCH_TIMEOUT = 60
 FETCH_RETRIES = 3
-PROJECT_LIMIT = 3
+PROJECT_LIMIT = 5
 VOID_TAGS = {
     "area",
     "base",

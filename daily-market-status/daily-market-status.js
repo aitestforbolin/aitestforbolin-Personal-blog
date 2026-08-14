@@ -88,6 +88,17 @@
     }).format(date);
   }
 
+  function formatBriefingDate() {
+    const publishedAt = Number(new Date(snapshot?.publishedAt));
+    if (!Number.isFinite(publishedAt)) return formatDate(snapshot?.asOf);
+    return new Intl.DateTimeFormat("zh-CN", {
+      timeZone: DISPLAY_TIMEZONE,
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }).format(new Date(publishedAt));
+  }
+
   function formatClock(timestamp) {
     const numeric = Number(timestamp);
     if (!Number.isFinite(numeric)) return "时间待核验";
@@ -205,9 +216,7 @@
 
   function renderDrivers() {
     const target = root.querySelector("[data-drivers]");
-    const items = (snapshot.drivers || []).filter(
-      (item) => item && item.ticker && item.reason
-    );
+    const items = sortedDrivers();
     target.innerHTML = items.length
       ? items
           .map(
@@ -232,6 +241,22 @@
     return value !== null && value !== "" && Number.isFinite(number)
       ? number
       : null;
+  }
+
+  function sortedDrivers() {
+    return (snapshot?.drivers || [])
+      .filter((item) => item?.ticker && item?.reason)
+      .slice()
+      .sort((left, right) => {
+        const leftChange = finiteNumber(left.changePercent);
+        const rightChange = finiteNumber(right.changePercent);
+        if (leftChange === null && rightChange === null) {
+          return String(left.ticker).localeCompare(String(right.ticker));
+        }
+        if (leftChange === null) return 1;
+        if (rightChange === null) return -1;
+        return rightChange - leftChange;
+      });
   }
 
   function snapshotComparison(id) {
@@ -532,7 +557,7 @@
   function buildDocumentCopyText() {
     if (!snapshot) throw new Error("Snapshot is not ready");
     const lines = [
-      "每日市场早报｜" + formatDate(snapshot.asOf),
+      "每日市场早报｜" + formatBriefingDate(),
       "",
       "01｜美股",
       "",
@@ -586,9 +611,7 @@
     });
 
     lines.push("", "▍核心个股驱动", "");
-    const drivers = (snapshot.drivers || [])
-      .filter((item) => item?.ticker && item?.reason)
-      .slice(0, 8);
+    const drivers = sortedDrivers().slice(0, 8);
     drivers.forEach((item, index) => {
       lines.push(
         "• " +
@@ -620,7 +643,7 @@
     );
     lines.push(
       "",
-      "02｜宏观资产数据（美股交易时段涨跌）",
+      "02｜宏观资产数据（美股交易时段变化）",
       "",
       "• " + documentAssetLine("美元指数", comparisons.get("DXY"), 3, ""),
       "• " + documentAssetLine("2年期美债收益率", comparisons.get("US02Y"), 3, "%"),
@@ -785,7 +808,7 @@
   function buildXThreadText() {
     if (!snapshot) throw new Error("Snapshot is not ready");
     const blocks = [];
-    const title = "每日市场早报｜" + formatDate(snapshot.asOf);
+    const title = "每日市场早报｜" + formatBriefingDate();
     const indexLines = indexConfig.map(([id, label]) =>
       "• " + label + "：" + formatDocumentPercent(marketMap.get(id)?.changePercent)
     );
@@ -807,8 +830,7 @@
       "\n\n▍细分板块如下"
     );
 
-    const drivers = (snapshot.drivers || [])
-      .filter((item) => item?.ticker)
+    const drivers = sortedDrivers()
       .slice(0, 8)
       .map((item) => "• " + item.name + "（" + item.ticker + "）：" +
         formatDocumentPercent(item.changePercent));
@@ -819,19 +841,36 @@
       return [id, { reference: comparison.previous, current: comparison.anchor }];
     }));
     const fed = snapshot.fedProbability || {};
+    // Keep the entire macro block in one X Post. Eight separate bullet lines are
+    // easily split by the weighted-character limit, which used to leave BTC alone
+    // in the next post. The X-specific presentation is deliberately compact, while
+    // the full "复制正文" version above remains unchanged.
+    const compactXAssetLine = (label, comparison, decimals, suffix) =>
+      directionIcon(comparison.reference, comparison.current) + label + " " +
+      formatNumber(comparison.reference, decimals) +
+      (comparison.reference === null ? "" : suffix) + "→" +
+      formatNumber(comparison.current, decimals) +
+      (comparison.current === null ? "" : suffix);
     const macroLines = [
-      documentAssetLine("美元", comparisons.get("DXY"), 3, ""),
-      documentAssetLine("美债2Y", comparisons.get("US02Y"), 3, "%"),
-      documentAssetLine("美债10Y", comparisons.get("US10Y"), 3, "%"),
-      documentAssetLine("美债30Y", comparisons.get("US30Y"), 3, "%"),
-      directionIcon(fed.previous, fed.current) + " 加息概率：" +
-        formatNumber(fed.previous, 1) + (fed.unit || "") + " → " +
+      compactXAssetLine("美元", comparisons.get("DXY"), 3, ""),
+      compactXAssetLine("美债2Y", comparisons.get("US02Y"), 3, "%"),
+      compactXAssetLine("美债10Y", comparisons.get("US10Y"), 3, "%"),
+      compactXAssetLine("美债30Y", comparisons.get("US30Y"), 3, "%"),
+      directionIcon(fed.previous, fed.current) + "加息概率 " +
+        formatNumber(fed.previous, 1) + (fed.unit || "") + "→" +
         formatNumber(fed.current, 1) + (fed.unit || ""),
-      documentAssetLine("Brent", comparisons.get("BRN1!"), 2, ""),
-      documentAssetLine("黄金", comparisons.get("GOLD"), 2, ""),
-      documentAssetLine("BTC", comparisons.get("BTCUSDT"), 0, ""),
-    ].map((line) => "• " + line);
-    blocks.push("02｜宏观资产数据\n\n" + macroLines.join("\n"));
+      compactXAssetLine("Brent", comparisons.get("BRN1!"), 2, ""),
+      compactXAssetLine("黄金", comparisons.get("GOLD"), 2, ""),
+      compactXAssetLine("BTC", comparisons.get("BTCUSDT"), 0, ""),
+    ];
+    const compactMacroLines = [];
+    for (let index = 0; index < macroLines.length; index += 2) {
+      compactMacroLines.push(macroLines.slice(index, index + 2).join("｜"));
+    }
+    blocks.push(
+      "02｜宏观资产数据（美股交易时段变化）\n\n" +
+        compactMacroLines.join("\n")
+    );
 
     const eventGroups = new Map();
     visibleEvents().forEach((item) => {

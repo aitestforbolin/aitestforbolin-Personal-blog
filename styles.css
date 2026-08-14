@@ -972,11 +972,11 @@ h2 {
 
 .macro-event {
   display: grid;
-  grid-template-columns: 160px minmax(0, 1fr);
-  gap: 34px;
-  align-items: center;
+  grid-template-columns: 176px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
   border-top: 1px solid rgba(117, 108, 97, 0.14);
-  padding: 9px 0;
+  padding: 20px 12px;
 }
 
 .macro-event:first-child {
@@ -985,9 +985,11 @@ h2 {
 
 .macro-date {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   gap: 8px;
   color: var(--text);
+  padding-top: 2px;
 }
 
 .macro-date span {
@@ -1018,9 +1020,15 @@ h2 {
 
 .macro-event-body {
   display: grid;
-  grid-template-columns: 142px minmax(0, 1fr);
-  gap: 20px;
-  align-items: center;
+  grid-template-columns: minmax(220px, 0.72fr) minmax(420px, 1.28fr);
+  gap: clamp(24px, 3vw, 48px);
+  align-items: start;
+  min-width: 0;
+}
+
+.macro-event-summary {
+  display: grid;
+  gap: 10px;
   min-width: 0;
 }
 
@@ -1091,11 +1099,25 @@ h2 {
   text-underline-offset: 2px;
 }
 
+.macro-source-link {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.macro-source-link:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .macro-event-name {
   color: var(--text);
-  font-size: 0.95rem;
-  font-weight: 800;
-  line-height: 1.45;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1.4;
   overflow-wrap: anywhere;
 }
 
@@ -1106,10 +1128,7 @@ h2 {
 }
 
 .macro-event-main {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  justify-content: space-between;
+  display: block;
   min-width: 0;
 }
 
@@ -1151,56 +1170,65 @@ h2 {
 
 .macro-event-results {
   display: grid;
-  grid-template-columns: repeat(2, minmax(150px, 1fr));
-  gap: 6px 10px;
+  gap: 0;
   align-items: start;
-  width: min(100%, 470px);
-  margin-left: auto;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(117, 108, 97, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 253, 248, 0.55);
 }
 
-.macro-metric {
+.macro-metric,
+.macro-metric-table-head {
   display: grid;
-  gap: 2px;
+  gap: 16px;
+  align-items: center;
   min-width: 0;
-  border-left: 2px solid rgba(117, 108, 97, 0.14);
-  padding-left: 8px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(117, 108, 97, 0.12);
+}
+
+.macro-metric-columns-4 {
+  grid-template-columns: minmax(112px, 1fr) repeat(3, minmax(64px, 0.56fr));
+}
+
+.macro-metric-columns-3 {
+  grid-template-columns: minmax(112px, 1fr) repeat(2, minmax(64px, 0.56fr));
+}
+
+.macro-metric:last-child {
+  border-bottom: 0;
+}
+
+.macro-metric-table-head {
+  color: var(--muted);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  background: rgba(242, 234, 223, 0.52);
+}
+
+.macro-metric-table-head span:not(:first-child) {
+  text-align: right;
 }
 
 .macro-metric-label {
   color: var(--muted);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 800;
   line-height: 1.3;
 }
 
-.macro-metric-values {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3px 9px;
-  align-items: center;
-}
-
-.macro-result {
-  display: inline-grid;
-  grid-template-columns: auto auto;
-  gap: 4px;
-  align-items: baseline;
+.macro-metric > strong {
+  color: var(--text);
+  font-size: 0.84rem;
+  font-weight: 800;
+  text-align: right;
   white-space: nowrap;
 }
 
-.macro-result small {
-  color: var(--muted);
-  font-size: 0.72rem;
-  font-weight: 700;
-}
-
-.macro-result strong {
-  color: var(--text);
-  font-size: 0.82rem;
-  font-weight: 800;
-}
-
-.macro-result-actual strong {
+.macro-metric > .macro-result-actual {
   color: var(--accent-dark);
 }
 
@@ -1987,28 +2015,40 @@ h2 {
 
   .macro-event {
     grid-template-columns: 1fr;
-    gap: 6px;
+    gap: 12px;
+    padding: 16px 4px;
   }
 
   .macro-date {
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   .macro-event-body {
     grid-template-columns: 1fr;
-    gap: 6px;
+    gap: 12px;
   }
 
   .macro-event-main {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 8px;
+    width: 100%;
   }
 
   .macro-event-results {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 100%;
     margin-left: 0;
+  }
+
+  .macro-metric,
+  .macro-metric-table-head {
+    gap: 8px;
+    padding: 9px 10px;
+  }
+
+  .macro-metric-columns-4 {
+    grid-template-columns: minmax(92px, 1fr) repeat(3, minmax(48px, 0.52fr));
+  }
+
+  .macro-metric-columns-3 {
+    grid-template-columns: minmax(92px, 1fr) repeat(2, minmax(52px, 0.56fr));
   }
 
   .post-card {

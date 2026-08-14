@@ -10,13 +10,42 @@
     "importance": "critical",
     "stars": 5,
     "source": "BLS",
-    "url": "https://www.bls.gov/schedule/news_release/",
+    "url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
     "fallback_url": "https://fred.stlouisfed.org/release?rid=10",
     "fallback_label": "FRED 备用",
-    "forecast": "CPI 0.1% · 核心CPI 0.2%",
-    "previous": "CPI -0.4% · 核心CPI 0.0%",
-    "result_source": "Forex Factory 市场日历",
-    "result_url": "https://www.forexfactory.com/calendar"
+    "metric_values": [
+      {
+        "label": "CPI同比",
+        "actual": "3.4%",
+        "forecast": "3.4%",
+        "previous": "3.5%"
+      },
+      {
+        "label": "CPI环比",
+        "actual": "0.1%",
+        "forecast": "0.1%",
+        "previous": "-0.4%"
+      },
+      {
+        "label": "核心CPI环比",
+        "actual": "0.2%",
+        "forecast": "0.2%",
+        "previous": "0.0%"
+      },
+      {
+        "label": "核心CPI同比",
+        "actual": "2.5%",
+        "forecast": "2.5%",
+        "previous": "2.6%"
+      }
+    ],
+    "forecast": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
+    "previous": "CPI同比 3.5% · CPI环比 -0.4% · 核心CPI环比 0.0% · 核心CPI同比 2.6%",
+    "result_source": "BLS 2026年7月CPI报告",
+    "result_url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
+    "actual": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
+    "release_status": "released",
+    "released_at": "2026-08-12T08:30:00-04:00"
   },
   {
     "date": "2026-08-13",
@@ -29,13 +58,30 @@
     "importance": "medium",
     "stars": 3,
     "source": "BLS",
-    "url": "https://www.bls.gov/schedule/news_release/",
+    "url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
     "fallback_url": "https://fred.stlouisfed.org/release?rid=46",
     "fallback_label": "FRED 备用",
-    "forecast": "PPI 0.2% · 核心PPI 0.3%",
-    "previous": "PPI -0.3% · 核心PPI 0.2%",
-    "result_source": "Forex Factory 市场日历",
-    "result_url": "https://www.forexfactory.com/calendar"
+    "metric_values": [
+      {
+        "label": "PPI环比",
+        "actual": "0.0%",
+        "forecast": "0.2%",
+        "previous": "-0.3%"
+      },
+      {
+        "label": "核心PPI环比",
+        "actual": "0.4%",
+        "forecast": "0.3%",
+        "previous": "0.2%"
+      }
+    ],
+    "forecast": "PPI环比 0.2% · 核心PPI环比 0.3%",
+    "previous": "PPI环比 -0.3% · 核心PPI环比 0.2%",
+    "result_source": "BLS 2026年7月PPI报告",
+    "result_url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
+    "actual": "PPI环比 0.0% · 核心PPI环比 0.4%",
+    "release_status": "released",
+    "released_at": "2026-08-13T08:30:00-04:00"
   },
   {
     "date": "2026-08-14",
@@ -51,6 +97,20 @@
     "url": "https://www.census.gov/economic-indicators/",
     "fallback_url": "https://fred.stlouisfed.org/release?rid=9",
     "fallback_label": "FRED 备用",
+    "metric_values": [
+      {
+        "label": "零售",
+        "actual": null,
+        "forecast": "0.1%",
+        "previous": "0.2%"
+      },
+      {
+        "label": "核心零售",
+        "actual": null,
+        "forecast": "0.2%",
+        "previous": "-0.2%"
+      }
+    ],
     "forecast": "零售 0.1% · 核心零售 0.2%",
     "previous": "零售 0.2% · 核心零售 -0.2%",
     "result_source": "Forex Factory 市场日历",
@@ -165,5 +225,33 @@
     "stars": 3,
     "source": "ISM",
     "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/"
+  },
+  {
+    "date": "2026-09-17",
+    "time_et": "14:00",
+    "time_shanghai": "02:00",
+    "title": "FOMC Policy Decision",
+    "title_cn": "FOMC 利率决议 / 点阵图",
+    "period": "September 2026 meeting",
+    "category": "fed",
+    "importance": "critical",
+    "stars": 5,
+    "source": "Federal Reserve",
+    "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+    "date_et": "2026-09-16"
+  },
+  {
+    "date": "2026-09-17",
+    "time_et": "14:30",
+    "time_shanghai": "02:30",
+    "title": "FOMC Chair Press Conference",
+    "title_cn": "FOMC 主席发布会",
+    "period": "September 2026 meeting",
+    "category": "fed",
+    "importance": "critical",
+    "stars": 5,
+    "source": "Federal Reserve",
+    "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+    "date_et": "2026-09-16"
   }
 ]

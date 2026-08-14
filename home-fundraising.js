@@ -70,8 +70,8 @@
       return response.json();
     })
     .then((data) => {
-      const projects = Array.isArray(data.projects) ? data.projects.slice(0, 3) : [];
-      if (projects.length !== 3 || projects.some((project) => !project.name)) throw new Error("Invalid fundraising data");
+      const projects = Array.isArray(data.projects) ? data.projects.slice(0, 5) : [];
+      if (projects.length !== 5 || projects.some((project) => !project.name)) throw new Error("Invalid fundraising data");
       updated.textContent = formatUpdated(data.updated_at);
       render(projects);
     })

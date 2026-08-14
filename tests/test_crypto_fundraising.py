@@ -43,6 +43,16 @@ FIXTURE = """
       <div class="hpt-col3">Seed</div><div class="hpt-col3">Jul 2026</div>
       <div class="hpt-col4"><span class="abbrusd">1,500,000</span></div>
     </div>
+    <div class="hp-table-row hpt-data" data-projectid="104;" data-eid="204">
+      <div class="hpt-col2"><a class="t-project-link" href="/projects/delta"><h5 class="cointitle">Delta</h5></a></div>
+      <div class="hpt-col3">Strategic</div><div class="hpt-col3">Jul 2026</div>
+      <div class="hpt-col4"><span class="abbrusd">2000000</span></div>
+    </div>
+    <div class="hp-table-row hpt-data" data-projectid="105;" data-eid="205">
+      <div class="hpt-col2"><a class="t-project-link" href="/projects/epsilon"><h5 class="cointitle">Epsilon</h5></a></div>
+      <div class="hpt-col3">Pre-Seed</div><div class="hpt-col3">Jun 2026</div>
+      <div class="hpt-col4"><span class="abbrusd">500000</span></div>
+    </div>
   </section>
   <section class="largest-rounds">
     <h2>Last 30 days biggest fundraising rounds</h2>
@@ -57,9 +67,12 @@ FIXTURE = """
 
 
 class CryptoFundraisingTests(unittest.TestCase):
-    def test_extracts_only_first_three_recent_events(self):
+    def test_extracts_only_first_five_recent_events(self):
         projects = updater.parse_recent_events(FIXTURE)
-        self.assertEqual([item["name"] for item in projects], ["Alpha Protocol", "Beta", "Gamma"])
+        self.assertEqual(
+            [item["name"] for item in projects],
+            ["Alpha Protocol", "Beta", "Gamma", "Delta", "Epsilon"],
+        )
         self.assertEqual(projects[0]["round"], "Series A")
         self.assertEqual(projects[0]["announced_month"], "2026-08")
         self.assertEqual(projects[0]["amount_usd"], 40_000_000)
@@ -92,14 +105,14 @@ class CryptoFundraisingTests(unittest.TestCase):
         with self.assertRaises(updater.SourceStructureError):
             updater.parse_recent_events(html)
 
-    def test_published_data_and_frontend_keep_three_item_contract(self):
+    def test_published_data_and_frontend_keep_five_item_contract(self):
         payload = json.loads(
             (ROOT / "data" / "crypto-fundraising.json").read_text(encoding="utf-8")
         )
-        self.assertEqual(len(payload["projects"]), 3)
+        self.assertEqual(len(payload["projects"]), 5)
         self.assertEqual(
             [project["source_rank"] for project in payload["projects"]],
-            [1, 2, 3],
+            [1, 2, 3, 4, 5],
         )
         page = (ROOT / "fundraising" / "index.html").read_text(encoding="utf-8")
         frontend = (ROOT / "fundraising" / "fundraising.js").read_text(
@@ -111,13 +124,27 @@ class CryptoFundraisingTests(unittest.TestCase):
         self.assertIn('href="fundraising/">融资追踪</a>', homepage)
 
     def test_marks_only_new_project_ids(self):
-        previous_payload = {"projects": [{"id": "crypto-fundraising-201"}, {"id": "crypto-fundraising-202"}, {"id": "crypto-fundraising-203"}]}
+        previous_payload = {
+            "projects": [
+                {"id": "crypto-fundraising-201"},
+                {"id": "crypto-fundraising-202"},
+                {"id": "crypto-fundraising-203"},
+                {"id": "crypto-fundraising-204"},
+                {"id": "crypto-fundraising-205"},
+            ]
+        }
         payload = updater.build_payload(FIXTURE, previous_payload)
-        self.assertEqual([project["is_new"] for project in payload["projects"]], [False, False, False])
+        self.assertEqual(
+            [project["is_new"] for project in payload["projects"]],
+            [False, False, False, False, False],
+        )
 
         newer_fixture = FIXTURE.replace('data-eid="201"', 'data-eid="999"')
         payload = updater.build_payload(newer_fixture, previous_payload)
-        self.assertEqual([project["is_new"] for project in payload["projects"]], [True, False, False])
+        self.assertEqual(
+            [project["is_new"] for project in payload["projects"]],
+            [True, False, False, False, False],
+        )
 
 if __name__ == "__main__":
     unittest.main()

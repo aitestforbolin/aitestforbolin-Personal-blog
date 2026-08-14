@@ -31,9 +31,30 @@ merger = load_module(
 
 class MacroCalendarMergeTests(unittest.TestCase):
     def test_policy_events_keep_confirmed_date_without_inventing_meeting_time(self):
-        policy = json.loads(
-            (ROOT / "data" / "china-policy-events.json").read_text(encoding="utf-8")
-        )
+        policy = {
+            "sourcePolicy": "official_only",
+            "events": [{
+                "id": "cn-policy-test-confirmed-date",
+                "eventType": "policy_event",
+                "country": "CN",
+                "period": None,
+                "scheduledAt": None,
+                "eventDate": "2026-10-01",
+                "dateStatus": "confirmed_date",
+                "title": "测试政策会议",
+                "category": "policy",
+                "importance": "high",
+                "source": "新华社",
+                "sourceUrl": "https://www.news.cn/test-policy",
+                "metrics": [],
+                "releasedAt": None,
+                "retrievedAt": "2026-08-12T00:00:00Z",
+                "revisionStatus": "not_revised",
+                "releaseStatus": "scheduled",
+                "summary": "测试用已确认日期的政策会议。",
+                "scheduleNote": "已确认召开日期，未公开具体召开时刻。",
+            }],
+        }
         merger.validate_policy_payload(policy)
         china = {
             "status": "healthy",
@@ -61,10 +82,10 @@ class MacroCalendarMergeTests(unittest.TestCase):
         meeting = next(
             event
             for event in payload["events"]
-            if event["id"] == "cn-policy-politburo-economy-2026-07-30"
+            if event["id"] == "cn-policy-test-confirmed-date"
         )
         self.assertEqual(meeting["eventType"], "policy_event")
-        self.assertEqual(meeting["eventDate"], "2026-07-30")
+        self.assertEqual(meeting["eventDate"], "2026-10-01")
         self.assertIsNone(meeting["scheduledAt"])
         self.assertIn("未公开具体召开时刻", meeting["scheduleNote"])
 
@@ -96,6 +117,23 @@ class MacroCalendarMergeTests(unittest.TestCase):
         self.assertEqual(event["title"], "美国CPI / 核心CPI")
         self.assertEqual(event["legacy"], legacy)
         self.assertEqual(event["metrics"][0]["forecast"], "0.2%")
+
+    def test_structured_us_metrics_keep_each_indicator_in_its_own_row(self):
+        event = merger.normalize_us_event(
+            {
+                "date": "2026-08-12",
+                "time_shanghai": "20:30",
+                "title_cn": "美国CPI / 核心CPI",
+                "source": "BLS",
+                "url": "https://www.bls.gov/",
+                "metric_values": [
+                    {"label": "CPI同比", "actual": "3.4%", "forecast": "3.4%", "previous": "3.5%"},
+                    {"label": "核心CPI同比", "actual": "2.5%", "forecast": "2.5%", "previous": "2.6%"},
+                ],
+            }
+        )
+        self.assertEqual([metric["label"] for metric in event["metrics"]], ["CPI同比", "核心CPI同比"])
+        self.assertEqual(event["metrics"][0]["actual"], "3.4%")
 
     def test_unified_merge_keeps_one_event_for_multi_metric_china_release(self):
         china = {

@@ -1,10 +1,10 @@
 (function () {
-  const DATA_URL = "data/macro-calendar.json";
+  const DATA_URL = "data/macro-calendar.json?v=20260814-cpi-ppi-1";
   const MODEL = window.MacroCalendarModel;
   const HORIZON_DAYS = 7;
   const RELEASE_LOOKBACK_HOURS = 48;
   const RELEASE_LOOKBACK_DAYS = 2;
-  const POLICY_LOOKBACK_DAYS = 30;
+  const POLICY_LOOKBACK_DAYS = RELEASE_LOOKBACK_DAYS;
   const UPCOMING_DAYS = 3;
   const CATEGORY_LABELS = {
     inflation: "通胀",
@@ -245,59 +245,70 @@
     return `${text}${unit}`;
   }
 
+  function splitCompositeMetric(value) {
+    if (typeof value !== "string" || !value.includes(" · ")) {
+      return null;
+    }
+    const entries = value.split(" · ").map((part) => {
+      const match = part.trim().match(/^(.+?)\s+([-+−]?\d[\d,.]*%?|—)$/u);
+      return match ? [match[1].trim(), match[2].trim()] : null;
+    });
+    return entries.every(Boolean) ? new Map(entries) : null;
+  }
+
+  function displayMetrics(event) {
+    const metrics = Array.isArray(event.metrics) ? event.metrics : [];
+    if (metrics.length !== 1 || (metrics[0].label || "综合值") !== "综合值") {
+      return metrics;
+    }
+    const metric = metrics[0];
+    const parts = {
+      actual: splitCompositeMetric(metric.actual),
+      forecast: splitCompositeMetric(metric.forecast),
+      previous: splitCompositeMetric(metric.previous),
+    };
+    const labels = [...new Set(Object.values(parts).flatMap((values) =>
+      values ? [...values.keys()] : []
+    ))];
+    if (labels.length < 2) {
+      return metrics;
+    }
+    return labels.map((label) => ({
+      label,
+      actual: parts.actual?.get(label) || null,
+      forecast: parts.forecast?.get(label) || null,
+      previous: parts.previous?.get(label) || null,
+      unit: "",
+    }));
+  }
+
   function renderMetrics(event) {
-    if (!Array.isArray(event.metrics) || !event.metrics.length) {
+    const displayRows = displayMetrics(event);
+    if (!displayRows.length) {
       return "";
     }
-    const metrics = event.metrics
+    const showForecast = event.country !== "CN" && displayRows.some(
+      (metric) => metric.forecast !== null && metric.forecast !== undefined && metric.forecast !== ""
+    );
+    const columnClass = showForecast ? "macro-metric-columns-4" : "macro-metric-columns-3";
+    const metricHeader = `<div class="macro-metric-table-head ${columnClass}"><span>指标</span><span>实际</span>${showForecast ? "<span>预期</span>" : ""}<span>前值</span></div>`;
+    const metrics = displayRows
       .map((metric) => {
-        const values = [];
-        if (metric.actual !== null && metric.actual !== undefined && metric.actual !== "") {
-          values.push(
-            `<span class="macro-result macro-result-actual"><small>实际</small><strong>${escapeHtml(
-              formatMetricValue(metric.actual, metric.unit)
-            )}</strong></span>`
-          );
-        }
-        if (
-          event.country !== "CN" &&
-          metric.forecast !== null &&
-          metric.forecast !== undefined &&
-          metric.forecast !== ""
-        ) {
-          values.push(
-            `<span class="macro-result macro-result-forecast"><small>预期</small><strong>${escapeHtml(
-              formatMetricValue(metric.forecast, metric.unit)
-            )}</strong></span>`
-          );
-        }
-        if (
-          metric.previous !== null &&
-          metric.previous !== undefined &&
-          metric.previous !== ""
-        ) {
-          values.push(
-            `<span class="macro-result macro-result-previous"><small>前值</small><strong>${escapeHtml(
-              formatMetricValue(metric.previous, metric.unit)
-            )}</strong></span>`
-          );
-        }
-        if (!values.length) {
+        if (![metric.actual, metric.forecast, metric.previous].some(
+          (value) => value !== null && value !== undefined && value !== ""
+        )) {
           return "";
         }
-        const label =
-          event.country === "US" && event.metrics.length === 1
-            ? ""
-            : `<span class="macro-metric-label">${escapeHtml(metric.label)}</span>`;
-        return `<div class="macro-metric">${label}<div class="macro-metric-values">${values.join(
-          ""
-        )}</div></div>`;
+        const value = (value, className) => `<strong class="${className}">${escapeHtml(
+          value === null || value === undefined || value === "" ? "—" : formatMetricValue(value, metric.unit)
+        )}</strong>`;
+        return `<div class="macro-metric ${columnClass}"><span class="macro-metric-label">${escapeHtml(metric.label || "综合值")}</span>${value(metric.actual, "macro-result-actual")}${showForecast ? value(metric.forecast, "macro-result-forecast") : ""}${value(metric.previous, "macro-result-previous")}</div>`;
       })
       .filter(Boolean);
     if (!metrics.length) {
       return "";
     }
-    return `<div class="macro-event-results" aria-label="数据公布结果">${metrics.join(
+    return `<div class="macro-event-results" aria-label="数据公布结果">${metricHeader}${metrics.join(
       ""
     )}</div>`;
   }
@@ -432,7 +443,7 @@
     }
     status.textContent = events.length
       ? ""
-      : `最近 ${RELEASE_LOOKBACK_HOURS} 小时已公布的数据、最近 ${POLICY_LOOKBACK_DAYS} 天的政策事件及未来 ${HORIZON_DAYS} 天暂无重点事项。`;
+      : `最近 ${RELEASE_LOOKBACK_HOURS} 小时已公布的数据、最近 ${POLICY_LOOKBACK_DAYS} 天已举行的政策事件及未来 ${HORIZON_DAYS} 天暂无重点事项。`;
     status.dataset.state = events.length ? "ready" : "empty";
   }
 
@@ -454,6 +465,28 @@
     return `<div class="macro-policy-details">${summary}${scheduleNote}${outcomeLink}</div>`;
   }
 
+  function directOfficialReportUrl(event) {
+    const scheduledDay = event.scheduledAt && event.scheduledAt.slice(0, 10);
+    const isReleased =
+      event.releaseStatus === "released" ||
+      (scheduledDay && scheduledDay < todayShanghai());
+    if (!isReleased) return null;
+
+    const blsArchives = {
+      "美国CPI / 核心CPI": "cpi",
+      "美国PPI": "ppi",
+      "美国就业报告": "empsit",
+    };
+    const archive = blsArchives[event.title];
+    if (archive && scheduledDay) {
+      return `https://www.bls.gov/news.release/archives/${archive}_${scheduledDay.replaceAll("-", "")}.htm`;
+    }
+    if (event.title === "美国零售销售") {
+      return "https://www.census.gov/retail/sales.html";
+    }
+    return null;
+  }
+
   function renderCalendarItem(event) {
     const item = document.createElement("article");
     const eventType = event.eventType || "data";
@@ -464,6 +497,11 @@
     ).toLowerCase()}`;
     const date = eventDatePresentation(event);
     const sourceUrl = event.sourceUrl || "#";
+    const reportUrl = directOfficialReportUrl(event);
+    const primaryUrl = reportUrl || sourceUrl;
+    const sourceLabel = reportUrl
+      ? `${event.source || "官方"} 报告 ↗`
+      : `${event.source || "官方"} 日程 ↗`;
     const fallbackLink = event.fallbackSourceUrl
       ? `<a class="macro-fallback-link" href="${escapeHtml(
           event.fallbackSourceUrl
@@ -484,21 +522,23 @@
         ${eventStatusBadge(event)}
       </div>
       <div class="macro-event-body">
-        <div class="macro-event-meta">
-          <span class="macro-country-badge macro-country-badge-${String(
-            event.country || ""
-          ).toLowerCase()}">${escapeHtml(COUNTRY_LABELS[event.country] || event.country)}</span>
-          <span class="macro-category">${escapeHtml(
-            CATEGORY_LABELS[event.category] || (eventType === "policy_event" ? "政策事件" : "宏观")
-          )}</span>
-          ${renderImportanceStars(event)}
-          ${event.source ? `<span class="macro-source">${escapeHtml(event.source)}</span>` : ""}
-          ${fallbackLink}
+        <div class="macro-event-summary">
+          <a class="macro-event-name" href="${escapeHtml(
+            primaryUrl
+          )}" target="_blank" rel="noreferrer">${escapeHtml(title)}</a>
+          <div class="macro-event-meta">
+            <span class="macro-country-badge macro-country-badge-${String(
+              event.country || ""
+            ).toLowerCase()}">${escapeHtml(COUNTRY_LABELS[event.country] || event.country)}</span>
+            <span class="macro-category">${escapeHtml(
+              CATEGORY_LABELS[event.category] || (eventType === "policy_event" ? "政策事件" : "宏观")
+            )}</span>
+            ${renderImportanceStars(event)}
+            ${event.source ? `<a class="macro-source-link" href="${escapeHtml(primaryUrl)}" target="_blank" rel="noreferrer">${escapeHtml(sourceLabel)}</a>` : ""}
+            ${fallbackLink}
+          </div>
         </div>
         <div class="macro-event-main">
-          <a class="macro-event-name" href="${escapeHtml(
-            sourceUrl
-          )}" target="_blank" rel="noreferrer">${escapeHtml(title)}</a>
           ${content}
         </div>
       </div>
