@@ -13,6 +13,12 @@
     "url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
     "fallback_url": "https://fred.stlouisfed.org/release?rid=46",
     "fallback_label": "FRED 备用",
+    "actual": "PPI环比 0.0% · 核心PPI环比 0.4%",
+    "forecast": "PPI环比 0.2% · 核心PPI环比 0.3%",
+    "previous": "PPI环比 -0.3% · 核心PPI环比 0.2%",
+    "result_source": "BLS 2026年7月PPI报告",
+    "result_url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
+    "release_status": "released",
     "metric_values": [
       {
         "label": "PPI环比",
@@ -27,12 +33,6 @@
         "previous": "0.2%"
       }
     ],
-    "forecast": "PPI环比 0.2% · 核心PPI环比 0.3%",
-    "previous": "PPI环比 -0.3% · 核心PPI环比 0.2%",
-    "result_source": "BLS 2026年7月PPI报告",
-    "result_url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
-    "actual": "PPI环比 0.0% · 核心PPI环比 0.4%",
-    "release_status": "released",
     "released_at": "2026-08-13T08:30:00-04:00"
   },
   {
@@ -49,20 +49,6 @@
     "url": "https://www.census.gov/economic-indicators/",
     "fallback_url": "https://fred.stlouisfed.org/release?rid=9",
     "fallback_label": "FRED 备用",
-    "metric_values": [
-      {
-        "label": "零售",
-        "actual": null,
-        "forecast": "0.1%",
-        "previous": "0.2%"
-      },
-      {
-        "label": "核心零售",
-        "actual": null,
-        "forecast": "0.2%",
-        "previous": "-0.2%"
-      }
-    ],
     "forecast": "零售 0.1% · 核心零售 0.2%",
     "previous": "零售 0.2% · 核心零售 -0.2%",
     "result_source": "Forex Factory 市场日历",
@@ -94,7 +80,18 @@
     "stars": 3,
     "source": "S&P Global",
     "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
-    "previous": "53.8"
+    "metric_values": [
+      {
+        "label": "综合值",
+        "actual": null,
+        "forecast": "54.0",
+        "previous": "53.8"
+      }
+    ],
+    "forecast": "54.0",
+    "previous": "53.8",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar"
   },
   {
     "date": "2026-08-21",
@@ -108,7 +105,18 @@
     "stars": 3,
     "source": "S&P Global",
     "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
-    "previous": "53.6"
+    "metric_values": [
+      {
+        "label": "综合值",
+        "actual": null,
+        "forecast": "53.9",
+        "previous": "53.6"
+      }
+    ],
+    "forecast": "53.9",
+    "previous": "53.6",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar"
   },
   {
     "date": "2026-08-26",
