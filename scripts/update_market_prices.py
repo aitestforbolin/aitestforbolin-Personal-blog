@@ -2,6 +2,7 @@
 import datetime as dt
 import json
 import pathlib
+import statistics
 import urllib.parse
 import urllib.request
 
@@ -9,13 +10,26 @@ import urllib.request
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "data" / "market-prices.json"
 YAHOO_ENDPOINT = "https://query1.finance.yahoo.com/v8/finance/chart/{symbol}"
+SWISSQUOTE_XAUUSD_ENDPOINT = (
+    "https://forex-data-feed.swissquote.com/"
+    "public-quotes/bboquotes/instrument/XAU/USD"
+)
+HISTORY_RETENTION = dt.timedelta(days=31)
 SYMBOLS = [
     ("BTC-USD", "BTCUSD"),
-    ("GC=F", "XAUUSD"),
     ("SPY", "SPY.US"),
     ("QQQ", "QQQ.US"),
     ("DIA", "DIA.US"),
 ]
+
+
+def fetch_json(url):
+    request = urllib.request.Request(
+        url,
+        headers={"User-Agent": "Mozilla/5.0 personal-site-market-prices"},
+    )
+    with urllib.request.urlopen(request, timeout=20) as response:
+        return json.loads(response.read().decode("utf-8"))
 
 
 def fetch_chart(symbol):
@@ -25,15 +39,88 @@ def fetch_chart(symbol):
             "interval": "5m",
         }
     )
-    request = urllib.request.Request(
-        f"{YAHOO_ENDPOINT.format(symbol=urllib.parse.quote(symbol))}?{query}",
-        headers={
-            "User-Agent": "Mozilla/5.0 personal-site-market-prices",
-        },
+    return fetch_json(
+        f"{YAHOO_ENDPOINT.format(symbol=urllib.parse.quote(symbol))}?{query}"
     )
 
-    with urllib.request.urlopen(request, timeout=20) as response:
-        return json.loads(response.read().decode("utf-8"))
+
+def load_previous_xau_points():
+    try:
+        payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return []
+    for row in payload.get("symbols", []):
+        if row.get("symbol") != "XAUUSD" or row.get("sourceSymbol") != "XAU/USD":
+            continue
+        return [
+            point
+            for point in row.get("points", [])
+            if isinstance(point.get("timestamp"), int)
+            and isinstance(point.get("value"), (int, float))
+        ]
+    return []
+
+
+def normalize_xauusd():
+    payload = fetch_json(SWISSQUOTE_XAUUSD_ENDPOINT)
+    quotes = []
+    timestamps = []
+    for venue in payload if isinstance(payload, list) else []:
+        timestamp = venue.get("ts")
+        prices = venue.get("spreadProfilePrices") or []
+        prime = next(
+            (item for item in prices if item.get("spreadProfile") == "prime"),
+            prices[0] if prices else None,
+        )
+        if not prime:
+            continue
+        bid = prime.get("bid")
+        ask = prime.get("ask")
+        if not isinstance(bid, (int, float)) or not isinstance(ask, (int, float)):
+            continue
+        quotes.append((float(bid) + float(ask)) / 2)
+        if isinstance(timestamp, (int, float)):
+            timestamps.append(int(timestamp))
+    if not quotes or not timestamps:
+        raise ValueError("Swissquote XAU/USD quote unavailable")
+
+    timestamp_ms = max(timestamps)
+    price = round(statistics.median(quotes), 3)
+    moment = dt.datetime.fromtimestamp(timestamp_ms / 1000, tz=dt.timezone.utc)
+    cutoff = int((moment - HISTORY_RETENTION).timestamp())
+    points_by_timestamp = {
+        int(point["timestamp"]): point
+        for point in load_previous_xau_points()
+        if int(point["timestamp"]) >= cutoff
+    }
+    timestamp_seconds = timestamp_ms // 1000
+    points_by_timestamp[timestamp_seconds] = {
+        "time": moment.strftime("%H:%M"),
+        "timestamp": timestamp_seconds,
+        "value": price,
+    }
+    points = [points_by_timestamp[key] for key in sorted(points_by_timestamp)]
+    today_points = [
+        point["value"]
+        for point in points
+        if dt.datetime.fromtimestamp(point["timestamp"], tz=dt.timezone.utc).date()
+        == moment.date()
+    ]
+    previous = points[-2]["value"] if len(points) >= 2 else price
+    return {
+        "symbol": "XAUUSD",
+        "date": moment.strftime("%Y-%m-%d"),
+        "time": moment.strftime("%H:%M UTC"),
+        "open": today_points[0] if today_points else price,
+        "high": max(today_points, default=price),
+        "low": min(today_points, default=price),
+        "close": price,
+        "previousClose": previous,
+        "volume": "N/D",
+        "source": "Swissquote",
+        "sourceSymbol": "XAU/USD",
+        "points": points,
+    }
 
 
 def normalize_chart(yahoo_symbol, site_symbol):
@@ -101,6 +188,7 @@ def normalize_chart(yahoo_symbol, site_symbol):
 
 def main():
     rows = [normalize_chart(yahoo_symbol, site_symbol) for yahoo_symbol, site_symbol in SYMBOLS]
+    rows.insert(1, normalize_xauusd())
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(
         json.dumps(

@@ -84,15 +84,15 @@
     },
     {
       id: "GOLD",
-      name: "COMEX 黄金期货",
-      code: "GOLD",
+      name: "现货黄金",
+      code: "XAU/USD",
       group: "商品与加密",
-      session: "COMEX 黄金期货交易时段",
+      session: "全球现货黄金交易时段",
       unit: "price",
       decimals: 2,
-      tradingView: "COMEX:GC1!",
-      fallbackSymbol: "COMEX:GC1!",
-      fallbackLabel: "GC 连续合约",
+      tradingView: "OANDA:XAUUSD",
+      fallbackSymbol: "OANDA:XAUUSD",
+      fallbackLabel: "XAU/USD",
     },
     {
       id: "BRN1!",
@@ -751,7 +751,9 @@
     if (data && Array.isArray(data.points) && data.points.length >= 2) {
       renderLineChart(data, market, change);
       sourceElement.textContent =
-        data.contractLabel
+        data.source === "Swissquote"
+          ? "Swissquote · XAU/USD 现货中间价 · 价格可能延迟 · 仅供研究参考"
+          : data.contractLabel
           ? `Yahoo Finance · ${data.contractLabel} · 单一合约连续取值 · 避免换月断层`
           : data.source === "U.S. Treasury"
             ? `美国财政部 · ${market.name}官方收益率日线 · 仅供研究参考`
