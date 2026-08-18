@@ -31,7 +31,7 @@
   ];
   const macroConfig = [
     ["BRN1!", "Brent期货", 2, "", "Yahoo Finance · BZ=F"],
-    ["GOLD", "COMEX黄金期货", 2, "", "Yahoo Finance · GC=F"],
+    ["GOLD", "XAU/USD", 2, "", "Swissquote · XAU/USD"],
     ["BTCUSDT", "BTC", 0, "", "Yahoo Finance · BTC-USD"],
     ["DXY", "美元指数", 3, "", "Yahoo Finance · DX-Y.NYB"],
     ["US02Y", "2年期美债收益率", 3, "%", "美国财政部 · 2-Year Par Yield"],
@@ -270,6 +270,7 @@
   function trustedMacroSource(id, item) {
     if (!item) return false;
     if (treasuryIds.has(id)) return item.source === "U.S. Treasury";
+    if (id === "GOLD") return item.source === "Swissquote";
     if (closeAnchorIds.has(id)) return item.source === "Yahoo Finance";
     return true;
   }
@@ -472,7 +473,12 @@
       };
     }
 
-    const stored = snapshotAnchor(id);
+    const storedCandidate = snapshotAnchor(id);
+    const stored =
+      id === "GOLD" &&
+      (storedCandidate?.provider !== "Swissquote" || storedCandidate?.symbol !== "XAU/USD")
+        ? null
+        : storedCandidate;
     const history = historyCloseAnchors(id);
     const anchors = history || stored || {};
     const storedLatestTime = finiteNumber(stored?.latestTime);
@@ -662,7 +668,7 @@
         formatNumber(fed.current, 1) +
         (finiteNumber(fed.current) === null ? "" : fed.unit || ""),
       "• " + documentAssetLine("原油", comparisons.get("BRN1!"), 2, ""),
-      "• " + documentAssetLine("COMEX黄金期货", comparisons.get("GOLD"), 2, ""),
+      "• " + documentAssetLine("XAU/USD", comparisons.get("GOLD"), 2, ""),
       "• " + documentAssetLine("BTC", comparisons.get("BTCUSDT"), 0, "")
     );
 
@@ -860,7 +866,7 @@
         formatNumber(fed.previous, 1) + (fed.unit || "") + "→" +
         formatNumber(fed.current, 1) + (fed.unit || ""),
       compactXAssetLine("Brent", comparisons.get("BRN1!"), 2, ""),
-      compactXAssetLine("黄金", comparisons.get("GOLD"), 2, ""),
+      compactXAssetLine("XAU/USD", comparisons.get("GOLD"), 2, ""),
       compactXAssetLine("BTC", comparisons.get("BTCUSDT"), 0, ""),
     ];
     const compactMacroLines = [];
