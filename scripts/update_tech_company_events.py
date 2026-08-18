@@ -740,8 +740,8 @@ def validate_event_payload(payload: Dict[str, Any], config: Dict[str, Any]) -> L
     companies = config.get("companies", [])
     expected_ids = {company["id"] for company in companies}
     payload_ids = {company.get("id") for company in payload.get("companies", [])}
-    if len(companies) != 15 or payload_ids != expected_ids:
-        errors.append("company universe must contain the configured 15 companies")
+    if payload_ids != expected_ids:
+        errors.append("company universe must contain every configured company")
 
     allowed_domains = all_allowed_domains(config)
     seen_ids = set()
