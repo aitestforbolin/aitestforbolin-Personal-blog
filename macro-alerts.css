@@ -89,12 +89,12 @@
   color: #235e49;
 }
 
-/* 宏观数据区只作为日历使用：不显示实际值、预期值、前值等公布结果。 */
-.macro-event-type-data .macro-event-main {
+/* 宏观日历只负责日期与事件：结果值和政策详情继续保留在数据层，但不在日历界面展示。 */
+.macro-event-main {
   display: none;
 }
 
-.macro-event-type-data .macro-event-body {
+.macro-event-body {
   grid-template-columns: minmax(0, 1fr);
 }
 
