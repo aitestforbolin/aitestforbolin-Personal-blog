@@ -44,6 +44,13 @@ jobs:
         run: |
           python scripts/update_china_macro_calendar.py \
             --status-file /tmp/china-macro-status.json
+
+      - name: Repair source health and official fallbacks
+        id: repair
+        shell: bash
+        run: |
+          python scripts/repair_china_macro_sources.py \
+            --status-file /tmp/china-macro-status.json
           status=$(python -c 'import json; print(json.load(open("/tmp/china-macro-status.json", encoding="utf-8"))["status"])')
           echo "status=$status" >> "$GITHUB_OUTPUT"
           if [ "$status" = "partial" ]; then
@@ -73,7 +80,7 @@ jobs:
         shell: bash
         run: |
           if git diff --quiet -- data/china-macro-calendar.json data/macro-calendar.json; then
-            echo "China and unified macro calendars are already up to date (refresh: ${{ steps.refresh.outputs.status }})."
+            echo "China and unified macro calendars are already up to date (refresh: ${{ steps.repair.outputs.status }})."
             exit 0
           fi
 
