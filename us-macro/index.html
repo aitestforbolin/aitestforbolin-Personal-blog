@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>美国宏观核心数据 | Bolin Brief</title>
+    <meta
+      name="description"
+      content="用15项核心指标记录美国通胀、就业、消费与经济活动的当前状态。"
+    />
+    <link rel="stylesheet" href="../styles.css?v=20260819-us-macro-1" />
+    <link rel="stylesheet" href="us-macro.css?v=20260819-3" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../" aria-label="回到首页">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span class="brand-copy">
+          <strong>Bolin Brief</strong>
+          <small>Daily Intelligence</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="../daily-market-status/">每日市场早报</a>
+        <a href="./" aria-current="page">美国宏观</a>
+        <a href="../#macro-calendar">宏观日历</a>
+        <a href="../#tech-events">财报与公司事件</a>
+        <a href="../fundraising/">融资追踪</a>
+      </nav>
+    </header>
+
+    <main class="us-macro-page" data-us-macro-page>
+      <header class="us-macro-hero">
+        <div>
+          <p class="eyebrow">US Macro Core Dashboard</p>
+          <h1>美国宏观核心数据</h1>
+          <p class="us-macro-intro">
+            这里不追求实时，而是长期保留每项指标的最新一期。每次打开，先看四个状态，再查看具体数据。
+          </p>
+        </div>
+        <div class="us-macro-asof">
+          <span>数据截至</span>
+          <strong data-us-macro-updated>读取中…</strong>
+        </div>
+      </header>
+
+      <section class="us-macro-summary-panel" aria-labelledby="macro-state-title">
+        <div class="us-macro-section-head">
+          <span>00</span>
+          <div>
+            <p class="eyebrow">Current State</p>
+            <h2 id="macro-state-title">现在的美国经济</h2>
+          </div>
+        </div>
+        <div class="us-macro-summary-grid" data-us-macro-summary aria-live="polite"></div>
+      </section>
+
+      <div data-us-macro-groups></div>
+
+      <footer class="us-macro-method">
+        <strong>阅读方法</strong>
+        <p>
+          Actual与Consensus解释数据公布当日的意外程度，Actual与Previous观察方向；趋势结论优先参考最近数期，不因单月波动轻易改变。
+        </p>
+        <p data-us-macro-quality></p>
+      </footer>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Bolin Brief · Independent notes from Asia / Shanghai.</p>
+    </footer>
+    <script src="us-macro.js?v=20260819-3"></script>
+  </body>
+</html>

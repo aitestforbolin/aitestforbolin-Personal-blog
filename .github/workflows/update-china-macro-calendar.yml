@@ -2,8 +2,12 @@ name: Update China and unified macro calendar
 
 on:
   schedule:
-    # 10:15 and 18:15 Asia/Shanghai every day.
-    - cron: "15 2,10 * * *"
+    # China official releases cluster around 09:30-10:00 Asia/Shanghai.
+    # Run shortly after the common release times, retry once, then keep the
+    # existing evening refresh for delayed/irregular publications.
+    - cron: "35 1 * * *"   # 09:35 Asia/Shanghai
+    - cron: "5,20 2 * * *" # 10:05 and 10:20 Asia/Shanghai
+    - cron: "15 10 * * *"  # 18:15 Asia/Shanghai
   workflow_dispatch:
 
 permissions:
@@ -40,6 +44,13 @@ jobs:
         run: |
           python scripts/update_china_macro_calendar.py \
             --status-file /tmp/china-macro-status.json
+
+      - name: Repair source health and official fallbacks
+        id: repair
+        shell: bash
+        run: |
+          python scripts/repair_china_macro_sources.py \
+            --status-file /tmp/china-macro-status.json
           status=$(python -c 'import json; print(json.load(open("/tmp/china-macro-status.json", encoding="utf-8"))["status"])')
           echo "status=$status" >> "$GITHUB_OUTPUT"
           if [ "$status" = "partial" ]; then
@@ -47,6 +58,9 @@ jobs:
           elif [ "$status" = "stale" ]; then
             echo "::warning::China macro refresh is stale; all previous valid data was preserved and no empty output was written."
           fi
+
+      - name: Backfill newly due NBS releases
+        run: python scripts/enforce_macro_release_window.py backfill-china
 
       - name: Build unified China-US calendar
         run: python scripts/merge_macro_calendars.py
@@ -59,11 +73,14 @@ jobs:
           python -m unittest discover -s tests -p 'test_macro_calendar_merge.py' -v
           node --test tests/test_macro_calendar_frontend.mjs
 
+      - name: Enforce 48-hour released-data window
+        run: python scripts/enforce_macro_release_window.py prune-unified
+
       - name: Commit semantic calendar changes
         shell: bash
         run: |
           if git diff --quiet -- data/china-macro-calendar.json data/macro-calendar.json; then
-            echo "China and unified macro calendars are already up to date (refresh: ${{ steps.refresh.outputs.status }})."
+            echo "China and unified macro calendars are already up to date (refresh: ${{ steps.repair.outputs.status }})."
             exit 0
           fi
 

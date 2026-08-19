@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "status": "partial",
-  "generatedAt": "2026-08-14T11:09:27+00:00",
+  "generatedAt": "2026-08-19T10:48:09+00:00",
   "timezone": "Asia/Shanghai",
   "sourcePolicy": "official_only",
   "failedSources": [
     "gacc",
-    "mof"
+    "nbs"
   ],
   "events": [
     {
@@ -658,13 +658,13 @@
       "id": "cn-housing-2026-07",
       "country": "CN",
       "period": "2026-07",
-      "scheduledAt": "2026-08-17T09:30:00+08:00",
+      "scheduledAt": "2026-08-17T15:00:00+08:00",
       "dateStatus": "confirmed",
       "title": "中国70城房价",
       "category": "housing",
       "importance": "medium",
       "source": "国家统计局",
-      "sourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html",
+      "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260817_1965046.html",
       "metrics": [
         {
           "id": "tier1_new_home_mom",
@@ -677,26 +677,26 @@
         {
           "id": "tier2_new_home_mom",
           "label": "二线新房环比",
-          "actual": null,
+          "actual": "0.0",
           "previous": "0.0",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202607/t20260715_1964114.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260817_1965046.html"
         },
         {
           "id": "tier3_new_home_mom",
           "label": "三线新房环比",
-          "actual": null,
+          "actual": "-0.3",
           "previous": "-0.3",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202607/t20260715_1964114.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260817_1965046.html"
         },
         {
           "id": "tier1_resale_mom",
           "label": "一线二手房环比",
-          "actual": null,
+          "actual": "0.2",
           "previous": "0.3",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202607/t20260715_1964114.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260817_1965046.html"
         },
         {
           "id": "tier2_resale_mom",
@@ -715,11 +715,11 @@
           "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202607/t20260715_1964114.html"
         }
       ],
-      "releasedAt": null,
-      "retrievedAt": "2026-08-02T10:00:00+08:00",
+      "releasedAt": "2026-08-17T15:00:00+08:00",
+      "retrievedAt": "2026-08-19T10:48:09+00:00",
       "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "sourceStatus": "static_official_sample",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
       "group": "housing",
       "scheduleSourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html"
     },
@@ -727,60 +727,61 @@
       "id": "cn-activity-2026-07",
       "country": "CN",
       "period": "2026-07",
-      "scheduledAt": "2026-08-17T10:00:00+08:00",
+      "scheduledAt": "2026-08-17T18:52:00+08:00",
       "dateStatus": "confirmed",
       "title": "中国工业 / 社零 / 投资 / 房地产 / 失业率",
       "category": "activity",
       "importance": "critical",
       "source": "国家统计局",
-      "sourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html",
+      "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260817_1965064.html",
       "metrics": [
         {
           "id": "industrial_output_yoy",
           "label": "规模以上工业增加值同比",
-          "actual": null,
+          "actual": "5.3",
           "previous": "5.3",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964123.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260817_1965064.html",
+          "revisionStatus": "revised"
         },
         {
           "id": "retail_sales_yoy",
           "label": "社会消费品零售总额同比",
-          "actual": null,
+          "actual": "1.2",
           "previous": "1.0",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964127.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260817_1965064.html"
         },
         {
           "id": "fixed_asset_investment_ytd",
           "label": "固定资产投资累计同比",
-          "actual": null,
+          "actual": "-6.7",
           "previous": "-5.7",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964124.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202608/t20260817_1965054.html"
         },
         {
           "id": "property_investment_ytd",
           "label": "房地产开发投资累计同比",
-          "actual": null,
+          "actual": "-19.2",
           "previous": "-18.0",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964126.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202608/t20260817_1965053.html"
         },
         {
           "id": "surveyed_unemployment",
           "label": "全国城镇调查失业率",
-          "actual": null,
+          "actual": "5.2",
           "previous": "5.0",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964121.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260817_1965064.html"
         }
       ],
-      "releasedAt": null,
-      "retrievedAt": "2026-08-02T10:00:00+08:00",
-      "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "sourceStatus": "static_official_sample",
+      "releasedAt": "2026-08-17T18:52:00+08:00",
+      "retrievedAt": "2026-08-19T10:48:09+00:00",
+      "revisionStatus": "revised",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
       "group": "activity",
       "scheduleSourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html"
     },
@@ -1138,9 +1139,10 @@
           "id": "tier1_resale_mom",
           "label": "一线二手房环比",
           "actual": null,
-          "previous": "0.3",
+          "previous": "0.2",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202607/t20260715_1964114.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfbhjd/202608/t20260817_1965046.html",
+          "previousPeriod": "2026-07"
         },
         {
           "id": "tier2_resale_mom",
@@ -1185,39 +1187,44 @@
           "actual": null,
           "previous": "5.3",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964123.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260817_1965064.html",
+          "previousPeriod": "2026-07"
         },
         {
           "id": "retail_sales_yoy",
           "label": "社会消费品零售总额同比",
           "actual": null,
-          "previous": "1.0",
+          "previous": "1.2",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964127.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfbhjd/202608/t20260817_1965064.html",
+          "previousPeriod": "2026-07"
         },
         {
           "id": "fixed_asset_investment_ytd",
           "label": "固定资产投资累计同比",
           "actual": null,
-          "previous": "-5.7",
+          "previous": "-6.7",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964124.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfbhjd/202608/t20260817_1965054.html",
+          "previousPeriod": "2026-07"
         },
         {
           "id": "property_investment_ytd",
           "label": "房地产开发投资累计同比",
           "actual": null,
-          "previous": "-18.0",
+          "previous": "-19.2",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964126.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfbhjd/202608/t20260817_1965053.html",
+          "previousPeriod": "2026-07"
         },
         {
           "id": "surveyed_unemployment",
           "label": "全国城镇调查失业率",
           "actual": null,
-          "previous": "5.0",
+          "previous": "5.2",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964121.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfbhjd/202608/t20260817_1965064.html",
+          "previousPeriod": "2026-07"
         }
       ],
       "releasedAt": null,
@@ -2895,6 +2902,59 @@
       "scheduleSourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html"
     },
     {
+      "id": "cn-fiscal-2026-01-04",
+      "country": "CN",
+      "period": "2026-01/04",
+      "scheduledAt": null,
+      "dateStatus": "confirmed",
+      "title": "中国财政收支",
+      "category": "fiscal",
+      "importance": "medium",
+      "source": "财政部",
+      "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202605/t20260515_3989956.htm",
+      "metrics": [
+        {
+          "id": "general_revenue",
+          "label": "一般公共预算收入",
+          "actual": "83404",
+          "previous": null,
+          "unit": "亿元",
+          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202605/t20260515_3989956.htm"
+        },
+        {
+          "id": "general_revenue_yoy",
+          "label": "一般公共预算收入同比",
+          "actual": "3.5",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202605/t20260515_3989956.htm"
+        },
+        {
+          "id": "general_spending",
+          "label": "一般公共预算支出",
+          "actual": "94809",
+          "previous": null,
+          "unit": "亿元",
+          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202605/t20260515_3989956.htm"
+        },
+        {
+          "id": "general_spending_yoy",
+          "label": "一般公共预算支出同比",
+          "actual": "1.3",
+          "previous": null,
+          "unit": "%",
+          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202605/t20260515_3989956.htm"
+        }
+      ],
+      "releasedAt": "2017-11-21T23:59:59+08:00",
+      "retrievedAt": "2026-08-19T10:47:55+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
+      "group": "fiscal",
+      "eventDate": "2017-11-21"
+    },
+    {
       "id": "cn-fiscal-2026-01-05",
       "country": "CN",
       "period": "2026-01/05",
@@ -2910,33 +2970,37 @@
           "id": "general_revenue",
           "label": "一般公共预算收入",
           "actual": "100465",
-          "previous": null,
+          "previous": "83404",
           "unit": "亿元",
-          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm"
+          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202605/t20260515_3989956.htm",
+          "previousPeriod": "2026-01/04"
         },
         {
           "id": "general_revenue_yoy",
           "label": "一般公共预算收入同比",
           "actual": "4",
-          "previous": null,
+          "previous": "3.5",
           "unit": "%",
-          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm"
+          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202605/t20260515_3989956.htm",
+          "previousPeriod": "2026-01/04"
         },
         {
           "id": "general_spending",
           "label": "一般公共预算支出",
           "actual": "113877",
-          "previous": null,
+          "previous": "94809",
           "unit": "亿元",
-          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm"
+          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202605/t20260515_3989956.htm",
+          "previousPeriod": "2026-01/04"
         },
         {
           "id": "general_spending_yoy",
           "label": "一般公共预算支出同比",
           "actual": "0.8",
-          "previous": null,
+          "previous": "1.3",
           "unit": "%",
-          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm"
+          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202605/t20260515_3989956.htm",
+          "previousPeriod": "2026-01/04"
         }
       ],
       "releasedAt": null,
@@ -3002,5 +3066,7 @@
       "sourceStatus": "fresh",
       "group": "fiscal"
     }
-  ]
+  ],
+  "sourceHealthUpdatedAt": "2026-08-19T10:47:55+00:00",
+  "targetedBackfillAt": "2026-08-19T10:48:09+00:00"
 }

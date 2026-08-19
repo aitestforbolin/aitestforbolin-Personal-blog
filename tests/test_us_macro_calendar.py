@@ -203,7 +203,7 @@ class UsMacroCalendarTests(unittest.TestCase):
         updater.apply_official_release_overrides(events)
 
         self.assertEqual(events[0]["release_status"], "released")
-        self.assertEqual(events[0]["metric_values"][0]["actual"], "3.4%")
+        self.assertEqual(events[0]["metric_values"][0]["actual"], "+3.4%")
         self.assertEqual(events[1]["release_status"], "released")
         self.assertEqual(events[1]["metric_values"][0]["actual"], "0.0%")
         self.assertEqual(events[1]["metric_values"][1]["actual"], "0.4%")

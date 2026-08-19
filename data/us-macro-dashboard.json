@@ -1,0 +1,314 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-19T13:12:26+08:00",
+  "asOf": "2026-08-18",
+  "title": "美国宏观核心数据",
+  "summary": [
+    {
+      "id": "inflation",
+      "label": "通胀",
+      "state": "仍偏高，边际降温",
+      "tone": "cooling",
+      "detail": "核心CPI同比降至2.5%，但核心PCE和PPI仍高于舒适区。"
+    },
+    {
+      "id": "employment",
+      "label": "就业",
+      "state": "明显降温",
+      "tone": "weakening",
+      "detail": "7月非农减少2.3万，前两月合计下修10.3万。"
+    },
+    {
+      "id": "consumption",
+      "label": "消费",
+      "state": "边际转弱",
+      "tone": "weakening",
+      "detail": "零售销售环比下降0.6%，但Real PCE仍增长0.4%。"
+    },
+    {
+      "id": "activity",
+      "label": "经济活动",
+      "state": "保持扩张",
+      "tone": "expanding",
+      "detail": "两项ISM均高于50，工业产出环比增长0.2%。"
+    }
+  ],
+  "groups": [
+    {
+      "id": "inflation",
+      "number": "01",
+      "title": "通胀",
+      "description": "观察居民消费价格、Fed偏好的PCE口径与上游价格压力。",
+      "cards": [
+        {
+          "id": "cpi",
+          "title": "CPI",
+          "period": "2026年7月",
+          "releaseDate": "2026-08-12",
+          "rows": [
+            {"label": "MoM", "actual": "+0.1%", "consensus": "+0.1%", "previous": "-0.4%"},
+            {"label": "YoY", "actual": "+3.4%", "consensus": "+3.4%", "previous": "+3.5%"}
+          ],
+          "trend": "总体同比继续回落，月度涨幅温和。",
+          "source": {"name": "BLS", "url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm"},
+          "consensusSources": [
+            {"name": "Investing.com（月率）", "url": "https://www.investing.com/economic-calendar/cpi-69"},
+            {"name": "Investing.com（年率）", "url": "https://www.investing.com/economic-calendar/cpi-733"}
+          ]
+        },
+        {
+          "id": "core-cpi",
+          "title": "Core CPI",
+          "period": "2026年7月",
+          "releaseDate": "2026-08-12",
+          "rows": [
+            {"label": "MoM", "actual": "+0.2%", "consensus": "+0.2%", "previous": "0.0%"},
+            {"label": "YoY", "actual": "+2.5%", "consensus": "+2.5%", "previous": "+2.6%"}
+          ],
+          "trend": "核心同比继续降温，月度动能温和。",
+          "source": {"name": "BLS", "url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm"},
+          "consensusSources": [
+            {"name": "Investing.com（月率）", "url": "https://www.investing.com/economic-calendar/core-cpi-56"},
+            {"name": "Investing.com（年率）", "url": "https://www.investing.com/economic-calendar/core-cpi-736"}
+          ]
+        },
+        {
+          "id": "pce",
+          "title": "PCE",
+          "period": "2026年6月",
+          "releaseDate": "2026-07-30",
+          "rows": [
+            {"label": "MoM", "actual": "-0.1%", "consensus": "-0.1%", "previous": "+0.5%"},
+            {"label": "YoY", "actual": "+3.7%", "consensus": "+3.7%", "previous": "+4.1%"}
+          ],
+          "trend": "月率转负，但同比仍明显高于2%。",
+          "source": {"name": "BEA", "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-june-2026"},
+          "consensusSources": [
+            {"name": "Investing.com（月率）", "url": "https://www.investing.com/economic-calendar/pce-price-index-904"},
+            {"name": "Investing.com（年率）", "url": "https://www.investing.com/economic-calendar/pce-price-index-906"}
+          ]
+        },
+        {
+          "id": "core-pce",
+          "title": "Core PCE",
+          "period": "2026年6月",
+          "releaseDate": "2026-07-30",
+          "rows": [
+            {"label": "MoM", "actual": "+0.1%", "consensus": "+0.2%", "previous": "+0.3%"},
+            {"label": "YoY", "actual": "+3.3%", "consensus": "+3.3%", "previous": "+3.4%"}
+          ],
+          "trend": "同比仍偏高，但月度涨幅已放缓。",
+          "source": {"name": "BEA", "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-june-2026"},
+          "consensusSources": [
+            {"name": "Investing.com（月率）", "url": "https://www.investing.com/economic-calendar/core-pce-price-index-61"},
+            {"name": "Investing.com（年率）", "url": "https://www.investing.com/economic-calendar/core-pce-price-index-905"}
+          ]
+        },
+        {
+          "id": "ppi",
+          "title": "PPI",
+          "period": "2026年7月",
+          "releaseDate": "2026-08-13",
+          "rows": [
+            {"label": "Headline MoM", "actual": "0.0%", "consensus": "+0.2%", "previous": "-0.1%"},
+            {"label": "Headline YoY", "actual": "+4.7%", "consensus": "+4.9%", "previous": "+5.5%"},
+            {"label": "Ex F/E/Trade MoM", "actual": "+0.4%", "consensus": null, "previous": "+0.1%"},
+            {"label": "Ex F/E/Trade YoY", "actual": "+4.7%", "consensus": null, "previous": "+5.0%"}
+          ],
+          "trend": "总指数月率持平，但排除食品、能源和贸易服务后的价格压力仍在。",
+          "source": {"name": "BLS", "url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm"},
+          "consensusSources": [
+            {"name": "Reuters", "url": "https://www.reuters.com/world/us/us-weekly-jobless-claims-increase-moderately-point-stable-labor-market-2026-08-13/"},
+            {"name": "Investing.com", "url": "https://www.investing.com/economic-calendar/ppi-734"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "employment",
+      "number": "02",
+      "title": "就业",
+      "description": "用新增就业、失业率和工资判断劳动力市场是否继续降温。",
+      "cards": [
+        {
+          "id": "nfp",
+          "title": "Nonfarm Payrolls",
+          "period": "2026年7月",
+          "releaseDate": "2026-08-07",
+          "rows": [
+            {"label": "当月新增", "actual": "-23k", "consensus": "+80k", "previous": "+20k"}
+          ],
+          "revision": "5月：+129k → +63k｜6月：+57k → +20k｜合计下修103k",
+          "trend": "就业动能明显减弱，且前两月遭到大幅下修。",
+          "source": {"name": "BLS", "url": "https://www.bls.gov/news.release/empsit.nr0.htm"},
+          "consensusSources": [
+            {"name": "Reuters", "url": "https://www.reuters.com/business/us-job-growth-likely-picked-up-july-unemployment-rate-forecast-unchanged-42-2026-08-07/"}
+          ]
+        },
+        {
+          "id": "unemployment",
+          "title": "Unemployment Rate",
+          "period": "2026年7月",
+          "releaseDate": "2026-08-07",
+          "rows": [
+            {"label": "失业率", "actual": "4.1%", "consensus": "4.2%", "previous": "4.2%"}
+          ],
+          "trend": "失业率降至4.1%，好于市场预期。",
+          "source": {"name": "BLS", "url": "https://www.bls.gov/news.release/empsit.nr0.htm"},
+          "consensusSources": [
+            {"name": "Reuters", "url": "https://www.reuters.com/business/us-job-growth-likely-picked-up-july-unemployment-rate-forecast-unchanged-42-2026-08-07/"}
+          ]
+        },
+        {
+          "id": "earnings",
+          "title": "Average Hourly Earnings",
+          "period": "2026年7月",
+          "releaseDate": "2026-08-07",
+          "rows": [
+            {"label": "MoM", "actual": "+0.1%", "consensus": "+0.3%", "previous": "+0.3%"},
+            {"label": "YoY", "actual": "+3.2%", "consensus": "+3.5%", "previous": "+3.4%"}
+          ],
+          "trend": "工资同比增速放缓至3.2%。",
+          "source": {"name": "BLS", "url": "https://www.bls.gov/news.release/empsit.nr0.htm"},
+          "consensusSources": [
+            {"name": "Investing.com（月率）", "url": "https://www.investing.com/economic-calendar/average-hourly-earnings-8"},
+            {"name": "Investing.com（年率）", "url": "https://www.investing.com/economic-calendar/average-hourly-earnings-1777"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "consumption",
+      "number": "03",
+      "title": "消费",
+      "description": "区分名义零售额、控制组与剔除价格后的居民实际消费。",
+      "cards": [
+        {
+          "id": "retail-sales",
+          "title": "Retail Sales",
+          "period": "2026年7月",
+          "releaseDate": "2026-08-14",
+          "rows": [
+            {"label": "MoM", "actual": "-0.6%", "consensus": "+0.1%", "previous": "+0.2%"},
+            {"label": "YoY", "actual": "+5.0%", "consensus": null, "previous": null}
+          ],
+          "trend": "名义销售仍高于去年，但月度需求明显回落。",
+          "source": {"name": "U.S. Census Bureau", "url": "https://www.census.gov/retail/sales.html"},
+          "consensusSources": [
+            {"name": "Investing.com", "url": "https://www.investing.com/economic-calendar/retail-sales-256"}
+          ]
+        },
+        {
+          "id": "retail-control",
+          "title": "Retail Control",
+          "period": "2026年7月",
+          "releaseDate": "2026-08-14",
+          "rows": [
+            {"label": "MoM", "actual": "-0.4%", "consensus": "+0.3%", "previous": "+0.4%"}
+          ],
+          "note": "剔除汽车、汽油、建材与餐饮；不等同于Core Retail Sales。",
+          "trend": "更接近PCE商品消费的控制组口径也转弱。",
+          "source": {"name": "Census MARTS", "url": "https://www.census.gov/retail/sales.html"},
+          "consensusSources": [
+            {"name": "Investing.com", "url": "https://www.investing.com/economic-calendar/retail-control-1506"}
+          ]
+        },
+        {
+          "id": "real-pce",
+          "title": "Real PCE",
+          "period": "2026年6月",
+          "releaseDate": "2026-07-30",
+          "rows": [
+            {"label": "MoM", "actual": "+0.4%", "consensus": null, "previous": "+0.4%"}
+          ],
+          "trend": "剔除价格后，居民消费仍保持增长。",
+          "source": {"name": "BEA", "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-june-2026"}
+        }
+      ]
+    },
+    {
+      "id": "activity",
+      "number": "04",
+      "title": "经济活动",
+      "description": "用企业调查、工业产出与季度GDP确认经济仍在扩张还是转向收缩。",
+      "cards": [
+        {
+          "id": "ism-manufacturing",
+          "title": "ISM Manufacturing",
+          "period": "2026年7月",
+          "releaseDate": "2026-08-03",
+          "rows": [
+            {"label": "PMI", "actual": "55.6", "consensus": "54.0", "previous": "53.3"}
+          ],
+          "trend": "连续第7个月扩张，升至四年多高位。",
+          "source": {"name": "ISM", "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/pmi/july/"},
+          "consensusSources": [
+            {"name": "Reuters", "url": "https://www.reuters.com/business/us-manufacturing-activity-jumps-more-than-four-year-high-july-2026-08-03/"}
+          ]
+        },
+        {
+          "id": "ism-services",
+          "title": "ISM Services",
+          "period": "2026年7月",
+          "releaseDate": "2026-08-05",
+          "rows": [
+            {"label": "PMI", "actual": "54.1", "consensus": "54.5", "previous": "54.0"}
+          ],
+          "trend": "服务业保持扩张，较前月小幅上升。",
+          "source": {"name": "ISM", "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/services/july/"},
+          "consensusSources": [
+            {"name": "Investing.com", "url": "https://www.investing.com/economic-calendar/ism-non-manufacturing-pmi-176"}
+          ]
+        },
+        {
+          "id": "industrial-production",
+          "title": "Industrial Production",
+          "period": "2026年7月",
+          "releaseDate": "2026-08-18",
+          "rows": [
+            {"label": "MoM", "actual": "+0.2%", "consensus": "+0.3%", "previous": "+0.3%"},
+            {"label": "YoY", "actual": "+1.1%", "consensus": null, "previous": null}
+          ],
+          "trend": "工业产出继续温和增长。",
+          "source": {"name": "Federal Reserve G.17", "url": "https://www.federalreserve.gov/releases/g17/current/default.htm"},
+          "consensusSources": [
+            {"name": "Investing.com", "url": "https://www.investing.com/economic-calendar/industrial-production-161"}
+          ]
+        },
+        {
+          "id": "real-gdp",
+          "title": "Real GDP",
+          "period": "2026年第二季度（初值）",
+          "releaseDate": "2026-07-30",
+          "rows": [
+            {"label": "QoQ年化", "actual": "+1.5%", "consensus": "+2.1%", "previous": "+2.1%"}
+          ],
+          "trend": "二季度增长放缓，但经济仍保持正增长。",
+          "source": {"name": "BEA", "url": "https://www.bea.gov/data/gdp/gross-domestic-product"},
+          "consensusSources": [
+            {"name": "Investing.com", "url": "https://www.investing.com/economic-calendar/gdp-375"}
+          ]
+        }
+      ]
+    }
+  ],
+  "sourceEvents": {
+    "美国CPI / 核心CPI": "2026-08-12",
+    "美国PPI": "2026-08-13",
+    "美国非农 / 失业率 / 平均时薪": "2026-08-07",
+    "美国PCE / 核心PCE": "2026-07-30",
+    "美国GDP": "2026-07-30",
+    "美国零售销售": "2026-08-14",
+    "美国ISM制造业PMI": "2026-08-03",
+    "美国ISM服务业PMI": "2026-08-05"
+  },
+  "dataQuality": {
+    "status": "partial",
+    "warnings": [
+      "预期值优先采用Reuters调查，未覆盖时采用Investing.com经济日历；没有广泛一致预期的口径仍显示为—。",
+      "Retail Control与Core Retail Sales口径不同，当前按控制组口径展示。"
+    ],
+    "fetchedAt": "2026-08-19T13:12:26+08:00",
+    "source": "官方实际值：BLS / BEA / Census / Federal Reserve / ISM；市场预期：Reuters / Investing.com"
+  }
+}
