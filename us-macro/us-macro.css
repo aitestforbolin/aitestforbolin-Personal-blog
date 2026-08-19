@@ -221,6 +221,27 @@
   line-height: 1.5;
 }
 
+.us-macro-consensus-source {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  align-items: center;
+  margin: -2px 0 12px;
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.4;
+}
+
+.us-macro-consensus-source span {
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.us-macro-consensus-source a {
+  color: var(--accent);
+  font-weight: 800;
+}
+
 .us-macro-trend {
   margin-top: auto;
   padding-top: 14px;
