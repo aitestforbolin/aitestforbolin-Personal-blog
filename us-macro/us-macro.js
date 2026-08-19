@@ -6,8 +6,8 @@
   if (!homeRoot && !pageRoot) return;
 
   const DATA_URL = pageRoot
-    ? "../data/us-macro-dashboard.json?v=20260819-2"
-    : "data/us-macro-dashboard.json?v=20260819-2";
+    ? "../data/us-macro-dashboard.json?v=20260819-3"
+    : "data/us-macro-dashboard.json?v=20260819-3";
 
   function escapeHtml(value) {
     return String(value ?? "")
@@ -28,6 +28,23 @@
     return `${Number(parts[0])}年${Number(parts[1])}月${Number(parts[2])}日`;
   }
 
+  function numericValue(value) {
+    if (value === null || value === undefined || value === "") return null;
+    const parsed = Number.parseFloat(
+      String(value).replaceAll(",", "").replace(/[+%kK]/g, "").trim()
+    );
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+
+  function actualMovementClass(actual, previous) {
+    const actualNumber = numericValue(actual);
+    const previousNumber = numericValue(previous);
+    if (actualNumber === null || previousNumber === null) return "";
+    if (actualNumber > previousNumber) return "is-up";
+    if (actualNumber < previousNumber) return "is-down";
+    return "is-flat";
+  }
+
   function summaryCard(item) {
     return `
       <article class="us-macro-state" data-tone="${escapeHtml(item.tone)}">
@@ -42,7 +59,7 @@
     const rows = (card.rows || []).map((row) => `
       <div class="us-macro-row">
         <span class="us-macro-row-label">${escapeHtml(row.label)}</span>
-        <span>${displayValue(row.actual)}</span>
+        <span class="us-macro-actual ${actualMovementClass(row.actual, row.previous)}">${displayValue(row.actual)}</span>
         <span>${displayValue(row.consensus)}</span>
         <span>${displayValue(row.previous)}</span>
       </div>

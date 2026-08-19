@@ -203,6 +203,14 @@
   font-weight: 900;
 }
 
+.us-macro-row:not(.is-head) .us-macro-actual.is-up {
+  color: #2f7a57;
+}
+
+.us-macro-row:not(.is-head) .us-macro-actual.is-down {
+  color: #b64d43;
+}
+
 .us-macro-row-label {
   min-width: 0;
   overflow-wrap: anywhere;
@@ -227,9 +235,10 @@
   gap: 6px 10px;
   align-items: center;
   margin: -2px 0 12px;
-  color: var(--muted);
+  color: var(--text);
   font-size: 0.68rem;
   line-height: 1.4;
+  opacity: 0.5;
 }
 
 .us-macro-consensus-source span {
@@ -238,8 +247,12 @@
 }
 
 .us-macro-consensus-source a {
-  color: var(--accent);
+  color: inherit;
   font-weight: 800;
+}
+
+.us-macro-consensus-source a:hover {
+  opacity: 0.78;
 }
 
 .us-macro-trend {
