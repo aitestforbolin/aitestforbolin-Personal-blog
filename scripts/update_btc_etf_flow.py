@@ -185,7 +185,21 @@ def rolling_sum(rows: list[dict[str, object]], size: int) -> float:
     )
 
 
+def complete_rows(rows: list[dict[str, object]]) -> list[dict[str, object]]:
+    """Exclude a newly posted Farside row until its core fund values are complete."""
+    complete: list[dict[str, object]] = []
+    for row in rows:
+        funds = row.get("funds", {})
+        if not isinstance(funds, dict):
+            continue
+        if all(funds.get(fund) is not None for fund in REQUIRED_LATEST_FUNDS):
+            complete.append(row)
+    return complete
+
+
 def validate_latest_row(rows: list[dict[str, object]]) -> None:
+    if not rows:
+        raise IncompleteLatestRowError("Farside has no complete rows with core fund values")
     latest = rows[0]
     funds = latest.get("funds", {})
     if not isinstance(funds, dict):
@@ -202,6 +216,7 @@ def validate_latest_row(rows: list[dict[str, object]]) -> None:
 def build_payload() -> dict[str, object]:
     html = fetch_text(FARSIDE_URL)
     rows = parse_farside_rows(html_text_lines(html))
+    rows = complete_rows(rows)
     validate_latest_row(rows)
     add_btc_prices(rows)
     latest = rows[0]
