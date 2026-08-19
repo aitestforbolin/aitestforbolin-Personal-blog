@@ -6,8 +6,8 @@
   if (!homeRoot && !pageRoot) return;
 
   const DATA_URL = pageRoot
-    ? "../data/us-macro-dashboard.json?v=20260819-1"
-    : "data/us-macro-dashboard.json?v=20260819-1";
+    ? "../data/us-macro-dashboard.json?v=20260819-2"
+    : "data/us-macro-dashboard.json?v=20260819-2";
 
   function escapeHtml(value) {
     return String(value ?? "")
@@ -48,6 +48,12 @@
       </div>
     `).join("");
 
+    const consensusSources = (card.consensusSources || []).map((source) => `
+      <a href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer">
+        ${escapeHtml(source.name)} ↗
+      </a>
+    `).join("");
+
     return `
       <article class="us-macro-card">
         <header class="us-macro-card-head">
@@ -65,6 +71,11 @@
           </div>
           ${rows}
         </div>
+        ${consensusSources ? `
+          <p class="us-macro-consensus-source">
+            <span>预期来源</span>${consensusSources}
+          </p>
+        ` : ""}
         ${card.revision ? `<p class="us-macro-revision">${escapeHtml(card.revision)}</p>` : ""}
         ${card.note ? `<p class="us-macro-note">${escapeHtml(card.note)}</p>` : ""}
         <p class="us-macro-trend">${escapeHtml(card.trend)}</p>
@@ -121,4 +132,3 @@
       if (homeRoot) homeRoot.querySelector("[data-us-macro-summary]").innerHTML = message;
     });
 })();
-

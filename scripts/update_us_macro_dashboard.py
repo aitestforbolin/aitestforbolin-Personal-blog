@@ -172,6 +172,7 @@ def apply_event(dashboard: dict, event: dict) -> int:
     cards = card_lookup(dashboard)
     updates = 0
     touched_cards: set[str] = set()
+    forecast_cards: set[str] = set()
 
     for metric in normalized_metrics(event):
         target = mapping.get(metric.get("label", ""))
@@ -193,12 +194,23 @@ def apply_event(dashboard: dict, event: dict) -> int:
             if value not in (None, "") and row.get(target_key) != value:
                 row[target_key] = value
                 updates += 1
+            if source_key == "forecast" and value not in (None, ""):
+                forecast_cards.add(card_id)
         card["period"] = event.get("period") or card.get("period")
         card["releaseDate"] = event.get("date") or card.get("releaseDate")
         touched_cards.add(card_id)
 
     if updates:
         dashboard.setdefault("sourceEvents", {})[title] = event["date"]
+        consensus_name = event.get("consensus_source") or event.get("result_source")
+        consensus_url = event.get("consensus_url") or event.get("result_url")
+        for card_id in forecast_cards:
+            if consensus_name and consensus_url:
+                cards[card_id]["consensusSources"] = [
+                    {"name": consensus_name, "url": consensus_url}
+                ]
+            else:
+                cards[card_id].pop("consensusSources", None)
         for card_id in touched_cards:
             cards[card_id]["trend"] = "新一期数据已写入，趋势结论等待完整官方口径复核。"
     return updates
