@@ -615,11 +615,6 @@ h2 {
   box-shadow: none;
 }
 
-.btc-etf-table-wrap {
-  border-radius: 7px;
-  background: #fffefa;
-}
-
 .about,
 .contact {
   grid-template-columns: 0.7fr 1.3fr;
@@ -651,8 +646,7 @@ h2 {
 .macro-market-item strong,
 .macro-date,
 .tech-event-date,
-.btc-etf-stat strong,
-.btc-etf-flow-table {
+.btc-etf-stat strong {
   font-variant-numeric: tabular-nums;
 }
 
