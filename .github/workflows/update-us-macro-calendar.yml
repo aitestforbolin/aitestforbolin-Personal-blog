@@ -34,22 +34,26 @@ jobs:
       - name: Rebuild unified China-US calendar
         run: python scripts/merge_macro_calendars.py
 
+      - name: Persist newly released core macro data
+        run: python scripts/update_us_macro_dashboard.py
+
       - name: Validate calendar data and updater behavior
         run: |
           python -m unittest discover -s tests -p 'test_us_macro_calendar.py' -v
+          python -m unittest discover -s tests -p 'test_us_macro_dashboard.py' -v
           python -m unittest discover -s tests -p 'test_macro_calendar_merge.py' -v
           python scripts/merge_macro_calendars.py --validate-only
 
       - name: Commit updated calendar
         run: |
-          if git diff --quiet -- data/us-macro-calendar.json data/macro-calendar.json; then
+          if git diff --quiet -- data/us-macro-calendar.json data/macro-calendar.json data/us-macro-dashboard.json; then
             echo "Calendar data is already up to date."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/us-macro-calendar.json data/macro-calendar.json
+          git add data/us-macro-calendar.json data/macro-calendar.json data/us-macro-dashboard.json
           git commit -m "Update US macro calendar"
 
           for attempt in 1 2 3; do
