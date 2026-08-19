@@ -7,6 +7,7 @@ import argparse
 import json
 import re
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date, datetime, time, timedelta
 from html.parser import HTMLParser
 from http.client import IncompleteRead
@@ -19,7 +20,7 @@ from zoneinfo import ZoneInfo
 SITE_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = SITE_ROOT / "data" / "us-macro-calendar.json"
 DEFAULT_DAYS = 35
-DEFAULT_LOOKBACK_DAYS = 3
+DEFAULT_LOOKBACK_DAYS = 14
 
 BLS_ICS_URL = "https://www.bls.gov/schedule/news_release/bls.ics"
 BLS_MONTH_URL = "https://www.bls.gov/schedule/{year}/{month:02d}_sched.htm"
@@ -42,6 +43,52 @@ SP_GLOBAL_RESULT_URLS = {
 }
 FOREX_FACTORY_CALENDAR_URL = "https://nfs.faireconomy.media/ff_calendar_thisweek.json"
 FOREX_FACTORY_SOURCE_URL = "https://www.forexfactory.com/calendar"
+
+# Investing.com is the automated consensus transport.  Actual values keep the
+# official statistical agency as their authority in the dashboard updater.
+INVESTING_CORE_SERIES = {
+    "美国CPI / 核心CPI": (
+        ("CPI环比", "https://www.investing.com/economic-calendar/cpi-69", "%"),
+        ("CPI同比", "https://www.investing.com/economic-calendar/cpi-733", "%"),
+        ("核心CPI环比", "https://www.investing.com/economic-calendar/core-cpi-56", "%"),
+        ("核心CPI同比", "https://www.investing.com/economic-calendar/core-cpi-736", "%"),
+    ),
+    "美国PCE / 核心PCE": (
+        ("PCE环比", "https://www.investing.com/economic-calendar/pce-price-index-904", "%"),
+        ("PCE同比", "https://www.investing.com/economic-calendar/pce-price-index-906", "%"),
+        ("核心PCE环比", "https://www.investing.com/economic-calendar/core-pce-price-index-61", "%"),
+        ("核心PCE同比", "https://www.investing.com/economic-calendar/core-pce-price-index-905", "%"),
+        ("实际PCE环比", "https://www.investing.com/economic-calendar/real-personal-consumption-895", "%"),
+    ),
+    "美国PPI": (
+        ("PPI环比", "https://www.investing.com/economic-calendar/ppi-238", "%"),
+        ("PPI同比", "https://www.investing.com/economic-calendar/ppi-734", "%"),
+    ),
+    "美国非农 / 失业率 / 平均时薪": (
+        ("非农", "https://www.investing.com/economic-calendar/nonfarm-payrolls-227", "k"),
+        ("失业率", "https://www.investing.com/economic-calendar/unemployment-rate-300", "%"),
+        ("时薪环比", "https://www.investing.com/economic-calendar/average-hourly-earnings-8", "%"),
+        ("时薪同比", "https://www.investing.com/economic-calendar/average-hourly-earnings-1777", "%"),
+    ),
+    "美国零售销售": (
+        ("零售环比", "https://www.investing.com/economic-calendar/retail-sales-256", "%"),
+        ("零售同比", "https://www.investing.com/economic-calendar/retail-sales-1878", "%"),
+        ("零售控制组环比", "https://www.investing.com/economic-calendar/retail-control-1506", "%"),
+    ),
+    "美国ISM制造业PMI": (
+        ("ISM制造业PMI", "https://www.investing.com/economic-calendar/ism-manufacturing-pmi-173", ""),
+    ),
+    "美国ISM服务业PMI": (
+        ("ISM服务业PMI", "https://www.investing.com/economic-calendar/ism-non-manufacturing-pmi-176", ""),
+    ),
+    "美国工业产出": (
+        ("工业产出环比", "https://www.investing.com/economic-calendar/industrial-production-161", "%"),
+        ("工业产出同比", "https://www.investing.com/economic-calendar/industrial-production-1755", "%"),
+    ),
+    "美国GDP": (
+        ("GDP年化环比", "https://www.investing.com/economic-calendar/gdp-375", "%"),
+    ),
+}
 
 EVENT_SOURCE_FALLBACKS = {
     "美国JOLTS职位空缺": ("https://fred.stlouisfed.org/series/JTSJOL", "FRED 备用"),
@@ -100,10 +147,10 @@ FOREX_FACTORY_SERIES = {
 OFFICIAL_RELEASE_OVERRIDES = {
     ("2026-08-12", "08:30", "Consumer Price Index"): {
         "metric_values": [
-            {"label": "CPI同比", "actual": "3.4%", "forecast": "3.4%", "previous": "3.5%"},
-            {"label": "CPI环比", "actual": "0.1%", "forecast": "0.1%", "previous": "-0.4%"},
-            {"label": "核心CPI环比", "actual": "0.2%", "forecast": "0.2%", "previous": "0.0%"},
-            {"label": "核心CPI同比", "actual": "2.5%", "forecast": "2.5%", "previous": "2.6%"},
+            {"label": "CPI同比", "actual": "+3.4%", "forecast": "+3.4%", "previous": "+3.5%"},
+            {"label": "CPI环比", "actual": "+0.1%", "forecast": "+0.1%", "previous": "-0.4%"},
+            {"label": "核心CPI环比", "actual": "+0.2%", "forecast": "+0.2%", "previous": "0.0%"},
+            {"label": "核心CPI同比", "actual": "+2.5%", "forecast": "+2.5%", "previous": "+2.6%"},
         ],
         "actual": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
         "forecast": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
@@ -111,25 +158,35 @@ OFFICIAL_RELEASE_OVERRIDES = {
         "url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
         "result_source": "BLS 2026年7月CPI报告",
         "result_url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
+        "actual_source": "BLS",
+        "actual_url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
+        "consensus_source": "Investing.com",
+        "consensus_url": "https://www.investing.com/economic-calendar/cpi-733",
         "release_status": "released",
         "released_at": "2026-08-12T08:30:00-04:00",
     },
     ("2026-08-13", "08:30", "Producer Price Index"): {
         "metric_values": [
-            {"label": "PPI环比", "actual": "0.0%", "forecast": "0.2%", "previous": "-0.3%"},
+            {"label": "PPI环比", "actual": "0.0%", "forecast": "+0.2%", "previous": "-0.1%"},
+            {"label": "PPI剔除食品能源贸易服务环比", "actual": "0.4%", "forecast": None, "previous": "+0.1%"},
             {
-                "label": "核心PPI环比",
-                "actual": "0.4%",
-                "forecast": "0.3%",
-                "previous": "0.2%",
+                "label": "PPI同比",
+                "actual": "+4.7%",
+                "forecast": "+4.9%",
+                "previous": "+5.5%",
             },
+            {"label": "PPI剔除食品能源贸易服务同比", "actual": "+4.7%", "forecast": None, "previous": "+5.0%"},
         ],
-        "actual": "PPI环比 0.0% · 核心PPI环比 0.4%",
-        "forecast": "PPI环比 0.2% · 核心PPI环比 0.3%",
-        "previous": "PPI环比 -0.3% · 核心PPI环比 0.2%",
+        "actual": "PPI环比 0.0% · PPI同比 +4.7% · 排除食品能源贸易服务环比 +0.4% · 同比 +4.7%",
+        "forecast": "PPI环比 0.2% · PPI同比 4.9%",
+        "previous": "PPI环比 -0.1% · PPI同比 +5.5%",
         "url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
         "result_source": "BLS 2026年7月PPI报告",
         "result_url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
+        "actual_source": "BLS",
+        "actual_url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
+        "consensus_source": "Investing.com",
+        "consensus_url": "https://www.investing.com/economic-calendar/ppi-734",
         "release_status": "released",
         "released_at": "2026-08-13T08:30:00-04:00",
     },
@@ -984,6 +1041,166 @@ def format_release_value(value: object, precision: object) -> str:
     return str(value)
 
 
+def format_core_value(value: object, precision: object, suffix: str) -> str | None:
+    if value is None:
+        return None
+    rendered = format_release_value(value, precision)
+    if isinstance(value, (int, float)) and value > 0 and suffix in {"%", "k"}:
+        rendered = "+" + rendered
+    return rendered + suffix
+
+
+def fetch_investing_core_results() -> dict[str, list[dict[str, object]]]:
+    """Fetch row-level actual/consensus/previous values in parallel."""
+    results: dict[str, list[dict[str, object]]] = {}
+    requests = [
+        (title, label, url, suffix)
+        for title, series in INVESTING_CORE_SERIES.items()
+        for label, url, suffix in series
+    ]
+
+    def fetch_one(item):
+        title, label, url, suffix = item
+        latest = parse_investing_latest_release(fetch_text(url))
+        occurrence_time = latest.get("occurrence_time")
+        if not isinstance(occurrence_time, str):
+            raise ValueError("latest release has no occurrence time")
+        release_day = datetime.fromisoformat(occurrence_time.replace("Z", "+00:00")).date()
+        precision = latest.get("precision")
+        metric = {
+            "label": label,
+            "actual": format_core_value(latest.get("actual"), precision, suffix),
+            "forecast": format_core_value(latest.get("forecast"), precision, suffix),
+            "previous": format_core_value(latest.get("previous"), precision, suffix),
+            "consensus_source": "Investing.com",
+            "consensus_url": url,
+            "retrieval_source": "Investing.com",
+        }
+        return title, release_day.isoformat(), metric
+
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        futures = {executor.submit(fetch_one, item): item for item in requests}
+        for future in as_completed(futures):
+            title, label, _, _ = futures[future]
+            try:
+                fetched_title, release_day, metric = future.result()
+                if metric.get("actual") not in (None, ""):
+                    results.setdefault(fetched_title, []).append({"date": release_day, **metric})
+            except (URLError, TimeoutError, OSError, ValueError, json.JSONDecodeError) as exc:
+                print(f"warning: skipped Investing core series {title}/{label}: {exc}", file=sys.stderr)
+    return results
+
+
+def signed_percent(action: str, value: str) -> str:
+    number = float(value)
+    if action.lower() in {"declined", "decreased", "fell", "dropped"}:
+        number = -number
+    return f"{number:+.1f}%" if number else "0.0%"
+
+
+def fetch_bls_ppi_exclusion_values() -> dict[str, str]:
+    """Read the exact BLS less-food-energy-trade-services measures."""
+    text = " ".join(html_text_lines(fetch_text("https://www.bls.gov/news.release/ppi.nr0.htm")))
+    action = r"(advanced|increased|rose|declined|decreased|fell|dropped)"
+    monthly = re.search(
+        rf"final demand less foods?, energy, and trade services\s+{action}\s+([0-9.]+) percent",
+        text,
+        re.IGNORECASE,
+    )
+    yearly = re.search(
+        rf"12 months ended[^.]*?final demand less foods?, energy, and trade services\s+{action}\s+([0-9.]+) percent",
+        text,
+        re.IGNORECASE,
+    )
+    if not yearly:
+        yearly = re.search(
+            rf"final demand less foods?, energy, and trade services\s+{action}\s+([0-9.]+) percent[^.]*?12 months ended",
+            text,
+            re.IGNORECASE,
+        )
+    if not monthly or not yearly:
+        raise ValueError("exact PPI exclusion measures were not found")
+    return {
+        "PPI剔除食品能源贸易服务环比": signed_percent(monthly.group(1), monthly.group(2)),
+        "PPI剔除食品能源贸易服务同比": signed_percent(yearly.group(1), yearly.group(2)),
+    }
+
+
+def enrich_events_with_investing_core_values(
+    events: list[dict[str, str]],
+    results: dict[str, list[dict[str, object]]],
+    start: date,
+    end: date,
+) -> None:
+    """Replace partial market rows with standardized complete core rows."""
+    by_title_date = {
+        (title, str(item["date"])): item
+        for title, items in results.items()
+        for item in items
+    }
+
+    # Industrial production is not part of the other agency calendars. Build a
+    # released event from its latest occurrence so the 14-day recovery window
+    # can backfill it after a missed workflow run.
+    industrial_dates = {
+        str(item["date"])
+        for item in results.get("美国工业产出", [])
+        if start <= date.fromisoformat(str(item["date"])) <= end
+    }
+    for day_text in sorted(industrial_dates):
+        if not any(event.get("title_cn") == "美国工业产出" and event.get("date_et", event.get("date")) == day_text for event in events):
+            release_day = date.fromisoformat(day_text)
+            period_year, period_month = add_month(release_day.year, release_day.month, -1)
+            events.append(make_event(
+                day=release_day, eastern_time="09:15", title="Industrial Production and Capacity Utilization",
+                title_cn="美国工业产出", period=date(period_year, period_month, 1).strftime("%B %Y"),
+                category="growth", source="Federal Reserve",
+                url="https://www.federalreserve.gov/releases/g17/current/", stars=3,
+            ))
+
+    for event in events:
+        title = event.get("title_cn", "")
+        if title not in INVESTING_CORE_SERIES:
+            continue
+        event_day = event.get("date_et", event.get("date"))
+        metrics = []
+        for label, _, _ in INVESTING_CORE_SERIES[title]:
+            item = by_title_date.get((title, event_day))
+            # Multiple metrics share title/date; select by label from raw list.
+            item = next((candidate for candidate in results.get(title, []) if candidate.get("date") == event_day and candidate.get("label") == label), None)
+            if item:
+                metrics.append({key: value for key, value in item.items() if key != "date"})
+
+        if title == "美国PPI" and metrics:
+            try:
+                exact = fetch_bls_ppi_exclusion_values()
+                for label, actual in exact.items():
+                    metrics.append({
+                        "label": label, "actual": actual, "forecast": None, "previous": None,
+                        "actual_source": "BLS", "actual_url": "https://www.bls.gov/news.release/ppi.nr0.htm",
+                    })
+            except (URLError, TimeoutError, OSError, ValueError) as exc:
+                print(f"warning: skipped exact BLS PPI measures: {exc}", file=sys.stderr)
+
+        if not metrics:
+            continue
+        event["metric_values"] = metrics
+        event["actual"] = " · ".join(f"{item['label']} {item['actual']}" for item in metrics if item.get("actual"))
+        forecasts = [f"{item['label']} {item['forecast']}" for item in metrics if item.get("forecast")]
+        previous = [f"{item['label']} {item['previous']}" for item in metrics if item.get("previous")]
+        if forecasts:
+            event["forecast"] = " · ".join(forecasts)
+        if previous:
+            event["previous"] = " · ".join(previous)
+        event["actual_source"] = event.get("source")
+        event["retrieval_source"] = "Investing.com（实际值转录）"
+        event["consensus_source"] = "Investing.com"
+        event["consensus_url"] = next((item.get("consensus_url") for item in metrics if item.get("consensus_url")), None)
+        event["result_source"] = "Investing.com"
+        event["result_url"] = event.get("consensus_url")
+        event["release_status"] = "released"
+
+
 def fetch_sp_global_flash_results() -> dict[str, dict[str, str]]:
     """Fetch the latest preliminary PMI values used to enrich flash events."""
     results: dict[str, dict[str, str]] = {}
@@ -1096,6 +1313,7 @@ def build_calendar(start: date, days: int, offline: bool) -> list[dict[str, str]
     end = start + timedelta(days=days)
     events: list[dict[str, str]] = []
     sp_global_results: dict[str, dict[str, str]] = {}
+    investing_core_results: dict[str, list[dict[str, object]]] = {}
 
     if offline:
         events.extend(bls_fallback_events(start, end))
@@ -1103,6 +1321,7 @@ def build_calendar(start: date, days: int, offline: bool) -> list[dict[str, str]
         events.extend(census_durable_goods_fallback_events(start, end))
     else:
         sp_global_results = fetch_sp_global_flash_results()
+        investing_core_results = fetch_investing_core_results()
         for name, parser in (("BLS", parse_bls_events), ("BEA", parse_bea_events)):
             try:
                 parsed_events = parser(start, end)
@@ -1141,6 +1360,10 @@ def build_calendar(start: date, days: int, offline: bool) -> list[dict[str, str]
         except (URLError, TimeoutError, OSError, ValueError, json.JSONDecodeError) as exc:
             print(f"warning: skipped market reference values: {exc}", file=sys.stderr)
 
+        # Run after Forex Factory so only Investing.com supplies forecast
+        # provenance to the core dashboard transaction.
+        enrich_events_with_investing_core_values(events, investing_core_results, start, end)
+
     return dedupe(events)
 
 
@@ -1167,6 +1390,11 @@ def merge_existing_reference_values(
         "actual",
         "forecast",
         "previous",
+        "metric_values",
+        "actual_source",
+        "actual_url",
+        "consensus_source",
+        "consensus_url",
         "result_source",
         "result_url",
         "release_status",
@@ -1179,7 +1407,7 @@ def merge_existing_reference_values(
             continue
         for field in carry_fields:
             if event.get(field) in (None, "") and prior.get(field) not in (None, ""):
-                event[field] = str(prior[field])
+                event[field] = prior[field]
     return events
 
 
