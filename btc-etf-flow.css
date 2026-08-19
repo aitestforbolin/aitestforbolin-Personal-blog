@@ -82,15 +82,11 @@
   line-height: 1;
 }
 
-.btc-etf-stat.up strong,
-.btc-etf-cell.up,
-.btc-etf-flow-table td.up {
+.btc-etf-stat.up strong {
   color: #14846d;
 }
 
-.btc-etf-stat.down strong,
-.btc-etf-cell.down,
-.btc-etf-flow-table td.down {
+.btc-etf-stat.down strong {
   color: #c23b4b;
 }
 
@@ -188,56 +184,6 @@
   bottom: 0;
   transform: translateX(-50%);
   white-space: nowrap;
-}
-
-.btc-etf-table-wrap {
-  margin-top: 16px;
-  overflow-x: auto;
-  border: 1px solid rgba(117, 108, 97, 0.14);
-  border-radius: 8px;
-  background: rgba(255, 253, 248, 0.8);
-}
-
-.btc-etf-flow-table table {
-  width: 100%;
-  min-width: 980px;
-  border-collapse: collapse;
-  color: var(--text);
-}
-
-.btc-etf-flow-table th,
-.btc-etf-flow-table td {
-  padding: 14px 16px;
-  border-bottom: 1px solid rgba(117, 108, 97, 0.14);
-  text-align: right;
-  white-space: nowrap;
-  font-size: 0.84rem;
-  font-weight: 900;
-}
-
-.btc-etf-flow-table th:first-child,
-.btc-etf-flow-table td:first-child {
-  text-align: left;
-}
-
-.btc-etf-flow-table thead th {
-  color: var(--muted);
-  background: rgba(117, 108, 97, 0.06);
-}
-
-.btc-etf-flow-table tbody tr.is-latest {
-  background: rgba(47, 140, 104, 0.1);
-}
-
-.btc-etf-flow-table tbody tr:hover {
-  background: rgba(184, 107, 75, 0.06);
-}
-
-.btc-etf-empty {
-  margin: 0;
-  padding: 18px;
-  color: var(--muted);
-  font-weight: 800;
 }
 
 @media (max-width: 720px) {
