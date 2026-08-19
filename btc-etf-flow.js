@@ -1,29 +1,13 @@
 (function () {
   const DATA_URL = "data/btc-etf-flow.json";
-  const DISPLAY_FUNDS = [
-    "GBTC",
-    "IBIT",
-    "FBTC",
-    "ARKB",
-    "BITB",
-    "BTCO",
-    "HODL",
-    "BRRR",
-    "EZBC",
-    "BTCW",
-    "BTC",
-    "MSBT",
-  ];
-  const TABLE_ROWS = 10;
   const CHART_ROWS = 30;
 
   const root = document.querySelector("[data-btc-etf-flow]");
   const summary = document.querySelector("[data-btc-etf-summary]");
-  const table = document.querySelector("[data-btc-etf-table]");
   const chart = document.querySelector("[data-btc-etf-chart]");
   const updated = document.querySelector("[data-btc-etf-updated]");
 
-  if (!root || !summary || !table || !chart || !updated) {
+  if (!root || !summary || !chart || !updated) {
     return;
   }
 
@@ -108,38 +92,6 @@
         `;
       })
       .join("");
-  }
-
-  function renderTable(rows) {
-    const visibleRows = rows.slice(0, TABLE_ROWS);
-    const header = ["时间(UTC)", "总计", ...DISPLAY_FUNDS]
-      .map((name) => `<th>${escapeHtml(name)}</th>`)
-      .join("");
-
-    const body = visibleRows
-      .map((row, index) => {
-        const total = row.total === null || row.total === undefined ? NaN : Number(row.total);
-        const values = DISPLAY_FUNDS.map((fund) => {
-          const rawValue = row.funds?.[fund];
-          const value = rawValue === null || rawValue === undefined ? NaN : Number(rawValue);
-          return `<td class="${valueClass(value)}">${formatFlow(value)}</td>`;
-        }).join("");
-        return `
-          <tr class="${index === 0 ? "is-latest" : ""}">
-            <th scope="row">${formatDate(row.date)}</th>
-            <td class="${valueClass(total)}">${formatFlow(total)}</td>
-            ${values}
-          </tr>
-        `;
-      })
-      .join("");
-
-    table.innerHTML = `
-      <table>
-        <thead><tr>${header}</tr></thead>
-        <tbody>${body}</tbody>
-      </table>
-    `;
   }
 
   function linePath(points, width, height, padding, min, max) {
@@ -241,7 +193,6 @@
     root.classList.add("is-error");
     updated.textContent = "数据暂时无法载入";
     summary.innerHTML = "";
-    table.innerHTML = '<p class="btc-etf-empty">BTC ETF 资金流数据暂时无法载入。</p>';
     chart.innerHTML = "";
   }
 
@@ -260,7 +211,6 @@
       }
       updated.textContent = `更新：${formatUpdated(data.updated_at)}`;
       renderSummary(data);
-      renderTable(rows);
       renderChart(rows);
     })
     .catch(renderError);
