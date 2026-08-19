@@ -16,6 +16,7 @@ from urllib.request import Request, urlopen
 SITE_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = SITE_ROOT / "data" / "btc-etf-flow.json"
 FARSIDE_URL = "https://farside.co.uk/bitcoin-etf-flow-all-data/"
+FARSIDE_BRIDGE_URL = "https://farside-etf-bridge.laibocszd.chatgpt.site/api/btc-etf-flow"
 BINANCE_URL = "https://data-api.binance.vision/api/v3/klines"
 FETCH_TIMEOUT = 90
 FETCH_RETRIES = 3
@@ -214,8 +215,20 @@ def validate_latest_row(rows: list[dict[str, object]]) -> None:
 
 
 def build_payload() -> dict[str, object]:
-    html = fetch_text(FARSIDE_URL)
-    rows = parse_farside_rows(html_text_lines(html))
+    try:
+        bridge_payload = json.loads(fetch_text(FARSIDE_BRIDGE_URL))
+        bridge_rows = bridge_payload.get("rows", [])
+        if not isinstance(bridge_rows, list) or not bridge_rows:
+            raise RuntimeError("Farside bridge returned no rows")
+        rows = bridge_rows
+    except Exception as bridge_error:
+        try:
+            html = fetch_text(FARSIDE_URL)
+            rows = parse_farside_rows(html_text_lines(html))
+        except Exception as direct_error:
+            raise RuntimeError(
+                "Both the Farside bridge and direct source failed"
+            ) from ExceptionGroup("Farside fetch failures", [bridge_error, direct_error])
     rows = complete_rows(rows)
     validate_latest_row(rows)
     add_btc_prices(rows)
