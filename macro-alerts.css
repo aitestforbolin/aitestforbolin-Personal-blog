@@ -89,6 +89,15 @@
   color: #235e49;
 }
 
+/* 宏观数据区只作为日历使用：不显示实际值、预期值、前值等公布结果。 */
+.macro-event-type-data .macro-event-main {
+  display: none;
+}
+
+.macro-event-type-data .macro-event-body {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 @media (max-width: 560px) {
   .macro-event-upcoming,
   .macro-event.macro-event-recent {
