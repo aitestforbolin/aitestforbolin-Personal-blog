@@ -98,6 +98,9 @@ class USMacroDashboardTests(unittest.TestCase):
             self.assertEqual(core_yoy["actual"], "2.4%")
             self.assertEqual(updated["sourceEvents"]["美国CPI / 核心CPI"], "2026-09-11")
             self.assertTrue(updated["sourceEventFingerprints"]["美国CPI / 核心CPI"])
+            inflation = next(item for item in updated["summary"] if item["id"] == "inflation")
+            self.assertEqual(inflation["state"], "仍偏高，边际降温")
+            self.assertIn("2.4%", inflation["detail"])
 
 
 if __name__ == "__main__":

@@ -90,6 +90,82 @@ def event_fingerprint(event: dict) -> str:
     return hashlib.sha256(encoded).hexdigest()
 
 
+def parse_number(value) -> float | None:
+    if value in (None, ""):
+        return None
+    text = str(value).replace("%", "").replace("+", "").replace(",", "").strip()
+    multiplier = 1.0
+    if text.lower().endswith("k"):
+        multiplier = 1.0
+        text = text[:-1]
+    try:
+        return float(text) * multiplier
+    except ValueError:
+        return None
+
+
+def row_value(cards: dict[str, dict], card_id: str, label: str, field: str = "actual") -> float | None:
+    card = cards.get(card_id, {})
+    row = next((item for item in card.get("rows", []) if item.get("label") == label), None)
+    return parse_number(row.get(field)) if row else None
+
+
+def refresh_summary(dashboard: dict) -> None:
+    cards = card_lookup(dashboard)
+    summary = {item.get("id"): item for item in dashboard.get("summary", [])}
+
+    core_cpi = row_value(cards, "core-cpi", "YoY")
+    core_cpi_previous = row_value(cards, "core-cpi", "YoY", "previous")
+    core_pce = row_value(cards, "core-pce", "YoY")
+    core_pce_previous = row_value(cards, "core-pce", "YoY", "previous")
+    ppi = row_value(cards, "ppi", "Headline YoY")
+    inflation = summary.get("inflation")
+    if inflation and None not in (core_cpi, core_cpi_previous, core_pce, core_pce_previous):
+        cooling = core_cpi <= core_cpi_previous and core_pce <= core_pce_previous
+        elevated = max(core_cpi, core_pce) > 2.0
+        inflation["state"] = ("仍偏高，" if elevated else "") + ("边际降温" if cooling else "压力回升")
+        inflation["tone"] = "cooling" if cooling else "weakening"
+        inflation["detail"] = f"核心CPI同比{core_cpi:.1f}%，核心PCE同比{core_pce:.1f}%，PPI同比{ppi:.1f}%。"
+
+    nfp = row_value(cards, "nfp", "当月新增")
+    unemployment = row_value(cards, "unemployment", "失业率")
+    earnings = row_value(cards, "earnings", "YoY")
+    employment = summary.get("employment")
+    if employment and nfp is not None:
+        employment["state"] = "明显降温" if nfp < 50 else ("温和降温" if nfp < 150 else "保持韧性")
+        employment["tone"] = "weakening" if nfp < 150 else "expanding"
+        employment["detail"] = f"当月非农{nfp:+.0f}k，失业率{unemployment:.1f}%，工资同比{earnings:.1f}%。"
+
+    retail = row_value(cards, "retail-sales", "MoM")
+    real_pce = row_value(cards, "real-pce", "MoM")
+    consumption = summary.get("consumption")
+    if consumption and None not in (retail, real_pce):
+        if retail < 0 and real_pce < 0:
+            state, tone = "明显转弱", "weakening"
+        elif retail < 0:
+            state, tone = "分化转弱", "weakening"
+        else:
+            state, tone = "仍有韧性", "expanding"
+        consumption["state"] = state
+        consumption["tone"] = tone
+        consumption["detail"] = f"零售销售环比{retail:+.1f}%，Real PCE环比{real_pce:+.1f}%。"
+
+    manufacturing = row_value(cards, "ism-manufacturing", "PMI")
+    services = row_value(cards, "ism-services", "PMI")
+    production = row_value(cards, "industrial-production", "MoM")
+    activity = summary.get("activity")
+    if activity and None not in (manufacturing, services, production):
+        if manufacturing >= 50 and services >= 50 and production >= 0:
+            state, tone = "保持扩张", "expanding"
+        elif manufacturing < 50 and services < 50 and production < 0:
+            state, tone = "转向收缩", "weakening"
+        else:
+            state, tone = "扩张放缓", "cooling"
+        activity["state"] = state
+        activity["tone"] = tone
+        activity["detail"] = f"制造业ISM {manufacturing:.1f}，服务业ISM {services:.1f}，工业产出环比{production:+.1f}%。"
+
+
 def apply_event(dashboard: dict, event: dict) -> int:
     title = event.get("title_cn", "")
     mapping = SAFE_METRIC_MAP.get(title, {})
@@ -171,6 +247,7 @@ def main() -> int:
         return 0
 
     now = datetime.now(ZoneInfo("Asia/Shanghai")).replace(microsecond=0).isoformat()
+    refresh_summary(dashboard)
     dashboard["generatedAt"] = now
     dashboard["asOf"] = max(
         card.get("releaseDate", "")
