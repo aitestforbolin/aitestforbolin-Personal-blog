@@ -3,19 +3,20 @@
 
   const CHATGPT_URL = "https://chatgpt.com/";
 
-  function buildResearchPrompt(project) {
+  function buildResearchPrompt(project, promptType = "research") {
     const name = String(project?.name || "").trim();
     const sourceUrl = String(project?.sourceUrl || "").trim();
+    const type = String(promptType || "research").trim();
 
     if (!name || !sourceUrl) {
       throw new Error("Project name and source URL are required");
     }
 
-    return `请按照本项目完整 Web3 Research SOP，对以下项目进行深入研究。
+    if (type === "initial") {
+      return `初步筛选 ${name}：\n${sourceUrl}\n按 \`01-initial-screening.md\` 执行。`;
+    }
 
-项目名称：${name}
-
-融资信息入口：[${sourceUrl}](${sourceUrl})`;
+    return `深入研究 ${name}：\n${sourceUrl}\n按本项目完整 Web3 Research SOP 执行。`;
   }
 
   async function copyText(text) {
@@ -46,10 +47,13 @@
     button.disabled = true;
 
     try {
-      const prompt = buildResearchPrompt({
-        name: button.dataset.projectName,
-        sourceUrl: button.dataset.projectUrl,
-      });
+      const prompt = buildResearchPrompt(
+        {
+          name: button.dataset.projectName,
+          sourceUrl: button.dataset.projectUrl,
+        },
+        button.dataset.promptType || "research"
+      );
       await copyText(prompt);
       button.textContent = "已复制";
       button.dataset.copyState = "success";
