@@ -70,6 +70,25 @@
   font-weight: 800;
 }
 
+.fundraising-meta-primary {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.fundraising-meta-chat {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.fundraising-meta-chat:hover,
+.fundraising-meta-chat:focus-visible {
+  color: var(--accent-dark);
+  outline: none;
+}
+
 .fundraising-list {
   border-top: 1px solid rgba(24, 25, 22, 0.13);
 }
@@ -154,17 +173,14 @@
   justify-items: start;
 }
 
-.fundraising-project-source,
-.fundraising-project-chat {
+.fundraising-project-source {
   color: var(--muted);
   font-size: 0.72rem;
   font-weight: 800;
 }
 
 .fundraising-project-source:hover,
-.fundraising-project-source:focus-visible,
-.fundraising-project-chat:hover,
-.fundraising-project-chat:focus-visible {
+.fundraising-project-source:focus-visible {
   color: var(--accent-dark);
   outline: none;
 }
@@ -263,6 +279,10 @@
     align-items: flex-start;
     flex-direction: column;
     margin-bottom: 12px;
+  }
+
+  .fundraising-meta-primary {
+    align-items: flex-start;
   }
 
   .fundraising-project {
