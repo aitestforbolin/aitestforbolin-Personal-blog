@@ -5,10 +5,13 @@
     return String(text || "")
       .split("\n")
       .map((line) => {
-        if (!/^([📉📈—][^：\n]+)：)/.test(line)) return line;
-        return line
-          .replace(/^([📉📈—][^：\n]+)：\s*/, "$1： ")
-          .replace(/\s*→\s*/g, " → ");
+        const match = line.match(
+          /^([📉📈—])(.+?)(?:：)?\s*([+-]?\d[\d,.]*%?)\s*→\s*([+-]?\d[\d,.]*%?)\s*$/
+        );
+        if (!match) return line;
+
+        const [, icon, label, fromValue, toValue] = match;
+        return `${icon}${label.trim()}： ${fromValue} → ${toValue}`;
       })
       .join("\n");
   }
