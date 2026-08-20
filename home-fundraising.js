@@ -64,10 +64,18 @@
             class="home-fundraising-research"
             type="button"
             data-research-copy
+            data-prompt-type="initial"
             data-project-name="${escapeHtml(project.name)}"
             data-project-url="${escapeHtml(href)}"
-          >复制投研提示词</button>
-          <a class="home-fundraising-chat" href="https://chatgpt.com/" target="_blank" rel="noreferrer">打开 ChatGPT ↗</a>
+          >复制初筛提示词</button>
+          <button
+            class="home-fundraising-research"
+            type="button"
+            data-research-copy
+            data-prompt-type="research"
+            data-project-name="${escapeHtml(project.name)}"
+            data-project-url="${escapeHtml(href)}"
+          >复制研究提示词</button>
         </span>
       </article>`;
     }).join("");
