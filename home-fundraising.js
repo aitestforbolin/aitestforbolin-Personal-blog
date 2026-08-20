@@ -67,7 +67,7 @@
             data-prompt-type="initial"
             data-project-name="${escapeHtml(project.name)}"
             data-project-url="${escapeHtml(href)}"
-          >复制初筛提示词</button>
+          >初筛</button>
           <button
             class="home-fundraising-research"
             type="button"
@@ -75,7 +75,7 @@
             data-prompt-type="research"
             data-project-name="${escapeHtml(project.name)}"
             data-project-url="${escapeHtml(href)}"
-          >复制研究提示词</button>
+          >研究</button>
         </span>
       </article>`;
     }).join("");
