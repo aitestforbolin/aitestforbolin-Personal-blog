@@ -1,0 +1,67 @@
+name: Publish daily market briefing to X (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      as_of:
+        description: "Expected daily briefing asOf (YYYY-MM-DD); blank uses the current snapshot"
+        required: false
+        type: string
+      dry_run:
+        description: "Render and validate only; do not publish"
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: x-daily-market-publisher
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Render, deduplicate, and publish
+        id: publish
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          INPUT_AS_OF: ${{ inputs.as_of }}
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          args=(--mode manual)
+          if [[ -n "$INPUT_AS_OF" ]]; then
+            args+=(--as-of "$INPUT_AS_OF")
+          fi
+          if [[ "$INPUT_DRY_RUN" == "true" ]]; then
+            args+=(--dry-run)
+          fi
+          python scripts/publish_x_post.py "${args[@]}"
+      - name: Record successful Post ID
+        if: steps.publish.outputs.status == 'published'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- data/x-publish-log.json
+          git commit -m "Record X Post for ${{ steps.publish.outputs.as_of }}"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            git fetch origin main
+            git rebase origin/main
+            sleep $((attempt * 5))
+          done
+          exit 1
