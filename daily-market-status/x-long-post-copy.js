@@ -76,10 +76,10 @@
   }
 
   function sentenceScore(sentence) {
-    let score = 0;
-    if (/(说明|表明|意味着|更像|而不是|仍|但|因此|主线|结构性|并不|不能|尚未|未)/.test(sentence)) score += 7;
-    if (/(若|接下来|关注|有望|警惕)/.test(sentence)) score += 4;
-    score -= Math.min((sentence.match(/\d/g) || []).length, 10) * 0.7;
+    const strongSignals = sentence.match(/说明|表明|意味着|更像|而不是|因此|主线|结构性|并不|不能|尚未/g) || [];
+    const weakSignals = sentence.match(/但|仍|若|接下来|关注|有望|警惕/g) || [];
+    let score = strongSignals.length * 8 + weakSignals.length * 2;
+    score -= Math.min((sentence.match(/\d/g) || []).length, 10) * 0.5;
     if (sentence.length > 150) score -= 2;
     return score;
   }
@@ -90,6 +90,22 @@
     return sentences
       .map((sentence, index) => ({ sentence, index, score: sentenceScore(sentence) }))
       .sort((a, b) => b.score - a.score || a.index - b.index)[0].sentence;
+  }
+
+  function bestInterpretiveUnit(paragraph) {
+    const units = splitSentences(paragraph).flatMap((sentence) => {
+      const clauses = sentence
+        .split(/；/)
+        .map((item) => item.trim())
+        .filter(Boolean);
+      return clauses.length > 1 ? [sentence, ...clauses] : [sentence];
+    });
+    if (!units.length) return "";
+    return units
+      .map((unit, index) => ({ unit, index, score: sentenceScore(unit) }))
+      .sort((a, b) => b.score - a.score || a.unit.length - b.unit.length || a.index - b.index)[0].unit
+      .replace(/[；\s]+$/, "")
+      .replace(/([^。！？!?])$/, "$1。");
   }
 
   function trimSentence(text, maxLength) {
@@ -123,7 +139,7 @@
 
     const clauses = source.split(/；/).map((item) => item.trim()).filter(Boolean);
     let chosen = clauses.find((item) => /(更像|而不是|尚未|不能|仍需|警惕)/.test(item));
-    if (!chosen) chosen = bestSentence(source) || clauses.at(-1) || source;
+    if (!chosen) chosen = bestInterpretiveUnit(source) || clauses.at(-1) || source;
     chosen = chosen.replace(/，若.+$/, "").replace(/[。；\s]+$/, "");
     return "结论：" + trimSentence(chosen, 90);
   }
@@ -140,15 +156,15 @@
     const structureParagraphs = paragraphs.filter((text) => /(板块|医疗|科技|芯片|美元|黄金|BTC|油价)/.test(text));
     const outlook = [...paragraphs].reverse().find((text) => /(接下来|Walmart|PMI|若|关注)/.test(text));
 
-    const macroSummary = uniqueNonEmpty(macroParagraphs.slice(0, 2).map(bestSentence)).join("");
-    const structureSummary = bestSentence(
+    const macroSummary = uniqueNonEmpty(macroParagraphs.slice(0, 2).map(bestInterpretiveUnit)).join("");
+    const structureSummary = bestInterpretiveUnit(
       structureParagraphs
         .slice()
-        .sort((a, b) => sentenceScore(bestSentence(b)) - sentenceScore(bestSentence(a)))[0] || ""
+        .sort((a, b) => sentenceScore(bestInterpretiveUnit(b)) - sentenceScore(bestInterpretiveUnit(a)))[0] || ""
     );
 
     const summary = uniqueNonEmpty([
-      trimSentence(bestSentence(overall || paragraphs[0]), 125),
+      trimSentence(bestInterpretiveUnit(overall || paragraphs[0]), 125),
       trimSentence(macroSummary, 180),
       trimSentence(structureSummary, 135),
       trimSentence(bestSentence(outlook || paragraphs.at(-1)), 145),
