@@ -2,10 +2,15 @@
   "use strict";
 
   function normalizeMacroSpacing(text) {
-    return String(text || "").replace(
-      /^([📉📈—][^：\n]+)：\s*/gm,
-      "$1： "
-    );
+    return String(text || "")
+      .split("\n")
+      .map((line) => {
+        if (!/^([📉📈—][^：\n]+)：)/.test(line)) return line;
+        return line
+          .replace(/^([📉📈—][^：\n]+)：\s*/, "$1： ")
+          .replace(/\s*→\s*/g, " → ");
+      })
+      .join("\n");
   }
 
   document.addEventListener(
