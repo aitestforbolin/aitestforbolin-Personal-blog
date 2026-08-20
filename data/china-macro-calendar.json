@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "status": "partial",
-  "generatedAt": "2026-08-20T02:41:34+00:00",
+  "generatedAt": "2026-08-20T02:58:12+00:00",
   "timezone": "Asia/Shanghai",
   "sourcePolicy": "official_only",
   "failedSources": [
@@ -664,7 +664,7 @@
       "category": "housing",
       "importance": "medium",
       "source": "国家统计局",
-      "sourceUrl": "https://www.stats.gov.cn/sj/zxfbhjd/202608/t20260817_1965046.html",
+      "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260817_1965046.html",
       "metrics": [
         {
           "id": "tier1_new_home_mom",
@@ -680,7 +680,7 @@
           "actual": "0.0",
           "previous": "0.0",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfbhjd/202608/t20260817_1965046.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260817_1965046.html"
         },
         {
           "id": "tier3_new_home_mom",
@@ -688,7 +688,7 @@
           "actual": "-0.3",
           "previous": "-0.3",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfbhjd/202608/t20260817_1965046.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260817_1965046.html"
         },
         {
           "id": "tier1_resale_mom",
@@ -696,7 +696,7 @@
           "actual": "0.2",
           "previous": "0.3",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfbhjd/202608/t20260817_1965046.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260817_1965046.html"
         },
         {
           "id": "tier2_resale_mom",
@@ -716,7 +716,7 @@
         }
       ],
       "releasedAt": "2026-08-17T15:00:00+08:00",
-      "retrievedAt": "2026-08-20T02:41:34+00:00",
+      "retrievedAt": "2026-08-20T02:58:12+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "sourceStatus": "fresh",
@@ -3063,5 +3063,5 @@
     }
   ],
   "sourceHealthUpdatedAt": "2026-08-20T02:41:28+00:00",
-  "targetedBackfillAt": "2026-08-20T02:41:34+00:00"
+  "targetedBackfillAt": "2026-08-20T02:58:12+00:00"
 }
