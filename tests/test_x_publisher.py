@@ -76,6 +76,8 @@ class XPublisherTests(unittest.TestCase):
             with mock.patch.object(
                 MODULE, "credentials_from_environment", return_value={}
             ), mock.patch.object(
+                MODULE, "verify_target_account", return_value="whybolin"
+            ), mock.patch.object(
                 MODULE, "create_x_post", side_effect=MODULE.PublishError("rejected")
             ):
                 with self.assertRaises(MODULE.PublishError):
@@ -89,6 +91,8 @@ class XPublisherTests(unittest.TestCase):
             state = Path(directory) / "state.json"
             with mock.patch.object(
                 MODULE, "credentials_from_environment", return_value={}
+            ), mock.patch.object(
+                MODULE, "verify_target_account", return_value="whybolin"
             ), mock.patch.object(MODULE, "create_x_post", return_value="987654321"):
                 result = MODULE.publish(
                     self.snapshot_path, state, None, False, "manual", now=self.now
@@ -101,6 +105,23 @@ class XPublisherTests(unittest.TestCase):
                 record["contentSha256"],
                 "0797cc7f32159188d840591ae15c910437a7724a93d7bc50a1bf41680d65e039",
             )
+
+    def test_wrong_x_account_stops_before_create(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory) / "state.json"
+            with mock.patch.dict(
+                MODULE.os.environ, {"X_EXPECTED_USERNAME": "whybolin"}
+            ), mock.patch.object(
+                MODULE, "credentials_from_environment", return_value={}
+            ), mock.patch.object(
+                MODULE, "authenticated_username", return_value="BitalkNews"
+            ), mock.patch.object(MODULE, "create_x_post") as create:
+                with self.assertRaisesRegex(MODULE.PublishError, "expected @whybolin"):
+                    MODULE.publish(
+                        self.snapshot_path, state, None, False, "manual", now=self.now
+                    )
+                create.assert_not_called()
+            self.assertFalse(state.exists())
 
 
 if __name__ == "__main__":

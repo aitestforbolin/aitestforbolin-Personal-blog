@@ -22,7 +22,7 @@ import time
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
-from urllib.parse import quote
+from urllib.parse import parse_qsl, quote, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
@@ -292,8 +292,15 @@ def percent_encode(value: Any) -> str:
     return quote(str(value), safe="~-._")
 
 
-def oauth1_header(url: str, api_key: str, api_secret: str, token: str, token_secret: str) -> str:
-    params = {
+def oauth1_header(
+    method: str,
+    url: str,
+    api_key: str,
+    api_secret: str,
+    token: str,
+    token_secret: str,
+) -> str:
+    oauth_params = {
         "oauth_consumer_key": api_key,
         "oauth_nonce": secrets.token_hex(16),
         "oauth_signature_method": "HMAC-SHA1",
@@ -301,24 +308,74 @@ def oauth1_header(url: str, api_key: str, api_secret: str, token: str, token_sec
         "oauth_token": token,
         "oauth_version": "1.0",
     }
+    parsed = urlsplit(url)
+    base_url = urlunsplit((parsed.scheme, parsed.netloc, parsed.path, "", ""))
+    signature_params = list(oauth_params.items()) + parse_qsl(parsed.query, keep_blank_values=True)
     normalized = "&".join(
-        f"{percent_encode(key)}={percent_encode(value)}" for key, value in sorted(params.items())
+        f"{percent_encode(key)}={percent_encode(value)}"
+        for key, value in sorted(signature_params, key=lambda item: (percent_encode(item[0]), percent_encode(item[1])))
     )
-    base_string = "&".join(("POST", percent_encode(url), percent_encode(normalized)))
+    base_string = "&".join((method.upper(), percent_encode(base_url), percent_encode(normalized)))
     signing_key = f"{percent_encode(api_secret)}&{percent_encode(token_secret)}"
     signature = base64.b64encode(
         hmac.new(signing_key.encode(), base_string.encode(), hashlib.sha1).digest()
     ).decode()
-    params["oauth_signature"] = signature
+    oauth_params["oauth_signature"] = signature
     values = ", ".join(
-        f'{percent_encode(key)}="{percent_encode(value)}"' for key, value in sorted(params.items())
+        f'{percent_encode(key)}="{percent_encode(value)}"'
+        for key, value in sorted(oauth_params.items())
     )
     return "OAuth " + values
+
+
+def authenticated_username(credentials: dict[str, str]) -> str:
+    url = "https://api.x.com/2/users/me?user.fields=username"
+    authorization = oauth1_header(
+        "GET",
+        url,
+        credentials["X_API_KEY"],
+        credentials["X_API_SECRET"],
+        credentials["X_ACCESS_TOKEN"],
+        credentials["X_ACCESS_TOKEN_SECRET"],
+    )
+    request = Request(
+        url,
+        method="GET",
+        headers={
+            "Authorization": authorization,
+            "User-Agent": "bolin-brief-x-publisher/1.0",
+        },
+    )
+    try:
+        with urlopen(request, timeout=20) as response:
+            payload = json.loads(response.read().decode("utf-8"))
+    except HTTPError as exc:
+        detail = exc.read().decode("utf-8", errors="replace")[:1000]
+        raise PublishError(f"X account verification failed (HTTP {exc.code}): {detail}") from exc
+    except (URLError, json.JSONDecodeError) as exc:
+        raise PublishError("X account identity could not be verified; publishing is blocked") from exc
+    username = str(payload.get("data", {}).get("username") or "").lstrip("@").lower()
+    if not username:
+        raise PublishError("X account verification returned no username; publishing is blocked")
+    return username
+
+
+def verify_target_account(credentials: dict[str, str]) -> str:
+    expected = os.getenv("X_EXPECTED_USERNAME", "").lstrip("@").lower()
+    if not expected:
+        raise PublishError("X_EXPECTED_USERNAME is required")
+    actual = authenticated_username(credentials)
+    if actual != expected:
+        raise PublishError(
+            f"X credentials belong to @{actual}, expected @{expected}; publishing is blocked"
+        )
+    return actual
 
 
 def create_x_post(text: str, credentials: dict[str, str], url: str = X_CREATE_POST_URL) -> str:
     body = json.dumps({"text": text}, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
     authorization = oauth1_header(
+        "POST",
         url,
         credentials["X_API_KEY"],
         credentials["X_API_SECRET"],
@@ -419,7 +476,9 @@ def publish(
         print(f"\n[DRY RUN] asOf={as_of} characters={len(text)} sha256={content_hash}")
         return {"status": "dry_run", "asOf": as_of, "contentSha256": content_hash}
 
-    post_id = create_x_post(text, credentials_from_environment())
+    credentials = credentials_from_environment()
+    verify_target_account(credentials)
+    post_id = create_x_post(text, credentials)
     published_at = dt.datetime.now(UTC).isoformat(timespec="seconds")
     record = {
         "postId": post_id,

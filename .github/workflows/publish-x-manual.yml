@@ -38,6 +38,7 @@ jobs:
           X_API_SECRET: ${{ secrets.X_API_SECRET }}
           X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
           X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          X_EXPECTED_USERNAME: whybolin
           INPUT_AS_OF: ${{ inputs.as_of }}
           INPUT_DRY_RUN: ${{ inputs.dry_run }}
         run: |
