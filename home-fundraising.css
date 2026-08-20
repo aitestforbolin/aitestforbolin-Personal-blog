@@ -18,27 +18,42 @@
   font-weight: 750;
 }
 
+.home-fundraising-meta-primary {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.home-fundraising-chat {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.home-fundraising-chat:hover,
+.home-fundraising-chat:focus-visible {
+  color: var(--accent-dark);
+  outline: none;
+}
+
 .home-fundraising-list { display: grid; }
 
 .home-fundraising-item {
   display: grid;
-  grid-template-columns: 34px minmax(0, 1fr) 20px;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
   align-items: center;
   gap: 14px;
   min-height: 76px;
   padding: 14px 20px;
   border-top: 1px solid rgba(117, 108, 97, 0.13);
-  transition: background 180ms ease, padding 180ms ease;
+  transition: background 180ms ease;
 }
 
 .home-fundraising-item:first-child { border-top: 0; }
 
-.home-fundraising-item:hover,
-.home-fundraising-item:focus-visible {
-  padding-right: 24px;
-  padding-left: 24px;
+.home-fundraising-item:hover {
   background: rgba(184, 107, 75, 0.06);
-  outline: none;
 }
 
 .home-fundraising-rank {
@@ -54,6 +69,12 @@
   font-family: "Songti SC", "STSong", "SimSun", serif !important;
   font-size: 1.12rem;
   line-height: 1.28;
+}
+
+.home-fundraising-project strong a:hover,
+.home-fundraising-project strong a:focus-visible {
+  color: var(--accent-dark);
+  outline: none;
 }
 
 .home-fundraising-project small {
@@ -78,14 +99,38 @@
   vertical-align: 0.08em;
 }
 
-.home-fundraising-arrow {
-  color: var(--accent-dark);
-  font-size: 1.15rem;
-  transition: transform 180ms ease;
+.home-fundraising-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
 }
 
-.home-fundraising-item:hover .home-fundraising-arrow,
-.home-fundraising-item:focus-visible .home-fundraising-arrow { transform: translate(2px, -2px); }
+.home-fundraising-research {
+  min-height: 34px;
+  border: 1px solid rgba(184, 107, 75, 0.48);
+  border-radius: 999px;
+  padding: 6px 12px;
+  background: rgba(255, 253, 248, 0.82);
+  color: var(--accent-dark);
+  cursor: pointer;
+  font-family: var(--font-site) !important;
+  font-size: 0.75rem;
+  font-weight: 850;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.home-fundraising-research:hover,
+.home-fundraising-research:focus-visible {
+  background: var(--accent-dark);
+  color: #fffdf8;
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.home-fundraising-research:disabled { cursor: wait; opacity: 0.75; }
+.home-fundraising-research[data-copy-state="success"] { border-color: #427a58; color: #356548; }
+.home-fundraising-research[data-copy-state="error"] { border-color: #a33; color: #a33; }
 
 .home-fundraising-footer {
   padding: 14px 20px;
@@ -107,6 +152,14 @@
 
 @media (max-width: 560px) {
   .home-fundraising-meta { align-items: flex-start; flex-direction: column; }
-  .home-fundraising-item { padding-right: 14px; padding-left: 14px; }
-  .home-fundraising-item:hover, .home-fundraising-item:focus-visible { padding-right: 17px; padding-left: 17px; }
+  .home-fundraising-meta-primary { align-items: flex-start; }
+  .home-fundraising-item {
+    grid-template-columns: 28px minmax(0, 1fr);
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+  .home-fundraising-actions {
+    grid-column: 2;
+    justify-content: flex-start;
+  }
 }

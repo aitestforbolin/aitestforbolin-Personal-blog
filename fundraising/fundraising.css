@@ -70,6 +70,25 @@
   font-weight: 800;
 }
 
+.fundraising-meta-primary {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.fundraising-meta-chat {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.fundraising-meta-chat:hover,
+.fundraising-meta-chat:focus-visible {
+  color: var(--accent-dark);
+  outline: none;
+}
+
 .fundraising-list {
   border-top: 1px solid rgba(24, 25, 22, 0.13);
 }
@@ -77,21 +96,17 @@
 .fundraising-project {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(260px, 1.55fr) minmax(108px, 0.55fr) minmax(128px, 0.62fr) minmax(132px, 0.58fr) 24px;
+  grid-template-columns: minmax(230px, 1.45fr) minmax(100px, 0.5fr) minmax(116px, 0.58fr) minmax(120px, 0.55fr) minmax(158px, 0.72fr);
   gap: 22px;
   align-items: center;
   min-height: 128px;
   border-bottom: 1px solid rgba(24, 25, 22, 0.13);
   padding: 22px 10px;
-  transition: background 180ms ease, padding 180ms ease;
+  transition: background 180ms ease;
 }
 
-.fundraising-project:hover,
-.fundraising-project:focus-visible {
-  padding-right: 16px;
-  padding-left: 16px;
+.fundraising-project:hover {
   background: rgba(164, 79, 52, 0.055);
-  outline: none;
 }
 
 .fundraising-project-name {
@@ -123,6 +138,12 @@
   line-height: 1.2;
 }
 
+.fundraising-project-name strong a:hover,
+.fundraising-project-name strong a:focus-visible {
+  color: var(--accent-dark);
+  outline: none;
+}
+
 .fundraising-field {
   display: grid;
   gap: 5px;
@@ -146,16 +167,49 @@
   font-size: 1.04rem;
 }
 
-.fundraising-arrow {
-  color: var(--accent-dark);
-  font-size: 1.25rem;
-  transition: transform 180ms ease;
+.fundraising-project-actions {
+  display: grid;
+  gap: 7px;
+  justify-items: start;
 }
 
-.fundraising-project:hover .fundraising-arrow,
-.fundraising-project:focus-visible .fundraising-arrow {
-  transform: translate(3px, -3px);
+.fundraising-project-source {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
 }
+
+.fundraising-project-source:hover,
+.fundraising-project-source:focus-visible {
+  color: var(--accent-dark);
+  outline: none;
+}
+
+.fundraising-project-research {
+  min-height: 38px;
+  border: 1px solid rgba(164, 79, 52, 0.46);
+  border-radius: 999px;
+  padding: 7px 13px;
+  background: rgba(251, 250, 246, 0.84);
+  color: var(--accent-dark);
+  cursor: pointer;
+  font-family: var(--font-site) !important;
+  font-size: 0.76rem;
+  font-weight: 850;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.fundraising-project-research:hover,
+.fundraising-project-research:focus-visible {
+  background: var(--accent-dark);
+  color: #fffdf8;
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.fundraising-project-research:disabled { cursor: wait; opacity: 0.75; }
+.fundraising-project-research[data-copy-state="success"] { border-color: #427a58; color: #356548; }
+.fundraising-project-research[data-copy-state="error"] { border-color: #a33; color: #a33; }
 
 .fundraising-note,
 .fundraising-error {
@@ -198,7 +252,7 @@
   }
 
   .fundraising-project {
-    grid-template-columns: minmax(210px, 1.5fr) repeat(3, minmax(92px, 0.6fr)) 20px;
+    grid-template-columns: minmax(190px, 1.4fr) repeat(3, minmax(86px, 0.55fr)) minmax(145px, 0.7fr);
     gap: 14px;
   }
 }
@@ -227,17 +281,15 @@
     margin-bottom: 12px;
   }
 
+  .fundraising-meta-primary {
+    align-items: flex-start;
+  }
+
   .fundraising-project {
     grid-template-columns: 1fr auto;
     gap: 14px 12px;
     min-height: 0;
     padding: 22px 4px;
-  }
-
-  .fundraising-project:hover,
-  .fundraising-project:focus-visible {
-    padding-right: 8px;
-    padding-left: 8px;
   }
 
   .fundraising-project-name {
@@ -261,11 +313,12 @@
     grid-column: 1;
   }
 
-  .fundraising-arrow {
+  .fundraising-project-actions {
     grid-column: 2;
     grid-row: 3;
-    align-self: end;
+    align-self: start;
     justify-self: end;
+    justify-items: end;
   }
 
   .fundraising-footer {

@@ -1,10 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-19T15:44:17+00:00",
+  "generatedAt": "2026-08-20T15:47:15+00:00",
   "timezone": "Asia/Shanghai",
   "status": "partial",
   "failedSources": [
     "gacc",
+    "mof",
     "nbs"
   ],
   "sourcePolicy": "China official-only; U.S. legacy calendar preserved",
@@ -486,38 +487,6 @@
       "eventType": "data"
     },
     {
-      "id": "us-d08d923e63e6",
-      "eventType": "data",
-      "country": "US",
-      "period": "July 2026",
-      "scheduledAt": "2026-08-05T22:00:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "美国ISM服务业PMI",
-      "category": "growth",
-      "importance": "medium",
-      "stars": 3,
-      "source": "ISM",
-      "sourceUrl": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/",
-      "metrics": [],
-      "releasedAt": null,
-      "retrievedAt": null,
-      "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "legacy": {
-        "date": "2026-08-05",
-        "time_et": "10:00",
-        "time_shanghai": "22:00",
-        "title": "Services PMI Report on Business",
-        "title_cn": "美国ISM服务业PMI",
-        "period": "July 2026",
-        "category": "growth",
-        "importance": "medium",
-        "stars": 3,
-        "source": "ISM",
-        "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/"
-      }
-    },
-    {
       "id": "cn-reserves-2026-07",
       "country": "CN",
       "period": "2026-07",
@@ -747,6 +716,9 @@
         "url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
         "fallback_url": "https://fred.stlouisfed.org/release?rid=10",
         "fallback_label": "FRED 备用",
+        "actual": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
+        "forecast": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
+        "previous": "CPI同比 3.5% · CPI环比 -0.4% · 核心CPI环比 0.0% · 核心CPI同比 2.6%",
         "metric_values": [
           {
             "label": "CPI同比",
@@ -773,15 +745,12 @@
             "previous": "+2.6%"
           }
         ],
-        "actual": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
-        "forecast": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
-        "previous": "CPI同比 3.5% · CPI环比 -0.4% · 核心CPI环比 0.0% · 核心CPI同比 2.6%",
-        "result_source": "BLS 2026年7月CPI报告",
-        "result_url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
         "actual_source": "BLS",
         "actual_url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
         "consensus_source": "Investing.com",
         "consensus_url": "https://www.investing.com/economic-calendar/cpi-733",
+        "result_source": "BLS 2026年7月CPI报告",
+        "result_url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
         "release_status": "released",
         "released_at": "2026-08-12T08:30:00-04:00"
       },
@@ -857,6 +826,9 @@
         "url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
         "fallback_url": "https://fred.stlouisfed.org/release?rid=46",
         "fallback_label": "FRED 备用",
+        "actual": "PPI环比 0.0% · PPI同比 +4.7% · 排除食品能源贸易服务环比 +0.4% · 同比 +4.7%",
+        "forecast": "PPI环比 0.2% · PPI同比 4.9%",
+        "previous": "PPI环比 -0.1% · PPI同比 +5.5%",
         "metric_values": [
           {
             "label": "PPI环比",
@@ -883,15 +855,12 @@
             "previous": "+5.0%"
           }
         ],
-        "actual": "PPI环比 0.0% · PPI同比 +4.7% · 排除食品能源贸易服务环比 +0.4% · 同比 +4.7%",
-        "forecast": "PPI环比 0.2% · PPI同比 4.9%",
-        "previous": "PPI环比 -0.1% · PPI同比 +5.5%",
-        "result_source": "BLS 2026年7月PPI报告",
-        "result_url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
         "actual_source": "BLS",
         "actual_url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
         "consensus_source": "Investing.com",
         "consensus_url": "https://www.investing.com/economic-calendar/ppi-734",
+        "result_source": "BLS 2026年7月PPI报告",
+        "result_url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
         "release_status": "released",
         "released_at": "2026-08-13T08:30:00-04:00"
       },
@@ -1109,7 +1078,7 @@
         }
       ],
       "releasedAt": "2026-08-17T15:00:00+08:00",
-      "retrievedAt": "2026-08-19T10:48:09+00:00",
+      "retrievedAt": "2026-08-20T10:49:16+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "sourceStatus": "fresh",
@@ -1217,42 +1186,37 @@
       "id": "cn-lpr-2026-08",
       "country": "CN",
       "period": "2026-08",
-      "scheduledAt": null,
-      "dateStatus": "expected_window",
+      "scheduledAt": "2026-08-20T09:00:00+08:00",
+      "dateStatus": "confirmed",
       "title": "中国贷款市场报价利率（LPR）",
       "category": "monetary_policy",
       "importance": "high",
       "source": "中国人民银行",
-      "sourceUrl": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/3876551/index.html",
+      "sourceUrl": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/3876551/2026082008353223017/index.html",
       "metrics": [
         {
           "id": "lpr_1y",
           "label": "1年期LPR",
-          "actual": null,
+          "actual": "3.0",
           "previous": "3.0",
           "unit": "%",
-          "sourceUrl": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/3876551/2026072008093186869/index.html"
+          "sourceUrl": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/3876551/2026082008353223017/index.html"
         },
         {
           "id": "lpr_5y",
           "label": "5年期以上LPR",
-          "actual": null,
+          "actual": "3.5",
           "previous": "3.5",
           "unit": "%",
-          "sourceUrl": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/3876551/2026072008093186869/index.html"
+          "sourceUrl": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/3876551/2026082008353223017/index.html"
         }
       ],
-      "releasedAt": null,
-      "retrievedAt": "2026-08-02T10:00:00+08:00",
+      "releasedAt": "2026-08-20T09:00:00+08:00",
+      "retrievedAt": "2026-08-20T02:40:52+00:00",
       "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "sourceStatus": "static_official_sample",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
       "group": "lpr",
-      "expectedWindow": {
-        "start": "2026-08-20",
-        "end": "2026-08-22",
-        "timezone": "Asia/Shanghai"
-      },
       "fallbackSourceUrl": "https://www.chinamoney.com.cn/chinese/bklpr/",
       "eventType": "data"
     },

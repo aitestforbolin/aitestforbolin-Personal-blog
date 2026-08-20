@@ -93,16 +93,10 @@
           ? project.detail_url
           : "https://crypto-fundraising.info/";
         return `
-          <a
-            class="fundraising-project"
-            href="${escapeHtml(detailUrl)}"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="查看 ${escapeHtml(project.name)} 的 Crypto-Fundraising 项目详情"
-          >
+          <article class="fundraising-project">
             <span class="fundraising-project-name">
               <span class="fundraising-rank">${String(index + 1).padStart(2, "0")}</span>
-              <strong>${escapeHtml(project.name)}</strong>
+              <strong><a href="${escapeHtml(detailUrl)}" target="_blank" rel="noreferrer">${escapeHtml(project.name)}</a></strong>
             </span>
             <span class="fundraising-field fundraising-field-date">
               <small>公布月份</small>
@@ -116,11 +110,36 @@
               <small>融资金额</small>
               <strong>${escapeHtml(formatAmount(project.amount_usd))}</strong>
             </span>
-            <span class="fundraising-arrow" aria-hidden="true">↗</span>
-          </a>
+            <span class="fundraising-project-actions">
+              <a class="fundraising-project-source" href="${escapeHtml(detailUrl)}" target="_blank" rel="noreferrer">查看来源 ↗</a>
+              <button
+                class="fundraising-project-research"
+                type="button"
+                data-research-copy
+                data-prompt-type="initial"
+                data-project-name="${escapeHtml(project.name)}"
+                data-project-url="${escapeHtml(detailUrl)}"
+              >初筛</button>
+              <button
+                class="fundraising-project-research"
+                type="button"
+                data-research-copy
+                data-prompt-type="research"
+                data-project-name="${escapeHtml(project.name)}"
+                data-project-url="${escapeHtml(detailUrl)}"
+              >研究</button>
+            </span>
+          </article>
         `;
       })
       .join("");
+
+    list.querySelectorAll("[data-research-copy]").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.BolinResearchPrompt.copyFromButton(button);
+      });
+    });
   }
 
   function renderError() {

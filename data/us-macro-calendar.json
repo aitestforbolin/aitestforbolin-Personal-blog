@@ -1,18 +1,5 @@
 [
   {
-    "date": "2026-08-05",
-    "time_et": "10:00",
-    "time_shanghai": "22:00",
-    "title": "Services PMI Report on Business",
-    "title_cn": "美国ISM服务业PMI",
-    "period": "July 2026",
-    "category": "growth",
-    "importance": "medium",
-    "stars": 3,
-    "source": "ISM",
-    "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/"
-  },
-  {
     "date": "2026-08-07",
     "time_et": "08:30",
     "time_shanghai": "20:30",
@@ -41,6 +28,9 @@
     "url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
     "fallback_url": "https://fred.stlouisfed.org/release?rid=10",
     "fallback_label": "FRED 备用",
+    "actual": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
+    "forecast": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
+    "previous": "CPI同比 3.5% · CPI环比 -0.4% · 核心CPI环比 0.0% · 核心CPI同比 2.6%",
     "metric_values": [
       {
         "label": "CPI同比",
@@ -67,15 +57,12 @@
         "previous": "+2.6%"
       }
     ],
-    "actual": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
-    "forecast": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
-    "previous": "CPI同比 3.5% · CPI环比 -0.4% · 核心CPI环比 0.0% · 核心CPI同比 2.6%",
-    "result_source": "BLS 2026年7月CPI报告",
-    "result_url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
     "actual_source": "BLS",
     "actual_url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
     "consensus_source": "Investing.com",
     "consensus_url": "https://www.investing.com/economic-calendar/cpi-733",
+    "result_source": "BLS 2026年7月CPI报告",
+    "result_url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
     "release_status": "released",
     "released_at": "2026-08-12T08:30:00-04:00"
   },
@@ -93,6 +80,9 @@
     "url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
     "fallback_url": "https://fred.stlouisfed.org/release?rid=46",
     "fallback_label": "FRED 备用",
+    "actual": "PPI环比 0.0% · PPI同比 +4.7% · 排除食品能源贸易服务环比 +0.4% · 同比 +4.7%",
+    "forecast": "PPI环比 0.2% · PPI同比 4.9%",
+    "previous": "PPI环比 -0.1% · PPI同比 +5.5%",
     "metric_values": [
       {
         "label": "PPI环比",
@@ -119,15 +109,12 @@
         "previous": "+5.0%"
       }
     ],
-    "actual": "PPI环比 0.0% · PPI同比 +4.7% · 排除食品能源贸易服务环比 +0.4% · 同比 +4.7%",
-    "forecast": "PPI环比 0.2% · PPI同比 4.9%",
-    "previous": "PPI环比 -0.1% · PPI同比 +5.5%",
-    "result_source": "BLS 2026年7月PPI报告",
-    "result_url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
     "actual_source": "BLS",
     "actual_url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
     "consensus_source": "Investing.com",
     "consensus_url": "https://www.investing.com/economic-calendar/ppi-734",
+    "result_source": "BLS 2026年7月PPI报告",
+    "result_url": "https://www.bls.gov/news.release/archives/ppi_08132026.htm",
     "release_status": "released",
     "released_at": "2026-08-13T08:30:00-04:00"
   },

@@ -52,16 +52,40 @@
     list.innerHTML = projects.map((project, index) => {
       const href = validDetailUrl(project.detail_url) ? project.detail_url : "fundraising/";
       const isNew = project.is_new === true;
-      return `<a class="home-fundraising-item" href="${escapeHtml(href)}" ${href.startsWith("http") ? 'target="_blank" rel="noreferrer"' : ""}>
+      return `<article class="home-fundraising-item">
         <span class="home-fundraising-rank">${String(index + 1).padStart(2, "0")}</span>
         <span class="home-fundraising-project">
-          <strong>${escapeHtml(project.name)}</strong>
+          <strong><a href="${escapeHtml(href)}" ${href.startsWith("http") ? 'target="_blank" rel="noreferrer"' : ""}>${escapeHtml(project.name)}</a></strong>
           ${isNew ? '<em class="home-fundraising-new">新！</em>' : ""}
           <small>${escapeHtml(formatRound(project.round))} · ${escapeHtml(formatAmount(project.amount_usd))}</small>
         </span>
-        <span class="home-fundraising-arrow" aria-hidden="true">↗</span>
-      </a>`;
+        <span class="home-fundraising-actions">
+          <button
+            class="home-fundraising-research"
+            type="button"
+            data-research-copy
+            data-prompt-type="initial"
+            data-project-name="${escapeHtml(project.name)}"
+            data-project-url="${escapeHtml(href)}"
+          >初筛</button>
+          <button
+            class="home-fundraising-research"
+            type="button"
+            data-research-copy
+            data-prompt-type="research"
+            data-project-name="${escapeHtml(project.name)}"
+            data-project-url="${escapeHtml(href)}"
+          >研究</button>
+        </span>
+      </article>`;
     }).join("");
+
+    list.querySelectorAll("[data-research-copy]").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.BolinResearchPrompt.copyFromButton(button);
+      });
+    });
   }
 
   fetch(DATA_URL, { cache: "no-store" })
