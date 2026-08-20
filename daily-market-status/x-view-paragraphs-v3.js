@@ -10,6 +10,8 @@
 
   const VIEW_HEADING = "04｜看法和观点";
   const DRIVER_HEADING = "▍核心个股驱动";
+  const CALENDAR_HEADING = "03｜日历、事件";
+  const DISPLAY_TIMEZONE = "Asia/Shanghai";
 
   function cleanText(value) {
     return String(value || "").replace(/\s+/g, " ").trim();
@@ -116,15 +118,52 @@
     return output.join("\n");
   }
 
+  function shanghaiMonthDay() {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: DISPLAY_TIMEZONE,
+      month: "numeric",
+      day: "numeric",
+    }).formatToParts(new Date());
+    return {
+      month: Number(parts.find((part) => part.type === "month")?.value),
+      day: Number(parts.find((part) => part.type === "day")?.value),
+    };
+  }
+
+  function markTonightCalendar(text) {
+    const today = shanghaiMonthDay();
+    const lines = String(text || "").split("\n");
+    let inCalendar = false;
+
+    return lines.map((line) => {
+      if (line === CALENDAR_HEADING) {
+        inCalendar = true;
+        return line;
+      }
+      if (inCalendar && line.startsWith("04｜")) {
+        inCalendar = false;
+        return line;
+      }
+      if (!inCalendar) return line;
+
+      const match = line.match(/^(?:（今晚）)?(\d{1,2})月(\d{1,2})日｜(.+)$/);
+      if (!match) return line;
+
+      const month = Number(match[1]);
+      const day = Number(match[2]);
+      const label = `${match[1]}月${match[2]}日｜${match[3]}`;
+      return month === today.month && day === today.day ? `（今晚）${label}` : label;
+    }).join("\n");
+  }
+
   function buildFullViewSection() {
     const paragraphs = [...document.querySelectorAll("[data-view] p")]
       .map((node) => cleanText(node.textContent))
-      .filter(Boolean);
-    const verdict = cleanText(document.querySelector("[data-verdict]")?.textContent);
+      .filter(Boolean)
+      .filter((paragraph) => !/跨资产/.test(paragraph));
 
     const lines = [VIEW_HEADING];
     paragraphs.forEach((paragraph) => lines.push("", paragraph));
-    if (verdict) lines.push("", verdict.replace(/^[—–-]\s*/, ""));
     return lines.join("\n");
   }
 
@@ -137,7 +176,7 @@
   }
 
   function transform(text) {
-    return replaceViewSection(replaceDriverReasons(text));
+    return replaceViewSection(markTonightCalendar(replaceDriverReasons(text)));
   }
 
   function finalWriteText(text) {
