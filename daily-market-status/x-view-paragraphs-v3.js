@@ -1,94 +1,130 @@
 (function () {
   "use strict";
 
+  const clipboard = navigator.clipboard;
+  if (!clipboard) return;
+
+  const proto = Object.getPrototypeOf(clipboard);
+  const originalWriteText = proto && proto.writeText;
+  if (typeof originalWriteText !== "function" || originalWriteText.__xFinalFormatter) return;
+
   const VIEW_HEADING = "04｜看法和观点";
-  const INTERPRETIVE_SIGNALS = /说明|表明|意味着|更像|而不是|因此|但|仍|若|接下来|关注|有望|警惕|不宜|不能|尚未|主线|风险|修复|分化|压力/;
+  const DRIVER_HEADING = "▍核心个股驱动";
 
-  function splitSentences(text) {
-    return (String(text || "").match(/[^。！？!?]+[。！？!?]?/g) || [])
-      .map((sentence) => sentence.trim())
-      .filter(Boolean);
+  function cleanText(value) {
+    return String(value || "").replace(/\s+/g, " ").trim();
   }
 
-  function trimSentence(text, maxLength) {
-    const source = String(text || "").replace(/\s+/g, " ").trim();
-    if (!source) return "";
-    if (source.length <= maxLength) {
-      return /[。！？!?]$/.test(source) ? source : source + "。";
-    }
-
-    const clipped = source.slice(0, maxLength);
-    const boundary = Math.max(
-      clipped.lastIndexOf("，"),
-      clipped.lastIndexOf("；"),
-      clipped.lastIndexOf("。")
-    );
-    const result = boundary >= Math.floor(maxLength * 0.55)
-      ? clipped.slice(0, boundary)
-      : clipped;
-    return result.replace(/[，；。\s]+$/, "") + "。";
-  }
-
-  function sentenceScore(sentence, index) {
-    let score = INTERPRETIVE_SIGNALS.test(sentence) ? 12 : 0;
-    score += index === 0 ? 2 : 0;
-    score -= Math.min((sentence.match(/\d/g) || []).length, 12) * 0.25;
-    return score;
-  }
-
-  function conciseParagraph(paragraph) {
-    const sentences = splitSentences(paragraph);
-    if (!sentences.length) return "";
-    if (sentences.length === 1) return trimSentence(sentences[0], 125);
-
-    const lead = sentences[0];
-    const best = sentences
-      .map((sentence, index) => ({ sentence, index, score: sentenceScore(sentence, index) }))
-      .sort((a, b) => b.score - a.score || a.index - b.index)[0];
-
-    if (best.index === 0) {
-      const second = sentences
-        .slice(1)
-        .map((sentence, index) => ({ sentence, index: index + 1, score: sentenceScore(sentence, index + 1) }))
-        .sort((a, b) => b.score - a.score || a.index - b.index)[0];
-      if (second && INTERPRETIVE_SIGNALS.test(second.sentence)) {
-        return trimSentence(lead, 72) + trimSentence(second.sentence, 88);
-      }
-      return trimSentence(lead, 120);
-    }
-
-    return trimSentence(lead, 72) + trimSentence(best.sentence, 88);
-  }
-
-  function conciseConclusion(text) {
-    const source = String(text || "")
-      .replace(/^[—–-]\s*/, "")
-      .replace(/^(昨日属于|今日属于|结论)[:：]\s*/, "")
-      .trim();
+  function conciseDriverReason(text) {
+    let source = cleanText(text)
+      .replace(/^公司给出的/, "")
+      .replace(/^公司/, "");
     if (!source) return "";
 
-    const sentences = splitSentences(source);
-    const chosen = sentences
-      .map((sentence, index) => ({ sentence, index, score: sentenceScore(sentence, index) }))
-      .sort((a, b) => b.score - a.score || a.index - b.index)[0]?.sentence || source;
-    return "结论：" + trimSentence(chosen, 95).replace(/^结论[:：]\s*/, "");
-  }
-
-  function buildViewSection() {
-    const paragraphs = [...document.querySelectorAll("[data-view] p")]
-      .map((node) => node.textContent.replace(/\s+/g, " ").trim())
+    const firstSentence = source.split(/[。！？!?]/).find(Boolean) || source;
+    const clauses = firstSentence
+      .split(/[，；]/)
+      .map((item) => item.trim())
       .filter(Boolean)
-      .map(conciseParagraph)
-      .filter(Boolean);
+      .filter((item) => !/股价创|单日最大涨幅|直接推动|成为标普.*涨幅|成为.*涨幅个股/.test(item));
 
-    const verdict = document.querySelector("[data-verdict]")?.textContent?.trim() || "";
-    const conclusion = conciseConclusion(verdict);
-    const lines = [VIEW_HEADING];
+    if (!clauses.length) return firstSentence.replace(/[，；。\s]+$/, "") + "。";
 
-    paragraphs.forEach((paragraph) => {
-      lines.push("", paragraph);
+    const picked = [];
+    let length = 0;
+    for (const clause of clauses) {
+      const nextLength = length + clause.length + (picked.length ? 1 : 0);
+      if (picked.length >= 2 && nextLength > 88) break;
+      if (picked.length >= 3) break;
+      if (picked.length && nextLength > 96) break;
+      picked.push(clause);
+      length = nextLength;
+    }
+
+    if (picked.length === 1 && clauses.length > 1 && length < 42) {
+      picked.push(clauses[1]);
+    }
+
+    return picked.join("，").replace(/[，；。\s]+$/, "") + "。";
+  }
+
+  function driverReasonMap() {
+    const map = new Map();
+    document.querySelectorAll(".driver-row").forEach((row) => {
+      const nameNode = row.querySelector(".driver-name");
+      const reasonNode = row.querySelector("p");
+      if (!nameNode || !reasonNode) return;
+
+      const nameClone = nameNode.cloneNode(true);
+      nameClone.querySelectorAll("small").forEach((node) => node.remove());
+      const ticker = cleanText(nameClone.textContent).split("·").at(-1)?.trim();
+      if (!ticker) return;
+
+      const reasonClone = reasonNode.cloneNode(true);
+      reasonClone.querySelectorAll("a").forEach((node) => node.remove());
+      const reason = conciseDriverReason(reasonClone.textContent);
+      if (reason) map.set(ticker, reason);
     });
-    if (conclusion) lines.push("", conclusion);
+    return map;
+  }
+
+  function replaceDriverReasons(text) {
+    const reasons = driverReasonMap();
+    if (!reasons.size) return text;
+
+    const lines = String(text || "").split("\n");
+    const output = [];
+    let inDrivers = false;
+    let pendingTicker = "";
+    let reasonReplaced = false;
+
+    for (const line of lines) {
+      if (line === DRIVER_HEADING) {
+        inDrivers = true;
+        pendingTicker = "";
+        reasonReplaced = false;
+        output.push(line);
+        continue;
+      }
+      if (inDrivers && line.startsWith("02｜")) {
+        inDrivers = false;
+        pendingTicker = "";
+        output.push(line);
+        continue;
+      }
+
+      if (inDrivers) {
+        const match = line.match(/^[·•]\s*.+?（([^）]+)）：/);
+        if (match) {
+          pendingTicker = match[1].trim();
+          reasonReplaced = false;
+          output.push(line);
+          continue;
+        }
+
+        if (pendingTicker && line.trim() && !reasonReplaced) {
+          const replacement = reasons.get(pendingTicker);
+          output.push(replacement || line);
+          reasonReplaced = true;
+          continue;
+        }
+      }
+
+      output.push(line);
+    }
+
+    return output.join("\n");
+  }
+
+  function buildFullViewSection() {
+    const paragraphs = [...document.querySelectorAll("[data-view] p")]
+      .map((node) => cleanText(node.textContent))
+      .filter(Boolean);
+    const verdict = cleanText(document.querySelector("[data-verdict]")?.textContent);
+
+    const lines = [VIEW_HEADING];
+    paragraphs.forEach((paragraph) => lines.push("", paragraph));
+    if (verdict) lines.push("", verdict.replace(/^[—–-]\s*/, ""));
     return lines.join("\n");
   }
 
@@ -96,45 +132,21 @@
     const source = String(text || "");
     const index = source.indexOf(VIEW_HEADING);
     if (index < 0) return source;
-
     const prefix = source.slice(0, index).replace(/\s+$/, "");
-    return prefix + "\n\n" + buildViewSection();
+    return prefix + "\n\n" + buildFullViewSection();
   }
 
-  document.addEventListener(
-    "click",
-    (event) => {
-      const button = event.target.closest?.("[data-copy-x]");
-      if (!button || button.disabled) return;
+  function transform(text) {
+    return replaceViewSection(replaceDriverReasons(text));
+  }
 
-      const clipboard = navigator.clipboard;
-      if (!clipboard) return;
+  function finalWriteText(text) {
+    const refined = transform(text);
+    const button = document.querySelector("[data-copy-x]");
+    if (button) button.copyPayload = refined;
+    return originalWriteText.call(this, refined);
+  }
 
-      const proto = Object.getPrototypeOf(clipboard);
-      const original = proto && proto.writeText;
-      if (typeof original !== "function") return;
-
-      let restored = false;
-      try {
-        proto.writeText = function (text) {
-          const refined = replaceViewSection(text);
-          button.copyPayload = refined;
-          return original.call(this, refined);
-        };
-      } catch (error) {
-        return;
-      }
-
-      window.setTimeout(() => {
-        if (restored) return;
-        restored = true;
-        try {
-          proto.writeText = original;
-        } catch (error) {
-          // Keep the page functional even if the browser prevents restoring the prototype.
-        }
-      }, 500);
-    },
-    true
-  );
+  finalWriteText.__xFinalFormatter = true;
+  proto.writeText = finalWriteText;
 })();
