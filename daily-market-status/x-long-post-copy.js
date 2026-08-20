@@ -3,6 +3,8 @@
 
   const THREAD_SEPARATOR = /\n\n──────────\n\n/g;
   const THREAD_COUNTER = /\n\n\d+\/\d+\s*$/;
+  const DISPLAY_TIMEZONE = "Asia/Shanghai";
+  const CALENDAR_WINDOW_MS = 48 * 60 * 60 * 1000;
 
   function conciseReason(text) {
     const source = String(text || "").replace(/\s+/g, " ").trim();
@@ -44,6 +46,119 @@
     return `· ${label}：${percent}%上涨（涨${advancers}｜跌${decliners}｜平${unchanged}）`;
   }
 
+  function shanghaiYear() {
+    const parts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: DISPLAY_TIMEZONE,
+      year: "numeric",
+    }).formatToParts(new Date());
+    return Number(parts.find((part) => part.type === "year")?.value);
+  }
+
+  function calendarEventTime(month, day, hour, minute, now) {
+    let year = shanghaiYear();
+    const build = (targetYear) =>
+      new Date(
+        `${targetYear}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}T${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}:00+08:00`
+      ).getTime();
+
+    let timestamp = build(year);
+    if (timestamp < now - 180 * 24 * 60 * 60 * 1000) {
+      year += 1;
+      timestamp = build(year);
+    }
+    return timestamp;
+  }
+
+  function splitSentences(text) {
+    return (String(text || "").match(/[^。！？!?]+[。！？!?]?/g) || [])
+      .map((sentence) => sentence.trim())
+      .filter(Boolean);
+  }
+
+  function sentenceScore(sentence) {
+    let score = 0;
+    if (/(说明|表明|意味着|更像|而不是|仍|但|因此|主线|结构性|并不|不能|尚未|未)/.test(sentence)) score += 7;
+    if (/(若|接下来|关注|有望|警惕)/.test(sentence)) score += 4;
+    score -= Math.min((sentence.match(/\d/g) || []).length, 10) * 0.7;
+    if (sentence.length > 150) score -= 2;
+    return score;
+  }
+
+  function bestSentence(paragraph) {
+    const sentences = splitSentences(paragraph);
+    if (!sentences.length) return "";
+    return sentences
+      .map((sentence, index) => ({ sentence, index, score: sentenceScore(sentence) }))
+      .sort((a, b) => b.score - a.score || a.index - b.index)[0].sentence;
+  }
+
+  function trimSentence(text, maxLength) {
+    const source = String(text || "").trim();
+    if (source.length <= maxLength) return source;
+    const clipped = source.slice(0, maxLength);
+    const boundary = Math.max(
+      clipped.lastIndexOf("，"),
+      clipped.lastIndexOf("；"),
+      clipped.lastIndexOf("。")
+    );
+    return (boundary >= maxLength * 0.55 ? clipped.slice(0, boundary) : clipped).replace(/[，；。\s]+$/, "") + "。";
+  }
+
+  function uniqueNonEmpty(items) {
+    const seen = new Set();
+    return items.filter((item) => {
+      const value = String(item || "").trim();
+      if (!value || seen.has(value)) return false;
+      seen.add(value);
+      return true;
+    });
+  }
+
+  function conciseConclusion(text) {
+    const source = String(text || "")
+      .replace(/^[—–-]\s*/, "")
+      .replace(/^(昨日属于|今日属于|结论)[:：]\s*/, "")
+      .trim();
+    if (!source) return "";
+
+    const clauses = source.split(/；/).map((item) => item.trim()).filter(Boolean);
+    let chosen = clauses.find((item) => /(更像|而不是|尚未|不能|仍需|警惕)/.test(item));
+    if (!chosen) chosen = bestSentence(source) || clauses.at(-1) || source;
+    chosen = chosen.replace(/，若.+$/, "").replace(/[。；\s]+$/, "");
+    return "结论：" + trimSentence(chosen, 90);
+  }
+
+  function buildXViewSummary() {
+    const paragraphs = [...document.querySelectorAll("[data-view] p")]
+      .map((node) => node.textContent.replace(/\s+/g, " ").trim())
+      .filter(Boolean);
+    const verdict = document.querySelector("[data-verdict]")?.textContent?.trim() || "";
+    if (!paragraphs.length && !verdict) return [];
+
+    const overall = paragraphs.find((text) => /(三大指数|市场宽度|风险偏好|结构性)/.test(text));
+    const macroParagraphs = paragraphs.filter((text) => /(财政部|收益率|FOMC|加息|利率|长债)/.test(text));
+    const structureParagraphs = paragraphs.filter((text) => /(板块|医疗|科技|芯片|美元|黄金|BTC|油价)/.test(text));
+    const outlook = [...paragraphs].reverse().find((text) => /(接下来|Walmart|PMI|若|关注)/.test(text));
+
+    const macroSummary = uniqueNonEmpty(macroParagraphs.slice(0, 2).map(bestSentence)).join("");
+    const structureSummary = bestSentence(
+      structureParagraphs
+        .slice()
+        .sort((a, b) => sentenceScore(bestSentence(b)) - sentenceScore(bestSentence(a)))[0] || ""
+    );
+
+    const summary = uniqueNonEmpty([
+      trimSentence(bestSentence(overall || paragraphs[0]), 125),
+      trimSentence(macroSummary, 180),
+      trimSentence(structureSummary, 135),
+      trimSentence(bestSentence(outlook || paragraphs.at(-1)), 145),
+    ]);
+
+    const conclusion = conciseConclusion(verdict);
+    if (conclusion) summary.push(conclusion);
+    return summary;
+  }
+
   function normalizeLongPost(threadText) {
     const joined = String(threadText || "")
       .split(THREAD_SEPARATOR)
@@ -52,18 +167,29 @@
       .join("\n\n");
 
     const reasons = driverReasonMap();
+    const viewSummary = buildXViewSummary();
     const output = [];
+    const now = Date.now();
+    const calendarDeadline = now + CALENDAR_WINDOW_MS;
     let inMacro = false;
     let inCalendar = false;
     let inDrivers = false;
+    let inView = false;
+    let calendarDate = null;
+    let calendarDateShown = false;
+    let calendarEventCount = 0;
+    let calendarHeaderIndex = -1;
 
     joined.split("\n").forEach((rawLine) => {
       let line = rawLine;
+
+      if (line === "▍细分板块如下") return;
 
       if (line === "01｜核心个股驱动") {
         inDrivers = true;
         inMacro = false;
         inCalendar = false;
+        inView = false;
         output.push("▍核心个股驱动");
         return;
       }
@@ -72,6 +198,7 @@
         inDrivers = false;
         inMacro = true;
         inCalendar = false;
+        inView = false;
         output.push(line);
         return;
       }
@@ -80,17 +207,30 @@
         inDrivers = false;
         inMacro = false;
         inCalendar = true;
+        inView = false;
+        calendarHeaderIndex = output.length;
         output.push("03｜日历、事件");
         return;
       }
 
       if (line.startsWith("04｜")) {
+        if (inCalendar && calendarEventCount === 0 && calendarHeaderIndex >= 0) {
+          output.push("未来48小时暂无重点事件。");
+        }
         inDrivers = false;
         inMacro = false;
         inCalendar = false;
-        output.push(line);
+        inView = true;
+        output.push("04｜看法和观点");
+        if (viewSummary.length) {
+          output.push("", ...viewSummary.flatMap((paragraph, index) =>
+            index < viewSummary.length - 1 ? [paragraph, ""] : [paragraph]
+          ));
+        }
         return;
       }
+
+      if (inView) return;
 
       if (line.startsWith("• 标普500：") || line.startsWith("• Nasdaq交易所：")) {
         output.push(formatBreadthLine(line));
@@ -106,7 +246,41 @@
         return;
       }
 
-      if (inCalendar && /^\s*影响[:：]/.test(line)) return;
+      if (inCalendar) {
+        if (/^\s*影响[:：]/.test(line)) return;
+        const dateMatch = line.replace(/^📅\s*/, "").match(/^(\d{1,2})月(\d{1,2})日｜(.+)$/);
+        if (dateMatch) {
+          calendarDate = {
+            month: Number(dateMatch[1]),
+            day: Number(dateMatch[2]),
+            label: `${dateMatch[1]}月${dateMatch[2]}日｜${dateMatch[3]}`,
+          };
+          calendarDateShown = false;
+          return;
+        }
+
+        const eventMatch = line.match(/^•\s*(\d{1,2}):(\d{2})｜(.+)$/);
+        if (eventMatch && calendarDate) {
+          const eventTime = calendarEventTime(
+            calendarDate.month,
+            calendarDate.day,
+            Number(eventMatch[1]),
+            Number(eventMatch[2]),
+            now
+          );
+          if (eventTime > now && eventTime <= calendarDeadline) {
+            if (!calendarDateShown) {
+              output.push("", calendarDate.label);
+              calendarDateShown = true;
+            }
+            output.push(`· ${eventMatch[1].padStart(2, "0")}:${eventMatch[2]}｜${eventMatch[3]}`);
+            calendarEventCount += 1;
+          }
+          return;
+        }
+
+        if (!line.trim()) return;
+      }
 
       if (inMacro && line.includes("｜")) {
         line
@@ -119,6 +293,10 @@
 
       output.push(line);
     });
+
+    if (inCalendar && calendarEventCount === 0 && calendarHeaderIndex >= 0) {
+      output.push("未来48小时暂无重点事件。");
+    }
 
     return output.join("\n").replace(/\n{3,}/g, "\n\n").trim();
   }
