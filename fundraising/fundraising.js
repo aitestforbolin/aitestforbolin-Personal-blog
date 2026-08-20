@@ -119,7 +119,7 @@
                 data-prompt-type="initial"
                 data-project-name="${escapeHtml(project.name)}"
                 data-project-url="${escapeHtml(detailUrl)}"
-              >复制初筛提示词</button>
+              >初筛</button>
               <button
                 class="fundraising-project-research"
                 type="button"
@@ -127,7 +127,7 @@
                 data-prompt-type="research"
                 data-project-name="${escapeHtml(project.name)}"
                 data-project-url="${escapeHtml(detailUrl)}"
-              >复制研究提示词</button>
+              >研究</button>
             </span>
           </article>
         `;
