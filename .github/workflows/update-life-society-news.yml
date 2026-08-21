@@ -1,9 +1,15 @@
-name: Update country news titles
+name: Collect and publish country news titles
 
 on:
   schedule:
-    - cron: "30 0,8 * * *"
+    - cron: "30 */2 * * *"
   workflow_dispatch:
+    inputs:
+      publish_snapshot:
+        description: "Also publish the latest fixed 24-hour snapshot"
+        required: true
+        default: true
+        type: boolean
 
 permissions:
   contents: write
@@ -13,9 +19,9 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  update-country-news:
+  collect-country-news:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
         with:
@@ -23,18 +29,53 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Fetch six active country news sources
-        run: python scripts/fetch_life_society_news.py
-      - name: Commit refreshed news titles
+      - name: Configure Git identity
         run: |
-          if git diff --quiet -- data/life-society-news.json; then
-            echo "Country news titles are already current."
-            exit 0
-          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/life-society-news.json
-          git commit -m "Update country news titles"
+      - name: Restore the rolling 48-hour store
+        run: |
+          git fetch origin country-news-data || true
+          if git show-ref --verify --quiet refs/remotes/origin/country-news-data; then
+            git show origin/country-news-data:data/life-society-news-store.json > /tmp/life-society-news-store.json
+          else
+            echo '{"schemaVersion":2,"items":[]}' > /tmp/life-society-news-store.json
+          fi
+      - name: Collect feeds and optionally build the 08:30 snapshot
+        id: collect
+        env:
+          MANUAL_SNAPSHOT: ${{ inputs.publish_snapshot }}
+        run: |
+          publish=false
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "$MANUAL_SNAPSHOT" == "true" ]]; then
+            publish=true
+          elif [[ "$(date -u +%H)" == "00" ]]; then
+            publish=true
+          fi
+          args=(--store-file /tmp/life-society-news-store.json --snapshot-file data/life-society-news.json)
+          if [[ "$publish" == "true" ]]; then args+=(--snapshot); fi
+          python scripts/fetch_life_society_news.py "${args[@]}"
+          echo "publish=$publish" >> "$GITHUB_OUTPUT"
+      - name: Save rolling store on the data branch
+        run: |
+          if git show-ref --verify --quiet refs/remotes/origin/country-news-data; then
+            git worktree add -B country-news-data /tmp/country-news-data origin/country-news-data
+          else
+            git worktree add -b country-news-data /tmp/country-news-data HEAD
+          fi
+          mkdir -p /tmp/country-news-data/data
+          cp /tmp/life-society-news-store.json /tmp/country-news-data/data/life-society-news-store.json
+          cd /tmp/country-news-data
+          if git diff --quiet -- data/life-society-news-store.json; then exit 0; fi
+          git add -- data/life-society-news-store.json
+          git commit -m "Collect country news titles"
+          git push origin HEAD:country-news-data
+      - name: Publish the fixed 24-hour snapshot
+        if: steps.collect.outputs.publish == 'true'
+        run: |
+          if git diff --quiet -- data/life-society-news.json; then exit 0; fi
+          git add -- data/life-society-news.json
+          git commit -m "Publish 08:30 country news snapshot"
           for attempt in 1 2 3; do
             git fetch origin main
             if git rebase origin/main && git push origin HEAD:main; then exit 0; fi
