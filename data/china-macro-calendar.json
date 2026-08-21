@@ -1,12 +1,11 @@
 {
   "schemaVersion": 1,
   "status": "partial",
-  "generatedAt": "2026-08-20T10:49:16+00:00",
+  "generatedAt": "2026-08-21T02:49:06+00:00",
   "timezone": "Asia/Shanghai",
   "sourcePolicy": "official_only",
   "failedSources": [
     "gacc",
-    "mof",
     "nbs"
   ],
   "events": [
@@ -717,7 +716,7 @@
         }
       ],
       "releasedAt": "2026-08-17T15:00:00+08:00",
-      "retrievedAt": "2026-08-20T10:49:16+00:00",
+      "retrievedAt": "2026-08-21T02:49:06+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "sourceStatus": "fresh",
@@ -2968,7 +2967,7 @@
           "actual": "100465",
           "previous": "83404",
           "unit": "亿元",
-          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202605/t20260515_3989956.htm",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm",
           "previousPeriod": "2026-01/04"
         },
         {
@@ -2977,7 +2976,7 @@
           "actual": "4",
           "previous": "3.5",
           "unit": "%",
-          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202605/t20260515_3989956.htm",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm",
           "previousPeriod": "2026-01/04"
         },
         {
@@ -2986,7 +2985,7 @@
           "actual": "113877",
           "previous": "94809",
           "unit": "亿元",
-          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202605/t20260515_3989956.htm",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm",
           "previousPeriod": "2026-01/04"
         },
         {
@@ -2995,12 +2994,12 @@
           "actual": "0.8",
           "previous": "1.3",
           "unit": "%",
-          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202605/t20260515_3989956.htm",
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202606/t20260622_3992033.htm",
           "previousPeriod": "2026-01/04"
         }
       ],
       "releasedAt": null,
-      "retrievedAt": "2026-08-06T05:27:41+00:00",
+      "retrievedAt": "2026-08-21T02:48:03+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "sourceStatus": "fresh",
@@ -3064,5 +3063,5 @@
     }
   ],
   "sourceHealthUpdatedAt": "2026-08-20T10:49:02+00:00",
-  "targetedBackfillAt": "2026-08-20T10:49:16+00:00"
+  "targetedBackfillAt": "2026-08-21T02:49:06+00:00"
 }
