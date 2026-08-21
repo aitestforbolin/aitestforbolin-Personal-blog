@@ -40,7 +40,9 @@ jobs:
       - name: Validate calendar data and updater behavior
         run: |
           python -m py_compile scripts/update_us_macro_calendar.py scripts/update_us_macro_dashboard.py scripts/merge_macro_calendars.py
-          python -m unittest discover -s tests -p 'test_*.py' -v
+          python -m unittest discover -s tests -p 'test_us_macro_calendar.py' -v
+          python -m unittest discover -s tests -p 'test_us_macro_dashboard.py' -v
+          python -m unittest discover -s tests -p 'test_macro_calendar_merge.py' -v
           python scripts/merge_macro_calendars.py --validate-only
 
       - name: Commit updated calendar
