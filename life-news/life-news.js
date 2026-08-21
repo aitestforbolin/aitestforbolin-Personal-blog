@@ -30,7 +30,7 @@
       meta.className = 'life-news-item-meta';
       meta.textContent = `${item.country}｜${item.outlet}${formatTime(item.publishedAt) ? `｜${formatTime(item.publishedAt)}` : ''}`;
       const title = document.createElement('strong');
-      title.textContent = item.chineseTitle || item.originalTitle;
+      title.textContent = item.originalTitle;
       row.append(meta, title);
       list.append(row);
     });
@@ -49,8 +49,10 @@
     .then(response => { if (!response.ok) throw new Error('load failed'); return response.json(); })
     .then(data => {
       allItems = Array.isArray(data.items) ? data.items : [];
-      updated.textContent = data.generatedAt ? `更新于 ${formatTime(data.generatedAt)}（北京时间）` : '最新更新';
-      if (data.translationStatus === 'enabled') note.textContent = '中文标题由自动翻译生成；点击查看原文。';
+      updated.textContent = data.windowEnd
+        ? `截至 ${formatTime(data.windowEnd)}，共 ${allItems.length} 条`
+        : '最新 24 小时新闻';
+      note.textContent = '收录此前 24 小时内曾出现在六家 RSS 的全部标题';
       ['全部', ...new Set(allItems.map(item => item.country))].forEach(addFilter);
       render();
     })
