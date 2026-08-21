@@ -53,7 +53,11 @@
         ? `截至 ${formatTime(data.windowEnd)}，共 ${allItems.length} 条`
         : '最新 24 小时新闻';
       note.textContent = '收录此前 24 小时内曾出现在六家 RSS 的全部标题';
-      ['全部', ...new Set(allItems.map(item => item.country))].forEach(addFilter);
+      const countries = [...new Set(allItems.map(item => item.country))];
+      const orderedCountries = countries.includes('德国')
+        ? ['德国', ...countries.filter(name => name !== '德国')]
+        : countries;
+      ['全部', ...orderedCountries].forEach(addFilter);
       render();
     })
     .catch(() => { updated.textContent = '新闻数据暂时无法载入。'; note.textContent = ''; });
