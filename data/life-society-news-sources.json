@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "purpose": "First-phase source registry for the life and society news selector. No frontend consumes this file yet.",
+  "sources": [
+    {"country":"德国","countryCode":"DE","outlet":"Tagesschau","sectionUrl":"https://www.tagesschau.de/inland","rssUrl":"https://www.tagesschau.de/inland/index~rss2.xml","enabled":true},
+    {"country":"澳大利亚","countryCode":"AU","outlet":"ABC News","sectionUrl":"https://www.abc.net.au/news/australia","rssUrl":"https://www.abc.net.au/news/feed/46182/rss.xml","enabled":true},
+    {"country":"加拿大","countryCode":"CA","outlet":"CBC News","sectionUrl":"https://www.cbc.ca/news/canada","rssUrl":"https://www.cbc.ca/webfeed/rss/rss-canada","enabled":false},
+    {"country":"荷兰","countryCode":"NL","outlet":"NOS","sectionUrl":"https://nos.nl/nieuws/binnenland","rssUrl":"https://nos.nl/rss.xml","enabled":true},
+    {"country":"英国","countryCode":"GB","outlet":"BBC News","sectionUrl":"https://www.bbc.com/news/uk","rssUrl":"http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/uk/rss.xml","enabled":true},
+    {"country":"新加坡","countryCode":"SG","outlet":"CNA","sectionUrl":"https://www.channelnewsasia.com/singapore","rssUrl":"http://www.channelnewsasia.com/rss/latest_cna_sg_rss.xml","enabled":true},
+    {"country":"爱尔兰","countryCode":"IE","outlet":"RTÉ News","sectionUrl":"https://www.rte.ie/news/ireland/","rssUrl":"https://www.rte.ie/feeds/rss/?index=/news/ireland/","enabled":false},
+    {"country":"挪威","countryCode":"NO","outlet":"NRK","sectionUrl":"https://www.nrk.no/norge/","rssUrl":"https://www.nrk.no/toppsaker.rss","enabled":false},
+    {"country":"瑞士","countryCode":"CH","outlet":"SRF","sectionUrl":"https://www.srf.ch/news/schweiz","rssUrl":"https://www.srf.ch/news/bnf/rss/1890","enabled":true}
+  ]
+}

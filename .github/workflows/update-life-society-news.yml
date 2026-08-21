@@ -1,0 +1,44 @@
+name: Update country news titles
+
+on:
+  schedule:
+    - cron: "30 0,8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repository-data-writer
+  cancel-in-progress: false
+
+jobs:
+  update-country-news:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch six active country news sources
+        run: python scripts/fetch_life_society_news.py
+      - name: Commit refreshed news titles
+        run: |
+          if git diff --quiet -- data/life-society-news.json; then
+            echo "Country news titles are already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/life-society-news.json
+          git commit -m "Update country news titles"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if git rebase origin/main && git push origin HEAD:main; then exit 0; fi
+            git rebase --abort || true
+            sleep $((attempt * 5))
+          done
+          exit 1
