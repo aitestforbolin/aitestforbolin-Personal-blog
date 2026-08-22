@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Collect RSS titles into a rolling store and publish a fixed 08:30 BJT snapshot."""
+"""Collect RSS titles into a rolling store and publish a fixed 07:30 BJT snapshot."""
 from __future__ import annotations
 
 import argparse
@@ -21,6 +21,8 @@ DEFAULT_STORE = ROOT / "data" / "life-society-news-store.json"
 DEFAULT_SNAPSHOT = ROOT / "data" / "life-society-news.json"
 SHANGHAI = ZoneInfo("Asia/Shanghai")
 STORE_HOURS = 48
+SNAPSHOT_HOUR = 7
+SNAPSHOT_MINUTE = 30
 
 
 def node_text(node: ET.Element | None, *names: str) -> str:
@@ -100,10 +102,23 @@ def merge_store(existing: object, candidates: list[dict], now: dt.datetime) -> l
 
 def snapshot_window(now: dt.datetime) -> tuple[dt.datetime, dt.datetime]:
     local = now.astimezone(SHANGHAI)
-    end = local.replace(hour=8, minute=30, second=0, microsecond=0)
+    end = local.replace(
+        hour=SNAPSHOT_HOUR,
+        minute=SNAPSHOT_MINUTE,
+        second=0,
+        microsecond=0,
+    )
     if local < end:
         end -= dt.timedelta(days=1)
     return (end - dt.timedelta(hours=24)).astimezone(dt.timezone.utc), end.astimezone(dt.timezone.utc)
+
+
+def snapshot_is_due(existing: object, now: dt.datetime) -> bool:
+    if not isinstance(existing, dict):
+        return True
+    published_end = parse_datetime(existing.get("asOf") or existing.get("windowEnd"))
+    _, expected_end = snapshot_window(now)
+    return published_end is None or published_end < expected_end
 
 
 def build_snapshot(store: dict, now: dt.datetime) -> dict:
@@ -139,6 +154,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--store-file", type=Path, default=DEFAULT_STORE)
     parser.add_argument("--snapshot-file", type=Path, default=DEFAULT_SNAPSHOT)
     parser.add_argument("--snapshot", action="store_true")
+    parser.add_argument("--snapshot-if-due", action="store_true")
     parser.add_argument("--now", help="UTC/offset ISO timestamp for deterministic tests")
     return parser.parse_args()
 
@@ -149,14 +165,18 @@ def main() -> int:
     if now is None:
         raise SystemExit("--now must be a valid ISO timestamp")
     previous = load_json(args.store_file, {})
+    publish_snapshot = args.snapshot or (
+        args.snapshot_if_due
+        and snapshot_is_due(load_json(args.snapshot_file, {}), now)
+    )
     audits, candidates = collect_sources(now)
     store = {"schemaVersion": 2, "generatedAt": iso(now), "retentionHours": STORE_HOURS, "sourceAudit": audits, "items": merge_store(previous, candidates, now)}
     args.store_file.parent.mkdir(parents=True, exist_ok=True)
     args.store_file.write_text(json.dumps(store, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    if args.snapshot:
+    if publish_snapshot:
         args.snapshot_file.parent.mkdir(parents=True, exist_ok=True)
         args.snapshot_file.write_text(json.dumps(build_snapshot(store, now), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"audit": audits, "stored": len(store["items"]), "snapshot": args.snapshot}, ensure_ascii=False))
+    print(json.dumps({"audit": audits, "stored": len(store["items"]), "snapshot": publish_snapshot}, ensure_ascii=False))
     return 0 if candidates or store["items"] else 1
 
 
