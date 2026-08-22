@@ -1,13 +1,12 @@
 {
   "schemaVersion": 1,
   "status": "partial",
-  "generatedAt": "2026-08-22T02:39:14+00:00",
+  "generatedAt": "2026-08-22T02:55:07+00:00",
   "timezone": "Asia/Shanghai",
   "sourcePolicy": "official_only",
   "failedSources": [
     "gacc",
-    "nbs",
-    "safe"
+    "nbs"
   ],
   "events": [
     {
@@ -717,7 +716,7 @@
         }
       ],
       "releasedAt": "2026-08-17T15:00:00+08:00",
-      "retrievedAt": "2026-08-22T02:39:14+00:00",
+      "retrievedAt": "2026-08-22T02:55:07+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "sourceStatus": "fresh",
@@ -3120,6 +3119,6 @@
       "group": "fiscal"
     }
   ],
-  "sourceHealthUpdatedAt": "2026-08-22T02:39:00+00:00",
-  "targetedBackfillAt": "2026-08-22T02:39:14+00:00"
+  "sourceHealthUpdatedAt": "2026-08-22T02:55:01+00:00",
+  "targetedBackfillAt": "2026-08-22T02:55:07+00:00"
 }
