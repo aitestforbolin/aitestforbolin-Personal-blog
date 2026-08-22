@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-21T15:46:39+00:00",
+  "generatedAt": "2026-08-22T01:48:19+00:00",
   "timezone": "Asia/Shanghai",
   "status": "partial",
   "failedSources": [
@@ -514,42 +514,6 @@
       "sourceStatus": "fresh",
       "group": "reserves",
       "eventType": "data"
-    },
-    {
-      "id": "us-d4a2807866cb",
-      "eventType": "data",
-      "country": "US",
-      "period": "July 2026",
-      "scheduledAt": "2026-08-07T20:30:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "美国非农 / 失业率 / 平均时薪",
-      "category": "jobs",
-      "importance": "critical",
-      "stars": 5,
-      "source": "BLS",
-      "sourceUrl": "https://www.bls.gov/schedule/news_release/",
-      "metrics": [],
-      "releasedAt": null,
-      "retrievedAt": null,
-      "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "legacy": {
-        "date": "2026-08-07",
-        "time_et": "08:30",
-        "time_shanghai": "20:30",
-        "title": "Employment Situation",
-        "title_cn": "美国非农 / 失业率 / 平均时薪",
-        "period": "July 2026",
-        "category": "jobs",
-        "importance": "critical",
-        "stars": 5,
-        "source": "BLS",
-        "url": "https://www.bls.gov/schedule/news_release/",
-        "fallback_url": "https://fred.stlouisfed.org/release?rid=50",
-        "fallback_label": "FRED 备用"
-      },
-      "fallbackSourceUrl": "https://fred.stlouisfed.org/release?rid=50",
-      "fallbackSourceLabel": "FRED 备用"
     },
     {
       "id": "cn-trade-2026-07",
