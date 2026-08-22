@@ -5,6 +5,8 @@ import json
 import sys
 import unittest
 from pathlib import Path
+from unittest.mock import patch
+from urllib.error import URLError
 
 
 SCRIPT_PATH = (
@@ -145,6 +147,50 @@ class CryptoFundraisingTests(unittest.TestCase):
             [project["is_new"] for project in payload["projects"]],
             [True, False, False, False, False],
         )
+
+    def test_unchanged_source_projects_do_not_rewrite_new_badges(self):
+        previous = updater.build_payload(FIXTURE)
+        previous["projects"][0]["is_new"] = True
+        refreshed = updater.build_payload(FIXTURE, previous)
+
+        self.assertFalse(updater.project_data_changed(refreshed, previous))
+
+    def test_new_source_project_still_requires_update(self):
+        previous = updater.build_payload(FIXTURE)
+        newer_fixture = FIXTURE.replace('data-eid="201"', 'data-eid="999"')
+        refreshed = updater.build_payload(newer_fixture, previous)
+
+        self.assertTrue(updater.project_data_changed(refreshed, previous))
+
+    def test_fetch_retries_temporary_network_errors(self):
+        class Response:
+            headers = type("Headers", (), {"get_content_charset": lambda self: "utf-8"})()
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return None
+
+            def read(self):
+                return FIXTURE.encode("utf-8")
+
+        with patch.object(
+            updater, "urlopen", side_effect=[URLError("temporary failure"), Response()]
+        ) as mocked_urlopen, patch.object(updater.time, "sleep") as mocked_sleep:
+            self.assertEqual(updater.fetch_homepage(), FIXTURE)
+
+        self.assertEqual(mocked_urlopen.call_count, 2)
+        mocked_sleep.assert_called_once_with(5)
+
+    def test_fetch_failure_reports_retry_count(self):
+        with patch.object(
+            updater, "urlopen", side_effect=URLError("source unavailable")
+        ) as mocked_urlopen, patch.object(updater.time, "sleep"):
+            with self.assertRaisesRegex(RuntimeError, "after 4 attempts"):
+                updater.fetch_homepage()
+
+        self.assertEqual(mocked_urlopen.call_count, updater.FETCH_RETRIES)
 
 if __name__ == "__main__":
     unittest.main()

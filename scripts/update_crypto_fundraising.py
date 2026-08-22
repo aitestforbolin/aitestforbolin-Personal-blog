@@ -21,8 +21,8 @@ SITE_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = SITE_ROOT / "data" / "crypto-fundraising.json"
 SOURCE_URL = "https://crypto-fundraising.info/"
 SOURCE_HOST = "crypto-fundraising.info"
-FETCH_TIMEOUT = 60
-FETCH_RETRIES = 3
+FETCH_TIMEOUT = 45
+FETCH_RETRIES = 4
 PROJECT_LIMIT = 5
 VOID_TAGS = {
     "area",
@@ -247,9 +247,10 @@ def fetch_homepage() -> str:
         SOURCE_URL,
         headers={
             "Accept": "text/html,application/xhtml+xml",
+            "Accept-Language": "en-US,en;q=0.9",
             "User-Agent": (
-                "personal-site-crypto-fundraising/1.0 "
-                "(+https://github.com/aitestforbolin/aitestforbolin-Personal-blog)"
+                "Mozilla/5.0 (compatible; PersonalSiteFundraising/1.1; "
+                "+https://github.com/aitestforbolin/aitestforbolin-Personal-blog)"
             ),
         },
     )
@@ -262,9 +263,16 @@ def fetch_homepage() -> str:
             return body.decode(encoding, errors="replace")
         except (TimeoutError, URLError) as error:
             last_error = error
+            print(
+                f"Fundraising source request {attempt}/{FETCH_RETRIES} failed: "
+                f"{error.__class__.__name__}: {error}",
+                flush=True,
+            )
             if attempt < FETCH_RETRIES:
-                time.sleep(attempt * 2)
-    raise RuntimeError(f"Could not fetch {SOURCE_URL}") from last_error
+                time.sleep(attempt * 5)
+    raise RuntimeError(
+        f"Could not fetch {SOURCE_URL} after {FETCH_RETRIES} attempts"
+    ) from last_error
 
 
 def build_payload(
@@ -310,10 +318,23 @@ def project_data_changed(
         previous = load_previous_payload()
     if previous is None:
         return True
-    return any(
-        previous.get(key) != payload.get(key)
-        for key in ("source", "source_url", "selection", "projects")
-    )
+
+    for key in ("source", "source_url", "selection"):
+        if previous.get(key) != payload.get(key):
+            return True
+
+    def source_projects(item: dict[str, object]) -> object:
+        projects = item.get("projects")
+        if not isinstance(projects, list):
+            return projects
+        return [
+            {key: value for key, value in project.items() if key != "is_new"}
+            if isinstance(project, dict)
+            else project
+            for project in projects
+        ]
+
+    return source_projects(previous) != source_projects(payload)
 
 
 def write_payload(payload: dict[str, object]) -> None:
