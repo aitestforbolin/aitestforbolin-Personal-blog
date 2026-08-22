@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import datetime as dt
 import importlib.util
+import json
 import unittest
 from pathlib import Path
 
@@ -16,6 +17,20 @@ SPEC.loader.exec_module(news)
 
 
 class LifeSocietyNewsTests(unittest.TestCase):
+    def test_germany_has_both_tagesschau_and_the_local_sources(self):
+        sources = json.loads(news.SOURCES.read_text(encoding="utf-8"))["sources"]
+        germany = {
+            source["outlet"]: source
+            for source in sources
+            if source["country"] == "德国" and source["enabled"]
+        }
+
+        self.assertEqual(set(germany), {"Tagesschau", "The Local Germany"})
+        self.assertEqual(
+            germany["The Local Germany"]["rssUrl"],
+            "https://feeds.thelocal.com/rss/builder/de",
+        )
+
     def test_snapshot_window_uses_today_after_0730_in_shanghai(self):
         now = dt.datetime.fromisoformat("2026-08-22T09:56:00+08:00")
 

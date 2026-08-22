@@ -3,6 +3,7 @@
   "purpose": "First-phase source registry for the life and society news selector. No frontend consumes this file yet.",
   "sources": [
     {"country":"德国","countryCode":"DE","outlet":"Tagesschau","sectionUrl":"https://www.tagesschau.de/inland","rssUrl":"https://www.tagesschau.de/inland/index~rss2.xml","enabled":true},
+    {"country":"德国","countryCode":"DE","outlet":"The Local Germany","sectionUrl":"https://www.thelocal.de/","rssUrl":"https://feeds.thelocal.com/rss/builder/de","enabled":true},
     {"country":"澳大利亚","countryCode":"AU","outlet":"ABC News","sectionUrl":"https://www.abc.net.au/news/australia","rssUrl":"https://www.abc.net.au/news/feed/46182/rss.xml","enabled":true},
     {"country":"加拿大","countryCode":"CA","outlet":"CBC News","sectionUrl":"https://www.cbc.ca/news/canada","rssUrl":"https://www.cbc.ca/webfeed/rss/rss-canada","enabled":false},
     {"country":"荷兰","countryCode":"NL","outlet":"NOS","sectionUrl":"https://nos.nl/nieuws/binnenland","rssUrl":"https://nos.nl/rss.xml","enabled":true},

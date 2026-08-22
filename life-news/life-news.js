@@ -52,7 +52,10 @@
       updated.textContent = data.windowEnd
         ? `截至 ${formatTime(data.windowEnd)}，共 ${allItems.length} 条`
         : '最新 24 小时新闻';
-      note.textContent = '收录此前 24 小时内曾出现在六家 RSS 的全部标题';
+      const sourceCount = Array.isArray(data.sourceAudit) ? data.sourceAudit.length : 0;
+      note.textContent = sourceCount
+        ? `收录此前 24 小时内曾出现在 ${sourceCount} 家 RSS 的全部标题`
+        : '收录此前 24 小时内曾出现在 RSS 的全部标题';
       const countries = [...new Set(allItems.map(item => item.country))];
       const orderedCountries = countries.includes('德国')
         ? ['德国', ...countries.filter(name => name !== '德国')]
