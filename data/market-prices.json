@@ -4,44 +4,14 @@
     {
       "symbol": "BTCUSD",
       "date": "2026-08-23",
-      "time": "22:13 UTC",
+      "time": "22:45 UTC",
       "open": 77076.06,
       "high": 78019.71,
       "low": 75884.68,
-      "close": 77714.07,
-      "volume": 30496589824,
+      "close": 77641.19,
+      "volume": 30774091776,
       "sourceSymbol": "BTC-USD",
       "points": [
-        {
-          "time": "14:20",
-          "timestamp": 1787494800,
-          "value": 77414.859375
-        },
-        {
-          "time": "14:25",
-          "timestamp": 1787495100,
-          "value": 77439.2421875
-        },
-        {
-          "time": "14:30",
-          "timestamp": 1787495400,
-          "value": 77412.7421875
-        },
-        {
-          "time": "14:35",
-          "timestamp": 1787495700,
-          "value": 77426.671875
-        },
-        {
-          "time": "14:40",
-          "timestamp": 1787496000,
-          "value": 76992.1015625
-        },
-        {
-          "time": "14:45",
-          "timestamp": 1787496300,
-          "value": 77179.2890625
-        },
         {
           "time": "14:50",
           "timestamp": 1787496600,
@@ -485,24 +455,54 @@
         {
           "time": "22:10",
           "timestamp": 1787523000,
-          "value": 77700.0
+          "value": 77700.078125
         },
         {
-          "time": "22:13",
-          "timestamp": 1787523195,
-          "value": 77714.0703125
+          "time": "22:15",
+          "timestamp": 1787523300,
+          "value": 77744.640625
+        },
+        {
+          "time": "22:20",
+          "timestamp": 1787523600,
+          "value": 77767.703125
+        },
+        {
+          "time": "22:25",
+          "timestamp": 1787523900,
+          "value": 77664.4296875
+        },
+        {
+          "time": "22:30",
+          "timestamp": 1787524200,
+          "value": 77660.609375
+        },
+        {
+          "time": "22:35",
+          "timestamp": 1787524500,
+          "value": 77682.53125
+        },
+        {
+          "time": "22:40",
+          "timestamp": 1787524800,
+          "value": 77642.5625
+        },
+        {
+          "time": "22:45",
+          "timestamp": 1787525103,
+          "value": 77641.1875
         }
       ]
     },
     {
       "symbol": "XAUUSD",
       "date": "2026-08-23",
-      "time": "22:13 UTC",
+      "time": "22:45 UTC",
       "open": 4616.37,
       "high": 4616.37,
-      "low": 4616.37,
-      "close": 4616.37,
-      "previousClose": 4604.82,
+      "low": 4610.02,
+      "close": 4610.02,
+      "previousClose": 4616.37,
       "volume": "N/D",
       "source": "Swissquote",
       "sourceSymbol": "XAU/USD",
@@ -1166,6 +1166,11 @@
           "time": "22:13",
           "timestamp": 1787523199,
           "value": 4616.37
+        },
+        {
+          "time": "22:45",
+          "timestamp": 1787525109,
+          "value": 4610.02
         }
       ]
     },
