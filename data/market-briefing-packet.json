@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-21T22:51:54+00:00",
-  "tradingDate": "2026-08-21",
+  "generatedAt": "2026-08-24T22:54:05+00:00",
+  "tradingDate": "2026-08-24",
   "sourceAudit": {
     "marketsApi": {
       "status": "ok",
@@ -22,19 +22,19 @@
     "btcEtf": {
       "status": "ok",
       "provider": "Farside Investors",
-      "date": "2026-08-20"
+      "date": "2026-08-21"
     }
   },
   "markets": [
     {
       "id": "SPX",
       "name": "S&P 500",
-      "price": 7674.37,
-      "previousClose": 7641.16,
-      "change": 33.210000000000036,
-      "changePercent": 0.43461987446932193,
+      "price": 7652.86,
+      "previousClose": 7674.37,
+      "change": -21.51000000000022,
+      "changePercent": -0.2802835933112453,
       "currency": "USD",
-      "updatedAt": 1787344912000,
+      "updatedAt": 1787603792000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -42,12 +42,12 @@
     {
       "id": "IXIC",
       "name": "Nasdaq Composite",
-      "price": 26180.455,
-      "previousClose": 26067.166,
-      "change": 113.28900000000067,
-      "changePercent": 0.4346042066866827,
+      "price": 25980.191,
+      "previousClose": 26180.455,
+      "change": -200.26400000000285,
+      "changePercent": -0.7649370494133996,
       "currency": "USD",
-      "updatedAt": 1787346959000,
+      "updatedAt": 1787606159000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -55,12 +55,12 @@
     {
       "id": "DJI",
       "name": "Dow Jones",
-      "price": 53277.01,
-      "previousClose": 52759.21,
-      "change": 517.8000000000029,
-      "changePercent": 0.9814400177713104,
+      "price": 53417.16,
+      "previousClose": 53277.01,
+      "change": 140.15000000000146,
+      "changePercent": 0.26305905680518005,
       "currency": "USD",
-      "updatedAt": 1787344917000,
+      "updatedAt": 1787603858000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -68,12 +68,12 @@
     {
       "id": "SOX",
       "name": "PHLX Semiconductor",
-      "price": 11740.374,
-      "previousClose": 11800.019,
-      "change": -59.64500000000044,
-      "changePercent": -0.5054652878101334,
+      "price": 11423.169,
+      "previousClose": 11740.374,
+      "change": -317.2049999999999,
+      "changePercent": -2.7018304527607038,
       "currency": "USD",
-      "updatedAt": 1787346959000,
+      "updatedAt": 1787606159000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -81,12 +81,12 @@
     {
       "id": "XLK",
       "name": "Technology",
-      "price": 183.31,
-      "previousClose": 183.1,
-      "change": 0.21000000000000796,
-      "changePercent": 0.11469142545057781,
+      "price": 180.05,
+      "previousClose": 183.31,
+      "change": -3.259999999999991,
+      "changePercent": -1.7784081610386728,
       "currency": "USD",
-      "updatedAt": 1787342400000,
+      "updatedAt": 1787601600000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -94,12 +94,12 @@
     {
       "id": "XLY",
       "name": "Consumer Discretionary",
-      "price": 118.02,
-      "previousClose": 116.68,
-      "change": 1.3399999999999892,
-      "changePercent": 1.1484401782653317,
+      "price": 118.3,
+      "previousClose": 118.02,
+      "change": 0.28000000000000114,
+      "changePercent": 0.23724792408066525,
       "currency": "USD",
-      "updatedAt": 1787342400000,
+      "updatedAt": 1787601600000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -107,12 +107,12 @@
     {
       "id": "XLC",
       "name": "Communication Services",
-      "price": 111.4,
-      "previousClose": 110.68,
-      "change": 0.7199999999999989,
-      "changePercent": 0.6505240332490051,
+      "price": 112.32,
+      "previousClose": 111.4,
+      "change": 0.9199999999999875,
+      "changePercent": 0.8258527827648002,
       "currency": "USD",
-      "updatedAt": 1787342400000,
+      "updatedAt": 1787601600000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -120,12 +120,12 @@
     {
       "id": "XLP",
       "name": "Consumer Staples",
-      "price": 85.99,
-      "previousClose": 85.32,
-      "change": 0.6700000000000017,
-      "changePercent": 0.785278949835914,
+      "price": 87.45,
+      "previousClose": 85.99,
+      "change": 1.460000000000008,
+      "changePercent": 1.6978718455634467,
       "currency": "USD",
-      "updatedAt": 1787342400000,
+      "updatedAt": 1787601600000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -133,12 +133,12 @@
     {
       "id": "XLV",
       "name": "Health Care",
-      "price": 174.62,
-      "previousClose": 172.39,
-      "change": 2.230000000000018,
-      "changePercent": 1.2935785138349198,
+      "price": 174.7,
+      "previousClose": 174.62,
+      "change": 0.07999999999998408,
+      "changePercent": 0.0458137670369855,
       "currency": "USD",
-      "updatedAt": 1787342400000,
+      "updatedAt": 1787601600000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -146,12 +146,12 @@
     {
       "id": "XLU",
       "name": "Utilities",
-      "price": 42.77,
-      "previousClose": 43.77,
-      "change": -1,
-      "changePercent": -2.284669865204478,
+      "price": 43.22,
+      "previousClose": 42.77,
+      "change": 0.44999999999999574,
+      "changePercent": 1.0521393500116805,
       "currency": "USD",
-      "updatedAt": 1787342400000,
+      "updatedAt": 1787601600000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -159,12 +159,12 @@
     {
       "id": "XLE",
       "name": "Energy",
-      "price": 63.64,
-      "previousClose": 63.75,
-      "change": -0.10999999999999943,
-      "changePercent": -0.17254901960784225,
+      "price": 63.11,
+      "previousClose": 63.64,
+      "change": -0.5300000000000011,
+      "changePercent": -0.832809553739788,
       "currency": "USD",
-      "updatedAt": 1787342400000,
+      "updatedAt": 1787601600000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -172,12 +172,12 @@
     {
       "id": "XLI",
       "name": "Industrials",
-      "price": 180.25,
-      "previousClose": 179.77,
-      "change": 0.47999999999998977,
-      "changePercent": 0.26700784335539285,
+      "price": 179,
+      "previousClose": 180.25,
+      "change": -1.25,
+      "changePercent": -0.6934812760055479,
       "currency": "USD",
-      "updatedAt": 1787342400000,
+      "updatedAt": 1787601600000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -185,12 +185,12 @@
     {
       "id": "XLB",
       "name": "Materials",
-      "price": 53.54,
-      "previousClose": 52.42,
-      "change": 1.1199999999999974,
-      "changePercent": 2.136589088134295,
+      "price": 53.58,
+      "previousClose": 53.54,
+      "change": 0.03999999999999915,
+      "changePercent": 0.0747104968248023,
       "currency": "USD",
-      "updatedAt": 1787342400000,
+      "updatedAt": 1787601600000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -198,12 +198,12 @@
     {
       "id": "XLRE",
       "name": "Real Estate",
-      "price": 45.08,
+      "price": 45.33,
       "previousClose": 45.08,
-      "change": 0,
-      "changePercent": 0,
+      "change": 0.25,
+      "changePercent": 0.554569653948536,
       "currency": "USD",
-      "updatedAt": 1787342400000,
+      "updatedAt": 1787601600000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -211,12 +211,12 @@
     {
       "id": "XLF",
       "name": "Financials",
-      "price": 57.48,
-      "previousClose": 56.95,
-      "change": 0.529999999999994,
-      "changePercent": 0.9306409130816401,
+      "price": 58.22,
+      "previousClose": 57.48,
+      "change": 0.740000000000002,
+      "changePercent": 1.2874043145441927,
       "currency": "USD",
-      "updatedAt": 1787342400000,
+      "updatedAt": 1787601600000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -224,12 +224,12 @@
     {
       "id": "DXY",
       "name": "U.S. Dollar Index",
-      "price": 98.839,
-      "previousClose": 98.895,
-      "change": -0.055999999999997385,
-      "changePercent": -0.0566257141412583,
+      "price": 98.984,
+      "previousClose": 98.8,
+      "change": 0.1839999999999975,
+      "changePercent": 0.18623481781376267,
       "currency": "USD",
-      "updatedAt": 1787345999000,
+      "updatedAt": 1787609099000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -237,12 +237,12 @@
     {
       "id": "BTCUSDT",
       "name": "Bitcoin / U.S. Dollar",
-      "price": 78438.85,
-      "previousClose": 73013,
-      "change": 5425.850000000006,
-      "changePercent": 7.431347842165102,
+      "price": 78803.12,
+      "previousClose": 77727.62,
+      "change": 1075.5,
+      "changePercent": 1.3836780284794519,
       "currency": "USD",
-      "updatedAt": 1787352710000,
+      "updatedAt": 1787612042000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -250,12 +250,12 @@
     {
       "id": "BRN1!",
       "name": "Brent Crude Oil Futures",
-      "price": 93.87,
-      "previousClose": 93.78,
-      "change": 0.09000000000000341,
-      "changePercent": 0.09596928982725891,
+      "price": 92.07,
+      "previousClose": 92.17,
+      "change": -0.10000000000000853,
+      "changePercent": -0.10849517196485682,
       "currency": "USD",
-      "updatedAt": 1787345997000,
+      "updatedAt": 1787609893000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -264,11 +264,11 @@
       "id": "US02Y",
       "name": "U.S. Treasury 2-Year Par Yield",
       "price": 4.24,
-      "previousClose": 4.19,
-      "change": 0.04999999999999982,
-      "changePercent": 1.1933174224343632,
+      "previousClose": 4.24,
+      "change": 0,
+      "changePercent": 0,
       "currency": "%",
-      "updatedAt": 1787340600000,
+      "updatedAt": 1787599800000,
       "source": "U.S. Treasury",
       "status": "ok",
       "seriesStatus": "complete"
@@ -276,12 +276,12 @@
     {
       "id": "US10Y",
       "name": "U.S. Treasury 10-Year Par Yield",
-      "price": 4.74,
-      "previousClose": 4.69,
-      "change": 0.04999999999999982,
-      "changePercent": 1.0660980810234504,
+      "price": 4.7,
+      "previousClose": 4.74,
+      "change": -0.040000000000000036,
+      "changePercent": -0.8438818565400852,
       "currency": "%",
-      "updatedAt": 1787340600000,
+      "updatedAt": 1787599800000,
       "source": "U.S. Treasury",
       "status": "ok",
       "seriesStatus": "complete"
@@ -289,12 +289,12 @@
     {
       "id": "US30Y",
       "name": "U.S. Treasury 30-Year Par Yield",
-      "price": 5.27,
-      "previousClose": 5.23,
-      "change": 0.03999999999999915,
-      "changePercent": 0.764818355640519,
+      "price": 5.23,
+      "previousClose": 5.27,
+      "change": -0.03999999999999915,
+      "changePercent": -0.7590132827324317,
       "currency": "%",
-      "updatedAt": 1787340600000,
+      "updatedAt": 1787599800000,
       "source": "U.S. Treasury",
       "status": "ok",
       "seriesStatus": "complete"
@@ -302,12 +302,12 @@
     {
       "id": "GOLD",
       "name": "Gold Spot / U.S. Dollar",
-      "price": 4604.82,
-      "previousClose": 4607.775,
-      "change": -2.9549999999999272,
-      "changePercent": -0.06413073555023688,
+      "price": 4662.505,
+      "previousClose": 4659.095,
+      "change": 3.4099999999998545,
+      "changePercent": 0.07319017963788793,
       "currency": "USD",
-      "updatedAt": 1787346000000,
+      "updatedAt": 1787611845000,
       "source": "Swissquote",
       "status": "ok",
       "seriesStatus": "complete"
@@ -317,24 +317,24 @@
     {
       "id": "SP500",
       "label": "标普 500",
-      "advancers": 332,
-      "decliners": 169,
-      "unchanged": 2,
-      "advancePercent": 66.26746506986028,
+      "advancers": 304,
+      "decliners": 196,
+      "unchanged": 3,
+      "advancePercent": 60.8,
       "observed": 503,
-      "updatedAt": 1787352716549,
+      "updatedAt": 1787612048142,
       "source": "TradingView Stock Screener",
       "status": "ok"
     },
     {
       "id": "NASDAQ",
       "label": "Nasdaq 交易所",
-      "advancers": 3099,
-      "decliners": 1684,
-      "unchanged": 197,
-      "advancePercent": 64.79197156596278,
-      "observed": 4980,
-      "updatedAt": 1787352716691,
+      "advancers": 1920,
+      "decliners": 2850,
+      "unchanged": 208,
+      "advancePercent": 40.25157232704403,
+      "observed": 4978,
+      "updatedAt": 1787612048252,
       "source": "TradingView Stock Screener",
       "status": "ok"
     }
@@ -343,12 +343,12 @@
     {
       "id": "DXY",
       "name": "U.S. Dollar Index",
-      "price": 98.839,
-      "previousClose": 98.895,
-      "change": -0.055999999999997385,
-      "changePercent": -0.0566257141412583,
+      "price": 98.984,
+      "previousClose": 98.8,
+      "change": 0.1839999999999975,
+      "changePercent": 0.18623481781376267,
       "currency": "USD",
-      "updatedAt": 1787345999000,
+      "updatedAt": 1787609099000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
@@ -356,9 +356,9 @@
         "kind": "16:00_ET",
         "previous": null,
         "current": {
-          "date": "2026-08-21",
-          "value": 98.828,
-          "observedAt": 1787342400000,
+          "date": "2026-08-24",
+          "value": 99.016,
+          "observedAt": 1787601600000,
           "minutesBeforeClose": 0
         }
       }
@@ -366,12 +366,12 @@
     {
       "id": "BTCUSDT",
       "name": "Bitcoin / U.S. Dollar",
-      "price": 78438.85,
-      "previousClose": 73013,
-      "change": 5425.850000000006,
-      "changePercent": 7.431347842165102,
+      "price": 78803.12,
+      "previousClose": 77727.62,
+      "change": 1075.5,
+      "changePercent": 1.3836780284794519,
       "currency": "USD",
-      "updatedAt": 1787352710000,
+      "updatedAt": 1787612042000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
@@ -379,9 +379,9 @@
         "kind": "16:00_ET",
         "previous": null,
         "current": {
-          "date": "2026-08-21",
-          "value": 77124.68,
-          "observedAt": 1787342400000,
+          "date": "2026-08-24",
+          "value": 78547.01,
+          "observedAt": 1787601600000,
           "minutesBeforeClose": 0
         }
       }
@@ -389,12 +389,12 @@
     {
       "id": "BRN1!",
       "name": "Brent Crude Oil Futures",
-      "price": 93.87,
-      "previousClose": 93.78,
-      "change": 0.09000000000000341,
-      "changePercent": 0.09596928982725891,
+      "price": 92.07,
+      "previousClose": 92.17,
+      "change": -0.10000000000000853,
+      "changePercent": -0.10849517196485682,
       "currency": "USD",
-      "updatedAt": 1787345997000,
+      "updatedAt": 1787609893000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
@@ -402,9 +402,9 @@
         "kind": "16:00_ET",
         "previous": null,
         "current": {
-          "date": "2026-08-21",
-          "value": 93.86,
-          "observedAt": 1787342400000,
+          "date": "2026-08-24",
+          "value": 92.02,
+          "observedAt": 1787601600000,
           "minutesBeforeClose": 0
         }
       }
@@ -413,20 +413,17 @@
       "id": "US02Y",
       "name": "U.S. Treasury 2-Year Par Yield",
       "price": 4.24,
-      "previousClose": 4.19,
-      "change": 0.04999999999999982,
-      "changePercent": 1.1933174224343632,
+      "previousClose": 4.24,
+      "change": 0,
+      "changePercent": 0,
       "currency": "%",
-      "updatedAt": 1787340600000,
+      "updatedAt": 1787599800000,
       "source": "U.S. Treasury",
       "status": "ok",
       "seriesStatus": "complete",
       "comparison": {
         "kind": "official_daily",
-        "previous": {
-          "time": 1787254200000,
-          "value": 4.19
-        },
+        "previous": null,
         "current": {
           "time": 1787340600000,
           "value": 4.24
@@ -436,76 +433,71 @@
     {
       "id": "US10Y",
       "name": "U.S. Treasury 10-Year Par Yield",
-      "price": 4.74,
-      "previousClose": 4.69,
-      "change": 0.04999999999999982,
-      "changePercent": 1.0660980810234504,
+      "price": 4.7,
+      "previousClose": 4.74,
+      "change": -0.040000000000000036,
+      "changePercent": -0.8438818565400852,
       "currency": "%",
-      "updatedAt": 1787340600000,
+      "updatedAt": 1787599800000,
       "source": "U.S. Treasury",
       "status": "ok",
       "seriesStatus": "complete",
       "comparison": {
         "kind": "official_daily",
         "previous": {
-          "time": 1787254200000,
-          "value": 4.69
-        },
-        "current": {
           "time": 1787340600000,
           "value": 4.74
+        },
+        "current": {
+          "time": 1787599800000,
+          "value": 4.7
         }
       }
     },
     {
       "id": "US30Y",
       "name": "U.S. Treasury 30-Year Par Yield",
-      "price": 5.27,
-      "previousClose": 5.23,
-      "change": 0.03999999999999915,
-      "changePercent": 0.764818355640519,
+      "price": 5.23,
+      "previousClose": 5.27,
+      "change": -0.03999999999999915,
+      "changePercent": -0.7590132827324317,
       "currency": "%",
-      "updatedAt": 1787340600000,
+      "updatedAt": 1787599800000,
       "source": "U.S. Treasury",
       "status": "ok",
       "seriesStatus": "complete",
       "comparison": {
         "kind": "official_daily",
         "previous": {
-          "time": 1787254200000,
-          "value": 5.23
-        },
-        "current": {
           "time": 1787340600000,
           "value": 5.27
+        },
+        "current": {
+          "time": 1787599800000,
+          "value": 5.23
         }
       }
     },
     {
       "id": "GOLD",
       "name": "Gold Spot / U.S. Dollar",
-      "price": 4604.82,
-      "previousClose": 4607.775,
-      "change": -2.9549999999999272,
-      "changePercent": -0.06413073555023688,
+      "price": 4662.505,
+      "previousClose": 4659.095,
+      "change": 3.4099999999998545,
+      "changePercent": 0.07319017963788793,
       "currency": "USD",
-      "updatedAt": 1787346000000,
+      "updatedAt": 1787611845000,
       "source": "Swissquote",
       "status": "ok",
       "seriesStatus": "complete",
       "comparison": {
         "kind": "16:00_ET",
-        "previous": {
-          "date": "2026-08-20",
-          "value": 4530.065,
-          "observedAt": 1787255607000,
-          "minutesBeforeClose": 7
-        },
+        "previous": null,
         "current": {
-          "date": "2026-08-21",
-          "value": 4618.05,
-          "observedAt": 1787341513000,
-          "minutesBeforeClose": 15
+          "date": "2026-08-24",
+          "value": 4653.145,
+          "observedAt": 1787601121000,
+          "minutesBeforeClose": 8
         }
       }
     }
@@ -515,62 +507,12 @@
     "method": "CME FedWatch"
   },
   "btcEtf": {
-    "date": "2026-08-20",
-    "total": 606.3,
-    "seven_day_total": 1361.9,
-    "thirty_day_total": 2228.7
+    "date": "2026-08-21",
+    "total": 307.5,
+    "seven_day_total": 1730.5,
+    "thirty_day_total": 2445.8
   },
   "futureEvents": [
-    {
-      "date": "2026-08-21",
-      "time_et": "09:45",
-      "time_shanghai": "21:45",
-      "title": "S&P Global Flash US Manufacturing PMI",
-      "title_cn": "美国S&P Global制造业PMI初值",
-      "period": "August 2026",
-      "category": "growth",
-      "importance": "medium",
-      "stars": 3,
-      "source": "S&P Global",
-      "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
-      "metric_values": [
-        {
-          "label": "综合值",
-          "actual": null,
-          "forecast": "53.9",
-          "previous": "53.8"
-        }
-      ],
-      "forecast": "53.9",
-      "previous": "53.8",
-      "result_source": "Forex Factory 市场日历",
-      "result_url": "https://www.forexfactory.com/calendar"
-    },
-    {
-      "date": "2026-08-21",
-      "time_et": "09:45",
-      "time_shanghai": "21:45",
-      "title": "S&P Global Flash US Services PMI",
-      "title_cn": "美国S&P Global服务业PMI初值",
-      "period": "August 2026",
-      "category": "growth",
-      "importance": "medium",
-      "stars": 3,
-      "source": "S&P Global",
-      "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
-      "metric_values": [
-        {
-          "label": "综合值",
-          "actual": null,
-          "forecast": "54.0",
-          "previous": "53.6"
-        }
-      ],
-      "forecast": "54.0",
-      "previous": "53.6",
-      "result_source": "Forex Factory 市场日历",
-      "result_url": "https://www.forexfactory.com/calendar"
-    },
     {
       "date": "2026-08-26",
       "time_et": "08:30",
@@ -585,7 +527,24 @@
       "url": "https://www.census.gov/manufacturing/m3/release_schedule.html",
       "fallback_url": "https://fred.stlouisfed.org/series/NEWORDER",
       "fallback_label": "FRED 备用",
-      "previous": "耐用品 0.3% · 核心资本品 0.9%"
+      "metric_values": [
+        {
+          "label": "耐用品",
+          "actual": null,
+          "forecast": "0.5%",
+          "previous": "0.3%"
+        },
+        {
+          "label": "核心耐用品",
+          "actual": null,
+          "forecast": "0.5%",
+          "previous": "0.6%"
+        }
+      ],
+      "forecast": "耐用品 0.5% · 核心耐用品 0.5%",
+      "previous": "耐用品 0.3% · 核心耐用品 0.6%",
+      "result_source": "Forex Factory 市场日历",
+      "result_url": "https://www.forexfactory.com/calendar"
     },
     {
       "date": "2026-08-26",
@@ -598,7 +557,19 @@
       "importance": "high",
       "stars": 4,
       "source": "BEA",
-      "url": "https://www.bea.gov/news/schedule"
+      "url": "https://www.bea.gov/news/schedule",
+      "metric_values": [
+        {
+          "label": "综合值",
+          "actual": null,
+          "forecast": "1.5%",
+          "previous": "1.5%"
+        }
+      ],
+      "forecast": "1.5%",
+      "previous": "1.5%",
+      "result_source": "Forex Factory 市场日历",
+      "result_url": "https://www.forexfactory.com/calendar"
     },
     {
       "date": "2026-08-26",
@@ -611,7 +582,19 @@
       "importance": "high",
       "stars": 4,
       "source": "BEA",
-      "url": "https://www.bea.gov/news/schedule"
+      "url": "https://www.bea.gov/news/schedule",
+      "metric_values": [
+        {
+          "label": "综合值",
+          "actual": null,
+          "forecast": "0.2%",
+          "previous": "0.1%"
+        }
+      ],
+      "forecast": "0.2%",
+      "previous": "0.1%",
+      "result_source": "Forex Factory 市场日历",
+      "result_url": "https://www.forexfactory.com/calendar"
     },
     {
       "date": "2026-09-01",
@@ -664,110 +647,110 @@
   "candidateStocks": [
     {
       "ticker": "NVDA",
-      "tradingDate": "2026-08-21",
-      "close": 214.72000122070312,
-      "previousClose": 216.85000610351562,
-      "changePercent": -0.9822480160760152,
+      "tradingDate": "2026-08-24",
+      "close": 208.47999572753906,
+      "previousClose": 214.72000122070312,
+      "changePercent": -2.9061128249297004,
       "provider": "Yahoo Finance",
       "providerSymbol": "NVDA",
       "status": "ok"
     },
     {
       "ticker": "AVGO",
-      "tradingDate": "2026-08-21",
-      "close": 368.45001220703125,
-      "previousClose": 364.0299987792969,
-      "changePercent": 1.2141893367458787,
+      "tradingDate": "2026-08-24",
+      "close": 358.760009765625,
+      "previousClose": 368.45001220703125,
+      "changePercent": -2.629936794780579,
       "provider": "Yahoo Finance",
       "providerSymbol": "AVGO",
       "status": "ok"
     },
     {
       "ticker": "AMD",
-      "tradingDate": "2026-08-21",
-      "close": 473.25,
-      "previousClose": 469.4599914550781,
-      "changePercent": 0.8073123618425607,
+      "tradingDate": "2026-08-24",
+      "close": 456.7449951171875,
+      "previousClose": 473.25,
+      "changePercent": -3.4875868743396725,
       "provider": "Yahoo Finance",
       "providerSymbol": "AMD",
       "status": "ok"
     },
     {
       "ticker": "MU",
-      "tradingDate": "2026-08-21",
-      "close": 966.780029296875,
-      "previousClose": 974.3300170898438,
-      "changePercent": -0.774890197421944,
+      "tradingDate": "2026-08-24",
+      "close": 910.4299926757812,
+      "previousClose": 966.780029296875,
+      "changePercent": -5.828630599876615,
       "provider": "Yahoo Finance",
       "providerSymbol": "MU",
       "status": "ok"
     },
     {
       "ticker": "AMAT",
-      "tradingDate": "2026-08-21",
-      "close": 492.32000732421875,
-      "previousClose": 496.2099914550781,
-      "changePercent": -0.7839390979315932,
+      "tradingDate": "2026-08-24",
+      "close": 484.19000244140625,
+      "previousClose": 492.32000732421875,
+      "changePercent": -1.6513659331050632,
       "provider": "Yahoo Finance",
       "providerSymbol": "AMAT",
       "status": "ok"
     },
     {
       "ticker": "LRCX",
-      "tradingDate": "2026-08-21",
-      "close": 314.0,
-      "previousClose": 310.5299987792969,
-      "changePercent": 1.1174447667999254,
+      "tradingDate": "2026-08-24",
+      "close": 310.1700134277344,
+      "previousClose": 314.0,
+      "changePercent": -1.219740946581409,
       "provider": "Yahoo Finance",
       "providerSymbol": "LRCX",
       "status": "ok"
     },
     {
       "ticker": "MSFT",
-      "tradingDate": "2026-08-21",
-      "close": 483.239990234375,
-      "previousClose": 481.1499938964844,
-      "changePercent": 0.43437521862263,
+      "tradingDate": "2026-08-24",
+      "close": 487.30999755859375,
+      "previousClose": 483.239990234375,
+      "changePercent": 0.8422331360127637,
       "provider": "Yahoo Finance",
       "providerSymbol": "MSFT",
       "status": "ok"
     },
     {
       "ticker": "AAPL",
-      "tradingDate": "2026-08-21",
-      "close": 309.3500061035156,
-      "previousClose": 311.29998779296875,
-      "changePercent": -0.626399539324739,
+      "tradingDate": "2026-08-24",
+      "close": 310.3399963378906,
+      "previousClose": 309.3500061035156,
+      "changePercent": 0.3200226975407676,
       "provider": "Yahoo Finance",
       "providerSymbol": "AAPL",
       "status": "ok"
     },
     {
       "ticker": "AMZN",
-      "tradingDate": "2026-08-21",
-      "close": 258.6300048828125,
-      "previousClose": 260.1099853515625,
-      "changePercent": -0.5689825658748435,
+      "tradingDate": "2026-08-24",
+      "close": 262.07000732421875,
+      "previousClose": 258.6300048828125,
+      "changePercent": 1.3300863691221538,
       "provider": "Yahoo Finance",
       "providerSymbol": "AMZN",
       "status": "ok"
     },
     {
       "ticker": "GOOGL",
-      "tradingDate": "2026-08-21",
-      "close": 344.82000732421875,
-      "previousClose": 340.6700134277344,
-      "changePercent": 1.2181858493291498,
+      "tradingDate": "2026-08-24",
+      "close": 348.05999755859375,
+      "previousClose": 344.82000732421875,
+      "changePercent": 0.9396178196030786,
       "provider": "Yahoo Finance",
       "providerSymbol": "GOOGL",
       "status": "ok"
     },
     {
       "ticker": "META",
-      "tradingDate": "2026-08-21",
-      "close": 549.9000244140625,
-      "previousClose": 545.8300170898438,
-      "changePercent": 0.7456547270739099,
+      "tradingDate": "2026-08-24",
+      "close": 559.02001953125,
+      "previousClose": 549.9000244140625,
+      "changePercent": 1.6584823990333823,
       "provider": "Yahoo Finance",
       "providerSymbol": "META",
       "status": "ok"
