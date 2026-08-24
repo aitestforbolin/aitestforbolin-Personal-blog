@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "status": "partial",
-  "generatedAt": "2026-08-24T02:49:30+00:00",
+  "generatedAt": "2026-08-24T03:04:07+00:00",
   "timezone": "Asia/Shanghai",
   "sourcePolicy": "official_only",
   "failedSources": [
@@ -659,7 +659,7 @@
         }
       ],
       "releasedAt": "2026-08-17T15:00:00+08:00",
-      "retrievedAt": "2026-08-24T02:49:30+00:00",
+      "retrievedAt": "2026-08-24T03:04:07+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "sourceStatus": "fresh",
@@ -3128,7 +3128,7 @@
       "category": "fiscal",
       "importance": "medium",
       "source": "财政部",
-      "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202608/t20260814_3995497.htm",
+      "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202608/t20260814_3995497.htm",
       "metrics": [
         {
           "id": "general_revenue",
@@ -3136,7 +3136,7 @@
           "actual": "143696",
           "previous": "121047",
           "unit": "亿元",
-          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202608/t20260814_3995497.htm"
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202608/t20260814_3995497.htm"
         },
         {
           "id": "general_revenue_yoy",
@@ -3144,7 +3144,7 @@
           "actual": "5.8",
           "previous": "4.7",
           "unit": "%",
-          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202608/t20260814_3995497.htm"
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202608/t20260814_3995497.htm"
         },
         {
           "id": "general_spending",
@@ -3152,7 +3152,7 @@
           "actual": "162889",
           "previous": "143329",
           "unit": "亿元",
-          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202608/t20260814_3995497.htm"
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202608/t20260814_3995497.htm"
         },
         {
           "id": "general_spending_yoy",
@@ -3160,11 +3160,11 @@
           "actual": "1.3",
           "previous": "1.5",
           "unit": "%",
-          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202608/t20260814_3995497.htm"
+          "sourceUrl": "http://gks.mof.gov.cn/tongjishuju/202608/t20260814_3995497.htm"
         }
       ],
-      "releasedAt": "2017-11-21T23:59:59+08:00",
-      "retrievedAt": "2026-08-24T02:49:20+00:00",
+      "releasedAt": null,
+      "retrievedAt": "2026-08-24T03:03:32+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "sourceStatus": "fresh",
@@ -3173,5 +3173,5 @@
     }
   ],
   "sourceHealthUpdatedAt": "2026-08-24T02:49:20+00:00",
-  "targetedBackfillAt": "2026-08-24T02:49:30+00:00"
+  "targetedBackfillAt": "2026-08-24T03:04:07+00:00"
 }
