@@ -12,6 +12,7 @@ on:
       - scripts/update_crypto_fundraising.py
       - scripts/update_crypto_fundraising_resilient.py
       - tests/test_crypto_fundraising.py
+      - tests/test_crypto_fundraising_resilient.py
   workflow_dispatch:
 
 permissions:
@@ -56,7 +57,7 @@ jobs:
       - name: Validate fundraising parser and data
         run: |
           python -m py_compile scripts/update_crypto_fundraising.py scripts/update_crypto_fundraising_resilient.py
-          python -m unittest tests.test_crypto_fundraising
+          python -m unittest tests.test_crypto_fundraising tests.test_crypto_fundraising_resilient
 
       - name: Commit updated fundraising data
         run: |
