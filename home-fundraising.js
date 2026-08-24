@@ -6,6 +6,8 @@
   if (!root || !list || !updated) return;
 
   const DATA_URL = "data/crypto-fundraising.json";
+  const RAW_DATA_URL = "https://raw.githubusercontent.com/aitestforbolin/aitestforbolin-Personal-blog/main/data/crypto-fundraising.json";
+  const CACHE_KEY = "bolin.cryptoFundraising.payload.v1";
 
   function escapeHtml(value) {
     return String(value)
@@ -13,6 +15,62 @@
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;");
+  }
+
+  function validatePayload(data) {
+    if (!data || typeof data !== "object") throw new Error("Invalid fundraising payload");
+    const projects = Array.isArray(data.projects) ? data.projects.slice(0, 5) : [];
+    if (projects.length !== 5 || projects.some((project) => !String(project?.name || "").trim())) {
+      throw new Error("Fundraising payload does not contain five valid projects");
+    }
+    return { ...data, projects };
+  }
+
+  async function fetchPayload(value) {
+    const url = new URL(value, window.location.href);
+    url.searchParams.set("_", Date.now().toString());
+    const response = await fetch(url, { cache: "no-store" });
+    if (!response.ok) throw new Error(`Fundraising request failed: ${response.status}`);
+    return validatePayload(await response.json());
+  }
+
+  function saveCache(payload) {
+    try {
+      localStorage.setItem(CACHE_KEY, JSON.stringify(payload));
+    } catch (_error) {
+      // Storage can be unavailable in privacy modes; network loading still works.
+    }
+  }
+
+  function readCache() {
+    try {
+      const raw = localStorage.getItem(CACHE_KEY);
+      return raw ? validatePayload(JSON.parse(raw)) : null;
+    } catch (_error) {
+      return null;
+    }
+  }
+
+  async function loadData() {
+    const attempts = [
+      { url: DATA_URL, mode: "site" },
+      { url: RAW_DATA_URL, mode: "github" },
+    ];
+    const errors = [];
+
+    for (const attempt of attempts) {
+      try {
+        const payload = await fetchPayload(attempt.url);
+        saveCache(payload);
+        return { payload, mode: attempt.mode };
+      } catch (error) {
+        errors.push(error);
+      }
+    }
+
+    const cached = readCache();
+    if (cached) return { payload: cached, mode: "cache" };
+    throw new Error(errors.map((error) => error?.message || String(error)).join("; "));
   }
 
   function formatUpdated(value, mode) {
@@ -61,22 +119,8 @@
           <small>${escapeHtml(formatRound(project.round))} · ${escapeHtml(formatAmount(project.amount_usd))}</small>
         </span>
         <span class="home-fundraising-actions">
-          <button
-            class="home-fundraising-research"
-            type="button"
-            data-research-copy
-            data-prompt-type="initial"
-            data-project-name="${escapeHtml(project.name)}"
-            data-project-url="${escapeHtml(href)}"
-          >初筛</button>
-          <button
-            class="home-fundraising-research"
-            type="button"
-            data-research-copy
-            data-prompt-type="research"
-            data-project-name="${escapeHtml(project.name)}"
-            data-project-url="${escapeHtml(href)}"
-          >研究</button>
+          <button class="home-fundraising-research" type="button" data-research-copy data-prompt-type="initial" data-project-name="${escapeHtml(project.name)}" data-project-url="${escapeHtml(href)}">初筛</button>
+          <button class="home-fundraising-research" type="button" data-research-copy data-prompt-type="research" data-project-name="${escapeHtml(project.name)}" data-project-url="${escapeHtml(href)}">研究</button>
         </span>
       </article>`;
     }).join("");
@@ -89,13 +133,7 @@
     });
   }
 
-  if (!window.BolinFundraisingData?.load) {
-    updated.textContent = "数据暂时无法载入";
-    list.innerHTML = '<p class="home-fundraising-error">融资数据加载器不可用，请刷新页面后重试。</p>';
-    return;
-  }
-
-  window.BolinFundraisingData.load(DATA_URL)
+  loadData()
     .then(({ payload, mode }) => {
       updated.textContent = formatUpdated(payload.updated_at, mode);
       render(payload.projects);
