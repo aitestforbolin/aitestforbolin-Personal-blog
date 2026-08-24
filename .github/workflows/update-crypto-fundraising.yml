@@ -10,7 +10,9 @@ on:
     paths:
       - .github/workflows/update-crypto-fundraising.yml
       - scripts/update_crypto_fundraising.py
+      - scripts/update_crypto_fundraising_resilient.py
       - tests/test_crypto_fundraising.py
+      - tests/test_crypto_fundraising_resilient.py
   workflow_dispatch:
 
 permissions:
@@ -39,21 +41,23 @@ jobs:
       - name: Refresh latest fundraising projects
         run: |
           for attempt in 1 2; do
-            if python scripts/update_crypto_fundraising.py; then
+            if python scripts/update_crypto_fundraising_resilient.py; then
               exit 0
             fi
 
             if [ "$attempt" -lt 2 ]; then
-              echo "Fundraising refresh failed; retrying in 20 seconds."
+              echo "Fundraising refresh failed on both official routes; retrying in 20 seconds."
               sleep 20
             fi
           done
 
-          echo "::error::Fundraising refresh failed twice; the previously published data was preserved."
+          echo "::error::Fundraising refresh failed on both the homepage and /deal-flow/ fallback; the previously published data was preserved."
           exit 1
 
       - name: Validate fundraising parser and data
-        run: python -m unittest tests.test_crypto_fundraising
+        run: |
+          python -m py_compile scripts/update_crypto_fundraising.py scripts/update_crypto_fundraising_resilient.py
+          python -m unittest tests.test_crypto_fundraising tests.test_crypto_fundraising_resilient
 
       - name: Commit updated fundraising data
         run: |
