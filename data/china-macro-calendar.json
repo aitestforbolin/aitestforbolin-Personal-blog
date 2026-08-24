@@ -1,13 +1,12 @@
 {
   "schemaVersion": 1,
   "status": "partial",
-  "generatedAt": "2026-08-23T10:43:18+00:00",
+  "generatedAt": "2026-08-24T02:49:30+00:00",
   "timezone": "Asia/Shanghai",
   "sourcePolicy": "official_only",
   "failedSources": [
     "gacc",
-    "nbs",
-    "safe"
+    "nbs"
   ],
   "events": [
     {
@@ -599,63 +598,6 @@
       "group": "credit"
     },
     {
-      "id": "cn-fiscal-2026-01-07",
-      "country": "CN",
-      "period": "2026-01/07",
-      "scheduledAt": null,
-      "dateStatus": "expected_window",
-      "title": "中国财政收支",
-      "category": "fiscal",
-      "importance": "medium",
-      "source": "财政部",
-      "sourceUrl": "https://www.mof.gov.cn/zhengwuxinxi/redianzhuanti/quanguocaizhengshouzhiqingkuang/",
-      "metrics": [
-        {
-          "id": "general_revenue",
-          "label": "一般公共预算收入",
-          "actual": null,
-          "previous": "121047",
-          "unit": "亿元",
-          "sourceUrl": "https://m.mof.gov.cn/czsj/202607/t20260722_3993943.htm"
-        },
-        {
-          "id": "general_revenue_yoy",
-          "label": "一般公共预算收入同比",
-          "actual": null,
-          "previous": "4.7",
-          "unit": "%",
-          "sourceUrl": "https://m.mof.gov.cn/czsj/202607/t20260722_3993943.htm"
-        },
-        {
-          "id": "general_spending",
-          "label": "一般公共预算支出",
-          "actual": null,
-          "previous": "143329",
-          "unit": "亿元",
-          "sourceUrl": "https://m.mof.gov.cn/czsj/202607/t20260722_3993943.htm"
-        },
-        {
-          "id": "general_spending_yoy",
-          "label": "一般公共预算支出同比",
-          "actual": null,
-          "previous": "1.5",
-          "unit": "%",
-          "sourceUrl": "https://m.mof.gov.cn/czsj/202607/t20260722_3993943.htm"
-        }
-      ],
-      "releasedAt": null,
-      "retrievedAt": "2026-08-02T10:00:00+08:00",
-      "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "sourceStatus": "static_official_sample",
-      "group": "fiscal",
-      "expectedWindow": {
-        "start": "2026-08-15",
-        "end": "2026-08-25",
-        "timezone": "Asia/Shanghai"
-      }
-    },
-    {
       "id": "cn-housing-2026-07",
       "country": "CN",
       "period": "2026-07",
@@ -717,7 +659,7 @@
         }
       ],
       "releasedAt": "2026-08-17T15:00:00+08:00",
-      "retrievedAt": "2026-08-23T10:43:18+00:00",
+      "retrievedAt": "2026-08-24T02:49:30+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "sourceStatus": "fresh",
@@ -1247,33 +1189,37 @@
           "id": "general_revenue",
           "label": "一般公共预算收入",
           "actual": null,
-          "previous": "121047",
+          "previous": "143696",
           "unit": "亿元",
-          "sourceUrl": "https://m.mof.gov.cn/czsj/202607/t20260722_3993943.htm"
+          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202608/t20260814_3995497.htm",
+          "previousPeriod": "2026-01/07"
         },
         {
           "id": "general_revenue_yoy",
           "label": "一般公共预算收入同比",
           "actual": null,
-          "previous": "4.7",
+          "previous": "5.8",
           "unit": "%",
-          "sourceUrl": "https://m.mof.gov.cn/czsj/202607/t20260722_3993943.htm"
+          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202608/t20260814_3995497.htm",
+          "previousPeriod": "2026-01/07"
         },
         {
           "id": "general_spending",
           "label": "一般公共预算支出",
           "actual": null,
-          "previous": "143329",
+          "previous": "162889",
           "unit": "亿元",
-          "sourceUrl": "https://m.mof.gov.cn/czsj/202607/t20260722_3993943.htm"
+          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202608/t20260814_3995497.htm",
+          "previousPeriod": "2026-01/07"
         },
         {
           "id": "general_spending_yoy",
           "label": "一般公共预算支出同比",
           "actual": null,
-          "previous": "1.5",
+          "previous": "1.3",
           "unit": "%",
-          "sourceUrl": "https://m.mof.gov.cn/czsj/202607/t20260722_3993943.htm"
+          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202608/t20260814_3995497.htm",
+          "previousPeriod": "2026-01/07"
         }
       ],
       "releasedAt": null,
@@ -3171,8 +3117,61 @@
       "releaseStatus": "released",
       "sourceStatus": "fresh",
       "group": "fiscal"
+    },
+    {
+      "id": "cn-fiscal-2026-01-07",
+      "country": "CN",
+      "period": "2026-01/07",
+      "scheduledAt": null,
+      "dateStatus": "confirmed",
+      "title": "中国财政收支",
+      "category": "fiscal",
+      "importance": "medium",
+      "source": "财政部",
+      "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202608/t20260814_3995497.htm",
+      "metrics": [
+        {
+          "id": "general_revenue",
+          "label": "一般公共预算收入",
+          "actual": "143696",
+          "previous": "121047",
+          "unit": "亿元",
+          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202608/t20260814_3995497.htm"
+        },
+        {
+          "id": "general_revenue_yoy",
+          "label": "一般公共预算收入同比",
+          "actual": "5.8",
+          "previous": "4.7",
+          "unit": "%",
+          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202608/t20260814_3995497.htm"
+        },
+        {
+          "id": "general_spending",
+          "label": "一般公共预算支出",
+          "actual": "162889",
+          "previous": "143329",
+          "unit": "亿元",
+          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202608/t20260814_3995497.htm"
+        },
+        {
+          "id": "general_spending_yoy",
+          "label": "一般公共预算支出同比",
+          "actual": "1.3",
+          "previous": "1.5",
+          "unit": "%",
+          "sourceUrl": "https://gks.mof.gov.cn/tongjishuju/202608/t20260814_3995497.htm"
+        }
+      ],
+      "releasedAt": "2017-11-21T23:59:59+08:00",
+      "retrievedAt": "2026-08-24T02:49:20+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
+      "group": "fiscal",
+      "eventDate": "2017-11-21"
     }
   ],
-  "sourceHealthUpdatedAt": "2026-08-23T10:43:07+00:00",
-  "targetedBackfillAt": "2026-08-23T10:43:18+00:00"
+  "sourceHealthUpdatedAt": "2026-08-24T02:49:20+00:00",
+  "targetedBackfillAt": "2026-08-24T02:49:30+00:00"
 }
