@@ -4,39 +4,14 @@
     {
       "symbol": "BTCUSD",
       "date": "2026-08-24",
-      "time": "22:50 UTC",
+      "time": "23:15 UTC",
       "open": 77727.62,
       "high": 79891.305,
       "low": 76838.73,
-      "close": 78811.84,
-      "volume": 55812427776,
+      "close": 78759.81,
+      "volume": 55593619456,
       "sourceSymbol": "BTC-USD",
       "points": [
-        {
-          "time": "14:55",
-          "timestamp": 1787583300,
-          "value": 79484.3203125
-        },
-        {
-          "time": "15:00",
-          "timestamp": 1787583600,
-          "value": 79487.9765625
-        },
-        {
-          "time": "15:05",
-          "timestamp": 1787583900,
-          "value": 79585.4296875
-        },
-        {
-          "time": "15:10",
-          "timestamp": 1787584200,
-          "value": 79544.3515625
-        },
-        {
-          "time": "15:15",
-          "timestamp": 1787584500,
-          "value": 79744.2890625
-        },
         {
           "time": "15:20",
           "timestamp": 1787584800,
@@ -489,20 +464,45 @@
         },
         {
           "time": "22:50",
-          "timestamp": 1787611842,
-          "value": 78811.84375
+          "timestamp": 1787611800,
+          "value": 78791.65625
+        },
+        {
+          "time": "22:55",
+          "timestamp": 1787612100,
+          "value": 78734.6171875
+        },
+        {
+          "time": "23:00",
+          "timestamp": 1787612400,
+          "value": 78731.359375
+        },
+        {
+          "time": "23:05",
+          "timestamp": 1787612700,
+          "value": 78782.7734375
+        },
+        {
+          "time": "23:10",
+          "timestamp": 1787613000,
+          "value": 78723.8125
+        },
+        {
+          "time": "23:15",
+          "timestamp": 1787613325,
+          "value": 78759.8125
         }
       ]
     },
     {
       "symbol": "XAUUSD",
       "date": "2026-08-24",
-      "time": "22:50 UTC",
+      "time": "23:15 UTC",
       "open": 4609.765,
-      "high": 4674.575,
+      "high": 4675.69,
       "low": 4609.765,
-      "close": 4662.505,
-      "previousClose": 4659.095,
+      "close": 4675.69,
+      "previousClose": 4662.505,
       "volume": "N/D",
       "source": "Swissquote",
       "sourceSymbol": "XAU/USD",
@@ -1316,6 +1316,11 @@
           "time": "22:50",
           "timestamp": 1787611845,
           "value": 4662.505
+        },
+        {
+          "time": "23:15",
+          "timestamp": 1787613330,
+          "value": 4675.69
         }
       ]
     },
