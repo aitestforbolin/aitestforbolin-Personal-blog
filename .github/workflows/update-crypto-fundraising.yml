@@ -2,21 +2,30 @@ name: Update crypto fundraising
 
 on:
   schedule:
-    # 08:30 Asia/Shanghai, Tuesday through Saturday (00:30 UTC).
-    - cron: "30 0 * * 2-6"
+    # 08:30 and 10:30 Asia/Shanghai, Tuesday through Saturday.
+    - cron: "30 0,2 * * 2-6"
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/update-crypto-fundraising.yml
+      - scripts/update_crypto_fundraising.py
+      - scripts/update_crypto_fundraising_resilient.py
+      - tests/test_crypto_fundraising.py
+      - tests/test_crypto_fundraising_resilient.py
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: repository-data-writer
+  group: crypto-fundraising-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
   update-crypto-fundraising:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: Check out repository
@@ -30,10 +39,25 @@ jobs:
           python-version: "3.11"
 
       - name: Refresh latest fundraising projects
-        run: python scripts/update_crypto_fundraising.py
+        run: |
+          for attempt in 1 2; do
+            if python scripts/update_crypto_fundraising_resilient.py; then
+              exit 0
+            fi
+
+            if [ "$attempt" -lt 2 ]; then
+              echo "Fundraising refresh failed on both official routes; retrying in 20 seconds."
+              sleep 20
+            fi
+          done
+
+          echo "::error::Fundraising refresh failed on both the homepage and /deal-flow/ fallback; the previously published data was preserved."
+          exit 1
 
       - name: Validate fundraising parser and data
-        run: python -m unittest tests.test_crypto_fundraising
+        run: |
+          python -m py_compile scripts/update_crypto_fundraising.py scripts/update_crypto_fundraising_resilient.py
+          python -m unittest tests.test_crypto_fundraising tests.test_crypto_fundraising_resilient
 
       - name: Commit updated fundraising data
         run: |

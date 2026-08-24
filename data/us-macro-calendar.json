@@ -1,20 +1,5 @@
 [
   {
-    "date": "2026-08-07",
-    "time_et": "08:30",
-    "time_shanghai": "20:30",
-    "title": "Employment Situation",
-    "title_cn": "美国非农 / 失业率 / 平均时薪",
-    "period": "July 2026",
-    "category": "jobs",
-    "importance": "critical",
-    "stars": 5,
-    "source": "BLS",
-    "url": "https://www.bls.gov/schedule/news_release/",
-    "fallback_url": "https://fred.stlouisfed.org/release?rid=50",
-    "fallback_label": "FRED 备用"
-  },
-  {
     "date": "2026-08-12",
     "time_et": "08:30",
     "time_shanghai": "20:30",
@@ -159,6 +144,8 @@
     "stars": 3,
     "source": "S&P Global",
     "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
+    "forecast": "53.9",
+    "previous": "53.8",
     "metric_values": [
       {
         "label": "综合值",
@@ -167,8 +154,6 @@
         "previous": "53.8"
       }
     ],
-    "forecast": "53.9",
-    "previous": "53.8",
     "result_source": "Forex Factory 市场日历",
     "result_url": "https://www.forexfactory.com/calendar"
   },
@@ -184,6 +169,8 @@
     "stars": 3,
     "source": "S&P Global",
     "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
+    "forecast": "54.0",
+    "previous": "53.6",
     "metric_values": [
       {
         "label": "综合值",
@@ -192,8 +179,6 @@
         "previous": "53.6"
       }
     ],
-    "forecast": "54.0",
-    "previous": "53.6",
     "result_source": "Forex Factory 市场日历",
     "result_url": "https://www.forexfactory.com/calendar"
   },
@@ -211,7 +196,24 @@
     "url": "https://www.census.gov/manufacturing/m3/release_schedule.html",
     "fallback_url": "https://fred.stlouisfed.org/series/NEWORDER",
     "fallback_label": "FRED 备用",
-    "previous": "耐用品 0.3% · 核心资本品 0.9%"
+    "metric_values": [
+      {
+        "label": "耐用品",
+        "actual": null,
+        "forecast": "0.5%",
+        "previous": "0.3%"
+      },
+      {
+        "label": "核心耐用品",
+        "actual": null,
+        "forecast": "0.5%",
+        "previous": "0.6%"
+      }
+    ],
+    "forecast": "耐用品 0.5% · 核心耐用品 0.5%",
+    "previous": "耐用品 0.3% · 核心耐用品 0.6%",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar"
   },
   {
     "date": "2026-08-26",
@@ -224,7 +226,19 @@
     "importance": "high",
     "stars": 4,
     "source": "BEA",
-    "url": "https://www.bea.gov/news/schedule"
+    "url": "https://www.bea.gov/news/schedule",
+    "metric_values": [
+      {
+        "label": "综合值",
+        "actual": null,
+        "forecast": "1.5%",
+        "previous": "1.5%"
+      }
+    ],
+    "forecast": "1.5%",
+    "previous": "1.5%",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar"
   },
   {
     "date": "2026-08-26",
@@ -237,7 +251,19 @@
     "importance": "high",
     "stars": 4,
     "source": "BEA",
-    "url": "https://www.bea.gov/news/schedule"
+    "url": "https://www.bea.gov/news/schedule",
+    "metric_values": [
+      {
+        "label": "综合值",
+        "actual": null,
+        "forecast": "0.2%",
+        "previous": "0.1%"
+      }
+    ],
+    "forecast": "0.2%",
+    "previous": "0.1%",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar"
   },
   {
     "date": "2026-09-01",
