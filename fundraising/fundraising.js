@@ -1,12 +1,12 @@
 (function () {
   const DATA_URL = "../data/crypto-fundraising.json";
+  const RAW_DATA_URL = "https://raw.githubusercontent.com/aitestforbolin/aitestforbolin-Personal-blog/main/data/crypto-fundraising.json";
+  const CACHE_KEY = "bolin.cryptoFundraising.payload.v1";
   const root = document.querySelector("[data-fundraising-page]");
   const list = document.querySelector("[data-fundraising-list]");
   const updated = document.querySelector("[data-fundraising-updated]");
 
-  if (!root || !list || !updated) {
-    return;
-  }
+  if (!root || !list || !updated) return;
 
   function escapeHtml(value) {
     return String(value)
@@ -16,28 +16,75 @@
       .replace(/"/g, "&quot;");
   }
 
+  function validatePayload(data) {
+    if (!data || typeof data !== "object") throw new Error("Invalid fundraising payload");
+    const projects = Array.isArray(data.projects) ? data.projects.slice(0, 5) : [];
+    if (projects.length !== 5 || projects.some((project) => !String(project?.name || "").trim())) {
+      throw new Error("Fundraising payload does not contain five valid projects");
+    }
+    return { ...data, projects };
+  }
+
+  async function fetchPayload(value) {
+    const url = new URL(value, window.location.href);
+    url.searchParams.set("_", Date.now().toString());
+    const response = await fetch(url, { cache: "no-store" });
+    if (!response.ok) throw new Error(`Fundraising request failed: ${response.status}`);
+    return validatePayload(await response.json());
+  }
+
+  function saveCache(payload) {
+    try {
+      localStorage.setItem(CACHE_KEY, JSON.stringify(payload));
+    } catch (_error) {
+      // Storage can be unavailable in privacy modes; network loading still works.
+    }
+  }
+
+  function readCache() {
+    try {
+      const raw = localStorage.getItem(CACHE_KEY);
+      return raw ? validatePayload(JSON.parse(raw)) : null;
+    } catch (_error) {
+      return null;
+    }
+  }
+
+  async function loadData() {
+    const attempts = [
+      { url: DATA_URL, mode: "site" },
+      { url: RAW_DATA_URL, mode: "github" },
+    ];
+    const errors = [];
+
+    for (const attempt of attempts) {
+      try {
+        const payload = await fetchPayload(attempt.url);
+        saveCache(payload);
+        return { payload, mode: attempt.mode };
+      } catch (error) {
+        errors.push(error);
+      }
+    }
+
+    const cached = readCache();
+    if (cached) return { payload: cached, mode: "cache" };
+    throw new Error(errors.map((error) => error?.message || String(error)).join("; "));
+  }
+
   function formatUpdated(value, mode) {
     const date = new Date(value);
-    if (Number.isNaN(date.getTime())) {
-      return "更新时间暂不可用";
-    }
+    if (Number.isNaN(date.getTime())) return "更新时间暂不可用";
     const suffix = mode === "cache" ? " · 使用上次缓存" : mode === "github" ? " · 备用数据通道" : "";
     return `更新：${new Intl.DateTimeFormat("zh-CN", {
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-      timeZone: "Asia/Shanghai",
+      month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit",
+      hour12: false, timeZone: "Asia/Shanghai",
     }).format(date)}${suffix}`;
   }
 
   function formatMonth(value) {
     const match = /^(\d{4})-(\d{2})$/.exec(String(value));
-    if (!match) {
-      return "日期未披露";
-    }
-    return `${match[1]}年${Number(match[2])}月`;
+    return match ? `${match[1]}年${Number(match[2])}月` : "日期未披露";
   }
 
   function trimZeros(value, digits) {
@@ -46,22 +93,14 @@
 
   function formatAmount(value) {
     const amount = Number(value);
-    if (!Number.isFinite(amount) || amount <= 0) {
-      return "金额未披露";
-    }
-    if (amount >= 100_000_000) {
-      return `${trimZeros(amount / 100_000_000, 2)}亿美元`;
-    }
-    if (amount >= 10_000) {
-      return `${trimZeros(amount / 10_000, 1)}万美元`;
-    }
+    if (!Number.isFinite(amount) || amount <= 0) return "金额未披露";
+    if (amount >= 100_000_000) return `${trimZeros(amount / 100_000_000, 2)}亿美元`;
+    if (amount >= 10_000) return `${trimZeros(amount / 10_000, 1)}万美元`;
     return `${new Intl.NumberFormat("zh-CN").format(amount)}美元`;
   }
 
   function formatRound(value) {
-    if (!value) {
-      return "轮次未披露";
-    }
+    if (!value) return "轮次未披露";
     const labels = {
       "Pre-Seed": "种子前轮",
       Seed: "种子轮",
@@ -77,63 +116,32 @@
   function validDetailUrl(value) {
     try {
       const url = new URL(value);
-      return (
-        url.protocol === "https:" &&
+      return url.protocol === "https:" &&
         ["crypto-fundraising.info", "www.crypto-fundraising.info"].includes(url.hostname) &&
-        url.pathname.startsWith("/projects/")
-      );
+        url.pathname.startsWith("/projects/");
     } catch (_error) {
       return false;
     }
   }
 
   function render(projects) {
-    list.innerHTML = projects
-      .map((project, index) => {
-        const detailUrl = validDetailUrl(project.detail_url)
-          ? project.detail_url
-          : "https://crypto-fundraising.info/";
-        return `
-          <article class="fundraising-project">
-            <span class="fundraising-project-name">
-              <span class="fundraising-rank">${String(index + 1).padStart(2, "0")}</span>
-              <strong><a href="${escapeHtml(detailUrl)}" target="_blank" rel="noreferrer">${escapeHtml(project.name)}</a></strong>
-            </span>
-            <span class="fundraising-field fundraising-field-date">
-              <small>公布月份</small>
-              <strong>${escapeHtml(formatMonth(project.announced_month))}</strong>
-            </span>
-            <span class="fundraising-field fundraising-field-round">
-              <small>融资轮次</small>
-              <strong>${escapeHtml(formatRound(project.round))}</strong>
-            </span>
-            <span class="fundraising-field fundraising-amount">
-              <small>融资金额</small>
-              <strong>${escapeHtml(formatAmount(project.amount_usd))}</strong>
-            </span>
-            <span class="fundraising-project-actions">
-              <a class="fundraising-project-source" href="${escapeHtml(detailUrl)}" target="_blank" rel="noreferrer">查看来源 ↗</a>
-              <button
-                class="fundraising-project-research"
-                type="button"
-                data-research-copy
-                data-prompt-type="initial"
-                data-project-name="${escapeHtml(project.name)}"
-                data-project-url="${escapeHtml(detailUrl)}"
-              >初筛</button>
-              <button
-                class="fundraising-project-research"
-                type="button"
-                data-research-copy
-                data-prompt-type="research"
-                data-project-name="${escapeHtml(project.name)}"
-                data-project-url="${escapeHtml(detailUrl)}"
-              >研究</button>
-            </span>
-          </article>
-        `;
-      })
-      .join("");
+    list.innerHTML = projects.map((project, index) => {
+      const detailUrl = validDetailUrl(project.detail_url) ? project.detail_url : "https://crypto-fundraising.info/";
+      return `<article class="fundraising-project">
+        <span class="fundraising-project-name">
+          <span class="fundraising-rank">${String(index + 1).padStart(2, "0")}</span>
+          <strong><a href="${escapeHtml(detailUrl)}" target="_blank" rel="noreferrer">${escapeHtml(project.name)}</a></strong>
+        </span>
+        <span class="fundraising-field fundraising-field-date"><small>公布月份</small><strong>${escapeHtml(formatMonth(project.announced_month))}</strong></span>
+        <span class="fundraising-field fundraising-field-round"><small>融资轮次</small><strong>${escapeHtml(formatRound(project.round))}</strong></span>
+        <span class="fundraising-field fundraising-amount"><small>融资金额</small><strong>${escapeHtml(formatAmount(project.amount_usd))}</strong></span>
+        <span class="fundraising-project-actions">
+          <a class="fundraising-project-source" href="${escapeHtml(detailUrl)}" target="_blank" rel="noreferrer">查看来源 ↗</a>
+          <button class="fundraising-project-research" type="button" data-research-copy data-prompt-type="initial" data-project-name="${escapeHtml(project.name)}" data-project-url="${escapeHtml(detailUrl)}">初筛</button>
+          <button class="fundraising-project-research" type="button" data-research-copy data-prompt-type="research" data-project-name="${escapeHtml(project.name)}" data-project-url="${escapeHtml(detailUrl)}">研究</button>
+        </span>
+      </article>`;
+    }).join("");
 
     list.querySelectorAll("[data-research-copy]").forEach((button) => {
       button.addEventListener("click", (event) => {
@@ -150,12 +158,7 @@
     list.innerHTML = '<p class="fundraising-error">融资项目暂时无法载入，请稍后重试或查看原始数据。</p>';
   }
 
-  if (!window.BolinFundraisingData?.load) {
-    renderError(new Error("Fundraising data loader unavailable"));
-    return;
-  }
-
-  window.BolinFundraisingData.load(DATA_URL)
+  loadData()
     .then(({ payload, mode }) => {
       root.classList.remove("is-error");
       updated.textContent = formatUpdated(payload.updated_at, mode);
