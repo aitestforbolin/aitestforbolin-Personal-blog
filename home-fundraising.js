@@ -15,13 +15,14 @@
       .replace(/"/g, "&quot;");
   }
 
-  function formatUpdated(value) {
+  function formatUpdated(value, mode) {
     const date = new Date(value);
     if (Number.isNaN(date.getTime())) return "更新时间暂不可用";
+    const suffix = mode === "cache" ? " · 使用上次缓存" : mode === "github" ? " · 备用数据通道" : "";
     return `更新：${new Intl.DateTimeFormat("zh-CN", {
       month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit",
       hour12: false, timeZone: "Asia/Shanghai",
-    }).format(date)}`;
+    }).format(date)}${suffix}`;
   }
 
   function formatAmount(value) {
@@ -88,18 +89,19 @@
     });
   }
 
-  fetch(DATA_URL, { cache: "no-store" })
-    .then((response) => {
-      if (!response.ok) throw new Error("Unable to load fundraising data");
-      return response.json();
+  if (!window.BolinFundraisingData?.load) {
+    updated.textContent = "数据暂时无法载入";
+    list.innerHTML = '<p class="home-fundraising-error">融资数据加载器不可用，请刷新页面后重试。</p>';
+    return;
+  }
+
+  window.BolinFundraisingData.load(DATA_URL)
+    .then(({ payload, mode }) => {
+      updated.textContent = formatUpdated(payload.updated_at, mode);
+      render(payload.projects);
     })
-    .then((data) => {
-      const projects = Array.isArray(data.projects) ? data.projects.slice(0, 5) : [];
-      if (projects.length !== 5 || projects.some((project) => !project.name)) throw new Error("Invalid fundraising data");
-      updated.textContent = formatUpdated(data.updated_at);
-      render(projects);
-    })
-    .catch(() => {
+    .catch((error) => {
+      console.error(error);
       updated.textContent = "数据暂时无法载入";
       list.innerHTML = '<p class="home-fundraising-error">融资项目暂时无法载入，请前往融资追踪页查看。</p>';
     });
