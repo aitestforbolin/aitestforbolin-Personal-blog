@@ -4,39 +4,14 @@
     {
       "symbol": "BTCUSD",
       "date": "2026-08-25",
-      "time": "19:53 UTC",
+      "time": "20:19 UTC",
       "open": 78982.266,
       "high": 81023.414,
       "low": 78335.0,
-      "close": 78940.05,
-      "volume": 44677881856,
+      "close": 78942.68,
+      "volume": 44676431872,
       "sourceSymbol": "BTC-USD",
       "points": [
-        {
-          "time": "12:00",
-          "timestamp": 1787659200,
-          "value": 78975.578125
-        },
-        {
-          "time": "12:05",
-          "timestamp": 1787659500,
-          "value": 78831.8828125
-        },
-        {
-          "time": "12:10",
-          "timestamp": 1787659800,
-          "value": 79073.71875
-        },
-        {
-          "time": "12:15",
-          "timestamp": 1787660100,
-          "value": 78933.8671875
-        },
-        {
-          "time": "12:20",
-          "timestamp": 1787660400,
-          "value": 78878.828125
-        },
         {
           "time": "12:25",
           "timestamp": 1787660700,
@@ -485,24 +460,49 @@
         {
           "time": "19:50",
           "timestamp": 1787687400,
-          "value": 78880.3671875
+          "value": 78923.796875
         },
         {
-          "time": "19:53",
-          "timestamp": 1787687600,
-          "value": 78940.046875
+          "time": "19:55",
+          "timestamp": 1787687700,
+          "value": 78923.8125
+        },
+        {
+          "time": "20:00",
+          "timestamp": 1787688000,
+          "value": 78789.2578125
+        },
+        {
+          "time": "20:05",
+          "timestamp": 1787688300,
+          "value": 78867.3515625
+        },
+        {
+          "time": "20:10",
+          "timestamp": 1787688600,
+          "value": 78887.0
+        },
+        {
+          "time": "20:15",
+          "timestamp": 1787688900,
+          "value": 78918.0234375
+        },
+        {
+          "time": "20:19",
+          "timestamp": 1787689148,
+          "value": 78942.6796875
         }
       ]
     },
     {
       "symbol": "XAUUSD",
       "date": "2026-08-25",
-      "time": "19:53 UTC",
+      "time": "20:19 UTC",
       "open": 4689.755,
       "high": 4689.755,
       "low": 4616.475,
-      "close": 4667.095,
-      "previousClose": 4658.795,
+      "close": 4665.855,
+      "previousClose": 4667.095,
       "volume": "N/D",
       "source": "Swissquote",
       "sourceSymbol": "XAU/USD",
@@ -1446,18 +1446,23 @@
           "time": "19:53",
           "timestamp": 1787687605,
           "value": 4667.095
+        },
+        {
+          "time": "20:19",
+          "timestamp": 1787689153,
+          "value": 4665.855
         }
       ]
     },
     {
       "symbol": "SPY.US",
       "date": "2026-08-25",
-      "time": "19:53 UTC",
+      "time": "20:00 UTC",
       "open": 763.47,
       "high": 766.78,
       "low": 763.05,
-      "close": 765.69,
-      "volume": 22530025,
+      "close": 765.91,
+      "volume": 26597845,
       "sourceSymbol": "SPY",
       "points": [
         {
@@ -1843,24 +1848,29 @@
         {
           "time": "19:50",
           "timestamp": 1787687400,
-          "value": 765.5599975585938
+          "value": 766.1400146484375
         },
         {
-          "time": "19:53",
-          "timestamp": 1787687603,
-          "value": 765.6900024414062
+          "time": "19:55",
+          "timestamp": 1787687700,
+          "value": 765.8350219726562
+        },
+        {
+          "time": "20:00",
+          "timestamp": 1787688000,
+          "value": 765.9099731445312
         }
       ]
     },
     {
       "symbol": "QQQ.US",
       "date": "2026-08-25",
-      "time": "19:53 UTC",
+      "time": "20:00 UTC",
       "open": 706.32,
       "high": 714.04,
       "low": 707.45,
-      "close": 710.37,
-      "volume": 20530057,
+      "close": 710.72,
+      "volume": 23082430,
       "sourceSymbol": "QQQ",
       "points": [
         {
@@ -2246,24 +2256,29 @@
         {
           "time": "19:50",
           "timestamp": 1787687400,
-          "value": 710.2999877929688
+          "value": 710.9000244140625
         },
         {
-          "time": "19:53",
-          "timestamp": 1787687604,
-          "value": 710.3699951171875
+          "time": "19:55",
+          "timestamp": 1787687700,
+          "value": 710.6400146484375
+        },
+        {
+          "time": "20:00",
+          "timestamp": 1787688000,
+          "value": 710.719970703125
         }
       ]
     },
     {
       "symbol": "DIA.US",
       "date": "2026-08-25",
-      "time": "19:53 UTC",
+      "time": "20:00 UTC",
       "open": 533.65,
       "high": 536.395,
       "low": 533.185,
-      "close": 535.32,
-      "volume": 2085141,
+      "close": 535.27,
+      "volume": 2357404,
       "sourceSymbol": "DIA",
       "points": [
         {
@@ -2649,12 +2664,17 @@
         {
           "time": "19:50",
           "timestamp": 1787687400,
-          "value": 535.2449951171875
+          "value": 535.489990234375
         },
         {
-          "time": "19:53",
-          "timestamp": 1787687598,
-          "value": 535.3200073242188
+          "time": "19:55",
+          "timestamp": 1787687700,
+          "value": 535.22998046875
+        },
+        {
+          "time": "20:00",
+          "timestamp": 1787688000,
+          "value": 535.27001953125
         }
       ]
     }
