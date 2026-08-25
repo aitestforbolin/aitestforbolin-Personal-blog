@@ -133,10 +133,13 @@ class XPublisherTests(unittest.TestCase):
                 MODULE, "credentials_from_environment", return_value={}
             ), mock.patch.object(
                 MODULE, "verify_target_account", return_value="whybolin"
-            ), mock.patch.object(MODULE, "create_x_post", return_value="987654321"):
+            ), mock.patch.object(
+                MODULE, "create_x_post", return_value="987654321"
+            ) as create:
                 result = MODULE.publish(
                     self.snapshot_path, state, None, False, "manual", now=self.now
                 )
+            created_text = create.call_args.args[0]
             saved = json.loads(state.read_text(encoding="utf-8"))
             record = saved["publishedByAsOf"]["2026-08-19"]
             self.assertEqual(result["status"], "published")
@@ -146,6 +149,7 @@ class XPublisherTests(unittest.TestCase):
                 "0797cc7f32159188d840591ae15c910437a7724a93d7bc50a1bf41680d65e039",
             )
             self.assertEqual(record["mode"], "manual")
+            self.assertNotIn(MODULE.AUTOMATIC_DISCLOSURE, created_text)
 
     def test_automatic_success_records_publish_mode(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -154,14 +158,39 @@ class XPublisherTests(unittest.TestCase):
                 MODULE, "credentials_from_environment", return_value={}
             ), mock.patch.object(
                 MODULE, "verify_target_account", return_value="whybolin"
-            ), mock.patch.object(MODULE, "create_x_post", return_value="987654321"):
+            ), mock.patch.object(
+                MODULE, "create_x_post", return_value="987654321"
+            ) as create:
                 result = MODULE.publish(
                     self.snapshot_path, state, None, False, "automatic", now=self.now
                 )
+            created_text = create.call_args.args[0]
             saved = json.loads(state.read_text(encoding="utf-8"))
             record = saved["publishedByAsOf"]["2026-08-19"]
             self.assertEqual(result["status"], "published")
             self.assertEqual(record["mode"], "automatic")
+            self.assertTrue(created_text.endswith("\n\n（本推文自动定时发布）"))
+            self.assertEqual(
+                created_text.removesuffix("\n\n（本推文自动定时发布）"),
+                MODULE.build_x_post(self.snapshot, now=self.now),
+            )
+            self.assertEqual(
+                record["contentSha256"],
+                hashlib.sha256(created_text.encode("utf-8")).hexdigest(),
+            )
+
+    def test_automatic_disclosure_cannot_exceed_post_limit(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory) / "state.json"
+            with mock.patch.object(
+                MODULE, "build_x_post", return_value="a" * MODULE.MAX_LONGFORM_CHARACTERS
+            ), mock.patch.object(MODULE, "create_x_post") as create:
+                with self.assertRaisesRegex(MODULE.PublishError, "disclosure"):
+                    MODULE.publish(
+                        self.snapshot_path, state, None, False, "automatic", now=self.now
+                    )
+                create.assert_not_called()
+            self.assertFalse(state.exists())
 
     def test_wrong_x_account_stops_before_create(self):
         with tempfile.TemporaryDirectory() as directory:
