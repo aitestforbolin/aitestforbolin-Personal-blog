@@ -18,9 +18,39 @@ SPEC.loader.exec_module(MODULE)
 
 class XPublisherTests(unittest.TestCase):
     def setUp(self):
-        self.snapshot_path = ROOT / "data" / "daily-market-status.json"
+        self.snapshot_path = ROOT / "tests" / "fixtures" / "x-publisher-approved-snapshot.json"
         self.snapshot = json.loads(self.snapshot_path.read_text(encoding="utf-8"))
         self.now = dt.datetime.fromisoformat("2026-08-20T03:30:00+00:00")
+
+    def test_credentials_trim_surrounding_whitespace(self):
+        values = {
+            "X_API_KEY": " api-key ",
+            "X_API_SECRET": "api-secret\n",
+            "X_ACCESS_TOKEN": "\taccess-token\r\n",
+            "X_ACCESS_TOKEN_SECRET": "access-token-secret",
+        }
+        with mock.patch.dict(MODULE.os.environ, values):
+            credentials = MODULE.credentials_from_environment()
+        self.assertEqual(
+            credentials,
+            {
+                "X_API_KEY": "api-key",
+                "X_API_SECRET": "api-secret",
+                "X_ACCESS_TOKEN": "access-token",
+                "X_ACCESS_TOKEN_SECRET": "access-token-secret",
+            },
+        )
+
+    def test_credentials_reject_embedded_whitespace(self):
+        values = {
+            "X_API_KEY": "api-key",
+            "X_API_SECRET": "api secret",
+            "X_ACCESS_TOKEN": "access-token",
+            "X_ACCESS_TOKEN_SECRET": "access-token-secret",
+        }
+        with mock.patch.dict(MODULE.os.environ, values):
+            with self.assertRaisesRegex(MODULE.PublishError, "X_API_SECRET"):
+                MODULE.credentials_from_environment()
 
     def test_renderer_is_frozen_to_approved_web_output(self):
         text = MODULE.build_x_post(self.snapshot, now=self.now)
@@ -33,6 +63,16 @@ class XPublisherTests(unittest.TestCase):
         self.assertNotIn("跨资产大体确认", text)
         self.assertNotIn("昨日属于：", text)
         self.assertNotIn("──────────", text)
+
+    def test_workflow_only_automates_completed_snapshot_updates(self):
+        workflow = (ROOT / ".github" / "workflows" / "publish-x-manual.yml").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("  push:\n    branches:\n      - main\n    paths:", workflow)
+        self.assertIn("      - data/daily-market-status.json", workflow)
+        self.assertIn("  workflow_dispatch:", workflow)
+        self.assertIn("          ref: main", workflow)
+        self.assertIn("github.event_name == 'push' && 'automatic' || 'manual'", workflow)
 
     def test_as_of_mismatch_stops_before_api(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -105,6 +145,23 @@ class XPublisherTests(unittest.TestCase):
                 record["contentSha256"],
                 "0797cc7f32159188d840591ae15c910437a7724a93d7bc50a1bf41680d65e039",
             )
+            self.assertEqual(record["mode"], "manual")
+
+    def test_automatic_success_records_publish_mode(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory) / "state.json"
+            with mock.patch.object(
+                MODULE, "credentials_from_environment", return_value={}
+            ), mock.patch.object(
+                MODULE, "verify_target_account", return_value="whybolin"
+            ), mock.patch.object(MODULE, "create_x_post", return_value="987654321"):
+                result = MODULE.publish(
+                    self.snapshot_path, state, None, False, "automatic", now=self.now
+                )
+            saved = json.loads(state.read_text(encoding="utf-8"))
+            record = saved["publishedByAsOf"]["2026-08-19"]
+            self.assertEqual(result["status"], "published")
+            self.assertEqual(record["mode"], "automatic")
 
     def test_wrong_x_account_stops_before_create(self):
         with tempfile.TemporaryDirectory() as directory:

@@ -1,6 +1,11 @@
-name: Publish daily market briefing to X (manual)
+name: Publish daily market briefing to X
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - data/daily-market-status.json
   workflow_dispatch:
     inputs:
       as_of:
@@ -28,6 +33,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -39,10 +45,11 @@ jobs:
           X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
           X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
           X_EXPECTED_USERNAME: whybolin
+          PUBLISH_MODE: ${{ github.event_name == 'push' && 'automatic' || 'manual' }}
           INPUT_AS_OF: ${{ inputs.as_of }}
           INPUT_DRY_RUN: ${{ inputs.dry_run }}
         run: |
-          args=(--mode manual)
+          args=(--mode "$PUBLISH_MODE")
           if [[ -n "$INPUT_AS_OF" ]]; then
             args+=(--as-of "$INPUT_AS_OF")
           fi

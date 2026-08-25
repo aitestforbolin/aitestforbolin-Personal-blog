@@ -441,10 +441,17 @@ def github_output(**values: Any) -> None:
 
 def credentials_from_environment() -> dict[str, str]:
     names = ("X_API_KEY", "X_API_SECRET", "X_ACCESS_TOKEN", "X_ACCESS_TOKEN_SECRET")
-    values = {name: os.getenv(name, "") for name in names}
+    values = {name: os.getenv(name, "").strip() for name in names}
     missing = [name for name, value in values.items() if not value]
     if missing:
         raise PublishError("Missing GitHub Actions secrets: " + ", ".join(missing))
+    malformed = [
+        name for name, value in values.items() if any(character.isspace() for character in value)
+    ]
+    if malformed:
+        raise PublishError(
+            "GitHub Actions secrets contain embedded whitespace: " + ", ".join(malformed)
+        )
     return values
 
 
