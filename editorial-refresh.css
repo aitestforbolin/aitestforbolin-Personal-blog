@@ -796,3 +796,56 @@ select:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Mobile home shortcut: keep the latest market briefing inside the first viewport. */
+.mobile-briefing-entry {
+  display: none;
+}
+
+@media (max-width: 620px) {
+  .mobile-briefing-entry {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 14px;
+    padding: 15px 16px;
+    border: 1px solid var(--ink);
+    border-radius: 8px;
+    background: var(--ink);
+    color: var(--paper);
+    box-shadow: 6px 7px 0 #d6cec0;
+  }
+
+  .mobile-briefing-entry-copy {
+    display: grid;
+    gap: 2px;
+  }
+
+  .mobile-briefing-entry-copy small {
+    color: #cc8d72;
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .mobile-briefing-entry-copy strong {
+    font-family: var(--font-display);
+    font-size: 1.18rem;
+    line-height: 1.2;
+  }
+
+  .mobile-briefing-entry-action {
+    flex: 0 0 auto;
+    color: rgba(251, 250, 246, 0.72);
+    font-size: 0.74rem;
+    font-weight: 750;
+    white-space: nowrap;
+  }
+
+  .hero {
+    padding-top: 38px;
+  }
+}
+

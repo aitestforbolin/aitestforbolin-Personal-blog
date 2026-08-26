@@ -2,8 +2,8 @@ name: Update technology company events
 
 on:
   schedule:
-    # 08:15 Asia/Shanghai every day.
-    - cron: "15 0 * * *"
+    # 05:50 Asia/Shanghai every day; refreshes events before the 07:00 briefing.
+    - cron: "50 21 * * *"
   workflow_dispatch:
 
 permissions:

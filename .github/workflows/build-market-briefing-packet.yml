@@ -2,8 +2,8 @@ name: Build market briefing packet
 
 on:
   schedule:
-    # 06:30 Asia/Shanghai, Tuesday-Saturday; 90-150 minutes after the U.S. close.
-    - cron: "30 22 * * 1-5"
+    # 06:10 Asia/Shanghai, Tuesday-Saturday; prepares the packet before the 07:00 briefing.
+    - cron: "10 22 * * 1-5"
   workflow_dispatch:
 
 permissions:
