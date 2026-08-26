@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: repository-data-writer
+  group: btc-etf-writer
   cancel-in-progress: false
 
 jobs:

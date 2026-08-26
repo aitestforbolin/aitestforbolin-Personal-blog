@@ -14,8 +14,9 @@ permissions:
   contents: write
 
 concurrency:
-  group: repository-data-writer
+  group: macro-calendar-writer
   cancel-in-progress: false
+  queue: max
 
 jobs:
   update-calendar:

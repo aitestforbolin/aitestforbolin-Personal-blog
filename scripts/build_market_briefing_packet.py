@@ -29,6 +29,7 @@ REQUIRED_MARKETS = {
 }
 REQUIRED_BREADTH = {"SP500", "NASDAQ"}
 CANDIDATES = ["NVDA", "AVGO", "AMD", "MU", "AMAT", "LRCX", "MSFT", "AAPL", "AMZN", "GOOGL", "META"]
+FIXED_ANCHOR_IDS = {"DXY", "BRN1!", "GOLD", "BTCUSDT"}
 TIMEOUT = 35
 
 
@@ -153,26 +154,137 @@ def fetch_candidate(symbol: str) -> dict:
     }
 
 
-def future_events(today: dt.date) -> list[dict]:
+def _event_rows(payload: object) -> list[dict]:
+    if isinstance(payload, list):
+        return [row for row in payload if isinstance(row, dict)]
+    if isinstance(payload, dict) and isinstance(payload.get("events"), list):
+        return [row for row in payload["events"] if isinstance(row, dict)]
+    return []
+
+
+def local_calendar_date(moment: dt.datetime) -> dt.date:
+    if moment.tzinfo is None:
+        moment = moment.replace(tzinfo=dt.timezone.utc)
+    return moment.astimezone(ZoneInfo("Asia/Shanghai")).date()
+
+
+def future_events(today: dt.date, root: Path = ROOT) -> list[dict]:
     output: list[dict] = []
-    macro = load_json(ROOT / "data" / "us-macro-calendar.json", [])
-    tech = load_json(ROOT / "data" / "tech-company-events-curated.json", [])
+    macro = load_json(root / "data" / "us-macro-calendar.json", [])
+    tech = load_json(root / "data" / "tech-company-events.json", {})
     cutoff = today + dt.timedelta(days=14)
-    for row in list(macro if isinstance(macro, list) else []) + list(tech if isinstance(tech, list) else []):
-        if not isinstance(row, dict):
-            continue
-        value = row.get("date") or row.get("date_bjt")
+    seen: set[tuple[str, str]] = set()
+    for row in _event_rows(macro) + _event_rows(tech):
+        value = row.get("date") or row.get("date_bjt") or row.get("window_start")
         try:
             day = dt.date.fromisoformat(str(value)[:10])
-        except ValueError:
+        except (TypeError, ValueError):
             continue
         if today <= day <= cutoff:
-            output.append(row)
-    return output
+            identity = str(row.get("event_id") or row.get("id") or row.get("url") or row.get("title") or "")
+            key = (identity, day.isoformat())
+            if key not in seen:
+                seen.add(key)
+                output.append(row)
+    return sorted(output, key=lambda row: str(row.get("date") or row.get("date_bjt") or row.get("window_start") or ""))
 
 
-def build_packet() -> dict:
-    generated = dt.datetime.now(dt.timezone.utc)
+def _same_provider(left: object, right: object) -> bool:
+    return bool(left and right) and str(left).strip().casefold() == str(right).strip().casefold()
+
+
+def inherit_macro_comparisons(
+    assets: list[dict],
+    trading_date: str | None,
+    previous_packet: object,
+    previous_status: object,
+) -> tuple[list[str], list[str]]:
+    """Fill fixed 16:00 ET previous anchors without mixing providers or dates."""
+    inherited: list[str] = []
+    previous_assets: dict[str, dict] = {}
+    previous_date = None
+    if isinstance(previous_packet, dict):
+        previous_date = previous_packet.get("tradingDate")
+        previous_assets = {
+            str(row.get("id")): row
+            for row in previous_packet.get("macroAssets", [])
+            if isinstance(row, dict) and row.get("id")
+        }
+
+    status_date = previous_status.get("asOf") if isinstance(previous_status, dict) else None
+    status_assets = {
+        str(row.get("id")): row
+        for row in (previous_status.get("macroAnchors", []) if isinstance(previous_status, dict) else [])
+        if isinstance(row, dict) and row.get("id")
+    }
+
+    for asset in assets:
+        asset_id = str(asset.get("id"))
+        if asset_id not in FIXED_ANCHOR_IDS:
+            continue
+        comparison = asset.get("comparison") if isinstance(asset.get("comparison"), dict) else {}
+        if comparison.get("previous") is not None:
+            continue
+
+        old_asset = previous_assets.get(asset_id)
+        old_current = None
+        if isinstance(old_asset, dict):
+            old_comparison = old_asset.get("comparison")
+            if isinstance(old_comparison, dict):
+                old_current = old_comparison.get("current")
+        if (
+            isinstance(old_current, dict)
+            and trading_date
+            and isinstance(previous_date, str)
+            and previous_date < trading_date
+            and old_current.get("date") == previous_date
+            and isinstance(old_current.get("value"), (int, float))
+            and _same_provider(asset.get("source"), old_asset.get("source"))
+        ):
+            comparison["previous"] = {**old_current, "inheritedFrom": "previous_packet"}
+            asset["comparison"] = comparison
+            inherited.append(f"{asset_id}:previous_packet")
+            continue
+
+        old_status = status_assets.get(asset_id)
+        if (
+            isinstance(old_status, dict)
+            and trading_date
+            and isinstance(status_date, str)
+            and status_date < trading_date
+            and isinstance(old_status.get("anchor"), (int, float))
+            and _same_provider(asset.get("source"), old_status.get("provider"))
+        ):
+            comparison["previous"] = {
+                "date": status_date,
+                "value": old_status["anchor"],
+                "observedAt": old_status.get("anchorObservedAt") or old_status.get("anchorTime"),
+                "inheritedFrom": "daily_market_status",
+            }
+            asset["comparison"] = comparison
+            inherited.append(f"{asset_id}:daily_market_status")
+
+    gaps = []
+    by_id = {str(asset.get("id")): asset for asset in assets}
+    for asset_id in sorted(FIXED_ANCHOR_IDS):
+        comparison = by_id.get(asset_id, {}).get("comparison")
+        if not isinstance(comparison, dict) or comparison.get("previous") is None or comparison.get("current") is None:
+            gaps.append(asset_id)
+    return inherited, gaps
+
+
+def generated_after_close(generated: dt.datetime, trading_date: str | None) -> bool:
+    if not trading_date:
+        return False
+    day = dt.date.fromisoformat(trading_date)
+    close = dt.datetime.combine(day, dt.time(16, 0), tzinfo=ZoneInfo("America/New_York"))
+    return generated.astimezone(dt.timezone.utc) >= close.astimezone(dt.timezone.utc)
+
+
+def build_packet(now: dt.datetime | None = None) -> dict:
+    generated = now or dt.datetime.now(dt.timezone.utc)
+    if generated.tzinfo is None:
+        generated = generated.replace(tzinfo=dt.timezone.utc)
     source_audit: dict[str, dict] = {}
     critical_errors: list[str] = []
 
@@ -207,12 +319,17 @@ def build_packet() -> dict:
     trading_date = min((value for value in dates if value), default=None)
     if not trading_date:
         critical_errors.append("trading_date_unavailable")
+    elif not generated_after_close(generated, trading_date):
+        critical_errors.append("packet_generated_before_market_close")
 
     candidates: list[dict] = []
     candidate_errors: list[str] = []
     for ticker in CANDIDATES:
         try:
-            candidates.append(fetch_candidate(ticker))
+            candidate = fetch_candidate(ticker)
+            candidates.append(candidate)
+            if candidate.get("status") != "ok":
+                candidate_errors.append(ticker)
         except Exception:
             candidate_errors.append(ticker)
     source_audit["candidateQuotes"] = {
@@ -230,20 +347,41 @@ def build_packet() -> dict:
         "date": latest_etf.get("date") if isinstance(latest_etf, dict) else None,
     }
 
+    macro_assets = [
+        macro_asset(row, trading_date) for row in markets
+        if row.get("id") in {"DXY", "US02Y", "US10Y", "US30Y", "BRN1!", "GOLD", "BTCUSDT"}
+    ]
+    previous_packet_path = Path(os.getenv("PREVIOUS_PACKET_PATH", str(OUTPUT)))
+    previous_packet = load_json(previous_packet_path, {})
+    previous_status = load_json(ROOT / "data" / "daily-market-status.json", {})
+    inherited, comparison_gaps = inherit_macro_comparisons(
+        macro_assets, trading_date, previous_packet, previous_status
+    )
+    source_audit["macroComparisons"] = {
+        "status": "ok" if not comparison_gaps else "incomplete",
+        "inherited": inherited,
+        "missing": comparison_gaps,
+    }
+    source_audit["futureEvents"] = {
+        "timezone": "Asia/Shanghai",
+        "techSource": "data/tech-company-events.json",
+    }
+    if comparison_gaps:
+        critical_errors.append("missing_macro_comparisons:" + ",".join(comparison_gaps))
+    if candidate_errors:
+        critical_errors.append("candidate_quote_failures:" + ",".join(sorted(set(candidate_errors))))
+
     packet = {
-        "schemaVersion": 1,
+        "schemaVersion": 2,
         "generatedAt": generated.isoformat(timespec="seconds"),
         "tradingDate": trading_date,
         "sourceAudit": source_audit,
         "markets": [compact_market(row) for row in markets],
         "breadth": breadth,
-        "macroAssets": [
-            macro_asset(row, trading_date) for row in markets
-            if row.get("id") in {"DXY", "US02Y", "US10Y", "US30Y", "BRN1!", "GOLD", "BTCUSDT"}
-        ],
+        "macroAssets": macro_assets,
         "fed": {"status": "requires_model_verification", "method": "CME FedWatch"},
         "btcEtf": latest_etf,
-        "futureEvents": future_events(generated.date()),
+        "futureEvents": future_events(local_calendar_date(generated)),
         "candidateStocks": candidates,
         "modelTasks": [
             "核验最新完整交易日与异常字段",

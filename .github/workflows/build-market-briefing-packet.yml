@@ -2,15 +2,15 @@ name: Build market briefing packet
 
 on:
   schedule:
-    # 06:10 Asia/Shanghai, Tuesday-Saturday; prepares the packet before the 07:00 briefing.
-    - cron: "10 22 * * 1-5"
+    # 06:10 primary + 06:35 fallback Asia/Shanghai, Tuesday-Saturday.
+    - cron: "10,35 22 * * 1-5"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: repository-data-writer
+  group: market-briefing-packet
   cancel-in-progress: false
 
 jobs:
@@ -24,34 +24,40 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-      - name: Switch to the packet data branch
+      - name: Load the previous canonical packet
         run: |
           git fetch origin market-briefing-data || true
           if git show-ref --verify --quiet refs/remotes/origin/market-briefing-data; then
-            git switch -C market-briefing-data origin/market-briefing-data
-            git merge --no-edit origin/main
-          else
-            git switch -c market-briefing-data
+            git show origin/market-briefing-data:data/market-briefing-packet.json \
+              > /tmp/previous-market-briefing-packet.json || true
           fi
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Build and validate packet
-        run: python scripts/build_market_briefing_packet.py
+        env:
+          PREVIOUS_PACKET_PATH: /tmp/previous-market-briefing-packet.json
+        run: |
+          python -m unittest tests/test_market_briefing_packet.py -v
+          python scripts/build_market_briefing_packet.py
       - name: Commit packet
         run: |
+          packet_file="$GITHUB_WORKSPACE/data/market-briefing-packet.json"
+          packet_worktree="$(mktemp -d)"
+          git fetch origin market-briefing-data || true
+          if git show-ref --verify --quiet refs/remotes/origin/market-briefing-data; then
+            git worktree add --detach "$packet_worktree" origin/market-briefing-data
+          else
+            git worktree add --detach "$packet_worktree" HEAD
+          fi
+          cd "$packet_worktree"
+          git switch -C market-briefing-data
+          mkdir -p data
+          cp "$packet_file" data/market-briefing-packet.json
           if git diff --quiet -- data/market-briefing-packet.json; then
             echo "Market briefing packet is already current."
             exit 0
           fi
           git add data/market-briefing-packet.json
           git commit -m "Build market briefing packet"
-          for attempt in 1 2 3; do
-            if git push origin HEAD:market-briefing-data; then
-              exit 0
-            fi
-            git fetch origin market-briefing-data
-            git rebase origin/market-briefing-data || exit 1
-            sleep $((attempt * 5))
-          done
-          exit 1
+          git push origin HEAD:market-briefing-data
