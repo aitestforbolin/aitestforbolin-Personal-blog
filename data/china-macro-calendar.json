@@ -1,11 +1,12 @@
 {
   "schemaVersion": 1,
   "status": "partial",
-  "generatedAt": "2026-08-24T03:04:07+00:00",
+  "generatedAt": "2026-08-27T11:58:26+00:00",
   "timezone": "Asia/Shanghai",
   "sourcePolicy": "official_only",
   "failedSources": [
     "gacc",
+    "mof",
     "nbs"
   ],
   "events": [
@@ -775,30 +776,31 @@
       "category": "profits",
       "importance": "medium",
       "source": "国家统计局",
-      "sourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html",
+      "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260827_1965127.html",
       "metrics": [
         {
           "id": "industrial_profits_ytd",
           "label": "规模以上工业企业利润累计同比",
-          "actual": null,
+          "actual": "17.6",
           "previous": "18.7",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260727_1964194.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260827_1965127.html"
         },
         {
           "id": "industrial_profits_monthly",
           "label": "规模以上工业企业利润当月同比",
-          "actual": null,
+          "actual": "17.6",
           "previous": "15.1",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260727_1964194.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260827_1965127.html",
+          "revisionStatus": "revised"
         }
       ],
-      "releasedAt": null,
-      "retrievedAt": "2026-08-02T10:00:00+08:00",
-      "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "sourceStatus": "static_official_sample",
+      "releasedAt": "2026-08-27T09:30:00+08:00",
+      "retrievedAt": "2026-08-27T11:58:26+00:00",
+      "revisionStatus": "revised",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
       "group": "profits",
       "scheduleSourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html"
     },
@@ -1292,17 +1294,19 @@
           "id": "industrial_profits_ytd",
           "label": "规模以上工业企业利润累计同比",
           "actual": null,
-          "previous": "18.7",
+          "previous": "17.6",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260727_1964194.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfbhjd/202608/t20260827_1965126.html",
+          "previousPeriod": "2026-01/07"
         },
         {
           "id": "industrial_profits_monthly",
           "label": "规模以上工业企业利润当月同比",
           "actual": null,
-          "previous": "15.1",
+          "previous": "17.6",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260727_1964194.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260827_1965127.html",
+          "previousPeriod": "2026-01/07"
         }
       ],
       "releasedAt": null,
@@ -3172,6 +3176,6 @@
       "eventDate": "2017-11-21"
     }
   ],
-  "sourceHealthUpdatedAt": "2026-08-24T02:49:20+00:00",
-  "targetedBackfillAt": "2026-08-24T03:04:07+00:00"
+  "sourceHealthUpdatedAt": "2026-08-27T11:58:10+00:00",
+  "targetedBackfillAt": "2026-08-27T11:58:26+00:00"
 }
