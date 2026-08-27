@@ -37,6 +37,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Validate X publication data completeness
+        run: |
+          python -m unittest tests.test_validate_x_snapshot -v
+          python scripts/validate_x_snapshot.py --snapshot data/daily-market-status.json
       - name: Render, deduplicate, and publish
         id: publish
         env:
