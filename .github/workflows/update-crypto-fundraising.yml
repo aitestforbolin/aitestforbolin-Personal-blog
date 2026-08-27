@@ -2,8 +2,9 @@ name: Update crypto fundraising
 
 on:
   schedule:
-    # 08:30 and 10:30 Asia/Shanghai, Tuesday through Saturday.
-    - cron: "30 0,2 * * 2-6"
+    # GitHub Actions cron uses UTC. Run Tue-Sat at 08:30 / 10:30 Asia/Taipei.
+    - cron: "30 0 * * 2-6"
+    - cron: "30 2 * * 2-6"
   push:
     branches:
       - main
