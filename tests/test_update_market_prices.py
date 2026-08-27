@@ -1,5 +1,7 @@
 import importlib.util
+import json
 from pathlib import Path
+from unittest import mock
 
 
 SCRIPT = Path(__file__).parents[1] / "scripts" / "update_market_prices.py"
@@ -47,3 +49,14 @@ def test_previous_history_accepts_only_xauusd_spot(tmp_path, monkeypatch):
     monkeypatch.setattr(MODULE, "OUTPUT", output)
 
     assert MODULE.load_previous_xau_points() == []
+
+
+def test_fetch_json_retries_transient_failure_without_duplicate_write(monkeypatch):
+    response = mock.MagicMock()
+    response.__enter__.return_value.read.return_value = json.dumps({"ok": True}).encode()
+    opener = mock.Mock(side_effect=[OSError("temporary"), response])
+    monkeypatch.setattr(MODULE.urllib.request, "urlopen", opener)
+    monkeypatch.setattr(MODULE.time, "sleep", lambda _seconds: None)
+
+    assert MODULE.fetch_json("https://example.test/data") == {"ok": True}
+    assert opener.call_count == 2

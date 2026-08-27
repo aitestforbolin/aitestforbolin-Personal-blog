@@ -6,6 +6,7 @@ from __future__ import annotations
 import datetime as dt
 import json
 import os
+import time
 from pathlib import Path
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
@@ -33,10 +34,20 @@ FIXED_ANCHOR_IDS = {"DXY", "BRN1!", "GOLD", "BTCUSDT"}
 TIMEOUT = 35
 
 
-def fetch_json(url: str) -> object:
+def fetch_json(url: str, attempts: int = 3) -> object:
+    """Fetch JSON with bounded retries for transient scheduled-run failures."""
     request = Request(url, headers={"User-Agent": "personal-site-market-packet/1.0"})
-    with urlopen(request, timeout=TIMEOUT) as response:
-        return json.loads(response.read().decode("utf-8"))
+    last_error: Exception | None = None
+    for attempt in range(1, attempts + 1):
+        try:
+            with urlopen(request, timeout=TIMEOUT) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except Exception as exc:
+            last_error = exc
+            if attempt < attempts:
+                time.sleep(attempt * 2)
+    assert last_error is not None
+    raise last_error
 
 
 def load_json(path: Path, default: object) -> object:
@@ -55,6 +66,44 @@ def rows_from(payload: object, keys: tuple[str, ...]) -> list[dict]:
             if isinstance(value, list):
                 return [row for row in value if isinstance(row, dict)]
     return []
+
+
+def finite_number(value: object) -> float | None:
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return None
+    return number if number == number and number not in (float("inf"), float("-inf")) else None
+
+
+def breadth_quality_issues(rows: list[dict]) -> tuple[list[str], list[str]]:
+    """Validate IDs, counts and the published advance-percent calculation."""
+    by_id = {str(row.get("id")): row for row in rows if row.get("id")}
+    missing = sorted(REQUIRED_BREADTH - set(by_id))
+    invalid: list[str] = []
+    for breadth_id in sorted(REQUIRED_BREADTH & set(by_id)):
+        row = by_id[breadth_id]
+        advancers = finite_number(row.get("advancers"))
+        decliners = finite_number(row.get("decliners"))
+        percent = finite_number(row.get("advancePercent"))
+        if advancers is None or decliners is None or percent is None or advancers + decliners <= 0:
+            invalid.append(f"{breadth_id}:missing_numeric")
+            continue
+        expected = advancers / (advancers + decliners) * 100
+        if abs(expected - percent) > 0.05:
+            invalid.append(f"{breadth_id}:percent_mismatch")
+        if str(row.get("status") or "").lower() == "unavailable":
+            invalid.append(f"{breadth_id}:unavailable")
+    return missing, invalid
+
+
+def same_date_cached_breadth(packet: object, trading_date: str | None) -> list[dict]:
+    """Reuse only a fully validated cache for the exact same trading date."""
+    if not isinstance(packet, dict) or packet.get("tradingDate") != trading_date:
+        return []
+    rows = rows_from(packet.get("breadth"), ())
+    missing, invalid = breadth_quality_issues(rows)
+    return rows if not missing and not invalid else []
 
 
 def market_date(row: dict) -> str | None:
@@ -273,6 +322,27 @@ def inherit_macro_comparisons(
     return inherited, gaps
 
 
+def classify_comparison_gaps(
+    assets: list[dict], trading_date: str | None, gaps: list[str]
+) -> tuple[list[str], list[str]]:
+    """Keep a fresh Swissquote gold quote usable without inventing a 16:00 ET anchor."""
+    by_id = {str(asset.get("id")): asset for asset in assets}
+    critical: list[str] = []
+    warnings: list[str] = []
+    for asset_id in gaps:
+        asset = by_id.get(asset_id, {})
+        if (
+            asset_id == "GOLD"
+            and str(asset.get("source") or "").casefold() == "swissquote"
+            and finite_number(asset.get("price")) is not None
+            and market_date(asset) == trading_date
+        ):
+            warnings.append("GOLD:latest_only_no_16:00_ET_anchor")
+        else:
+            critical.append(asset_id)
+    return critical, warnings
+
+
 def generated_after_close(generated: dt.datetime, trading_date: str | None) -> bool:
     if not trading_date:
         return False
@@ -287,6 +357,8 @@ def build_packet(now: dt.datetime | None = None) -> dict:
         generated = generated.replace(tzinfo=dt.timezone.utc)
     source_audit: dict[str, dict] = {}
     critical_errors: list[str] = []
+    previous_packet_path = Path(os.getenv("PREVIOUS_PACKET_PATH", str(OUTPUT)))
+    previous_packet = load_json(previous_packet_path, {})
 
     try:
         raw_markets = fetch_json(MARKETS_URL)
@@ -307,16 +379,25 @@ def build_packet(now: dt.datetime | None = None) -> dict:
         critical_errors.append("breadth_api_unavailable")
 
     market_ids = {str(row.get("id")) for row in markets}
-    breadth_ids = {str(row.get("id")) for row in breadth}
     missing_markets = sorted(REQUIRED_MARKETS - market_ids)
-    missing_breadth = sorted(REQUIRED_BREADTH - breadth_ids)
+    dates = [market_date(row) for row in markets if row.get("id") in {"SPX", "IXIC", "DJI"}]
+    trading_date = min((value for value in dates if value), default=None)
+
+    missing_breadth, invalid_breadth = breadth_quality_issues(breadth)
+    if missing_breadth or invalid_breadth:
+        cached = same_date_cached_breadth(previous_packet, trading_date)
+        if cached:
+            breadth = cached
+            missing_breadth, invalid_breadth = breadth_quality_issues(breadth)
+            source_audit["breadthApi"]["fallback"] = "same_date_previous_packet"
+            source_audit["breadthApi"]["count"] = len(breadth)
     if missing_markets:
         critical_errors.append("missing_markets:" + ",".join(missing_markets))
     if missing_breadth:
         critical_errors.append("missing_breadth:" + ",".join(missing_breadth))
+    if invalid_breadth:
+        critical_errors.append("invalid_breadth:" + ",".join(invalid_breadth))
 
-    dates = [market_date(row) for row in markets if row.get("id") in {"SPX", "IXIC", "DJI"}]
-    trading_date = min((value for value in dates if value), default=None)
     if not trading_date:
         critical_errors.append("trading_date_unavailable")
     elif not generated_after_close(generated, trading_date):
@@ -351,23 +432,25 @@ def build_packet(now: dt.datetime | None = None) -> dict:
         macro_asset(row, trading_date) for row in markets
         if row.get("id") in {"DXY", "US02Y", "US10Y", "US30Y", "BRN1!", "GOLD", "BTCUSDT"}
     ]
-    previous_packet_path = Path(os.getenv("PREVIOUS_PACKET_PATH", str(OUTPUT)))
-    previous_packet = load_json(previous_packet_path, {})
     previous_status = load_json(ROOT / "data" / "daily-market-status.json", {})
     inherited, comparison_gaps = inherit_macro_comparisons(
         macro_assets, trading_date, previous_packet, previous_status
     )
+    critical_comparison_gaps, comparison_warnings = classify_comparison_gaps(
+        macro_assets, trading_date, comparison_gaps
+    )
     source_audit["macroComparisons"] = {
-        "status": "ok" if not comparison_gaps else "incomplete",
+        "status": "incomplete" if critical_comparison_gaps else "partial" if comparison_warnings else "ok",
         "inherited": inherited,
-        "missing": comparison_gaps,
+        "missing": critical_comparison_gaps,
+        "warnings": comparison_warnings,
     }
     source_audit["futureEvents"] = {
         "timezone": "Asia/Shanghai",
         "techSource": "data/tech-company-events.json",
     }
-    if comparison_gaps:
-        critical_errors.append("missing_macro_comparisons:" + ",".join(comparison_gaps))
+    if critical_comparison_gaps:
+        critical_errors.append("missing_macro_comparisons:" + ",".join(critical_comparison_gaps))
     if candidate_errors:
         critical_errors.append("candidate_quote_failures:" + ",".join(sorted(set(candidate_errors))))
 
@@ -394,7 +477,9 @@ def build_packet(now: dt.datetime | None = None) -> dict:
             "criticalErrors": critical_errors,
             "missingMarkets": missing_markets,
             "missingBreadth": missing_breadth,
+            "invalidBreadth": invalid_breadth,
             "candidateQuoteFailures": candidate_errors,
+            "warnings": comparison_warnings,
         },
     }
     return packet

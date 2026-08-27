@@ -41,6 +41,63 @@ class MarketBriefingPacketTests(unittest.TestCase):
         self.assertTrue(sectors <= MODULE.REQUIRED_MARKETS)
         self.assertIn("SOX", MODULE.REQUIRED_MARKETS)
 
+    def test_breadth_requires_numeric_counts_and_consistent_percentage(self):
+        rows = [
+            {
+                "id": "SP500", "advancers": 283, "decliners": 218,
+                "advancePercent": 56.4870259481, "status": "ok",
+            },
+            {
+                "id": "NASDAQ", "advancers": 1991, "decliners": 2766,
+                "advancePercent": 99.0, "status": "ok",
+            },
+        ]
+        missing, invalid = MODULE.breadth_quality_issues(rows)
+        self.assertEqual(missing, [])
+        self.assertEqual(invalid, ["NASDAQ:percent_mismatch"])
+
+        rows[0]["advancePercent"] = None
+        _, invalid = MODULE.breadth_quality_issues(rows)
+        self.assertIn("SP500:missing_numeric", invalid)
+
+    def test_breadth_cache_requires_same_date_and_complete_values(self):
+        rows = [
+            {"id": "SP500", "advancers": 283, "decliners": 218, "advancePercent": 56.487},
+            {"id": "NASDAQ", "advancers": 1991, "decliners": 2766, "advancePercent": 41.854},
+        ]
+        packet = {"tradingDate": "2026-08-26", "breadth": rows}
+        self.assertEqual(
+            MODULE.same_date_cached_breadth(packet, "2026-08-26"), rows
+        )
+        self.assertEqual(MODULE.same_date_cached_breadth(packet, "2026-08-25"), [])
+        packet["breadth"][0]["advancePercent"] = None
+        self.assertEqual(MODULE.same_date_cached_breadth(packet, "2026-08-26"), [])
+
+    def test_fresh_swissquote_gold_quote_is_noncritical_when_anchor_is_missing(self):
+        assets = [{
+            "id": "GOLD",
+            "source": "Swissquote",
+            "price": 4603.56,
+            "updatedAt": 1787775540000,
+            "comparison": {"previous": {"value": 4667.095}, "current": None},
+        }]
+        critical, warnings = MODULE.classify_comparison_gaps(
+            assets, "2026-08-26", ["GOLD"]
+        )
+        self.assertEqual(critical, [])
+        self.assertEqual(warnings, ["GOLD:latest_only_no_16:00_ET_anchor"])
+
+    def test_stale_gold_quote_remains_critical(self):
+        assets = [{
+            "id": "GOLD", "source": "Swissquote", "price": 4603.56,
+            "updatedAt": 1787688000000,
+        }]
+        critical, warnings = MODULE.classify_comparison_gaps(
+            assets, "2026-08-26", ["GOLD"]
+        )
+        self.assertEqual(critical, ["GOLD"])
+        self.assertEqual(warnings, [])
+
     def test_compact_market_drops_history_points(self):
         row = {"id": "SPX", "price": 10, "changePercent": 1, "points": [{"time": 1, "value": 9}]}
         self.assertEqual(

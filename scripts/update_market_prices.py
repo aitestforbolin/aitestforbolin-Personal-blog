@@ -3,6 +3,7 @@ import datetime as dt
 import json
 import pathlib
 import statistics
+import time
 import urllib.parse
 import urllib.request
 
@@ -23,13 +24,21 @@ SYMBOLS = [
 ]
 
 
-def fetch_json(url):
+def fetch_json(url, attempts=3):
     request = urllib.request.Request(
         url,
         headers={"User-Agent": "Mozilla/5.0 personal-site-market-prices"},
     )
-    with urllib.request.urlopen(request, timeout=20) as response:
-        return json.loads(response.read().decode("utf-8"))
+    last_error = None
+    for attempt in range(1, attempts + 1):
+        try:
+            with urllib.request.urlopen(request, timeout=20) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except Exception as exc:
+            last_error = exc
+            if attempt < attempts:
+                time.sleep(attempt * 2)
+    raise last_error
 
 
 def fetch_chart(symbol):
