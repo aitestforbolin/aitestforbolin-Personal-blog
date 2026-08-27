@@ -1,23 +1,23 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-27T04:36:16+00:00",
+  "generatedAt": "2026-08-27T16:37:20+00:00",
   "retentionHours": 48,
   "sourceAudit": [
+    {
+      "country": "德国",
+      "outlet": "The Local Germany",
+      "rssUrl": "https://feeds.thelocal.com/rss/builder/de",
+      "status": "error",
+      "error": "HTTPError",
+      "checkedAt": "2026-08-27T16:37:20+00:00"
+    },
     {
       "country": "德国",
       "outlet": "Tagesschau",
       "rssUrl": "https://www.tagesschau.de/inland/index~rss2.xml",
       "status": "ok",
       "count": 49,
-      "checkedAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "country": "德国",
-      "outlet": "The Local Germany",
-      "rssUrl": "https://feeds.thelocal.com/rss/builder/de",
-      "status": "ok",
-      "count": 20,
-      "checkedAt": "2026-08-27T04:36:16+00:00"
+      "checkedAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "country": "新加坡",
@@ -25,7 +25,7 @@
       "rssUrl": "http://www.channelnewsasia.com/rss/latest_cna_sg_rss.xml",
       "status": "ok",
       "count": 20,
-      "checkedAt": "2026-08-27T04:36:16+00:00"
+      "checkedAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "country": "澳大利亚",
@@ -33,7 +33,7 @@
       "rssUrl": "https://www.abc.net.au/news/feed/46182/rss.xml",
       "status": "ok",
       "count": 3,
-      "checkedAt": "2026-08-27T04:36:16+00:00"
+      "checkedAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "country": "瑞士",
@@ -41,15 +41,15 @@
       "rssUrl": "https://www.srf.ch/news/bnf/rss/1890",
       "status": "ok",
       "count": 60,
-      "checkedAt": "2026-08-27T04:36:16+00:00"
+      "checkedAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "country": "英国",
       "outlet": "BBC News",
       "rssUrl": "http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/uk/rss.xml",
       "status": "ok",
-      "count": 43,
-      "checkedAt": "2026-08-27T04:36:16+00:00"
+      "count": 28,
+      "checkedAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "country": "荷兰",
@@ -57,10 +57,736 @@
       "rssUrl": "https://nos.nl/rss.xml",
       "status": "ok",
       "count": 20,
-      "checkedAt": "2026-08-27T04:36:16+00:00"
+      "checkedAt": "2026-08-27T16:37:20+00:00"
     }
   ],
   "items": [
+    {
+      "originalTitle": "Dieven stelen vliegensvlug gouden schat uit Spaans museum",
+      "url": "https://nos.nl/l/2628541",
+      "publishedAt": "2026-08-27T16:35:42+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Burnham says united Ireland poll is 'off the table' during first NI visit",
+      "url": "https://www.bbc.co.uk/news/articles/cy9z43z3g24o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-27T16:23:16+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Regen en onweer: een wisselvallig einde van een recordwarme zomer",
+      "url": "https://nos.nl/l/2628536",
+      "publishedAt": "2026-08-27T16:22:43+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Arbeitslosigkeit – Jobsuche nach dem Studium wird schwieriger – die Hintergründe",
+      "url": "https://www.srf.ch/news/schweiz/arbeitslosigkeit-jobsuche-nach-dem-studium-wird-schwieriger-die-hintergruende",
+      "publishedAt": "2026-08-27T16:09:32+00:00",
+      "country": "瑞士",
+      "countryCode": "CH",
+      "outlet": "SRF",
+      "sectionUrl": "https://www.srf.ch/news/schweiz",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Hackers steal data from millions of airport customers",
+      "url": "https://www.bbc.co.uk/news/articles/c7v4353rry7o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-27T16:07:26+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Gletsjer Nepal was 'onopgemerkte tijdbom', mogelijk geholpen door opwarming",
+      "url": "https://nos.nl/l/2628534",
+      "publishedAt": "2026-08-27T15:44:16+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "One in eight young people still out of work or education ahead of major review",
+      "url": "https://www.bbc.co.uk/news/articles/c93epy2yev0o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-27T15:33:36+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Meer flessen en blikjes met statiegeld ingezameld, maar norm nog niet gehaald",
+      "url": "https://nos.nl/l/2628529",
+      "publishedAt": "2026-08-27T15:31:45+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Family welcomes review of law after driver who killed daughter ruled unfit to stand trial",
+      "url": "https://www.bbc.co.uk/news/articles/cy0zld890ggo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-27T15:27:11+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Police warn Fun Coffee victims against fake fund recovery services",
+      "url": "https://www.channelnewsasia.com/singapore/fun-coffee-scheme-scam-fund-recovery-service-6345741",
+      "publishedAt": "2026-08-27T15:26:18+00:00",
+      "country": "新加坡",
+      "countryCode": "SG",
+      "outlet": "CNA",
+      "sectionUrl": "https://www.channelnewsasia.com/singapore",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Man (58) opgepakt voor reeks verkrachtingen tussen 2001 en 2011 rond Breda",
+      "url": "https://nos.nl/l/2628528",
+      "publishedAt": "2026-08-27T15:24:16+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Wethouder Oldebroek zegt sorry voor foto met pro-Russische vlag en kalasjnikov",
+      "url": "https://nos.nl/l/2628527",
+      "publishedAt": "2026-08-27T15:22:02+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Teacher guilty of indecent assaults against two pupils",
+      "url": "https://www.bbc.co.uk/news/articles/c70d4wd43e4o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-27T15:14:26+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Man's brother, uncle and cousin die in Nepal flash floods",
+      "url": "https://www.bbc.co.uk/news/articles/c5ydg3kpz41o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-27T15:13:19+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Twee doden op school bij Berlijn, verdachte gearresteerd",
+      "url": "https://nos.nl/l/2628526",
+      "publishedAt": "2026-08-27T15:05:13+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "People need to feel safe after deadly crash and fire near Middlesbrough, council leader says",
+      "url": "https://www.bbc.co.uk/news/articles/ckgvnjpv1l0o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-27T14:30:11+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Podcast De Dag: achter het prikkeldraad van ICE-gevangenissen",
+      "url": "https://nos.nl/l/2628519",
+      "publishedAt": "2026-08-27T14:27:50+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "PM says he is 'open' to devolving policing in Wales",
+      "url": "https://www.bbc.co.uk/news/articles/cx2z52920gvo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-27T14:19:53+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Zwei Tote an Schule in Gosen-Neu Zittau bei Berlin",
+      "url": "https://www.tagesschau.de/inland/gesellschaft/gewalttat-berlin-zwei-tote-100.html",
+      "publishedAt": "2026-08-27T14:19:05+00:00",
+      "country": "德国",
+      "countryCode": "DE",
+      "outlet": "Tagesschau",
+      "sectionUrl": "https://www.tagesschau.de/inland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "AI-chips zijn heel duur, dus regelt chipmaker Nvidia zelf geld voor gebruikers",
+      "url": "https://nos.nl/l/2628512",
+      "publishedAt": "2026-08-27T13:57:26+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "‘Support must begin before workers are affected’: DPM Gan says jobs at centre of Singapore’s economic strategy",
+      "url": "https://www.channelnewsasia.com/singapore/ai-jobs-economic-strategy-artificial-intelligence-6345016",
+      "publishedAt": "2026-08-27T13:57:00+00:00",
+      "country": "新加坡",
+      "countryCode": "SG",
+      "outlet": "CNA",
+      "sectionUrl": "https://www.channelnewsasia.com/singapore",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Man mishandeld en beroofd door groep van tien in Zoetermeer",
+      "url": "https://nos.nl/l/2628511",
+      "publishedAt": "2026-08-27T13:40:50+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Inspectie waarschuwt voor botox en fillers tijdens introductieweken studenten",
+      "url": "https://nos.nl/l/2628510",
+      "publishedAt": "2026-08-27T13:33:29+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Verurteilter Sektenführer – «Vatti» missbrauchte Mädchen – auch nach seiner Verurteilung",
+      "url": "https://www.srf.ch/news/schweiz/verurteilter-sektenfuehrer-vatti-missbrauchte-maedchen-auch-nach-seiner-verurteilung",
+      "publishedAt": "2026-08-27T13:24:54+00:00",
+      "country": "瑞士",
+      "countryCode": "CH",
+      "outlet": "SRF",
+      "sectionUrl": "https://www.srf.ch/news/schweiz",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Two teenagers, 13 and 14, among 33 UK nationals missing in Nepal floods",
+      "url": "https://www.bbc.co.uk/news/articles/cnvlde5075no?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-27T13:20:11+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-26T16:35:42+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Schweizer Armee – Armee baut zivil-militärisches Drohnenzentrum auf",
+      "url": "https://www.srf.ch/news/schweiz/schweizer-armee-armee-baut-zivil-militaerisches-drohnenzentrum-auf",
+      "publishedAt": "2026-08-27T13:15:02+00:00",
+      "country": "瑞士",
+      "countryCode": "CH",
+      "outlet": "SRF",
+      "sectionUrl": "https://www.srf.ch/news/schweiz",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Singapore deploys crisis response team to Nepal",
+      "url": "https://www.channelnewsasia.com/singapore/mfa-nepal-floods-crisis-response-team-6345456",
+      "publishedAt": "2026-08-27T13:15:00+00:00",
+      "country": "新加坡",
+      "countryCode": "SG",
+      "outlet": "CNA",
+      "sectionUrl": "https://www.channelnewsasia.com/singapore",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Ratko Mladic, de 'slager van Bosnië', was de man achter de genocide in Srebrenica",
+      "url": "https://nos.nl/l/2628505",
+      "publishedAt": "2026-08-27T13:09:38+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Andy Burnham has a lot of Irish roots - will he play on them during his visit?",
+      "url": "https://www.bbc.co.uk/news/articles/cvg8vln5gqro?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-27T12:45:21+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Voormalige Bosnisch-Servische legerleider en oorlogsmisdadiger Ratko Mladic (84) overleden",
+      "url": "https://nos.nl/l/2628500",
+      "publishedAt": "2026-08-27T12:42:29+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Bobby Vylan faces no further action over IDF chant",
+      "url": "https://www.bbc.co.uk/news/articles/c0lrwl2w82lo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-27T12:37:11+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Ein Jahr Nationaler Sicherheitsrat: Ein Projekt, das zu versanden droht",
+      "url": "https://www.tagesschau.de/inland/innenpolitik/nationaler-sicherheitsrat-110.html",
+      "publishedAt": "2026-08-27T12:35:21+00:00",
+      "country": "德国",
+      "countryCode": "DE",
+      "outlet": "Tagesschau",
+      "sectionUrl": "https://www.tagesschau.de/inland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Eerste zitting mishandeling in Stadskanaal: 'Onderzoek een enorme klus'",
+      "url": "https://nos.nl/l/2628499",
+      "publishedAt": "2026-08-27T12:24:49+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Thunderstorm warnings remain for parts of UK but drought continues",
+      "url": "https://www.bbc.co.uk/weather/articles/cvgydkpdn99o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-27T12:24:43+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-26T19:22:18+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Nepal-Tibet floods: Singapore Red Cross pledges S$50,000 in aid, launches fundraising appeal",
+      "url": "https://www.channelnewsasia.com/singapore/nepal-floods-red-cross-aid-fundraising-6345296",
+      "publishedAt": "2026-08-27T12:17:38+00:00",
+      "country": "新加坡",
+      "countryCode": "SG",
+      "outlet": "CNA",
+      "sectionUrl": "https://www.channelnewsasia.com/singapore",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Number of asylum seekers in hotels halves in a year",
+      "url": "https://www.bbc.co.uk/news/articles/c3relr4xx27o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-27T12:17:32+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Australische draagmoeder bevalt van tweeling die geen familie van elkaar is",
+      "url": "https://nos.nl/l/2628495",
+      "publishedAt": "2026-08-27T12:04:07+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Singapore must stay open, 'remake' its economy repeatedly as US role shifts: SM Lee",
+      "url": "https://www.channelnewsasia.com/singapore/lee-hsien-loong-trade-kazakhstan-6344891",
+      "publishedAt": "2026-08-27T12:01:28+00:00",
+      "country": "新加坡",
+      "countryCode": "SG",
+      "outlet": "CNA",
+      "sectionUrl": "https://www.channelnewsasia.com/singapore",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Steinmeier betont auf Gamescom Risiken und Stärken des Gaming",
+      "url": "https://www.tagesschau.de/inland/gamescom-steinmeier-100.html",
+      "publishedAt": "2026-08-27T11:55:33+00:00",
+      "country": "德国",
+      "countryCode": "DE",
+      "outlet": "Tagesschau",
+      "sectionUrl": "https://www.tagesschau.de/inland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Dame Jenni Murray died days after car crash, inquest hears",
+      "url": "https://www.bbc.co.uk/news/articles/cm27y2dx7pwo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-27T11:52:28+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Doodsangsten in Nepal en Tibet door modderstroom: 'We kunnen het niet bevatten'",
+      "url": "https://nos.nl/l/2628490",
+      "publishedAt": "2026-08-27T11:39:55+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "UK salmonella cases nearing 500 as egg investigations continue",
+      "url": "https://www.bbc.co.uk/news/articles/cn8ej0zvppxo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-27T11:00:35+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Top Gear to return to TV four years after Flintoff crash, BBC confirms",
+      "url": "https://www.bbc.co.uk/news/articles/clym7yrdk29o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-27T10:57:12+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Zakenman verdacht van miljoenenfraude met groene beleggingen",
+      "url": "https://nos.nl/l/2628479",
+      "publishedAt": "2026-08-27T10:27:37+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Plug-in solar panels are coming to a shop near you - here's what to know",
+      "url": "https://www.bbc.co.uk/news/articles/c4g3y6398nwo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-27T09:41:14+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Voor het eerst uitgebreide blik op GTA VI, maar hacker was Rockstar voor",
+      "url": "https://nos.nl/l/2628473",
+      "publishedAt": "2026-08-27T09:27:12+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Grote oefening Defensie schudt Rotterdam wakker: 'Megaherrie'",
+      "url": "https://nos.nl/l/2628472",
+      "publishedAt": "2026-08-27T09:26:30+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Rechtsgutachten bewertet Möglichkeit zu bundesweitem Mietendeckel",
+      "url": "https://www.tagesschau.de/inland/innenpolitik/mietendeckel-gutachten-100.html",
+      "publishedAt": "2026-08-27T09:06:42+00:00",
+      "country": "德国",
+      "countryCode": "DE",
+      "outlet": "Tagesschau",
+      "sectionUrl": "https://www.tagesschau.de/inland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Verbotene \"Artgemeinschaft\": Durchsuchungen in mehreren Bundesländern",
+      "url": "https://www.tagesschau.de/inland/innenpolitik/razzia-rechtsextreme-artgemeinschaft-100.html",
+      "publishedAt": "2026-08-27T09:01:39+00:00",
+      "country": "德国",
+      "countryCode": "DE",
+      "outlet": "Tagesschau",
+      "sectionUrl": "https://www.tagesschau.de/inland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Zweites Quartal 2026 – Schweizer Arbeitsmarkt wächst trotz Fachkräftemangel weiter",
+      "url": "https://www.srf.ch/news/schweiz/zweites-quartal-2026-schweizer-arbeitsmarkt-waechst-trotz-fachkraeftemangel-weiter",
+      "publishedAt": "2026-08-27T08:57:08+00:00",
+      "country": "瑞士",
+      "countryCode": "CH",
+      "outlet": "SRF",
+      "sectionUrl": "https://www.srf.ch/news/schweiz",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Brandstichting bij azc in aanbouw Valkenswaard",
+      "url": "https://nos.nl/l/2628469",
+      "publishedAt": "2026-08-27T08:49:27+00:00",
+      "country": "荷兰",
+      "countryCode": "NL",
+      "outlet": "NOS",
+      "sectionUrl": "https://nos.nl/nieuws/binnenland",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Want your job application to stand out? Employers say they look for these six skills",
+      "url": "https://www.bbc.co.uk/news/articles/cn9n9n5p9eqo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-27T08:47:36+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "'There was no fanfare': Broncos criticised for Reynolds farewell in Storm rout",
+      "url": "https://www.abc.net.au/news/2026-08-27/nrl-live-brisbane-broncos-vs-melbourne-storm/107086076",
+      "publishedAt": "2026-08-27T08:36:46+00:00",
+      "country": "澳大利亚",
+      "countryCode": "AU",
+      "outlet": "ABC News",
+      "sectionUrl": "https://www.abc.net.au/news/australia",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Matildas follow Socceroo footsteps on path to World Cup",
+      "url": "https://www.abc.net.au/news/2026-08-27/matildas-follow-socceroo-footsteps-on-path-to-world-cup/107086632",
+      "publishedAt": "2026-08-27T08:21:10+00:00",
+      "country": "澳大利亚",
+      "countryCode": "AU",
+      "outlet": "ABC News",
+      "sectionUrl": "https://www.abc.net.au/news/australia",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Move to slash amount of vitamin B6 considered safe by 72 per cent",
+      "url": "https://www.abc.net.au/news/2026-08-27/move-to-reduce-amount-of-vitamin-b6-considered-safe-72-per-cent/107073298",
+      "publishedAt": "2026-08-27T08:04:36+00:00",
+      "country": "澳大利亚",
+      "countryCode": "AU",
+      "outlet": "ABC News",
+      "sectionUrl": "https://www.abc.net.au/news/australia",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Post Malone's Singapore concert officially postponed, ticketholders to receive full refunds",
+      "url": "https://www.channelnewsasia.com/entertainment/post-malone-singapore-concert-2026-postponed-6344686",
+      "publishedAt": "2026-08-27T07:43:00+00:00",
+      "country": "新加坡",
+      "countryCode": "SG",
+      "outlet": "CNA",
+      "sectionUrl": "https://www.channelnewsasia.com/singapore",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Former swimming coach gets jail and caning for molesting 10-year-old student repeatedly",
+      "url": "https://www.channelnewsasia.com/singapore/swimming-coach-jail-molest-10-student-6344626",
+      "publishedAt": "2026-08-27T07:23:00+00:00",
+      "country": "新加坡",
+      "countryCode": "SG",
+      "outlet": "CNA",
+      "sectionUrl": "https://www.channelnewsasia.com/singapore",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Off to Reading or Leeds? Here's your guide to festival make-up (without the toxins)",
+      "url": "https://www.bbc.co.uk/news/articles/c0m71plpj0mo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-27T07:09:54+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Ex-Credit Suisse VP who forged bank letters in multimillion-dollar case gets jail term cut on appeal",
+      "url": "https://www.channelnewsasia.com/singapore/credit-suisse-vp-forgery-soh-yuanyi-appeal-win-6344551",
+      "publishedAt": "2026-08-27T07:06:00+00:00",
+      "country": "新加坡",
+      "countryCode": "SG",
+      "outlet": "CNA",
+      "sectionUrl": "https://www.channelnewsasia.com/singapore",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Original versus Kopie – Warum das Original der «Venus» so viel wertvoller ist",
+      "url": "https://www.srf.ch/news/schweiz/original-versus-kopie-warum-das-original-der-venus-so-viel-wertvoller-ist",
+      "publishedAt": "2026-08-27T06:45:00+00:00",
+      "country": "瑞士",
+      "countryCode": "CH",
+      "outlet": "SRF",
+      "sectionUrl": "https://www.srf.ch/news/schweiz",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Huang Yiliang returns to acting after 19 years: Like 'a fish back in water'",
+      "url": "https://www.channelnewsasia.com/entertainment/huang-yiliang-returns-acting-6344471",
+      "publishedAt": "2026-08-27T06:38:00+00:00",
+      "country": "新加坡",
+      "countryCode": "SG",
+      "outlet": "CNA",
+      "sectionUrl": "https://www.channelnewsasia.com/singapore",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "PM Lawrence Wong extends condolences to those affected by Nepal-Tibet flash floods",
+      "url": "https://www.channelnewsasia.com/singapore/nepal-tibet-flash-floods-lawrence-wong-condolences-mfa-6344516",
+      "publishedAt": "2026-08-27T06:29:00+00:00",
+      "country": "新加坡",
+      "countryCode": "SG",
+      "outlet": "CNA",
+      "sectionUrl": "https://www.channelnewsasia.com/singapore",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Singapore retailers retrain workers as social commerce reshapes jobs",
+      "url": "https://www.channelnewsasia.com/singapore/retailers-retrain-workers-social-commerce-livestream-6344406",
+      "publishedAt": "2026-08-27T06:11:09+00:00",
+      "country": "新加坡",
+      "countryCode": "SG",
+      "outlet": "CNA",
+      "sectionUrl": "https://www.channelnewsasia.com/singapore",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Son defending father pushed 78-year-old man in fatal incident, gets jail",
+      "url": "https://www.channelnewsasia.com/singapore/son-defend-father-push-man-die-jail-6344446",
+      "publishedAt": "2026-08-27T05:45:00+00:00",
+      "country": "新加坡",
+      "countryCode": "SG",
+      "outlet": "CNA",
+      "sectionUrl": "https://www.channelnewsasia.com/singapore",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "What happens to Singapore's unwanted clothes?",
+      "url": "https://www.channelnewsasia.com/singapore/what-happens-secondhand-clothes-yellow-recycling-bin-6342071",
+      "publishedAt": "2026-08-27T05:09:59+00:00",
+      "country": "新加坡",
+      "countryCode": "SG",
+      "outlet": "CNA",
+      "sectionUrl": "https://www.channelnewsasia.com/singapore",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
+      "originalTitle": "Zukunftsforschung – Mit Blick auf die Zukunft herrscht in der Schweiz viel Einigkeit",
+      "url": "https://www.srf.ch/news/schweiz/zukunftsforschung-mit-blick-auf-die-zukunft-herrscht-in-der-schweiz-viel-einigkeit",
+      "publishedAt": "2026-08-27T04:47:28+00:00",
+      "country": "瑞士",
+      "countryCode": "CH",
+      "outlet": "SRF",
+      "sectionUrl": "https://www.srf.ch/news/schweiz",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
     {
       "originalTitle": "Bij de helft van de gedode vrouwen is (ex-)partner in beeld als dader",
       "url": "https://nos.nl/l/2628444",
@@ -95,17 +821,6 @@
       "lastSeenAt": "2026-08-27T04:36:16+00:00"
     },
     {
-      "originalTitle": "Nepalese authorities say 33 UK nationals missing after flash floods",
-      "url": "https://www.bbc.co.uk/news/articles/cnvlde5075no?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-27T04:22:33+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-26T16:35:42+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
       "originalTitle": "Anger and confusion over Labor's planned refugee cuts",
       "url": "https://www.abc.net.au/news/2026-08-27/federal-government-australian-refugee-intake-confusion-anger/107083476",
       "publishedAt": "2026-08-27T04:11:20+00:00",
@@ -125,7 +840,7 @@
       "outlet": "CNA",
       "sectionUrl": "https://www.channelnewsasia.com/singapore",
       "firstSeenAt": "2026-08-27T04:36:16+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Nach Bondo-Prozess – Schweizer Wanderwege: Zwischen Vorsicht und Eigenverantwortung",
@@ -136,7 +851,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-27T04:36:16+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Celebrity DJ Anyma to perform first-ever Singapore show in October at Marquee",
@@ -147,7 +862,7 @@
       "outlet": "CNA",
       "sectionUrl": "https://www.channelnewsasia.com/singapore",
       "firstSeenAt": "2026-08-27T04:36:16+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Massnahmenpaket gegen Hitze – Warum handeln sie erst jetzt, Herr Rösti?",
@@ -161,6 +876,17 @@
       "lastSeenAt": "2026-08-27T04:36:16+00:00"
     },
     {
+      "originalTitle": "Massnahmenpaket gegen Hitze – Albert Rösti: «Das entspricht einem Worst-Case-Szenario»",
+      "url": "https://www.srf.ch/news/schweiz/massnahmenpaket-gegen-hitze-albert-roesti-das-entspricht-einem-worst-case-szenario",
+      "publishedAt": "2026-08-27T03:49:33+00:00",
+      "country": "瑞士",
+      "countryCode": "CH",
+      "outlet": "SRF",
+      "sectionUrl": "https://www.srf.ch/news/schweiz",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
       "originalTitle": "Klausurtagung der Fraktionsvorstände: Unter Erfolgszwang",
       "url": "https://www.tagesschau.de/inland/innenpolitik/spd-union-fraktion-treffen-muenster-100.html",
       "publishedAt": "2026-08-27T03:21:44+00:00",
@@ -169,7 +895,7 @@
       "outlet": "Tagesschau",
       "sectionUrl": "https://www.tagesschau.de/inland",
       "firstSeenAt": "2026-08-27T04:36:16+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Bathla Group seeks $20m to keep building for five weeks",
@@ -183,7 +909,7 @@
       "lastSeenAt": "2026-08-27T04:36:16+00:00"
     },
     {
-      "originalTitle": "Group of 47, including 2 Singaporeans, missing in Nepal floods: Hiking company",
+      "originalTitle": "Nine Singaporeans among missing in Nepal floods: Tourism board",
       "url": "https://www.channelnewsasia.com/singapore/singaporeans-missing-nepal-tibet-flood-landslide-hiking-group-6344166",
       "publishedAt": "2026-08-27T03:14:00+00:00",
       "country": "新加坡",
@@ -191,7 +917,7 @@
       "outlet": "CNA",
       "sectionUrl": "https://www.channelnewsasia.com/singapore",
       "firstSeenAt": "2026-08-27T04:36:16+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Yayoi Kusama, Japanese artist who turned hallucinations into art, dies at 97",
@@ -213,7 +939,7 @@
       "outlet": "CNA",
       "sectionUrl": "https://www.channelnewsasia.com/singapore",
       "firstSeenAt": "2026-08-27T04:36:16+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Twaalf doden in noorden van Algerije door aanhoudende natuurbranden",
@@ -235,7 +961,7 @@
       "outlet": "CNA",
       "sectionUrl": "https://www.channelnewsasia.com/singapore",
       "firstSeenAt": "2026-08-27T04:36:16+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "'Meesterontsnapper' wacht na vier succesvolle uitbraken toch weer de cel",
@@ -260,6 +986,17 @@
       "lastSeenAt": "2026-08-27T04:36:16+00:00"
     },
     {
+      "originalTitle": "From lighting to vintage gems: Five ways to spruce up your rental",
+      "url": "https://www.bbc.co.uk/news/articles/c3w0972z5d8o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-26T23:08:42+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
+    },
+    {
       "originalTitle": "NI health trusts to announce 12% in savings plan",
       "url": "https://www.bbc.co.uk/news/articles/cj4jdlqevqlo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-08-26T23:08:37+00:00",
@@ -280,6 +1017,17 @@
       "sectionUrl": "https://www.bbc.com/news/uk",
       "firstSeenAt": "2026-08-27T04:36:16+00:00",
       "lastSeenAt": "2026-08-27T04:36:16+00:00"
+    },
+    {
+      "originalTitle": "World's first patient to undergo live AI-assisted brain surgery has tumour removed",
+      "url": "https://www.bbc.co.uk/news/articles/cjwg5n7y68xo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-26T23:07:22+00:00",
+      "country": "英国",
+      "countryCode": "GB",
+      "outlet": "BBC News",
+      "sectionUrl": "https://www.bbc.com/news/uk",
+      "firstSeenAt": "2026-08-27T16:37:20+00:00",
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Surinaams OM deelt signalement van verdachte in vermissingszaak filmproducent",
@@ -323,7 +1071,7 @@
       "outlet": "CNA",
       "sectionUrl": "https://www.channelnewsasia.com/singapore",
       "firstSeenAt": "2026-08-26T22:22:17+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Commentary: NDR 2026 – why a higher BTO income ceiling isn’t just a housing policy adjustment",
@@ -334,7 +1082,7 @@
       "outlet": "CNA",
       "sectionUrl": "https://www.channelnewsasia.com/singapore",
       "firstSeenAt": "2026-08-26T22:22:17+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Murder arrests after fire kills two including child",
@@ -400,7 +1148,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T22:22:17+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Rusland zet Duitse journalist op internationale opsporingslijst om vraag aan Zelensky",
@@ -444,18 +1192,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T22:22:17+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "New thunderstorm warnings for parts of UK as rain set to continue",
-      "url": "https://www.bbc.co.uk/weather/articles/cvgydkpdn99o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-26T19:15:35+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-26T19:22:18+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Behind the energy brawl everyone wants the data centre boom",
@@ -477,7 +1214,7 @@
       "outlet": "Tagesschau",
       "sectionUrl": "https://www.tagesschau.de/inland",
       "firstSeenAt": "2026-08-26T19:22:18+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Para swimming champion matched by her dog in gold medal winning feats",
@@ -543,7 +1280,7 @@
       "outlet": "Tagesschau",
       "sectionUrl": "https://www.tagesschau.de/inland",
       "firstSeenAt": "2026-08-26T19:22:18+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Woman told 'nobody wants to see a pregnant person' in work by her boss, tribunal finds",
@@ -576,7 +1313,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T22:22:17+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Liebe zwischen Bundesrichtern – Kommission verschiebt wegen Liebesbeziehung Bundesgerichts-Wahlen",
@@ -587,7 +1324,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T19:22:18+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Massnahmenpaket für Dürre – Bescheidene Antwort auf aussergewöhnlichen Sommer",
@@ -598,7 +1335,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T19:22:18+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Rocky Horror Picture Show-acteur en IT-clown Tim Curry overleden",
@@ -686,7 +1423,7 @@
       "outlet": "Tagesschau",
       "sectionUrl": "https://www.tagesschau.de/inland",
       "firstSeenAt": "2026-08-26T16:35:42+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "ARD-Vorwahlumfrage für Sachsen-Anhalt: AfD mit großem Vorsprung",
@@ -697,7 +1434,7 @@
       "outlet": "Tagesschau",
       "sectionUrl": "https://www.tagesschau.de/inland",
       "firstSeenAt": "2026-08-26T16:35:42+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Two mobile phone shop employees arrested over scheme to compromise Singpass accounts",
@@ -862,7 +1599,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T16:35:42+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Meta schikt voor 18 miljard in zaak over verslaafd maken van kinderen",
@@ -917,7 +1654,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T14:10:07+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Timeline: How SIA's India bet led to a 25.1% stake in Air India",
@@ -994,7 +1731,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T14:10:07+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Bundesliga: Everything you need to know about Germany's new football season",
@@ -1016,7 +1753,7 @@
       "outlet": "Tagesschau",
       "sectionUrl": "https://www.tagesschau.de/inland",
       "firstSeenAt": "2026-08-26T11:54:19+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Zorgmedewerker (26) Oirschot ook verdacht van betrokkenheid bij dood tweede patiënt",
@@ -1038,7 +1775,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T11:54:19+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Nach Kabinettsklausur: Merz fordert eine \"neue Zuversicht\"",
@@ -1049,7 +1786,7 @@
       "outlet": "Tagesschau",
       "sectionUrl": "https://www.tagesschau.de/inland",
       "firstSeenAt": "2026-08-26T14:10:07+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Erstes Halbjahr 2026 – SBB steigert Gewinn im ersten Halbjahr deutlich",
@@ -1060,7 +1797,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T10:04:33+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Man schiet acht familieleden dood bij familiediner in VS, ook vier kinderen",
@@ -1126,7 +1863,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T14:10:07+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Dode in Utrecht door het westnijlvirus, opgelopen in Nederland",
@@ -1159,7 +1896,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T10:04:33+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Urteil zu Verkehrsblockade – Bundesgericht: Geldstrafe für Klima-Aktion in Zürich zulässig",
@@ -1181,7 +1918,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T11:54:19+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Honderd woningen in Apeldoorn ontruimd na vondst van mogelijk drugslab",
@@ -1302,7 +2039,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T14:10:07+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Higher BTO demand expected after income ceiling raised, but supply can keep pace: Chee Hong Tat",
@@ -1324,7 +2061,7 @@
       "outlet": "Tagesschau",
       "sectionUrl": "https://www.tagesschau.de/inland",
       "firstSeenAt": "2026-08-26T08:06:37+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Man who made more than 1,000 silent calls to police 'for fun and enjoyment' gets jail",
@@ -1379,7 +2116,7 @@
       "outlet": "Tagesschau",
       "sectionUrl": "https://www.tagesschau.de/inland",
       "firstSeenAt": "2026-08-26T10:04:33+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Libyan who was cleared after Lockerbie bombing trial dies aged 70",
@@ -1500,7 +2237,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T08:06:37+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Media and events firm TechTV Network on trial for S$190,000 in allegedly unpaid salaries",
@@ -1522,7 +2259,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T05:58:30+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Vijftien baby's overleden bij brand in Pakistaans ziekenhuis, één gered",
@@ -1588,7 +2325,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T05:58:30+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Zeker twaalf gevallen van kindermarteling in Nederland: 'Het is een blinde vlek'",
@@ -1621,7 +2358,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T05:58:30+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "PM rules out British backpackers being forced to work in regions",
@@ -1698,7 +2435,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T04:08:54+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Auswirkungen auf Wahljahr 2027 – Wie könnten Klima-Parteien vom Hitzesommer profitieren?",
@@ -1720,7 +2457,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-26T05:58:30+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "'Unfortunate kick in the guts' as inflation data increases RBA rate hike risk",
@@ -1984,7 +2721,7 @@
       "outlet": "Tagesschau",
       "sectionUrl": "https://www.tagesschau.de/inland",
       "firstSeenAt": "2026-08-25T21:51:37+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Zes aanhoudingen in Limburg op verdenking van online handel in illegale pillen",
@@ -2094,7 +2831,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-25T19:53:56+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Auflage in der Schule – Aargauer Parlament: Kein Kopftuch für unter 16-Jährige",
@@ -2105,7 +2842,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-25T19:53:56+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Country-icoon Dolly Parton (9 to 5, Jolene) op 80-jarige leeftijd overleden",
@@ -2149,7 +2886,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-25T19:53:56+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "Players threatened, official headbutted and 72 red cards in week of youth football",
@@ -2204,7 +2941,7 @@
       "outlet": "SRF",
       "sectionUrl": "https://www.srf.ch/news/schweiz",
       "firstSeenAt": "2026-08-25T19:53:56+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
+      "lastSeenAt": "2026-08-27T16:37:20+00:00"
     },
     {
       "originalTitle": "High Court quashes decision to restrict annual Drumcree parade",
@@ -2238,1007 +2975,6 @@
       "sectionUrl": "https://nos.nl/nieuws/binnenland",
       "firstSeenAt": "2026-08-25T17:53:56+00:00",
       "lastSeenAt": "2026-08-26T08:06:37+00:00"
-    },
-    {
-      "originalTitle": "'We just want to get home' - dozens stranded in Tunisia after cancelled Belfast flight",
-      "url": "https://www.bbc.co.uk/news/articles/czez5y3k56lo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T16:36:54+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "Amnesty hekelt 'onmenselijk' politiegeweld tegen Indiase Kakkerlak-betogers",
-      "url": "https://nos.nl/l/2628283",
-      "publishedAt": "2026-08-25T16:25:20+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T17:53:56+00:00",
-      "lastSeenAt": "2026-08-26T08:06:37+00:00"
-    },
-    {
-      "originalTitle": "Man jailed for killing student over fake Rolex row",
-      "url": "https://www.bbc.co.uk/news/articles/cge4d4xgdpwo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T16:18:36+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-26T14:10:07+00:00"
-    },
-    {
-      "originalTitle": "Fonds zur Aufrüstung – Möglicher Durchbruch bei der Armeefinanzierung",
-      "url": "https://www.srf.ch/news/schweiz/fonds-zur-aufruestung-moeglicher-durchbruch-bei-der-armeefinanzierung",
-      "publishedAt": "2026-08-25T16:17:47+00:00",
-      "country": "瑞士",
-      "countryCode": "CH",
-      "outlet": "SRF",
-      "sectionUrl": "https://www.srf.ch/news/schweiz",
-      "firstSeenAt": "2026-08-25T17:53:56+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "Sechs Personen untersucht – «Stechender Geruch» auf Swiss-Flug – Landung auf Azoreninsel",
-      "url": "https://www.srf.ch/news/schweiz/sechs-personen-untersucht-stechender-geruch-auf-swiss-flug-landung-auf-azoreninsel",
-      "publishedAt": "2026-08-25T16:06:36+00:00",
-      "country": "瑞士",
-      "countryCode": "CH",
-      "outlet": "SRF",
-      "sectionUrl": "https://www.srf.ch/news/schweiz",
-      "firstSeenAt": "2026-08-25T11:52:57+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "Al meer dan 300 zieken door eieren met salmonella in België",
-      "url": "https://nos.nl/l/2628279",
-      "publishedAt": "2026-08-25T16:06:15+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T16:07:05+00:00",
-      "lastSeenAt": "2026-08-26T05:58:30+00:00"
-    },
-    {
-      "originalTitle": "Former police officer charged with raping woman while on duty",
-      "url": "https://www.bbc.co.uk/news/articles/c70d3pllyy8o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T16:03:40+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-25T16:07:05+00:00",
-      "lastSeenAt": "2026-08-26T14:10:07+00:00"
-    },
-    {
-      "originalTitle": "Brand in Belgische Ardennen mogelijk ontstaan door landbouwmachine",
-      "url": "https://nos.nl/l/2628278",
-      "publishedAt": "2026-08-25T16:01:41+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T16:07:05+00:00",
-      "lastSeenAt": "2026-08-26T05:58:30+00:00"
-    },
-    {
-      "originalTitle": "'We're heading for catastrophe': The summer climate change hit Europe",
-      "url": "https://www.thelocal.de/20260825/were-heading-for-catastrophe-the-summer-climate-change-hit-europe",
-      "publishedAt": "2026-08-25T15:51:09+00:00",
-      "country": "德国",
-      "countryCode": "DE",
-      "outlet": "The Local Germany",
-      "sectionUrl": "https://www.thelocal.de/",
-      "firstSeenAt": "2026-08-25T16:07:05+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "Klaas Otto moet Staat bijna 1,6 miljoen euro terugbetalen",
-      "url": "https://nos.nl/l/2628276",
-      "publishedAt": "2026-08-25T15:49:29+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T16:07:05+00:00",
-      "lastSeenAt": "2026-08-26T04:08:54+00:00"
-    },
-    {
-      "originalTitle": "Onderhandelingen Prinsjesdag moeizaam, kabinet intern verdeeld",
-      "url": "https://nos.nl/l/2628272",
-      "publishedAt": "2026-08-25T15:42:52+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T16:07:05+00:00",
-      "lastSeenAt": "2026-08-26T04:08:54+00:00"
-    },
-    {
-      "originalTitle": "Amerikaanse media: CIA-directeur Ratcliffe duikt op in Moskou",
-      "url": "https://nos.nl/l/2628270",
-      "publishedAt": "2026-08-25T15:33:47+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T16:07:05+00:00",
-      "lastSeenAt": "2026-08-26T04:08:54+00:00"
-    },
-    {
-      "originalTitle": "Indonesia, Malaysia and Singapore reaffirm commitment to keep Malacca and Singapore straits safe and open",
-      "url": "https://www.channelnewsasia.com/singapore/strait-malacca-singapore-indonesia-malaysia-6340351",
-      "publishedAt": "2026-08-25T15:33:00+00:00",
-      "country": "新加坡",
-      "countryCode": "SG",
-      "outlet": "CNA",
-      "sectionUrl": "https://www.channelnewsasia.com/singapore",
-      "firstSeenAt": "2026-08-25T16:07:05+00:00",
-      "lastSeenAt": "2026-08-26T19:22:18+00:00"
-    },
-    {
-      "originalTitle": "As Iceland votes on the EU, which countries could be next to join?",
-      "url": "https://www.thelocal.de/20260825/as-iceland-votes-on-the-eu-which-countries-could-be-next-to-join",
-      "publishedAt": "2026-08-25T15:24:56+00:00",
-      "country": "德国",
-      "countryCode": "DE",
-      "outlet": "The Local Germany",
-      "sectionUrl": "https://www.thelocal.de/",
-      "firstSeenAt": "2026-08-25T16:07:05+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "Vogelvirus – Amselsterben wegen Usutu-Virus",
-      "url": "https://www.srf.ch/news/schweiz/vogelvirus-amselsterben-wegen-usutu-virus",
-      "publishedAt": "2026-08-25T15:02:20+00:00",
-      "country": "瑞士",
-      "countryCode": "CH",
-      "outlet": "SRF",
-      "sectionUrl": "https://www.srf.ch/news/schweiz",
-      "firstSeenAt": "2026-08-25T16:07:05+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "Rede über Zuwanderung - Steinmeier fordert Absage an völkische Ideologie",
-      "url": "https://www.tagesschau.de/inland/gesellschaft/steinmeier-migration-100.html",
-      "publishedAt": "2026-08-25T14:55:55+00:00",
-      "country": "德国",
-      "countryCode": "DE",
-      "outlet": "Tagesschau",
-      "sectionUrl": "https://www.tagesschau.de/inland",
-      "firstSeenAt": "2026-08-25T16:07:05+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "Young care leavers dying early a 'national tragedy'",
-      "url": "https://www.bbc.co.uk/news/articles/cx2zn4p9019o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T14:41:47+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-25T16:07:05+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "Andrew Tate exaggerates and did not own supercars in photos, his lawyers say",
-      "url": "https://www.bbc.co.uk/news/articles/c4grxr0e5gdo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T14:38:57+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-26T14:10:07+00:00"
-    },
-    {
-      "originalTitle": "Onrust in Den Bosch na protesten tegen terugkeer veroordeelde pleegvaders",
-      "url": "https://nos.nl/l/2628265",
-      "publishedAt": "2026-08-25T14:30:27+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T16:07:05+00:00",
-      "lastSeenAt": "2026-08-26T04:08:54+00:00"
-    },
-    {
-      "originalTitle": "Ook vermiste vader van dood gevonden Belgische kleuter waarschijnlijk gevonden",
-      "url": "https://nos.nl/l/2628263",
-      "publishedAt": "2026-08-25T14:23:01+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T16:07:05+00:00",
-      "lastSeenAt": "2026-08-26T02:44:14+00:00"
-    },
-    {
-      "originalTitle": "German chancellor Merz pledges government action on climate",
-      "url": "https://www.thelocal.de/20260825/german-chancellor-merz-pledges-government-action-on-climate",
-      "publishedAt": "2026-08-25T14:17:09+00:00",
-      "country": "德国",
-      "countryCode": "DE",
-      "outlet": "The Local Germany",
-      "sectionUrl": "https://www.thelocal.de/",
-      "firstSeenAt": "2026-08-25T16:07:05+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "Chinese kunstenaar krijgt maximale straf voor 'beledigende' beelden van Mao",
-      "url": "https://nos.nl/l/2628262",
-      "publishedAt": "2026-08-25T14:13:18+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T16:07:05+00:00",
-      "lastSeenAt": "2026-08-25T23:47:13+00:00"
-    },
-    {
-      "originalTitle": "Europees hof eist vrijlating Turkse zakenman Kavala: detentie tekent repressie",
-      "url": "https://nos.nl/l/2628261",
-      "publishedAt": "2026-08-25T14:09:44+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-25T21:51:37+00:00"
-    },
-    {
-      "originalTitle": "Inspectors to assess police after Henry Nowak murder",
-      "url": "https://www.bbc.co.uk/news/articles/cly4w05x4p6o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T14:04:20+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-25T16:07:05+00:00",
-      "lastSeenAt": "2026-08-26T14:10:07+00:00"
-    },
-    {
-      "originalTitle": "IGEM Digimonitor 2026 – Social-Media-Nutzung geht nicht zurück",
-      "url": "https://www.srf.ch/news/schweiz/igem-digimonitor-2026-social-media-nutzung-geht-nicht-zurueck",
-      "publishedAt": "2026-08-25T14:00:51+00:00",
-      "country": "瑞士",
-      "countryCode": "CH",
-      "outlet": "SRF",
-      "sectionUrl": "https://www.srf.ch/news/schweiz",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-25T14:11:53+00:00"
-    },
-    {
-      "originalTitle": "IGEM Digimonitor 2026 – KI-Nutzung nimmt in der Schweiz rasant zu",
-      "url": "https://www.srf.ch/news/schweiz/igem-digimonitor-2026-ki-nutzung-nimmt-in-der-schweiz-rasant-zu",
-      "publishedAt": "2026-08-25T14:00:51+00:00",
-      "country": "瑞士",
-      "countryCode": "CH",
-      "outlet": "SRF",
-      "sectionUrl": "https://www.srf.ch/news/schweiz",
-      "firstSeenAt": "2026-08-25T16:07:05+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "How to view the lunar eclipse from Germany on August 28th",
-      "url": "https://www.thelocal.de/20260825/how-to-view-the-lunar-eclipse-from-germany-on-august-28th",
-      "publishedAt": "2026-08-25T14:00:44+00:00",
-      "country": "德国",
-      "countryCode": "DE",
-      "outlet": "The Local Germany",
-      "sectionUrl": "https://www.thelocal.de/",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "Dealer jailed for exploiting 14-year-old boy into selling drugs for him",
-      "url": "https://www.bbc.co.uk/news/articles/cy8zxwlqwd7o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T13:53:02+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-25T09:59:26+00:00",
-      "lastSeenAt": "2026-08-25T14:11:53+00:00"
-    },
-    {
-      "originalTitle": "eHarmony misled Australians over 'free' subscriptions, court rules",
-      "url": "https://www.abc.net.au/news/2026-08-25/eharmony-misled-consumers-court/107077898",
-      "publishedAt": "2026-08-25T13:45:13+00:00",
-      "country": "澳大利亚",
-      "countryCode": "AU",
-      "outlet": "ABC News",
-      "sectionUrl": "https://www.abc.net.au/news/australia",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-25T17:53:56+00:00"
-    },
-    {
-      "originalTitle": "Kakkerlak en korte nachten moeten imago 'eenzame' Japanse premier opvijzelen",
-      "url": "https://nos.nl/l/2628257",
-      "publishedAt": "2026-08-25T13:32:10+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-25T19:53:56+00:00"
-    },
-    {
-      "originalTitle": "Air India seeks US$1.5 billion from owners SIA, Tata as losses mount: Sources",
-      "url": "https://www.channelnewsasia.com/business/air-india-seeking-fresh-equity-sia-tata-sons-6340186",
-      "publishedAt": "2026-08-25T13:05:00+00:00",
-      "country": "新加坡",
-      "countryCode": "SG",
-      "outlet": "CNA",
-      "sectionUrl": "https://www.channelnewsasia.com/singapore",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-26T19:22:18+00:00"
-    },
-    {
-      "originalTitle": "Migration – Bund korrigiert Zahl an Asylgesuchen für 2026 nach unten",
-      "url": "https://www.srf.ch/news/schweiz/migration-bund-korrigiert-zahl-an-asylgesuchen-fuer-2026-nach-unten",
-      "publishedAt": "2026-08-25T12:45:02+00:00",
-      "country": "瑞士",
-      "countryCode": "CH",
-      "outlet": "SRF",
-      "sectionUrl": "https://www.srf.ch/news/schweiz",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "Podcast De Dag: gamers in de ban van GTA 6 én een lekkende prei",
-      "url": "https://nos.nl/l/2628253",
-      "publishedAt": "2026-08-25T12:37:20+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-25T17:53:56+00:00"
-    },
-    {
-      "originalTitle": "Bundesregierung will Zuckersteuer auf Light-Getränke ausweiten",
-      "url": "https://www.tagesschau.de/inland/innenpolitik/bundesregierung-zuckersteuer-ausweitung-100.html",
-      "publishedAt": "2026-08-25T12:37:18+00:00",
-      "country": "德国",
-      "countryCode": "DE",
-      "outlet": "Tagesschau",
-      "sectionUrl": "https://www.tagesschau.de/inland",
-      "firstSeenAt": "2026-08-25T11:52:57+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "US-Profikletterer – Alex Honnold besteigt im Nebel und ohne Handschuhe das Matterhorn",
-      "url": "https://www.srf.ch/news/schweiz/us-profikletterer-alex-honnold-besteigt-im-nebel-und-ohne-handschuhe-das-matterhorn",
-      "publishedAt": "2026-08-25T12:36:23+00:00",
-      "country": "瑞士",
-      "countryCode": "CH",
-      "outlet": "SRF",
-      "sectionUrl": "https://www.srf.ch/news/schweiz",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "More youths investigated for shop theft in Singapore as experts urge early intervention",
-      "url": "https://www.channelnewsasia.com/singapore/more-youths-investigated-shop-theft-singapore-6339881",
-      "publishedAt": "2026-08-25T12:35:36+00:00",
-      "country": "新加坡",
-      "countryCode": "SG",
-      "outlet": "CNA",
-      "sectionUrl": "https://www.channelnewsasia.com/singapore",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-26T19:22:18+00:00"
-    },
-    {
-      "originalTitle": "FC-Luzern-Aktienstreit – Bezirksgericht Luzern urteilt: Aktien gehören Bernhard Alpstaeg",
-      "url": "https://www.srf.ch/news/schweiz/fc-luzern-aktienstreit-bezirksgericht-luzern-urteilt-aktien-gehoeren-bernhard-alpstaeg",
-      "publishedAt": "2026-08-25T12:25:09+00:00",
-      "country": "瑞士",
-      "countryCode": "CH",
-      "outlet": "SRF",
-      "sectionUrl": "https://www.srf.ch/news/schweiz",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "VN en Rode Kruis: strengere regels voor autonome wapens 'voordat het te laat is'",
-      "url": "https://nos.nl/l/2628250",
-      "publishedAt": "2026-08-25T12:23:24+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-25T17:53:56+00:00"
-    },
-    {
-      "originalTitle": "More than 70,000 social and affordable homes to be built across England over 10 years",
-      "url": "https://www.bbc.co.uk/news/articles/cnvly73jrrdo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T12:10:13+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-24T23:44:44+00:00",
-      "lastSeenAt": "2026-08-26T14:10:07+00:00"
-    },
-    {
-      "originalTitle": "Young Australians' home ownership rate at an 80-year low, report shows",
-      "url": "https://www.abc.net.au/news/2026-08-25/first-generation-in-australia-to-fall-behind/107077612",
-      "publishedAt": "2026-08-25T12:05:39+00:00",
-      "country": "澳大利亚",
-      "countryCode": "AU",
-      "outlet": "ABC News",
-      "sectionUrl": "https://www.abc.net.au/news/australia",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-25T17:53:56+00:00"
-    },
-    {
-      "originalTitle": "Ingenieur der Natur – Der Biber rückt näher an das Tessin",
-      "url": "https://www.srf.ch/news/dialog/ingenieur-der-natur-der-biber-rueckt-naeher-an-das-tessin",
-      "publishedAt": "2026-08-25T12:04:05+00:00",
-      "country": "瑞士",
-      "countryCode": "CH",
-      "outlet": "SRF",
-      "sectionUrl": "https://www.srf.ch/news/schweiz",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "Man convicted after being caught on CCTV upskirting girl in shopping centre",
-      "url": "https://www.bbc.co.uk/news/articles/c05rjy2gq89o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T11:56:28+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-26T14:10:07+00:00"
-    },
-    {
-      "originalTitle": "FACT CHECK: How does postal voting in Germany really work?",
-      "url": "https://www.thelocal.de/20260825/fact-check-how-does-postal-voting-in-germany-really-work",
-      "publishedAt": "2026-08-25T11:54:24+00:00",
-      "country": "德国",
-      "countryCode": "DE",
-      "outlet": "The Local Germany",
-      "sectionUrl": "https://www.thelocal.de/",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "Lockerbie bombing trial postponed days before it was due to start",
-      "url": "https://www.bbc.co.uk/news/articles/cq63rmj1zl1o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T11:54:03+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-24T23:44:44+00:00",
-      "lastSeenAt": "2026-08-26T11:54:19+00:00"
-    },
-    {
-      "originalTitle": "'Apocalyptische' tornado verwoestte dorp Pomas in een paar minuten",
-      "url": "https://nos.nl/l/2628247",
-      "publishedAt": "2026-08-25T11:53:59+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-25T17:53:56+00:00"
-    },
-    {
-      "originalTitle": "More than 28kg of cocaine found on foreign-registered vessel transiting Singapore",
-      "url": "https://www.channelnewsasia.com/singapore/cocaine-drug-vessel-cnb-police-coast-guard-6339976",
-      "publishedAt": "2026-08-25T11:50:00+00:00",
-      "country": "新加坡",
-      "countryCode": "SG",
-      "outlet": "CNA",
-      "sectionUrl": "https://www.channelnewsasia.com/singapore",
-      "firstSeenAt": "2026-08-25T14:11:53+00:00",
-      "lastSeenAt": "2026-08-26T14:10:07+00:00"
-    },
-    {
-      "originalTitle": "«Stark erhöhte Bewegungen» – Gemeinde Randa VS warnt vor Gletscherabbruch: Das ist bekannt",
-      "url": "https://www.srf.ch/news/schweiz/stark-erhoehte-bewegungen-gemeinde-randa-vs-warnt-vor-gletscherabbruch-das-ist-bekannt",
-      "publishedAt": "2026-08-25T11:33:41+00:00",
-      "country": "瑞士",
-      "countryCode": "CH",
-      "outlet": "SRF",
-      "sectionUrl": "https://www.srf.ch/news/schweiz",
-      "firstSeenAt": "2026-08-25T11:52:57+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "NDP 2027 to return to the Padang as Singapore marks 60 years of National Service",
-      "url": "https://www.channelnewsasia.com/singapore/ndp-2027-padang-venue-national-service-6339681",
-      "publishedAt": "2026-08-25T11:30:00+00:00",
-      "country": "新加坡",
-      "countryCode": "SG",
-      "outlet": "CNA",
-      "sectionUrl": "https://www.channelnewsasia.com/singapore",
-      "firstSeenAt": "2026-08-25T11:52:57+00:00",
-      "lastSeenAt": "2026-08-26T11:54:19+00:00"
-    },
-    {
-      "originalTitle": "'Plekje op je neus fixen?' Deense premier is opmerkingen over uiterlijk zat",
-      "url": "https://nos.nl/l/2628240",
-      "publishedAt": "2026-08-25T11:07:22+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T11:52:57+00:00",
-      "lastSeenAt": "2026-08-25T17:53:56+00:00"
-    },
-    {
-      "originalTitle": "Derde drone gevonden bij vliegveld Leipzig, ook aanwijzingen over daders",
-      "url": "https://nos.nl/l/2628239",
-      "publishedAt": "2026-08-25T11:03:02+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T11:52:57+00:00",
-      "lastSeenAt": "2026-08-25T17:53:56+00:00"
-    },
-    {
-      "originalTitle": "DBS brings back PayLah! campaign with up to S$3 cashback on 17 Saturdays from Aug 29",
-      "url": "https://www.channelnewsasia.com/singapore/dbs-paylah-cashback-campaign-aug-29-hawker-wet-market-6339896",
-      "publishedAt": "2026-08-25T10:54:55+00:00",
-      "country": "新加坡",
-      "countryCode": "SG",
-      "outlet": "CNA",
-      "sectionUrl": "https://www.channelnewsasia.com/singapore",
-      "firstSeenAt": "2026-08-25T11:52:57+00:00",
-      "lastSeenAt": "2026-08-26T10:04:33+00:00"
-    },
-    {
-      "originalTitle": "Boy, 3, injured in crocodile attack returns home",
-      "url": "https://www.bbc.co.uk/news/articles/c8d3pn5g764o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T10:48:09+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-25T16:07:05+00:00",
-      "lastSeenAt": "2026-08-26T02:44:14+00:00"
-    },
-    {
-      "originalTitle": "Asbestos killed my mum in her 40s – was her school to blame?",
-      "url": "https://www.bbc.co.uk/news/articles/cwymz2lnx48o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T10:39:14+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-24T21:52:27+00:00",
-      "lastSeenAt": "2026-08-25T11:52:57+00:00"
-    },
-    {
-      "originalTitle": "Families hit back at NI Secretary's comments on Troubles' legacy bill",
-      "url": "https://www.bbc.co.uk/news/articles/c62kr1g3gpwo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T10:32:23+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-25T11:52:57+00:00",
-      "lastSeenAt": "2026-08-25T11:52:57+00:00"
-    },
-    {
-      "originalTitle": "Oorzaak brand Vondelkerk Amsterdam blijft onbekend, politie vindt geen bewijs",
-      "url": "https://nos.nl/l/2628236",
-      "publishedAt": "2026-08-25T10:23:42+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T11:52:57+00:00",
-      "lastSeenAt": "2026-08-25T17:53:56+00:00"
-    },
-    {
-      "originalTitle": "Meer nepmails over iDeal en Wero in omloop: 'Klik er niet op'",
-      "url": "https://nos.nl/l/2628235",
-      "publishedAt": "2026-08-25T10:13:49+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T11:52:57+00:00",
-      "lastSeenAt": "2026-08-25T17:53:56+00:00"
-    },
-    {
-      "originalTitle": "Q&A: What to know about holding a foreign bank account in Germany",
-      "url": "https://www.thelocal.de/20260825/qa-what-to-know-about-holding-a-foreign-bank-account-in-germany",
-      "publishedAt": "2026-08-25T10:10:07+00:00",
-      "country": "德国",
-      "countryCode": "DE",
-      "outlet": "The Local Germany",
-      "sectionUrl": "https://www.thelocal.de/",
-      "firstSeenAt": "2026-08-25T11:52:57+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "Yellow weather warnings issued as thunderstorms and flooding forecast",
-      "url": "https://www.bbc.co.uk/weather/articles/c770lyg4318o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T10:06:04+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-25T11:52:57+00:00",
-      "lastSeenAt": "2026-08-26T02:44:14+00:00"
-    },
-    {
-      "originalTitle": "Kabinettsklausur: Merz will mehr Wachstum ermöglichen",
-      "url": "https://www.tagesschau.de/inland/kabinettsklausur-union-spd-100.html",
-      "publishedAt": "2026-08-25T10:00:40+00:00",
-      "country": "德国",
-      "countryCode": "DE",
-      "outlet": "Tagesschau",
-      "sectionUrl": "https://www.tagesschau.de/inland",
-      "firstSeenAt": "2026-08-25T11:52:57+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "Warenhuisketen VS maakt excuses voor 'aanstootgevend' clownspak voor kinderen",
-      "url": "https://nos.nl/l/2628232",
-      "publishedAt": "2026-08-25T09:59:32+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T11:52:57+00:00",
-      "lastSeenAt": "2026-08-25T16:07:05+00:00"
-    },
-    {
-      "originalTitle": "Berner Flurgenossenschaft – Wegen Dürre – Bewässerungsprojekt im Berner Seeland geplant",
-      "url": "https://www.srf.ch/news/schweiz/berner-flurgenossenschaft-wegen-duerre-bewaesserungsprojekt-im-berner-seeland-geplant",
-      "publishedAt": "2026-08-25T09:59:14+00:00",
-      "country": "瑞士",
-      "countryCode": "CH",
-      "outlet": "SRF",
-      "sectionUrl": "https://www.srf.ch/news/schweiz",
-      "firstSeenAt": "2026-08-25T11:52:57+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "Germany can expect more intense weather extremes, warns climate expert",
-      "url": "https://www.thelocal.de/20260825/germany-can-expect-more-intense-weather-extremes-warns-climate-expert",
-      "publishedAt": "2026-08-25T09:54:12+00:00",
-      "country": "德国",
-      "countryCode": "DE",
-      "outlet": "The Local Germany",
-      "sectionUrl": "https://www.thelocal.de/",
-      "firstSeenAt": "2026-08-25T09:59:26+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "«Stark erhöhte Bewegungen» – Oberwalliser Gemeinde Randa warnt vor Gletscherabbruch",
-      "url": "https://www.srf.ch/news/schweiz/stark-erhoehte-bewegungen-oberwalliser-gemeinde-randa-warnt-vor-gletscherabbruch",
-      "publishedAt": "2026-08-25T09:45:42+00:00",
-      "country": "瑞士",
-      "countryCode": "CH",
-      "outlet": "SRF",
-      "sectionUrl": "https://www.srf.ch/news/schweiz",
-      "firstSeenAt": "2026-08-25T08:06:13+00:00",
-      "lastSeenAt": "2026-08-25T09:59:26+00:00"
-    },
-    {
-      "originalTitle": "Airport bidding for more passengers and later flights",
-      "url": "https://www.bbc.co.uk/news/articles/cx2zyjkxjngo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T09:43:46+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-25T05:56:37+00:00",
-      "lastSeenAt": "2026-08-25T09:59:26+00:00"
-    },
-    {
-      "originalTitle": "Sechs Personen untersucht – «Stechender Geruch» auf Swiss-Flug – Landung auf Azoren-Insel",
-      "url": "https://www.srf.ch/news/schweiz/sechs-personen-untersucht-stechender-geruch-auf-swiss-flug-landung-auf-azoren-insel",
-      "publishedAt": "2026-08-25T09:41:44+00:00",
-      "country": "瑞士",
-      "countryCode": "CH",
-      "outlet": "SRF",
-      "sectionUrl": "https://www.srf.ch/news/schweiz",
-      "firstSeenAt": "2026-08-25T09:59:26+00:00",
-      "lastSeenAt": "2026-08-25T09:59:26+00:00"
-    },
-    {
-      "originalTitle": "25.000 dollar beloning in coldcasezaken inheemse Amerikanen",
-      "url": "https://nos.nl/l/2628230",
-      "publishedAt": "2026-08-25T09:35:44+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T09:59:26+00:00",
-      "lastSeenAt": "2026-08-25T16:07:05+00:00"
-    },
-    {
-      "originalTitle": "Legendary rugby league winger Boston dies aged 92",
-      "url": "https://www.bbc.co.uk/sport/rugby-league/articles/cwy4zxypry7o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T09:24:51+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-25T09:59:26+00:00",
-      "lastSeenAt": "2026-08-26T02:44:14+00:00"
-    },
-    {
-      "originalTitle": "PUB trial aims to halve energy used to pre-treat seawater for desalination",
-      "url": "https://www.channelnewsasia.com/singapore/pub-seawater-desalination-ceramic-membrane-technology-trial-meiden-6338876",
-      "publishedAt": "2026-08-25T09:24:09+00:00",
-      "country": "新加坡",
-      "countryCode": "SG",
-      "outlet": "CNA",
-      "sectionUrl": "https://www.channelnewsasia.com/singapore",
-      "firstSeenAt": "2026-08-25T09:59:26+00:00",
-      "lastSeenAt": "2026-08-26T08:06:37+00:00"
-    },
-    {
-      "originalTitle": "'Historic' first as two osprey chicks born on Anglesey, experts say",
-      "url": "https://www.bbc.co.uk/news/articles/cz7z3ld5r44o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T09:16:26+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-25T09:59:26+00:00",
-      "lastSeenAt": "2026-08-25T11:52:57+00:00"
-    },
-    {
-      "originalTitle": "Luchtvaartclaimorganisatie EUclaim failliet verklaard",
-      "url": "https://nos.nl/l/2628228",
-      "publishedAt": "2026-08-25T09:04:39+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T09:59:26+00:00",
-      "lastSeenAt": "2026-08-25T16:07:05+00:00"
-    },
-    {
-      "originalTitle": "Organised crime arrests as police investigate crash that killed two PCs",
-      "url": "https://www.bbc.co.uk/news/articles/c36d6975dzno?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T09:02:29+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-24T19:52:37+00:00",
-      "lastSeenAt": "2026-08-25T11:52:57+00:00"
-    },
-    {
-      "originalTitle": "German economic growth stronger than expected despite Iran war",
-      "url": "https://www.thelocal.de/20260825/german-economic-growth-stronger-than-expected-despite-iran-war",
-      "publishedAt": "2026-08-25T08:50:06+00:00",
-      "country": "德国",
-      "countryCode": "DE",
-      "outlet": "The Local Germany",
-      "sectionUrl": "https://www.thelocal.de/",
-      "firstSeenAt": "2026-08-25T09:59:26+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
-    },
-    {
-      "originalTitle": "Amos Yee to be charged over online posts allegedly promoting racial disharmony, making indecent statements about children",
-      "url": "https://www.channelnewsasia.com/singapore/amos-yee-charged-racial-harmony-offences-indecent-comments-children-6339566",
-      "publishedAt": "2026-08-25T08:24:00+00:00",
-      "country": "新加坡",
-      "countryCode": "SG",
-      "outlet": "CNA",
-      "sectionUrl": "https://www.channelnewsasia.com/singapore",
-      "firstSeenAt": "2026-08-25T09:59:26+00:00",
-      "lastSeenAt": "2026-08-26T08:06:37+00:00"
-    },
-    {
-      "originalTitle": "Changing workplace attitudes a ‘much harder’ challenge in supporting parenthood: Indranee",
-      "url": "https://www.channelnewsasia.com/singapore/changing-workplace-attitudes-much-harder-challenge-supporting-parenthood-indranee-rajah-6339486",
-      "publishedAt": "2026-08-25T08:14:00+00:00",
-      "country": "新加坡",
-      "countryCode": "SG",
-      "outlet": "CNA",
-      "sectionUrl": "https://www.channelnewsasia.com/singapore",
-      "firstSeenAt": "2026-08-25T09:59:26+00:00",
-      "lastSeenAt": "2026-08-26T05:58:30+00:00"
-    },
-    {
-      "originalTitle": "Doctor accused of causing patient's death by cutting wrong arteries restricted from surgery for 18 months",
-      "url": "https://www.channelnewsasia.com/singapore/doctor-fong-yan-kit-restricted-surgery-smc-6339501",
-      "publishedAt": "2026-08-25T08:02:14+00:00",
-      "country": "新加坡",
-      "countryCode": "SG",
-      "outlet": "CNA",
-      "sectionUrl": "https://www.channelnewsasia.com/singapore",
-      "firstSeenAt": "2026-08-25T08:06:13+00:00",
-      "lastSeenAt": "2026-08-26T05:58:30+00:00"
-    },
-    {
-      "originalTitle": "Über Atlantik – Swiss-Flug landet wegen chemischem Geruch auf den Azoren",
-      "url": "https://www.srf.ch/news/schweiz/ueber-atlantik-swiss-flug-landet-wegen-chemischem-geruch-auf-den-azoren",
-      "publishedAt": "2026-08-25T07:48:30+00:00",
-      "country": "瑞士",
-      "countryCode": "CH",
-      "outlet": "SRF",
-      "sectionUrl": "https://www.srf.ch/news/schweiz",
-      "firstSeenAt": "2026-08-25T08:06:13+00:00",
-      "lastSeenAt": "2026-08-25T08:06:13+00:00"
-    },
-    {
-      "originalTitle": "Moeras De Zeezuiper voor eerst in 700 jaar drooggevallen: 'Ongekend'",
-      "url": "https://nos.nl/l/2628222",
-      "publishedAt": "2026-08-25T07:32:37+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T08:06:13+00:00",
-      "lastSeenAt": "2026-08-25T14:11:53+00:00"
-    },
-    {
-      "originalTitle": "Veel kinderen zien nare berichten op socials, 'ouders moeten meer in gesprek'",
-      "url": "https://nos.nl/l/2628221",
-      "publishedAt": "2026-08-25T07:23:59+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T08:06:13+00:00",
-      "lastSeenAt": "2026-08-25T14:11:53+00:00"
-    },
-    {
-      "originalTitle": "Government quality, capability set successful nations apart in a contested world: Chan Chun Sing",
-      "url": "https://www.channelnewsasia.com/singapore/government-public-service-rules-based-order-vietnam-chan-chun-sing-6339021",
-      "publishedAt": "2026-08-25T07:15:58+00:00",
-      "country": "新加坡",
-      "countryCode": "SG",
-      "outlet": "CNA",
-      "sectionUrl": "https://www.channelnewsasia.com/singapore",
-      "firstSeenAt": "2026-08-25T08:06:13+00:00",
-      "lastSeenAt": "2026-08-26T05:58:30+00:00"
-    },
-    {
-      "originalTitle": "Nét buiten de spits reizen? NS biedt goedkopere treinkaartjes aan",
-      "url": "https://nos.nl/l/2628220",
-      "publishedAt": "2026-08-25T07:11:39+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T08:06:13+00:00",
-      "lastSeenAt": "2026-08-25T14:11:53+00:00"
-    },
-    {
-      "originalTitle": "Chinese factory workers accidentally caught on camera glasses",
-      "url": "https://www.abc.net.au/news/2026-08-25/camera-glasses-contain-footage-of-chinese-factory-workers/107057934",
-      "publishedAt": "2026-08-25T07:10:39+00:00",
-      "country": "澳大利亚",
-      "countryCode": "AU",
-      "outlet": "ABC News",
-      "sectionUrl": "https://www.abc.net.au/news/australia",
-      "firstSeenAt": "2026-08-25T08:06:13+00:00",
-      "lastSeenAt": "2026-08-25T17:53:56+00:00"
-    },
-    {
-      "originalTitle": "Burnham refuses to rule out tax rises in autumn Budget",
-      "url": "https://www.bbc.co.uk/news/articles/cj06818jgzlo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T06:40:33+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-25T05:56:37+00:00",
-      "lastSeenAt": "2026-08-26T14:10:07+00:00"
-    },
-    {
-      "originalTitle": "'She didn't care what anybody thought': Margaret Olley in five paintings",
-      "url": "https://www.abc.net.au/news/2026-08-25/margaret-olley-australian-intimiste-national-art-school-nas/106992590",
-      "publishedAt": "2026-08-25T06:36:42+00:00",
-      "country": "澳大利亚",
-      "countryCode": "AU",
-      "outlet": "ABC News",
-      "sectionUrl": "https://www.abc.net.au/news/australia",
-      "firstSeenAt": "2026-08-25T08:06:13+00:00",
-      "lastSeenAt": "2026-08-25T11:52:57+00:00"
-    },
-    {
-      "originalTitle": "Today in Germany: A roundup of the latest news on Tuesday",
-      "url": "https://www.thelocal.de/20260825/today-in-germany-a-roundup-of-the-latest-news-on-tuesday-137",
-      "publishedAt": "2026-08-25T06:31:32+00:00",
-      "country": "德国",
-      "countryCode": "DE",
-      "outlet": "The Local Germany",
-      "sectionUrl": "https://www.thelocal.de/",
-      "firstSeenAt": "2026-08-25T08:06:13+00:00",
-      "lastSeenAt": "2026-08-26T05:58:30+00:00"
-    },
-    {
-      "originalTitle": "Scheepvaart door Straat van Hormuz vrijwel stilgevallen, Pakistan spreekt met Iran",
-      "url": "https://nos.nl/l/2628215",
-      "publishedAt": "2026-08-25T06:30:17+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T08:06:13+00:00",
-      "lastSeenAt": "2026-08-25T14:11:53+00:00"
-    },
-    {
-      "originalTitle": "Man hid behind plants to film pair having sex then threatened woman with video, gets jail and caning",
-      "url": "https://www.channelnewsasia.com/singapore/man-film-couples-sex-extort-jail-caning-6339396",
-      "publishedAt": "2026-08-25T06:27:00+00:00",
-      "country": "新加坡",
-      "countryCode": "SG",
-      "outlet": "CNA",
-      "sectionUrl": "https://www.channelnewsasia.com/singapore",
-      "firstSeenAt": "2026-08-25T08:06:13+00:00",
-      "lastSeenAt": "2026-08-26T05:58:30+00:00"
-    },
-    {
-      "originalTitle": "Richmond denies players 'making light' of Swans scandal on Mad Monday",
-      "url": "https://www.abc.net.au/news/2026-08-25/afl-richmond-tigers-mad-monday-video-not-referencing-swans/107075624",
-      "publishedAt": "2026-08-25T06:16:24+00:00",
-      "country": "澳大利亚",
-      "countryCode": "AU",
-      "outlet": "ABC News",
-      "sectionUrl": "https://www.abc.net.au/news/australia",
-      "firstSeenAt": "2026-08-25T08:06:13+00:00",
-      "lastSeenAt": "2026-08-25T11:52:57+00:00"
-    },
-    {
-      "originalTitle": "Naruto and Jujutsu Kaisen concerts coming to Esplanade Theatre",
-      "url": "https://www.channelnewsasia.com/entertainment/naruto-jujutsu-kaisen-anime-concerts-singapore-esplanade-2026-6339036",
-      "publishedAt": "2026-08-25T05:53:17+00:00",
-      "country": "新加坡",
-      "countryCode": "SG",
-      "outlet": "CNA",
-      "sectionUrl": "https://www.channelnewsasia.com/singapore",
-      "firstSeenAt": "2026-08-25T08:06:13+00:00",
-      "lastSeenAt": "2026-08-26T05:58:30+00:00"
-    },
-    {
-      "originalTitle": "Letting agent accused of not returning deposits to more than 100 tenants",
-      "url": "https://www.bbc.co.uk/news/articles/ce8mejej1m2o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-25T05:06:42+00:00",
-      "country": "英国",
-      "countryCode": "GB",
-      "outlet": "BBC News",
-      "sectionUrl": "https://www.bbc.com/news/uk",
-      "firstSeenAt": "2026-08-25T08:06:13+00:00",
-      "lastSeenAt": "2026-08-26T10:04:33+00:00"
-    },
-    {
-      "originalTitle": "Wekdienst 25/8: Presentatie bondscoach Xavi • Jetten praat met BBB over begroting",
-      "url": "https://nos.nl/l/2628206",
-      "publishedAt": "2026-08-25T04:58:16+00:00",
-      "country": "荷兰",
-      "countryCode": "NL",
-      "outlet": "NOS",
-      "sectionUrl": "https://nos.nl/nieuws/binnenland",
-      "firstSeenAt": "2026-08-25T05:56:37+00:00",
-      "lastSeenAt": "2026-08-25T14:11:53+00:00"
-    },
-    {
-      "originalTitle": "Für mehr Wirtschaftlichkeit – Wieso Salt und Sunrise ihre Antennen auf dem Land teilen wollen",
-      "url": "https://www.srf.ch/news/schweiz/fuer-mehr-wirtschaftlichkeit-wieso-salt-und-sunrise-ihre-antennen-auf-dem-land-teilen-wollen",
-      "publishedAt": "2026-08-25T04:56:26+00:00",
-      "country": "瑞士",
-      "countryCode": "CH",
-      "outlet": "SRF",
-      "sectionUrl": "https://www.srf.ch/news/schweiz",
-      "firstSeenAt": "2026-08-25T05:56:37+00:00",
-      "lastSeenAt": "2026-08-27T04:36:16+00:00"
     }
   ]
 }
