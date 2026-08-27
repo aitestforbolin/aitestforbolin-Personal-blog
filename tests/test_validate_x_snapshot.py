@@ -63,13 +63,19 @@ class XSnapshotQualityTests(unittest.TestCase):
         with self.assertRaisesRegex(SnapshotQualityError, "SP500"):
             validate_snapshot(snapshot)
 
-    def test_partial_nasdaq_flat_count_is_blocked(self):
+    def test_partial_nasdaq_flat_count_is_allowed(self):
         snapshot = self.complete_snapshot()
         snapshot["fallback"]["breadth"][1]["unchanged"] = None
-        with self.assertRaisesRegex(SnapshotQualityError, "NASDAQ"):
-            validate_snapshot(snapshot)
+        validate_snapshot(snapshot)
 
-    def test_missing_gold_anchor_is_blocked(self):
+    def test_missing_gold_anchor_uses_latest_quote(self):
+        snapshot = self.complete_snapshot()
+        gold = next(row for row in snapshot["macroAnchors"] if row["id"] == "GOLD")
+        gold["anchor"] = None
+        gold["latest"] = 4603.56
+        validate_snapshot(snapshot)
+
+    def test_missing_gold_anchor_and_latest_quote_is_blocked(self):
         snapshot = self.complete_snapshot()
         gold = next(row for row in snapshot["macroAnchors"] if row["id"] == "GOLD")
         gold["anchor"] = None

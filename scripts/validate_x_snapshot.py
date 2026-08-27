@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """Block X publication when the daily market briefing contains missing display data.
 
-The X renderer turns missing numeric values into an em dash.  That is acceptable for
-manual inspection, but an automatic post must never publish placeholders such as
-"—%", "涨—" or "XAU/USD: ... -> —".  This validator checks the exact fields the
-current X template renders and fails before the create-post request is made.
+The X renderer turns missing numeric values into an em dash. An automatic post must
+never publish placeholders such as "—%" or "涨—". Gold may use an explicitly
+labelled latest quote when the fixed 16:00 ET comparison anchor is unavailable.
 """
 
 from __future__ import annotations
@@ -22,7 +21,7 @@ DEFAULT_SNAPSHOT = ROOT / "data" / "daily-market-status.json"
 REQUIRED_INDEXES = ("SPX", "IXIC", "DJI")
 REQUIRED_BREADTH = ("SP500", "NASDAQ")
 REQUIRED_TREASURIES = ("US02Y", "US10Y", "US30Y")
-REQUIRED_MACRO_ANCHORS = ("DXY", "BRN1!", "GOLD", "BTCUSDT")
+REQUIRED_COMPARABLE_MACRO_ANCHORS = ("DXY", "BRN1!", "BTCUSDT")
 
 
 class SnapshotQualityError(RuntimeError):
@@ -77,7 +76,7 @@ def validate_snapshot(snapshot: dict[str, Any]) -> None:
             errors,
             breadth_id,
             row,
-            ("advancers", "decliners", "unchanged", "advancePercent"),
+            ("advancers", "decliners", "advancePercent"),
         )
         if str(row.get("status") or "").lower() == "unavailable":
             errors.append(f"{breadth_id}: source status is unavailable")
@@ -89,12 +88,22 @@ def validate_snapshot(snapshot: dict[str, Any]) -> None:
             continue
         require_numbers(errors, market_id, row, ("previousClose", "price"))
 
-    for anchor_id in REQUIRED_MACRO_ANCHORS:
+    for anchor_id in REQUIRED_COMPARABLE_MACRO_ANCHORS:
         row = anchors.get(anchor_id)
         if not row:
             errors.append(f"{anchor_id}: missing macro anchor row")
             continue
         require_numbers(errors, anchor_id, row, ("previous", "anchor"))
+
+    gold = anchors.get("GOLD")
+    if not gold:
+        errors.append("GOLD: missing macro anchor row")
+    else:
+        has_comparison = all(
+            finite_number(gold.get(field)) is not None for field in ("previous", "anchor")
+        )
+        if not has_comparison and finite_number(gold.get("latest")) is None:
+            errors.append("GOLD: missing fixed anchor and latest quote")
 
     fed = snapshot.get("fedProbability")
     if not isinstance(fed, dict):

@@ -161,6 +161,22 @@ def macro_line(label: str, previous: Any, current: Any, decimals: int, suffix: s
     return f"{icon}{label}： {left} → {right}"
 
 
+def gold_line(row: dict[str, Any]) -> str:
+    """Render a comparable move, or an explicitly labelled latest-only quote."""
+    previous = finite_number(row.get("previous"))
+    anchor = finite_number(row.get("anchor"))
+    if previous is not None and anchor is not None:
+        return macro_line("黄金（XAU/USD）", previous, anchor, 2)
+
+    latest = finite_number(row.get("latest"))
+    if latest is None:
+        raise PublishError("GOLD is missing both a fixed anchor and a latest quote")
+    return (
+        f"—黄金（XAU/USD）：最新 {format_number(latest, 2)}"
+        "（16:00 ET固定锚点缺失，未计算日内变动）"
+    )
+
+
 def event_time(value: str) -> dt.datetime:
     return parse_datetime(value).astimezone(SHANGHAI)
 
@@ -179,8 +195,38 @@ def validate_snapshot(snapshot: dict[str, Any], required_as_of: str | None = Non
     missing_markets = sorted({item[0] for item in INDEX_CONFIG} - set(markets))
     if missing_markets:
         raise PublishError("Snapshot is missing required markets: " + ", ".join(missing_markets))
-    if len(snapshot.get("fallback", {}).get("breadth", [])) < 2:
-        raise PublishError("Snapshot breadth is incomplete")
+    breadth = {
+        str(row.get("id")): row
+        for row in snapshot.get("fallback", {}).get("breadth", [])
+        if isinstance(row, dict) and row.get("id")
+    }
+    for breadth_id in ("SP500", "NASDAQ"):
+        row = breadth.get(breadth_id)
+        if not row:
+            raise PublishError(f"Snapshot is missing required breadth: {breadth_id}")
+        missing = [
+            field
+            for field in ("advancers", "decliners", "advancePercent")
+            if finite_number(row.get(field)) is None
+        ]
+        if missing:
+            raise PublishError(
+                f"Snapshot breadth {breadth_id} is missing numeric fields: {', '.join(missing)}"
+            )
+
+    anchors = macro_anchor_map(snapshot)
+    for anchor_id in ("DXY", "BRN1!", "BTCUSDT"):
+        row = anchors.get(anchor_id)
+        if not row or any(finite_number(row.get(field)) is None for field in ("previous", "anchor")):
+            raise PublishError(f"Snapshot macro anchor {anchor_id} is incomplete")
+    gold = anchors.get("GOLD")
+    if not gold:
+        raise PublishError("Snapshot is missing required macro anchor: GOLD")
+    has_gold_comparison = all(
+        finite_number(gold.get(field)) is not None for field in ("previous", "anchor")
+    )
+    if not has_gold_comparison and finite_number(gold.get("latest")) is None:
+        raise PublishError("Snapshot GOLD is missing both a fixed anchor and a latest quote")
     if not snapshot.get("view"):
         raise PublishError("Snapshot view section is empty")
     return as_of
@@ -208,10 +254,13 @@ def build_x_post(snapshot: dict[str, Any], now: dt.datetime | None = None) -> st
         if not row:
             continue
         percent = row.get("advancePercent", row.get("advancingPercent"))
-        lines.append(
-            f"· {label}：{format_number(percent, 1)}%上涨（涨{format_number(row.get('advancers'), 0)}"
-            f"｜跌{format_number(row.get('decliners'), 0)}｜平{format_number(row.get('unchanged'), 0)}）"
-        )
+        counts = [
+            f"涨{format_number(row.get('advancers'), 0)}",
+            f"跌{format_number(row.get('decliners'), 0)}",
+        ]
+        if finite_number(row.get("unchanged")) is not None:
+            counts.append(f"平{format_number(row.get('unchanged'), 0)}")
+        lines.append(f"· {label}：{format_number(percent, 1)}%上涨（{'｜'.join(counts)}）")
 
     lines.extend(("", "▍核心个股驱动", ""))
     drivers = [row for row in snapshot.get("drivers", []) if isinstance(row, dict)]
@@ -243,7 +292,7 @@ def build_x_post(snapshot: dict[str, Any], now: dt.datetime | None = None) -> st
             macro_line("美债30Y", us30y.get("previousClose"), us30y.get("price"), 3, "%"),
             macro_line("加息概率", fed.get("previous"), fed.get("current"), 1, str(fed.get("unit") or "")),
             macro_line("Brent", brent.get("previous"), brent.get("anchor"), 2),
-            macro_line("XAU/USD", gold.get("previous"), gold.get("anchor"), 2),
+            gold_line(gold),
             macro_line("BTC", btc.get("previous"), btc.get("anchor"), 0),
         )
     )

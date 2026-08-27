@@ -54,15 +54,39 @@ class XPublisherTests(unittest.TestCase):
 
     def test_renderer_is_frozen_to_approved_web_output(self):
         text = MODULE.build_x_post(self.snapshot, now=self.now)
-        self.assertEqual(len(text), 2326)
+        self.assertEqual(len(text), 2330)
         self.assertEqual(
             hashlib.sha256(text.encode("utf-8")).hexdigest(),
-            "0797cc7f32159188d840591ae15c910437a7724a93d7bc50a1bf41680d65e039",
+            "5d84f9d64395c1334f7e46651424c3a076f2eeb65c98282ed9010f3a8185372b",
         )
         self.assertIn("（今晚）8月20日｜周四", text)
         self.assertNotIn("跨资产大体确认", text)
         self.assertNotIn("昨日属于：", text)
         self.assertNotIn("──────────", text)
+
+    def test_missing_sp500_breadth_values_block_publication(self):
+        snapshot = json.loads(json.dumps(self.snapshot))
+        sp500 = next(row for row in snapshot["fallback"]["breadth"] if row["id"] == "SP500")
+        sp500["advancePercent"] = None
+        with self.assertRaisesRegex(MODULE.PublishError, "SP500"):
+            MODULE.build_x_post(snapshot, now=self.now)
+
+    def test_gold_latest_quote_is_rendered_when_fixed_anchor_is_missing(self):
+        snapshot = json.loads(json.dumps(self.snapshot))
+        gold = next(row for row in snapshot["macroAnchors"] if row["id"] == "GOLD")
+        gold["anchor"] = None
+        gold["latest"] = 4603.56
+        text = MODULE.build_x_post(snapshot, now=self.now)
+        self.assertIn("黄金（XAU/USD）：最新 4,603.56", text)
+        self.assertIn("固定锚点缺失，未计算日内变动", text)
+
+    def test_missing_nasdaq_flat_count_is_omitted(self):
+        snapshot = json.loads(json.dumps(self.snapshot))
+        nasdaq = next(row for row in snapshot["fallback"]["breadth"] if row["id"] == "NASDAQ")
+        nasdaq["unchanged"] = None
+        text = MODULE.build_x_post(snapshot, now=self.now)
+        nasdaq_line = next(line for line in text.splitlines() if line.startswith("· Nasdaq交易所"))
+        self.assertNotIn("平—", nasdaq_line)
 
     def test_workflow_only_automates_completed_snapshot_updates(self):
         workflow = (ROOT / ".github" / "workflows" / "publish-x-manual.yml").read_text(
@@ -146,7 +170,7 @@ class XPublisherTests(unittest.TestCase):
             self.assertEqual(record["postId"], "987654321")
             self.assertEqual(
                 record["contentSha256"],
-                "0797cc7f32159188d840591ae15c910437a7724a93d7bc50a1bf41680d65e039",
+                "5d84f9d64395c1334f7e46651424c3a076f2eeb65c98282ed9010f3a8185372b",
             )
             self.assertEqual(record["mode"], "manual")
             self.assertNotIn(MODULE.AUTOMATIC_DISCLOSURE, created_text)
