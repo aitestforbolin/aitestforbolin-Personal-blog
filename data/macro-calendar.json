@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-26T16:33:39+00:00",
+  "generatedAt": "2026-08-27T00:59:16+00:00",
   "timezone": "Asia/Shanghai",
   "status": "partial",
   "failedSources": [
@@ -775,116 +775,6 @@
       "group": "prices",
       "scheduleSourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html",
       "eventType": "data"
-    },
-    {
-      "id": "us-358cd387c5eb",
-      "eventType": "data",
-      "country": "US",
-      "period": "July 2026",
-      "scheduledAt": "2026-08-12T20:30:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "美国CPI / 核心CPI",
-      "category": "inflation",
-      "importance": "critical",
-      "stars": 5,
-      "source": "BLS",
-      "sourceUrl": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
-      "metrics": [
-        {
-          "id": "metric-1",
-          "label": "CPI同比",
-          "actual": "+3.4%",
-          "forecast": "+3.4%",
-          "previous": "+3.5%",
-          "unit": null,
-          "sourceUrl": "https://www.bls.gov/news.release/archives/cpi_08122026.htm"
-        },
-        {
-          "id": "metric-2",
-          "label": "CPI环比",
-          "actual": "+0.1%",
-          "forecast": "+0.1%",
-          "previous": "-0.4%",
-          "unit": null,
-          "sourceUrl": "https://www.bls.gov/news.release/archives/cpi_08122026.htm"
-        },
-        {
-          "id": "metric-3",
-          "label": "核心CPI环比",
-          "actual": "+0.2%",
-          "forecast": "+0.2%",
-          "previous": "0.0%",
-          "unit": null,
-          "sourceUrl": "https://www.bls.gov/news.release/archives/cpi_08122026.htm"
-        },
-        {
-          "id": "metric-4",
-          "label": "核心CPI同比",
-          "actual": "+2.5%",
-          "forecast": "+2.5%",
-          "previous": "+2.6%",
-          "unit": null,
-          "sourceUrl": "https://www.bls.gov/news.release/archives/cpi_08122026.htm"
-        }
-      ],
-      "releasedAt": "2026-08-12T08:30:00-04:00",
-      "retrievedAt": null,
-      "revisionStatus": "not_revised",
-      "releaseStatus": "released",
-      "legacy": {
-        "date": "2026-08-12",
-        "time_et": "08:30",
-        "time_shanghai": "20:30",
-        "title": "Consumer Price Index",
-        "title_cn": "美国CPI / 核心CPI",
-        "period": "July 2026",
-        "category": "inflation",
-        "importance": "critical",
-        "stars": 5,
-        "source": "BLS",
-        "url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
-        "fallback_url": "https://fred.stlouisfed.org/release?rid=10",
-        "fallback_label": "FRED 备用",
-        "actual": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
-        "forecast": "CPI同比 3.4% · CPI环比 0.1% · 核心CPI环比 0.2% · 核心CPI同比 2.5%",
-        "previous": "CPI同比 3.5% · CPI环比 -0.4% · 核心CPI环比 0.0% · 核心CPI同比 2.6%",
-        "metric_values": [
-          {
-            "label": "CPI同比",
-            "actual": "+3.4%",
-            "forecast": "+3.4%",
-            "previous": "+3.5%"
-          },
-          {
-            "label": "CPI环比",
-            "actual": "+0.1%",
-            "forecast": "+0.1%",
-            "previous": "-0.4%"
-          },
-          {
-            "label": "核心CPI环比",
-            "actual": "+0.2%",
-            "forecast": "+0.2%",
-            "previous": "0.0%"
-          },
-          {
-            "label": "核心CPI同比",
-            "actual": "+2.5%",
-            "forecast": "+2.5%",
-            "previous": "+2.6%"
-          }
-        ],
-        "actual_source": "BLS",
-        "actual_url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
-        "consensus_source": "Investing.com",
-        "consensus_url": "https://www.investing.com/economic-calendar/cpi-733",
-        "result_source": "BLS 2026年7月CPI报告",
-        "result_url": "https://www.bls.gov/news.release/archives/cpi_08122026.htm",
-        "release_status": "released",
-        "released_at": "2026-08-12T08:30:00-04:00"
-      },
-      "fallbackSourceUrl": "https://fred.stlouisfed.org/release?rid=10",
-      "fallbackSourceLabel": "FRED 备用"
     },
     {
       "id": "us-f9d754350bea",
@@ -2369,6 +2259,38 @@
         "stars": 4,
         "source": "BEA",
         "url": "https://www.bea.gov/news/schedule"
+      }
+    },
+    {
+      "id": "us-a2ea61391745",
+      "eventType": "data",
+      "country": "US",
+      "period": "September 2026",
+      "scheduledAt": "2026-10-01T22:00:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "美国ISM制造业PMI",
+      "category": "growth",
+      "importance": "medium",
+      "stars": 3,
+      "source": "ISM",
+      "sourceUrl": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/",
+      "metrics": [],
+      "releasedAt": null,
+      "retrievedAt": null,
+      "revisionStatus": "not_revised",
+      "releaseStatus": "scheduled",
+      "legacy": {
+        "date": "2026-10-01",
+        "time_et": "10:00",
+        "time_shanghai": "22:00",
+        "title": "Manufacturing PMI Report on Business",
+        "title_cn": "美国ISM制造业PMI",
+        "period": "September 2026",
+        "category": "growth",
+        "importance": "medium",
+        "stars": 3,
+        "source": "ISM",
+        "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/"
       }
     },
     {
