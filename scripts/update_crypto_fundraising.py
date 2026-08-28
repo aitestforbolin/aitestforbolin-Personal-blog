@@ -46,6 +46,10 @@ class SourceStructureError(RuntimeError):
     """The public source no longer matches the validated recent-events structure."""
 
 
+class SourceAccessBlocked(RuntimeError):
+    """The public source returned its browser-verification page instead of data."""
+
+
 def clean_text(parts: list[str]) -> str:
     return " ".join(" ".join(parts).split())
 
@@ -196,6 +200,28 @@ def normalize_detail_url(value: str) -> str:
     return detail_url.rstrip("/") + "/"
 
 
+def stable_project_id(detail_url: str) -> str:
+    """Build a source-independent ID from the canonical project URL."""
+    slug = urlparse(detail_url).path.rstrip("/").rsplit("/", 1)[-1]
+    if not slug or not re.fullmatch(r"[a-z0-9][a-z0-9-]*", slug):
+        raise SourceStructureError(f"Unexpected project slug: {slug!r}")
+    return f"crypto-fundraising-{slug}"
+
+
+def reject_browser_verification(html: str, url: str = SOURCE_URL) -> None:
+    """Reject anti-bot interstitials before they look like parser breakage."""
+    lowered = html.casefold()
+    challenge_signals = (
+        "<title>one moment, please...</title>",
+        "window.location.reload()",
+        "anubis",
+    )
+    if any(signal in lowered for signal in challenge_signals):
+        raise SourceAccessBlocked(
+            f"{url} returned a browser-verification page instead of fundraising data"
+        )
+
+
 def parse_recent_events(html: str, limit: int = PROJECT_LIMIT) -> list[dict[str, object]]:
     parser = RecentEventsParser()
     parser.feed(html)
@@ -215,17 +241,16 @@ def parse_recent_events(html: str, limit: int = PROJECT_LIMIT) -> list[dict[str,
         if not name or not event_id or not project_id:
             raise SourceStructureError(f"Incomplete recent fundraising row: {row!r}")
 
+        detail_url = normalize_detail_url(str(row.get("detail_url", "")))
         projects.append(
             {
-                "id": f"crypto-fundraising-{event_id}",
-                "source_event_id": event_id,
-                "source_project_id": project_id,
+                "id": stable_project_id(detail_url),
                 "source_rank": rank,
                 "name": name,
                 "round": None if round_name.lower() == "unknown" else round_name,
                 "announced_month": parse_announced_month(str(row.get("date", ""))),
                 "amount_usd": parse_amount(str(row.get("amount", ""))),
-                "detail_url": normalize_detail_url(str(row.get("detail_url", ""))),
+                "detail_url": detail_url,
             }
         )
 
@@ -260,7 +285,9 @@ def fetch_homepage() -> str:
             with urlopen(request, timeout=FETCH_TIMEOUT) as response:
                 body = response.read()
                 encoding = response.headers.get_content_charset() or "utf-8"
-            return body.decode(encoding, errors="replace")
+            html = body.decode(encoding, errors="replace")
+            reject_browser_verification(html)
+            return html
         except (TimeoutError, URLError) as error:
             last_error = error
             print(
@@ -285,13 +312,19 @@ def build_payload(
         and isinstance(previous_payload.get("projects"), list)
         else None
     )
-    previous_ids = (
-        {str(project.get("id")) for project in previous_projects if isinstance(project, dict)}
+    previous_urls = (
+        {
+            str(project.get("detail_url", "")).rstrip("/") + "/"
+            for project in previous_projects
+            if isinstance(project, dict) and project.get("detail_url")
+        }
         if previous_projects is not None
         else None
     )
     for project in projects:
-        project["is_new"] = previous_ids is not None and str(project["id"]) not in previous_ids
+        project["is_new"] = (
+            previous_urls is not None and str(project["detail_url"]) not in previous_urls
+        )
     return {
         "updated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "source": "Crypto-Fundraising",

@@ -85,6 +85,7 @@ class CryptoFundraisingTests(unittest.TestCase):
 
     def test_normalizes_project_detail_links(self):
         projects = updater.parse_recent_events(FIXTURE)
+        self.assertEqual(projects[0]["id"], "crypto-fundraising-alpha")
         self.assertEqual(
             projects[0]["detail_url"],
             "https://crypto-fundraising.info/projects/alpha/",
@@ -125,14 +126,14 @@ class CryptoFundraisingTests(unittest.TestCase):
         self.assertIn('../data/crypto-fundraising.json', frontend)
         self.assertIn('href="fundraising/">融资追踪</a>', homepage)
 
-    def test_marks_only_new_project_ids(self):
+    def test_marks_new_projects_by_canonical_detail_url(self):
         previous_payload = {
             "projects": [
-                {"id": "crypto-fundraising-201"},
-                {"id": "crypto-fundraising-202"},
-                {"id": "crypto-fundraising-203"},
-                {"id": "crypto-fundraising-204"},
-                {"id": "crypto-fundraising-205"},
+                {"detail_url": "https://crypto-fundraising.info/projects/alpha/"},
+                {"detail_url": "https://crypto-fundraising.info/projects/beta/"},
+                {"detail_url": "https://crypto-fundraising.info/projects/gamma/"},
+                {"detail_url": "https://crypto-fundraising.info/projects/delta/"},
+                {"detail_url": "https://crypto-fundraising.info/projects/epsilon/"},
             ]
         }
         payload = updater.build_payload(FIXTURE, previous_payload)
@@ -141,7 +142,9 @@ class CryptoFundraisingTests(unittest.TestCase):
             [False, False, False, False, False],
         )
 
-        newer_fixture = FIXTURE.replace('data-eid="201"', 'data-eid="999"')
+        newer_fixture = FIXTURE.replace(
+            'href="/projects/alpha"', 'href="/projects/new-alpha"'
+        )
         payload = updater.build_payload(newer_fixture, previous_payload)
         self.assertEqual(
             [project["is_new"] for project in payload["projects"]],
@@ -157,7 +160,9 @@ class CryptoFundraisingTests(unittest.TestCase):
 
     def test_new_source_project_still_requires_update(self):
         previous = updater.build_payload(FIXTURE)
-        newer_fixture = FIXTURE.replace('data-eid="201"', 'data-eid="999"')
+        newer_fixture = FIXTURE.replace(
+            'href="/projects/alpha"', 'href="/projects/new-alpha"'
+        )
         refreshed = updater.build_payload(newer_fixture, previous)
 
         self.assertTrue(updater.project_data_changed(refreshed, previous))
@@ -191,6 +196,11 @@ class CryptoFundraisingTests(unittest.TestCase):
                 updater.fetch_homepage()
 
         self.assertEqual(mocked_urlopen.call_count, updater.FETCH_RETRIES)
+
+    def test_rejects_browser_verification_page_explicitly(self):
+        challenge = "<title>One moment, please...</title><script>window.location.reload()</script>"
+        with self.assertRaises(updater.SourceAccessBlocked):
+            updater.reject_browser_verification(challenge)
 
 if __name__ == "__main__":
     unittest.main()

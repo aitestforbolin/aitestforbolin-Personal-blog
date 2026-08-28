@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Refresh crypto fundraising with an official /deal-flow/ fallback."""
+"""Refresh crypto fundraising through the two public website routes."""
 
 from __future__ import annotations
 
@@ -30,7 +30,9 @@ def fetch_text(url: str) -> str:
             with urlopen(request, timeout=base.FETCH_TIMEOUT) as response:
                 body = response.read()
                 encoding = response.headers.get_content_charset() or "utf-8"
-            return body.decode(encoding, errors="replace")
+            html = body.decode(encoding, errors="replace")
+            base.reject_browser_verification(html, url)
+            return html
         except (TimeoutError, URLError) as error:
             last_error = error
             if attempt < base.FETCH_RETRIES:
@@ -55,7 +57,15 @@ def main() -> None:
         source = "homepage"
     except Exception as primary_error:  # noqa: BLE001 - fallback covers fetch and structure changes.
         print(f"Primary Crypto-Fundraising homepage failed: {primary_error}")
-        payload = build_from_deal_flow(previous)
+        try:
+            payload = build_from_deal_flow(previous)
+        except base.SourceAccessBlocked as fallback_error:
+            print(
+                "Both public website routes require browser verification; "
+                "the scheduled Work fallback must collect the official public snapshot."
+            )
+            print(f"Fallback route failed: {fallback_error}")
+            raise SystemExit(75) from fallback_error
         source = "deal-flow fallback"
 
     if not base.project_data_changed(payload, previous):

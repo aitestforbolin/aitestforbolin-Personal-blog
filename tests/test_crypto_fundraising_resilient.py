@@ -24,11 +24,11 @@ class CryptoFundraisingResilienceTests(unittest.TestCase):
         )
         previous = {
             "projects": [
-                {"id": "crypto-fundraising-201"},
-                {"id": "crypto-fundraising-202"},
-                {"id": "crypto-fundraising-203"},
-                {"id": "crypto-fundraising-204"},
-                {"id": "crypto-fundraising-205"},
+                {"detail_url": "https://crypto-fundraising.info/projects/alpha/"},
+                {"detail_url": "https://crypto-fundraising.info/projects/beta/"},
+                {"detail_url": "https://crypto-fundraising.info/projects/gamma/"},
+                {"detail_url": "https://crypto-fundraising.info/projects/delta/"},
+                {"detail_url": "https://crypto-fundraising.info/projects/epsilon/"},
             ]
         }
 
@@ -39,6 +39,21 @@ class CryptoFundraisingResilienceTests(unittest.TestCase):
             [project["name"] for project in payload["projects"]],
             ["Alpha Protocol", "Beta", "Gamma", "Delta", "Epsilon"],
         )
+
+    def test_both_browser_verification_routes_exit_for_work_fallback(self):
+        with patch.object(
+            resilient.base,
+            "build_payload",
+            side_effect=resilient.base.SourceAccessBlocked("homepage blocked"),
+        ), patch.object(
+            resilient,
+            "build_from_deal_flow",
+            side_effect=resilient.base.SourceAccessBlocked("deal flow blocked"),
+        ), patch.object(resilient.base, "load_previous_payload", return_value=None):
+            with self.assertRaises(SystemExit) as raised:
+                resilient.main()
+
+        self.assertEqual(raised.exception.code, 75)
 
 
 if __name__ == "__main__":
