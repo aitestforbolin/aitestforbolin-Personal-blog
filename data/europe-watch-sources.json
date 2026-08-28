@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "purpose": "Curated Europe Watch sources. Official sources anchor policy and statistics; media supplies readable event coverage.",
+  "sources": [
+    {"region":"eu","name":"European Commission","rss_url":"https://ec.europa.eu/commission/presscorner/api/rss?language=en","official_source":true,"enabled":true},
+    {"region":"eu","name":"European Council","rss_url":"https://www.consilium.europa.eu/en/press/press-releases/rss/","official_source":true,"enabled":true},
+    {"region":"eu","name":"ECB","rss_url":"https://www.ecb.europa.eu/rss/press.html","official_source":true,"enabled":true},
+    {"region":"eu","name":"European Parliament","rss_url":"https://www.europarl.europa.eu/rss/doc/top-stories/en.xml","official_source":true,"enabled":true},
+    {"region":"eu","name":"Eurostat","rss_url":"https://news.google.com/rss/search?q=site%3Aec.europa.eu%2Feurostat%20Eurostat&hl=en-US&gl=US&ceid=US%3Aen","official_source":true,"enabled":true},
+    {"region":"eu","name":"Reuters Europe","rss_url":"https://news.google.com/rss/search?q=site%3Areuters.com%2Fworld%2Feurope%20EU%20OR%20Europe&hl=en-US&gl=US&ceid=US%3Aen","official_source":false,"enabled":true},
+    {"region":"eu","name":"Politico Europe","rss_url":"https://www.politico.eu/feed/","official_source":false,"enabled":true},
+    {"region":"germany","name":"German Federal Government","rss_url":"https://www.bundesregierung.de/breg-en/service/rss-feed-1201814","official_source":true,"enabled":true},
+    {"region":"germany","name":"Destatis","rss_url":"https://www.destatis.de/EN/Service/RSS/_node.html","official_source":true,"enabled":true},
+    {"region":"germany","name":"Bundesbank","rss_url":"https://www.bundesbank.de/en/service/rss-feeds/rss-feeds-622604","official_source":true,"enabled":true},
+    {"region":"germany","name":"Federal Employment Agency","rss_url":"https://www.arbeitsagentur.de/news/rss","official_source":true,"enabled":true},
+    {"region":"germany","name":"Reuters Germany","rss_url":"https://news.google.com/rss/search?q=site%3Areuters.com%20Germany%20economy%20OR%20jobs%20OR%20industry%20OR%20politics&hl=en-US&gl=US&ceid=US%3Aen","official_source":false,"enabled":true},
+    {"region":"germany","name":"Deutsche Welle","rss_url":"https://rss.dw.com/rdf/rss-en-all","official_source":false,"enabled":true},
+    {"region":"germany","name":"The Local Germany","rss_url":"https://feeds.thelocal.com/rss/builder/de","official_source":false,"enabled":true}
+  ]
+}

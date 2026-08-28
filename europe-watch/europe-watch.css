@@ -1,0 +1,17 @@
+.europe-watch-page { padding: 48px 0 90px; }
+.europe-watch-hero { max-width: 720px; margin-bottom: 32px; }
+.europe-watch-hero p:last-child { color: var(--muted); font-size: 1.05rem; }
+.europe-watch-panel { background: rgba(255,253,248,.8); border: 1px solid var(--line); border-radius: 20px; padding: 22px; box-shadow: 0 16px 45px rgba(67,48,32,.06); }
+.europe-watch-meta { display:flex; justify-content:space-between; gap:16px; color:var(--muted); font-size:.86rem; padding-bottom:16px; border-bottom:1px solid var(--line); }
+.europe-watch-filters { display:flex; flex-wrap:wrap; gap:8px; padding:18px 0; }
+.europe-watch-region-tabs { display:flex; gap:10px; padding:18px 0 4px; border-bottom:1px solid var(--line); }
+.europe-watch-region-tabs button { flex:1; border:1px solid var(--line); background:transparent; color:var(--muted); border-radius:12px; padding:10px 13px; font-weight:700; cursor:pointer; }
+.europe-watch-region-tabs button.is-active { background:var(--ink); color:#fff; border-color:var(--ink); }
+.europe-watch-filters button { border:1px solid var(--line); background:transparent; color:var(--muted); border-radius:999px; padding:6px 13px; cursor:pointer; }
+.europe-watch-filters button.is-active { background:var(--accent); color:#fff; border-color:var(--accent); }
+.europe-watch-list { display:grid; }
+.europe-watch-item { display:grid; gap:4px; padding:15px 4px; border-top:1px solid var(--line); transition:color 160ms ease; }
+.europe-watch-item:hover { color:var(--accent-dark); }
+.europe-watch-item-meta { color:var(--muted); font-size:.82rem; }
+.europe-watch-item strong { font-size:1rem; line-height:1.5; }
+@media (max-width:640px) { .europe-watch-page { padding-top:25px; } .europe-watch-panel { padding:16px; } .europe-watch-meta { display:grid; gap:3px; } .europe-watch-region-tabs { gap:7px; } .europe-watch-region-tabs button { padding:9px 7px; } .europe-watch-filters { gap:6px; } .europe-watch-filters button { padding:6px 10px; } }
