@@ -1,0 +1,70 @@
+name: Collect Europe Watch
+
+on:
+  schedule:
+    # 07:30 Asia/Shanghai, then every two hours. The 07:30 run makes the fixed 24h snapshot.
+    - cron: "30 1-23/2 * * *"
+  workflow_dispatch:
+    inputs:
+      publish_snapshot:
+        description: "Also publish the latest fixed 24-hour snapshot"
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: europe-watch-writer
+  cancel-in-progress: false
+
+jobs:
+  collect-europe-watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Configure Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Restore rolling store
+        run: |
+          git fetch origin europe-watch-data || true
+          if git show-ref --verify --quiet refs/remotes/origin/europe-watch-data; then
+            git show origin/europe-watch-data:data/europe-watch-store.json > /tmp/europe-watch-store.json
+          else
+            echo '{"schema_version":3,"items":[]}' > /tmp/europe-watch-store.json
+          fi
+      - name: Collect feeds and publish missing 07:30 snapshot
+        id: collect
+        env: { MANUAL_SNAPSHOT: ${{ inputs.publish_snapshot }} }
+        run: |
+          args=(--store-file /tmp/europe-watch-store.json --snapshot-file data/europe-watch.json --snapshot-if-due)
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "$MANUAL_SNAPSHOT" == "true" ]]; then args+=(--snapshot); fi
+          result="$(python scripts/fetch_europe_watch.py "${args[@]}")"
+          echo "$result"
+          echo "publish=$(python -c 'import json,sys; print(str(json.loads(sys.argv[1])["snapshot"]).lower())' "$result")" >> "$GITHUB_OUTPUT"
+      - name: Save rolling store only when changed
+        run: |
+          if git show-ref --verify --quiet refs/remotes/origin/europe-watch-data; then git worktree add -B europe-watch-data /tmp/europe-watch-data origin/europe-watch-data; else git worktree add -b europe-watch-data /tmp/europe-watch-data HEAD; fi
+          mkdir -p /tmp/europe-watch-data/data
+          cp /tmp/europe-watch-store.json /tmp/europe-watch-data/data/europe-watch-store.json
+          cd /tmp/europe-watch-data
+          if git diff --quiet -- data/europe-watch-store.json; then exit 0; fi
+          git add -- data/europe-watch-store.json && git commit -m "Collect Europe Watch" && git push origin HEAD:europe-watch-data
+      - name: Publish fixed 24-hour snapshot only when changed
+        if: steps.collect.outputs.publish == 'true'
+        run: |
+          if git diff --quiet -- data/europe-watch.json; then exit 0; fi
+          git add -- data/europe-watch.json && git commit -m "Publish 07:30 Europe Watch snapshot"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if git rebase origin/main && git push origin HEAD:main; then exit 0; fi
+            git rebase --abort || true; sleep $((attempt * 5))
+          done
+          exit 1
