@@ -1,10 +1,15 @@
 name: Collect Europe Watch
 
 on:
+  push:
+    paths:
+      - ".github/workflows/update-europe-watch.yml"
+      - "scripts/fetch_europe_watch.py"
+      - "tests/test_europe_watch.py"
   schedule:
     # 07:30 Asia/Shanghai, then every two hours. The 07:30 run makes the fixed 24h snapshot.
     - cron: "30 23 * * *"
-    - cron: "30 1-23/2 * * *"
+    - cron: "30 1-21/2 * * *"
   workflow_dispatch:
     inputs:
       publish_snapshot:

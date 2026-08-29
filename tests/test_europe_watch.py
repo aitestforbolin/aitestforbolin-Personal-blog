@@ -64,6 +64,8 @@ class EuropeWatchTests(unittest.TestCase):
         self.assertIn(
             "python -m unittest tests/test_europe_watch.py -v", workflow
         )
+        self.assertIn('cron: "30 1-21/2 * * *"', workflow)
+        self.assertIn('"scripts/fetch_europe_watch.py"', workflow)
 
     def test_health_requires_retained_items_from_both_regions(self):
         rows = [
