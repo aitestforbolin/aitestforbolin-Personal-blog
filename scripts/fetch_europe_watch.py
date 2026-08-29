@@ -201,6 +201,16 @@ def build_snapshot(store: dict, now: dt.datetime) -> dict:
     return {"schema_version": 3, "generated_at": iso(now), "as_of": end.astimezone(SHANGHAI).isoformat(timespec="seconds"), "window_start": start.astimezone(SHANGHAI).isoformat(timespec="seconds"), "window_end": end.astimezone(SHANGHAI).isoformat(timespec="seconds"), "source_health": store.get("source_health", []), "items": items}
 
 
+def store_is_healthy(items: list[dict]) -> bool:
+    retained_regions = {
+        row.get("region") for row in items if isinstance(row, dict)
+    }
+    return (
+        len(items) >= MIN_HEALTHY_ITEMS
+        and {"eu", "germany"} <= retained_regions
+    )
+
+
 def collect_sources(now: dt.datetime) -> tuple[list[dict], list[dict]]:
     sources = [item for item in json.loads(SOURCES.read_text(encoding="utf-8"))["sources"] if item.get("enabled")]
     def collect(source: dict) -> tuple[dict, list[dict]]:
@@ -223,7 +233,7 @@ def main() -> int:
     if now is None: raise SystemExit("--now must be a valid ISO timestamp")
     previous = load_json(args.store_file, {}); current_snapshot = load_json(args.snapshot_file, {})
     audit, candidates = collect_sources(now); store_items = merge_store(previous, candidates, now)
-    healthy = len(candidates) >= MIN_HEALTHY_ITEMS or bool(store_items)
+    healthy = store_is_healthy(store_items)
     store = {"schema_version": 3, "generated_at": iso(now), "retention_hours": STORE_HOURS, "source_health": audit, "items": store_items}
     if healthy:
         args.store_file.parent.mkdir(parents=True, exist_ok=True); args.store_file.write_text(json.dumps(store, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

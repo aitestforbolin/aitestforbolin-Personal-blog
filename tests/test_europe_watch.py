@@ -52,6 +52,27 @@ class EuropeWatchTests(unittest.TestCase):
             news.SOURCES, news.fetch = original_sources, original_fetch
             fixture.unlink(missing_ok=True)
 
+    def test_workflow_quotes_github_expression_outside_flow_mapping(self):
+        workflow = (
+            SCRIPT_PATH.parents[1]
+            / ".github"
+            / "workflows"
+            / "update-europe-watch.yml"
+        ).read_text(encoding="utf-8")
+        self.assertNotIn("env: { MANUAL_SNAPSHOT:", workflow)
+        self.assertIn('MANUAL_SNAPSHOT: "${{ inputs.publish_snapshot }}"', workflow)
+        self.assertIn(
+            "python -m unittest tests/test_europe_watch.py -v", workflow
+        )
+
+    def test_health_requires_retained_items_from_both_regions(self):
+        rows = [
+            {"region": "eu", "title": "EU growth", "source_url": "https://example.com/eu"},
+            {"region": "germany", "title": "German jobs", "source_url": "https://example.com/de"},
+        ]
+        self.assertTrue(news.store_is_healthy(rows))
+        self.assertFalse(news.store_is_healthy(rows[:1]))
+
 
 if __name__ == "__main__":
     unittest.main()

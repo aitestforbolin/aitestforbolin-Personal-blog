@@ -41,9 +41,12 @@ jobs:
           else
             echo '{"schema_version":3,"items":[]}' > /tmp/europe-watch-store.json
           fi
+      - name: Validate Europe Watch collector
+        run: python -m unittest tests/test_europe_watch.py -v
       - name: Collect feeds and publish missing 07:30 snapshot
         id: collect
-        env: { MANUAL_SNAPSHOT: ${{ inputs.publish_snapshot }} }
+        env:
+          MANUAL_SNAPSHOT: "${{ inputs.publish_snapshot }}"
         run: |
           args=(--store-file /tmp/europe-watch-store.json --snapshot-file data/europe-watch.json --snapshot-if-due)
           if [[ "${{ github.event_name }}" == "workflow_dispatch" && "$MANUAL_SNAPSHOT" == "true" ]]; then args+=(--snapshot); fi
