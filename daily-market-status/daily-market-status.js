@@ -560,6 +560,29 @@
     );
   }
 
+  function goldAssetLine(comparison, compact) {
+    if (finiteNumber(comparison?.current) !== null) {
+      return compact
+        ? directionIcon(comparison.reference, comparison.current) +
+            "XAU/USD " +
+            formatNumber(comparison.reference, 2) +
+            "→" +
+            formatNumber(comparison.current, 2)
+        : documentAssetLine("XAU/USD", comparison, 2, "");
+    }
+
+    const latest = finiteNumber(comparison?.latest);
+    if (latest === null) {
+      return compact
+        ? "—XAU/USD 数据不可用"
+        : "— XAU/USD：数据不可用";
+    }
+    const quoteTime = formatClock(comparison.latestTime);
+    return compact
+      ? `—XAU/USD 最新 ${formatNumber(latest, 2)}（锚点缺失；${quoteTime} 北京）`
+      : `— XAU/USD：最新 ${formatNumber(latest, 2)}（${quoteTime} 北京；16:00 ET固定锚点缺失，未计算日内变动）`;
+  }
+
   function buildDocumentCopyText() {
     if (!snapshot) throw new Error("Snapshot is not ready");
     const lines = [
@@ -642,6 +665,8 @@
             referenceTime: comparison.previousTime,
             current: comparison.anchor,
             currentTime: comparison.anchorTime,
+            latest: comparison.latest,
+            latestTime: comparison.latestTime,
             status: comparison.status,
           },
         ];
@@ -668,7 +693,7 @@
         formatNumber(fed.current, 1) +
         (finiteNumber(fed.current) === null ? "" : fed.unit || ""),
       "• " + documentAssetLine("原油", comparisons.get("BRN1!"), 2, ""),
-      "• " + documentAssetLine("XAU/USD", comparisons.get("GOLD"), 2, ""),
+      "• " + goldAssetLine(comparisons.get("GOLD"), false),
       "• " + documentAssetLine("BTC", comparisons.get("BTCUSDT"), 0, "")
     );
 
@@ -844,7 +869,12 @@
 
     const comparisons = new Map(macroConfig.map(([id]) => {
       const comparison = anchorComparison(id, marketMap.get(id));
-      return [id, { reference: comparison.previous, current: comparison.anchor }];
+      return [id, {
+        reference: comparison.previous,
+        current: comparison.anchor,
+        latest: comparison.latest,
+        latestTime: comparison.latestTime,
+      }];
     }));
     const fed = snapshot.fedProbability || {};
     // Keep the entire macro block in one X Post. Eight separate bullet lines are
@@ -866,7 +896,7 @@
         formatNumber(fed.previous, 1) + (fed.unit || "") + "→" +
         formatNumber(fed.current, 1) + (fed.unit || ""),
       compactXAssetLine("Brent", comparisons.get("BRN1!"), 2, ""),
-      compactXAssetLine("XAU/USD", comparisons.get("GOLD"), 2, ""),
+      goldAssetLine(comparisons.get("GOLD"), true),
       compactXAssetLine("BTC", comparisons.get("BTCUSDT"), 0, ""),
     ];
     const compactMacroLines = [];
@@ -1062,6 +1092,10 @@
       item.kind === "official"
         ? signedChange(dailyValue, 1, " bp")
         : signedChange(dailyValue, 2, "%");
+    const latestOnlyGold =
+      item.id === "GOLD" &&
+      finiteNumber(item.anchor) === null &&
+      finiteNumber(item.latest) !== null;
     const liveLayer =
       item.kind === "official"
         ? `
@@ -1070,7 +1104,14 @@
             <span class="macro-layer-message">官方日频，不提供伪实时</span>
             <span class="macro-change is-flat">—</span>
           </div>`
-        : macroLayer(
+        : latestOnlyGold
+          ? `
+            <div class="macro-layer macro-layer-live macro-layer-muted">
+              <span class="macro-layer-label">最新报价</span>
+              <strong class="macro-layer-value">${formatNumber(item.latest, item.decimals)}${item.suffix}</strong>
+              <span class="macro-change is-flat">未计算涨跌</span>
+            </div>`
+          : macroLayer(
             "收盘锚点后",
             item.anchor,
             item.latest,

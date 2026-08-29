@@ -1,0 +1,58 @@
+name: Capture gold close backup
+
+on:
+  schedule:
+    # Independent pre-close samples for both U.S. daylight and standard time.
+    # 19:35/19:50 UTC cover EDT; 20:35/20:50 UTC cover EST. Keeping this in a
+    # separate workflow gives the 16:00 ET gold anchor a second scheduler path.
+    - cron: "35,50 19,20 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: market-prices-writer
+  cancel-in-progress: false
+
+jobs:
+  capture-gold-close-backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify and fetch market prices
+        run: |
+          python -m py_compile scripts/update_market_prices.py
+          python scripts/update_market_prices.py
+      - name: Commit backup sample
+        run: |
+          if git diff --quiet -- data/market-prices.json; then
+            echo "No market price changes."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/market-prices.json
+          git commit -m "Capture backup market close sample"
+
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if git rebase origin/main; then
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+            else
+              git rebase --abort
+            fi
+            echo "Push attempt $attempt failed; retrying."
+            sleep $((attempt * 5))
+          done
+
+          echo "Could not push backup market close sample after 3 attempts."
+          exit 1
