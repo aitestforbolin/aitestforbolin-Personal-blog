@@ -77,6 +77,8 @@
     "url": "https://www.census.gov/manufacturing/m3/release_schedule.html",
     "fallback_url": "https://fred.stlouisfed.org/series/NEWORDER",
     "fallback_label": "FRED 备用",
+    "forecast": "耐用品 0.4% · 核心耐用品 0.6%",
+    "previous": "耐用品 0.3% · 核心耐用品 0.6%",
     "metric_values": [
       {
         "label": "耐用品",
@@ -91,8 +93,6 @@
         "previous": "0.6%"
       }
     ],
-    "forecast": "耐用品 0.4% · 核心耐用品 0.6%",
-    "previous": "耐用品 0.3% · 核心耐用品 0.6%",
     "result_source": "Forex Factory 市场日历",
     "result_url": "https://www.forexfactory.com/calendar"
   },
@@ -107,7 +107,19 @@
     "importance": "medium",
     "stars": 3,
     "source": "ISM",
-    "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/"
+    "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/",
+    "metric_values": [
+      {
+        "label": "综合值",
+        "actual": null,
+        "forecast": "55.2",
+        "previous": "55.6"
+      }
+    ],
+    "forecast": "55.2",
+    "previous": "55.6",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar"
   },
   {
     "date": "2026-09-03",
@@ -120,7 +132,19 @@
     "importance": "medium",
     "stars": 3,
     "source": "ISM",
-    "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/"
+    "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/",
+    "metric_values": [
+      {
+        "label": "综合值",
+        "actual": null,
+        "forecast": "54.1",
+        "previous": "54.1"
+      }
+    ],
+    "forecast": "54.1",
+    "previous": "54.1",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar"
   },
   {
     "date": "2026-09-17",
