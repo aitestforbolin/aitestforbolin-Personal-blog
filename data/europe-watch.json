@@ -1,23 +1,23 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-08-30T01:34:43+00:00",
-  "as_of": "2026-08-30T07:30:00+08:00",
-  "window_start": "2026-08-29T07:30:00+08:00",
-  "window_end": "2026-08-30T07:30:00+08:00",
+  "generated_at": "2026-08-31T01:32:26+00:00",
+  "as_of": "2026-08-31T07:30:00+08:00",
+  "window_start": "2026-08-30T07:30:00+08:00",
+  "window_end": "2026-08-31T07:30:00+08:00",
   "source_health": [
     {
       "source": "ECB",
       "region": "eu",
       "status": "ok",
       "count": 9,
-      "checked_at": "2026-08-30T01:34:43+00:00"
+      "checked_at": "2026-08-31T01:32:26+00:00"
     },
     {
       "source": "European Commission",
       "region": "eu",
       "status": "ok",
       "count": 6,
-      "checked_at": "2026-08-30T01:34:43+00:00"
+      "checked_at": "2026-08-31T01:32:26+00:00"
     },
     {
       "source": "European Council",
@@ -25,7 +25,7 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-08-30T01:34:43+00:00"
+      "checked_at": "2026-08-31T01:32:26+00:00"
     },
     {
       "source": "European Parliament",
@@ -33,28 +33,28 @@
       "status": "error",
       "error": "ParseError",
       "count": 0,
-      "checked_at": "2026-08-30T01:34:43+00:00"
+      "checked_at": "2026-08-31T01:32:26+00:00"
     },
     {
       "source": "Eurostat",
       "region": "eu",
       "status": "ok",
-      "count": 58,
-      "checked_at": "2026-08-30T01:34:43+00:00"
+      "count": 57,
+      "checked_at": "2026-08-31T01:32:26+00:00"
     },
     {
       "source": "Politico Europe",
       "region": "eu",
       "status": "ok",
-      "count": 6,
-      "checked_at": "2026-08-30T01:34:43+00:00"
+      "count": 5,
+      "checked_at": "2026-08-31T01:32:26+00:00"
     },
     {
       "source": "Reuters Europe",
       "region": "eu",
       "status": "ok",
-      "count": 66,
-      "checked_at": "2026-08-30T01:34:43+00:00"
+      "count": 62,
+      "checked_at": "2026-08-31T01:32:26+00:00"
     },
     {
       "source": "Bundesbank",
@@ -62,7 +62,7 @@
       "status": "error",
       "error": "ParseError",
       "count": 0,
-      "checked_at": "2026-08-30T01:34:43+00:00"
+      "checked_at": "2026-08-31T01:32:26+00:00"
     },
     {
       "source": "Destatis",
@@ -70,14 +70,14 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-08-30T01:34:43+00:00"
+      "checked_at": "2026-08-31T01:32:26+00:00"
     },
     {
       "source": "Deutsche Welle",
       "region": "germany",
       "status": "empty",
       "count": 0,
-      "checked_at": "2026-08-30T01:34:43+00:00"
+      "checked_at": "2026-08-31T01:32:26+00:00"
     },
     {
       "source": "Federal Employment Agency",
@@ -85,7 +85,7 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-08-30T01:34:43+00:00"
+      "checked_at": "2026-08-31T01:32:26+00:00"
     },
     {
       "source": "German Federal Government",
@@ -93,167 +93,183 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-08-30T01:34:43+00:00"
+      "checked_at": "2026-08-31T01:32:26+00:00"
     },
     {
       "source": "Reuters Germany",
       "region": "germany",
       "status": "ok",
-      "count": 48,
-      "checked_at": "2026-08-30T01:34:43+00:00"
+      "count": 57,
+      "checked_at": "2026-08-31T01:32:26+00:00"
     },
     {
       "source": "The Local Germany",
       "region": "germany",
       "status": "ok",
-      "count": 12,
-      "checked_at": "2026-08-30T01:34:43+00:00"
+      "count": 13,
+      "checked_at": "2026-08-31T01:32:26+00:00"
     }
   ],
   "items": [
     {
-      "id": "554b976c68b3b7b5",
+      "id": "0db53018b307a2de",
       "region": "eu",
-      "title": "Russia plans new ground attack on Kyiv, Ukraine warns",
-      "title_cn": "乌克兰警告俄罗斯计划对基辅发动新的地面攻击",
-      "summary": "Volodymyr Zelenskyy's office reveals new intelligence about Kremlin plans for an offensive against the capital.",
-      "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/russia-plans-new-ground-attack-on-kyiv-ukraine-warns/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-08-29T16:01:28+00:00",
-      "fetched_at": "2026-08-30T01:34:43+00:00",
+      "title": "Ukraine defence chief to outline war plan as Kyiv seeks more funds - Reuters",
+      "title_cn": "Ukraine defence chief to outline war plan as Kyiv seeks more funds - Reuters",
+      "summary": "Ukraine defence chief to outline war plan as Kyiv seeks more funds Reuters",
+      "source": "Reuters Europe",
+      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNX3pyLXRWVzhHRFhiUGpqQWNVbk1SV25DX2RuU1pYLTVfYnRDUzI1NzZiMjFIcjk3bEVSRF9weVhQVU9udXFpSUwwc1FHQVd1Sy0wNnpDeHVpTkVOMlF1cXc4cUNNakpuV3gwU3BDNGtISE5xWnk1QUxKZXdsSUgxNDR3NWcwRHFKNVpvQmZxUi1pdVBSOUQtTmJ3V0xIZzdDajFVVnNfZzJQY3NPRDNKS0JMeUhMMkU?oc=5",
+      "published_at": "2026-08-30T19:04:11+00:00",
+      "fetched_at": "2026-08-31T01:32:26+00:00",
       "category": "defense_security",
       "importance": "critical",
       "official_source": false,
-      "first_seen_at": "2026-08-30T01:34:43+00:00",
-      "last_seen_at": "2026-08-30T01:34:43+00:00"
+      "first_seen_at": "2026-08-31T01:32:26+00:00",
+      "last_seen_at": "2026-08-31T01:32:26+00:00"
     },
     {
-      "id": "788794884f43371e",
+      "id": "0b33e8de69f34794",
       "region": "germany",
-      "title": "War weighs on Iran's economy as US intensifies sanctions - Reuters",
-      "title_cn": "美国加大制裁力度，战争给伊朗经济带来压力 - 路透中文网",
-      "summary": "War weighs on Iran's economy as US intensifies sanctions Reuters",
+      "title": "Zambian opposition leader Mundubile charged with treason, lawyer says - Reuters",
+      "title_cn": "Zambian opposition leader Mundubile charged with treason, lawyer says - Reuters",
+      "summary": "Zambian opposition leader Mundubile charged with treason, lawyer says Reuters",
       "source": "Reuters Germany",
-      "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQQmtVbEg3UlB1QzhqQTZJLTRJY1ZfZWJTZjVrVjVPWDFDT3dGd0RxTEQ3M19hVEFHcldMaEpxcncwNGxlQ1ZDMzA3T09ScHFKdjFEYVQ4Yi1BdFNHdmNuVlpmN3MtWUVOSlVVTEZoRjlxRDZQQ3VpejdGRGg4bEh1NzRyMjJuYU15c2t1V0V3ckJxeDBLdUs4WFNkeEhnSWl3dW9keE5YMA?oc=5",
-      "published_at": "2026-08-29T15:08:07+00:00",
-      "fetched_at": "2026-08-30T01:34:43+00:00",
-      "category": "economy",
-      "importance": "critical",
-      "official_source": false,
-      "first_seen_at": "2026-08-30T01:34:43+00:00",
-      "last_seen_at": "2026-08-30T01:34:43+00:00"
-    },
-    {
-      "id": "4154a8b8b815f166",
-      "region": "eu",
-      "title": "Russia kills dozens as drone hits ammo warehouse near homes in Ukraine",
-      "title_cn": "俄罗斯无人机袭击乌克兰民宅附近弹药库造成数十人死亡",
-      "summary": "Ukrainian police have started an investigation into why ammunition was stored near residential properties.",
-      "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/russia-kills-27-as-drone-hits-ammo-warehouse-near-homes-in-ukraine/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-08-29T09:58:14+00:00",
-      "fetched_at": "2026-08-30T01:34:43+00:00",
-      "category": "technology",
-      "importance": "critical",
-      "official_source": false,
-      "first_seen_at": "2026-08-30T01:34:43+00:00",
-      "last_seen_at": "2026-08-30T01:34:43+00:00"
-    },
-    {
-      "id": "4add7e849c2e32ad",
-      "region": "eu",
-      "title": "Ein Spaziergang mit Manuela Schwesig",
-      "title_cn": "与曼努埃拉·施韦西格一起散步",
-      "summary": "Strand, Sonne und ein erbitterter Kampf um das politische Überleben. In Rostock-Warnemünde begleitet Gordon Repinski Manuela Schwesig auf einem Spaziergang durch den Wahlkampfendspurt in Mecklenburg-Vorpommern. Die SPD-Ministerpräsidentin will ihr Land unbedingt gegen den erstarkenden AfD-Herausforderer verteidigen. Um die Menschen an der Ostsee zu überzeugen, schlägt Schwesig ihren ganz eigenen Weg ein und geht auf maximale […]",
-      "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/podcast/berlin-playbook-podcast/ein-spaziergang-mit-manuela-schwesig/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-08-29T08:00:00+00:00",
-      "fetched_at": "2026-08-30T01:34:43+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOeEdPX2NEbXlCeW1idGs0dDItSHAtMDcxNTdBWVBUOVVYbnk3WkdUbkxHQ0VBeGl5aGFTTkpXcnUwejBrVk1xQjFmT3Z0eThIaVRXbHVtNy1ESXBETER0Sk9PVFJyM0RDcTZTamUxR1N0VlplaTFuVVdWcWFJZHZ2T1FFWWdTSU14MTNFT3o0dUF2Q0ZiSUQtUFgwaFhzMmRwWUVGRE82ZndKck9MankzUTlibzQxcGph?oc=5",
+      "published_at": "2026-08-30T06:40:00+00:00",
+      "fetched_at": "2026-08-31T01:32:26+00:00",
       "category": "politics_society",
-      "importance": "critical",
-      "official_source": false,
-      "first_seen_at": "2026-08-30T01:34:43+00:00",
-      "last_seen_at": "2026-08-30T01:34:43+00:00"
-    },
-    {
-      "id": "5f47e30129e58fd6",
-      "region": "germany",
-      "title": "Inside Germany: The fascist urge to attack Bauhaus and the 'real' city of love",
-      "title_cn": "德国内部：攻击包豪斯和“真正的”爱之城的法西斯冲动",
-      "summary": "From the AfD's plan to defund one of Germany's most successful cultural exports, to the claim that Berlin is Europe's true capital of love, Inside Germany is our weekly look at some of the recent news and talking points you may have missed.",
-      "source": "The Local Germany",
-      "source_url": "https://www.thelocal.de/20260829/inside-germany-the-fascist-urge-to-attack-bauhaus-and-the-real-city-of-love",
-      "published_at": "2026-08-29T07:44:07+00:00",
-      "fetched_at": "2026-08-30T01:34:43+00:00",
-      "category": "trade",
       "importance": "important",
       "official_source": false,
-      "first_seen_at": "2026-08-30T01:34:43+00:00",
-      "last_seen_at": "2026-08-30T01:34:43+00:00"
+      "first_seen_at": "2026-08-31T01:32:26+00:00",
+      "last_seen_at": "2026-08-31T01:32:26+00:00"
     },
     {
-      "id": "6f543cdbfd41747a",
+      "id": "965278c37811cd31",
       "region": "eu",
-      "title": "Norway's King Haakon honours 'dear father' Harald in first speech as sovereign - Reuters",
-      "title_cn": "挪威国王哈康国王在就任主权后的首次讲话中向“亲爱的父亲”哈拉尔致敬 - 路透",
-      "summary": "Norway's King Haakon honours 'dear father' Harald in first speech as sovereign Reuters",
-      "source": "Reuters Europe",
-      "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNcEtEeDkxNXc0Zks1OENiT3RZTl9oLWpXNjZfZndzdk9RbHo5RVczY2xvSXB2MHJvVkRPV0dob2ZMamFld00ydUt4VEdqVnQ3QkVxMjBGYWZrSThscjJvOXpjdlBmekUtSzRCRXdGNWpqNnJDaTR0VHFzZ213eVZjZWxkR0lwbFN5TlNlUlZGb0xOUXcxYVdpSGpMY2pMZUdpa0pB?oc=5",
-      "published_at": "2026-08-29T18:51:43+00:00",
-      "fetched_at": "2026-08-30T01:34:43+00:00",
+      "title": "Albo’s problems on two oceans, and disaster in Secret Harbour",
+      "title_cn": "Albo’s problems on two oceans, and disaster in Secret Harbour",
+      "summary": "A NEW CHAPTER FOR PLAYBOOK: Last month Adam Wren, Dasha Burns and Will Steakin were named the new co-authors of Playbook, and today is the official relaunch. Coming off the heels of a string of exclusives from both sides of the aisle, Playbook will continue to provide unmatched reporting and analysis of the midterms, 2028 and more. Don’t miss out […]",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.com/newsletters/canberra-playbook/2026/08/30/albos-problems-on-two-oceans-and-disaster-in-secret-harbour-01022132?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-08-30T20:17:20+00:00",
+      "fetched_at": "2026-08-31T01:32:26+00:00",
       "category": "technology",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-08-30T01:34:43+00:00",
-      "last_seen_at": "2026-08-30T01:34:43+00:00"
+      "first_seen_at": "2026-08-31T01:32:26+00:00",
+      "last_seen_at": "2026-08-31T01:32:26+00:00"
     },
     {
-      "id": "b76dce7aacd6b4b0",
-      "region": "eu",
-      "title": "Russian strike on Kyiv-area ammunition depot triggers blast, killing 37 - Reuters",
-      "title_cn": "俄罗斯袭击基辅地区弹药库引发爆炸，造成37人死亡 - 路透中文网",
-      "summary": "Russian strike on Kyiv-area ammunition depot triggers blast, killing 37 Reuters",
-      "source": "Reuters Europe",
-      "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNdk5FRC00VjkxVTRuVXJFam1IaTVqcmV6R2pXX2pJME1fYXkzSFc0NWoyQXpmdGxYeno1ejV0Rk9jZGd6bDliLUdqcm9fWF8ybFhNUmFHUnAxdkEzdnNSRFowYW1MTE1qSUxKTHJLQjZrak5tdkg0NEd4MkFhTDFGbmNYWlBFSlU3Sy0zRU9kM0FEMVpva3VoTy1Xbmd6NF9JZ04zRXROcUxyOVJEc0U1Q1hn?oc=5",
-      "published_at": "2026-08-29T16:58:30+00:00",
-      "fetched_at": "2026-08-30T01:34:43+00:00",
-      "category": "technology",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-08-30T01:34:43+00:00",
-      "last_seen_at": "2026-08-30T01:34:43+00:00"
-    },
-    {
-      "id": "7f0a7f6313587d46",
+      "id": "ec617d5104815a5e",
       "region": "germany",
-      "title": "Berlin mayor says city being 'blackmailed' after cyberattack",
-      "title_cn": "柏林市长称该市在网络攻击后受到“勒索”",
-      "summary": "Berlin's mayor on Friday said the city was being blackmailed after a data theft during a cyberattack two weeks ago.",
-      "source": "The Local Germany",
-      "source_url": "https://www.thelocal.de/20260829/berlin-being-blackmailed-after-cyberattack",
-      "published_at": "2026-08-29T11:26:01+00:00",
-      "fetched_at": "2026-08-30T01:34:43+00:00",
-      "category": "technology",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-08-30T01:34:43+00:00",
-      "last_seen_at": "2026-08-30T01:34:43+00:00"
-    },
-    {
-      "id": "f5ba2bd9f61a297c",
-      "region": "germany",
-      "title": "EXCLUSIVE: Nepal's flood damage may cost up to a tenth of economy to rebuild - Reuters",
-      "title_cn": "独家：尼泊尔洪灾损失可能高达十分之一的经济损失 - 路透中文网",
-      "summary": "EXCLUSIVE: Nepal's flood damage may cost up to a tenth of economy to rebuild Reuters",
+      "title": "The battle to build a global defence bank - Reuters",
+      "title_cn": "The battle to build a global defence bank - Reuters",
+      "summary": "The battle to build a global defence bank Reuters",
       "source": "Reuters Germany",
-      "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPNkx4Y1VqOVNVN0xscmF1aHRFZDF6RXUzc2w3WS1pN0RvQVItZWZVcWxJbE5wMklVUFJ4V01FekhWVzhQcGRyZG9sc0laTkFVQnQtbGxJNzBjN3FCN0pPeVJCbUNLeGpXYm42Z2wxb1JmZ2REVmxBUHNKdW5VT1hsU2xwWGczMlNJM24yUjNNMHVnWnJRTzFNWk5fZERtVjlIaFZpS2h5SVNrOS1J?oc=5",
-      "published_at": "2026-08-29T04:38:00+00:00",
-      "fetched_at": "2026-08-30T01:34:43+00:00",
-      "category": "economy",
+      "source_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOb3Q2dzBUdTJQYkFrLVhDQnNaUks0eGd0dHRqQ0MxYjhlbkF5Y2Y5QXhoQXZsQU14QkZIb3hxelRSdW1KVVd4eGhLeEFuSFlXeFpHdUtER2VTZHh4ZlB5TmowZ3poR21acFM2T2dFUVRsd0RMNUlmclpWZXBtTHNVQ0ctcVVGbjNrMDJJcjJB?oc=5",
+      "published_at": "2026-08-30T17:37:31+00:00",
+      "fetched_at": "2026-08-31T01:32:26+00:00",
+      "category": "defense_security",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-08-30T01:34:43+00:00",
-      "last_seen_at": "2026-08-30T01:34:43+00:00"
+      "first_seen_at": "2026-08-31T01:32:26+00:00",
+      "last_seen_at": "2026-08-31T01:32:26+00:00"
+    },
+    {
+      "id": "3f0ae6f8eeb680c8",
+      "region": "eu",
+      "title": "'We're alive': Kyiv-area survivor recalls Russian strike that killed 38 - Reuters",
+      "title_cn": "'We're alive': Kyiv-area survivor recalls Russian strike that killed 38 - Reuters",
+      "summary": "'We're alive': Kyiv-area survivor recalls Russian strike that killed 38 Reuters",
+      "source": "Reuters Europe",
+      "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxONWoxSm1UNnk2MVVYY0YtM0FBamczZko1djdoZDBZdEtobFJWTC1EME1EemxLbUI3WVhwQTFDM3BFZGFEYXVWY2tHamUzcm1WZ0hUcVlsR1NwbEs3VDNqVUhYY3Q5emhmOHQ5ODIwUWE3Nm1mWEpHaWVTUE1XWGlKLVBZYzdENzlHcU9JdmZwTHFxTHlsRnpXdG9QMno1bzdEd09FUQ?oc=5",
+      "published_at": "2026-08-30T16:08:54+00:00",
+      "fetched_at": "2026-08-31T01:32:26+00:00",
+      "category": "technology",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-08-31T01:32:26+00:00",
+      "last_seen_at": "2026-08-31T01:32:26+00:00"
+    },
+    {
+      "id": "51f50ddea84d20a7",
+      "region": "eu",
+      "title": "Iceland’s parliament will ‘discuss’ withdrawing EU bid after failed referendum",
+      "title_cn": "Iceland’s parliament will ‘discuss’ withdrawing EU bid after failed referendum",
+      "summary": "Talks on joining the bloc will not resume soon, Iceland's Prime Minister Kristrún Frostadóttir said.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/iceland-parliament-will-discuss-withdrawing-eu-bid-after-failed-referendum/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-08-30T15:07:30+00:00",
+      "fetched_at": "2026-08-31T01:32:26+00:00",
+      "category": "politics_society",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-08-31T01:32:26+00:00",
+      "last_seen_at": "2026-08-31T01:32:26+00:00"
+    },
+    {
+      "id": "4334601e072c4466",
+      "region": "eu",
+      "title": "6 issues that will shape Ursula von der Leyen’s legacy",
+      "title_cn": "6 issues that will shape Ursula von der Leyen’s legacy",
+      "summary": "With 3 years left in her term, the Commission boss must revive Europe’s industry, defend its rules, bolster security, support Ukraine, expand the bloc — and pay for it all.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/6-issues-that-will-shape-ursula-von-der-leyens-legacy/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-08-30T15:00:00+00:00",
+      "fetched_at": "2026-08-31T01:32:26+00:00",
+      "category": "defense_security",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-08-31T01:32:26+00:00",
+      "last_seen_at": "2026-08-31T01:32:26+00:00"
+    },
+    {
+      "id": "c0f01a5524167264",
+      "region": "eu",
+      "title": "Russia preparing ‘massive strikes against Ukraine’s energy facilities’",
+      "title_cn": "Russia preparing ‘massive strikes against Ukraine’s energy facilities’",
+      "summary": "The Russian announcement comes amid intensfying drone strikes against Ukraine.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/russia-preparing-massive-strikes-against-ukraines-energy-facilities/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-08-30T09:33:27+00:00",
+      "fetched_at": "2026-08-31T01:32:26+00:00",
+      "category": "energy",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-08-31T01:32:26+00:00",
+      "last_seen_at": "2026-08-31T01:32:26+00:00"
+    },
+    {
+      "id": "0621915f7f654e78",
+      "region": "germany",
+      "title": "Some migrants ready to pack bags fearing far-right win in east German state",
+      "title_cn": "Some migrants ready to pack bags fearing far-right win in east German state",
+      "summary": "As a far-right regional election victory looms in an ex-communist eastern German state, many migrants are readying to pack their bags, fearful of the AfD party's threatened \"deportation and remigration offensive\".",
+      "source": "The Local Germany",
+      "source_url": "https://www.thelocal.de/20260830/some-migrants-ready-to-pack-bags-fearing-far-right-win-in-east-german-state",
+      "published_at": "2026-08-30T08:48:41+00:00",
+      "fetched_at": "2026-08-31T01:32:26+00:00",
+      "category": "immigration",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-08-31T01:32:26+00:00",
+      "last_seen_at": "2026-08-31T01:32:26+00:00"
+    },
+    {
+      "id": "247033d8eab2ca4c",
+      "region": "eu",
+      "title": "Manhunt underway after woman killed, several injured at Swiss rave shooting - Reuters",
+      "title_cn": "Manhunt underway after woman killed, several injured at Swiss rave shooting - Reuters",
+      "summary": "Manhunt underway after woman killed, several injured at Swiss rave shooting Reuters",
+      "source": "Reuters Europe",
+      "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNVExIWW1kRXlDMzJSRlNJRE1Id0pSTmJUUUxzc09oUmlxQVdhb3hHbWRZcTdkRFJPOFlCS1daejVwai1mWVBmTHRuMTlEU0tZTGp2UlRKWDFmTGYwYVNsTUZBMmxIdlEyQ2ZCcnJDSVBiMzBqLUo5bmt5MGhYeTFvd3pCSXNfdHhmUWVnaHRpZ3FLbGpZb3ZyUklmVVZkNXRxYWxPNlE1aw?oc=5",
+      "published_at": "2026-08-30T05:43:00+00:00",
+      "fetched_at": "2026-08-31T01:32:26+00:00",
+      "category": "technology",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-08-31T01:32:26+00:00",
+      "last_seen_at": "2026-08-31T01:32:26+00:00"
     }
   ]
 }
