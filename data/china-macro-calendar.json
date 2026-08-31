@@ -1,13 +1,12 @@
 {
   "schemaVersion": 1,
   "status": "partial",
-  "generatedAt": "2026-08-27T11:58:26+00:00",
+  "generatedAt": "2026-08-31T07:32:01+00:00",
   "timezone": "Asia/Shanghai",
   "sourcePolicy": "official_only",
   "failedSources": [
     "gacc",
     "mof",
-    "nbs",
     "safe"
   ],
   "events": [
@@ -777,7 +776,7 @@
       "category": "profits",
       "importance": "medium",
       "source": "国家统计局",
-      "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260827_1965127.html",
+      "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202608/t20260827_1965126.html",
       "metrics": [
         {
           "id": "industrial_profits_ytd",
@@ -785,20 +784,20 @@
           "actual": "17.6",
           "previous": "18.7",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260827_1965127.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202608/t20260827_1965126.html"
         },
         {
           "id": "industrial_profits_monthly",
           "label": "规模以上工业企业利润当月同比",
-          "actual": "17.6",
+          "actual": "11.2",
           "previous": "15.1",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260827_1965127.html",
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202608/t20260827_1965126.html",
           "revisionStatus": "revised"
         }
       ],
       "releasedAt": "2026-08-27T09:30:00+08:00",
-      "retrievedAt": "2026-08-27T11:58:26+00:00",
+      "retrievedAt": "2026-08-31T07:32:01+00:00",
       "revisionStatus": "revised",
       "releaseStatus": "released",
       "sourceStatus": "fresh",
@@ -815,38 +814,38 @@
       "category": "manufacturing",
       "importance": "high",
       "source": "国家统计局",
-      "sourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html",
+      "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202608/t20260831_1965154.html",
       "metrics": [
         {
           "id": "manufacturing_pmi",
           "label": "制造业PMI",
-          "actual": null,
+          "actual": "49.8",
           "previous": "49.2",
           "unit": "指数",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260731_1964253.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202608/t20260831_1965154.html"
         },
         {
           "id": "non_manufacturing_pmi",
           "label": "非制造业商务活动指数",
-          "actual": null,
+          "actual": "49.0",
           "previous": "49.0",
           "unit": "指数",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260731_1964253.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202608/t20260831_1965154.html"
         },
         {
           "id": "composite_pmi",
           "label": "综合PMI产出指数",
-          "actual": null,
+          "actual": "49.5",
           "previous": "49.3",
           "unit": "指数",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260731_1964253.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202608/t20260831_1965154.html"
         }
       ],
-      "releasedAt": null,
-      "retrievedAt": "2026-08-02T10:00:00+08:00",
+      "releasedAt": "2026-08-31T09:30:00+08:00",
+      "retrievedAt": "2026-08-31T07:32:01+00:00",
       "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "sourceStatus": "static_official_sample",
+      "releaseStatus": "released",
+      "sourceStatus": "fresh",
       "group": "pmi",
       "scheduleSourceUrl": "https://www.stats.gov.cn/xxgk/sjfb/fbrcb/202512/t20251224_1962137.html"
     },
@@ -1304,9 +1303,9 @@
           "id": "industrial_profits_monthly",
           "label": "规模以上工业企业利润当月同比",
           "actual": null,
-          "previous": "17.6",
+          "previous": "11.2",
           "unit": "%",
-          "sourceUrl": "https://www.stats.gov.cn/sj/sjjd/202608/t20260827_1965127.html",
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202608/t20260827_1965126.html",
           "previousPeriod": "2026-01/07"
         }
       ],
@@ -1334,9 +1333,10 @@
           "id": "manufacturing_pmi",
           "label": "制造业PMI",
           "actual": null,
-          "previous": "49.2",
+          "previous": "49.8",
           "unit": "指数",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260731_1964253.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202608/t20260831_1965154.html",
+          "previousPeriod": "2026-08"
         },
         {
           "id": "non_manufacturing_pmi",
@@ -1350,9 +1350,10 @@
           "id": "composite_pmi",
           "label": "综合PMI产出指数",
           "actual": null,
-          "previous": "49.3",
+          "previous": "49.5",
           "unit": "指数",
-          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202607/t20260731_1964253.html"
+          "sourceUrl": "https://www.stats.gov.cn/sj/zxfb/202608/t20260831_1965154.html",
+          "previousPeriod": "2026-08"
         }
       ],
       "releasedAt": null,
