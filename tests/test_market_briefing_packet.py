@@ -174,6 +174,68 @@ class MarketBriefingPacketTests(unittest.TestCase):
         )
         self.assertEqual(inherited, ["DXY:daily_market_status"])
 
+    def test_same_date_daily_status_recovers_missing_previous_anchor(self):
+        assets = [{
+            "id": "BTCUSDT",
+            "source": "Yahoo Finance",
+            "comparison": {
+                "kind": "16:00_ET",
+                "previous": None,
+                "current": {"date": "2026-08-31", "value": 78570},
+            },
+        }]
+        status = {
+            "asOf": "2026-08-31",
+            "macroAnchors": [{
+                "id": "BTCUSDT",
+                "provider": "Yahoo Finance",
+                "previous": 77744,
+                "previousAnchorTime": 1787947200000,
+                "previousObservedAt": 1787947200000,
+                "anchor": 78570,
+                "anchorTime": 1788206400000,
+                "anchorObservedAt": 1788206400000,
+            }],
+        }
+        inherited, gaps = MODULE.inherit_macro_comparisons(
+            assets, "2026-08-31", {}, status
+        )
+        self.assertEqual(
+            assets[0]["comparison"]["previous"],
+            {
+                "date": "2026-08-28",
+                "value": 77744.0,
+                "observedAt": 1787947200000,
+                "inheritedFrom": "daily_market_status_same_date",
+            },
+        )
+        self.assertIn("BTCUSDT:daily_market_status_same_date_previous", inherited)
+        self.assertNotIn("BTCUSDT", gaps)
+
+    def test_same_date_daily_status_does_not_mix_providers(self):
+        assets = [{
+            "id": "BTCUSDT",
+            "source": "Yahoo Finance",
+            "comparison": {"previous": None, "current": {"date": "2026-08-31", "value": 78570}},
+        }]
+        status = {
+            "asOf": "2026-08-31",
+            "macroAnchors": [{
+                "id": "BTCUSDT",
+                "provider": "Another Provider",
+                "previous": 77744,
+                "previousAnchorTime": 1787947200000,
+                "anchor": 78570,
+                "anchorTime": 1788206400000,
+            }],
+        }
+        inherited, gaps = MODULE.inherit_macro_comparisons(
+            assets, "2026-08-31", {}, status
+        )
+        self.assertIsNone(assets[0]["comparison"]["previous"])
+        self.assertNotIn("BTCUSDT:daily_market_status_same_date_previous", inherited)
+        self.assertIn("BTCUSDT", gaps)
+
     def test_generated_after_new_york_close(self):
         before = dt.datetime(2026, 8, 25, 19, 59, tzinfo=dt.timezone.utc)
         after = dt.datetime(2026, 8, 25, 20, 1, tzinfo=dt.timezone.utc)

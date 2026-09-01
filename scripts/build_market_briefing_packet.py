@@ -242,13 +242,25 @@ def _same_provider(left: object, right: object) -> bool:
     return bool(left and right) and str(left).strip().casefold() == str(right).strip().casefold()
 
 
+def _anchor_date(value: object) -> str | None:
+    """Convert an anchor timestamp to its New York trading date."""
+    if not isinstance(value, (int, float)):
+        return None
+    timestamp = value / 1000 if value > 10_000_000_000 else value
+    try:
+        moment = dt.datetime.fromtimestamp(timestamp, tz=dt.timezone.utc)
+    except (OSError, OverflowError, ValueError):
+        return None
+    return moment.astimezone(ZoneInfo("America/New_York")).date().isoformat()
+
+
 def inherit_macro_comparisons(
     assets: list[dict],
     trading_date: str | None,
     previous_packet: object,
     previous_status: object,
 ) -> tuple[list[str], list[str]]:
-    """Fill fixed 16:00 ET previous anchors without mixing providers or dates."""
+    """Fill fixed 16:00 ET anchors without mixing providers or dates."""
     inherited: list[str] = []
     previous_assets: dict[str, dict] = {}
     previous_date = None
@@ -272,8 +284,6 @@ def inherit_macro_comparisons(
         if asset_id not in FIXED_ANCHOR_IDS:
             continue
         comparison = asset.get("comparison") if isinstance(asset.get("comparison"), dict) else {}
-        if comparison.get("previous") is not None:
-            continue
 
         old_asset = previous_assets.get(asset_id)
         old_current = None
@@ -282,7 +292,8 @@ def inherit_macro_comparisons(
             if isinstance(old_comparison, dict):
                 old_current = old_comparison.get("current")
         if (
-            isinstance(old_current, dict)
+            comparison.get("previous") is None
+            and isinstance(old_current, dict)
             and trading_date
             and isinstance(previous_date, str)
             and previous_date < trading_date
@@ -293,16 +304,53 @@ def inherit_macro_comparisons(
             comparison["previous"] = {**old_current, "inheritedFrom": "previous_packet"}
             asset["comparison"] = comparison
             inherited.append(f"{asset_id}:previous_packet")
-            continue
 
         old_status = status_assets.get(asset_id)
+        if not isinstance(old_status, dict) or not trading_date or not isinstance(status_date, str):
+            continue
+        if not _same_provider(asset.get("source"), old_status.get("provider")):
+            continue
+
+        if status_date == trading_date:
+            previous_value = finite_number(old_status.get("previous"))
+            previous_time = old_status.get("previousObservedAt") or old_status.get("previousAnchorTime")
+            previous_anchor_date = _anchor_date(previous_time)
+            if (
+                comparison.get("previous") is None
+                and previous_value is not None
+                and previous_anchor_date
+                and previous_anchor_date < trading_date
+            ):
+                comparison["previous"] = {
+                    "date": previous_anchor_date,
+                    "value": previous_value,
+                    "observedAt": previous_time,
+                    "inheritedFrom": "daily_market_status_same_date",
+                }
+                inherited.append(f"{asset_id}:daily_market_status_same_date_previous")
+
+            current_value = finite_number(old_status.get("anchor"))
+            current_time = old_status.get("anchorObservedAt") or old_status.get("anchorTime")
+            current_anchor_date = _anchor_date(current_time)
+            if (
+                comparison.get("current") is None
+                and current_value is not None
+                and current_anchor_date == trading_date
+            ):
+                comparison["current"] = {
+                    "date": trading_date,
+                    "value": current_value,
+                    "observedAt": current_time,
+                    "inheritedFrom": "daily_market_status_same_date",
+                }
+                inherited.append(f"{asset_id}:daily_market_status_same_date_current")
+            asset["comparison"] = comparison
+            continue
+
         if (
-            isinstance(old_status, dict)
-            and trading_date
-            and isinstance(status_date, str)
+            comparison.get("previous") is None
             and status_date < trading_date
             and isinstance(old_status.get("anchor"), (int, float))
-            and _same_provider(asset.get("source"), old_status.get("provider"))
         ):
             comparison["previous"] = {
                 "date": status_date,
