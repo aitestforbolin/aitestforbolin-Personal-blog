@@ -5,6 +5,14 @@ on:
     # 06:10 primary + 06:35 fallback Asia/Shanghai, Tuesday-Saturday.
     - cron: "10,35 22 * * 1-5"
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - data/daily-market-status.json
+      - scripts/build_market_briefing_packet.py
+      - tests/test_market_briefing_packet.py
+      - .github/workflows/build-market-briefing-packet.yml
 
 permissions:
   contents: write
