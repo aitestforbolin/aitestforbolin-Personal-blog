@@ -236,6 +236,50 @@ class MarketBriefingPacketTests(unittest.TestCase):
         self.assertNotIn("BTCUSDT:daily_market_status_same_date_previous", inherited)
         self.assertIn("BTCUSDT", gaps)
 
+    def test_yahoo_intraday_recovery_extracts_btc_close_anchors(self):
+        previous = int(dt.datetime(2026, 8, 31, 19, 55, tzinfo=dt.timezone.utc).timestamp())
+        current = int(dt.datetime(2026, 9, 1, 19, 55, tzinfo=dt.timezone.utc).timestamp())
+        payload = {
+            "chart": {"result": [{
+                "timestamp": [previous, current],
+                "indicators": {"quote": [{"close": [78570, 77225]}]},
+            }]}
+        }
+        comparison = MODULE.yahoo_intraday_comparison(payload, "2026-09-01")
+        self.assertEqual(comparison["previous"]["date"], "2026-08-31")
+        self.assertEqual(comparison["previous"]["value"], 78570.0)
+        self.assertEqual(comparison["current"]["date"], "2026-09-01")
+        self.assertEqual(comparison["current"]["value"], 77225.0)
+        self.assertEqual(comparison["current"]["minutesBeforeClose"], 5)
+
+    def test_recover_yahoo_anchor_preserves_provider_and_fills_only_missing_values(self):
+        previous = int(dt.datetime(2026, 8, 31, 19, 55, tzinfo=dt.timezone.utc).timestamp())
+        current = int(dt.datetime(2026, 9, 1, 19, 55, tzinfo=dt.timezone.utc).timestamp())
+        payload = {
+            "chart": {"result": [{
+                "timestamp": [previous, current],
+                "indicators": {"quote": [{"close": [78570, 77225]}]},
+            }]}
+        }
+        item = {
+            "id": "BTCUSDT", "source": "Yahoo Finance",
+            "comparison": {"kind": "16:00_ET", "previous": None, "current": None},
+        }
+        with mock.patch.object(MODULE, "fetch_json", return_value=payload):
+            changed = MODULE.recover_yahoo_anchor(item, "2026-09-01")
+        self.assertTrue(changed)
+        self.assertEqual(item["comparison"]["previous"]["value"], 78570.0)
+        self.assertEqual(item["comparison"]["current"]["value"], 77225.0)
+        self.assertEqual(item["comparison"]["current"]["inheritedFrom"], "yahoo_intraday_recovery")
+
+        mismatched = {
+            "id": "BTCUSDT", "source": "Another Provider",
+            "comparison": {"previous": None, "current": None},
+        }
+        with mock.patch.object(MODULE, "fetch_json") as fetch:
+            self.assertFalse(MODULE.recover_yahoo_anchor(mismatched, "2026-09-01"))
+            fetch.assert_not_called()
+
     def test_generated_after_new_york_close(self):
         before = dt.datetime(2026, 8, 25, 19, 59, tzinfo=dt.timezone.utc)
         after = dt.datetime(2026, 8, 25, 20, 1, tzinfo=dt.timezone.utc)

@@ -31,6 +31,7 @@ REQUIRED_MARKETS = {
 REQUIRED_BREADTH = {"SP500", "NASDAQ"}
 CANDIDATES = ["NVDA", "AVGO", "AMD", "MU", "AMAT", "LRCX", "MSFT", "AAPL", "AMZN", "GOOGL", "META"]
 FIXED_ANCHOR_IDS = {"DXY", "BRN1!", "GOLD", "BTCUSDT"}
+YAHOO_ANCHOR_SYMBOLS = {"BTCUSDT": "BTC-USD"}
 TIMEOUT = 35
 
 
@@ -170,6 +171,70 @@ def macro_asset(row: dict, trading_date: str | None) -> dict:
         "current": {"date": anchors[-1][0], **anchors[-1][1]} if anchors else None,
     }
     return item
+
+
+def yahoo_intraday_comparison(payload: object, trading_date: str) -> dict:
+    """Extract exact same-provider anchors from Yahoo intraday chart data."""
+    try:
+        result = payload["chart"]["result"][0]
+        timestamps = result.get("timestamp") or []
+        closes = result.get("indicators", {}).get("quote", [{}])[0].get("close") or []
+    except (KeyError, IndexError, TypeError):
+        return {"kind": "16:00_ET", "previous": None, "current": None}
+
+    eastern = ZoneInfo("America/New_York")
+    by_date: dict[str, dict] = {}
+    for raw_time, raw_value in zip(timestamps, closes):
+        value = finite_number(raw_value)
+        if value is None or not isinstance(raw_time, (int, float)):
+            continue
+        moment = dt.datetime.fromtimestamp(raw_time, tz=dt.timezone.utc).astimezone(eastern)
+        minutes_before_close = 16 * 60 - (moment.hour * 60 + moment.minute)
+        if not 0 <= minutes_before_close <= 60:
+            continue
+        day = moment.date().isoformat()
+        if day > trading_date:
+            continue
+        observed_at = int(raw_time * 1000)
+        old = by_date.get(day)
+        if old is None or observed_at > old["observedAt"]:
+            by_date[day] = {
+                "date": day,
+                "value": value,
+                "observedAt": observed_at,
+                "minutesBeforeClose": minutes_before_close,
+            }
+
+    days = sorted(by_date)
+    current = by_date.get(trading_date)
+    previous_days = [day for day in days if day < trading_date]
+    previous = by_date[previous_days[-1]] if previous_days else None
+    return {"kind": "16:00_ET", "previous": previous, "current": current}
+
+
+def recover_yahoo_anchor(asset: dict, trading_date: str | None) -> bool:
+    """Recover a missing fixed anchor without changing the provider contract."""
+    asset_id = str(asset.get("id"))
+    symbol = YAHOO_ANCHOR_SYMBOLS.get(asset_id)
+    if not symbol or not trading_date or not _same_provider(asset.get("source"), "Yahoo Finance"):
+        return False
+    comparison = asset.get("comparison") if isinstance(asset.get("comparison"), dict) else {}
+    if comparison.get("previous") is not None and comparison.get("current") is not None:
+        return False
+    url = (
+        "https://query1.finance.yahoo.com/v8/finance/chart/"
+        f"{symbol}?range=5d&interval=5m&includePrePost=true&events=div%2Csplits"
+    )
+    recovered = yahoo_intraday_comparison(fetch_json(url), trading_date)
+    changed = False
+    for key in ("previous", "current"):
+        if comparison.get(key) is None and recovered.get(key) is not None:
+            comparison[key] = {**recovered[key], "inheritedFrom": "yahoo_intraday_recovery"}
+            changed = True
+    if changed:
+        comparison["kind"] = "16:00_ET"
+        asset["comparison"] = comparison
+    return changed
 
 
 def fetch_candidate(symbol: str) -> dict:
@@ -480,6 +545,23 @@ def build_packet(now: dt.datetime | None = None) -> dict:
         macro_asset(row, trading_date) for row in markets
         if row.get("id") in {"DXY", "US02Y", "US10Y", "US30Y", "BRN1!", "GOLD", "BTCUSDT"}
     ]
+    yahoo_recovered: list[str] = []
+    yahoo_recovery_errors: list[str] = []
+    for asset in macro_assets:
+        if str(asset.get("id")) not in YAHOO_ANCHOR_SYMBOLS:
+            continue
+        try:
+            if recover_yahoo_anchor(asset, trading_date):
+                yahoo_recovered.append(str(asset.get("id")))
+        except Exception as exc:
+            yahoo_recovery_errors.append(f"{asset.get('id')}:{type(exc).__name__}:{exc}")
+    source_audit["yahooAnchorRecovery"] = {
+        "status": "ok" if yahoo_recovered else "error" if yahoo_recovery_errors else "not_needed",
+        "recovered": yahoo_recovered,
+        "errors": yahoo_recovery_errors,
+        "symbols": YAHOO_ANCHOR_SYMBOLS,
+    }
+
     previous_status = load_json(ROOT / "data" / "daily-market-status.json", {})
     inherited, comparison_gaps = inherit_macro_comparisons(
         macro_assets, trading_date, previous_packet, previous_status
