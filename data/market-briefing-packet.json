@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-01T23:12:12+00:00",
+  "generatedAt": "2026-09-01T23:16:19+00:00",
   "tradingDate": "2026-09-01",
   "sourceAudit": {
     "marketsApi": {
@@ -24,13 +24,22 @@
       "provider": "Farside Investors",
       "date": "2026-08-31"
     },
+    "yahooAnchorRecovery": {
+      "status": "ok",
+      "recovered": [
+        "BTCUSDT"
+      ],
+      "errors": [],
+      "symbols": {
+        "BTCUSDT": "BTC-USD"
+      }
+    },
     "macroComparisons": {
       "status": "ok",
       "inherited": [
-        "DXY:previous_packet",
-        "BTCUSDT:previous_packet",
-        "BRN1!:previous_packet",
-        "GOLD:previous_packet"
+        "DXY:daily_market_status_same_date_previous",
+        "BRN1!:daily_market_status_same_date_previous",
+        "GOLD:daily_market_status_same_date_previous"
       ],
       "missing": [],
       "warnings": []
@@ -252,12 +261,12 @@
     {
       "id": "BTCUSDT",
       "name": "Bitcoin / U.S. Dollar",
-      "price": 77255.75,
+      "price": 77246.49,
       "previousClose": 78559.11,
-      "change": -1303.3600000000006,
-      "changePercent": -1.6590819320636405,
+      "change": -1312.6199999999953,
+      "changePercent": -1.6708692346438185,
       "currency": "USD",
-      "updatedAt": 1788304330000,
+      "updatedAt": 1788304576000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -265,12 +274,12 @@
     {
       "id": "BRN1!",
       "name": "Brent Crude Oil Futures",
-      "price": 95.3,
+      "price": 95.27,
       "previousClose": 94.65,
-      "change": 0.6499999999999915,
-      "changePercent": 0.6867406233491721,
+      "change": 0.6199999999999903,
+      "changePercent": 0.6550449022715165,
       "currency": "USD",
-      "updatedAt": 1788303696000,
+      "updatedAt": 1788303777000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -337,7 +346,7 @@
       "unchanged": 3,
       "advancePercent": 31.6,
       "observed": 503,
-      "updatedAt": 1788304334243,
+      "updatedAt": 1788304580775,
       "source": "TradingView Stock Screener",
       "status": "ok"
     },
@@ -349,7 +358,7 @@
       "unchanged": 190,
       "advancePercent": 25.451490970180597,
       "observed": 4952,
-      "updatedAt": 1788304334310,
+      "updatedAt": 1788304580827,
       "source": "TradingView Stock Screener",
       "status": "ok"
     }
@@ -371,10 +380,9 @@
         "kind": "16:00_ET",
         "previous": {
           "date": "2026-08-31",
-          "value": 99.413,
+          "value": 99.43,
           "observedAt": 1788206400000,
-          "minutesBeforeClose": 0,
-          "inheritedFrom": "previous_packet"
+          "inheritedFrom": "daily_market_status_same_date"
         },
         "current": {
           "date": "2026-09-01",
@@ -387,12 +395,12 @@
     {
       "id": "BTCUSDT",
       "name": "Bitcoin / U.S. Dollar",
-      "price": 77255.75,
+      "price": 77246.49,
       "previousClose": 78559.11,
-      "change": -1303.3600000000006,
-      "changePercent": -1.6590819320636405,
+      "change": -1312.6199999999953,
+      "changePercent": -1.6708692346438185,
       "currency": "USD",
-      "updatedAt": 1788304330000,
+      "updatedAt": 1788304576000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
@@ -400,9 +408,10 @@
         "kind": "16:00_ET",
         "previous": {
           "date": "2026-08-31",
-          "value": 78570.0,
+          "value": 78878.65625,
           "observedAt": 1788206400000,
-          "inheritedFrom": "previous_packet"
+          "minutesBeforeClose": 0,
+          "inheritedFrom": "yahoo_intraday_recovery"
         },
         "current": {
           "date": "2026-09-01",
@@ -415,12 +424,12 @@
     {
       "id": "BRN1!",
       "name": "Brent Crude Oil Futures",
-      "price": 95.3,
+      "price": 95.27,
       "previousClose": 94.65,
-      "change": 0.6499999999999915,
-      "changePercent": 0.6867406233491721,
+      "change": 0.6199999999999903,
+      "changePercent": 0.6550449022715165,
       "currency": "USD",
-      "updatedAt": 1788303696000,
+      "updatedAt": 1788303777000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
@@ -428,10 +437,9 @@
         "kind": "16:00_ET",
         "previous": {
           "date": "2026-08-31",
-          "value": 88.34,
+          "value": 88.52,
           "observedAt": 1788206400000,
-          "minutesBeforeClose": 0,
-          "inheritedFrom": "previous_packet"
+          "inheritedFrom": "daily_market_status_same_date"
         },
         "current": {
           "date": "2026-09-01",
@@ -530,9 +538,8 @@
         "previous": {
           "date": "2026-08-31",
           "value": 4441.37,
-          "observedAt": 1788205015000,
-          "minutesBeforeClose": 24,
-          "inheritedFrom": "previous_packet"
+          "observedAt": 1788204960000,
+          "inheritedFrom": "daily_market_status_same_date"
         },
         "current": {
           "date": "2026-08-31",
