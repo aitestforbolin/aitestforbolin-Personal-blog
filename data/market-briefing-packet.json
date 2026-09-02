@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-02T23:46:13+00:00",
+  "generatedAt": "2026-09-02T23:46:32+00:00",
   "tradingDate": "2026-09-02",
   "sourceAudit": {
     "marketsApi": {
@@ -262,12 +262,12 @@
     {
       "id": "BTCUSDT",
       "name": "Bitcoin / U.S. Dollar",
-      "price": 77155.49,
+      "price": 77148.01,
       "previousClose": 77395.89,
-      "change": -240.39999999999418,
-      "changePercent": -0.31061080892020776,
+      "change": -247.88000000000466,
+      "changePercent": -0.3202754048050932,
       "currency": "USD",
-      "updatedAt": 1788392770000,
+      "updatedAt": 1788392786000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -347,7 +347,7 @@
       "unchanged": 1,
       "advancePercent": 59.9601593625498,
       "observed": 503,
-      "updatedAt": 1788392774789,
+      "updatedAt": 1788392793963,
       "source": "TradingView Stock Screener",
       "status": "ok"
     },
@@ -359,7 +359,7 @@
       "unchanged": 203,
       "advancePercent": 66.37186776163404,
       "observed": 4952,
-      "updatedAt": 1788392774864,
+      "updatedAt": 1788392793997,
       "source": "TradingView Stock Screener",
       "status": "ok"
     }
@@ -396,12 +396,12 @@
     {
       "id": "BTCUSDT",
       "name": "Bitcoin / U.S. Dollar",
-      "price": 77155.49,
+      "price": 77148.01,
       "previousClose": 77395.89,
-      "change": -240.39999999999418,
-      "changePercent": -0.31061080892020776,
+      "change": -247.88000000000466,
+      "changePercent": -0.3202754048050932,
       "currency": "USD",
-      "updatedAt": 1788392770000,
+      "updatedAt": 1788392786000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
@@ -409,14 +409,14 @@
         "kind": "16:00_ET",
         "previous": {
           "date": "2026-09-01",
-          "value": 77257.6796875,
+          "value": 77267.421875,
           "observedAt": 1788292800000,
           "minutesBeforeClose": 0,
           "inheritedFrom": "yahoo_intraday_recovery"
         },
         "current": {
           "date": "2026-09-02",
-          "value": 77448.75,
+          "value": 77450.12,
           "observedAt": 1788379200000,
           "minutesBeforeClose": 0
         }
