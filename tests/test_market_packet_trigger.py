@@ -43,6 +43,24 @@ class MarketPacketTriggerTests(unittest.TestCase):
         value["symbols"].pop()
         self.assertIsNone(MODULE.closed_snapshot_date(value, now))
 
+    def test_packet_workflow_listens_for_completed_price_updates(self):
+        workflow = (
+            Path(__file__).parents[1]
+            / ".github/workflows/build-market-briefing-packet.yml"
+        ).read_text(encoding="utf-8")
+        self.assertIn("workflow_run:", workflow)
+        self.assertIn("- Update market prices", workflow)
+        self.assertIn("python scripts/market_packet_trigger.py", workflow)
+
+    def test_price_writer_refreshes_from_latest_main_after_push_conflict(self):
+        workflow = (
+            Path(__file__).parents[1]
+            / ".github/workflows/update-market-prices.yml"
+        ).read_text(encoding="utf-8")
+        self.assertIn("git switch --detach origin/main", workflow)
+        self.assertGreaterEqual(workflow.count("python scripts/update_market_prices.py"), 1)
+        self.assertNotIn("git rebase origin/main", workflow)
+
 
 if __name__ == "__main__":
     unittest.main()
