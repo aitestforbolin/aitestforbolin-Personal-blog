@@ -50,8 +50,12 @@
     "stars": 3,
     "source": "S&P Global",
     "url": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
-    "forecast": "54.0",
-    "previous": "53.6",
+    "actual": "56.8",
+    "forecast": "53.9",
+    "previous": "54.6",
+    "result_source": "Investing.com",
+    "result_url": "https://www.investing.com/economic-calendar/united-states-services-purchasing-managers-index-%28pmi%29-1062",
+    "release_status": "released",
     "metric_values": [
       {
         "label": "综合值",
@@ -59,9 +63,7 @@
         "forecast": "54.0",
         "previous": "53.6"
       }
-    ],
-    "result_source": "Forex Factory 市场日历",
-    "result_url": "https://www.forexfactory.com/calendar"
+    ]
   },
   {
     "date": "2026-08-26",
@@ -266,5 +268,19 @@
     "stars": 3,
     "source": "ISM",
     "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/"
+  },
+  {
+    "date": "2026-10-08",
+    "time_et": "14:00",
+    "time_shanghai": "02:00",
+    "title": "FOMC Meeting Minutes",
+    "title_cn": "FOMC 会议纪要",
+    "period": "September 2026 meeting",
+    "category": "fed",
+    "importance": "medium",
+    "stars": 3,
+    "source": "Federal Reserve",
+    "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+    "date_et": "2026-10-07"
   }
 ]
