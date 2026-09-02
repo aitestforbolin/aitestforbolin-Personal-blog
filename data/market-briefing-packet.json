@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-01T23:16:19+00:00",
+  "generatedAt": "2026-09-02T00:09:49+00:00",
   "tradingDate": "2026-09-01",
   "sourceAudit": {
     "marketsApi": {
@@ -248,12 +248,12 @@
     {
       "id": "DXY",
       "name": "U.S. Dollar Index",
-      "price": 99.654,
+      "price": 99.679,
       "previousClose": 99.677,
-      "change": -0.023000000000010346,
-      "changePercent": -0.023074530734282075,
+      "change": 0.001999999999995339,
+      "changePercent": 0.0020064809334102538,
       "currency": "USD",
-      "updatedAt": 1788300299000,
+      "updatedAt": 1788307189000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -261,12 +261,12 @@
     {
       "id": "BTCUSDT",
       "name": "Bitcoin / U.S. Dollar",
-      "price": 77246.49,
-      "previousClose": 78559.11,
-      "change": -1312.6199999999953,
-      "changePercent": -1.6708692346438185,
+      "price": 77365,
+      "previousClose": 77395.89,
+      "change": -30.889999999999418,
+      "changePercent": -0.03991168006466418,
       "currency": "USD",
-      "updatedAt": 1788304576000,
+      "updatedAt": 1788307785000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -274,12 +274,12 @@
     {
       "id": "BRN1!",
       "name": "Brent Crude Oil Futures",
-      "price": 95.27,
+      "price": 95.23,
       "previousClose": 94.65,
-      "change": 0.6199999999999903,
-      "changePercent": 0.6550449022715165,
+      "change": 0.5799999999999983,
+      "changePercent": 0.6127839408346522,
       "currency": "USD",
-      "updatedAt": 1788303777000,
+      "updatedAt": 1788306944000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -346,7 +346,7 @@
       "unchanged": 3,
       "advancePercent": 31.6,
       "observed": 503,
-      "updatedAt": 1788304580775,
+      "updatedAt": 1788307792463,
       "source": "TradingView Stock Screener",
       "status": "ok"
     },
@@ -358,7 +358,7 @@
       "unchanged": 190,
       "advancePercent": 25.451490970180597,
       "observed": 4952,
-      "updatedAt": 1788304580827,
+      "updatedAt": 1788307792513,
       "source": "TradingView Stock Screener",
       "status": "ok"
     }
@@ -367,12 +367,12 @@
     {
       "id": "DXY",
       "name": "U.S. Dollar Index",
-      "price": 99.654,
+      "price": 99.679,
       "previousClose": 99.677,
-      "change": -0.023000000000010346,
-      "changePercent": -0.023074530734282075,
+      "change": 0.001999999999995339,
+      "changePercent": 0.0020064809334102538,
       "currency": "USD",
-      "updatedAt": 1788300299000,
+      "updatedAt": 1788307189000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
@@ -395,12 +395,12 @@
     {
       "id": "BTCUSDT",
       "name": "Bitcoin / U.S. Dollar",
-      "price": 77246.49,
-      "previousClose": 78559.11,
-      "change": -1312.6199999999953,
-      "changePercent": -1.6708692346438185,
+      "price": 77365,
+      "previousClose": 77395.89,
+      "change": -30.889999999999418,
+      "changePercent": -0.03991168006466418,
       "currency": "USD",
-      "updatedAt": 1788304576000,
+      "updatedAt": 1788307785000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
@@ -415,21 +415,22 @@
         },
         "current": {
           "date": "2026-09-01",
-          "value": 77257.68,
+          "value": 77257.6796875,
           "observedAt": 1788292800000,
-          "minutesBeforeClose": 0
+          "minutesBeforeClose": 0,
+          "inheritedFrom": "yahoo_intraday_recovery"
         }
       }
     },
     {
       "id": "BRN1!",
       "name": "Brent Crude Oil Futures",
-      "price": 95.27,
+      "price": 95.23,
       "previousClose": 94.65,
-      "change": 0.6199999999999903,
-      "changePercent": 0.6550449022715165,
+      "change": 0.5799999999999983,
+      "changePercent": 0.6127839408346522,
       "currency": "USD",
-      "updatedAt": 1788303777000,
+      "updatedAt": 1788306944000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
