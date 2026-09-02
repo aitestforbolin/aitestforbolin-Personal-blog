@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-02T23:32:17+00:00",
+  "generatedAt": "2026-09-02T23:41:35+00:00",
   "tradingDate": "2026-09-02",
   "sourceAudit": {
     "marketsApi": {
@@ -37,8 +37,8 @@
     "macroComparisons": {
       "status": "partial",
       "inherited": [
-        "DXY:daily_market_status",
-        "BRN1!:daily_market_status"
+        "DXY:daily_market_status_same_date_previous",
+        "BRN1!:daily_market_status_same_date_previous"
       ],
       "missing": [],
       "warnings": [
@@ -262,12 +262,12 @@
     {
       "id": "BTCUSDT",
       "name": "Bitcoin / U.S. Dollar",
-      "price": 77185.69,
+      "price": 77091.5,
       "previousClose": 77395.89,
-      "change": -210.1999999999971,
-      "changePercent": -0.27159064906417785,
+      "change": -304.3899999999994,
+      "changePercent": -0.3932896178337111,
       "currency": "USD",
-      "updatedAt": 1788391933000,
+      "updatedAt": 1788392492000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete"
@@ -347,7 +347,7 @@
       "unchanged": 1,
       "advancePercent": 59.9601593625498,
       "observed": 503,
-      "updatedAt": 1788391938934,
+      "updatedAt": 1788392497012,
       "source": "TradingView Stock Screener",
       "status": "ok"
     },
@@ -359,7 +359,7 @@
       "unchanged": 203,
       "advancePercent": 66.37186776163404,
       "observed": 4952,
-      "updatedAt": 1788391938947,
+      "updatedAt": 1788392497058,
       "source": "TradingView Stock Screener",
       "status": "ok"
     }
@@ -383,7 +383,7 @@
           "date": "2026-09-01",
           "value": 99.65,
           "observedAt": 1788292800000,
-          "inheritedFrom": "daily_market_status"
+          "inheritedFrom": "daily_market_status_same_date"
         },
         "current": {
           "date": "2026-09-02",
@@ -396,12 +396,12 @@
     {
       "id": "BTCUSDT",
       "name": "Bitcoin / U.S. Dollar",
-      "price": 77185.69,
+      "price": 77091.5,
       "previousClose": 77395.89,
-      "change": -210.1999999999971,
-      "changePercent": -0.27159064906417785,
+      "change": -304.3899999999994,
+      "changePercent": -0.3932896178337111,
       "currency": "USD",
-      "updatedAt": 1788391933000,
+      "updatedAt": 1788392492000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
@@ -416,7 +416,7 @@
         },
         "current": {
           "date": "2026-09-02",
-          "value": 77448.75,
+          "value": 77450.12,
           "observedAt": 1788379200000,
           "minutesBeforeClose": 0
         }
@@ -440,7 +440,7 @@
           "date": "2026-09-01",
           "value": 95.23,
           "observedAt": 1788302940000,
-          "inheritedFrom": "daily_market_status"
+          "inheritedFrom": "daily_market_status_same_date"
         },
         "current": {
           "date": "2026-09-02",
