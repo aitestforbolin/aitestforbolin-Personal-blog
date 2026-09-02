@@ -280,6 +280,43 @@ class MarketBriefingPacketTests(unittest.TestCase):
             self.assertFalse(MODULE.recover_yahoo_anchor(mismatched, "2026-09-01"))
             fetch.assert_not_called()
 
+    def test_treasury_comparison_preserves_flat_consecutive_days(self):
+        sep1 = int(dt.datetime(2026, 9, 1, 19, 30, tzinfo=dt.timezone.utc).timestamp() * 1000)
+        sep2 = int(dt.datetime(2026, 9, 2, 19, 30, tzinfo=dt.timezone.utc).timestamp() * 1000)
+        row = {
+            "id": "US10Y",
+            "source": "U.S. Treasury",
+            "points": [
+                {"time": sep1, "value": 4.79},
+                {"time": sep2, "value": 4.79},
+            ],
+        }
+        item = MODULE.macro_asset(row, "2026-09-02")
+        self.assertEqual(item["comparison"]["previous"]["date"], "2026-09-01")
+        self.assertEqual(item["comparison"]["previous"]["value"], 4.79)
+        self.assertEqual(item["comparison"]["current"]["date"], "2026-09-02")
+        self.assertEqual(item["comparison"]["current"]["value"], 4.79)
+        self.assertEqual(MODULE.treasury_comparison_issues([item], "2026-09-02"), ["US02Y", "US30Y"])
+
+    def test_treasury_missing_previous_is_a_validation_issue(self):
+        assets = [
+            {
+                "id": asset_id,
+                "comparison": {
+                    "kind": "official_daily",
+                    "previous": None if asset_id == "US10Y" else {
+                        "date": "2026-09-01", "value": 4.0
+                    },
+                    "current": {"date": "2026-09-02", "value": 4.1},
+                },
+            }
+            for asset_id in MODULE.TREASURY_IDS
+        ]
+        self.assertEqual(
+            MODULE.treasury_comparison_issues(assets, "2026-09-02"),
+            ["US10Y"],
+        )
+
     def test_generated_after_new_york_close(self):
         before = dt.datetime(2026, 8, 25, 19, 59, tzinfo=dt.timezone.utc)
         after = dt.datetime(2026, 8, 25, 20, 1, tzinfo=dt.timezone.utc)

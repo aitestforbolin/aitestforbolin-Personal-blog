@@ -31,6 +31,7 @@ REQUIRED_MARKETS = {
 REQUIRED_BREADTH = {"SP500", "NASDAQ"}
 CANDIDATES = ["NVDA", "AVGO", "AMD", "MU", "AMAT", "LRCX", "MSFT", "AAPL", "AMZN", "GOOGL", "META"]
 FIXED_ANCHOR_IDS = {"DXY", "BRN1!", "GOLD", "BTCUSDT"}
+TREASURY_IDS = {"US02Y", "US10Y", "US30Y"}
 YAHOO_ANCHOR_SYMBOLS = {"BTCUSDT": "BTC-USD"}
 TIMEOUT = 35
 
@@ -138,15 +139,29 @@ def macro_asset(row: dict, trading_date: str | None) -> dict:
         and isinstance(point.get("value"), (int, float))
     ]
     valid.sort(key=lambda point: point["time"])
-    if row.get("id") in {"US02Y", "US10Y", "US30Y"}:
-        daily = []
+    if row.get("id") in TREASURY_IDS:
+        # The official curve may be unchanged on consecutive days. Group by
+        # data date, not by value, or a flat close incorrectly erases "previous".
+        by_date: dict[str, dict] = {}
         for point in valid:
-            if not daily or daily[-1]["value"] != point["value"]:
-                daily.append({"time": point["time"], "value": point["value"]})
+            day = market_date({"updatedAt": point["time"]})
+            if not day or (trading_date and day > trading_date):
+                continue
+            old = by_date.get(day)
+            if old is None or point["time"] > old["time"]:
+                by_date[day] = {
+                    "date": day,
+                    "time": point["time"],
+                    "value": point["value"],
+                }
+        days = sorted(by_date)
+        current = by_date.get(trading_date) if trading_date else None
+        previous_days = [day for day in days if not trading_date or day < trading_date]
+        previous = by_date[previous_days[-1]] if previous_days else None
         item["comparison"] = {
             "kind": "official_daily",
-            "previous": daily[-2] if len(daily) >= 2 else None,
-            "current": daily[-1] if daily else None,
+            "previous": previous,
+            "current": current,
         }
         return item
 
@@ -435,6 +450,33 @@ def inherit_macro_comparisons(
     return inherited, gaps
 
 
+def treasury_comparison_issues(
+    assets: list[dict], trading_date: str | None
+) -> list[str]:
+    """Require two dated official observations, including the target date."""
+    by_id = {str(asset.get("id")): asset for asset in assets}
+    issues: list[str] = []
+    for asset_id in sorted(TREASURY_IDS):
+        comparison = by_id.get(asset_id, {}).get("comparison")
+        if not isinstance(comparison, dict):
+            issues.append(asset_id)
+            continue
+        previous = comparison.get("previous")
+        current = comparison.get("current")
+        if (
+            not isinstance(previous, dict)
+            or not isinstance(current, dict)
+            or finite_number(previous.get("value")) is None
+            or finite_number(current.get("value")) is None
+            or not trading_date
+            or current.get("date") != trading_date
+            or not isinstance(previous.get("date"), str)
+            or previous["date"] >= trading_date
+        ):
+            issues.append(asset_id)
+    return issues
+
+
 def classify_comparison_gaps(
     assets: list[dict], trading_date: str | None, gaps: list[str]
 ) -> tuple[list[str], list[str]]:
@@ -569,6 +611,10 @@ def build_packet(now: dt.datetime | None = None) -> dict:
     critical_comparison_gaps, comparison_warnings = classify_comparison_gaps(
         macro_assets, trading_date, comparison_gaps
     )
+    critical_comparison_gaps = sorted(set(
+        critical_comparison_gaps
+        + treasury_comparison_issues(macro_assets, trading_date)
+    ))
     source_audit["macroComparisons"] = {
         "status": "incomplete" if critical_comparison_gaps else "partial" if comparison_warnings else "ok",
         "inherited": inherited,
