@@ -1,19 +1,5 @@
 [
   {
-    "date": "2026-08-20",
-    "time_et": "14:00",
-    "time_shanghai": "02:00",
-    "title": "FOMC Meeting Minutes",
-    "title_cn": "FOMC 会议纪要",
-    "period": "July 2026 meeting",
-    "category": "fed",
-    "importance": "medium",
-    "stars": 3,
-    "source": "Federal Reserve",
-    "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-    "date_et": "2026-08-19"
-  },
-  {
     "date": "2026-08-21",
     "time_et": "09:45",
     "time_shanghai": "21:45",
@@ -102,6 +88,21 @@
     "date": "2026-09-01",
     "time_et": "10:00",
     "time_shanghai": "22:00",
+    "title": "Job Openings and Labor Turnover Survey",
+    "title_cn": "美国JOLTS职位空缺",
+    "period": "July 2026",
+    "category": "jobs",
+    "importance": "medium",
+    "stars": 3,
+    "source": "BLS",
+    "url": "https://www.bls.gov/schedule/news_release/jolts.htm",
+    "fallback_url": "https://fred.stlouisfed.org/series/JTSJOL",
+    "fallback_label": "FRED 备用"
+  },
+  {
+    "date": "2026-09-01",
+    "time_et": "10:00",
+    "time_shanghai": "22:00",
     "title": "Manufacturing PMI Report on Business",
     "title_cn": "美国ISM制造业PMI",
     "period": "August 2026",
@@ -147,6 +148,51 @@
     "previous": "54.1",
     "result_source": "Forex Factory 市场日历",
     "result_url": "https://www.forexfactory.com/calendar"
+  },
+  {
+    "date": "2026-09-04",
+    "time_et": "08:30",
+    "time_shanghai": "20:30",
+    "title": "Employment Situation",
+    "title_cn": "美国非农 / 失业率 / 平均时薪",
+    "period": "August 2026",
+    "category": "jobs",
+    "importance": "critical",
+    "stars": 5,
+    "source": "BLS",
+    "url": "https://www.bls.gov/schedule/news_release/empsit.htm",
+    "fallback_url": "https://fred.stlouisfed.org/release?rid=50",
+    "fallback_label": "FRED 备用"
+  },
+  {
+    "date": "2026-09-10",
+    "time_et": "08:30",
+    "time_shanghai": "20:30",
+    "title": "Producer Price Index",
+    "title_cn": "美国PPI",
+    "period": "August 2026",
+    "category": "inflation",
+    "importance": "medium",
+    "stars": 3,
+    "source": "BLS",
+    "url": "https://www.bls.gov/schedule/news_release/ppi.htm",
+    "fallback_url": "https://fred.stlouisfed.org/release?rid=46",
+    "fallback_label": "FRED 备用"
+  },
+  {
+    "date": "2026-09-11",
+    "time_et": "08:30",
+    "time_shanghai": "20:30",
+    "title": "Consumer Price Index",
+    "title_cn": "美国CPI / 核心CPI",
+    "period": "August 2026",
+    "category": "inflation",
+    "importance": "critical",
+    "stars": 5,
+    "source": "BLS",
+    "url": "https://www.bls.gov/schedule/news_release/cpi.htm",
+    "fallback_url": "https://fred.stlouisfed.org/release?rid=10",
+    "fallback_label": "FRED 备用"
   },
   {
     "date": "2026-09-17",
@@ -218,6 +264,21 @@
     "fallback_label": "FRED 备用"
   },
   {
+    "date": "2026-09-29",
+    "time_et": "10:00",
+    "time_shanghai": "22:00",
+    "title": "Job Openings and Labor Turnover Survey",
+    "title_cn": "美国JOLTS职位空缺",
+    "period": "August 2026",
+    "category": "jobs",
+    "importance": "medium",
+    "stars": 3,
+    "source": "BLS",
+    "url": "https://www.bls.gov/schedule/news_release/jolts.htm",
+    "fallback_url": "https://fred.stlouisfed.org/series/JTSJOL",
+    "fallback_label": "FRED 备用"
+  },
+  {
     "date": "2026-09-30",
     "time_et": "08:30",
     "time_shanghai": "20:30",
@@ -255,6 +316,21 @@
     "stars": 3,
     "source": "ISM",
     "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/"
+  },
+  {
+    "date": "2026-10-02",
+    "time_et": "08:30",
+    "time_shanghai": "20:30",
+    "title": "Employment Situation",
+    "title_cn": "美国非农 / 失业率 / 平均时薪",
+    "period": "September 2026",
+    "category": "jobs",
+    "importance": "critical",
+    "stars": 5,
+    "source": "BLS",
+    "url": "https://www.bls.gov/schedule/news_release/empsit.htm",
+    "fallback_url": "https://fred.stlouisfed.org/release?rid=50",
+    "fallback_label": "FRED 备用"
   },
   {
     "date": "2026-10-05",
