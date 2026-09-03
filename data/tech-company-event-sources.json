@@ -4,57 +4,6 @@
   "horizon_days": 35,
   "companies": [
     {
-      "id": "alphabet",
-      "name": "Alphabet",
-      "ticker": "GOOGL",
-      "group": "platform_cloud",
-      "group_zh": "平台与云",
-      "default_timezone": "America/Los_Angeles",
-      "source_label": "Alphabet Investor Relations",
-      "discovery_urls": [
-        "https://abc.xyz/investor/events/default.aspx",
-        "https://abc.xyz/investor/news/"
-      ],
-      "allowed_domains": [
-        "abc.xyz",
-        "alphabet2025ir.q4web.com"
-      ]
-    },
-    {
-      "id": "microsoft",
-      "name": "Microsoft",
-      "ticker": "MSFT",
-      "group": "platform_cloud",
-      "group_zh": "平台与云",
-      "default_timezone": "America/Los_Angeles",
-      "source_label": "Microsoft Investor Relations",
-      "discovery_urls": [
-        "https://www.microsoft.com/en-us/investor/events",
-        "https://news.microsoft.com/source/topics/company-news/"
-      ],
-      "allowed_domains": [
-        "microsoft.com",
-        "news.microsoft.com"
-      ]
-    },
-    {
-      "id": "amazon",
-      "name": "Amazon",
-      "ticker": "AMZN",
-      "group": "platform_cloud",
-      "group_zh": "平台与云",
-      "default_timezone": "America/Los_Angeles",
-      "source_label": "Amazon Investor Relations",
-      "discovery_urls": [
-        "https://ir.aboutamazon.com/events/default.aspx",
-        "https://ir.aboutamazon.com/news-release/default.aspx"
-      ],
-      "allowed_domains": [
-        "aboutamazon.com",
-        "ir.aboutamazon.com"
-      ]
-    },
-    {
       "id": "meta",
       "name": "Meta",
       "ticker": "META",
@@ -67,11 +16,7 @@
         "https://investor.atmeta.com/investor-news/default.aspx",
         "https://about.fb.com/news/"
       ],
-      "allowed_domains": [
-        "investor.atmeta.com",
-        "about.fb.com",
-        "meta.com"
-      ]
+      "allowed_domains": ["investor.atmeta.com", "about.fb.com", "meta.com"]
     },
     {
       "id": "nvidia",
@@ -85,62 +30,96 @@
         "https://investor.nvidia.com/events-and-presentations/events-and-presentations/default.aspx",
         "https://investor.nvidia.com/news-and-events/press-releases/default.aspx"
       ],
-      "allowed_domains": [
-        "investor.nvidia.com",
-        "nvidia.com"
-      ]
+      "allowed_domains": ["investor.nvidia.com", "nvidia.com"]
     },
     {
-      "id": "broadcom",
-      "name": "Broadcom",
-      "ticker": "AVGO",
-      "group": "ai_semiconductor",
-      "group_zh": "AI 与半导体",
+      "id": "amazon",
+      "name": "Amazon",
+      "ticker": "AMZN",
+      "group": "platform_cloud",
+      "group_zh": "平台与云",
+      "default_timezone": "America/Los_Angeles",
+      "source_label": "Amazon Investor Relations",
+      "discovery_urls": [
+        "https://ir.aboutamazon.com/events/default.aspx",
+        "https://ir.aboutamazon.com/news-release/default.aspx"
+      ],
+      "allowed_domains": ["aboutamazon.com", "ir.aboutamazon.com"]
+    },
+    {
+      "id": "alphabet",
+      "name": "Alphabet",
+      "ticker": "GOOGL",
+      "group": "platform_cloud",
+      "group_zh": "平台与云",
+      "default_timezone": "America/Los_Angeles",
+      "source_label": "Alphabet Investor Relations",
+      "discovery_urls": [
+        "https://abc.xyz/investor/events/default.aspx",
+        "https://abc.xyz/investor/news/"
+      ],
+      "allowed_domains": ["abc.xyz", "alphabet2025ir.q4web.com"]
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "ticker": "AAPL",
+      "group": "consumer_platform",
+      "group_zh": "消费与终端",
+      "default_timezone": "America/Los_Angeles",
+      "source_label": "Apple Investor Relations",
+      "discovery_urls": ["https://investor.apple.com/", "https://www.apple.com/newsroom/topics/events/"],
+      "allowed_domains": ["apple.com", "investor.apple.com"]
+    },
+    {
+      "id": "vanguard_sp500_etf",
+      "name": "Vanguard S&P 500 ETF",
+      "ticker": "VOO",
+      "group": "market_benchmark",
+      "group_zh": "市场基准 ETF",
       "default_timezone": "America/New_York",
-      "source_label": "Broadcom Investor Relations",
-      "discovery_urls": [
-        "https://investors.broadcom.com/company-information/events-presentations",
-        "https://investors.broadcom.com/news-releases"
-      ],
-      "allowed_domains": [
-        "investors.broadcom.com",
-        "broadcom.com"
-      ]
+      "source_label": "Vanguard VOO Fund Information",
+      "discovery_urls": ["https://investor.vanguard.com/investment-products/etfs/profile/voo"],
+      "allowed_domains": ["investor.vanguard.com", "vanguard.com"]
     },
     {
-      "id": "amd",
-      "name": "AMD",
-      "ticker": "AMD",
-      "group": "ai_semiconductor",
-      "group_zh": "AI 与半导体",
-      "default_timezone": "America/Los_Angeles",
-      "source_label": "AMD Investor Relations",
+      "id": "jpmorgan_chase",
+      "name": "JPMorgan Chase",
+      "ticker": "JPM",
+      "group": "financials",
+      "group_zh": "金融",
+      "default_timezone": "America/New_York",
+      "source_label": "JPMorgan Chase Investor Relations",
       "discovery_urls": [
-        "https://ir.amd.com/news-events",
-        "https://ir.amd.com/news-events/ir-calendar",
-        "https://ir.amd.com/news-events/press-releases"
+        "https://www.jpmorganchase.com/ir/events-and-presentations",
+        "https://www.jpmorganchase.com/ir/quarterly-earnings"
       ],
-      "allowed_domains": [
-        "ir.amd.com",
-        "amd.com"
-      ]
+      "allowed_domains": ["jpmorganchase.com"]
     },
     {
-      "id": "intel",
-      "name": "Intel",
-      "ticker": "INTC",
-      "group": "ai_semiconductor",
-      "group_zh": "AI 与半导体",
+      "id": "microsoft",
+      "name": "Microsoft",
+      "ticker": "MSFT",
+      "group": "platform_cloud",
+      "group_zh": "平台与云",
       "default_timezone": "America/Los_Angeles",
-      "source_label": "Intel Investor Relations",
+      "source_label": "Microsoft Investor Relations",
       "discovery_urls": [
-        "https://www.intc.com/news-events/ir-calendar",
-        "https://www.intc.com/news-events/press-releases?category=financial&page=1"
+        "https://www.microsoft.com/en-us/investor/events",
+        "https://news.microsoft.com/source/topics/company-news/"
       ],
-      "allowed_domains": [
-        "intc.com",
-        "intel.com"
-      ]
+      "allowed_domains": ["microsoft.com", "news.microsoft.com"]
+    },
+    {
+      "id": "walmart",
+      "name": "Walmart",
+      "ticker": "WMT",
+      "group": "consumer_retail",
+      "group_zh": "消费与零售",
+      "default_timezone": "America/Chicago",
+      "source_label": "Walmart Investor Relations",
+      "discovery_urls": ["https://stock.walmart.com/", "https://corporate.walmart.com/news/events"],
+      "allowed_domains": ["stock.walmart.com", "corporate.walmart.com", "walmart.com"]
     },
     {
       "id": "micron",
@@ -154,144 +133,21 @@
         "https://investors.micron.com/events-and-presentations",
         "https://investors.micron.com/latest-news-english"
       ],
-      "allowed_domains": [
-        "investors.micron.com",
-        "micron.com"
-      ]
+      "allowed_domains": ["investors.micron.com", "micron.com"]
     },
     {
-      "id": "tsmc",
-      "name": "TSMC",
-      "ticker": "TSM",
+      "id": "sandisk",
+      "name": "SanDisk",
+      "ticker": "SNDK",
       "group": "ai_semiconductor",
       "group_zh": "AI 与半导体",
-      "default_timezone": "Asia/Taipei",
-      "source_label": "TSMC Investor Relations",
-      "discovery_urls": [
-        "https://investor.tsmc.com/english/financial-calendar"
-      ],
-      "allowed_domains": [
-        "investor.tsmc.com",
-        "tsmc.com"
-      ]
-    },
-    {
-      "id": "asml",
-      "name": "ASML",
-      "ticker": "ASML",
-      "group": "ai_semiconductor",
-      "group_zh": "AI 与半导体",
-      "default_timezone": "Europe/Amsterdam",
-      "source_label": "ASML Investor Relations",
-      "discovery_urls": [
-        "https://www.asml.com/en/investors/financial-calendar"
-      ],
-      "allowed_domains": [
-        "asml.com",
-        "tools.eurolandir.com"
-      ]
-    },
-    {
-      "id": "apple",
-      "name": "Apple",
-      "ticker": "AAPL",
-      "group": "consumer_auto",
-      "group_zh": "消费终端与汽车",
       "default_timezone": "America/Los_Angeles",
-      "source_label": "Apple Investor Relations",
+      "source_label": "SanDisk Investor Relations",
       "discovery_urls": [
-        "https://investor.apple.com/",
-        "https://www.apple.com/newsroom/topics/events/"
+        "https://investor.sandisk.com/events-and-presentations/default.aspx",
+        "https://investor.sandisk.com/news-events/news-releases/default.aspx"
       ],
-      "allowed_domains": [
-        "apple.com",
-        "investor.apple.com"
-      ]
-    },
-    {
-      "id": "tesla",
-      "name": "Tesla",
-      "ticker": "TSLA",
-      "group": "consumer_auto",
-      "group_zh": "消费终端与汽车",
-      "default_timezone": "America/Chicago",
-      "source_label": "Tesla Investor Relations",
-      "discovery_urls": [
-        "https://ir.tesla.com/"
-      ],
-      "allowed_domains": [
-        "ir.tesla.com",
-        "tesla.com"
-      ]
-    },
-    {
-      "id": "oracle",
-      "name": "Oracle",
-      "ticker": "ORCL",
-      "group": "enterprise_software",
-      "group_zh": "企业软件",
-      "default_timezone": "America/Chicago",
-      "source_label": "Oracle Investor Relations",
-      "discovery_urls": [
-        "https://investor.oracle.com/events-and-presentations/default.aspx",
-        "https://investor.oracle.com/investor-news/default.aspx"
-      ],
-      "allowed_domains": [
-        "investor.oracle.com",
-        "oracle.com"
-      ]
-    },
-    {
-      "id": "salesforce",
-      "name": "Salesforce",
-      "ticker": "CRM",
-      "group": "enterprise_software",
-      "group_zh": "企业软件",
-      "default_timezone": "America/Los_Angeles",
-      "source_label": "Salesforce Investor Relations",
-      "discovery_urls": [
-        "https://investor.salesforce.com/events-and-presentations/default.aspx",
-        "https://investor.salesforce.com/news/default.aspx"
-      ],
-      "allowed_domains": [
-        "investor.salesforce.com",
-        "salesforce.com"
-      ]
-    },
-    {
-      "id": "home_depot",
-      "name": "Home Depot",
-      "ticker": "HD",
-      "group": "consumer_retail",
-      "group_zh": "消费与零售",
-      "default_timezone": "America/New_York",
-      "source_label": "Home Depot Investor Relations",
-      "discovery_urls": [
-        "https://ir.homedepot.com/events-and-presentations",
-        "https://ir.homedepot.com/news-releases"
-      ],
-      "allowed_domains": [
-        "ir.homedepot.com",
-        "homedepot.com"
-      ]
-    },
-    {
-      "id": "walmart",
-      "name": "Walmart",
-      "ticker": "WMT",
-      "group": "consumer_retail",
-      "group_zh": "消费与零售",
-      "default_timezone": "America/Chicago",
-      "source_label": "Walmart Investor Relations",
-      "discovery_urls": [
-        "https://stock.walmart.com/",
-        "https://corporate.walmart.com/news/events"
-      ],
-      "allowed_domains": [
-        "stock.walmart.com",
-        "corporate.walmart.com",
-        "walmart.com"
-      ]
+      "allowed_domains": ["investor.sandisk.com", "sandisk.com"]
     }
   ],
   "regulator_sources": [
@@ -300,11 +156,5 @@
     "https://www.justice.gov/atr/press-releases",
     "https://competition-policy.ec.europa.eu/news_en"
   ],
-  "regulator_allowed_domains": [
-    "sec.gov",
-    "ftc.gov",
-    "justice.gov",
-    "ec.europa.eu",
-    "europa.eu"
-  ]
+  "regulator_allowed_domains": ["sec.gov", "ftc.gov", "justice.gov", "ec.europa.eu", "europa.eu"]
 }

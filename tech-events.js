@@ -1,5 +1,5 @@
 (function () {
-  const DATA_URL = "data/tech-company-events.json?v=20260818-retail-earnings-1";
+  const DATA_URL = "data/tech-company-events.json?v=20260903-tracked-universe-1";
   const SHANGHAI_OFFSET = "+08:00";
   const DEFAULT_HORIZON_DAYS = 7;
   const DAY_MS = 86400000;

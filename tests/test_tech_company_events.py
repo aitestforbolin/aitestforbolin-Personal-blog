@@ -44,6 +44,13 @@ class TechCompanyEventTests(unittest.TestCase):
         self.assertEqual(event["time_bjt"], "05:00")
         self.assertEqual(event["market_timing"], "after_close")
 
+    def test_tracking_universe_matches_requested_symbols(self):
+        self.assertEqual(
+            [company["ticker"] for company in self.config["companies"]],
+            ["META", "NVDA", "AMZN", "GOOGL", "AAPL", "VOO", "JPM", "MSFT", "WMT", "MU", "SNDK"],
+        )
+        self.assertEqual(len(self.companies), 11)
+
     def test_standard_time_converts_with_sixteen_hour_offset(self):
         html = """
         <html><body>
@@ -66,14 +73,14 @@ class TechCompanyEventTests(unittest.TestCase):
     def test_visible_timezone_wins_over_naive_machine_time(self):
         html = """
         <html><body>
-          <h1>AMD Fiscal Second Quarter 2026 Financial Results</h1>
+          <h1>NVIDIA Fiscal Second Quarter 2026 Financial Results</h1>
           <time datetime="2026-08-04T17:00:00">Aug 4, 2026 • 2:00 pm PDT</time>
         </body></html>
         """
         event = updater.build_discovered_event(
-            self.companies["amd"],
-            "AMD Fiscal Second Quarter 2026 Financial Results",
-            "https://ir.amd.com/news-events/ir-calendar/detail/example",
+            self.companies["nvidia"],
+            "NVIDIA Fiscal Second Quarter 2026 Financial Results",
+            "https://investor.nvidia.com/events-and-presentations/default.aspx",
             html,
             date(2026, 7, 21),
             date(2026, 8, 25),
@@ -138,7 +145,22 @@ class TechCompanyEventTests(unittest.TestCase):
         self.assertEqual(merged[0]["previous_timing"]["window_start"], "2026-07-30")
 
     def test_validator_rejects_non_official_source(self):
-        curated = json.loads(updater.CURATED_EVENTS.read_text(encoding="utf-8"))
+        curated = [{
+            "event_id": "nvidia-earnings-test",
+            "company_id": "nvidia",
+            "event_category": "earnings",
+            "event_name": "NVIDIA 财报",
+            "importance": "core",
+            "status": "scheduled",
+            "confirmation": "confirmed",
+            "date_type": "exact",
+            "date_bjt": "2026-07-30",
+            "time_bjt": "05:00",
+            "market_timing": "after_close",
+            "source_label": "NVIDIA Investor Relations",
+            "source_url": "https://investor.nvidia.com/",
+            "updated_at": "2026-07-21T08:15:00+08:00",
+        }]
         events = updater.merge_events(
             list(self.companies.values()),
             curated,
