@@ -1,6 +1,13 @@
 name: Update US macro calendar
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/repair_us_macro_calendar.py"
+      - "tests/test_us_macro_calendar_repair.py"
+      - ".github/workflows/update-us-macro-calendar.yml"
   schedule:
     # 05:35 and 23:10 Asia/Shanghai every day; the morning run feeds the 07:00 briefing.
     - cron: "35 21 * * *"
@@ -33,6 +40,9 @@ jobs:
       - name: Refresh calendar data
         run: python scripts/update_us_macro_calendar.py
 
+      - name: Repair missing core BLS releases
+        run: python scripts/repair_us_macro_calendar.py
+
       - name: Rebuild unified China-US calendar
         run: python scripts/merge_macro_calendars.py
 
@@ -41,8 +51,9 @@ jobs:
 
       - name: Validate calendar data and updater behavior
         run: |
-          python -m py_compile scripts/update_us_macro_calendar.py scripts/update_us_macro_dashboard.py scripts/merge_macro_calendars.py
+          python -m py_compile scripts/update_us_macro_calendar.py scripts/repair_us_macro_calendar.py scripts/update_us_macro_dashboard.py scripts/merge_macro_calendars.py
           python -m unittest discover -s tests -p 'test_us_macro_calendar.py' -v
+          python -m unittest discover -s tests -p 'test_us_macro_calendar_repair.py' -v
           python -m unittest discover -s tests -p 'test_us_macro_dashboard.py' -v
           python -m unittest discover -s tests -p 'test_macro_calendar_merge.py' -v
           python scripts/merge_macro_calendars.py --validate-only
