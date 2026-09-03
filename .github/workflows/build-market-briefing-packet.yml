@@ -4,6 +4,7 @@ on:
   workflow_run:
     workflows:
       - Update market prices
+      - Capture gold close backup
     types:
       - completed
   schedule:
@@ -32,17 +33,28 @@ jobs:
   build-market-briefing-packet:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: main
-      - name: Check event-driven close snapshot
+      - name: Load the previous canonical packet
+        run: |
+          git fetch origin market-briefing-data || true
+          if git show-ref --verify --quiet refs/remotes/origin/market-briefing-data; then
+            git show origin/market-briefing-data:data/market-briefing-packet.json \
+              > /tmp/previous-market-briefing-packet.json || true
+          fi
+      - name: Check completed close snapshot
         id: packet_gate
         env:
           EVENT_NAME: ${{ github.event_name }}
+          PREVIOUS_PACKET_PATH: /tmp/previous-market-briefing-packet.json
         run: |
-          if [ "$EVENT_NAME" != "workflow_run" ] || python scripts/market_packet_trigger.py; then
+          if [ "$EVENT_NAME" = "workflow_dispatch" ] \
+            || [ "$EVENT_NAME" = "schedule" ] \
+            || python scripts/market_packet_trigger.py; then
             echo "build=true" >> "$GITHUB_OUTPUT"
           else
             echo "build=false" >> "$GITHUB_OUTPUT"
@@ -52,14 +64,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-      - name: Load the previous canonical packet
-        if: steps.packet_gate.outputs.build == 'true'
-        run: |
-          git fetch origin market-briefing-data || true
-          if git show-ref --verify --quiet refs/remotes/origin/market-briefing-data; then
-            git show origin/market-briefing-data:data/market-briefing-packet.json \
-              > /tmp/previous-market-briefing-packet.json || true
-          fi
       - uses: actions/setup-python@v5
         if: steps.packet_gate.outputs.build == 'true'
         with:

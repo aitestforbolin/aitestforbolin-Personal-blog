@@ -2,9 +2,9 @@ name: Update market prices
 
 on:
   schedule:
-    # Avoid GitHub's busiest top/bottom-of-hour cron window. During both EDT and
-    # EST this creates two samples inside the 60 minutes before the 16:00 ET close.
-    - cron: "11,41 * * * *"
+    # Six close-window samples cover both EDT (20:00 UTC close) and EST
+    # (21:00 UTC close) without rewriting main around the clock.
+    - cron: "11,41 19-21 * * 1-5"
   workflow_dispatch:
 
 permissions:

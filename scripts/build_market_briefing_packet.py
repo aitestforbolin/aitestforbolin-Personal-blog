@@ -7,6 +7,7 @@ import datetime as dt
 import json
 import os
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
@@ -32,7 +33,22 @@ REQUIRED_BREADTH = {"SP500", "NASDAQ"}
 CANDIDATES = ["NVDA", "AVGO", "AMD", "MU", "AMAT", "LRCX", "MSFT", "AAPL", "AMZN", "GOOGL", "META"]
 FIXED_ANCHOR_IDS = {"DXY", "BRN1!", "GOLD", "BTCUSDT"}
 TREASURY_IDS = {"US02Y", "US10Y", "US30Y"}
-YAHOO_ANCHOR_SYMBOLS = {"BTCUSDT": "BTC-USD"}
+MACRO_IDS = FIXED_ANCHOR_IDS | TREASURY_IDS
+SESSION_MARKET_IDS = REQUIRED_MARKETS - MACRO_IDS
+YAHOO_ANCHOR_SYMBOLS = {
+    "DXY": "DX-Y.NYB",
+    "BRN1!": "BZ=F",
+    "BTCUSDT": "BTC-USD",
+}
+EXPECTED_MACRO_SOURCES = {
+    "DXY": "Yahoo Finance",
+    "US02Y": "U.S. Treasury",
+    "US10Y": "U.S. Treasury",
+    "US30Y": "U.S. Treasury",
+    "BRN1!": "Yahoo Finance",
+    "GOLD": "Swissquote",
+    "BTCUSDT": "Yahoo Finance",
+}
 TIMEOUT = 35
 
 
@@ -108,6 +124,17 @@ def same_date_cached_breadth(packet: object, trading_date: str | None) -> list[d
     return rows if not missing and not invalid else []
 
 
+def source_metadata(payload: object) -> dict:
+    """Preserve upstream revision and observation time for contract auditing."""
+    if not isinstance(payload, dict):
+        return {}
+    return {
+        key: payload[key]
+        for key in ("sourceRevision", "fetchedAt")
+        if payload.get(key) is not None
+    }
+
+
 def market_date(row: dict) -> str | None:
     for key in ("tradingDate", "date", "asOf"):
         value = row.get(key)
@@ -121,12 +148,51 @@ def market_date(row: dict) -> str | None:
     return None
 
 
-def compact_market(row: dict) -> dict:
+def session_market_date_issues(
+    rows: list[dict], trading_date: str | None
+) -> list[str]:
+    """Require every index/sector observation to belong to one close session."""
+    by_id = {str(row.get("id")): row for row in rows if row.get("id")}
+    issues: list[str] = []
+    for market_id in sorted(SESSION_MARKET_IDS):
+        row = by_id.get(market_id)
+        if not row:
+            continue
+        observed = market_date(row)
+        if not trading_date or observed != trading_date:
+            issues.append(f"{market_id}:{observed or 'missing_date'}")
+            continue
+        if (
+            finite_number(row.get("price")) is None
+            or finite_number(row.get("changePercent")) is None
+            or str(row.get("status") or "ok").casefold() == "unavailable"
+        ):
+            issues.append(f"{market_id}:invalid_values")
+    return issues
+
+
+def macro_provider_issues(assets: list[dict]) -> list[str]:
+    by_id = {str(asset.get("id")): asset for asset in assets}
+    issues: list[str] = []
+    for asset_id, expected in EXPECTED_MACRO_SOURCES.items():
+        actual = by_id.get(asset_id, {}).get("source")
+        if not _same_provider(actual, expected):
+            issues.append(f"{asset_id}:{actual or 'missing'}")
+    return sorted(issues)
+
+
+def compact_market(row: dict, trading_date: str | None = None) -> dict:
     keys = (
         "id", "name", "price", "previousClose", "change", "changePercent",
         "currency", "updatedAt", "source", "status", "seriesStatus",
     )
-    return {key: row.get(key) for key in keys if key in row}
+    item = {key: row.get(key) for key in keys if key in row}
+    observed_date = market_date(row)
+    if observed_date:
+        item["observedDate"] = observed_date
+    if row.get("id") in SESSION_MARKET_IDS and trading_date:
+        item["tradingDate"] = trading_date
+    return item
 
 
 def macro_asset(row: dict, trading_date: str | None) -> dict:
@@ -252,12 +318,48 @@ def recover_yahoo_anchor(asset: dict, trading_date: str | None) -> bool:
     return changed
 
 
+def inherit_same_date_gold_latest(
+    assets: list[dict], trading_date: str | None, previous_packet: object
+) -> bool:
+    """Keep a validated same-session Swissquote quote during delayed rebuilds."""
+    if (
+        not trading_date
+        or not isinstance(previous_packet, dict)
+        or previous_packet.get("tradingDate") != trading_date
+    ):
+        return False
+    by_id = {str(asset.get("id")): asset for asset in assets}
+    gold = by_id.get("GOLD")
+    if not isinstance(gold, dict) or market_date(gold) == trading_date:
+        return False
+    previous_gold = next(
+        (
+            row for row in previous_packet.get("macroAssets", [])
+            if isinstance(row, dict) and row.get("id") == "GOLD"
+        ),
+        None,
+    )
+    if (
+        not isinstance(previous_gold, dict)
+        or not _same_provider(previous_gold.get("source"), "Swissquote")
+        or not _same_provider(gold.get("source"), previous_gold.get("source"))
+        or finite_number(previous_gold.get("price")) is None
+        or market_date(previous_gold) != trading_date
+    ):
+        return False
+    for key in ("price", "updatedAt", "status", "seriesStatus", "observedDate"):
+        if key in previous_gold:
+            gold[key] = previous_gold[key]
+    gold["latestInheritedFrom"] = "same_date_previous_packet"
+    return True
+
+
 def fetch_candidate(symbol: str) -> dict:
     url = (
         "https://query1.finance.yahoo.com/v8/finance/chart/"
         f"{symbol}?range=5d&interval=1d&events=div%2Csplits"
     )
-    payload = fetch_json(url)
+    payload = fetch_json(url, attempts=2)
     result = payload["chart"]["result"][0]
     meta = result.get("meta", {})
     closes = result.get("indicators", {}).get("quote", [{}])[0].get("close") or []
@@ -283,6 +385,10 @@ def fetch_candidate(symbol: str) -> dict:
     }
 
 
+def candidate_quote_issues(candidates: list[dict]) -> list[str]:
+    return [] if len(candidates) >= 5 else [f"insufficient_candidate_quotes:{len(candidates)}"]
+
+
 def _event_rows(payload: object) -> list[dict]:
     if isinstance(payload, list):
         return [row for row in payload if isinstance(row, dict)]
@@ -300,7 +406,7 @@ def local_calendar_date(moment: dt.datetime) -> dt.date:
 def future_events(today: dt.date, root: Path = ROOT) -> list[dict]:
     output: list[dict] = []
     macro = load_json(root / "data" / "us-macro-calendar.json", [])
-    tech = load_json(root / "data" / "tech-company-events.json", {})
+    tech = load_json(root / "data" / "tech-company-events-curated.json", [])
     cutoff = today + dt.timedelta(days=14)
     seen: set[tuple[str, str]] = set()
     for row in _event_rows(macro) + _event_rows(tech):
@@ -477,6 +583,47 @@ def treasury_comparison_issues(
     return issues
 
 
+def fixed_comparison_issues(
+    assets: list[dict], trading_date: str | None
+) -> list[str]:
+    """Reject stale or malformed fixed-close comparisons, even when non-null."""
+    by_id = {str(asset.get("id")): asset for asset in assets}
+    issues: list[str] = []
+    for asset_id in sorted(FIXED_ANCHOR_IDS - {"GOLD"}):
+        comparison = by_id.get(asset_id, {}).get("comparison")
+        previous = comparison.get("previous") if isinstance(comparison, dict) else None
+        current = comparison.get("current") if isinstance(comparison, dict) else None
+        if (
+            not isinstance(previous, dict)
+            or not isinstance(current, dict)
+            or finite_number(previous.get("value")) is None
+            or finite_number(current.get("value")) is None
+            or not trading_date
+            or current.get("date") != trading_date
+            or not isinstance(previous.get("date"), str)
+            or previous["date"] >= trading_date
+        ):
+            issues.append(asset_id)
+
+    gold = by_id.get("GOLD", {})
+    comparison = gold.get("comparison")
+    if isinstance(comparison, dict) and comparison.get("current") is not None:
+        previous = comparison.get("previous")
+        current = comparison.get("current")
+        if (
+            not isinstance(previous, dict)
+            or not isinstance(current, dict)
+            or finite_number(previous.get("value")) is None
+            or finite_number(current.get("value")) is None
+            or not trading_date
+            or current.get("date") != trading_date
+            or not isinstance(previous.get("date"), str)
+            or previous["date"] >= trading_date
+        ):
+            issues.append("GOLD")
+    return issues
+
+
 def classify_comparison_gaps(
     assets: list[dict], trading_date: str | None, gaps: list[str]
 ) -> tuple[list[str], list[str]]:
@@ -515,19 +662,27 @@ def build_packet(now: dt.datetime | None = None) -> dict:
     previous_packet_path = Path(os.getenv("PREVIOUS_PACKET_PATH", str(OUTPUT)))
     previous_packet = load_json(previous_packet_path, {})
 
+    raw_markets: object = {}
     try:
         raw_markets = fetch_json(MARKETS_URL)
         markets = rows_from(raw_markets, ("markets", "data", "items"))
-        source_audit["marketsApi"] = {"status": "ok", "url": MARKETS_URL, "count": len(markets)}
+        source_audit["marketsApi"] = {
+            "status": "ok", "url": MARKETS_URL, "count": len(markets),
+            **source_metadata(raw_markets),
+        }
     except Exception as exc:  # Actions must emit a diagnostic packet before failing validation.
         markets = []
         source_audit["marketsApi"] = {"status": "error", "url": MARKETS_URL, "error": type(exc).__name__}
         critical_errors.append("markets_api_unavailable")
 
+    raw_breadth: object = {}
     try:
         raw_breadth = fetch_json(BREADTH_URL)
         breadth = rows_from(raw_breadth, ("breadth", "data", "items"))
-        source_audit["breadthApi"] = {"status": "ok", "url": BREADTH_URL, "count": len(breadth)}
+        source_audit["breadthApi"] = {
+            "status": "ok", "url": BREADTH_URL, "count": len(breadth),
+            **source_metadata(raw_breadth),
+        }
     except Exception as exc:
         breadth = []
         source_audit["breadthApi"] = {"status": "error", "url": BREADTH_URL, "error": type(exc).__name__}
@@ -535,8 +690,15 @@ def build_packet(now: dt.datetime | None = None) -> dict:
 
     market_ids = {str(row.get("id")) for row in markets}
     missing_markets = sorted(REQUIRED_MARKETS - market_ids)
-    dates = [market_date(row) for row in markets if row.get("id") in {"SPX", "IXIC", "DJI"}]
-    trading_date = min((value for value in dates if value), default=None)
+    index_dates = {
+        value for value in (
+            market_date(row)
+            for row in markets
+            if row.get("id") in {"SPX", "IXIC", "DJI"}
+        ) if value
+    }
+    trading_date = next(iter(index_dates)) if len(index_dates) == 1 else None
+    session_date_issues = session_market_date_issues(markets, trading_date)
 
     missing_breadth, invalid_breadth = breadth_quality_issues(breadth)
     if missing_breadth or invalid_breadth:
@@ -552,27 +714,37 @@ def build_packet(now: dt.datetime | None = None) -> dict:
         critical_errors.append("missing_breadth:" + ",".join(missing_breadth))
     if invalid_breadth:
         critical_errors.append("invalid_breadth:" + ",".join(invalid_breadth))
+    if len(index_dates) > 1:
+        critical_errors.append("index_date_mismatch:" + ",".join(sorted(index_dates)))
+    if session_date_issues:
+        critical_errors.append("session_market_issues:" + ",".join(session_date_issues))
 
     if not trading_date:
         critical_errors.append("trading_date_unavailable")
     elif not generated_after_close(generated, trading_date):
         critical_errors.append("packet_generated_before_market_close")
 
-    candidates: list[dict] = []
+    candidates_by_ticker: dict[str, dict] = {}
     candidate_errors: list[str] = []
-    for ticker in CANDIDATES:
-        try:
-            candidate = fetch_candidate(ticker)
-            candidates.append(candidate)
-            if candidate.get("status") != "ok":
+    with ThreadPoolExecutor(max_workers=6) as executor:
+        futures = {executor.submit(fetch_candidate, ticker): ticker for ticker in CANDIDATES}
+        for future in as_completed(futures):
+            ticker = futures[future]
+            try:
+                candidate = future.result()
+                candidates_by_ticker[ticker] = candidate
+                if candidate.get("status") != "ok":
+                    candidate_errors.append(ticker)
+            except Exception:
                 candidate_errors.append(ticker)
-        except Exception:
-            candidate_errors.append(ticker)
+    candidates = [candidates_by_ticker[ticker] for ticker in CANDIDATES if ticker in candidates_by_ticker]
+    candidate_errors.sort()
     source_audit["candidateQuotes"] = {
         "status": "ok" if not candidate_errors else "partial",
         "provider": "Yahoo Finance",
         "count": len(candidates),
         "failed": candidate_errors,
+        "checkedAt": generated.isoformat(timespec="seconds"),
     }
 
     etf = load_json(ROOT / "data" / "btc-etf-flow.json", {})
@@ -581,22 +753,36 @@ def build_packet(now: dt.datetime | None = None) -> dict:
         "status": "ok" if isinstance(latest_etf, dict) else "missing",
         "provider": etf.get("source") if isinstance(etf, dict) else None,
         "date": latest_etf.get("date") if isinstance(latest_etf, dict) else None,
+        "checkedAt": generated.isoformat(timespec="seconds"),
     }
 
     macro_assets = [
         macro_asset(row, trading_date) for row in markets
         if row.get("id") in {"DXY", "US02Y", "US10Y", "US30Y", "BRN1!", "GOLD", "BTCUSDT"}
     ]
+    gold_latest_inherited = inherit_same_date_gold_latest(
+        macro_assets, trading_date, previous_packet
+    )
     yahoo_recovered: list[str] = []
     yahoo_recovery_errors: list[str] = []
-    for asset in macro_assets:
-        if str(asset.get("id")) not in YAHOO_ANCHOR_SYMBOLS:
-            continue
-        try:
-            if recover_yahoo_anchor(asset, trading_date):
-                yahoo_recovered.append(str(asset.get("id")))
-        except Exception as exc:
-            yahoo_recovery_errors.append(f"{asset.get('id')}:{type(exc).__name__}:{exc}")
+    yahoo_assets = [
+        asset for asset in macro_assets
+        if str(asset.get("id")) in YAHOO_ANCHOR_SYMBOLS
+    ]
+    with ThreadPoolExecutor(max_workers=3) as executor:
+        futures = {
+            executor.submit(recover_yahoo_anchor, asset, trading_date): asset
+            for asset in yahoo_assets
+        }
+        for future in as_completed(futures):
+            asset = futures[future]
+            try:
+                if future.result():
+                    yahoo_recovered.append(str(asset.get("id")))
+            except Exception as exc:
+                yahoo_recovery_errors.append(f"{asset.get('id')}:{type(exc).__name__}:{exc}")
+    yahoo_recovered.sort()
+    yahoo_recovery_errors.sort()
     source_audit["yahooAnchorRecovery"] = {
         "status": "ok" if yahoo_recovered else "error" if yahoo_recovery_errors else "not_needed",
         "recovered": yahoo_recovered,
@@ -608,34 +794,53 @@ def build_packet(now: dt.datetime | None = None) -> dict:
     inherited, comparison_gaps = inherit_macro_comparisons(
         macro_assets, trading_date, previous_packet, previous_status
     )
+    if gold_latest_inherited:
+        inherited.append("GOLD:same_date_previous_packet_latest")
     critical_comparison_gaps, comparison_warnings = classify_comparison_gaps(
         macro_assets, trading_date, comparison_gaps
     )
     critical_comparison_gaps = sorted(set(
         critical_comparison_gaps
         + treasury_comparison_issues(macro_assets, trading_date)
+        + fixed_comparison_issues(macro_assets, trading_date)
     ))
+    provider_issues = macro_provider_issues(macro_assets)
     source_audit["macroComparisons"] = {
         "status": "incomplete" if critical_comparison_gaps else "partial" if comparison_warnings else "ok",
         "inherited": inherited,
         "missing": critical_comparison_gaps,
         "warnings": comparison_warnings,
+        "providerIssues": provider_issues,
+        "checkedAt": generated.isoformat(timespec="seconds"),
     }
     source_audit["futureEvents"] = {
+        "status": "ok",
         "timezone": "Asia/Shanghai",
-        "techSource": "data/tech-company-events.json",
+        "techSource": "data/tech-company-events-curated.json",
+        "checkedAt": generated.isoformat(timespec="seconds"),
     }
     if critical_comparison_gaps:
         critical_errors.append("missing_macro_comparisons:" + ",".join(critical_comparison_gaps))
+    if provider_issues:
+        critical_errors.append("macro_provider_mismatch:" + ",".join(provider_issues))
+    critical_errors.extend(candidate_quote_issues(candidates))
     if candidate_errors:
-        critical_errors.append("candidate_quote_failures:" + ",".join(sorted(set(candidate_errors))))
+        comparison_warnings.append(
+            "candidate_quote_failures:" + ",".join(sorted(set(candidate_errors)))
+        )
+
+    breadth = [
+        {**row, "tradingDate": trading_date, "dateBasis": "latest_completed_us_session"}
+        if trading_date else row
+        for row in breadth
+    ]
 
     packet = {
         "schemaVersion": 2,
         "generatedAt": generated.isoformat(timespec="seconds"),
         "tradingDate": trading_date,
         "sourceAudit": source_audit,
-        "markets": [compact_market(row) for row in markets],
+        "markets": [compact_market(row, trading_date) for row in markets],
         "breadth": breadth,
         "macroAssets": macro_assets,
         "fed": {"status": "requires_model_verification", "method": "CME FedWatch"},
@@ -654,6 +859,8 @@ def build_packet(now: dt.datetime | None = None) -> dict:
             "missingMarkets": missing_markets,
             "missingBreadth": missing_breadth,
             "invalidBreadth": invalid_breadth,
+            "sessionMarketIssues": session_date_issues,
+            "macroProviderIssues": provider_issues,
             "candidateQuoteFailures": candidate_errors,
             "warnings": comparison_warnings,
         },

@@ -36,6 +36,14 @@ class MarketBriefingPacketTests(unittest.TestCase):
         self.assertEqual(MODULE.market_date({"tradingDate": "2026-08-10"}), "2026-08-10")
         self.assertEqual(MODULE.market_date({"updatedAt": 1786320000000}), "2026-08-10")
 
+    def test_source_metadata_preserves_revision_and_fetch_time(self):
+        self.assertEqual(
+            MODULE.source_metadata({
+                "sourceRevision": "rev-1", "fetchedAt": 123, "data": [],
+            }),
+            {"sourceRevision": "rev-1", "fetchedAt": 123},
+        )
+
     def test_required_sector_contract_is_complete(self):
         sectors = {"XLK", "XLY", "XLC", "XLV", "XLU", "XLP", "XLE", "XLI", "XLB", "XLRE", "XLF"}
         self.assertTrue(sectors <= MODULE.REQUIRED_MARKETS)
@@ -105,19 +113,17 @@ class MarketBriefingPacketTests(unittest.TestCase):
             {"id": "SPX", "price": 10, "changePercent": 1},
         )
 
-    def test_future_events_reads_dynamic_event_file(self):
+    def test_future_events_reads_curated_event_file(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             data = root / "data"
             data.mkdir()
             (data / "us-macro-calendar.json").write_text("[]", encoding="utf-8")
-            dynamic = {
-                "events": [
-                    {"event_id": "nvda-earnings", "date": "2026-08-27", "title": "NVIDIA earnings"},
-                    {"event_id": "expired", "date": "2026-08-10", "title": "Expired"},
-                ]
-            }
-            (data / "tech-company-events.json").write_text(json.dumps(dynamic), encoding="utf-8")
+            curated = [
+                {"event_id": "nvda-earnings", "date_bjt": "2026-08-27", "title": "NVIDIA earnings"},
+                {"event_id": "expired", "date_bjt": "2026-08-10", "title": "Expired"},
+            ]
+            (data / "tech-company-events-curated.json").write_text(json.dumps(curated), encoding="utf-8")
             events = MODULE.future_events(dt.date(2026, 8, 26), root=root)
             self.assertEqual([event["event_id"] for event in events], ["nvda-earnings"])
 
@@ -280,6 +286,30 @@ class MarketBriefingPacketTests(unittest.TestCase):
             self.assertFalse(MODULE.recover_yahoo_anchor(mismatched, "2026-09-01"))
             fetch.assert_not_called()
 
+    def test_delayed_rebuild_reuses_only_same_date_swissquote_latest(self):
+        current = [{
+            "id": "GOLD", "source": "Swissquote", "price": 101,
+            "updatedAt": int(dt.datetime(2026, 9, 3, 15, tzinfo=dt.timezone.utc).timestamp() * 1000),
+        }]
+        previous = {
+            "tradingDate": "2026-09-02",
+            "macroAssets": [{
+                "id": "GOLD", "source": "Swissquote", "price": 99,
+                "updatedAt": int(dt.datetime(2026, 9, 2, 19, 50, tzinfo=dt.timezone.utc).timestamp() * 1000),
+            }],
+        }
+        self.assertTrue(
+            MODULE.inherit_same_date_gold_latest(current, "2026-09-02", previous)
+        )
+        self.assertEqual(current[0]["price"], 99)
+        self.assertEqual(current[0]["latestInheritedFrom"], "same_date_previous_packet")
+
+        current[0]["price"] = 101
+        self.assertFalse(
+            MODULE.inherit_same_date_gold_latest(current, "2026-09-01", previous)
+        )
+        self.assertEqual(current[0]["price"], 101)
+
     def test_treasury_comparison_preserves_flat_consecutive_days(self):
         sep1 = int(dt.datetime(2026, 9, 1, 19, 30, tzinfo=dt.timezone.utc).timestamp() * 1000)
         sep2 = int(dt.datetime(2026, 9, 2, 19, 30, tzinfo=dt.timezone.utc).timestamp() * 1000)
@@ -317,33 +347,79 @@ class MarketBriefingPacketTests(unittest.TestCase):
             ["US10Y"],
         )
 
+    def test_fixed_comparison_rejects_stale_non_null_current_anchor(self):
+        assets = [
+            {
+                "id": asset_id,
+                "comparison": {
+                    "previous": {"date": "2026-08-31", "value": 99},
+                    "current": {
+                        "date": "2026-09-01" if asset_id == "DXY" else "2026-09-02",
+                        "value": 100,
+                    },
+                },
+            }
+            for asset_id in MODULE.FIXED_ANCHOR_IDS - {"GOLD"}
+        ]
+        self.assertEqual(
+            MODULE.fixed_comparison_issues(assets, "2026-09-02"),
+            ["DXY"],
+        )
+
+    def test_session_market_dates_must_match_target(self):
+        rows = [
+            {
+                "id": item,
+                "tradingDate": "2026-09-01" if item == "XLK" else "2026-09-02",
+                "price": 100,
+                "changePercent": 1,
+                "status": "ok",
+            }
+            for item in MODULE.SESSION_MARKET_IDS
+        ]
+        self.assertEqual(
+            MODULE.session_market_date_issues(rows, "2026-09-02"),
+            ["XLK:2026-09-01"],
+        )
+
     def test_generated_after_new_york_close(self):
         before = dt.datetime(2026, 8, 25, 19, 59, tzinfo=dt.timezone.utc)
         after = dt.datetime(2026, 8, 25, 20, 1, tzinfo=dt.timezone.utc)
         self.assertFalse(MODULE.generated_after_close(before, "2026-08-25"))
         self.assertTrue(MODULE.generated_after_close(after, "2026-08-25"))
 
-    def test_candidate_failure_makes_packet_incomplete(self):
+    def test_candidate_failure_is_warning_not_packet_failure(self):
         anchor_time = dt.datetime(2026, 8, 25, 19, 55, tzinfo=dt.timezone.utc).timestamp()
+        treasury_previous = dt.datetime(2026, 8, 24, 19, 30, tzinfo=dt.timezone.utc).timestamp()
+        treasury_current = dt.datetime(2026, 8, 25, 19, 30, tzinfo=dt.timezone.utc).timestamp()
         markets = []
         for market_id in MODULE.REQUIRED_MARKETS:
             row = {
                 "id": market_id,
                 "tradingDate": "2026-08-25",
-                "source": "Swissquote" if market_id == "GOLD" else "Yahoo Finance",
+                "source": MODULE.EXPECTED_MACRO_SOURCES.get(market_id, "Yahoo Finance"),
+                "price": 100.0,
+                "changePercent": 1.0,
+                "status": "ok",
             }
             if market_id in MODULE.FIXED_ANCHOR_IDS:
                 row["points"] = [{"time": anchor_time, "value": 100.0}]
             elif market_id in {"US02Y", "US10Y", "US30Y"}:
-                row["points"] = [{"time": 1, "value": 4.0}, {"time": 2, "value": 4.1}]
+                row["points"] = [
+                    {"time": treasury_previous, "value": 4.0},
+                    {"time": treasury_current, "value": 4.1},
+                ]
             markets.append(row)
-        breadth = [{"id": item} for item in MODULE.REQUIRED_BREADTH]
+        breadth = [
+            {"id": item, "advancers": 60, "decliners": 40, "advancePercent": 60}
+            for item in MODULE.REQUIRED_BREADTH
+        ]
         previous = {
             "tradingDate": "2026-08-22",
             "macroAssets": [
                 {
                     "id": market_id,
-                    "source": "Swissquote" if market_id == "GOLD" else "Yahoo Finance",
+                    "source": MODULE.EXPECTED_MACRO_SOURCES[market_id],
                     "comparison": {"current": {"date": "2026-08-22", "value": 99.0}},
                 }
                 for market_id in MODULE.FIXED_ANCHOR_IDS
@@ -373,9 +449,17 @@ class MarketBriefingPacketTests(unittest.TestCase):
             packet = MODULE.build_packet(
                 now=dt.datetime(2026, 8, 25, 22, 10, tzinfo=dt.timezone.utc)
             )
-        self.assertFalse(packet["validation"]["complete"])
-        self.assertIn("candidate_quote_failures:NVDA", packet["validation"]["criticalErrors"])
+        self.assertTrue(packet["validation"]["complete"], packet["validation"]["criticalErrors"])
+        self.assertNotIn("candidate_quote_failures:NVDA", packet["validation"]["criticalErrors"])
+        self.assertIn("candidate_quote_failures:NVDA", packet["validation"]["warnings"])
         self.assertEqual(packet["validation"]["candidateQuoteFailures"], ["NVDA"])
+
+    def test_fewer_than_five_candidate_quotes_is_critical(self):
+        self.assertEqual(
+            MODULE.candidate_quote_issues([{}] * 4),
+            ["insufficient_candidate_quotes:4"],
+        )
+        self.assertEqual(MODULE.candidate_quote_issues([{}] * 5), [])
 
 
 if __name__ == "__main__":

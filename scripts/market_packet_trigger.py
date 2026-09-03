@@ -5,12 +5,14 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import os
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 
 ROOT = Path(__file__).resolve().parents[1]
 MARKET_PRICES = ROOT / "data" / "market-prices.json"
+PREVIOUS_PACKET = ROOT / "data" / "market-briefing-packet.json"
 REQUIRED_CLOSE_SYMBOLS = {"SPY.US", "QQQ.US", "DIA.US"}
 
 
@@ -31,14 +33,12 @@ def last_timestamp(row: dict) -> int | None:
 
 
 def closed_snapshot_date(payload: object, now: dt.datetime | None = None) -> str | None:
-    """Return the common NY close date only during the post-close packet window."""
-    current = now or dt.datetime.now(dt.timezone.utc)
-    if current.tzinfo is None:
-        current = current.replace(tzinfo=dt.timezone.utc)
+    """Return the latest common NY close date, regardless of scheduler delay."""
+    # ``now`` remains accepted for callers/tests, but wall-clock time must not
+    # reject an already completed close. GitHub scheduled runs can arrive hours
+    # late; freshness is enforced by comparing with the canonical packet below.
+    del now
     eastern = ZoneInfo("America/New_York")
-    local_now = current.astimezone(eastern)
-    if local_now.weekday() >= 5 or not dt.time(16, 0) <= local_now.time() < dt.time(20, 0):
-        return None
 
     rows = payload.get("symbols", []) if isinstance(payload, dict) else []
     by_symbol = {
@@ -58,15 +58,30 @@ def closed_snapshot_date(payload: object, now: dt.datetime | None = None) -> str
         if moment.time() < dt.time(16, 0):
             return None
         dates.add(moment.date().isoformat())
-    if len(dates) != 1 or next(iter(dates)) != local_now.date().isoformat():
+    if len(dates) != 1:
         return None
     return next(iter(dates))
+
+
+def packet_is_complete_for_date(payload: object, trading_date: str) -> bool:
+    if not isinstance(payload, dict) or payload.get("tradingDate") != trading_date:
+        return False
+    validation = payload.get("validation")
+    return (
+        isinstance(validation, dict)
+        and validation.get("complete") is True
+        and not validation.get("criticalErrors")
+    )
 
 
 def main() -> int:
     date = closed_snapshot_date(load_json(MARKET_PRICES))
     if not date:
         print("Market close snapshot is not ready; packet build not requested.")
+        return 1
+    previous_path = Path(os.getenv("PREVIOUS_PACKET_PATH", str(PREVIOUS_PACKET)))
+    if packet_is_complete_for_date(load_json(previous_path), date):
+        print(f"Canonical packet is already complete for {date}; rebuild not requested.")
         return 1
     print(f"Market close snapshot is ready for {date}.")
     return 0
