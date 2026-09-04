@@ -40,6 +40,7 @@ YAHOO_ANCHOR_SYMBOLS = {
     "BRN1!": "BZ=F",
     "BTCUSDT": "BTC-USD",
 }
+YAHOO_GOLD_PROXY_SYMBOL = "GC=F"
 EXPECTED_MACRO_SOURCES = {
     "DXY": "Yahoo Finance",
     "US02Y": "U.S. Treasury",
@@ -171,11 +172,25 @@ def session_market_date_issues(
     return issues
 
 
+def is_yahoo_gold_proxy(asset: dict) -> bool:
+    """Accept GC=F only when it is explicitly identified as a futures proxy."""
+    return (
+        asset.get("id") == "GOLD"
+        and _same_provider(asset.get("source"), "Yahoo Finance")
+        and asset.get("sourceSymbol") == YAHOO_GOLD_PROXY_SYMBOL
+        and asset.get("instrumentType") == "futures_proxy"
+        and asset.get("proxyFor") == "XAU/USD"
+    )
+
+
 def macro_provider_issues(assets: list[dict]) -> list[str]:
     by_id = {str(asset.get("id")): asset for asset in assets}
     issues: list[str] = []
     for asset_id, expected in EXPECTED_MACRO_SOURCES.items():
-        actual = by_id.get(asset_id, {}).get("source")
+        asset = by_id.get(asset_id, {})
+        if asset_id == "GOLD" and is_yahoo_gold_proxy(asset):
+            continue
+        actual = asset.get("source")
         if not _same_provider(actual, expected):
             issues.append(f"{asset_id}:{actual or 'missing'}")
     return sorted(issues)
@@ -184,7 +199,8 @@ def macro_provider_issues(assets: list[dict]) -> list[str]:
 def compact_market(row: dict, trading_date: str | None = None) -> dict:
     keys = (
         "id", "name", "price", "previousClose", "change", "changePercent",
-        "currency", "updatedAt", "source", "status", "seriesStatus",
+        "currency", "updatedAt", "source", "sourceSymbol", "instrumentType",
+        "proxyFor", "status", "seriesStatus",
     )
     item = {key: row.get(key) for key in keys if key in row}
     observed_date = market_date(row)
@@ -291,6 +307,72 @@ def yahoo_intraday_comparison(payload: object, trading_date: str) -> dict:
     previous_days = [day for day in days if day < trading_date]
     previous = by_date[previous_days[-1]] if previous_days else None
     return {"kind": "16:00_ET", "previous": previous, "current": current}
+
+
+def yahoo_gold_futures_proxy(trading_date: str) -> dict | None:
+    """Build a complete, clearly labelled GC=F fallback from historical bars."""
+    url = (
+        "https://query1.finance.yahoo.com/v8/finance/chart/"
+        f"{YAHOO_GOLD_PROXY_SYMBOL}?range=5d&interval=5m&"
+        "includePrePost=true&events=div%2Csplits"
+    )
+    comparison = yahoo_intraday_comparison(fetch_json(url), trading_date)
+    previous = comparison.get("previous")
+    current = comparison.get("current")
+    if (
+        not isinstance(previous, dict)
+        or not isinstance(current, dict)
+        or finite_number(previous.get("value")) is None
+        or finite_number(current.get("value")) is None
+        or current.get("date") != trading_date
+    ):
+        return None
+    previous_value = float(previous["value"])
+    current_value = float(current["value"])
+    change = current_value - previous_value
+    return {
+        "id": "GOLD",
+        "name": "COMEX Gold Futures (XAU/USD proxy)",
+        "price": current_value,
+        "previousClose": previous_value,
+        "change": change,
+        "changePercent": change / previous_value * 100 if previous_value else None,
+        "currency": "USD",
+        "updatedAt": current["observedAt"],
+        "source": "Yahoo Finance",
+        "sourceSymbol": YAHOO_GOLD_PROXY_SYMBOL,
+        "instrumentType": "futures_proxy",
+        "proxyFor": "XAU/USD",
+        "status": "ok",
+        "seriesStatus": "complete",
+        "observedDate": trading_date,
+        "tradingDate": trading_date,
+        "comparison": comparison,
+    }
+
+
+def replace_missing_gold_anchor_with_yahoo_proxy(
+    assets: list[dict], trading_date: str | None
+) -> bool:
+    """Replace an unusable spot comparison with a same-series futures proxy."""
+    if not trading_date:
+        return False
+    for index, asset in enumerate(assets):
+        if asset.get("id") != "GOLD":
+            continue
+        comparison = asset.get("comparison")
+        if (
+            isinstance(comparison, dict)
+            and comparison.get("previous") is not None
+            and comparison.get("current") is not None
+        ):
+            return False
+        proxy = yahoo_gold_futures_proxy(trading_date)
+        if proxy is None:
+            return False
+        assets[index] = proxy
+        return True
+    return False
 
 
 def recover_yahoo_anchor(asset: dict, trading_date: str | None) -> bool:
@@ -796,9 +878,42 @@ def build_packet(now: dt.datetime | None = None) -> dict:
     )
     if gold_latest_inherited:
         inherited.append("GOLD:same_date_previous_packet_latest")
+
+    gold_proxy_used = False
+    gold_proxy_error = None
+    if "GOLD" in comparison_gaps:
+        try:
+            gold_proxy_used = replace_missing_gold_anchor_with_yahoo_proxy(
+                macro_assets, trading_date
+            )
+        except Exception as exc:
+            gold_proxy_error = f"{type(exc).__name__}:{exc}"
+        if gold_proxy_used:
+            comparison_gaps = [
+                asset_id for asset_id in comparison_gaps if asset_id != "GOLD"
+            ]
+    source_audit["goldAnchorFallback"] = {
+        "status": (
+            "used" if gold_proxy_used
+            else "error" if gold_proxy_error
+            else "not_needed" if "GOLD" not in comparison_gaps
+            else "unavailable"
+        ),
+        "primary": "Swissquote XAU/USD",
+        "fallbackProvider": "Yahoo Finance",
+        "fallbackSymbol": YAHOO_GOLD_PROXY_SYMBOL,
+        "instrument": "COMEX gold futures proxy",
+        "error": gold_proxy_error,
+        "checkedAt": generated.isoformat(timespec="seconds"),
+    }
+
     critical_comparison_gaps, comparison_warnings = classify_comparison_gaps(
         macro_assets, trading_date, comparison_gaps
     )
+    if gold_proxy_used:
+        comparison_warnings.append(
+            "GOLD:yahoo_gc_f_proxy_for_xauusd"
+        )
     critical_comparison_gaps = sorted(set(
         critical_comparison_gaps
         + treasury_comparison_issues(macro_assets, trading_date)

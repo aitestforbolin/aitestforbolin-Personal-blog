@@ -31,7 +31,7 @@
   ];
   const macroConfig = [
     ["BRN1!", "Brent期货", 2, "", "Yahoo Finance · BZ=F"],
-    ["GOLD", "XAU/USD", 2, "", "Swissquote · XAU/USD"],
+    ["GOLD", "黄金", 2, "", "Swissquote · XAU/USD"],
     ["BTCUSDT", "BTC", 0, "", "Yahoo Finance · BTC-USD"],
     ["DXY", "美元指数", 3, "", "Yahoo Finance · DX-Y.NYB"],
     ["US02Y", "2年期美债收益率", 3, "%", "美国财政部 · 2-Year Par Yield"],
@@ -267,10 +267,34 @@
     return (snapshot?.macroAnchors || []).find((item) => item.id === id) || null;
   }
 
+  function goldDataMode() {
+    const stored = snapshotAnchor("GOLD");
+    const proxy =
+      stored?.provider === "Yahoo Finance" &&
+      stored?.symbol === "GC=F";
+    return proxy
+      ? {
+          proxy: true,
+          label: "COMEX黄金期货（代理）",
+          source: "Yahoo Finance · GC=F",
+        }
+      : {
+          proxy: false,
+          label: "XAU/USD",
+          source: "Swissquote · XAU/USD",
+        };
+  }
+
   function trustedMacroSource(id, item) {
     if (!item) return false;
     if (treasuryIds.has(id)) return item.source === "U.S. Treasury";
-    if (id === "GOLD") return item.source === "Swissquote";
+    if (id === "GOLD") {
+      const mode = goldDataMode();
+      return mode.proxy
+        ? item.source === "Yahoo Finance" &&
+            (item.sourceSymbol === "GC=F" || item.symbol === "GC=F")
+        : item.source === "Swissquote";
+    }
     if (closeAnchorIds.has(id)) return item.source === "Yahoo Finance";
     return true;
   }
@@ -474,11 +498,13 @@
     }
 
     const storedCandidate = snapshotAnchor(id);
+    const validStoredGold =
+      storedCandidate?.provider === "Swissquote" &&
+      storedCandidate?.symbol === "XAU/USD" ||
+      storedCandidate?.provider === "Yahoo Finance" &&
+      storedCandidate?.symbol === "GC=F";
     const stored =
-      id === "GOLD" &&
-      (storedCandidate?.provider !== "Swissquote" || storedCandidate?.symbol !== "XAU/USD")
-        ? null
-        : storedCandidate;
+      id === "GOLD" && !validStoredGold ? null : storedCandidate;
     const history = historyCloseAnchors(id);
     const anchors = history || stored || {};
     const storedLatestTime = finiteNumber(stored?.latestTime);
@@ -561,26 +587,28 @@
   }
 
   function goldAssetLine(comparison, compact) {
+    const mode = goldDataMode();
     if (finiteNumber(comparison?.current) !== null) {
       return compact
         ? directionIcon(comparison.reference, comparison.current) +
-            "XAU/USD " +
+            mode.label +
+            " " +
             formatNumber(comparison.reference, 2) +
             "→" +
             formatNumber(comparison.current, 2)
-        : documentAssetLine("XAU/USD", comparison, 2, "");
+        : documentAssetLine(mode.label, comparison, 2, "");
     }
 
     const latest = finiteNumber(comparison?.latest);
     if (latest === null) {
       return compact
-        ? "—XAU/USD 数据不可用"
-        : "— XAU/USD：数据不可用";
+        ? `—${mode.label} 数据不可用`
+        : `— ${mode.label}：数据不可用`;
     }
     const quoteTime = formatClock(comparison.latestTime);
     return compact
-      ? `—XAU/USD 最新 ${formatNumber(latest, 2)}（锚点缺失；${quoteTime} 北京）`
-      : `— XAU/USD：最新 ${formatNumber(latest, 2)}（${quoteTime} 北京；16:00 ET固定锚点缺失，未计算日内变动）`;
+      ? `—${mode.label} 最新 ${formatNumber(latest, 2)}（锚点缺失；${quoteTime} 北京）`
+      : `— ${mode.label}：最新 ${formatNumber(latest, 2)}（${quoteTime} 北京；16:00 ET固定锚点缺失，未计算日内变动）`;
   }
 
   function buildDocumentCopyText() {
@@ -1186,7 +1214,15 @@
   function renderMacro() {
     const comparisons = macroConfig.map(([id, label, decimals, suffix, source]) => {
       const comparison = anchorComparison(id, marketMap.get(id));
-      return { id, label, decimals, suffix, source, ...comparison };
+      const goldMode = id === "GOLD" ? goldDataMode() : null;
+      return {
+        id,
+        label: goldMode?.label || label,
+        decimals,
+        suffix,
+        source: goldMode?.source || source,
+        ...comparison,
+      };
     });
     const rows = comparisons.map(layeredMacroRow);
     const fixedCount = comparisons.filter(

@@ -95,6 +95,43 @@ class MarketBriefingPacketTests(unittest.TestCase):
         self.assertEqual(critical, [])
         self.assertEqual(warnings, ["GOLD:latest_only_no_16:00_ET_anchor"])
 
+    def test_yahoo_gold_proxy_replaces_missing_spot_anchors(self):
+        previous = int(dt.datetime(2026, 8, 31, 19, 55, tzinfo=dt.timezone.utc).timestamp())
+        current = int(dt.datetime(2026, 9, 1, 19, 55, tzinfo=dt.timezone.utc).timestamp())
+        payload = {
+            "chart": {"result": [{
+                "timestamp": [previous, current],
+                "indicators": {"quote": [{"close": [4470.0, 4430.0]}]},
+            }]}
+        }
+        assets = [{
+            "id": "GOLD",
+            "source": "Swissquote",
+            "price": 4429.8,
+            "comparison": {"previous": None, "current": None},
+        }]
+        with mock.patch.object(MODULE, "fetch_json", return_value=payload):
+            changed = MODULE.replace_missing_gold_anchor_with_yahoo_proxy(
+                assets, "2026-09-01"
+            )
+        self.assertTrue(changed)
+        self.assertEqual(assets[0]["source"], "Yahoo Finance")
+        self.assertEqual(assets[0]["sourceSymbol"], "GC=F")
+        self.assertEqual(assets[0]["instrumentType"], "futures_proxy")
+        self.assertEqual(assets[0]["proxyFor"], "XAU/USD")
+        self.assertEqual(assets[0]["comparison"]["previous"]["value"], 4470.0)
+        self.assertEqual(assets[0]["comparison"]["current"]["value"], 4430.0)
+        self.assertEqual(MODULE.macro_provider_issues(assets), [])
+
+    def test_unlabelled_yahoo_gold_is_rejected(self):
+        assets = [{
+            "id": "GOLD", "source": "Yahoo Finance", "sourceSymbol": "GC=F",
+        }]
+        self.assertEqual(
+            MODULE.macro_provider_issues(assets),
+            ["GOLD:Yahoo Finance"],
+        )
+
     def test_stale_gold_quote_remains_critical(self):
         assets = [{
             "id": "GOLD", "source": "Swissquote", "price": 4603.56,
