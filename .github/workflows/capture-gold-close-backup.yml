@@ -1,11 +1,8 @@
 name: Capture gold close backup
 
 on:
-  schedule:
-    # Independent pre-close samples for both U.S. daylight and standard time.
-    # 19:35/19:50 UTC cover EDT; 20:35/20:50 UTC cover EST. Keeping this in a
-    # separate workflow gives the 16:00 ET gold anchor a second scheduler path.
-    - cron: "35,50 19,20 * * 1-5"
+  # GitHub scheduled jobs can start hours late, so this task cannot be trusted
+  # as a 16:00 ET anchor. Keep it only for manual spot-feed diagnostics.
   workflow_dispatch:
 
 permissions:

@@ -47,13 +47,20 @@ class DailyMarketStatusSectorTests(unittest.TestCase):
         self.assertIn('goldAssetLine(comparisons.get("GOLD"), true)', script)
         self.assertIn('item.id === "GOLD"', script)
 
-    def test_gold_has_an_independent_pre_close_capture_schedule(self):
+    def test_gold_proxy_is_explicit_and_frontend_uses_dynamic_source(self):
+        script = (
+            ROOT / "daily-market-status" / "daily-market-status.js"
+        ).read_text(encoding="utf-8")
+        self.assertIn('"COMEX黄金期货（代理）"', script)
+        self.assertIn('stored?.symbol === "GC=F"', script)
+        self.assertIn('item.sourceSymbol === "GC=F"', script)
+
+    def test_delayed_capture_schedule_is_disabled(self):
         workflow = (
             ROOT / ".github" / "workflows" / "capture-gold-close-backup.yml"
         ).read_text(encoding="utf-8")
-        self.assertIn('cron: "35,50 19,20 * * 1-5"', workflow)
-        self.assertIn("group: market-prices-writer", workflow)
-        self.assertIn("python scripts/update_market_prices.py", workflow)
+        self.assertNotIn("schedule:", workflow)
+        self.assertIn("workflow_dispatch:", workflow)
 
 
 if __name__ == "__main__":
