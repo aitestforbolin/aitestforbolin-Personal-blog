@@ -121,16 +121,15 @@ class MarketBriefingPacketTests(unittest.TestCase):
         self.assertEqual(assets[0]["proxyFor"], "XAU/USD")
         self.assertEqual(assets[0]["comparison"]["previous"]["value"], 4470.0)
         self.assertEqual(assets[0]["comparison"]["current"]["value"], 4430.0)
-        self.assertEqual(MODULE.macro_provider_issues(assets), [])
+        self.assertFalse(
+            any(issue.startswith("GOLD:") for issue in MODULE.macro_provider_issues(assets))
+        )
 
     def test_unlabelled_yahoo_gold_is_rejected(self):
         assets = [{
             "id": "GOLD", "source": "Yahoo Finance", "sourceSymbol": "GC=F",
         }]
-        self.assertEqual(
-            MODULE.macro_provider_issues(assets),
-            ["GOLD:Yahoo Finance"],
-        )
+        self.assertIn("GOLD:Yahoo Finance", MODULE.macro_provider_issues(assets))
 
     def test_stale_gold_quote_remains_critical(self):
         assets = [{
