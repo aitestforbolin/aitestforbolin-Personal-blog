@@ -54,6 +54,7 @@ jobs:
         run: |
           if [ "$EVENT_NAME" = "workflow_dispatch" ] \
             || [ "$EVENT_NAME" = "schedule" ] \
+            || [ "$EVENT_NAME" = "push" ] \
             || python scripts/market_packet_trigger.py; then
             echo "build=true" >> "$GITHUB_OUTPUT"
           else
