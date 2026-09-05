@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-04T23:29:00+00:00",
+  "generatedAt": "2026-09-05T00:01:26+00:00",
   "tradingDate": "2026-09-04",
   "sourceAudit": {
     "marketsApi": {
@@ -8,26 +8,26 @@
       "url": "https://cross-asset-pulse.laibocszd.chatgpt.site/api/markets",
       "count": 22,
       "sourceRevision": "swissquote-xauusd-20260818",
-      "fetchedAt": 1788564541828
+      "fetchedAt": 1788566487914
     },
     "breadthApi": {
       "status": "ok",
       "url": "https://cross-asset-pulse.laibocszd.chatgpt.site/api/breadth",
       "count": 2,
-      "fetchedAt": 1788564542320
+      "fetchedAt": 1788566488279
     },
     "candidateQuotes": {
       "status": "ok",
       "provider": "Yahoo Finance",
       "count": 11,
       "failed": [],
-      "checkedAt": "2026-09-04T23:29:00+00:00"
+      "checkedAt": "2026-09-05T00:01:26+00:00"
     },
     "btcEtf": {
       "status": "ok",
       "provider": "Farside Investors",
       "date": "2026-09-03",
-      "checkedAt": "2026-09-04T23:29:00+00:00"
+      "checkedAt": "2026-09-05T00:01:26+00:00"
     },
     "yahooAnchorRecovery": {
       "status": "ok",
@@ -50,7 +50,7 @@
       "fallbackSymbol": "GC=F",
       "instrument": "COMEX gold futures proxy",
       "error": null,
-      "checkedAt": "2026-09-04T23:29:00+00:00"
+      "checkedAt": "2026-09-05T00:01:26+00:00"
     },
     "macroComparisons": {
       "status": "partial",
@@ -60,13 +60,13 @@
         "GOLD:yahoo_gc_f_proxy_for_xauusd"
       ],
       "providerIssues": [],
-      "checkedAt": "2026-09-04T23:29:00+00:00"
+      "checkedAt": "2026-09-05T00:01:26+00:00"
     },
     "futureEvents": {
       "status": "ok",
       "timezone": "Asia/Shanghai",
       "techSource": "data/tech-company-events-curated.json",
-      "checkedAt": "2026-09-04T23:29:00+00:00"
+      "checkedAt": "2026-09-05T00:01:26+00:00"
     }
   },
   "markets": [
@@ -312,16 +312,16 @@
     {
       "id": "BTCUSDT",
       "name": "Bitcoin / U.S. Dollar",
-      "price": 79761.06,
+      "price": 79666.48,
       "previousClose": 81271.92,
-      "change": -1510.8600000000006,
-      "changePercent": -1.859018465418315,
+      "change": -1605.4400000000023,
+      "changePercent": -1.9753932231452171,
       "currency": "USD",
-      "updatedAt": 1788564534000,
+      "updatedAt": 1788566485000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
-      "observedDate": "2026-09-04"
+      "observedDate": "2026-09-05"
     },
     {
       "id": "BRN1!",
@@ -404,7 +404,7 @@
       "unchanged": 1,
       "advancePercent": 34.8605577689243,
       "observed": 503,
-      "updatedAt": 1788564542255,
+      "updatedAt": 1788566488192,
       "source": "TradingView Stock Screener",
       "status": "ok",
       "tradingDate": "2026-09-04",
@@ -418,7 +418,7 @@
       "unchanged": 208,
       "advancePercent": 51.62173546756529,
       "observed": 4956,
-      "updatedAt": 1788564542320,
+      "updatedAt": 1788566488279,
       "source": "TradingView Stock Screener",
       "status": "ok",
       "tradingDate": "2026-09-04",
@@ -459,16 +459,16 @@
     {
       "id": "BTCUSDT",
       "name": "Bitcoin / U.S. Dollar",
-      "price": 79761.06,
+      "price": 79666.48,
       "previousClose": 81271.92,
-      "change": -1510.8600000000006,
-      "changePercent": -1.859018465418315,
+      "change": -1605.4400000000023,
+      "changePercent": -1.9753932231452171,
       "currency": "USD",
-      "updatedAt": 1788564534000,
+      "updatedAt": 1788566485000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
-      "observedDate": "2026-09-04",
+      "observedDate": "2026-09-05",
       "comparison": {
         "kind": "16:00_ET",
         "previous": {
@@ -480,9 +480,10 @@
         },
         "current": {
           "date": "2026-09-04",
-          "value": 79853.15,
+          "value": 79853.1484375,
           "observedAt": 1788552000000,
-          "minutesBeforeClose": 0
+          "minutesBeforeClose": 0,
+          "inheritedFrom": "yahoo_intraday_recovery"
         }
       }
     },
@@ -691,9 +692,9 @@
     {
       "ticker": "NVDA",
       "tradingDate": "2026-09-04",
-      "close": 230.36000061035156,
-      "previousClose": 228.4499969482422,
-      "changePercent": 0.8360707759353164,
+      "close": 228.4499969482422,
+      "previousClose": 224.41000366210938,
+      "changePercent": 1.8002732588587125,
       "provider": "Yahoo Finance",
       "providerSymbol": "NVDA",
       "status": "ok"
@@ -701,9 +702,9 @@
     {
       "ticker": "AVGO",
       "tradingDate": "2026-09-04",
-      "close": 357.8949890136719,
-      "previousClose": 357.1600036621094,
-      "changePercent": 0.20578601859849674,
+      "close": 357.1600036621094,
+      "previousClose": 367.239990234375,
+      "changePercent": -2.7447954580960836,
       "provider": "Yahoo Finance",
       "providerSymbol": "AVGO",
       "status": "ok"
@@ -711,9 +712,9 @@
     {
       "ticker": "AMD",
       "tradingDate": "2026-09-04",
-      "close": 477.57000732421875,
-      "previousClose": 456.1600036621094,
-      "changePercent": 4.693529351593124,
+      "close": 456.1600036621094,
+      "previousClose": 457.05999755859375,
+      "changePercent": -0.19690935572829218,
       "provider": "Yahoo Finance",
       "providerSymbol": "AMD",
       "status": "ok"
@@ -721,9 +722,9 @@
     {
       "ticker": "MU",
       "tradingDate": "2026-09-04",
-      "close": 1016.5900268554688,
-      "previousClose": 958.1599731445312,
-      "changePercent": 6.09815222391092,
+      "close": 958.1599731445312,
+      "previousClose": 956.0800170898438,
+      "changePercent": 0.21755041602255815,
       "provider": "Yahoo Finance",
       "providerSymbol": "MU",
       "status": "ok"
@@ -731,9 +732,9 @@
     {
       "ticker": "AMAT",
       "tradingDate": "2026-09-04",
-      "close": 454.7099914550781,
-      "previousClose": 435.9100036621094,
-      "changePercent": 4.312814029278701,
+      "close": 435.9100036621094,
+      "previousClose": 438.4599914550781,
+      "changePercent": -0.5815782152680186,
       "provider": "Yahoo Finance",
       "providerSymbol": "AMAT",
       "status": "ok"
@@ -741,9 +742,9 @@
     {
       "ticker": "LRCX",
       "tradingDate": "2026-09-04",
-      "close": 307.6499938964844,
-      "previousClose": 292.6600036621094,
-      "changePercent": 5.121981154514606,
+      "close": 292.6600036621094,
+      "previousClose": 288.32000732421875,
+      "changePercent": 1.5052706116957937,
       "provider": "Yahoo Finance",
       "providerSymbol": "LRCX",
       "status": "ok"
@@ -751,9 +752,9 @@
     {
       "ticker": "MSFT",
       "tradingDate": "2026-09-04",
-      "close": 499.70001220703125,
-      "previousClose": 510.1199951171875,
-      "changePercent": -2.042653299203164,
+      "close": 510.1199951171875,
+      "previousClose": 496.82000732421875,
+      "changePercent": 2.6770233881280343,
       "provider": "Yahoo Finance",
       "providerSymbol": "MSFT",
       "status": "ok"
@@ -761,9 +762,9 @@
     {
       "ticker": "AAPL",
       "tradingDate": "2026-09-04",
-      "close": 319.9700012207031,
-      "previousClose": 328.2099914550781,
-      "changePercent": -2.5105848234065116,
+      "close": 328.2099914550781,
+      "previousClose": 324.9599914550781,
+      "changePercent": 1.0001231183714117,
       "provider": "Yahoo Finance",
       "providerSymbol": "AAPL",
       "status": "ok"
@@ -771,9 +772,9 @@
     {
       "ticker": "AMZN",
       "tradingDate": "2026-09-04",
-      "close": 258.510009765625,
-      "previousClose": 258.8999938964844,
-      "changePercent": -0.1506311858065558,
+      "close": 258.8999938964844,
+      "previousClose": 254.97999572753906,
+      "changePercent": 1.5373747880732016,
       "provider": "Yahoo Finance",
       "providerSymbol": "AMZN",
       "status": "ok"
@@ -781,9 +782,9 @@
     {
       "ticker": "GOOGL",
       "tradingDate": "2026-09-04",
-      "close": 338.4599914550781,
-      "previousClose": 342.4800109863281,
-      "changePercent": -1.173796835521148,
+      "close": 342.4800109863281,
+      "previousClose": 337.1199951171875,
+      "changePercent": 1.5899430311979597,
       "provider": "Yahoo Finance",
       "providerSymbol": "GOOGL",
       "status": "ok"
@@ -791,9 +792,9 @@
     {
       "ticker": "META",
       "tradingDate": "2026-09-04",
-      "close": 616.77001953125,
-      "previousClose": 610.6799926757812,
-      "changePercent": 0.9972533779573212,
+      "close": 610.6799926757812,
+      "previousClose": 592.8499755859375,
+      "changePercent": 3.0075091210422378,
       "provider": "Yahoo Finance",
       "providerSymbol": "META",
       "status": "ok"
