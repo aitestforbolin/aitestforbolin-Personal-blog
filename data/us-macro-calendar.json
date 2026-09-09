@@ -314,5 +314,20 @@
     "source": "Federal Reserve",
     "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
     "date_et": "2026-10-07"
+  },
+  {
+    "date": "2026-10-14",
+    "time_et": "08:30",
+    "time_shanghai": "20:30",
+    "title": "Consumer Price Index",
+    "title_cn": "美国CPI / 核心CPI",
+    "period": "September 2026",
+    "category": "inflation",
+    "importance": "critical",
+    "stars": 5,
+    "source": "BLS",
+    "url": "https://www.bls.gov/schedule/news_release/cpi.htm",
+    "fallback_url": "https://fred.stlouisfed.org/release?rid=10",
+    "fallback_label": "FRED 备用"
   }
 ]
