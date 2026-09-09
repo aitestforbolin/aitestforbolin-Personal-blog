@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-09T21:40:22+00:00",
+  "generatedAt": "2026-09-09T23:05:14+00:00",
   "tradingDate": "2026-09-09",
   "sourceAudit": {
     "marketsApi": {
@@ -8,26 +8,26 @@
       "url": "https://cross-asset-pulse.laibocszd.chatgpt.site/api/markets",
       "count": 22,
       "sourceRevision": "swissquote-xauusd-20260818",
-      "fetchedAt": 1788990024606
+      "fetchedAt": 1788995116835
     },
     "breadthApi": {
       "status": "ok",
       "url": "https://cross-asset-pulse.laibocszd.chatgpt.site/api/breadth",
       "count": 2,
-      "fetchedAt": 1788990025092
+      "fetchedAt": 1788995117231
     },
     "candidateQuotes": {
       "status": "ok",
       "provider": "Yahoo Finance",
       "count": 11,
       "failed": [],
-      "checkedAt": "2026-09-09T21:40:22+00:00"
+      "checkedAt": "2026-09-09T23:05:14+00:00"
     },
     "btcEtf": {
       "status": "ok",
       "provider": "Farside Investors",
       "date": "2026-09-08",
-      "checkedAt": "2026-09-09T21:40:22+00:00"
+      "checkedAt": "2026-09-09T23:05:14+00:00"
     },
     "yahooAnchorRecovery": {
       "status": "ok",
@@ -50,7 +50,7 @@
       "fallbackSymbol": "GC=F",
       "instrument": "COMEX gold futures proxy",
       "error": null,
-      "checkedAt": "2026-09-09T21:40:22+00:00"
+      "checkedAt": "2026-09-09T23:05:14+00:00"
     },
     "macroComparisons": {
       "status": "partial",
@@ -60,13 +60,13 @@
         "GOLD:yahoo_gc_f_proxy_for_xauusd"
       ],
       "providerIssues": [],
-      "checkedAt": "2026-09-09T21:40:22+00:00"
+      "checkedAt": "2026-09-09T23:05:14+00:00"
     },
     "futureEvents": {
       "status": "ok",
       "timezone": "Asia/Shanghai",
       "techSource": "data/tech-company-events-curated.json",
-      "checkedAt": "2026-09-09T21:40:22+00:00"
+      "checkedAt": "2026-09-09T23:05:14+00:00"
     }
   },
   "markets": [
@@ -298,12 +298,12 @@
     {
       "id": "DXY",
       "name": "U.S. Dollar Index",
-      "price": 98.77,
-      "previousClose": 98.787,
-      "change": -0.017000000000010118,
-      "changePercent": -0.01720874204096705,
+      "price": 98.783,
+      "previousClose": 98.817,
+      "change": -0.033999999999991815,
+      "changePercent": -0.03440703522672396,
       "currency": "USD",
-      "updatedAt": 1788989422000,
+      "updatedAt": 1788991496000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
@@ -312,12 +312,12 @@
     {
       "id": "BTCUSDT",
       "name": "Bitcoin / U.S. Dollar",
-      "price": 78221.99,
+      "price": 78110.54,
       "previousClose": 78446.18,
-      "change": -224.18999999998778,
-      "changePercent": -0.28578829459890565,
+      "change": -335.6399999999994,
+      "changePercent": -0.42786022212936237,
       "currency": "USD",
-      "updatedAt": 1788990018000,
+      "updatedAt": 1788995114000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
@@ -326,12 +326,12 @@
     {
       "id": "BRN1!",
       "name": "Brent Crude Oil Futures",
-      "price": 101.63,
-      "previousClose": 97.92,
-      "change": 3.7099999999999937,
-      "changePercent": 3.788807189542477,
+      "price": 101.97,
+      "previousClose": 101.21,
+      "change": 0.7600000000000051,
+      "changePercent": 0.7509139413101523,
       "currency": "USD",
-      "updatedAt": 1788987596000,
+      "updatedAt": 1788994489000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
@@ -382,17 +382,17 @@
     {
       "id": "GOLD",
       "name": "Gold Spot / U.S. Dollar",
-      "price": 4353.645,
-      "previousClose": 4406.145,
-      "change": -52.5,
-      "changePercent": -1.1915177553167222,
+      "price": 4400.475,
+      "previousClose": 4353.645,
+      "change": 46.82999999999993,
+      "changePercent": 1.0756504032827647,
       "currency": "USD",
-      "updatedAt": 1788901200000,
+      "updatedAt": 1788987600000,
       "source": "Swissquote",
       "sourceSymbol": "XAU/USD",
       "status": "ok",
       "seriesStatus": "complete",
-      "observedDate": "2026-09-08"
+      "observedDate": "2026-09-09"
     }
   ],
   "breadth": [
@@ -404,7 +404,7 @@
       "unchanged": 0,
       "advancePercent": 19.4831013916501,
       "observed": 503,
-      "updatedAt": 1788990024950,
+      "updatedAt": 1788995117204,
       "source": "TradingView Stock Screener",
       "status": "ok",
       "tradingDate": "2026-09-09",
@@ -418,7 +418,7 @@
       "unchanged": 178,
       "advancePercent": 24.534226501988694,
       "observed": 4955,
-      "updatedAt": 1788990025092,
+      "updatedAt": 1788995117231,
       "source": "TradingView Stock Screener",
       "status": "ok",
       "tradingDate": "2026-09-09",
@@ -429,12 +429,12 @@
     {
       "id": "DXY",
       "name": "U.S. Dollar Index",
-      "price": 98.77,
-      "previousClose": 98.787,
-      "change": -0.017000000000010118,
-      "changePercent": -0.01720874204096705,
+      "price": 98.783,
+      "previousClose": 98.817,
+      "change": -0.033999999999991815,
+      "changePercent": -0.03440703522672396,
       "currency": "USD",
-      "updatedAt": 1788989422000,
+      "updatedAt": 1788991496000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
@@ -459,12 +459,12 @@
     {
       "id": "BTCUSDT",
       "name": "Bitcoin / U.S. Dollar",
-      "price": 78221.99,
+      "price": 78110.54,
       "previousClose": 78446.18,
-      "change": -224.18999999998778,
-      "changePercent": -0.28578829459890565,
+      "change": -335.6399999999994,
+      "changePercent": -0.42786022212936237,
       "currency": "USD",
-      "updatedAt": 1788990018000,
+      "updatedAt": 1788995114000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
@@ -489,12 +489,12 @@
     {
       "id": "BRN1!",
       "name": "Brent Crude Oil Futures",
-      "price": 101.63,
-      "previousClose": 97.92,
-      "change": 3.7099999999999937,
-      "changePercent": 3.788807189542477,
+      "price": 101.97,
+      "previousClose": 101.21,
+      "change": 0.7600000000000051,
+      "changePercent": 0.7509139413101523,
       "currency": "USD",
-      "updatedAt": 1788987596000,
+      "updatedAt": 1788994489000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
