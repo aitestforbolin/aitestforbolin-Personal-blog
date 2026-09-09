@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-09T07:09:17+00:00",
+  "generatedAt": "2026-09-09T14:39:33+00:00",
   "timezone": "Asia/Shanghai",
   "status": "partial",
   "failedSources": [
@@ -115,36 +115,6 @@
       "eventType": "data"
     },
     {
-      "id": "cn-reserves-2026-08",
-      "country": "CN",
-      "period": "2026-08",
-      "scheduledAt": "2026-09-07T16:12:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "中国外汇储备",
-      "category": "reserves",
-      "importance": "medium",
-      "source": "国家外汇管理局",
-      "sourceUrl": "https://www.safe.gov.cn/safe/2026/0907/27859.html",
-      "metrics": [
-        {
-          "id": "fx_reserves",
-          "label": "外汇储备规模",
-          "actual": "34383",
-          "previous": "34188",
-          "unit": "亿美元",
-          "sourceUrl": "https://www.safe.gov.cn/safe/2026/0907/27859.html",
-          "previousPeriod": "2026-07"
-        }
-      ],
-      "releasedAt": "2026-09-07T16:12:00+08:00",
-      "retrievedAt": "2026-09-07T15:52:27+00:00",
-      "revisionStatus": "not_revised",
-      "releaseStatus": "released",
-      "sourceStatus": "fresh",
-      "group": "reserves",
-      "eventType": "data"
-    },
-    {
       "id": "cn-trade-2026-08",
       "country": "CN",
       "period": "2026-08",
@@ -234,7 +204,7 @@
         }
       ],
       "releasedAt": "2026-09-09T09:30:00+08:00",
-      "retrievedAt": "2026-09-09T07:08:43+00:00",
+      "retrievedAt": "2026-09-09T14:38:51+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "sourceStatus": "fresh",
