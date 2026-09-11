@@ -77,3 +77,15 @@ jobs:
             sleep $((attempt * 5))
           done
           exit 1
+      - name: Notify successful publication by Gmail
+        if: steps.publish.outputs.status == 'published'
+        continue-on-error: true
+        env:
+          GMAIL_SMTP_USER: ${{ secrets.GMAIL_SMTP_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          GMAIL_NOTIFY_TO: ${{ secrets.GMAIL_NOTIFY_TO }}
+        run: |
+          python scripts/send_gmail_notification.py \
+            --as-of "${{ steps.publish.outputs.as_of }}" \
+            --post-url "${{ steps.publish.outputs.post_url }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
