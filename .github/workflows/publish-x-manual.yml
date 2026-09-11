@@ -38,6 +38,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Validate X publication data completeness
+        id: validate
         run: |
           python -m unittest tests.test_validate_x_snapshot -v
           python scripts/validate_x_snapshot.py --snapshot data/daily-market-status.json
@@ -62,6 +63,7 @@ jobs:
           fi
           python scripts/publish_x_post.py "${args[@]}"
       - name: Record successful Post ID
+        id: record
         if: steps.publish.outputs.status == 'published'
         run: |
           git config user.name "github-actions[bot]"
@@ -77,15 +79,41 @@ jobs:
             sleep $((attempt * 5))
           done
           exit 1
-      - name: Notify successful publication by Gmail
-        if: steps.publish.outputs.status == 'published'
+      - name: Notify final daily briefing status by Gmail
+        if: always() && github.event_name == 'push'
         continue-on-error: true
         env:
           GMAIL_SMTP_USER: ${{ secrets.GMAIL_SMTP_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           GMAIL_NOTIFY_TO: ${{ secrets.GMAIL_NOTIFY_TO }}
+          VALIDATE_OUTCOME: ${{ steps.validate.outcome }}
+          PUBLISH_OUTCOME: ${{ steps.publish.outcome }}
+          PUBLISH_STATUS: ${{ steps.publish.outputs.status }}
+          RECORD_OUTCOME: ${{ steps.record.outcome }}
+          AS_OF: ${{ steps.publish.outputs.as_of }}
+          POST_URL: ${{ steps.publish.outputs.post_url }}
+          POST_ID: ${{ steps.publish.outputs.post_id }}
         run: |
+          run_url="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+          if [[ "$VALIDATE_OUTCOME" == "success" \
+                && "$PUBLISH_OUTCOME" == "success" \
+                && "$PUBLISH_STATUS" == "published" \
+                && "$RECORD_OUTCOME" == "success" ]]; then
+            python scripts/send_gmail_notification.py \
+              --status success \
+              --as-of "$AS_OF" \
+              --post-url "$POST_URL" \
+              --post-id "$POST_ID" \
+              --run-url "$run_url"
+            exit 0
+          fi
+
+          reason="validation=$VALIDATE_OUTCOME; publish=$PUBLISH_OUTCOME/$PUBLISH_STATUS; record=$RECORD_OUTCOME"
           python scripts/send_gmail_notification.py \
-            --as-of "${{ steps.publish.outputs.as_of }}" \
-            --post-url "${{ steps.publish.outputs.post_url }}" \
-            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            --status failure \
+            --as-of "$AS_OF" \
+            --post-url "$POST_URL" \
+            --post-id "$POST_ID" \
+            --reason "$reason" \
+            --run-url "$run_url"
