@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-11T21:42:01+00:00",
+  "generatedAt": "2026-09-11T23:05:57+00:00",
   "tradingDate": "2026-09-11",
   "sourceAudit": {
     "marketsApi": {
@@ -8,26 +8,26 @@
       "url": "https://cross-asset-pulse.laibocszd.chatgpt.site/api/markets",
       "count": 22,
       "sourceRevision": "swissquote-xauusd-20260818",
-      "fetchedAt": 1789162923939
+      "fetchedAt": 1789167958604
     },
     "breadthApi": {
       "status": "ok",
       "url": "https://cross-asset-pulse.laibocszd.chatgpt.site/api/breadth",
       "count": 2,
-      "fetchedAt": 1789162924542
+      "fetchedAt": 1789167958880
     },
     "candidateQuotes": {
       "status": "ok",
       "provider": "Yahoo Finance",
       "count": 11,
       "failed": [],
-      "checkedAt": "2026-09-11T21:42:01+00:00"
+      "checkedAt": "2026-09-11T23:05:57+00:00"
     },
     "btcEtf": {
       "status": "ok",
       "provider": "Farside Investors",
       "date": "2026-09-10",
-      "checkedAt": "2026-09-11T21:42:01+00:00"
+      "checkedAt": "2026-09-11T23:05:57+00:00"
     },
     "yahooAnchorRecovery": {
       "status": "ok",
@@ -50,7 +50,7 @@
       "fallbackSymbol": "GC=F",
       "instrument": "COMEX gold futures proxy",
       "error": null,
-      "checkedAt": "2026-09-11T21:42:01+00:00"
+      "checkedAt": "2026-09-11T23:05:57+00:00"
     },
     "macroComparisons": {
       "status": "partial",
@@ -60,13 +60,13 @@
         "GOLD:yahoo_gc_f_proxy_for_xauusd"
       ],
       "providerIssues": [],
-      "checkedAt": "2026-09-11T21:42:01+00:00"
+      "checkedAt": "2026-09-11T23:05:57+00:00"
     },
     "futureEvents": {
       "status": "ok",
       "timezone": "Asia/Shanghai",
       "techSource": "data/tech-company-events-curated.json",
-      "checkedAt": "2026-09-11T21:42:01+00:00"
+      "checkedAt": "2026-09-11T23:05:57+00:00"
     }
   },
   "markets": [
@@ -312,12 +312,12 @@
     {
       "id": "BTCUSDT",
       "name": "Bitcoin / U.S. Dollar",
-      "price": 77349.19,
+      "price": 77156.33,
       "previousClose": 76535.95,
-      "change": 813.2400000000052,
-      "changePercent": 1.062559490017443,
+      "change": 620.3800000000047,
+      "changePercent": 0.8105733318786853,
       "currency": "USD",
-      "updatedAt": 1789162919000,
+      "updatedAt": 1789167954000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
@@ -382,17 +382,17 @@
     {
       "id": "GOLD",
       "name": "Gold Spot / U.S. Dollar",
-      "price": 4318.895,
-      "previousClose": 4317.115,
-      "change": 1.7800000000006548,
-      "changePercent": 0.04123123891767198,
+      "price": 4348.595,
+      "previousClose": 4318.895,
+      "change": 29.699999999999818,
+      "changePercent": 0.6876758985805355,
       "currency": "USD",
-      "updatedAt": 1789082597000,
+      "updatedAt": 1789160400000,
       "source": "Swissquote",
       "sourceSymbol": "XAU/USD",
       "status": "ok",
       "seriesStatus": "complete",
-      "observedDate": "2026-09-10"
+      "observedDate": "2026-09-11"
     }
   ],
   "breadth": [
@@ -404,7 +404,7 @@
       "unchanged": 0,
       "advancePercent": 66.93227091633466,
       "observed": 502,
-      "updatedAt": 1789162924431,
+      "updatedAt": 1789167958821,
       "source": "TradingView Stock Screener",
       "status": "ok",
       "tradingDate": "2026-09-11",
@@ -418,7 +418,7 @@
       "unchanged": 208,
       "advancePercent": 58.88047138047138,
       "observed": 4960,
-      "updatedAt": 1789162924542,
+      "updatedAt": 1789167958880,
       "source": "TradingView Stock Screener",
       "status": "ok",
       "tradingDate": "2026-09-11",
@@ -459,12 +459,12 @@
     {
       "id": "BTCUSDT",
       "name": "Bitcoin / U.S. Dollar",
-      "price": 77349.19,
+      "price": 77156.33,
       "previousClose": 76535.95,
-      "change": 813.2400000000052,
-      "changePercent": 1.062559490017443,
+      "change": 620.3800000000047,
+      "changePercent": 0.8105733318786853,
       "currency": "USD",
-      "updatedAt": 1789162919000,
+      "updatedAt": 1789167954000,
       "source": "Yahoo Finance",
       "status": "ok",
       "seriesStatus": "complete",
