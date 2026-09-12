@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-12T06:57:57+00:00",
+  "generatedAt": "2026-09-12T13:38:30+00:00",
   "timezone": "Asia/Shanghai",
   "status": "partial",
   "failedSources": [
@@ -224,42 +224,6 @@
         "timezone": "Asia/Shanghai"
       },
       "eventType": "data"
-    },
-    {
-      "id": "us-87bee0405f15",
-      "eventType": "data",
-      "country": "US",
-      "period": "August 2026",
-      "scheduledAt": "2026-09-10T20:30:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "美国PPI",
-      "category": "inflation",
-      "importance": "medium",
-      "stars": 3,
-      "source": "BLS",
-      "sourceUrl": "https://www.bls.gov/schedule/news_release/ppi.htm",
-      "metrics": [],
-      "releasedAt": null,
-      "retrievedAt": null,
-      "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "legacy": {
-        "date": "2026-09-10",
-        "time_et": "08:30",
-        "time_shanghai": "20:30",
-        "title": "Producer Price Index",
-        "title_cn": "美国PPI",
-        "period": "August 2026",
-        "category": "inflation",
-        "importance": "medium",
-        "stars": 3,
-        "source": "BLS",
-        "url": "https://www.bls.gov/schedule/news_release/ppi.htm",
-        "fallback_url": "https://fred.stlouisfed.org/release?rid=46",
-        "fallback_label": "FRED 备用"
-      },
-      "fallbackSourceUrl": "https://fred.stlouisfed.org/release?rid=46",
-      "fallbackSourceLabel": "FRED 备用"
     },
     {
       "id": "us-74d86c6cb1e5",
