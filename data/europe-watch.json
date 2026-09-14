@@ -1,23 +1,23 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-09-13T01:21:26+00:00",
-  "as_of": "2026-09-13T07:30:00+08:00",
-  "window_start": "2026-09-12T07:30:00+08:00",
-  "window_end": "2026-09-13T07:30:00+08:00",
+  "generated_at": "2026-09-14T01:30:35+00:00",
+  "as_of": "2026-09-14T07:30:00+08:00",
+  "window_start": "2026-09-13T07:30:00+08:00",
+  "window_end": "2026-09-14T07:30:00+08:00",
   "source_health": [
     {
       "source": "ECB",
       "region": "eu",
       "status": "ok",
       "count": 5,
-      "checked_at": "2026-09-13T01:21:26+00:00"
+      "checked_at": "2026-09-14T01:30:35+00:00"
     },
     {
       "source": "European Commission",
       "region": "eu",
       "status": "ok",
       "count": 5,
-      "checked_at": "2026-09-13T01:21:26+00:00"
+      "checked_at": "2026-09-14T01:30:35+00:00"
     },
     {
       "source": "European Council",
@@ -25,7 +25,7 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-09-13T01:21:26+00:00"
+      "checked_at": "2026-09-14T01:30:35+00:00"
     },
     {
       "source": "European Parliament",
@@ -33,28 +33,28 @@
       "status": "error",
       "error": "ParseError",
       "count": 0,
-      "checked_at": "2026-09-13T01:21:26+00:00"
+      "checked_at": "2026-09-14T01:30:35+00:00"
     },
     {
       "source": "Eurostat",
       "region": "eu",
       "status": "ok",
       "count": 57,
-      "checked_at": "2026-09-13T01:21:26+00:00"
+      "checked_at": "2026-09-14T01:30:35+00:00"
     },
     {
       "source": "Politico Europe",
       "region": "eu",
       "status": "ok",
-      "count": 7,
-      "checked_at": "2026-09-13T01:21:26+00:00"
+      "count": 8,
+      "checked_at": "2026-09-14T01:30:35+00:00"
     },
     {
       "source": "Reuters Europe",
       "region": "eu",
       "status": "ok",
-      "count": 57,
-      "checked_at": "2026-09-13T01:21:26+00:00"
+      "count": 60,
+      "checked_at": "2026-09-14T01:30:35+00:00"
     },
     {
       "source": "Bundesbank",
@@ -62,7 +62,7 @@
       "status": "error",
       "error": "ParseError",
       "count": 0,
-      "checked_at": "2026-09-13T01:21:26+00:00"
+      "checked_at": "2026-09-14T01:30:35+00:00"
     },
     {
       "source": "Destatis",
@@ -70,14 +70,14 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-09-13T01:21:26+00:00"
+      "checked_at": "2026-09-14T01:30:35+00:00"
     },
     {
       "source": "Deutsche Welle",
       "region": "germany",
       "status": "empty",
       "count": 0,
-      "checked_at": "2026-09-13T01:21:26+00:00"
+      "checked_at": "2026-09-14T01:30:35+00:00"
     },
     {
       "source": "Federal Employment Agency",
@@ -85,7 +85,7 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-09-13T01:21:26+00:00"
+      "checked_at": "2026-09-14T01:30:35+00:00"
     },
     {
       "source": "German Federal Government",
@@ -93,135 +93,263 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-09-13T01:21:26+00:00"
+      "checked_at": "2026-09-14T01:30:35+00:00"
     },
     {
       "source": "Reuters Germany",
       "region": "germany",
       "status": "ok",
-      "count": 57,
-      "checked_at": "2026-09-13T01:21:26+00:00"
+      "count": 53,
+      "checked_at": "2026-09-14T01:30:35+00:00"
     },
     {
       "source": "The Local Germany",
       "region": "germany",
       "status": "ok",
-      "count": 13,
-      "checked_at": "2026-09-13T01:21:26+00:00"
+      "count": 14,
+      "checked_at": "2026-09-14T01:30:35+00:00"
     }
   ],
   "items": [
     {
-      "id": "7fb2aa51da4efaa6",
+      "id": "1009fc693a6485a1",
       "region": "eu",
-      "title": "Russian attacks kill 10, injure dozens in Ukraine; Russia says it hits ships, plants - Reuters",
-      "title_cn": "Russian attacks kill 10, injure dozens in Ukraine; Russia says it hits ships, plants - Reuters",
-      "summary": "Russian attacks kill 10, injure dozens in Ukraine; Russia says it hits ships, plants Reuters",
-      "source": "Reuters Europe",
-      "source_url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQcjF5NXdIeXlKQWY5RXRJTmlfVjFfWlNwZm9TOVNOREUxcmUwTk9MRmFUbWZzQnhNZTY1V3d2R2hBZGhlU1ZOT1licGJRdzUwcXhEbmJGTEdkNi1xRUlQUGJ0VnN0MjFLMWJGem1Ta0hGZ21ILXQybi1nS0xuUGo0Wjkta0dzZjhNOUVGTFZNcWJqTURPRzI2bngtdjg1dnZSVUZ4WjZLeF9DWU91M1ZlQjRUZ1FaMjNBc0pEMUhTMnR2Mnh1b0dZ?oc=5",
-      "published_at": "2026-09-12T22:09:58+00:00",
-      "fetched_at": "2026-09-13T01:21:26+00:00",
-      "category": "technology",
-      "importance": "important",
+      "title": "‘Slowing things down’: Trade wars hit global electrification shift",
+      "title_cn": "“放慢速度”：贸易战冲击全球电气化转型",
+      "summary": "Tariffs on everything from EVs to grid components could slow the energy transition.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.com/news/2026/09/13/trade-wars-are-going-electric-the-planet-could-pay-the-price-01068417?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-09-13T22:22:37+00:00",
+      "fetched_at": "2026-09-14T01:30:35+00:00",
+      "category": "trade",
+      "importance": "critical",
       "official_source": false,
-      "first_seen_at": "2026-09-13T01:21:26+00:00",
-      "last_seen_at": "2026-09-13T01:21:26+00:00"
+      "first_seen_at": "2026-09-14T01:30:35+00:00",
+      "last_seen_at": "2026-09-14T01:30:35+00:00"
     },
     {
-      "id": "c419f032ae4b6239",
-      "region": "germany",
-      "title": "Germany suspects Russian intelligence involved in airport 'hybrid attack'",
-      "title_cn": "Germany suspects Russian intelligence involved in airport 'hybrid attack'",
-      "summary": "German security officials suspect a member of Russian military intelligence helped plan an attempted \"hybrid attack\" involving an explosive-laden drone at an airport last month, a report said Saturday.",
-      "source": "The Local Germany",
-      "source_url": "https://www.thelocal.de/20260912/germany-suspects-russian-intelligence-involved-in-airport-hybrid-attack",
-      "published_at": "2026-09-12T12:44:49+00:00",
-      "fetched_at": "2026-09-13T01:21:26+00:00",
+      "id": "af0315f09528f878",
+      "region": "eu",
+      "title": "Trump cuts Ireland’s whiskey tariff as a parting gift",
+      "title_cn": "特朗普削减爱尔兰威士忌关税作为临别礼物",
+      "summary": "The president said Ireland’s distillers would no longer face tariffs as a thank-you gesture for his hosting of the Irish Open golf tournament.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.com/news/2026/09/13/trump-irish-whiskey-tariffs-01073879?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-09-13T21:49:34+00:00",
+      "fetched_at": "2026-09-14T01:30:35+00:00",
+      "category": "trade",
+      "importance": "critical",
+      "official_source": false,
+      "first_seen_at": "2026-09-14T01:30:35+00:00",
+      "last_seen_at": "2026-09-14T01:30:35+00:00"
+    },
+    {
+      "id": "8f57d80f195072b1",
+      "region": "eu",
+      "title": "AI leaders want a slower pace car. Australia is still building the track.",
+      "title_cn": "人工智能领导者想要一辆速度较慢的汽车。澳大利亚仍在修建这条赛道。",
+      "summary": "If you’ve been forwarded this newsletter, you can sign up for free here. ESSENTIALS — Labor looks for border control in the wrong numbers — Albanese turns Hanson’s housing attack into a fight over nastiness — Australia’s AI plan has a 30-data center loophole — David Shoebridge interview DRIVING THE DAY ARE WE FINALLY GETTING MIGRATION […]",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.com/newsletters/canberra-playbook?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-09-13T21:10:55+00:00",
+      "fetched_at": "2026-09-14T01:30:35+00:00",
+      "category": "immigration",
+      "importance": "critical",
+      "official_source": false,
+      "first_seen_at": "2026-09-14T01:30:35+00:00",
+      "last_seen_at": "2026-09-14T01:30:35+00:00"
+    },
+    {
+      "id": "5dc6e71b3b07e726",
+      "region": "eu",
+      "title": "Trump calls on Ukraine to halt attacks on Russian oil refineries",
+      "title_cn": "特朗普呼吁乌克兰停止袭击俄罗斯炼油厂",
+      "summary": "The U.S. president denied that his war on Iran was responsible for surging diesel prices, but a senior European official said Trump was using Kyiv as a scapegoat.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/donald-trump-calls-on-ukraine-to-halt-attacks-on-russian-oil-refineries/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-09-13T15:35:39+00:00",
+      "fetched_at": "2026-09-14T01:30:35+00:00",
       "category": "defense_security",
+      "importance": "critical",
+      "official_source": false,
+      "first_seen_at": "2026-09-14T01:30:35+00:00",
+      "last_seen_at": "2026-09-14T01:30:35+00:00"
+    },
+    {
+      "id": "fb7d1487748cd498",
+      "region": "eu",
+      "title": "Russian drone hits passenger train headed from Kyiv to Warsaw",
+      "title_cn": "俄罗斯无人机击中从基辅开往华沙的旅客列车",
+      "summary": "Ukrainian Foreign Minister Andrii Sybiha responded to the attack by stating that Russian President Vladimir Putin’s forces are “knocking directly on the doors of the EU and NATO.”",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/russia-attacks-gas-station-passenger-train-near-ukraine-poland-border/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-09-13T09:45:41+00:00",
+      "fetched_at": "2026-09-14T01:30:35+00:00",
+      "category": "technology",
+      "importance": "critical",
+      "official_source": false,
+      "first_seen_at": "2026-09-14T01:30:35+00:00",
+      "last_seen_at": "2026-09-14T01:30:35+00:00"
+    },
+    {
+      "id": "25b12b890182bf05",
+      "region": "germany",
+      "title": "GE HealthCare in talks over possible $1 billion deal for Sofie Biosciences, FT reports - Reuters",
+      "title_cn": "据英国《金融时报》报道，GE 医疗保健正在就可能以 10 亿美元收购 Sofie Biosciences 的交易进行谈判 - 路透",
+      "summary": "GE HealthCare in talks over possible $1 billion deal for Sofie Biosciences, FT reports Reuters",
+      "source": "Reuters Germany",
+      "source_url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNX2tDZE9QeExxdUU4cEk3NFQ3cWtfWnd1ZkpjXzFZWnJ0OG9TWmpmVXBSOHhycXlpRWQ3SzhPdWlFcGtFXzBIdjlIc2dmeTdBTXBZQjR6empXXy03dnVab2RnbTd5WEVLX2ZWb1JxeGdSVWdpaFNpTFhUWVk2aFF0Z0lIRWpzZVRXNFJZNjdxNThkUkZISXR0MWl0Y1RjLVBnMEswYzhmLVVBX3l0dHRQUmx6ekhKV0puRDMtTWlFZ2pncUdEemYyZUZJV3dTZw?oc=5",
+      "published_at": "2026-09-13T15:40:46+00:00",
+      "fetched_at": "2026-09-14T01:30:35+00:00",
+      "category": "welfare_healthcare",
       "importance": "important",
       "official_source": false,
-      "first_seen_at": "2026-09-13T01:21:26+00:00",
-      "last_seen_at": "2026-09-13T01:21:26+00:00"
+      "first_seen_at": "2026-09-14T01:30:35+00:00",
+      "last_seen_at": "2026-09-14T01:30:35+00:00"
     },
     {
-      "id": "b767b1d2e7a1e822",
+      "id": "ee6335f74ef0fa01",
       "region": "eu",
-      "title": "[ilc_mddu05c] Persons who cannot afford a personal car by household composition - European Commission",
-      "title_cn": "[ilc_mddu05c] Persons who cannot afford a personal car by household composition - European Commission",
-      "summary": "[ilc_mddu05c] Persons who cannot afford a personal car by household composition European Commission",
-      "source": "Eurostat",
-      "source_url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxPV2VlOGl6a09EbVlCWEFxUFNXNGx5OEIzWUg0eTBYclRGY0gxSldDeHpKdTZOU3d3aDB5UnJLU29GVUE0U1VTT19salVaQjVwRXF5ZlMwbG41RElvcmgxejV4eTdiekg4UERkOXpybWRpUVZiblpWVFN2UDFZTldSbW8zTi0wNXlNeng5cFNRc2dzLTFzWUtiV0NIeldnZDI3ZTdkQ0lpWFFrc0dTVF9NcTdIS3pEUEREZ0ZvQ3ZCaXp4eE4zZ2xmLUpmWVluNVlra01KSHBVc1ZteTVYa1hadXdXWUJvcWZHNkNBZll3?oc=5",
-      "published_at": "2026-09-12T13:29:40+00:00",
-      "fetched_at": "2026-09-13T01:21:26+00:00",
-      "category": "industry",
-      "importance": "normal",
-      "official_source": true,
-      "first_seen_at": "2026-09-13T01:21:26+00:00",
-      "last_seen_at": "2026-09-13T01:21:26+00:00"
-    },
-    {
-      "id": "2901de0ef6a698b7",
-      "region": "germany",
-      "title": "Europe eyes battle over 'pervert' AI glasses",
-      "title_cn": "Europe eyes battle over 'pervert' AI glasses",
-      "summary": "Calls are growing louder in Europe for action against \"pervert\" smart glasses after secretly filmed footage of girls and women appeared online -- with a petition in Britain demanding a ban on their sale.",
-      "source": "The Local Germany",
-      "source_url": "https://www.thelocal.de/20260912/europe-eyes-battle-over-pervert-ai-glasses",
-      "published_at": "2026-09-12T12:35:38+00:00",
-      "fetched_at": "2026-09-13T01:21:26+00:00",
-      "category": "technology",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-09-13T01:21:26+00:00",
-      "last_seen_at": "2026-09-13T01:21:26+00:00"
-    },
-    {
-      "id": "fd2d73b3bc71e0f2",
-      "region": "germany",
-      "title": "Inside Germany: Looking for the light after Saxony-Anhalt's 'political earthquake'",
-      "title_cn": "Inside Germany: Looking for the light after Saxony-Anhalt's 'political earthquake'",
-      "summary": "From flooding the zone to fighting back as the country reels from one state election and heads directly into two more, Inside Germany is our weekly look at some of the recent news and talking points that you may have missed.",
-      "source": "The Local Germany",
-      "source_url": "https://www.thelocal.de/20260912/inside-germany-looking-for-the-light-after-saxony-anhalts-political-earthquake",
-      "published_at": "2026-09-12T09:02:10+00:00",
-      "fetched_at": "2026-09-13T01:21:26+00:00",
-      "category": "technology",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-09-13T01:21:26+00:00",
-      "last_seen_at": "2026-09-13T01:21:26+00:00"
-    },
-    {
-      "id": "4346aafa34c3ef75",
-      "region": "eu",
-      "title": "OpenAI reveals another rogue AI attack",
-      "title_cn": "OpenAI reveals another rogue AI attack",
-      "summary": "",
+      "title": "Sweden’s election too close to call after late right-wing surge",
+      "title_cn": "右翼势力后期崛起后，瑞典大选结果势均力敌",
+      "summary": "With most results in, the opposition left bloc leads by a single seat over an alliance that includes the far-right Sweden Democrats.",
       "source": "Politico Europe",
-      "source_url": "https://www.politico.com/news/2026/09/11/openai-reveals-another-rogue-ai-attack-01073312?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-09-12T07:34:24+00:00",
-      "fetched_at": "2026-09-13T01:21:26+00:00",
+      "source_url": "https://www.politico.eu/article/sweden-election-too-close-to-call-ulf-kristersson-magdalena-andersson/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-09-13T20:29:34+00:00",
+      "fetched_at": "2026-09-14T01:30:35+00:00",
+      "category": "politics_society",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-09-14T01:30:35+00:00",
+      "last_seen_at": "2026-09-14T01:30:35+00:00"
+    },
+    {
+      "id": "798625eb1cede97c",
+      "region": "eu",
+      "title": "Sweden exit poll: Left on course for election win in blow to far right",
+      "title_cn": "瑞典出口民意调查：左派有望赢得选举，对极右翼的打击",
+      "summary": "Social Democrat leader Magdalena Andersson is heading for a comeback as prime minister in charge of a left-wing coalition, exit polling suggests.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/sweden-exit-poll-election-magdalena-andersson/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-09-13T18:20:49+00:00",
+      "fetched_at": "2026-09-14T01:30:35+00:00",
+      "category": "politics_society",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-09-14T01:30:35+00:00",
+      "last_seen_at": "2026-09-14T01:30:35+00:00"
+    },
+    {
+      "id": "4cb9145d6270ddbd",
+      "region": "eu",
+      "title": "Suspected Russian spy behind drone attack in Leipzig",
+      "title_cn": "莱比锡无人机袭击案背后疑似俄罗斯间谍",
+      "summary": "A Belarusian citizen and a Russian national linked to the country's military intelligence services have been identified as the main suspects in the August drone attack.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/suspect-russia-spy-drone-attack-in-leipzig-halle-airport-germany/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-09-13T17:11:21+00:00",
+      "fetched_at": "2026-09-14T01:30:35+00:00",
+      "category": "defense_security",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-09-14T01:30:35+00:00",
+      "last_seen_at": "2026-09-14T01:30:35+00:00"
+    },
+    {
+      "id": "dc8b8a9374318ad6",
+      "region": "eu",
+      "title": "Trump says 'very negative forces' raising exaggerated concerns over AI - Reuters",
+      "title_cn": "特朗普称“非常负面的力量”引发了对人工智能的过度担忧 - 路透中文网",
+      "summary": "Trump says 'very negative forces' raising exaggerated concerns over AI Reuters",
+      "source": "Reuters Europe",
+      "source_url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxObThfSFpBRlQ0d1ZsVDV4SnZQdlJkYWZnRTlQRlpKWmRud283dWJQclhHQUUxM1dHSzVJakIxVnVBc2pYU0R2TmdUT01PSkJiY3I3WFRHUGNZNUh5RVdtRGk4QUppT1hVV0dHbDdwdGQzc0ZyZlRxeTUzNjg1UUY3RHpiR0JUOUpCdlV4b2xNd01FaEluMXhZZTA4eV9Gd0gxYW02eWprV05hRUREYWVGZUZLcHZWZWpa?oc=5",
+      "published_at": "2026-09-13T14:28:00+00:00",
+      "fetched_at": "2026-09-14T01:30:35+00:00",
       "category": "technology",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-09-13T01:21:26+00:00",
-      "last_seen_at": "2026-09-13T01:21:26+00:00"
+      "first_seen_at": "2026-09-14T01:30:35+00:00",
+      "last_seen_at": "2026-09-14T01:30:35+00:00"
     },
     {
-      "id": "03a5a672c8d00587",
+      "id": "37d1e6fe710b786f",
       "region": "eu",
-      "title": "Portugal wants EU cash to pay for firefighting goats",
-      "title_cn": "Portugal wants EU cash to pay for firefighting goats",
-      "summary": "As budget negotiations intensify, capitals are reaching for a new argument to keep money in the farming pot: climate change.",
-      "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/portugal-wants-eu-cash-to-pay-for-firefighting-goats/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-09-12T02:00:00+00:00",
-      "fetched_at": "2026-09-13T01:21:26+00:00",
-      "category": "energy",
+      "title": "Russia hits Ukrainian-Polish border area, Kyiv says - Reuters",
+      "title_cn": "基辅称俄罗斯袭击了乌克兰和波兰边境地区 - 路透中文网",
+      "summary": "Russia hits Ukrainian-Polish border area, Kyiv says Reuters",
+      "source": "Reuters Europe",
+      "source_url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOVFZBaTk5OF92UERmVFFXRnJlYmcwdlotMFhNZGc5c29vRTdxVUxOdjdPN0FfRlZqbVlEV1gwXzRRWG1ZVjRuam5JWnFudldIaDhxcGNDVVlNM3pmYkFNMjQzalJ6ekttZjdsZk1FNUEyZmVrTDRwSFdncnEtb2MwUUJVSmJHOUJzSmlHTmptb2t6ZzhSUVlWenl3Q3g2Mndq?oc=5",
+      "published_at": "2026-09-13T09:07:57+00:00",
+      "fetched_at": "2026-09-14T01:30:35+00:00",
+      "category": "immigration",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-09-13T01:21:26+00:00",
-      "last_seen_at": "2026-09-13T01:21:26+00:00"
+      "first_seen_at": "2026-09-14T01:30:35+00:00",
+      "last_seen_at": "2026-09-14T01:30:35+00:00"
+    },
+    {
+      "id": "aaf544391d8480f4",
+      "region": "eu",
+      "title": "Russian drone attack injures five in Ukraine's Odesa, officials say - Reuters",
+      "title_cn": "官员称，俄罗斯无人机袭击乌克兰敖德萨，造成五人受伤 - 路透中文网",
+      "summary": "Russian drone attack injures five in Ukraine's Odesa, officials say Reuters",
+      "source": "Reuters Europe",
+      "source_url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQZFIyUS1HT3JDbGVMeFdxNzBQcHB0TFJXRlRGRnNuYjgwVGpUWW9CWER1QlJIUFZhT3l5LVlzQThxdTRlbXpPbWlucXYtSE9GRkpyOG5FNS12TkhfaTJNdmNIb25rYUZObThRM1ZadDEzSVlNelY1Zm12SHgxZkNUZXhuRHZzVERQZXp0ZE5qQjFNbExmTUZud2RJbkFac1FUdm1uN3ZqakFfbHJBWkN4Sg?oc=5",
+      "published_at": "2026-09-13T07:53:43+00:00",
+      "fetched_at": "2026-09-14T01:30:35+00:00",
+      "category": "defense_security",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-09-14T01:30:35+00:00",
+      "last_seen_at": "2026-09-14T01:30:35+00:00"
+    },
+    {
+      "id": "b2cb23a96c244399",
+      "region": "germany",
+      "title": "Tens of thousands protest against far right in Germany",
+      "title_cn": "德国数万人抗议极右翼",
+      "summary": "Tens of thousands of protesters took part in demonstrations across Germany on Saturday against the far-right AfD, after the party scored a crushing victory in a state election last week.",
+      "source": "The Local Germany",
+      "source_url": "https://www.thelocal.de/20260913/tens-of-thousands-protest-against-far-right-in-germany",
+      "published_at": "2026-09-13T07:19:03+00:00",
+      "fetched_at": "2026-09-14T01:30:35+00:00",
+      "category": "politics_society",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-09-14T01:30:35+00:00",
+      "last_seen_at": "2026-09-14T01:30:35+00:00"
+    },
+    {
+      "id": "c3501308f6038d34",
+      "region": "germany",
+      "title": "German firms lift China investment as US outlays fall, IW study shows - Reuters",
+      "title_cn": "IW研究显示，随着美国支出下降，德国企业增加对华投资 - 路透中文网",
+      "summary": "German firms lift China investment as US outlays fall, IW study shows Reuters",
+      "source": "Reuters Germany",
+      "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNMjh4NHdubTBlTmlHbkNLR1RKZ0R1OGV3ZEFMR3Zidmk2X2Z4Z1UzNXJPVUhvUHRwTFU2ZkNMaEJlSUJqMWt4Zjl2RVQ1S0c4UU1pXzg3WkpMOWM5dS1BMU9iTXNvU2xqWHcyTUx3djZSODVQbGdDTTR0ZFpBVzhVcUhyc2hnTmh0UHplS1JzU0Q4dFpYQ2ZnV01Od2dWSDNTbHByX00zaHZ3aTFXRklxbWE2dw?oc=5",
+      "published_at": "2026-09-13T06:32:00+00:00",
+      "fetched_at": "2026-09-14T01:30:35+00:00",
+      "category": "education",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-09-14T01:30:35+00:00",
+      "last_seen_at": "2026-09-14T01:30:35+00:00"
+    },
+    {
+      "id": "d67231586de8f7bd",
+      "region": "germany",
+      "title": "Sweden's centre-left bloc leads close election against right-wing government - Reuters",
+      "title_cn": "瑞典中左翼集团在选举中领先，击败右翼政府 - 路透中文网",
+      "summary": "Sweden's centre-left bloc leads close election against right-wing government Reuters",
+      "source": "Reuters Germany",
+      "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQZnVER1ZkMGJZRERjcmI4MDdhUE4tX29PYlEzTkt4cHFmOHpMVktaOXhQVVNsd21oNkplc2JUOWxaS3NmTmFJTVNpWW5ydnRVTll5dzljNlZPOVQtVHNzVmpmMVNPMTFBYVJCdFVwYW54RXd1ckJEVHlWcEQ1NHoyMWJDdHp6QmVPLWx4OElKVG44RVpfRVZhRG8zVng1V1BxOF9Nd3k1SmdsY2t0WFlYaXR3?oc=5",
+      "published_at": "2026-09-13T00:04:00+00:00",
+      "fetched_at": "2026-09-14T01:30:35+00:00",
+      "category": "politics_society",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-09-14T01:30:35+00:00",
+      "last_seen_at": "2026-09-14T01:30:35+00:00"
     }
   ]
 }
