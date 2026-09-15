@@ -1,11 +1,12 @@
 {
   "schemaVersion": 1,
   "status": "partial",
-  "generatedAt": "2026-09-15T06:37:43+00:00",
+  "generatedAt": "2026-09-15T07:18:31+00:00",
   "timezone": "Asia/Shanghai",
   "sourcePolicy": "official_only",
   "failedSources": [
     "gacc",
+    "mof",
     "nbs"
   ],
   "events": [
@@ -966,7 +967,7 @@
         }
       ],
       "releasedAt": "2026-09-09T09:30:00+08:00",
-      "retrievedAt": "2026-09-15T06:37:43+00:00",
+      "retrievedAt": "2026-09-15T07:18:31+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "sourceStatus": "fresh",
@@ -1091,7 +1092,7 @@
         }
       ],
       "releasedAt": "2026-09-15T09:30:00+08:00",
-      "retrievedAt": "2026-09-15T06:37:43+00:00",
+      "retrievedAt": "2026-09-15T07:18:31+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "sourceStatus": "fresh",
@@ -3182,6 +3183,6 @@
       "eventDate": "2017-11-21"
     }
   ],
-  "sourceHealthUpdatedAt": "2026-09-14T07:38:44+00:00",
-  "targetedBackfillAt": "2026-09-15T06:37:43+00:00"
+  "sourceHealthUpdatedAt": "2026-09-15T07:18:20+00:00",
+  "targetedBackfillAt": "2026-09-15T07:18:31+00:00"
 }
