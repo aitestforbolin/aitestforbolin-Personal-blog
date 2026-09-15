@@ -1,4 +1,4 @@
-name: Publish daily market briefing to X
+name: Finalize daily market briefing
 
 on:
   push:
@@ -6,6 +6,10 @@ on:
       - main
     paths:
       - data/daily-market-status.json
+      - data/run-status.json
+  schedule:
+    # 07:30 Asia/Shanghai watchdog, Tuesday-Saturday.
+    - cron: "30 23 * * 1-5"
   workflow_dispatch:
     inputs:
       as_of:
@@ -27,6 +31,11 @@ concurrency:
 
 jobs:
   publish:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'push' &&
+       (contains(github.event.head_commit.added, 'data/daily-market-status.json') ||
+        contains(github.event.head_commit.modified, 'data/daily-market-status.json')))
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -62,14 +71,33 @@ jobs:
             args+=(--dry-run)
           fi
           python scripts/publish_x_post.py "${args[@]}"
-      - name: Record successful Post ID
+      - name: Finalize canonical run status
+        id: finalize
+        if: always() && github.event_name == 'push'
+        env:
+          VALIDATE_OUTCOME: ${{ steps.validate.outcome }}
+          PUBLISH_OUTCOME: ${{ steps.publish.outcome }}
+          PUBLISH_STATUS: ${{ steps.publish.outputs.status }}
+        run: |
+          python scripts/finalize_run_status.py \
+            --from-x \
+            --validate-outcome "$VALIDATE_OUTCOME" \
+            --publish-outcome "$PUBLISH_OUTCOME" \
+            --publish-status "$PUBLISH_STATUS" \
+            --briefing-commit "$GITHUB_SHA"
+      - name: Record X ledger and canonical run status
         id: record
-        if: steps.publish.outputs.status == 'published'
+        if: always() && github.event_name == 'push' && steps.finalize.outcome == 'success'
+        continue-on-error: true
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- data/x-publish-log.json
-          git commit -m "Record X Post for ${{ steps.publish.outputs.as_of }}"
+          git add -- data/x-publish-log.json data/run-status.json
+          if git diff --cached --quiet; then
+            echo "Run status and X ledger are already current."
+            exit 0
+          fi
+          git commit -m "Finalize market briefing run for ${{ steps.finalize.outputs.as_of }}"
           for attempt in 1 2 3; do
             if git push origin HEAD:main; then
               exit 0
@@ -79,41 +107,94 @@ jobs:
             sleep $((attempt * 5))
           done
           exit 1
+      - name: Mark local status when its commit failed
+        if: always() && github.event_name == 'push' && steps.record.outcome == 'failure'
+        run: |
+          python scripts/finalize_run_status.py \
+            --status failed \
+            --stage commit \
+            --as-of "${{ steps.finalize.outputs.as_of }}" \
+            --reason-code run_status_commit_failed
       - name: Notify final daily briefing status by Gmail
-        if: always() && github.event_name == 'push'
+        if: always() && github.event_name == 'push' && steps.finalize.outcome == 'success'
         continue-on-error: true
         env:
           GMAIL_SMTP_USER: ${{ secrets.GMAIL_SMTP_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           GMAIL_NOTIFY_TO: ${{ secrets.GMAIL_NOTIFY_TO }}
-          VALIDATE_OUTCOME: ${{ steps.validate.outcome }}
-          PUBLISH_OUTCOME: ${{ steps.publish.outcome }}
-          PUBLISH_STATUS: ${{ steps.publish.outputs.status }}
-          RECORD_OUTCOME: ${{ steps.record.outcome }}
-          AS_OF: ${{ steps.publish.outputs.as_of }}
-          POST_URL: ${{ steps.publish.outputs.post_url }}
-          POST_ID: ${{ steps.publish.outputs.post_id }}
         run: |
           run_url="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-
-          if [[ "$VALIDATE_OUTCOME" == "success" \
-                && "$PUBLISH_OUTCOME" == "success" \
-                && "$PUBLISH_STATUS" == "published" \
-                && "$RECORD_OUTCOME" == "success" ]]; then
-            python scripts/send_gmail_notification.py \
-              --status success \
-              --as-of "$AS_OF" \
-              --post-url "$POST_URL" \
-              --post-id "$POST_ID" \
-              --run-url "$run_url"
-            exit 0
-          fi
-
-          reason="validation=$VALIDATE_OUTCOME; publish=$PUBLISH_OUTCOME/$PUBLISH_STATUS; record=$RECORD_OUTCOME"
           python scripts/send_gmail_notification.py \
-            --status failure \
-            --as-of "$AS_OF" \
-            --post-url "$POST_URL" \
-            --post-id "$POST_ID" \
-            --reason "$reason" \
             --run-url "$run_url"
+      - name: Preserve failed workflow conclusion
+        if: >-
+          always() && github.event_name == 'push' &&
+          (steps.finalize.outputs.status == 'failed' || steps.record.outcome == 'failure')
+        run: exit 1
+
+  notify-early-status:
+    if: >-
+      github.event_name == 'push' &&
+      startsWith(github.event.head_commit.message, 'Finalize early market briefing status') &&
+      (contains(github.event.head_commit.added, 'data/run-status.json') ||
+       contains(github.event.head_commit.modified, 'data/run-status.json'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Notify from canonical run status
+        continue-on-error: true
+        env:
+          GMAIL_SMTP_USER: ${{ secrets.GMAIL_SMTP_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          GMAIL_NOTIFY_TO: ${{ secrets.GMAIL_NOTIFY_TO }}
+        run: |
+          run_url="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          python scripts/send_gmail_notification.py --run-url "$run_url"
+
+  watchdog:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check today's terminal status
+        id: watchdog
+        run: python scripts/watch_market_briefing_run.py
+      - name: Commit missing-status failure
+        if: steps.watchdog.outputs.action == 'created_failure'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- data/run-status.json
+          git commit -m "Record missing daily market briefing status"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            git rebase origin/main
+            sleep $((attempt * 5))
+          done
+          exit 1
+      - name: Notify missing-status failure
+        if: >-
+          steps.watchdog.outputs.action == 'created_failure' ||
+          steps.watchdog.outputs.action == 'notify_existing_failure'
+        continue-on-error: true
+        env:
+          GMAIL_SMTP_USER: ${{ secrets.GMAIL_SMTP_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          GMAIL_NOTIFY_TO: ${{ secrets.GMAIL_NOTIFY_TO }}
+        run: |
+          run_url="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          python scripts/send_gmail_notification.py --run-url "$run_url"

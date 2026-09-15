@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Send a best-effort Gmail status notification for the daily market briefing."""
+"""Send a best-effort Gmail notification derived only from run-status.json."""
 
 from __future__ import annotations
 
@@ -13,28 +13,75 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_SNAPSHOT = ROOT / "data" / "daily-market-status.json"
+DEFAULT_STATUS = ROOT / "data" / "run-status.json"
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--status", choices=("success", "failure"), required=True)
-    parser.add_argument("--as-of", default="")
-    parser.add_argument("--post-url", default="")
-    parser.add_argument("--post-id", default="")
-    parser.add_argument("--reason", default="")
     parser.add_argument("--run-url", required=True)
-    parser.add_argument("--snapshot", type=Path, default=DEFAULT_SNAPSHOT)
+    parser.add_argument("--status-file", type=Path, default=DEFAULT_STATUS)
     return parser.parse_args()
 
 
-def snapshot_as_of(path: Path) -> str:
+def load_status(path: Path) -> dict:
     try:
         payload = json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return "unknown"
-    value = str(payload.get("asOf") or "").strip() if isinstance(payload, dict) else ""
-    return value or "unknown"
+    except (OSError, json.JSONDecodeError) as exc:
+        raise RuntimeError(f"Could not read run status from {path}") from exc
+    if not isinstance(payload, dict) or payload.get("status") not in {
+        "success", "no_new_session", "failed"
+    }:
+        raise RuntimeError("run-status.json has an unsupported status")
+    return payload
+
+
+def build_message(payload: dict, run_url: str, sender: str, recipient: str) -> EmailMessage:
+    status = payload["status"]
+    as_of = str(payload.get("asOf") or "unknown")
+    run_date = str(payload.get("runDate") or "unknown")
+    post_url = str(payload.get("xPostUrl") or "").strip()
+    message = EmailMessage()
+    message["From"] = sender
+    message["To"] = recipient
+
+    if status == "success":
+        message["Subject"] = f"✅ 每日市场早报全部成功｜{as_of}"
+        lines = [
+            f"{as_of} 的每日市场早报已完成。",
+            "",
+            "状态：早报提交成功；X 发布成功。",
+        ]
+        if post_url:
+            lines.extend(["", f"查看 X：{post_url}"])
+    elif status == "no_new_session":
+        message["Subject"] = f"ℹ️ 每日市场早报无需更新｜{run_date}"
+        lines = [
+            f"{run_date} 没有需要发布的新交易日早报。",
+            "",
+            f"原因：{payload.get('reasonCode') or 'no_new_session'}",
+            f"当前最新交易日：{as_of}",
+        ]
+    else:
+        message["Subject"] = f"⚠️ 每日市场早报异常｜{run_date}"
+        lines = [
+            f"{run_date} 的每日市场早报自动化未完成。",
+            "",
+            f"失败阶段：{payload.get('stage') or 'unknown'}",
+            f"原因代码：{payload.get('reasonCode') or 'unknown'}",
+        ]
+        if post_url:
+            lines.extend(["", f"已确认的 X Post：{post_url}"])
+
+    lines.extend(
+        [
+            "",
+            f"查看本次 Workflow：{run_url}",
+            "",
+            "本邮件内容仅依据 data/run-status.json 生成。",
+        ]
+    )
+    message.set_content("\n".join(lines))
+    return message
 
 
 def main() -> int:
@@ -50,53 +97,15 @@ def main() -> int:
         )
         return 0
 
-    as_of = args.as_of.strip() or snapshot_as_of(args.snapshot)
-    post_url = args.post_url.strip()
-    if not post_url and args.post_id.strip():
-        post_url = f"https://x.com/i/web/status/{args.post_id.strip()}"
-
-    message = EmailMessage()
-    message["From"] = username
-    message["To"] = recipient
-
-    if args.status == "success":
-        message["Subject"] = f"✅ 每日市场早报全部成功｜{as_of}"
-        lines = [
-            f"{as_of} 的每日市场早报工作流已全部完成。",
-            "",
-            "状态：早报制作成功；数据校验通过；X 发布成功。",
-            "现在可以阅读今日早报。",
-        ]
-        if post_url:
-            lines.extend(["", f"查看 X：{post_url}"])
-    else:
-        message["Subject"] = f"⚠️ 每日市场早报异常｜{as_of}"
-        lines = [
-            f"{as_of} 的每日市场早报工作流出现失败或异常。",
-            "",
-            f"异常信息：{args.reason.strip() or '请查看 Workflow 运行详情。'}",
-            "",
-            "请检查后再将今日早报视为完成。",
-        ]
-        if post_url:
-            lines.extend(["", f"已存在的 X Post：{post_url}"])
-
-    lines.extend(
-        [
-            "",
-            f"查看本次 Workflow：{args.run_url}",
-            "",
-            "这是一封由每日市场早报 Workflow 自动发送的状态通知。",
-        ]
-    )
-    message.set_content("\n".join(lines))
+    payload = load_status(args.status_file)
+    message = build_message(payload, args.run_url, username, recipient)
 
     context = ssl.create_default_context()
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context, timeout=30) as smtp:
         smtp.login(username, app_password)
         smtp.send_message(message)
 
-    print(f"Gmail {args.status} notification sent to {recipient}.")
+    print(f"Gmail {payload['status']} notification sent to {recipient}.")
     return 0
 
 

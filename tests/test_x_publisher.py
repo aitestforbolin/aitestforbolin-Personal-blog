@@ -121,7 +121,11 @@ class XPublisherTests(unittest.TestCase):
                     {
                         "schemaVersion": 1,
                         "publishedByAsOf": {
-                            "2026-08-19": {"postId": "123456789"}
+                            "2026-08-19": {
+                                "postId": "123456789",
+                                "url": "https://x.com/i/web/status/123456789",
+                                "contentSha256": "5d84f9d64395c1334f7e46651424c3a076f2eeb65c98282ed9010f3a8185372b",
+                            }
                         },
                     }
                 ),
@@ -133,6 +137,31 @@ class XPublisherTests(unittest.TestCase):
                 )
                 create.assert_not_called()
             self.assertEqual(result["status"], "skipped_duplicate")
+
+    def test_existing_as_of_with_changed_content_is_blocked(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory) / "state.json"
+            state.write_text(
+                json.dumps(
+                    {
+                        "schemaVersion": 1,
+                        "publishedByAsOf": {
+                            "2026-08-19": {
+                                "postId": "123456789",
+                                "url": "https://x.com/i/web/status/123456789",
+                                "contentSha256": "different",
+                            }
+                        },
+                    }
+                ),
+                encoding="utf-8",
+            )
+            with mock.patch.object(MODULE, "create_x_post") as create:
+                with self.assertRaisesRegex(MODULE.PublishError, "changed after publication"):
+                    MODULE.publish(
+                        self.snapshot_path, state, None, False, "manual", now=self.now
+                    )
+                create.assert_not_called()
 
     def test_api_failure_does_not_write_state(self):
         with tempfile.TemporaryDirectory() as directory:

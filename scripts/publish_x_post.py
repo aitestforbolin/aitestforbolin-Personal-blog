@@ -518,13 +518,6 @@ def publish(
         raise PublishError("Daily market snapshot must be a JSON object")
     as_of = validate_snapshot(snapshot, required_as_of)
     state = load_state(state_path)
-    existing = state["publishedByAsOf"].get(as_of)
-    if existing:
-        post_id = str(existing.get("postId") or "")
-        github_output(status="skipped_duplicate", as_of=as_of, post_id=post_id)
-        print(f"Already published asOf {as_of}; Post ID {post_id}. Skipping.")
-        return {"status": "skipped_duplicate", "asOf": as_of, "postId": post_id}
-
     text = build_x_post(snapshot, now=now)
     if mode == "automatic":
         text = f"{text}\n\n{AUTOMATIC_DISCLOSURE}"
@@ -533,6 +526,29 @@ def publish(
                 "Rendered automatic X text exceeds the longform limit after adding its disclosure"
             )
     content_hash = hashlib.sha256(text.encode("utf-8")).hexdigest()
+    existing = state["publishedByAsOf"].get(as_of)
+    if existing:
+        post_id = str(existing.get("postId") or "")
+        post_url = str(existing.get("url") or f"https://x.com/i/web/status/{post_id}")
+        if existing.get("contentSha256") != content_hash:
+            raise PublishError(
+                f"X content for asOf {as_of} changed after publication; manual review is required"
+            )
+        github_output(
+            status="skipped_duplicate",
+            as_of=as_of,
+            post_id=post_id,
+            post_url=post_url,
+            content_sha256=content_hash,
+        )
+        print(f"Already published asOf {as_of}; Post ID {post_id}. Skipping.")
+        return {
+            "status": "skipped_duplicate",
+            "asOf": as_of,
+            "postId": post_id,
+            "postUrl": post_url,
+        }
+
     if dry_run:
         github_output(status="dry_run", as_of=as_of, content_sha256=content_hash)
         print(text)
