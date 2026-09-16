@@ -179,10 +179,11 @@
     }[event.importance] || 3;
   }
 
-  function renderImportanceStars(event) {
+  function renderImportance(event) {
     const stars = getImportanceStars(event);
-    const symbols = `${"★".repeat(stars)}${"☆".repeat(5 - stars)}`;
-    return `<span class="macro-importance" data-stars="${stars}" role="img" aria-label="重要性 ${stars} 星，满分 5 星" title="重要性 ${stars}/5">${symbols}</span>`;
+    const level = stars >= 4 ? "high" : stars === 3 ? "medium" : "low";
+    const label = stars >= 4 ? "高影响" : stars === 3 ? "中影响" : "低影响";
+    return `<span class="macro-impact macro-impact-${level}" aria-label="${label}"><i aria-hidden="true"></i>${label}</span>`;
   }
 
   function formatPeriod(period) {
@@ -277,11 +278,6 @@
     if (!displayRows.length) {
       return "";
     }
-    const showForecast = event.country !== "CN" && displayRows.some(
-      (metric) => metric.forecast !== null && metric.forecast !== undefined && metric.forecast !== ""
-    );
-    const columnClass = showForecast ? "macro-metric-columns-4" : "macro-metric-columns-3";
-    const metricHeader = `<div class="macro-metric-table-head ${columnClass}"><span>指标</span><span>实际</span>${showForecast ? "<span>预期</span>" : ""}<span>前值</span></div>`;
     const metrics = displayRows
       .map((metric) => {
         if (![metric.actual, metric.forecast, metric.previous].some(
@@ -289,16 +285,16 @@
         )) {
           return "";
         }
-        const value = (value, className) => `<strong class="${className}">${escapeHtml(
+        const value = (value, className, label) => `<strong class="${className}" data-label="${label}">${escapeHtml(
           value === null || value === undefined || value === "" ? "—" : formatMetricValue(value, metric.unit)
         )}</strong>`;
-        return `<div class="macro-metric ${columnClass}"><span class="macro-metric-label">${escapeHtml(metric.label || "综合值")}</span>${value(metric.actual, "macro-result-actual")}${showForecast ? value(metric.forecast, "macro-result-forecast") : ""}${value(metric.previous, "macro-result-previous")}</div>`;
+        return `<div class="macro-metric macro-metric-columns-4"><span class="macro-metric-label">${escapeHtml(metric.label || "综合值")}</span>${value(metric.actual, "macro-result-actual", "实际")}${value(metric.forecast, "macro-result-forecast", "预期")}${value(metric.previous, "macro-result-previous", "前值")}</div>`;
       })
       .filter(Boolean);
     if (!metrics.length) {
       return "";
     }
-    return `<div class="macro-event-results" aria-label="数据公布结果">${metricHeader}${metrics.join(
+    return `<div class="macro-event-results" aria-label="数据公布结果">${metrics.join(
       ""
     )}</div>`;
   }
@@ -425,7 +421,7 @@
       ? new Intl.DateTimeFormat("zh-CN", { timeZone: "Asia/Shanghai", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false }).format(new Date(state.generatedAt))
       : "刚刚";
     status.textContent = events.length
-      ? `Forex Factory 日历 · 更新于 ${updatedAt}（北京时间）；FOMC 日期由美联储日历校验。`
+      ? `Forex Factory 橙色 / 红色重点日历 · 更新于 ${updatedAt}（北京时间）；FOMC 日期由美联储日历校验。`
       : `更新于 ${updatedAt}（北京时间）；当前展示窗口暂无重点事项。`;
     status.dataset.state = events.length ? "notice" : "empty";
   }
@@ -483,8 +479,10 @@
     const reportUrl = directOfficialReportUrl(event);
     const primaryUrl = reportUrl || sourceUrl;
     const sourceLabel = reportUrl
-      ? `${event.source || "官方"} 报告 ↗`
-      : `${event.source || "官方"} 日程 ↗`;
+      ? "官方报告 ↗"
+      : String(event.source || "").includes("Federal Reserve")
+      ? "美联储 ↗"
+      : "Forex Factory ↗";
     const fallbackLink = event.fallbackSourceUrl
       ? `<a class="macro-fallback-link" href="${escapeHtml(
           event.fallbackSourceUrl
@@ -510,14 +508,8 @@
             primaryUrl
           )}" target="_blank" rel="noreferrer">${escapeHtml(title)}</a>
           <div class="macro-event-meta">
-            <span class="macro-country-badge macro-country-badge-${String(
-              event.country || ""
-            ).toLowerCase()}">${escapeHtml(COUNTRY_LABELS[event.country] || event.country)}</span>
-            <span class="macro-category">${escapeHtml(
-              CATEGORY_LABELS[event.category] || (eventType === "policy_event" ? "政策事件" : "宏观")
-            )}</span>
-            ${renderImportanceStars(event)}
-            ${event.source ? `<a class="macro-source-link" href="${escapeHtml(primaryUrl)}" target="_blank" rel="noreferrer">${escapeHtml(sourceLabel)}</a>` : ""}
+            ${renderImportance(event)}
+            ${event.source ? `<a class="macro-source-link" href="${escapeHtml(primaryUrl)}" target="_blank" rel="noreferrer" title="${escapeHtml(event.source)}">${escapeHtml(sourceLabel)}</a>` : ""}
             ${fallbackLink}
           </div>
         </div>
@@ -530,6 +522,9 @@
   }
 
   function renderEventGroup(fragment, title, events, eventType) {
+    if (!events.length) {
+      return;
+    }
     const group = document.createElement("section");
     group.className = `macro-calendar-group macro-calendar-group-${eventType}`;
     const heading = document.createElement("div");
@@ -537,18 +532,12 @@
     heading.innerHTML = `<h3>${escapeHtml(title)}</h3><span>${events.length} 项</span>`;
     const list = document.createElement("div");
     list.className = "macro-calendar-group-list";
-    if (events.length) {
-      events.forEach((event) => list.append(renderCalendarItem(event)));
-    } else {
-      const empty = document.createElement("p");
-      empty.className = "macro-group-empty";
-      empty.textContent =
-        eventType === "policy_event"
-          ? "当前窗口暂无可确认的重要会议或政策事件。"
-          : "当前窗口暂无重点宏观数据。";
-      list.append(empty);
-    }
-    group.append(heading, list);
+    events.forEach((event) => list.append(renderCalendarItem(event)));
+    const tableHead = document.createElement("div");
+    tableHead.className = "macro-calendar-table-head";
+    tableHead.setAttribute("aria-hidden", "true");
+    tableHead.innerHTML = "<span>北京时间</span><span>事件 / 指标</span><span>实际</span><span>预期</span><span>前值</span>";
+    group.append(heading, tableHead, list);
     fragment.append(group);
   }
 
@@ -571,12 +560,11 @@
     }
 
     const fragment = document.createDocumentFragment();
-    renderEventGroup(fragment, "宏观数据", scheduledDataEvents, "data");
     renderEventGroup(
       fragment,
-      "重要会议与政策事件",
-      policyEvents,
-      "policy_event"
+      "美国宏观事件",
+      MODEL.sortEvents([...scheduledDataEvents, ...policyEvents]),
+      "data"
     );
     if (windowDataEvents.length) {
       renderEventGroup(
