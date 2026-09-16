@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Macro Brief | Bolin Brief</title>
+    <meta name="description" content="美国重要宏观事件公布前的自动研究准备卡片。" />
+    <link rel="stylesheet" href="../styles.css?v=20260819-us-macro-1" />
+    <link rel="stylesheet" href="macro-brief.css?v=20260916-1" />
+  </head>
+  <body>
+    <header class="brief-header">
+      <a href="../" class="brief-brand">Bolin Brief</a>
+      <nav aria-label="Macro Brief导航">
+        <a href="../#macro-calendar">美国日历</a>
+        <a href="../daily-market-status/">每日早报</a>
+      </nav>
+    </header>
+
+    <main class="brief-shell">
+      <header class="brief-intro">
+        <p class="brief-eyebrow">Pre-release Research Desk</p>
+        <h1>Macro Brief</h1>
+        <p>在重要美国宏观事件公布前，集中查看预期、前值和当前市场背景。</p>
+      </header>
+
+      <section class="brief-waiting" data-brief-waiting hidden>
+        <strong>当前没有待发布的Macro Brief</strong>
+        <p data-waiting-message>系统会在白名单事件公布前10—30分钟生成。</p>
+      </section>
+
+      <article class="event-brief" data-brief-content hidden>
+        <header class="event-head">
+          <div>
+            <p class="event-kicker">即将公布</p>
+            <h2 data-event-title>—</h2>
+            <p data-event-time>—</p>
+          </div>
+          <button type="button" class="copy-button" data-copy-brief>复制给AI</button>
+        </header>
+
+        <section class="brief-section">
+          <div class="section-head"><h3>市场预期</h3><span data-event-source>—</span></div>
+          <div class="expectation-table" data-expectations></div>
+        </section>
+
+        <section class="brief-section">
+          <div class="section-head"><h3>当前市场</h3><span>事件前快照</span></div>
+          <div class="market-grid" data-market-assets></div>
+        </section>
+
+        <section class="brief-section">
+          <div class="section-head"><h3>利率背景</h3><span>美债为最近官方日值</span></div>
+          <div class="rate-grid" data-rates></div>
+          <div class="fed-card" data-fed-watch></div>
+        </section>
+
+        <section class="brief-section">
+          <div class="section-head"><h3>观察重点</h3><span>不自动生成交易结论</span></div>
+          <ol class="watch-list" data-watch-points></ol>
+        </section>
+
+        <footer class="brief-footer">
+          <span data-generated-at>—</span>
+          <span>缺失数据不会用推测值填充</span>
+        </footer>
+      </article>
+    </main>
+    <script src="macro-brief.js?v=20260916-1"></script>
+  </body>
+</html>
