@@ -1,0 +1,77 @@
+:root {
+  --brief-paper: #f5f1e8;
+  --brief-card: rgba(255, 254, 250, 0.9);
+  --brief-ink: #1f211f;
+  --brief-muted: #6d6b63;
+  --brief-line: rgba(31, 33, 31, 0.14);
+  --brief-accent: #8f432e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--brief-ink);
+  background: var(--brief-paper);
+  font-family: Inter, "Noto Sans SC", system-ui, sans-serif;
+}
+
+.brief-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--brief-line);
+}
+
+.brief-brand { color: var(--brief-ink); font-weight: 900; text-decoration: none; }
+.brief-header nav { display: flex; gap: 22px; }
+.brief-header nav a { color: var(--brief-muted); font-size: 0.84rem; font-weight: 700; text-decoration: none; }
+.brief-shell { width: min(1000px, calc(100% - 40px)); margin: 0 auto; padding: 64px 0 90px; }
+.brief-intro { margin-bottom: 30px; }
+.brief-eyebrow, .event-kicker { margin: 0 0 8px; color: var(--brief-accent); font-size: 0.7rem; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; }
+.brief-intro h1 { margin: 0; font-family: Georgia, serif; font-size: clamp(2.5rem, 7vw, 4.6rem); line-height: 1; }
+.brief-intro > p:last-child { margin: 16px 0 0; color: var(--brief-muted); }
+
+.brief-waiting, .event-brief {
+  border: 1px solid var(--brief-line);
+  border-radius: 12px;
+  padding: 28px;
+  background: var(--brief-card);
+}
+
+.brief-waiting p { margin-bottom: 0; color: var(--brief-muted); }
+.event-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--brief-line); }
+.event-head h2 { margin: 0; font-size: clamp(1.65rem, 4vw, 2.5rem); }
+.event-head div > p:last-child { margin: 10px 0 0; color: var(--brief-muted); font-weight: 700; }
+.copy-button { border: 0; border-radius: 7px; padding: 11px 16px; color: #fff; background: var(--brief-ink); font-weight: 850; cursor: pointer; }
+.brief-section { padding: 26px 0; border-bottom: 1px solid var(--brief-line); }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 15px; }
+.section-head h3 { margin: 0; font-size: 1rem; }
+.section-head span { color: var(--brief-muted); font-size: 0.72rem; }
+
+.expectation-row { display: grid; grid-template-columns: minmax(180px, 1fr) 130px 130px; gap: 20px; padding: 11px 0; border-top: 1px solid rgba(31, 33, 31, 0.08); }
+.expectation-row:first-child { border-top: 0; }
+.expectation-row span { color: var(--brief-muted); font-size: 0.76rem; }
+.expectation-row strong { display: block; margin-top: 3px; color: var(--brief-ink); font-size: 1rem; }
+.market-grid, .rate-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.market-card, .rate-card, .fed-card { border: 1px solid var(--brief-line); border-radius: 8px; padding: 14px; background: rgba(245, 241, 232, 0.5); }
+.market-card small, .rate-card small, .fed-card small { display: block; color: var(--brief-muted); font-size: 0.68rem; }
+.market-card strong, .rate-card strong, .fed-card strong { display: block; margin: 6px 0; font-size: 1.15rem; }
+.market-card span, .rate-card span, .fed-card span { color: var(--brief-muted); font-size: 0.68rem; }
+.fed-card { margin-top: 10px; }
+.watch-list { display: grid; gap: 9px; margin: 0; padding-left: 22px; }
+.watch-list li { padding-left: 5px; line-height: 1.55; }
+.brief-footer { display: flex; justify-content: space-between; gap: 20px; padding-top: 18px; color: var(--brief-muted); font-size: 0.68rem; }
+
+@media (max-width: 680px) {
+  .brief-header { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .brief-shell { padding-top: 42px; }
+  .event-head, .section-head, .brief-footer { align-items: flex-start; flex-direction: column; }
+  .copy-button { width: 100%; }
+  .expectation-row { grid-template-columns: 1fr 1fr; }
+  .expectation-row > div:first-child { grid-column: 1 / -1; }
+  .market-grid, .rate-grid { grid-template-columns: 1fr; }
+}
