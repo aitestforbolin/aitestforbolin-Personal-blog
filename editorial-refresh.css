@@ -829,32 +829,83 @@ select:focus-visible {
 
 /* Compact research calendar: one shared header, one reading line per release. */
 .macro-tool-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 28px;
-  padding: 2px 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 6px 0 4px;
 }
 
-.macro-tool-link,
-.macro-tool-link:hover {
-  display: inline-flex;
-  flex: 0 1 auto;
-  align-items: baseline;
-  justify-content: flex-start;
-  gap: 8px;
-  border: 0;
-  padding: 0;
-  background: transparent;
-  box-shadow: none;
+.macro-tool-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 78px;
+  border: 1px solid rgba(24, 25, 22, 0.16);
+  border-radius: 9px;
+  padding: 14px 16px;
+  background: rgba(255, 254, 250, 0.92);
+  box-shadow: 0 5px 18px rgba(49, 40, 31, 0.04);
   transform: none;
 }
 
-.macro-tool-link span {
-  font-size: 0.82rem;
+.macro-tool-link:hover {
+  border-color: rgba(111, 56, 34, 0.46);
+  box-shadow: 0 10px 24px rgba(49, 40, 31, 0.08);
+  transform: translateY(-2px);
 }
 
-.macro-tool-link small {
-  font-size: 0.78rem;
+.macro-tool-link-primary,
+.macro-tool-link-primary:hover {
+  border-color: #6f3822;
+  background: #6f3822;
+}
+
+.macro-tool-copy {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.macro-tool-link .macro-tool-copy strong {
+  color: var(--ink);
+  font-size: 0.98rem;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.macro-tool-link .macro-tool-copy small {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.macro-tool-link-primary .macro-tool-copy strong,
+.macro-tool-link-primary .macro-tool-copy small,
+.macro-tool-link-primary .macro-tool-arrow {
+  color: #fffdf8;
+}
+
+.macro-tool-link-primary .macro-tool-copy small {
+  opacity: 0.76;
+}
+
+.macro-tool-link .macro-tool-arrow {
+  display: grid;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid rgba(24, 25, 22, 0.14);
+  border-radius: 50%;
+  color: var(--accent-dark);
+  font-size: 0.92rem;
+  font-weight: 850;
+}
+
+.macro-tool-link-primary .macro-tool-arrow {
+  border-color: rgba(255, 253, 248, 0.28);
 }
 
 .macro-calendar-panel {
@@ -1025,14 +1076,16 @@ select:focus-visible {
 @media (max-width: 760px) {
   .macro-tool-links {
     display: grid;
+    grid-template-columns: 1fr;
     gap: 8px;
   }
 
-  .macro-tool-link,
-  .macro-tool-link:hover {
+  .macro-tool-link {
     display: flex;
     flex-direction: row;
-    gap: 7px;
+    gap: 12px;
+    min-height: 68px;
+    padding: 12px 14px;
   }
 
   .macro-calendar-panel {
