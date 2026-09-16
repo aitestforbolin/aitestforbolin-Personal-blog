@@ -957,29 +957,34 @@ select:focus-visible {
   font-size: 0.96rem;
 }
 
+.macro-event-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
 .macro-event-meta {
   gap: 12px;
 }
 
 .macro-impact {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
-  gap: 5px;
-  color: var(--muted);
-  font-size: 0.68rem;
-  font-weight: 800;
-  white-space: nowrap;
 }
 
 .macro-impact i {
-  width: 7px;
-  height: 7px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: #c8903e;
+  box-shadow: 0 0 0 3px rgba(200, 144, 62, 0.13);
 }
 
 .macro-impact-high i {
   background: #a44f34;
+  box-shadow: 0 0 0 3px rgba(164, 79, 52, 0.13);
 }
 
 .macro-source-link {
