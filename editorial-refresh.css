@@ -826,3 +826,266 @@ select:focus-visible {
     padding-top: 38px;
   }
 }
+
+/* Compact research calendar: one shared header, one reading line per release. */
+.macro-tool-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  padding: 2px 0;
+}
+
+.macro-tool-link,
+.macro-tool-link:hover {
+  display: inline-flex;
+  flex: 0 1 auto;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 8px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+.macro-tool-link span {
+  font-size: 0.82rem;
+}
+
+.macro-tool-link small {
+  font-size: 0.78rem;
+}
+
+.macro-calendar-panel {
+  padding: 18px 22px;
+  background: rgba(255, 253, 248, 0.78);
+}
+
+.macro-event-list {
+  gap: 12px;
+}
+
+.macro-calendar-group-head {
+  padding: 8px 0 12px;
+}
+
+.macro-calendar-group-head h3 {
+  font-size: 1rem;
+}
+
+.macro-calendar-table-head {
+  display: grid;
+  grid-template-columns: 160px minmax(240px, 1fr) repeat(3, 100px);
+  gap: 20px;
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(24, 25, 22, 0.18);
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.macro-calendar-table-head span:nth-last-child(-n + 3) {
+  text-align: right;
+}
+
+.macro-event,
+.macro-event.macro-country-us,
+.macro-event.macro-country-cn,
+.macro-event-upcoming,
+.macro-event.macro-event-recent {
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 20px;
+  border-width: 0 0 1px;
+  border-style: solid;
+  border-color: rgba(24, 25, 22, 0.1);
+  border-radius: 0;
+  padding: 17px 8px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.macro-calendar-group-list .macro-event:last-child {
+  border-bottom: 0;
+}
+
+.macro-date {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: start;
+  gap: 5px 9px;
+  padding-top: 1px;
+}
+
+.macro-date span,
+.macro-date strong,
+.macro-event.macro-country-us .macro-date span,
+.macro-event.macro-country-us .macro-date strong {
+  color: var(--text);
+  font-size: 0.82rem;
+}
+
+.macro-date small {
+  grid-column: 1 / -1;
+  width: fit-content;
+}
+
+.macro-upcoming-badge,
+.macro-released-badge,
+.macro-window-badge {
+  min-height: 0;
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 0.62rem;
+}
+
+.macro-event-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 7px;
+}
+
+.macro-event-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
+}
+
+.macro-event-name {
+  font-size: 0.96rem;
+}
+
+.macro-event-meta {
+  gap: 12px;
+}
+
+.macro-impact {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.macro-impact i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #c8903e;
+}
+
+.macro-impact-high i {
+  background: #a44f34;
+}
+
+.macro-source-link {
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.macro-event-results {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.macro-metric,
+.macro-metric.macro-metric-columns-4,
+.macro-metric.macro-metric-columns-3 {
+  grid-template-columns: minmax(240px, 1fr) repeat(3, 100px);
+  gap: 20px;
+  border: 0;
+  padding: 5px 0;
+}
+
+.macro-metric-label {
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+.macro-metric > strong {
+  font-size: 0.82rem;
+}
+
+.macro-metric > .macro-result-actual {
+  color: var(--accent-dark);
+}
+
+@media (max-width: 760px) {
+  .macro-tool-links {
+    display: grid;
+    gap: 8px;
+  }
+
+  .macro-tool-link,
+  .macro-tool-link:hover {
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+  }
+
+  .macro-calendar-panel {
+    padding: 14px;
+  }
+
+  .macro-calendar-table-head {
+    display: none;
+  }
+
+  .macro-event,
+  .macro-event.macro-country-us,
+  .macro-event.macro-country-cn,
+  .macro-event-upcoming,
+  .macro-event.macro-event-recent {
+    grid-template-columns: 1fr;
+    gap: 9px;
+    padding: 16px 2px;
+  }
+
+  .macro-date {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .macro-date small {
+    width: auto;
+  }
+
+  .macro-event-summary {
+    display: grid;
+    gap: 5px;
+  }
+
+  .macro-metric,
+  .macro-metric.macro-metric-columns-4,
+  .macro-metric.macro-metric-columns-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    padding: 8px 0;
+    border-top: 1px solid rgba(24, 25, 22, 0.08);
+  }
+
+  .macro-metric-label {
+    grid-column: 1 / -1;
+  }
+
+  .macro-metric > strong {
+    text-align: left;
+  }
+
+  .macro-metric > strong::before {
+    display: block;
+    margin-bottom: 2px;
+    color: var(--muted);
+    content: attr(data-label);
+    font-size: 0.6rem;
+    font-weight: 700;
+  }
+}
