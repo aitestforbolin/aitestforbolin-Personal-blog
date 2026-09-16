@@ -18,14 +18,20 @@ class ForexFactoryCalendarTests(unittest.TestCase):
         ff.validate_fomc(events, "<p>2026 FOMC Meetings</p><p>September</p><p>15-16</p><p>Statement</p>")
         self.assertEqual(events[0]["fomc_validation"], "confirmed"); self.assertIn("Federal Reserve", events[0]["source"])
 
-    def test_calendar_rejects_non_core_forex_factory_events(self):
+    def test_calendar_accepts_all_medium_and_high_us_events(self):
         rows = [
             {"title": "CPI m/m", "country": "USD", "impact": "High", "date": "2026-09-17T08:30:00-04:00", "actual": "", "forecast": "0.3%", "previous": "0.2%"},
             {"title": "Industrial Production m/m", "country": "USD", "impact": "Medium", "date": "2026-09-18T09:15:00-04:00", "actual": "", "forecast": "0.3%", "previous": "0.2%"},
             {"title": "JOLTS Job Openings", "country": "USD", "impact": "High", "date": "2026-09-18T10:00:00-04:00", "actual": "", "forecast": "7.1M", "previous": "7.2M"},
         ]
         events = ff.parse_forex_factory(json.dumps(rows))
-        self.assertEqual([event["title"] for event in events], ["CPI"])
+        self.assertEqual([event["title"] for event in events], ["CPI", "Industrial Production", "JOLTS"])
+
+    def test_unmapped_medium_impact_us_event_uses_forex_factory_title(self):
+        rows = [{"title": "NFIB Small Business Index", "country": "USD", "impact": "Medium", "date": "2026-09-17T08:30:00-04:00", "actual": "", "forecast": "98.0", "previous": "97.0"}]
+        events = ff.parse_forex_factory(json.dumps(rows))
+        self.assertEqual(events[0]["title_cn"], "NFIB Small Business Index")
+        self.assertEqual(events[0]["metric_values"][0]["label"], "公布值")
 
     def test_calendar_rejects_low_impact_rows_inside_the_core_whitelist(self):
         rows = [{"title": "CPI m/m", "country": "USD", "impact": "Low", "date": "2026-09-17T08:30:00-04:00", "actual": "", "forecast": "0.3%", "previous": "0.2%"}]
