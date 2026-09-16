@@ -18,3 +18,9 @@ test("calendar is U.S.-only and remains sorted by Shanghai display time", () => 
 test("calendar envelope keeps its source-health fields", () => {
   assert.deepEqual(model.normalizePayload({ status: "healthy", generatedAt: "2026-09-16T10:00:00Z", events }), { status: "healthy", failedSources: [], policyEventsUpdatedAt: null, generatedAt: "2026-09-16T10:00:00Z", events });
 });
+
+test("today status uses the Shanghai calendar day rather than a rolling upcoming window", () => {
+  const today = "2026-09-16";
+  assert.equal(model.dayDistance(events[0], today), 0);
+  assert.equal(model.dayDistance(events[1], today), 1);
+});
