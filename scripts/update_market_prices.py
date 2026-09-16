@@ -18,6 +18,7 @@ SWISSQUOTE_XAUUSD_ENDPOINT = (
 HISTORY_RETENTION = dt.timedelta(days=31)
 SYMBOLS = [
     ("BTC-USD", "BTCUSD"),
+    ("DX-Y.NYB", "DXY"),
     ("SPY", "SPY.US"),
     ("QQQ", "QQQ.US"),
     ("DIA", "DIA.US"),
@@ -190,6 +191,7 @@ def normalize_chart(yahoo_symbol, site_symbol):
         "low": meta.get("regularMarketDayLow", price),
         "close": price,
         "volume": meta.get("regularMarketVolume", "N/D"),
+        "source": "Yahoo Finance",
         "sourceSymbol": yahoo_symbol,
         "points": points[-96:],
     }
