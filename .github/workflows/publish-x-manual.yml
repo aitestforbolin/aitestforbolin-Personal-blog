@@ -154,15 +154,15 @@ jobs:
             --stage commit \
             --as-of "${{ steps.finalize.outputs.as_of }}" \
             --reason-code run_status_commit_failed
-      - name: Notify final daily briefing status by Gmail
+      - name: Notify final daily briefing status via iCloud Mail
         id: notify
         if: >-
           always() && steps.gate.outputs.record == 'true' &&
           steps.finalize.outcome == 'success'
         env:
-          GMAIL_SMTP_USER: ${{ secrets.GMAIL_SMTP_USER }}
-          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-          GMAIL_NOTIFY_TO: ${{ secrets.GMAIL_NOTIFY_TO }}
+          ICLOUD_SMTP_USER: ${{ secrets.ICLOUD_SMTP_USER }}
+          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
+          EMAIL_NOTIFY_TO: ${{ secrets.EMAIL_NOTIFY_TO }}
         run: |
           run_url="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           python scripts/send_gmail_notification.py \
@@ -191,9 +191,9 @@ jobs:
           python-version: "3.12"
       - name: Notify from canonical run status
         env:
-          GMAIL_SMTP_USER: ${{ secrets.GMAIL_SMTP_USER }}
-          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-          GMAIL_NOTIFY_TO: ${{ secrets.GMAIL_NOTIFY_TO }}
+          ICLOUD_SMTP_USER: ${{ secrets.ICLOUD_SMTP_USER }}
+          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
+          EMAIL_NOTIFY_TO: ${{ secrets.EMAIL_NOTIFY_TO }}
         run: |
           run_url="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           python scripts/send_gmail_notification.py --run-url "$run_url"
@@ -232,9 +232,9 @@ jobs:
           steps.watchdog.outputs.action == 'created_failure' ||
           steps.watchdog.outputs.action == 'notify_existing_failure'
         env:
-          GMAIL_SMTP_USER: ${{ secrets.GMAIL_SMTP_USER }}
-          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-          GMAIL_NOTIFY_TO: ${{ secrets.GMAIL_NOTIFY_TO }}
+          ICLOUD_SMTP_USER: ${{ secrets.ICLOUD_SMTP_USER }}
+          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
+          EMAIL_NOTIFY_TO: ${{ secrets.EMAIL_NOTIFY_TO }}
         run: |
           run_url="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           python scripts/send_gmail_notification.py --run-url "$run_url"

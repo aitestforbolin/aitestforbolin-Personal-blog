@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Send a best-effort Gmail notification derived only from run-status.json."""
+"""Send a run-status notification from iCloud Mail to a configured recipient."""
 
 from __future__ import annotations
 
@@ -86,14 +86,14 @@ def build_message(payload: dict, run_url: str, sender: str, recipient: str) -> E
 
 def main() -> int:
     args = parse_args()
-    username = os.getenv("GMAIL_SMTP_USER", "").strip()
-    app_password = os.getenv("GMAIL_APP_PASSWORD", "").strip().replace(" ", "")
-    recipient = os.getenv("GMAIL_NOTIFY_TO", "").strip() or username
+    username = os.getenv("ICLOUD_SMTP_USER", "").strip()
+    app_password = os.getenv("ICLOUD_APP_PASSWORD", "").strip()
+    recipient = os.getenv("EMAIL_NOTIFY_TO", "").strip()
 
-    if not username or not app_password:
+    if not username or not app_password or not recipient:
         print(
-            "ERROR: Gmail notification unavailable; configure GMAIL_SMTP_USER and "
-            "GMAIL_APP_PASSWORD repository secrets."
+            "ERROR: Email notification unavailable; configure ICLOUD_SMTP_USER, "
+            "ICLOUD_APP_PASSWORD, and EMAIL_NOTIFY_TO repository secrets."
         )
         return 2
 
@@ -101,11 +101,21 @@ def main() -> int:
     message = build_message(payload, args.run_url, username, recipient)
 
     context = ssl.create_default_context()
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context, timeout=30) as smtp:
-        smtp.login(username, app_password)
-        smtp.send_message(message)
+    try:
+        with smtplib.SMTP("smtp.mail.me.com", 587, timeout=30) as smtp:
+            smtp.ehlo()
+            smtp.starttls(context=context)
+            smtp.ehlo()
+            smtp.login(username, app_password)
+            smtp.send_message(message)
+    except smtplib.SMTPAuthenticationError:
+        print("ERROR: iCloud SMTP authentication failed; check the app-specific password.")
+        return 3
+    except (OSError, smtplib.SMTPException) as exc:
+        print(f"ERROR: iCloud SMTP delivery failed ({type(exc).__name__}).")
+        return 4
 
-    print(f"Gmail {payload['status']} notification sent to {recipient}.")
+    print(f"iCloud Mail {payload['status']} notification sent.")
     return 0
 
 
