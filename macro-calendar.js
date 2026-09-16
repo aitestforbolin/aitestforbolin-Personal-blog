@@ -5,7 +5,6 @@
   const RELEASE_LOOKBACK_HOURS = 48;
   const RELEASE_LOOKBACK_DAYS = 2;
   const POLICY_LOOKBACK_DAYS = RELEASE_LOOKBACK_DAYS;
-  const UPCOMING_DAYS = 3;
   const CATEGORY_LABELS = {
     inflation: "通胀",
     prices: "价格",
@@ -358,10 +357,8 @@
         policyEvent ? "已举行" : "已公布"
       }</small>`;
     }
-    if (!released && distance >= 0 && distance <= UPCOMING_DAYS) {
-      return `<small class="macro-upcoming-badge">${
-        policyEvent ? "即将举行" : "即将发布"
-      }</small>`;
+    if (!released && distance === 0) {
+      return '<small class="macro-upcoming-badge">今日公布</small>';
     }
     if (event.dateStatus === "expected_window") {
       return '<small class="macro-window-badge">预计窗口</small>';
