@@ -1,0 +1,88 @@
+name: Build pre-release Macro Brief
+
+on:
+  schedule:
+    # Beijing 20:05/20:15 and 21:05/21:15 for 20:30/21:30 releases.
+    - cron: "5,15 12,13 * * 1-5"
+    # Beijing 01:35/01:45 and 02:35/02:45 for 02:00/03:00 FOMC releases.
+    - cron: "35,45 17,18 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      force_next:
+        description: "Build and email the next whitelisted event regardless of time window"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: macro-brief-writer
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Refresh event calendar
+        run: |
+          python scripts/fetch_forex_factory_calendar.py
+          python scripts/merge_macro_calendars.py
+
+      - name: Refresh gold, BTC and DXY
+        continue-on-error: true
+        run: python scripts/update_market_prices.py
+
+      - name: Build eligible Macro Brief
+        id: brief
+        shell: bash
+        run: |
+          force_arg=""
+          if [[ "${{ inputs.force_next || 'false' }}" == "true" ]]; then
+            force_arg="--force-next"
+          fi
+          python scripts/build_macro_brief.py $force_arg | tee /tmp/macro-brief-result.txt
+          generated="$(sed -n 's/^generated=//p' /tmp/macro-brief-result.txt | tail -1)"
+          echo "generated=${generated:-false}" >> "$GITHUB_OUTPUT"
+
+      - name: Validate Macro Brief code
+        run: |
+          python -m py_compile scripts/build_macro_brief.py scripts/send_macro_brief_email.py
+          python -m unittest tests/test_macro_brief.py -v
+
+      - name: Commit generated Brief
+        id: commit
+        if: steps.brief.outputs.generated == 'true'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/macro-brief.json data/macro-brief-state.json data/macro-calendar.json data/us-macro-calendar.json data/market-prices.json
+          git commit -m "Build pre-release Macro Brief"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if git rebase origin/main && git push origin HEAD:main; then
+              exit 0
+            fi
+            git rebase --abort || true
+            sleep $((attempt * 5))
+          done
+          exit 1
+
+      - name: Email Macro Brief through iCloud Mail
+        if: steps.brief.outputs.generated == 'true' && steps.commit.outcome == 'success'
+        env:
+          ICLOUD_SMTP_USER: ${{ secrets.ICLOUD_SMTP_USER }}
+          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
+          EMAIL_NOTIFY_TO: ${{ secrets.EMAIL_NOTIFY_TO }}
+        run: |
+          run_url="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          python scripts/send_macro_brief_email.py --run-url "$run_url"
