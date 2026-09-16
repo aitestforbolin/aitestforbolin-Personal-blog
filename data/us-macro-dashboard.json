@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-09-08T07:41:34+08:00",
-  "asOf": "2026-09-01",
+  "generatedAt": "2026-09-16T23:29:52+08:00",
+  "asOf": "2026-09-03",
   "title": "美国宏观核心数据",
   "summary": [
     {
@@ -30,7 +30,7 @@
       "label": "经济活动",
       "state": "保持扩张",
       "tone": "expanding",
-      "detail": "制造业ISM 54.6，服务业ISM 54.1，工业产出环比+0.2%。"
+      "detail": "制造业ISM 54.6，服务业ISM 55.4，工业产出环比+0.2%。"
     }
   ],
   "groups": [
@@ -441,20 +441,20 @@
         {
           "id": "ism-services",
           "title": "ISM Services",
-          "period": "2026年7月",
-          "releaseDate": "2026-08-05",
+          "period": "August 2026",
+          "releaseDate": "2026-09-03",
           "rows": [
             {
               "label": "PMI",
-              "actual": "54.1",
-              "consensus": "54.5",
-              "previous": "54.0"
+              "actual": "55.4",
+              "consensus": "54.1",
+              "previous": "54.1"
             }
           ],
-          "trend": "服务业保持扩张，较前月小幅上升。",
+          "trend": "新一期完整数据已写入；积累满3期后显示中期趋势。",
           "source": {
             "name": "ISM",
-            "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/services/july/"
+            "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/"
           },
           "consensusSources": [
             {
@@ -530,7 +530,7 @@
     "美国GDP": "2026-07-30",
     "美国零售销售": "2026-08-14",
     "美国ISM制造业PMI": "2026-09-01",
-    "美国ISM服务业PMI": "2026-08-05"
+    "美国ISM服务业PMI": "2026-09-03"
   },
   "dataQuality": {
     "status": "partial",
@@ -538,10 +538,11 @@
       "预期值优先采用Reuters调查，未覆盖时采用Investing.com经济日历；没有广泛一致预期的口径仍显示为—。",
       "Retail Control与Core Retail Sales口径不同，当前按控制组口径展示。"
     ],
-    "fetchedAt": "2026-09-08T07:41:34+08:00",
+    "fetchedAt": "2026-09-16T23:29:52+08:00",
     "source": "官方实际值：BLS / BEA / Census / Federal Reserve / ISM；市场预期：Reuters / Investing.com"
   },
   "sourceEventFingerprints": {
-    "美国ISM制造业PMI": "9f6d1871eae7454d031a923d3462d8ddf9f4f54823637049f0f11b513bb787e2"
+    "美国ISM制造业PMI": "9f6d1871eae7454d031a923d3462d8ddf9f4f54823637049f0f11b513bb787e2",
+    "美国ISM服务业PMI": "70cd9a5ea7a31ed1d1655b3ffe75f58d493e41a8da1fcfb75a79e2727133a4e1"
   }
 }
