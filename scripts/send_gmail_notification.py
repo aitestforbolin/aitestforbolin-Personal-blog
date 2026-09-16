@@ -92,10 +92,10 @@ def main() -> int:
 
     if not username or not app_password:
         print(
-            "Gmail notification skipped: configure GMAIL_SMTP_USER and "
+            "ERROR: Gmail notification unavailable; configure GMAIL_SMTP_USER and "
             "GMAIL_APP_PASSWORD repository secrets."
         )
-        return 0
+        return 2
 
     payload = load_status(args.status_file)
     message = build_message(payload, args.run_url, username, recipient)

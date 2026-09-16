@@ -31,11 +31,7 @@ concurrency:
 
 jobs:
   publish:
-    if: >-
-      github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'push' &&
-       (contains(github.event.head_commit.added, 'data/daily-market-status.json') ||
-        contains(github.event.head_commit.modified, 'data/daily-market-status.json')))
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'push'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -46,19 +42,42 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Detect briefing snapshot change
+        id: gate
+        run: |
+          briefing_commit="$(git log -1 --format=%H -- data/daily-market-status.json)"
+          echo "briefing_commit=$briefing_commit" >> "$GITHUB_OUTPUT"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+            if [ "${{ inputs.dry_run }}" = "true" ]; then
+              echo "record=false" >> "$GITHUB_OUTPUT"
+            else
+              echo "record=true" >> "$GITHUB_OUTPUT"
+            fi
+          elif git diff-tree --root --no-commit-id --name-only -r "$GITHUB_SHA" \
+            | rg -x 'data/daily-market-status\.json' >/dev/null; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+            echo "record=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            echo "record=false" >> "$GITHUB_OUTPUT"
+          fi
       - name: Validate X publication data completeness
         id: validate
+        if: steps.gate.outputs.publish == 'true'
         run: |
           python -m unittest tests.test_validate_x_snapshot -v
           python scripts/validate_x_snapshot.py --snapshot data/daily-market-status.json
       - name: Render, deduplicate, and publish
         id: publish
+        if: steps.gate.outputs.publish == 'true'
         env:
           X_API_KEY: ${{ secrets.X_API_KEY }}
           X_API_SECRET: ${{ secrets.X_API_SECRET }}
           X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
           X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
           X_EXPECTED_USERNAME: whybolin
+          BRIEFING_SOURCE_COMMIT: ${{ steps.gate.outputs.briefing_commit }}
           PUBLISH_MODE: ${{ github.event_name == 'push' && 'automatic' || 'manual' }}
           INPUT_AS_OF: ${{ inputs.as_of }}
           INPUT_DRY_RUN: ${{ inputs.dry_run }}
@@ -73,7 +92,8 @@ jobs:
           python scripts/publish_x_post.py "${args[@]}"
       - name: Finalize canonical run status
         id: finalize
-        if: always() && github.event_name == 'push'
+        if: >-
+          always() && steps.gate.outputs.record == 'true'
         env:
           VALIDATE_OUTCOME: ${{ steps.validate.outcome }}
           PUBLISH_OUTCOME: ${{ steps.publish.outcome }}
@@ -84,10 +104,12 @@ jobs:
             --validate-outcome "$VALIDATE_OUTCOME" \
             --publish-outcome "$PUBLISH_OUTCOME" \
             --publish-status "$PUBLISH_STATUS" \
-            --briefing-commit "$GITHUB_SHA"
+            --briefing-commit "${{ steps.gate.outputs.briefing_commit }}"
       - name: Record X ledger and canonical run status
         id: record
-        if: always() && github.event_name == 'push' && steps.finalize.outcome == 'success'
+        if: >-
+          always() && steps.gate.outputs.record == 'true' &&
+          steps.finalize.outcome == 'success'
         continue-on-error: true
         run: |
           git config user.name "github-actions[bot]"
@@ -108,7 +130,9 @@ jobs:
           done
           exit 1
       - name: Mark local status when its commit failed
-        if: always() && github.event_name == 'push' && steps.record.outcome == 'failure'
+        if: >-
+          always() && steps.gate.outputs.record == 'true' &&
+          steps.record.outcome == 'failure'
         run: |
           python scripts/finalize_run_status.py \
             --status failed \
@@ -116,8 +140,10 @@ jobs:
             --as-of "${{ steps.finalize.outputs.as_of }}" \
             --reason-code run_status_commit_failed
       - name: Notify final daily briefing status by Gmail
-        if: always() && github.event_name == 'push' && steps.finalize.outcome == 'success'
-        continue-on-error: true
+        id: notify
+        if: >-
+          always() && steps.gate.outputs.record == 'true' &&
+          steps.finalize.outcome == 'success'
         env:
           GMAIL_SMTP_USER: ${{ secrets.GMAIL_SMTP_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
@@ -128,16 +154,16 @@ jobs:
             --run-url "$run_url"
       - name: Preserve failed workflow conclusion
         if: >-
-          always() && github.event_name == 'push' &&
-          (steps.finalize.outputs.status == 'failed' || steps.record.outcome == 'failure')
+          always() && steps.gate.outputs.record == 'true' &&
+          (steps.finalize.outputs.status == 'failed' ||
+           steps.record.outcome == 'failure' ||
+           steps.notify.outcome == 'failure')
         run: exit 1
 
   notify-early-status:
     if: >-
       github.event_name == 'push' &&
-      startsWith(github.event.head_commit.message, 'Finalize early market briefing status') &&
-      (contains(github.event.head_commit.added, 'data/run-status.json') ||
-       contains(github.event.head_commit.modified, 'data/run-status.json'))
+      startsWith(github.event.head_commit.message, 'Finalize early market briefing status')
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
@@ -148,7 +174,6 @@ jobs:
         with:
           python-version: "3.12"
       - name: Notify from canonical run status
-        continue-on-error: true
         env:
           GMAIL_SMTP_USER: ${{ secrets.GMAIL_SMTP_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
@@ -190,7 +215,6 @@ jobs:
         if: >-
           steps.watchdog.outputs.action == 'created_failure' ||
           steps.watchdog.outputs.action == 'notify_existing_failure'
-        continue-on-error: true
         env:
           GMAIL_SMTP_USER: ${{ secrets.GMAIL_SMTP_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}

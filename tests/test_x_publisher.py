@@ -97,6 +97,11 @@ class XPublisherTests(unittest.TestCase):
         self.assertIn("  workflow_dispatch:", workflow)
         self.assertIn("          ref: main", workflow)
         self.assertIn("github.event_name == 'push' && 'automatic' || 'manual'", workflow)
+        self.assertIn("git diff-tree --root", workflow)
+        self.assertIn("steps.gate.outputs.publish == 'true'", workflow)
+        self.assertIn("steps.gate.outputs.record == 'true'", workflow)
+        self.assertIn("BRIEFING_SOURCE_COMMIT", workflow)
+        self.assertNotIn("contains(github.event.head_commit.modified", workflow)
 
     def test_as_of_mismatch_stops_before_api(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -203,6 +208,30 @@ class XPublisherTests(unittest.TestCase):
             )
             self.assertEqual(record["mode"], "manual")
             self.assertNotIn(MODULE.AUTOMATIC_DISCLOSURE, created_text)
+
+    def test_source_commit_prefers_briefing_commit_override(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory) / "state.json"
+            with (
+                mock.patch.dict(
+                    MODULE.os.environ,
+                    {
+                        "BRIEFING_SOURCE_COMMIT": "briefing-sha",
+                        "GITHUB_SHA": "workflow-sha",
+                    },
+                ),
+                mock.patch.object(MODULE, "credentials_from_environment", return_value={}),
+                mock.patch.object(MODULE, "verify_target_account", return_value="whybolin"),
+                mock.patch.object(MODULE, "create_x_post", return_value="987654321"),
+            ):
+                MODULE.publish(
+                    self.snapshot_path, state, None, False, "manual", now=self.now
+                )
+            saved = json.loads(state.read_text(encoding="utf-8"))
+            self.assertEqual(
+                saved["publishedByAsOf"]["2026-08-19"]["sourceCommit"],
+                "briefing-sha",
+            )
 
     def test_automatic_success_records_publish_mode(self):
         with tempfile.TemporaryDirectory() as directory:

@@ -65,14 +65,24 @@ class MarketPacketTriggerTests(unittest.TestCase):
         self.assertNotIn("data/daily-market-status.json", workflow)
         self.assertIn('cron: "35 22 * * 1-5"', workflow)
 
-    def test_incomplete_packet_is_committed_before_the_job_fails(self):
+    def test_incomplete_packet_is_preserved_without_replacing_canonical(self):
         workflow = (
             Path(__file__).parents[1]
             / ".github/workflows/build-market-briefing-packet.yml"
         ).read_text(encoding="utf-8")
         self.assertIn("continue-on-error: true", workflow)
-        self.assertIn("Commit packet", workflow)
+        self.assertIn("steps.packet_build.outcome == 'success'", workflow)
+        self.assertIn("Upload failed packet diagnostics", workflow)
+        self.assertIn("canonical packet was not changed", workflow)
         self.assertIn("Enforce packet validation result", workflow)
+
+    def test_scheduled_fallback_uses_the_same_complete_packet_gate(self):
+        workflow = (
+            Path(__file__).parents[1]
+            / ".github/workflows/build-market-briefing-packet.yml"
+        ).read_text(encoding="utf-8")
+        self.assertNotIn('[ "$EVENT_NAME" = "schedule" ]', workflow)
+        self.assertIn("|| python scripts/market_packet_trigger.py", workflow)
 
     def test_price_writer_refreshes_from_latest_main_after_push_conflict(self):
         workflow = (

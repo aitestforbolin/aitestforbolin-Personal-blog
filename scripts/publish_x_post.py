@@ -564,7 +564,8 @@ def publish(
         "url": f"https://x.com/i/web/status/{post_id}",
         "publishedAt": published_at,
         "contentSha256": content_hash,
-        "sourceCommit": os.getenv("GITHUB_SHA", ""),
+        "sourceCommit": os.getenv("BRIEFING_SOURCE_COMMIT", "").strip()
+        or os.getenv("GITHUB_SHA", ""),
         "mode": mode,
     }
     state["publishedByAsOf"][as_of] = record

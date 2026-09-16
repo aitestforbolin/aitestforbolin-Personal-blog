@@ -6,9 +6,11 @@ from __future__ import annotations
 import datetime as dt
 import json
 import os
+import socket
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
+from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
@@ -17,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "data" / "market-briefing-packet.json"
 MARKETS_URL = os.getenv(
     "MARKETS_API_URL",
-    "https://cross-asset-pulse.laibocszd.chatgpt.site/api/markets",
+    "https://cross-asset-pulse.laibocszd.chatgpt.site/api/markets?range=5d",
 )
 BREADTH_URL = os.getenv(
     "BREADTH_API_URL",
@@ -53,6 +55,65 @@ EXPECTED_MACRO_SOURCES = {
 TIMEOUT = 35
 
 
+class FetchFailure(RuntimeError):
+    """Sanitized network failure with enough metadata for sourceAudit."""
+
+    def __init__(
+        self,
+        *,
+        category: str,
+        attempts: int,
+        exception_type: str,
+        http_status: int | None = None,
+    ) -> None:
+        super().__init__(category)
+        self.category = category
+        self.attempts = attempts
+        self.exception_type = exception_type
+        self.http_status = http_status
+
+
+def classify_fetch_error(exc: Exception) -> tuple[str, int | None]:
+    if isinstance(exc, HTTPError):
+        return "http", exc.code
+    if isinstance(exc, URLError):
+        reason = exc.reason
+        if isinstance(reason, socket.gaierror):
+            return "dns", None
+        if isinstance(reason, (TimeoutError, socket.timeout)):
+            return "timeout", None
+        return "network", None
+    if isinstance(exc, (TimeoutError, socket.timeout)):
+        return "timeout", None
+    if isinstance(exc, json.JSONDecodeError):
+        return "invalid_json", None
+    return "unexpected", None
+
+
+def safe_error_details(exc: Exception) -> dict:
+    """Return non-sensitive diagnostics without URLs or response bodies."""
+    if isinstance(exc, FetchFailure):
+        details = {
+            "category": exc.category,
+            "exceptionType": exc.exception_type,
+            "attempts": exc.attempts,
+            "retries": max(0, exc.attempts - 1),
+        }
+        if exc.http_status is not None:
+            details["httpStatus"] = exc.http_status
+        return details
+    category, status = classify_fetch_error(exc)
+    details = {
+        "category": category,
+        "exceptionType": type(exc).__name__,
+        "attempts": 1,
+        "retries": 0,
+    }
+    if status is not None:
+        details["httpStatus"] = status
+    return details
+
+
 def fetch_json(url: str, attempts: int = 3) -> object:
     """Fetch JSON with bounded retries for transient scheduled-run failures."""
     request = Request(url, headers={"User-Agent": "personal-site-market-packet/1.0"})
@@ -66,7 +127,13 @@ def fetch_json(url: str, attempts: int = 3) -> object:
             if attempt < attempts:
                 time.sleep(attempt * 2)
     assert last_error is not None
-    raise last_error
+    category, http_status = classify_fetch_error(last_error)
+    raise FetchFailure(
+        category=category,
+        attempts=attempts,
+        exception_type=type(last_error).__name__,
+        http_status=http_status,
+    ) from last_error
 
 
 def load_json(path: Path, default: object) -> object:
@@ -208,6 +275,15 @@ def compact_market(row: dict, trading_date: str | None = None) -> dict:
         item["observedDate"] = observed_date
     if row.get("id") in SESSION_MARKET_IDS and trading_date:
         item["tradingDate"] = trading_date
+        item["valueRole"] = "completed_us_session"
+    elif row.get("id") in MACRO_IDS:
+        item["valueRole"] = "latest_quote"
+    if row.get("id") == "GOLD":
+        if is_yahoo_gold_proxy(item):
+            item["instrumentId"] = "GC_FUTURES"
+        elif _same_provider(item.get("source"), "Swissquote"):
+            item["instrumentId"] = "XAUUSD_SPOT"
+            item.setdefault("instrumentType", "spot")
     return item
 
 
@@ -341,8 +417,10 @@ def yahoo_gold_futures_proxy(trading_date: str) -> dict | None:
         "updatedAt": current["observedAt"],
         "source": "Yahoo Finance",
         "sourceSymbol": YAHOO_GOLD_PROXY_SYMBOL,
+        "instrumentId": "GC_FUTURES",
         "instrumentType": "futures_proxy",
         "proxyFor": "XAU/USD",
+        "valueRole": "fixed_close_comparison",
         "status": "ok",
         "seriesStatus": "complete",
         "observedDate": trading_date,
@@ -467,8 +545,51 @@ def fetch_candidate(symbol: str) -> dict:
     }
 
 
-def candidate_quote_issues(candidates: list[dict]) -> list[str]:
-    return [] if len(candidates) >= 5 else [f"insufficient_candidate_quotes:{len(candidates)}"]
+def candidate_validation_issues(candidate: object, trading_date: str | None) -> list[str]:
+    if not isinstance(candidate, dict):
+        return ["missing"]
+    issues: list[str] = []
+    if not trading_date or candidate.get("tradingDate") != trading_date:
+        issues.append(f"wrong_date:{candidate.get('tradingDate') or 'missing'}")
+    for key in ("close", "previousClose", "changePercent"):
+        if finite_number(candidate.get(key)) is None:
+            issues.append(f"missing_{key}")
+    if str(candidate.get("status") or "").casefold() != "ok":
+        issues.append("status_not_ok")
+    return issues
+
+
+def valid_candidate(candidate: object, trading_date: str | None) -> bool:
+    return not candidate_validation_issues(candidate, trading_date)
+
+
+def same_date_cached_candidates(
+    packet: object, trading_date: str | None
+) -> dict[str, dict]:
+    """Reuse only individually valid rows from a complete same-date packet."""
+    if (
+        not isinstance(packet, dict)
+        or packet.get("tradingDate") != trading_date
+        or not isinstance(packet.get("validation"), dict)
+        or packet["validation"].get("complete") is not True
+    ):
+        return {}
+    return {
+        str(row.get("ticker")): row
+        for row in rows_from(packet.get("candidateStocks"), ())
+        if row.get("ticker") in CANDIDATES and valid_candidate(row, trading_date)
+    }
+
+
+def candidate_quote_issues(
+    candidates: list[dict], trading_date: str | None
+) -> list[str]:
+    valid_count = sum(valid_candidate(row, trading_date) for row in candidates)
+    return (
+        []
+        if valid_count >= 5
+        else [f"insufficient_valid_candidate_quotes:{valid_count}"]
+    )
 
 
 def _event_rows(payload: object) -> list[dict]:
@@ -678,7 +799,11 @@ def build_packet(now: dt.datetime | None = None) -> dict:
         }
     except Exception as exc:  # Actions must emit a diagnostic packet before failing validation.
         markets = []
-        source_audit["marketsApi"] = {"status": "error", "url": MARKETS_URL, "error": type(exc).__name__}
+        source_audit["marketsApi"] = {
+            "status": "error",
+            "url": MARKETS_URL,
+            "error": safe_error_details(exc),
+        }
         critical_errors.append("markets_api_unavailable")
 
     raw_breadth: object = {}
@@ -691,7 +816,11 @@ def build_packet(now: dt.datetime | None = None) -> dict:
         }
     except Exception as exc:
         breadth = []
-        source_audit["breadthApi"] = {"status": "error", "url": BREADTH_URL, "error": type(exc).__name__}
+        source_audit["breadthApi"] = {
+            "status": "error",
+            "url": BREADTH_URL,
+            "error": safe_error_details(exc),
+        }
         critical_errors.append("breadth_api_unavailable")
 
     market_ids = {str(row.get("id")) for row in markets}
@@ -731,7 +860,7 @@ def build_packet(now: dt.datetime | None = None) -> dict:
         critical_errors.append("packet_generated_before_market_close")
 
     candidates_by_ticker: dict[str, dict] = {}
-    candidate_errors: list[str] = []
+    candidate_error_details: dict[str, object] = {}
     with ThreadPoolExecutor(max_workers=6) as executor:
         futures = {executor.submit(fetch_candidate, ticker): ticker for ticker in CANDIDATES}
         for future in as_completed(futures):
@@ -739,17 +868,47 @@ def build_packet(now: dt.datetime | None = None) -> dict:
             try:
                 candidate = future.result()
                 candidates_by_ticker[ticker] = candidate
-                if candidate.get("status") != "ok":
-                    candidate_errors.append(ticker)
-            except Exception:
-                candidate_errors.append(ticker)
-    candidates = [candidates_by_ticker[ticker] for ticker in CANDIDATES if ticker in candidates_by_ticker]
-    candidate_errors.sort()
+                issues = candidate_validation_issues(candidate, trading_date)
+                if issues:
+                    candidate_error_details[ticker] = issues
+            except Exception as exc:
+                candidate_error_details[ticker] = safe_error_details(exc)
+
+    cached_candidates = same_date_cached_candidates(previous_packet, trading_date)
+    cached_tickers: list[str] = []
+    for ticker in CANDIDATES:
+        candidate = candidates_by_ticker.get(ticker)
+        if valid_candidate(candidate, trading_date):
+            continue
+        cached = cached_candidates.get(ticker)
+        if cached:
+            candidates_by_ticker[ticker] = {
+                **cached,
+                "inheritedFrom": "same_date_previous_packet",
+            }
+            candidate_error_details.pop(ticker, None)
+            cached_tickers.append(ticker)
+
+    candidates = [
+        candidates_by_ticker[ticker]
+        for ticker in CANDIDATES
+        if valid_candidate(candidates_by_ticker.get(ticker), trading_date)
+    ]
+    candidate_errors = sorted(set(CANDIDATES) - {
+        str(row.get("ticker")) for row in candidates
+    })
     source_audit["candidateQuotes"] = {
         "status": "ok" if not candidate_errors else "partial",
         "provider": "Yahoo Finance",
         "count": len(candidates),
+        "validCount": len(candidates),
+        "requestedCount": len(CANDIDATES),
+        "cached": sorted(cached_tickers),
         "failed": candidate_errors,
+        "errors": {
+            ticker: candidate_error_details.get(ticker, ["missing"])
+            for ticker in candidate_errors
+        },
         "checkedAt": generated.isoformat(timespec="seconds"),
     }
 
@@ -770,7 +929,7 @@ def build_packet(now: dt.datetime | None = None) -> dict:
         macro_assets, trading_date, previous_packet
     )
     yahoo_recovered: list[str] = []
-    yahoo_recovery_errors: list[str] = []
+    yahoo_recovery_errors: dict[str, dict] = {}
     yahoo_assets = [
         asset for asset in macro_assets
         if str(asset.get("id")) in YAHOO_ANCHOR_SYMBOLS
@@ -786,9 +945,8 @@ def build_packet(now: dt.datetime | None = None) -> dict:
                 if future.result():
                     yahoo_recovered.append(str(asset.get("id")))
             except Exception as exc:
-                yahoo_recovery_errors.append(f"{asset.get('id')}:{type(exc).__name__}:{exc}")
+                yahoo_recovery_errors[str(asset.get("id"))] = safe_error_details(exc)
     yahoo_recovered.sort()
-    yahoo_recovery_errors.sort()
     source_audit["yahooAnchorRecovery"] = {
         "status": "ok" if yahoo_recovered else "error" if yahoo_recovery_errors else "not_needed",
         "recovered": yahoo_recovered,
@@ -810,7 +968,7 @@ def build_packet(now: dt.datetime | None = None) -> dict:
                 macro_assets, trading_date
             )
         except Exception as exc:
-            gold_proxy_error = f"{type(exc).__name__}:{exc}"
+            gold_proxy_error = safe_error_details(exc)
         if gold_proxy_used:
             comparison_gaps = [
                 asset_id for asset_id in comparison_gaps if asset_id != "GOLD"
@@ -861,7 +1019,7 @@ def build_packet(now: dt.datetime | None = None) -> dict:
         critical_errors.append("missing_macro_comparisons:" + ",".join(critical_comparison_gaps))
     if provider_issues:
         critical_errors.append("macro_provider_mismatch:" + ",".join(provider_issues))
-    critical_errors.extend(candidate_quote_issues(candidates))
+    critical_errors.extend(candidate_quote_issues(candidates, trading_date))
     if candidate_errors:
         comparison_warnings.append(
             "candidate_quote_failures:" + ",".join(sorted(set(candidate_errors)))
@@ -874,9 +1032,20 @@ def build_packet(now: dt.datetime | None = None) -> dict:
     ]
 
     packet = {
-        "schemaVersion": 2,
+        "schemaVersion": 3,
         "generatedAt": generated.isoformat(timespec="seconds"),
         "tradingDate": trading_date,
+        "dataContract": {
+            "markets": "Latest upstream quotes; session assets are fixed to tradingDate, macro quotes may be later.",
+            "macroAssets": "Fixed-close comparisons for tradingDate; inspect instrumentId before comparing series.",
+            "goldLogicalId": "GOLD",
+            "goldSpotInstrumentId": "XAUUSD_SPOT",
+            "goldFallbackInstrumentId": "GC_FUTURES",
+            "validationCompleteCovers": [
+                "markets", "breadth", "macroAssets", "candidateStocks"
+            ],
+            "informationalOnly": ["fed", "btcEtf", "futureEvents"],
+        },
         "sourceAudit": source_audit,
         "markets": [compact_market(row, trading_date) for row in markets],
         "breadth": breadth,
@@ -900,6 +1069,10 @@ def build_packet(now: dt.datetime | None = None) -> dict:
             "sessionMarketIssues": session_date_issues,
             "macroProviderIssues": provider_issues,
             "candidateQuoteFailures": candidate_errors,
+            "candidateQuoteErrors": {
+                ticker: candidate_error_details.get(ticker, ["missing"])
+                for ticker in candidate_errors
+            },
             "warnings": comparison_warnings,
         },
     }

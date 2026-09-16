@@ -1,6 +1,7 @@
 import importlib.util
 import unittest
 from pathlib import Path
+from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -12,6 +13,14 @@ SPEC.loader.exec_module(MODULE)
 
 
 class GmailNotificationTests(unittest.TestCase):
+    def test_missing_credentials_is_a_failure_not_a_silent_skip(self):
+        args = type("Args", (), {"run_url": "https://example.com", "status_file": Path("missing")})()
+        with (
+            mock.patch.object(MODULE, "parse_args", return_value=args),
+            mock.patch.dict(MODULE.os.environ, {}, clear=True),
+        ):
+            self.assertEqual(MODULE.main(), 2)
+
     def test_success_message_reads_status_fields(self):
         message = MODULE.build_message(
             {

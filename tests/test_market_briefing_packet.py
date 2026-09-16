@@ -44,6 +44,27 @@ class MarketBriefingPacketTests(unittest.TestCase):
             {"sourceRevision": "rev-1", "fetchedAt": 123},
         )
 
+    def test_market_api_requests_five_day_history(self):
+        self.assertIn("range=5d", MODULE.MARKETS_URL)
+
+    def test_safe_error_details_preserve_http_status_and_retries(self):
+        failure = MODULE.FetchFailure(
+            category="http",
+            attempts=3,
+            exception_type="HTTPError",
+            http_status=429,
+        )
+        self.assertEqual(
+            MODULE.safe_error_details(failure),
+            {
+                "category": "http",
+                "exceptionType": "HTTPError",
+                "attempts": 3,
+                "retries": 2,
+                "httpStatus": 429,
+            },
+        )
+
     def test_required_sector_contract_is_complete(self):
         sectors = {"XLK", "XLY", "XLC", "XLV", "XLU", "XLP", "XLE", "XLI", "XLB", "XLRE", "XLF"}
         self.assertTrue(sectors <= MODULE.REQUIRED_MARKETS)
@@ -117,6 +138,7 @@ class MarketBriefingPacketTests(unittest.TestCase):
         self.assertTrue(changed)
         self.assertEqual(assets[0]["source"], "Yahoo Finance")
         self.assertEqual(assets[0]["sourceSymbol"], "GC=F")
+        self.assertEqual(assets[0]["instrumentId"], "GC_FUTURES")
         self.assertEqual(assets[0]["instrumentType"], "futures_proxy")
         self.assertEqual(assets[0]["proxyFor"], "XAU/USD")
         self.assertEqual(assets[0]["comparison"]["previous"]["value"], 4470.0)
@@ -385,7 +407,14 @@ class MarketBriefingPacketTests(unittest.TestCase):
             return markets if url == MODULE.MARKETS_URL else breadth
 
         def fake_candidate(ticker):
-            return {"ticker": ticker, "status": "incomplete" if ticker == "NVDA" else "ok"}
+            return {
+                "ticker": ticker,
+                "tradingDate": "2026-08-25",
+                "close": 101,
+                "previousClose": 100,
+                "changePercent": 1,
+                "status": "incomplete" if ticker == "NVDA" else "ok",
+            }
 
         def fake_load(path, default):
             path = str(path)
@@ -410,11 +439,54 @@ class MarketBriefingPacketTests(unittest.TestCase):
         self.assertEqual(packet["validation"]["candidateQuoteFailures"], ["NVDA"])
 
     def test_fewer_than_five_candidate_quotes_is_critical(self):
+        def quote(ticker, day="2026-09-02"):
+            return {
+                "ticker": ticker,
+                "tradingDate": day,
+                "close": 101,
+                "previousClose": 100,
+                "changePercent": 1,
+                "status": "ok",
+            }
+
         self.assertEqual(
-            MODULE.candidate_quote_issues([{}] * 4),
-            ["insufficient_candidate_quotes:4"],
+            MODULE.candidate_quote_issues(
+                [quote(str(index)) for index in range(4)], "2026-09-02"
+            ),
+            ["insufficient_valid_candidate_quotes:4"],
         )
-        self.assertEqual(MODULE.candidate_quote_issues([{}] * 5), [])
+        candidates = [quote(str(index)) for index in range(5)]
+        self.assertEqual(
+            MODULE.candidate_quote_issues(candidates, "2026-09-02"), []
+        )
+        candidates[0]["tradingDate"] = "2026-09-01"
+        self.assertEqual(
+            MODULE.candidate_quote_issues(candidates, "2026-09-02"),
+            ["insufficient_valid_candidate_quotes:4"],
+        )
+
+    def test_candidate_cache_requires_complete_same_date_packet(self):
+        row = {
+            "ticker": "NVDA",
+            "tradingDate": "2026-09-02",
+            "close": 101,
+            "previousClose": 100,
+            "changePercent": 1,
+            "status": "ok",
+        }
+        packet = {
+            "tradingDate": "2026-09-02",
+            "candidateStocks": [row],
+            "validation": {"complete": True},
+        }
+        self.assertEqual(
+            MODULE.same_date_cached_candidates(packet, "2026-09-02"),
+            {"NVDA": row},
+        )
+        packet["validation"]["complete"] = False
+        self.assertEqual(
+            MODULE.same_date_cached_candidates(packet, "2026-09-02"), {}
+        )
 
 
 if __name__ == "__main__":
