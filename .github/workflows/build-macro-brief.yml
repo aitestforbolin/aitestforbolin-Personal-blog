@@ -1,11 +1,17 @@
 name: Build pre-release Macro Brief
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/build-macro-brief.yml"
   schedule:
-    # Beijing 20:05/20:15 and 21:05/21:15 for 20:30/21:30 releases.
-    - cron: "5,15 12,13 * * 1-5"
-    # Beijing 01:35/01:45 and 02:35/02:45 for 02:00/03:00 FOMC releases.
-    - cron: "35,45 17,18 * * 1-5"
+    # Repeated checks reduce the chance that GitHub's scheduler misses a brief window.
+    # Beijing 20:00-20:25 and 21:00-21:25 for 20:30/21:30 releases.
+    - cron: "0,5,10,15,20,25 12,13 * * 1-5"
+    # Beijing 01:30-01:55 and 02:30-02:55 for 02:00/03:00 FOMC releases.
+    - cron: "30,35,40,45,50,55 17,18 * * 1-5"
   workflow_dispatch:
     inputs:
       force_next:
@@ -49,7 +55,9 @@ jobs:
           if [[ "${{ inputs.force_next || 'false' }}" == "true" ]]; then
             force_arg="--force-next"
           fi
-          python scripts/build_macro_brief.py $force_arg | tee /tmp/macro-brief-result.txt
+          # The 0-10 minute range is an emergency fallback for delayed Actions runs;
+          # normal scheduled runs should still publish 10-30 minutes before release.
+          python scripts/build_macro_brief.py --min-minutes 0 --max-minutes 30 $force_arg | tee /tmp/macro-brief-result.txt
           generated="$(sed -n 's/^generated=//p' /tmp/macro-brief-result.txt | tail -1)"
           echo "generated=${generated:-false}" >> "$GITHUB_OUTPUT"
 
