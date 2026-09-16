@@ -1,5 +1,5 @@
 (function () {
-  const DATA_URL = "data/macro-calendar.json?v=20260814-cpi-ppi-1";
+  const DATA_URL = "data/macro-calendar.json?v=20260916-ff-us-only-1";
   const MODEL = window.MacroCalendarModel;
   const HORIZON_DAYS = 7;
   const RELEASE_LOOKBACK_HOURS = 48;
@@ -25,18 +25,7 @@
     policy_meeting: "经济政策会议",
     party_plenum: "中央全会",
   };
-  const COUNTRY_LABELS = {
-    CN: "中国",
-    US: "美国",
-  };
-  const SOURCE_STATUS_LABELS = {
-    nbs: "国家统计局",
-    pbc_credit: "人民银行金融统计",
-    pbc_lpr: "人民银行LPR",
-    gacc: "海关总署",
-    safe: "国家外汇管理局",
-    mof: "财政部",
-  };
+  const COUNTRY_LABELS = { US: "美国" };
   const FOMC_MEETINGS = [
     { start: "2026-01-27", end: "2026-01-28" },
     { start: "2026-03-17", end: "2026-03-18" },
@@ -59,10 +48,11 @@
 
   const state = {
     events: [],
-    country: "ALL",
+    country: "US",
     dataStatus: "unknown",
     failedSources: [],
     policyEventsUpdatedAt: null,
+    generatedAt: null,
   };
 
   const eventList = document.querySelector("[data-calendar-events]");
@@ -426,25 +416,18 @@
       status.dataset.state = "empty";
       return;
     }
-    if (state.dataStatus === "partial" || state.dataStatus === "stale") {
-      const sourceText = state.failedSources.length
-        ? `（${state.failedSources
-            .map((source) => SOURCE_STATUS_LABELS[source] || source)
-            .join("、")}）`
-        : "";
-      status.textContent = `部分中国官方源暂时不可用${sourceText}，当前保留上一份有效数据。`;
+    if (state.dataStatus === "stale") {
+      status.textContent = "Forex Factory 暂时不可用，当前保留上一份仍在展示窗口内的有效日历。";
       status.dataset.state = "warning";
       return;
     }
-    if (state.dataStatus === "static_sample") {
-      status.textContent = "中国数据为已核对的官方静态样本；政策会议来自官方通稿，未公开时刻不会被推测。";
-      status.dataset.state = "notice";
-      return;
-    }
+    const updatedAt = state.generatedAt
+      ? new Intl.DateTimeFormat("zh-CN", { timeZone: "Asia/Shanghai", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false }).format(new Date(state.generatedAt))
+      : "刚刚";
     status.textContent = events.length
-      ? ""
-      : `最近 ${RELEASE_LOOKBACK_HOURS} 小时已公布的数据、最近 ${POLICY_LOOKBACK_DAYS} 天已举行的政策事件及未来 ${HORIZON_DAYS} 天暂无重点事项。`;
-    status.dataset.state = events.length ? "ready" : "empty";
+      ? `Forex Factory 日历 · 更新于 ${updatedAt}（北京时间）；FOMC 日期由美联储日历校验。`
+      : `更新于 ${updatedAt}（北京时间）；当前展示窗口暂无重点事项。`;
+    status.dataset.state = events.length ? "notice" : "empty";
   }
 
   function renderPolicyDetails(event) {
@@ -627,6 +610,7 @@
       state.dataStatus = normalized.status;
       state.failedSources = normalized.failedSources || [];
       state.policyEventsUpdatedAt = normalized.policyEventsUpdatedAt;
+      state.generatedAt = normalized.generatedAt;
       renderEvents();
     })
     .catch(() => {

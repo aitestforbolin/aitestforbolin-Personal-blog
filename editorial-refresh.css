@@ -476,21 +476,6 @@ h2 {
   box-shadow: inset 3px 0 0 rgba(164, 79, 52, 0.64);
 }
 
-/* Country is encoded at row level so China and U.S. releases stay distinct
-   even when they share the same publication status. */
-.macro-event.macro-country-cn {
-  border-radius: 8px;
-  padding-right: 14px;
-  padding-left: 14px;
-  background: linear-gradient(
-    90deg,
-    rgba(178, 70, 50, 0.14) 0%,
-    rgba(178, 70, 50, 0.075) 58%,
-    rgba(178, 70, 50, 0.035) 100%
-  );
-  box-shadow: inset 5px 0 0 #ad4b39;
-}
-
 .macro-event.macro-country-us {
   border-radius: 8px;
   padding-right: 14px;
@@ -502,13 +487,6 @@ h2 {
     rgba(52, 103, 137, 0.035) 100%
   );
   box-shadow: inset 5px 0 0 #356b8a;
-}
-
-.macro-event.macro-country-cn .macro-date strong,
-.macro-event.macro-country-cn .macro-date span,
-.macro-event.macro-country-cn .macro-category,
-.macro-event.macro-country-cn .macro-importance {
-  color: #873626;
 }
 
 .macro-event.macro-country-us .macro-date strong,
@@ -848,4 +826,3 @@ select:focus-visible {
     padding-top: 38px;
   }
 }
-

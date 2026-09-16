@@ -21,6 +21,7 @@
         payload && payload.policyEventsUpdatedAt
           ? payload.policyEventsUpdatedAt
           : null,
+      generatedAt: payload && payload.generatedAt ? payload.generatedAt : null,
       events:
         payload && Array.isArray(payload.events) ? payload.events : [],
     };

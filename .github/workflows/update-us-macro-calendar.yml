@@ -1,17 +1,20 @@
-name: Update US macro calendar
+name: Update U.S. macro calendar
 
 on:
   push:
     branches:
       - main
     paths:
-      - "scripts/repair_us_macro_calendar.py"
-      - "tests/test_us_macro_calendar_repair.py"
+      - "scripts/fetch_forex_factory_calendar.py"
+      - "scripts/validate_us_calendar_shadow.py"
+      - "scripts/merge_macro_calendars.py"
       - ".github/workflows/update-us-macro-calendar.yml"
   schedule:
-    # 05:35 and 23:10 Asia/Shanghai every day; the morning run feeds the 07:00 briefing.
-    - cron: "35 21 * * *"
-    - cron: "10 15 * * *"
+    # 05:30, 19:30, 21:00 and 23:15 Asia/Shanghai.
+    - cron: "30 21 * * *"
+    - cron: "30 11 * * *"
+    - cron: "0 13 * * *"
+    - cron: "15 15 * * *"
   workflow_dispatch:
 
 permissions:
@@ -37,25 +40,37 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Refresh calendar data
-        run: python scripts/update_us_macro_calendar.py
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
 
-      - name: Repair missing core BLS releases
-        run: python scripts/repair_us_macro_calendar.py
+      - name: Refresh production calendar from Forex Factory
+        run: python scripts/fetch_forex_factory_calendar.py
 
-      - name: Rebuild unified China-US calendar
+      - name: Validate FOMC and publish U.S.-only calendar
         run: python scripts/merge_macro_calendars.py
 
-      - name: Persist newly released core macro data
-        run: python scripts/update_us_macro_dashboard.py
+      - name: Run legacy calendar as a non-blocking shadow check
+        id: shadow
+        continue-on-error: true
+        run: |
+          timeout 120s python scripts/update_us_macro_calendar.py --output /tmp/old-us-calendar.json
+          python scripts/validate_us_calendar_shadow.py \
+            --production data/us-macro-calendar.json \
+            --legacy /tmp/old-us-calendar.json
+
+      - name: Persist research history from official legacy verifier
+        if: steps.shadow.outcome == 'success'
+        run: python scripts/update_us_macro_dashboard.py --calendar /tmp/old-us-calendar.json
 
       - name: Validate calendar data and updater behavior
         run: |
-          python -m py_compile scripts/update_us_macro_calendar.py scripts/repair_us_macro_calendar.py scripts/update_us_macro_dashboard.py scripts/merge_macro_calendars.py
-          python -m unittest discover -s tests -p 'test_us_macro_calendar.py' -v
-          python -m unittest discover -s tests -p 'test_us_macro_calendar_repair.py' -v
+          python -m py_compile scripts/fetch_forex_factory_calendar.py scripts/validate_us_calendar_shadow.py scripts/update_us_macro_calendar.py scripts/update_us_macro_dashboard.py scripts/merge_macro_calendars.py
+          python -m unittest discover -s tests -p 'test_forex_factory_calendar.py' -v
           python -m unittest discover -s tests -p 'test_us_macro_dashboard.py' -v
           python -m unittest discover -s tests -p 'test_macro_calendar_merge.py' -v
+          node --test tests/test_macro_calendar_frontend.mjs
           python scripts/merge_macro_calendars.py --validate-only
 
       - name: Commit updated calendar
