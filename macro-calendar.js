@@ -183,7 +183,7 @@
     const stars = getImportanceStars(event);
     const level = stars >= 4 ? "high" : stars === 3 ? "medium" : "low";
     const label = stars >= 4 ? "高影响" : stars === 3 ? "中影响" : "低影响";
-    return `<span class="macro-impact macro-impact-${level}" aria-label="${label}"><i aria-hidden="true"></i>${label}</span>`;
+    return `<span class="macro-impact macro-impact-${level}" role="img" aria-label="${label}" title="${label}"><i aria-hidden="true"></i></span>`;
   }
 
   function formatPeriod(period) {
@@ -504,11 +504,13 @@
       </div>
       <div class="macro-event-body">
         <div class="macro-event-summary">
-          <a class="macro-event-name" href="${escapeHtml(
-            primaryUrl
-          )}" target="_blank" rel="noreferrer">${escapeHtml(title)}</a>
-          <div class="macro-event-meta">
+          <div class="macro-event-heading">
             ${renderImportance(event)}
+            <a class="macro-event-name" href="${escapeHtml(
+              primaryUrl
+            )}" target="_blank" rel="noreferrer">${escapeHtml(title)}</a>
+          </div>
+          <div class="macro-event-meta">
             ${event.source ? `<a class="macro-source-link" href="${escapeHtml(primaryUrl)}" target="_blank" rel="noreferrer" title="${escapeHtml(event.source)}">${escapeHtml(sourceLabel)}</a>` : ""}
             ${fallbackLink}
           </div>
