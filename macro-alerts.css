@@ -50,22 +50,9 @@
   white-space: nowrap;
 }
 
-.macro-event-main {
-  display: grid;
-  gap: 5px;
-  min-width: 0;
-}
-
 .macro-source {
   color: var(--muted);
   font-weight: 700;
-}
-
-.macro-event-results {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 14px;
-  align-items: center;
 }
 
 .macro-result {
@@ -87,15 +74,6 @@
 
 .macro-result-actual strong {
   color: #235e49;
-}
-
-/* 宏观日历只负责日期与事件：结果值和政策详情继续保留在数据层，但不在日历界面展示。 */
-.macro-event-main {
-  display: none;
-}
-
-.macro-event-body {
-  grid-template-columns: minmax(0, 1fr);
 }
 
 @media (max-width: 560px) {
