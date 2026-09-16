@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - data/daily-market-status.json
+      - data/x-publish-request.json
       - data/run-status.json
   schedule:
     # 07:30 Asia/Shanghai watchdog, Tuesday-Saturday.
@@ -49,16 +50,30 @@ jobs:
           echo "briefing_commit=$briefing_commit" >> "$GITHUB_OUTPUT"
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "publish=true" >> "$GITHUB_OUTPUT"
+            echo "publish_mode=manual" >> "$GITHUB_OUTPUT"
+            echo "input_as_of=${{ inputs.as_of }}" >> "$GITHUB_OUTPUT"
             if [ "${{ inputs.dry_run }}" = "true" ]; then
               echo "record=false" >> "$GITHUB_OUTPUT"
             else
               echo "record=true" >> "$GITHUB_OUTPUT"
             fi
-          elif git diff-tree --root --no-commit-id --name-only -r "$GITHUB_SHA" \
-            | rg -x 'data/daily-market-status\.json' >/dev/null; then
+          else
+            changed_paths="$(git diff-tree --root --no-commit-id --name-only -r "$GITHUB_SHA")"
+          fi
+          if [ "${{ github.event_name }}" = "push" ] \
+            && rg -x 'data/daily-market-status\.json' <<< "$changed_paths" >/dev/null; then
             echo "publish=true" >> "$GITHUB_OUTPUT"
             echo "record=true" >> "$GITHUB_OUTPUT"
-          else
+            echo "publish_mode=automatic" >> "$GITHUB_OUTPUT"
+            echo "input_as_of=" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event_name }}" = "push" ] \
+            && rg -x 'data/x-publish-request\.json' <<< "$changed_paths" >/dev/null; then
+            request_as_of="$(python scripts/read_x_publish_request.py)"
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+            echo "record=true" >> "$GITHUB_OUTPUT"
+            echo "publish_mode=manual" >> "$GITHUB_OUTPUT"
+            echo "input_as_of=$request_as_of" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event_name }}" = "push" ]; then
             echo "publish=false" >> "$GITHUB_OUTPUT"
             echo "record=false" >> "$GITHUB_OUTPUT"
           fi
@@ -78,8 +93,8 @@ jobs:
           X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
           X_EXPECTED_USERNAME: whybolin
           BRIEFING_SOURCE_COMMIT: ${{ steps.gate.outputs.briefing_commit }}
-          PUBLISH_MODE: ${{ github.event_name == 'push' && 'automatic' || 'manual' }}
-          INPUT_AS_OF: ${{ inputs.as_of }}
+          PUBLISH_MODE: ${{ steps.gate.outputs.publish_mode }}
+          INPUT_AS_OF: ${{ steps.gate.outputs.input_as_of }}
           INPUT_DRY_RUN: ${{ inputs.dry_run }}
         run: |
           args=(--mode "$PUBLISH_MODE")
