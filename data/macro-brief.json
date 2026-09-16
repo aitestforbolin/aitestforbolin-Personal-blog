@@ -1,6 +1,129 @@
 {
   "schemaVersion": 1,
-  "status": "waiting",
-  "generatedAt": null,
-  "message": "当前没有处于公布前10—30分钟窗口内的Brief事件。"
+  "status": "ready",
+  "generatedAt": "2026-09-16T20:26:14+08:00",
+  "event": {
+    "id": "us-629b6a6b368e",
+    "key": "Retail",
+    "title": "美国零售销售",
+    "scheduledAt": "2026-09-16T20:30:00+08:00",
+    "scheduledAtLabel": "2026年09月16日 20:30（北京时间）",
+    "minutesUntilRelease": 4,
+    "metrics": [
+      {
+        "label": "核心零售环比",
+        "forecast": "0.6%",
+        "previous": "-0.3%",
+        "source": "Forex Factory",
+        "sourceUrl": "https://www.forexfactory.com/calendar"
+      },
+      {
+        "label": "零售环比",
+        "forecast": "0.8%",
+        "previous": "-0.6%",
+        "source": "Forex Factory",
+        "sourceUrl": "https://www.forexfactory.com/calendar"
+      }
+    ],
+    "source": "Forex Factory",
+    "sourceUrl": "https://www.forexfactory.com/calendar",
+    "calendarRetrievedAt": "2026-09-16T07:42:58+00:00"
+  },
+  "market": {
+    "assets": [
+      {
+        "id": "XAUUSD",
+        "label": "现货黄金",
+        "value": 4340.105,
+        "previous": 4332.38,
+        "changePercent": 0.1783084586301168,
+        "unit": " USD",
+        "asOf": "2026-09-16 12:26 UTC",
+        "source": "Swissquote",
+        "sourceSymbol": "XAU/USD",
+        "status": "available"
+      },
+      {
+        "id": "BTCUSD",
+        "label": "比特币",
+        "value": 75920.93,
+        "previous": 75586.51,
+        "changePercent": 0.44243344480383906,
+        "unit": " USD",
+        "asOf": "2026-09-16 12:26 UTC",
+        "source": "Yahoo Finance",
+        "sourceSymbol": "BTC-USD",
+        "status": "available"
+      },
+      {
+        "id": "DXY",
+        "label": "美元指数",
+        "value": 99.689,
+        "previous": 99.615,
+        "changePercent": 0.07428600110424943,
+        "unit": "",
+        "asOf": "2026-09-16 12:16 UTC",
+        "source": "Yahoo Finance",
+        "sourceSymbol": "DX-Y.NYB",
+        "status": "available"
+      }
+    ],
+    "treasuries": [
+      {
+        "id": "US02Y",
+        "label": "美国2年期收益率",
+        "value": 4.67,
+        "previous": 4.65,
+        "unit": "%",
+        "asOf": "2026-09-15",
+        "source": "U.S. Treasury",
+        "status": "available",
+        "note": "美国财政部最近日值，非盘中数据"
+      },
+      {
+        "id": "US10Y",
+        "label": "美国10年期收益率",
+        "value": 5,
+        "previous": 4.97,
+        "unit": "%",
+        "asOf": "2026-09-15",
+        "source": "U.S. Treasury",
+        "status": "available",
+        "note": "美国财政部最近日值，非盘中数据"
+      },
+      {
+        "id": "US30Y",
+        "label": "美国30年期收益率",
+        "value": 5.36,
+        "previous": 5.34,
+        "unit": "%",
+        "asOf": "2026-09-15",
+        "source": "U.S. Treasury",
+        "status": "available",
+        "note": "美国财政部最近日值，非盘中数据"
+      }
+    ],
+    "fedWatch": {
+      "label": "2026年9月FOMC加息25个基点概率",
+      "value": 94.5,
+      "previous": 90,
+      "unit": "%",
+      "asOf": "2026-09-15T16:00:00-04:00",
+      "source": "CME FedWatch，经Reuters收盘报道核验",
+      "sourceUrl": "https://www.reuters.com/business/wall-st-futures-slip-rising-oil-treasury-yields-compound-ai-anxiety-2026-09-15/",
+      "status": "available",
+      "note": "沿用最近一期每日早报，不代表事件前即时概率"
+    }
+  },
+  "watchPoints": [
+    "整体零售与核心零售是否同向",
+    "消费韧性是否强化更高利率预期",
+    "美元、黄金与BTC是否出现一致反应"
+  ],
+  "limitations": [
+    "美债收益率采用美国财政部最近日值，不是盘中报价。",
+    "FedWatch沿用最近一期每日早报，不是事件前即时概率。",
+    "第一版不抓取Actual，也不判断公布后的市场反应。"
+  ],
+  "copyText": "【Macro Brief】美国零售销售\n公布时间：2026年09月16日 20:30（北京时间）\n\n市场预期：\n- 核心零售环比：预期 0.6%；前值 -0.3%\n- 零售环比：预期 0.8%；前值 -0.6%\n\n当前市场：\n- 现货黄金：4,340.105 USD（2026-09-16 12:26 UTC）\n- 比特币：75,920.93 USD（2026-09-16 12:26 UTC）\n- 美元指数：99.689（2026-09-16 12:16 UTC）\n\n美债（最近官方日值，非盘中）：\n- 美国2年期收益率：4.67%\n- 美国10年期收益率：5%\n- 美国30年期收益率：5.36%\n\nFedWatch：2026年9月FOMC加息25个基点概率 94.5%（沿用最近一期每日早报，不代表事件前即时概率）\n\n观察重点：\n1. 整体零售与核心零售是否同向\n2. 消费韧性是否强化更高利率预期\n3. 美元、黄金与BTC是否出现一致反应\n\nBrief生成时间：2026-09-16T20:26:14+08:00\n所有缺失值均标为暂不可用，未使用推测值。"
 }
