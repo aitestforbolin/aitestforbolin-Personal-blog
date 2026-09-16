@@ -32,7 +32,7 @@ def build_payload(events):
     normalized = sorted((normalize_event(event) for event in events if isinstance(event, dict)), key=lambda item: (item["scheduledAt"], item["id"]))
     if not normalized: raise ValueError("U.S. calendar is empty")
     status = "stale" if all(event.get("calendar_status") == "stale_snapshot" for event in events) else "healthy"
-    return {"schemaVersion": 2, "generatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"), "timezone": "Asia/Shanghai", "status": status, "failedSources": ["Forex Factory"] if status == "stale" else [], "health": {"US": {"status": status, "primarySource": "Forex Factory", "fomcValidation": "Federal Reserve"}}, "sourcePolicy": "U.S. calendar: Forex Factory primary; Federal Reserve validates FOMC. Official sources remain research-history authorities.", "events": normalized}
+    return {"schemaVersion": 2, "generatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"), "timezone": "Asia/Shanghai", "status": status, "failedSources": ["Forex Factory"] if status == "stale" else [], "health": {"US": {"status": status, "primarySource": "Forex Factory", "fomcValidation": "Federal Reserve"}}, "sourcePolicy": "U.S. calendar: curated CPI, PPI, PCE, NFP, retail sales and FOMC events rated Medium or High by Forex Factory; Federal Reserve validates FOMC dates.", "events": normalized}
 
 
 def comparable(value):
