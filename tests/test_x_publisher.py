@@ -95,6 +95,7 @@ class XPublisherTests(unittest.TestCase):
         self.assertIn("  push:\n    branches:\n      - main\n    paths:", workflow)
         self.assertIn("      - data/daily-market-status.json", workflow)
         self.assertIn("  workflow_dispatch:", workflow)
+        self.assertIn("          fetch-depth: 0\n          ref: main", workflow)
         self.assertIn("          ref: main", workflow)
         self.assertIn("      - data/x-publish-request.json", workflow)
         self.assertIn("python scripts/read_x_publish_request.py", workflow)
