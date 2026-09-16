@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-16T06:57:21+00:00",
+  "generatedAt": "2026-09-16T07:42:58+00:00",
   "timezone": "Asia/Shanghai",
   "status": "healthy",
   "failedSources": [],
@@ -11,8 +11,67 @@
       "fomcValidation": "Federal Reserve"
     }
   },
-  "sourcePolicy": "U.S. calendar: curated CPI, PPI, PCE, NFP, retail sales and FOMC events rated Medium or High by Forex Factory; Federal Reserve validates FOMC dates.",
+  "sourcePolicy": "U.S. calendar: all USD events rated Medium or High by Forex Factory; Federal Reserve validates FOMC dates. Briefing selection is handled separately.",
   "events": [
+    {
+      "id": "us-1bd70b96f3bf",
+      "eventType": "data",
+      "country": "US",
+      "period": null,
+      "scheduledAt": "2026-09-15T22:00:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "美国财政部长贝森特讲话",
+      "category": "macro",
+      "importance": "medium",
+      "stars": 3,
+      "source": "Forex Factory",
+      "sourceUrl": "https://www.forexfactory.com/calendar",
+      "metrics": [
+        {
+          "id": "metric-1",
+          "label": "讲话",
+          "actual": null,
+          "forecast": null,
+          "previous": null,
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        }
+      ],
+      "releasedAt": null,
+      "retrievedAt": "2026-09-16T07:42:58+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "scheduled",
+      "legacy": {
+        "date": "2026-09-15",
+        "date_et": "2026-09-15",
+        "time_et": "10:00",
+        "time_shanghai": "22:00",
+        "title": "Treasury Secretary Speaks",
+        "title_cn": "美国财政部长贝森特讲话",
+        "period": null,
+        "category": "macro",
+        "importance": "medium",
+        "stars": 3,
+        "source": "Forex Factory",
+        "url": "https://www.forexfactory.com/calendar",
+        "result_source": "Forex Factory 市场日历",
+        "result_url": "https://www.forexfactory.com/calendar",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar",
+        "metric_values": [
+          {
+            "label": "讲话",
+            "actual": null,
+            "forecast": null,
+            "previous": null,
+            "consensus_source": "Forex Factory 市场日历",
+            "consensus_url": "https://www.forexfactory.com/calendar"
+          }
+        ],
+        "release_status": "scheduled",
+        "calendar_status": "healthy"
+      }
+    },
     {
       "id": "us-629b6a6b368e",
       "eventType": "data",
@@ -22,8 +81,8 @@
       "dateStatus": "confirmed",
       "title": "美国零售销售",
       "category": "growth",
-      "importance": "high",
-      "stars": 4,
+      "importance": "medium",
+      "stars": 3,
       "source": "Forex Factory",
       "sourceUrl": "https://www.forexfactory.com/calendar",
       "metrics": [
@@ -47,7 +106,7 @@
         }
       ],
       "releasedAt": null,
-      "retrievedAt": "2026-09-16T06:57:21+00:00",
+      "retrievedAt": "2026-09-16T07:42:58+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -59,8 +118,8 @@
         "title_cn": "美国零售销售",
         "period": null,
         "category": "growth",
-        "importance": "high",
-        "stars": 4,
+        "importance": "medium",
+        "stars": 3,
         "source": "Forex Factory",
         "url": "https://www.forexfactory.com/calendar",
         "result_source": "Forex Factory 市场日历",
@@ -100,7 +159,7 @@
       "dateStatus": "confirmed",
       "title": "FOMC 利率决议 / 经济预测",
       "category": "fed",
-      "importance": "critical",
+      "importance": "high",
       "stars": 5,
       "source": "Federal Reserve（FOMC 日期已校验）",
       "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
@@ -134,7 +193,7 @@
         }
       ],
       "releasedAt": null,
-      "retrievedAt": "2026-09-16T06:57:21+00:00",
+      "retrievedAt": "2026-09-16T07:42:58+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -146,7 +205,7 @@
         "title_cn": "FOMC 利率决议 / 经济预测",
         "period": null,
         "category": "fed",
-        "importance": "critical",
+        "importance": "high",
         "stars": 5,
         "source": "Federal Reserve（FOMC 日期已校验）",
         "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
@@ -184,6 +243,187 @@
         "forecast": "联邦基金利率 4.00%",
         "previous": "联邦基金利率 3.75%",
         "fomc_validation": "confirmed",
+        "calendar_status": "healthy"
+      }
+    },
+    {
+      "id": "us-a7bca827248c",
+      "eventType": "data",
+      "country": "US",
+      "period": null,
+      "scheduledAt": "2026-09-17T02:30:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "FOMC 主席新闻发布会",
+      "category": "fed",
+      "importance": "high",
+      "stars": 5,
+      "source": "Forex Factory",
+      "sourceUrl": "https://www.forexfactory.com/calendar",
+      "metrics": [
+        {
+          "id": "metric-1",
+          "label": "新闻发布会",
+          "actual": null,
+          "forecast": null,
+          "previous": null,
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        }
+      ],
+      "releasedAt": null,
+      "retrievedAt": "2026-09-16T07:42:58+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "scheduled",
+      "legacy": {
+        "date": "2026-09-17",
+        "date_et": "2026-09-16",
+        "time_et": "14:30",
+        "time_shanghai": "02:30",
+        "title": "FOMC Press Conference",
+        "title_cn": "FOMC 主席新闻发布会",
+        "period": null,
+        "category": "fed",
+        "importance": "high",
+        "stars": 5,
+        "source": "Forex Factory",
+        "url": "https://www.forexfactory.com/calendar",
+        "result_source": "Forex Factory 市场日历",
+        "result_url": "https://www.forexfactory.com/calendar",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar",
+        "metric_values": [
+          {
+            "label": "新闻发布会",
+            "actual": null,
+            "forecast": null,
+            "previous": null,
+            "consensus_source": "Forex Factory 市场日历",
+            "consensus_url": "https://www.forexfactory.com/calendar"
+          }
+        ],
+        "release_status": "scheduled",
+        "calendar_status": "healthy"
+      }
+    },
+    {
+      "id": "us-8ffe90f112f4",
+      "eventType": "data",
+      "country": "US",
+      "period": null,
+      "scheduledAt": "2026-09-17T20:30:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "美国费城联储制造业指数",
+      "category": "growth",
+      "importance": "medium",
+      "stars": 3,
+      "source": "Forex Factory",
+      "sourceUrl": "https://www.forexfactory.com/calendar",
+      "metrics": [
+        {
+          "id": "metric-1",
+          "label": "费城联储制造业指数",
+          "actual": null,
+          "forecast": "31.3",
+          "previous": "47.4",
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        }
+      ],
+      "releasedAt": null,
+      "retrievedAt": "2026-09-16T07:42:58+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "scheduled",
+      "legacy": {
+        "date": "2026-09-17",
+        "date_et": "2026-09-17",
+        "time_et": "08:30",
+        "time_shanghai": "20:30",
+        "title": "Philly Fed",
+        "title_cn": "美国费城联储制造业指数",
+        "period": null,
+        "category": "growth",
+        "importance": "medium",
+        "stars": 3,
+        "source": "Forex Factory",
+        "url": "https://www.forexfactory.com/calendar",
+        "result_source": "Forex Factory 市场日历",
+        "result_url": "https://www.forexfactory.com/calendar",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar",
+        "metric_values": [
+          {
+            "label": "费城联储制造业指数",
+            "actual": null,
+            "forecast": "31.3",
+            "previous": "47.4",
+            "consensus_source": "Forex Factory 市场日历",
+            "consensus_url": "https://www.forexfactory.com/calendar"
+          }
+        ],
+        "release_status": "scheduled",
+        "forecast": "费城联储制造业指数 31.3",
+        "previous": "费城联储制造业指数 47.4",
+        "calendar_status": "healthy"
+      }
+    },
+    {
+      "id": "us-b456aa0e183b",
+      "eventType": "data",
+      "country": "US",
+      "period": null,
+      "scheduledAt": "2026-09-17T20:30:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "美国初请失业金人数",
+      "category": "jobs",
+      "importance": "medium",
+      "stars": 3,
+      "source": "Forex Factory",
+      "sourceUrl": "https://www.forexfactory.com/calendar",
+      "metrics": [
+        {
+          "id": "metric-1",
+          "label": "初请失业金人数",
+          "actual": null,
+          "forecast": "207K",
+          "previous": "206K",
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        }
+      ],
+      "releasedAt": null,
+      "retrievedAt": "2026-09-16T07:42:58+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "scheduled",
+      "legacy": {
+        "date": "2026-09-17",
+        "date_et": "2026-09-17",
+        "time_et": "08:30",
+        "time_shanghai": "20:30",
+        "title": "Jobless Claims",
+        "title_cn": "美国初请失业金人数",
+        "period": null,
+        "category": "jobs",
+        "importance": "medium",
+        "stars": 3,
+        "source": "Forex Factory",
+        "url": "https://www.forexfactory.com/calendar",
+        "result_source": "Forex Factory 市场日历",
+        "result_url": "https://www.forexfactory.com/calendar",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar",
+        "metric_values": [
+          {
+            "label": "初请失业金人数",
+            "actual": null,
+            "forecast": "207K",
+            "previous": "206K",
+            "consensus_source": "Forex Factory 市场日历",
+            "consensus_url": "https://www.forexfactory.com/calendar"
+          }
+        ],
+        "release_status": "scheduled",
+        "forecast": "初请失业金人数 207K",
+        "previous": "初请失业金人数 206K",
         "calendar_status": "healthy"
       }
     }
