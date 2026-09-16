@@ -61,13 +61,13 @@ jobs:
             changed_paths="$(git diff-tree --root --no-commit-id --name-only -r "$GITHUB_SHA")"
           fi
           if [ "${{ github.event_name }}" = "push" ] \
-            && rg -x 'data/daily-market-status\.json' <<< "$changed_paths" >/dev/null; then
+            && grep -Fx 'data/daily-market-status.json' <<< "$changed_paths" >/dev/null; then
             echo "publish=true" >> "$GITHUB_OUTPUT"
             echo "record=true" >> "$GITHUB_OUTPUT"
             echo "publish_mode=automatic" >> "$GITHUB_OUTPUT"
             echo "input_as_of=" >> "$GITHUB_OUTPUT"
           elif [ "${{ github.event_name }}" = "push" ] \
-            && rg -x 'data/x-publish-request\.json' <<< "$changed_paths" >/dev/null; then
+            && grep -Fx 'data/x-publish-request.json' <<< "$changed_paths" >/dev/null; then
             request_as_of="$(python scripts/read_x_publish_request.py)"
             echo "publish=true" >> "$GITHUB_OUTPUT"
             echo "record=true" >> "$GITHUB_OUTPUT"
