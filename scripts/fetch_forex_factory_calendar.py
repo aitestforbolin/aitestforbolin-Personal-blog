@@ -31,7 +31,18 @@ SERIES = {
     "PCE": ("美国PCE / 核心PCE", "inflation", 4, {"Core PCE Price Index m/m": "核心PCE环比", "Core PCE Price Index y/y": "核心PCE同比", "Personal Spending m/m": "实际PCE环比"}),
     "NFP": ("美国非农 / 失业率 / 平均时薪", "jobs", 5, {"Non-Farm Employment Change": "非农", "Unemployment Rate": "失业率", "Average Hourly Earnings m/m": "时薪环比", "Average Hourly Earnings y/y": "时薪同比"}),
     "Retail": ("美国零售销售", "growth", 4, {"Retail Sales m/m": "零售环比", "Core Retail Sales m/m": "核心零售环比"}),
+    "GDP": ("美国GDP", "growth", 4, {"Advance GDP q/q": "GDP年化环比", "Prelim GDP q/q": "GDP年化环比", "Final GDP q/q": "GDP年化环比"}),
+    "ISM Manufacturing": ("美国ISM制造业PMI", "growth", 3, {"ISM Manufacturing PMI": "ISM制造业PMI"}),
+    "ISM Services": ("美国ISM服务业PMI", "growth", 3, {"ISM Services PMI": "ISM服务业PMI"}),
+    "JOLTS": ("美国JOLTS职位空缺", "jobs", 3, {"JOLTS Job Openings": "JOLTS职位空缺"}),
+    "Industrial Production": ("美国工业产出", "growth", 3, {"Industrial Production m/m": "工业产出环比"}),
+    "Michigan": ("密歇根大学消费者信心 / 通胀预期", "consumption", 3, {"Prelim UoM Consumer Sentiment": "消费者信心初值", "Revised UoM Consumer Sentiment": "消费者信心终值", "Prelim UoM Inflation Expectations": "通胀预期初值", "Revised UoM Inflation Expectations": "通胀预期终值"}),
+    "Jobless Claims": ("美国初请失业金人数", "jobs", 3, {"Unemployment Claims": "初请失业金人数"}),
+    "Philly Fed": ("美国费城联储制造业指数", "growth", 3, {"Philly Fed Manufacturing Index": "费城联储制造业指数"}),
     "FOMC": ("FOMC 利率决议 / 经济预测", "fed", 5, {"Federal Funds Rate": "联邦基金利率", "FOMC Economic Projections": "经济预测", "FOMC Statement": "FOMC声明"}),
+    "FOMC Press Conference": ("FOMC 主席新闻发布会", "fed", 5, {"FOMC Press Conference": "新闻发布会"}),
+    "FOMC Minutes": ("FOMC 会议纪要", "fed", 4, {"FOMC Meeting Minutes": "会议纪要"}),
+    "Treasury Secretary Speaks": ("美国财政部长贝森特讲话", "macro", 3, {"Treasury Sec Bessent Speaks": "讲话"}),
 }
 TITLE_MAP = {title: (series, label) for series, (_, _, _, titles) in SERIES.items() for title, label in titles.items()}
 FF_IMPACT = {"High": ("high", 5), "Medium": ("medium", 3)}
@@ -54,14 +65,23 @@ def parse_forex_factory(payload):
     if not isinstance(raw, list): raise ValueError("Forex Factory calendar was not an array")
     grouped = {}
     for row in raw:
-        mapping = TITLE_MAP.get(str(row.get("title") or "")) if isinstance(row, dict) and row.get("country") == "USD" and row.get("impact") in FF_IMPACT else None
-        if not mapping or not isinstance(row.get("date"), str): continue
+        if not isinstance(row, dict) or row.get("country") != "USD" or row.get("impact") not in FF_IMPACT or not isinstance(row.get("date"), str):
+            continue
+        raw_title = str(row.get("title") or "").strip()
+        if not raw_title:
+            continue
+        mapping = TITLE_MAP.get(raw_title)
         try: moment = datetime.fromisoformat(row["date"])
         except ValueError: continue
-        series, label = mapping; title_cn, category, _, _ = SERIES[series]
+        if mapping:
+            series, label = mapping
+            title_cn, category, _, _ = SERIES[series]
+        else:
+            series, label = f"FF::{raw_title}", "公布值"
+            title_cn, category = raw_title, "macro"
         importance, stars = FF_IMPACT[row["impact"]]
         et, cn = moment.astimezone(ET), moment.astimezone(SHANGHAI)
-        key = et.date().isoformat(), series
+        key = et.date().isoformat(), series, "" if mapping else et.strftime("%H:%M")
         event = grouped.setdefault(key, {"date": cn.date().isoformat(), "date_et": et.date().isoformat(), "time_et": et.strftime("%H:%M"), "time_shanghai": cn.strftime("%H:%M"), "title": series, "title_cn": title_cn, "period": None, "category": category, "importance": importance, "stars": stars, "source": "Forex Factory", "url": FF_PAGE_URL, "result_source": "Forex Factory 市场日历", "result_url": FF_PAGE_URL, "consensus_source": "Forex Factory 市场日历", "consensus_url": FF_PAGE_URL, "metric_values": [], "release_status": "scheduled"})
         if stars > event["stars"]:
             event["importance"], event["stars"] = importance, stars
@@ -108,8 +128,6 @@ def retain_window(events, today):
     start, end = today - timedelta(days=2), today + timedelta(days=7)
     kept = []
     for event in events:
-        if event.get("title") not in SERIES:
-            continue
         try: day = date.fromisoformat(str(event.get("date_et") or event.get("date"))[:10])
         except (AttributeError, ValueError): continue
         if start <= day <= end: kept.append(event)
