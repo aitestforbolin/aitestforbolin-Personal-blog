@@ -74,8 +74,10 @@
       return `
         <a class="market-quote-card" href="${href}" target="_blank" rel="noreferrer"
           aria-label="在 TradingView 打开 ${escapeHtml(market.name)}">
-          <span class="market-quote-heading"><strong>${escapeHtml(market.name)}</strong><small>${escapeHtml(detail)}</small></span>
-          <span class="market-quote-value">${formatNumber(quote ? Number(quote.price) : NaN, market)}</span>
+          <span class="market-quote-primary">
+            <span class="market-quote-heading"><strong>${escapeHtml(market.name)}</strong><small>${escapeHtml(detail)}</small></span>
+            <span class="market-quote-value">${formatNumber(quote ? Number(quote.price) : NaN, market)}</span>
+          </span>
           <span class="market-quote-change is-${change.direction}">${escapeHtml(change.text)}</span>
         </a>`;
     }).join("");
