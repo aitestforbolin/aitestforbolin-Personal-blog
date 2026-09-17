@@ -59,11 +59,25 @@ jobs:
 
           path = Path("scripts/build_macro_brief.py")
           text = path.read_text(encoding="utf-8")
-          old_whitelist = 'BRIEF_WHITELIST = {"CPI", "PPI", "PCE", "NFP", "Retail", "FOMC"}'
-          new_whitelist = 'BRIEF_WHITELIST = {"CPI", "PPI", "PCE", "NFP", "Retail", "FOMC", "Jobless Claims"}'
-          if old_whitelist not in text:
-              raise SystemExit("Expected Macro Brief whitelist definition not found")
-          text = text.replace(old_whitelist, new_whitelist, 1)
+
+          old_event_key = '''def event_key(event: dict) -> str | None:
+    legacy = event.get("legacy") if isinstance(event.get("legacy"), dict) else {}
+    value = legacy.get("title")
+    return value if value in BRIEF_WHITELIST else None
+'''
+          new_event_key = '''def event_key(event: dict) -> str | None:
+    legacy = event.get("legacy") if isinstance(event.get("legacy"), dict) else {}
+    value = legacy.get("title")
+    if value in BRIEF_WHITELIST:
+        return value
+    scheduled = event.get("scheduledAt")
+    if value == "Jobless Claims" and isinstance(scheduled, str) and scheduled.startswith("2026-09-17T"):
+        return value
+    return None
+'''
+          if old_event_key not in text:
+              raise SystemExit("Expected event_key implementation not found")
+          text = text.replace(old_event_key, new_event_key, 1)
 
           watch_anchor = '}\n\n\ndef load_json'
           watch_injection = '}\nWATCH_POINTS["Jobless Claims"] = ["初请失业金人数是否明显偏离预期", "就业降温信号是否改变市场对Fed后续利率路径的判断", "美元、短端美债、黄金与BTC是否出现一致的重新定价"]\n\n\ndef load_json'
@@ -71,7 +85,7 @@ jobs:
               raise SystemExit("Expected WATCH_POINTS insertion point not found")
           text = text.replace(watch_anchor, watch_injection, 1)
           path.write_text(text, encoding="utf-8")
-          print("Enabled Jobless Claims for the 2026-09-17 one-off Macro Brief test.")
+          print("Enabled only the 2026-09-17 Jobless Claims event for this Macro Brief test.")
           PY
 
       - name: Build eligible Macro Brief
