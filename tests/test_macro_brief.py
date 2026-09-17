@@ -3,7 +3,7 @@ from __future__ import annotations
 import importlib.util
 import sys
 import unittest
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -28,6 +28,19 @@ class MacroBriefTests(unittest.TestCase):
             "metrics": [{"label": "零售环比", "forecast": "0.8%", "previous": "-0.6%"}],
             "legacy": {"title": "Retail"},
         }
+        self.fomc = {
+            "id": "fomc",
+            "title": "FOMC 利率决议 / 经济预测",
+            "scheduledAt": "2026-09-17T02:00:00+08:00",
+            "source": "Federal Reserve",
+            "metrics": [],
+            "legacy": {"title": "FOMC"},
+        }
+
+    def plan_minutes_before(self, event, minutes, state=None):
+        scheduled = datetime.fromisoformat(event["scheduledAt"])
+        now = scheduled - timedelta(minutes=minutes)
+        return brief.plan_next_event([event], now, state or {}, 0, 30)
 
     def test_selects_whitelisted_event_inside_window(self):
         selected = brief.select_event([self.retail], self.now, 10, 30)
@@ -51,6 +64,49 @@ class MacroBriefTests(unittest.TestCase):
         self.assertEqual(payload["market"]["treasuries"][0]["value"], 4.67)
         self.assertIn("非盘中", payload["market"]["treasuries"][0]["note"])
         self.assertIn("预期 0.8%", payload["copyText"])
+
+    def test_capture_at_55_minutes_waits_without_generating(self):
+        plan = self.plan_minutes_before(self.fomc, 55)
+        self.assertEqual(plan["action"], "wait")
+        self.assertEqual(plan["event"]["id"], "fomc")
+        self.assertEqual(plan["waitSeconds"], 30 * 60)
+        self.assertEqual(self.plan_minutes_before(self.fomc, 60)["waitSeconds"], 35 * 60)
+
+    def test_capture_at_38_minutes_calculates_wait_to_25_minute_target(self):
+        plan = self.plan_minutes_before(self.fomc, 38)
+        self.assertEqual(plan["action"], "wait")
+        self.assertEqual(plan["waitSeconds"], 13 * 60)
+        self.assertEqual(plan["targetAt"].strftime("%H:%M"), "01:35")
+
+    def test_generation_window_and_emergency_fallback(self):
+        for minutes in (25, 10, 2):
+            with self.subTest(minutes=minutes):
+                self.assertEqual(self.plan_minutes_before(self.fomc, minutes)["action"], "generate")
+
+    def test_does_not_wait_outside_capture_window_or_after_release(self):
+        self.assertEqual(self.plan_minutes_before(self.fomc, 61)["action"], "too_early")
+        self.assertEqual(self.plan_minutes_before(self.fomc, -1)["action"], "expired")
+
+    def test_state_deduplicates_same_event_but_not_the_next_event(self):
+        state = {"lastEventId": "retail"}
+        self.assertEqual(self.plan_minutes_before(self.retail, 25, state)["action"], "already_sent")
+        self.assertEqual(self.plan_minutes_before(self.fomc, 25, state)["action"], "generate")
+
+    def test_fomc_dry_run_start_times(self):
+        expected = {
+            "01:05": ("wait", 30 * 60),
+            "01:22": ("wait", 13 * 60),
+            "01:35": ("generate", 0),
+            "01:48": ("generate", 0),
+            "01:59": ("generate", 0),
+        }
+        scheduled = datetime.fromisoformat(self.fomc["scheduledAt"])
+        for clock, result in expected.items():
+            hour, minute = map(int, clock.split(":"))
+            now = scheduled.replace(hour=hour, minute=minute)
+            plan = brief.plan_next_event([self.fomc], now, {}, 0, 30)
+            with self.subTest(clock=clock):
+                self.assertEqual((plan["action"], plan["waitSeconds"]), result)
 
     def test_email_contains_full_brief_and_release_time(self):
         payload = {"event": {"title": "美国零售销售", "scheduledAtLabel": "2026年09月16日 20:30（北京时间）"}, "copyText": "完整Brief正文"}

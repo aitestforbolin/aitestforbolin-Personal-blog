@@ -5,7 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -19,6 +19,9 @@ DEFAULT_OUTPUT = ROOT / "data" / "macro-brief.json"
 DEFAULT_STATE = ROOT / "data" / "macro-brief-state.json"
 
 BRIEF_WHITELIST = {"CPI", "PPI", "PCE", "NFP", "Retail", "FOMC"}
+DEFAULT_CAPTURE_MINUTES = 60
+DEFAULT_TARGET_MINUTES = 25
+DEFAULT_MAX_WAIT_SECONDS = 35 * 60
 WATCH_POINTS = {
     "CPI": ["核心CPI环比是否偏离预期", "核心通胀与整体通胀是否同向", "美元和短端美债是否重新定价利率路径"],
     "PPI": ["核心PPI是否显示上游价格压力", "能源与商品价格是否推高整体数据", "市场是否把变化传导到未来CPI预期"],
@@ -66,6 +69,110 @@ def select_event(events: list[dict], now: datetime, minimum: int, maximum: int, 
         if (force_next and minutes > 0) or minimum <= minutes <= maximum:
             candidates.append((moment, event, key, minutes))
     return min(candidates, key=lambda row: row[0]) if candidates else None
+
+
+def select_next_eligible_event(events: list[dict], now: datetime):
+    """Return the next whitelisted event after *now*, regardless of its window."""
+    candidates = []
+    for event in events:
+        key = event_key(event)
+        scheduled = event.get("scheduledAt")
+        if not key or not isinstance(scheduled, str):
+            continue
+        try:
+            moment = datetime.fromisoformat(scheduled).astimezone(SHANGHAI)
+        except ValueError:
+            continue
+        minutes = (moment - now).total_seconds() / 60
+        if minutes > 0:
+            candidates.append((moment, event, key, minutes))
+    return min(candidates, key=lambda row: row[0]) if candidates else None
+
+
+def select_most_recent_eligible_event(events: list[dict], now: datetime):
+    """Return the latest whitelisted event at or before *now* for expiry logging."""
+    candidates = []
+    for event in events:
+        key = event_key(event)
+        scheduled = event.get("scheduledAt")
+        if not key or not isinstance(scheduled, str):
+            continue
+        try:
+            moment = datetime.fromisoformat(scheduled).astimezone(SHANGHAI)
+        except ValueError:
+            continue
+        minutes = (moment - now).total_seconds() / 60
+        if minutes <= 0:
+            candidates.append((moment, event, key, minutes))
+    return max(candidates, key=lambda row: row[0]) if candidates else None
+
+
+def decide_event_action(
+    minutes_until_release: float,
+    minimum: int,
+    maximum: int,
+    capture_minutes: int = DEFAULT_CAPTURE_MINUTES,
+    target_minutes: int = DEFAULT_TARGET_MINUTES,
+    max_wait_seconds: int = DEFAULT_MAX_WAIT_SECONDS,
+) -> tuple[str, int]:
+    """Classify one event without side effects and return (action, wait_seconds)."""
+    if minutes_until_release <= 0:
+        return "expired", 0
+    if minimum <= minutes_until_release <= maximum:
+        return "generate", 0
+    if maximum < minutes_until_release <= capture_minutes:
+        wait_seconds = round((minutes_until_release - target_minutes) * 60)
+        return "wait", max(0, min(wait_seconds, max_wait_seconds))
+    return "too_early", 0
+
+
+def plan_next_event(
+    events: list[dict],
+    now: datetime,
+    state: dict,
+    minimum: int,
+    maximum: int,
+    capture_minutes: int = DEFAULT_CAPTURE_MINUTES,
+    target_minutes: int = DEFAULT_TARGET_MINUTES,
+    max_wait_seconds: int = DEFAULT_MAX_WAIT_SECONDS,
+    force_next: bool = False,
+) -> dict:
+    """Plan one Macro Brief run without writing a brief or changing state."""
+    selected = select_next_eligible_event(events, now)
+    if not selected:
+        expired = select_most_recent_eligible_event(events, now)
+        if expired:
+            scheduled, event, key, minutes = expired
+            return {
+                "action": "expired",
+                "selected": expired,
+                "event": event,
+                "key": key,
+                "scheduled": scheduled,
+                "minutesUntilRelease": minutes,
+                "waitSeconds": 0,
+                "targetAt": None,
+            }
+        return {"action": "no_eligible_event", "selected": None, "waitSeconds": 0}
+    scheduled, event, key, minutes = selected
+    if force_next:
+        action, wait_seconds = "generate", 0
+    else:
+        action, wait_seconds = decide_event_action(
+            minutes, minimum, maximum, capture_minutes, target_minutes, max_wait_seconds
+        )
+        if action == "generate" and state.get("lastEventId") == event.get("id"):
+            action = "already_sent"
+    return {
+        "action": action,
+        "selected": selected,
+        "event": event,
+        "key": key,
+        "scheduled": scheduled,
+        "minutesUntilRelease": minutes,
+        "waitSeconds": wait_seconds,
+        "targetAt": scheduled.replace(microsecond=0) - timedelta(minutes=target_minutes),
+    }
 
 
 def metric_rows(event: dict) -> list[dict]:
@@ -223,29 +330,70 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--now")
     parser.add_argument("--min-minutes", type=int, default=10)
     parser.add_argument("--max-minutes", type=int, default=30)
+    parser.add_argument("--capture-minutes", type=int, default=DEFAULT_CAPTURE_MINUTES)
+    parser.add_argument("--target-minutes", type=int, default=DEFAULT_TARGET_MINUTES)
+    parser.add_argument("--max-wait-seconds", type=int, default=DEFAULT_MAX_WAIT_SECONDS)
+    parser.add_argument("--probe", action="store_true", help="Plan only; never write a Brief or state.")
+    parser.add_argument("--trigger-type", default="manual")
     parser.add_argument("--force-next", action="store_true")
     return parser.parse_args()
+
+
+def log_plan(now: datetime, trigger_type: str, plan: dict, action: str) -> None:
+    selected = plan.get("selected")
+    print(f"now_beijing={now.isoformat(timespec='seconds')}")
+    print(f"now_utc={now.astimezone(timezone.utc).isoformat(timespec='seconds')}")
+    print(f"workflow_trigger={trigger_type}")
+    if not selected:
+        print("next_event=-")
+        print("event_id=-")
+        print("scheduled_at=-")
+        print("minutes_until_release=-")
+    else:
+        scheduled, event, _, minutes = selected
+        print(f"next_event={event.get('title') or '-'}")
+        print(f"event_id={event.get('id') or '-'}")
+        print(f"scheduled_at={scheduled.isoformat(timespec='seconds')}")
+        print(f"minutes_until_release={minutes:.2f}")
+    print(f"action={action}")
+    if action == "wait":
+        print(f"wait_seconds={plan['waitSeconds']}")
+        print(f"target_execution_at={plan['targetAt'].isoformat(timespec='seconds')}")
 
 
 def main() -> int:
     args = parse_args()
     now = parse_now(args.now)
     calendar = load_json(args.calendar, {})
-    selected = select_event(calendar.get("events", []), now, args.min_minutes, args.max_minutes, args.force_next)
-    if not selected:
-        print("generated=false")
-        print("reason=no_eligible_event")
-        return 0
-    scheduled, event, key, _ = selected
     state = load_json(args.state, {})
-    if not args.force_next and state.get("lastEventId") == event.get("id"):
+    plan = plan_next_event(
+        calendar.get("events", []),
+        now,
+        state,
+        args.min_minutes,
+        args.max_minutes,
+        args.capture_minutes,
+        args.target_minutes,
+        args.max_wait_seconds,
+        args.force_next,
+    )
+    action = plan["action"]
+    if args.probe:
+        log_plan(now, args.trigger_type, plan, action)
         print("generated=false")
-        print("reason=already_sent")
+        print(f"reason={action}")
         return 0
+    if action != "generate":
+        log_plan(now, args.trigger_type, plan, action)
+        print("generated=false")
+        print(f"reason={action}")
+        return 0
+    scheduled, event, key, _ = plan["selected"]
     payload = build_payload(event, key, scheduled, now, load_json(args.markets, {}), load_json(args.daily, {}))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     args.state.write_text(json.dumps({"lastEventId": event.get("id"), "sentAt": now.isoformat(timespec="seconds")}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    log_plan(now, args.trigger_type, plan, "generated")
     print("generated=true")
     print(f"event_id={event.get('id')}")
     return 0

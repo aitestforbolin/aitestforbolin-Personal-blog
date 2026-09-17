@@ -55,9 +55,30 @@ jobs:
           if [[ "${{ inputs.force_next || 'false' }}" == "true" ]]; then
             force_arg="--force-next"
           fi
-          # The 0-10 minute range is an emergency fallback for delayed Actions runs;
-          # normal scheduled runs should still publish 10-30 minutes before release.
-          python scripts/build_macro_brief.py --min-minutes 0 --max-minutes 30 $force_arg | tee /tmp/macro-brief-result.txt
+          trigger_type="${{ github.event_name }}"
+          # A run that starts 30-60 minutes early captures the next eligible event,
+          # waits only until the 25-minute target, and then re-runs the normal builder.
+          # The 0-10 minute range remains an emergency fallback for delayed Actions runs.
+          python scripts/build_macro_brief.py \
+            --probe --trigger-type "$trigger_type" \
+            --min-minutes 0 --max-minutes 30 \
+            --capture-minutes 60 --target-minutes 25 --max-wait-seconds 2100 \
+            $force_arg | tee /tmp/macro-brief-probe.txt
+          action="$(sed -n 's/^action=//p' /tmp/macro-brief-probe.txt | tail -1)"
+          wait_seconds="$(sed -n 's/^wait_seconds=//p' /tmp/macro-brief-probe.txt | tail -1)"
+          if [[ "$action" == "wait" ]]; then
+            echo "Macro Brief capture succeeded; waiting ${wait_seconds}s for the normal generation window."
+            sleep "${wait_seconds:-0}"
+          fi
+          if [[ "$action" == "wait" || "$action" == "generate" ]]; then
+            python scripts/build_macro_brief.py \
+              --trigger-type "$trigger_type" \
+              --min-minutes 0 --max-minutes 30 \
+              --capture-minutes 60 --target-minutes 25 --max-wait-seconds 2100 \
+              $force_arg | tee /tmp/macro-brief-result.txt
+          else
+            cp /tmp/macro-brief-probe.txt /tmp/macro-brief-result.txt
+          fi
           generated="$(sed -n 's/^generated=//p' /tmp/macro-brief-result.txt | tail -1)"
           echo "generated=${generated:-false}" >> "$GITHUB_OUTPUT"
 
