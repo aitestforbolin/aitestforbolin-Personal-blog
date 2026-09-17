@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="btc-etf-flow-signal.css?v=20260917-2" />
     <link rel="stylesheet" href="tech-events.css?v=20260721-1" />
     <link rel="stylesheet" href="editorial-refresh.css?v=20260916-impact-dot-1" />
-    <link rel="stylesheet" href="market-pulse.css?v=20260729-1" />
+    <link rel="stylesheet" href="home-market-widget.css?v=20260917-2" />
     <link rel="stylesheet" href="home-fundraising.css?v=20260820-dual-prompts-1" />
     <link rel="stylesheet" href="us-macro/us-macro.css?v=20260819-3" />
   </head>
@@ -152,7 +152,7 @@
             <p class="eyebrow">Cross-Asset Market Pulse</p>
             <h2 id="market-prices-title">主要资产价格</h2>
             <p>
-              在同一张图上切换股指、美元、美债收益率、商品与比特币，并用进攻、防御与宏观敏感板块观察市场结构。
+              近实时查看股指、美元、商品与比特币；美债收益率采用美国财政部日度数据。
             </p>
           </div>
           <a
@@ -165,64 +165,13 @@
           </a>
         </div>
 
-        <div class="market-chart-card market-pulse-card" data-market-module>
-          <div
-            class="market-pulse-breadth"
-            data-market-breadth
-            aria-label="市场宽度"
-            aria-live="polite"
-          ></div>
-
-          <div
-            class="market-pulse-tabs"
-            data-market-tabs
-            role="tablist"
-            aria-label="切换主要资产"
-          ></div>
-
-          <div class="market-pulse-head">
-            <div class="market-pulse-identity">
-              <div class="market-pulse-title">
-                <h3 data-market-name>标普 500</h3>
-                <span data-market-code>SPX</span>
-              </div>
-              <p data-market-session>美股常规交易时段 · 盘中</p>
-            </div>
-            <div class="market-pulse-quote">
-              <strong data-market-price>—</strong>
-              <span class="market-pulse-change" data-market-change>等待行情</span>
-            </div>
+        <div class="market-snapshot" data-market-snapshot aria-busy="true">
+          <div class="market-snapshot-grid" data-market-snapshot-grid aria-live="polite">
+            <p class="market-snapshot-loading">正在连接市场数据…</p>
           </div>
-
-          <div class="market-pulse-controls">
-            <span class="market-pulse-status" data-market-status>
-              正在连接市场数据
-            </span>
-            <div
-              class="market-pulse-ranges"
-              data-market-ranges
-              aria-label="选择图表时间范围"
-            ></div>
-          </div>
-
-          <div
-            class="market-pulse-chart"
-            data-market-chart
-            aria-live="polite"
-          ></div>
-
-          <div class="market-pulse-footer">
-            <span data-market-source>
-              Yahoo Finance · 价格可能延迟 · 仅供研究参考
-            </span>
-            <a
-              href="https://www.tradingview.com/chart/?symbol=TVC%3ASPX"
-              data-market-external
-              target="_blank"
-              rel="noreferrer"
-            >
-              在 TradingView 查看完整图表 ↗
-            </a>
+          <div class="market-snapshot-footer">
+            <span data-market-snapshot-status>正在刷新</span>
+            <span>行情可能延迟 · 仅供研究参考</span>
           </div>
         </div>
       </section>
@@ -435,7 +384,7 @@
     <footer class="site-footer">
       <p>© 2026 Bolin Brief · Independent notes from Asia / Shanghai.</p>
     </footer>
-    <script src="market-prices.js?v=20260818-xauusd-1"></script>
+    <script src="home-market-snapshot.js?v=20260917-1"></script>
     <script src="btc-etf-flow-signal.js?v=20260917-2"></script>
     <script src="tech-events.js?v=20260818-retail-earnings-1"></script>
     <script src="macro-calendar-model.js?v=20260916-ff-us-only-1"></script>
