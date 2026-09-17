@@ -10,11 +10,15 @@ on:
       - "scripts/merge_macro_calendars.py"
       - ".github/workflows/update-us-macro-calendar.yml"
   schedule:
-    # 05:30, 19:30, 21:00 and 23:15 Asia/Shanghai.
+    # Normal calendar refreshes: 05:30, 19:30 and 21:00 Asia/Shanghai.
     - cron: "30 21 * * *"
     - cron: "30 11 * * *"
     - cron: "0 13 * * *"
-    - cron: "15 15 * * *"
+    # Actual backfill at +3/+8/+15 minutes around common U.S. release windows.
+    # 20:30/21:30, 22:00/23:00 and 02:00/03:00 Beijing (DST/standard time).
+    - cron: "33,38,45 12,13 * * 1-5"
+    - cron: "3,8,15 14,15 * * 1-5"
+    - cron: "3,8,15 18,19 * * 1-5"
   workflow_dispatch:
 
 permissions:
@@ -46,7 +50,7 @@ jobs:
           node-version: "22"
 
       - name: Refresh production calendar from Forex Factory
-        run: python scripts/fetch_forex_factory_calendar.py
+        run: python scripts/fetch_forex_factory_calendar.py --backfill-actual
 
       - name: Validate FOMC and publish U.S.-only calendar
         run: python scripts/merge_macro_calendars.py
