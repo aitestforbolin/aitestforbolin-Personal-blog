@@ -6,8 +6,8 @@
   if (!homeRoot && !pageRoot) return;
 
   const DATA_URL = pageRoot
-    ? "../data/us-macro-dashboard.json?v=20260819-3"
-    : "data/us-macro-dashboard.json?v=20260819-3";
+    ? "../data/us-macro-dashboard.json?v=20260917-ff-1"
+    : "data/us-macro-dashboard.json?v=20260917-ff-1";
 
   function escapeHtml(value) {
     return String(value ?? "")
@@ -65,21 +65,15 @@
       </div>
     `).join("");
 
-    const consensusSources = (card.consensusSources || []).map((source) => `
-      <a href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer">
-        ${escapeHtml(source.name)} ↗
-      </a>
-    `).join("");
-
     return `
       <article class="us-macro-card">
         <header class="us-macro-card-head">
           <div>
             <h3>${escapeHtml(card.title)}</h3>
-            <span class="us-macro-period">${escapeHtml(card.period)}</span>
+            <span class="us-macro-period">${displayValue(card.period)}</span>
           </div>
-          <a class="us-macro-source" href="${escapeHtml(card.source.url)}" target="_blank" rel="noreferrer">
-            ${escapeHtml(card.source.name)} ↗
+          <a class="us-macro-source" href="${escapeHtml(card.sourceUrl)}" target="_blank" rel="noreferrer">
+            ${escapeHtml(card.source)} ↗
           </a>
         </header>
         <div class="us-macro-table">
@@ -88,11 +82,6 @@
           </div>
           ${rows}
         </div>
-        ${consensusSources ? `
-          <p class="us-macro-consensus-source">
-            <span>预期来源</span>${consensusSources}
-          </p>
-        ` : ""}
         ${card.revision ? `<p class="us-macro-revision">${escapeHtml(card.revision)}</p>` : ""}
         ${card.note ? `<p class="us-macro-note">${escapeHtml(card.note)}</p>` : ""}
         <p class="us-macro-trend">${escapeHtml(card.trend)}</p>

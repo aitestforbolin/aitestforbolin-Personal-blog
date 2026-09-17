@@ -55,6 +55,9 @@ jobs:
       - name: Validate FOMC and publish U.S.-only calendar
         run: python scripts/merge_macro_calendars.py
 
+      - name: Update U.S. macro dashboard from released Forex Factory values
+        run: python scripts/update_us_macro_dashboard.py --calendar data/us-macro-calendar.json
+
       - name: Run legacy calendar as a non-blocking shadow check
         id: shadow
         continue-on-error: true
@@ -63,10 +66,6 @@ jobs:
           python scripts/validate_us_calendar_shadow.py \
             --production data/us-macro-calendar.json \
             --legacy /tmp/old-us-calendar.json
-
-      - name: Persist research history from official legacy verifier
-        if: steps.shadow.outcome == 'success'
-        run: python scripts/update_us_macro_dashboard.py --calendar /tmp/old-us-calendar.json
 
       - name: Validate calendar data and updater behavior
         run: |
