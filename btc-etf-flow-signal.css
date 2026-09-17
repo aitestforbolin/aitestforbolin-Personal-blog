@@ -5,9 +5,7 @@
   background: rgba(251, 250, 246, 0.94);
 }
 
-.btc-etf-signal-meta,
-.btc-etf-signal-footer,
-.btc-etf-signal-footer > div {
+.btc-etf-signal-meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -21,22 +19,20 @@
   font-weight: 800;
 }
 
-.btc-etf-signal-meta a,
-.btc-etf-signal-footer a {
+.btc-etf-signal-meta a {
   color: var(--accent-dark);
   font-weight: 900;
   text-decoration: none;
 }
 
-.btc-etf-signal-meta a:hover,
-.btc-etf-signal-footer a:hover {
+.btc-etf-signal-meta a:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 .btc-etf-signal-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
   margin-top: 14px;
 }
@@ -73,28 +69,17 @@
   color: #c23b4b;
 }
 
-.btc-etf-signal-footer {
-  justify-content: space-between;
-  margin-top: 14px;
-  padding-top: 13px;
-  border-top: 1px solid rgba(24, 25, 22, 0.12);
-  color: var(--muted);
-  font-size: 0.84rem;
-  font-weight: 800;
-}
-
-.btc-etf-signal-card.is-error .btc-etf-signal-footer {
-  color: #c23b4b;
-}
-
 @media (max-width: 720px) {
   .btc-etf-signal-card {
     padding: 14px;
   }
 
-  .btc-etf-signal-meta,
-  .btc-etf-signal-footer {
+  .btc-etf-signal-meta {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .btc-etf-signal-grid {
+    grid-template-columns: 1fr;
   }
 }

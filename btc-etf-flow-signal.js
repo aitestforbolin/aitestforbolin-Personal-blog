@@ -3,10 +3,9 @@
 
   const root = document.querySelector("[data-btc-etf-flow]");
   const summary = document.querySelector("[data-btc-etf-summary]");
-  const trend = document.querySelector("[data-btc-etf-trend]");
   const updated = document.querySelector("[data-btc-etf-updated]");
 
-  if (!root || !summary || !trend || !updated) {
+  if (!root || !summary || !updated) {
     return;
   }
 
@@ -62,10 +61,10 @@
     return value > 0 ? "up" : "down";
   }
 
-  function streak(rows) {
+  function streakInfo(rows) {
     const first = Number(rows[0]?.total);
     if (!Number.isFinite(first) || first === 0) {
-      return "最新一日资金流持平";
+      return { text: "最新一日资金流持平", direction: "flat" };
     }
     const direction = first > 0 ? 1 : -1;
     let count = 0;
@@ -76,7 +75,10 @@
       }
       count += 1;
     }
-    return `连续 ${count} 个交易日${direction > 0 ? "净流入" : "净流出"}`;
+    return {
+      text: `连续 ${count} 个交易日${direction > 0 ? "净流入" : "净流出"}`,
+      direction: direction > 0 ? "up" : "down",
+    };
   }
 
   function render(data) {
@@ -86,22 +88,23 @@
       const value = Number(row.total);
       return total + (Number.isFinite(value) ? value : 0);
     }, 0);
+    const currentTrend = streakInfo(rows);
     const cards = [
-      ["最新一日", Number(latest.total), formatDate(latest.date)],
-      ["近 5 个交易日", fiveDayTotal, "累计净流"],
+      { label: "最新一日", value: Number(latest.total), note: formatDate(latest.date) },
+      { label: "近 5 个交易日", value: fiveDayTotal, note: "累计净流" },
+      { label: "当前趋势", value: currentTrend.text, note: "", className: currentTrend.direction },
     ];
 
     updated.textContent = `最新统计日：${formatDate(latest.date)} · 更新：${formatUpdated(data.updated_at)}`;
     summary.innerHTML = cards
-      .map(([label, value, note]) => `
-        <article class="btc-etf-signal-stat ${valueClass(value)}">
+      .map(({ label, value, note, className }) => `
+        <article class="btc-etf-signal-stat ${className || valueClass(value)}">
           <span>${escapeHtml(label)}</span>
-          <strong>${formatFlow(value)}</strong>
+          <strong>${typeof value === "string" ? escapeHtml(value) : formatFlow(value)}</strong>
           <small>${escapeHtml(note)}</small>
         </article>
       `)
       .join("");
-    trend.textContent = streak(rows);
     root.classList.remove("is-error");
   }
 
@@ -109,7 +112,6 @@
     root.classList.add("is-error");
     updated.textContent = "数据暂时无法载入";
     summary.innerHTML = "";
-    trend.textContent = "请查看 Farside 原始数据";
   }
 
   fetch(DATA_URL, { cache: "no-store" })
