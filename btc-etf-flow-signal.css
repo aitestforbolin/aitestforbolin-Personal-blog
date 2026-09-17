@@ -1,0 +1,100 @@
+.btc-etf-signal-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px;
+  background: rgba(251, 250, 246, 0.94);
+}
+
+.btc-etf-signal-meta,
+.btc-etf-signal-footer,
+.btc-etf-signal-footer > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+}
+
+.btc-etf-signal-meta {
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.btc-etf-signal-meta a,
+.btc-etf-signal-footer a {
+  color: var(--accent-dark);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.btc-etf-signal-meta a:hover,
+.btc-etf-signal-footer a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.btc-etf-signal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.btc-etf-signal-stat {
+  border: 1px solid rgba(24, 25, 22, 0.14);
+  border-radius: 7px;
+  padding: 14px;
+  background: #fffefa;
+}
+
+.btc-etf-signal-stat span,
+.btc-etf-signal-stat small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.btc-etf-signal-stat strong {
+  display: block;
+  margin: 6px 0 4px;
+  color: var(--ink);
+  font-size: clamp(1.35rem, 3vw, 1.9rem);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.btc-etf-signal-stat.up strong {
+  color: #14846d;
+}
+
+.btc-etf-signal-stat.down strong {
+  color: #c23b4b;
+}
+
+.btc-etf-signal-footer {
+  justify-content: space-between;
+  margin-top: 14px;
+  padding-top: 13px;
+  border-top: 1px solid rgba(24, 25, 22, 0.12);
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.btc-etf-signal-card.is-error .btc-etf-signal-footer {
+  color: #c23b4b;
+}
+
+@media (max-width: 720px) {
+  .btc-etf-signal-card {
+    padding: 14px;
+  }
+
+  .btc-etf-signal-meta,
+  .btc-etf-signal-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

@@ -10,7 +10,7 @@
     />
     <link rel="stylesheet" href="styles.css?v=20260819-us-macro-1" />
     <link rel="stylesheet" href="macro-alerts.css?v=20260916-ff-fields-1" />
-    <link rel="stylesheet" href="btc-etf-flow.css?v=20260819-summary-1" />
+    <link rel="stylesheet" href="btc-etf-flow-signal.css?v=20260917-1" />
     <link rel="stylesheet" href="tech-events.css?v=20260721-1" />
     <link rel="stylesheet" href="editorial-refresh.css?v=20260916-impact-dot-1" />
     <link rel="stylesheet" href="market-pulse.css?v=20260729-1" />
@@ -236,25 +236,29 @@
           <div>
             <p class="eyebrow">BTC ETF Flow</p>
             <h2 id="btc-etf-flow-title">比特币现货ETF资金流</h2>
-            <p>观察美国现货 BTC ETF 的日度净流入/流出，页面折算为亿美元。</p>
+            <p>用最新资金流、近 5 日累计与连续方向快速判断现货 ETF 的资金背景。</p>
           </div>
-          <a
-            class="btc-etf-source-link"
-            href="https://farside.co.uk/bitcoin-etf-flow-all-data/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            查看 Farside 原始数据
-          </a>
         </div>
 
-        <div class="btc-etf-panel">
-          <div class="btc-etf-meta">
+        <div class="btc-etf-signal-card" data-btc-etf-flow>
+          <div class="btc-etf-signal-meta">
             <span data-btc-etf-updated>正在载入 ETF 资金流...</span>
-            <span>数据来源：Farside Investors</span>
+            <a
+              href="https://farside.co.uk/bitcoin-etf-flow-all-data/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              数据来源：Farside Investors ↗
+            </a>
           </div>
-          <div class="btc-etf-summary" data-btc-etf-summary></div>
-          <div class="btc-etf-chart" data-btc-etf-chart></div>
+          <div class="btc-etf-signal-grid" data-btc-etf-summary></div>
+          <div class="btc-etf-signal-footer">
+            <span data-btc-etf-trend>正在计算资金流趋势...</span>
+            <div>
+              <a href="daily-market-status/">查看详细数据 →</a>
+              <a href="https://farside.co.uk/bitcoin-etf-flow-all-data/" target="_blank" rel="noreferrer">原始来源 ↗</a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -439,7 +443,7 @@
       <p>© 2026 Bolin Brief · Independent notes from Asia / Shanghai.</p>
     </footer>
     <script src="market-prices.js?v=20260818-xauusd-1"></script>
-    <script src="btc-etf-flow.js?v=20260819-summary-1"></script>
+    <script src="btc-etf-flow-signal.js?v=20260917-1"></script>
     <script src="tech-events.js?v=20260818-retail-earnings-1"></script>
     <script src="macro-calendar-model.js?v=20260916-ff-us-only-1"></script>
     <script src="macro-calendar.js?v=20260916-today-only-1"></script>
