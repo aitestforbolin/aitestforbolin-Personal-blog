@@ -28,7 +28,8 @@
       "source_label": "NVIDIA Investor Relations",
       "discovery_urls": [
         "https://investor.nvidia.com/events-and-presentations/events-and-presentations/default.aspx",
-        "https://investor.nvidia.com/news-and-events/press-releases/default.aspx"
+        "https://nvidianews.nvidia.com/",
+        "https://www.nvidia.com/"
       ],
       "allowed_domains": ["investor.nvidia.com", "nvidia.com"]
     },
@@ -91,8 +92,9 @@
       "default_timezone": "America/New_York",
       "source_label": "JPMorgan Chase Investor Relations",
       "discovery_urls": [
-        "https://www.jpmorganchase.com/ir/events-and-presentations",
-        "https://www.jpmorganchase.com/ir/quarterly-earnings"
+        "https://www.jpmorganchase.com/ir/events",
+        "https://www.jpmorganchase.com/ir/quarterly-earnings",
+        "https://www.jpmorganchase.com/ir/news/2025/jpmc-announces-conference-calls-to-review-first-quarter-second-quarter-third-quarter-and-fourth-quarter-2026-earnings"
       ],
       "allowed_domains": ["jpmorganchase.com"]
     },
@@ -131,9 +133,10 @@
       "source_label": "Micron Investor Relations",
       "discovery_urls": [
         "https://investors.micron.com/events-and-presentations",
-        "https://investors.micron.com/latest-news-english"
+        "https://investors.micron.com/news/default.aspx",
+        "https://micron.gcs-web.com/"
       ],
-      "allowed_domains": ["investors.micron.com", "micron.com"]
+      "allowed_domains": ["investors.micron.com", "micron.gcs-web.com", "micron.com"]
     },
     {
       "id": "sandisk",
@@ -144,8 +147,8 @@
       "default_timezone": "America/Los_Angeles",
       "source_label": "SanDisk Investor Relations",
       "discovery_urls": [
-        "https://investor.sandisk.com/events-and-presentations/default.aspx",
-        "https://investor.sandisk.com/news-events/news-releases/default.aspx"
+        "https://investor.sandisk.com/news-events/events",
+        "https://investor.sandisk.com/news-events/news-releases"
       ],
       "allowed_domains": ["investor.sandisk.com", "sandisk.com"]
     }

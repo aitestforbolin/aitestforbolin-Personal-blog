@@ -25,6 +25,9 @@ CURATED_EVENTS = SITE_ROOT / "data" / "tech-company-events-curated.json"
 DEFAULT_OUTPUT = SITE_ROOT / "data" / "tech-company-events.json"
 SHANGHAI = ZoneInfo("Asia/Shanghai")
 DEFAULT_DAYS = 35
+REQUEST_TIMEOUT_SECONDS = 12
+MAX_RESPONSE_BYTES = 5_000_000
+MAX_DETAIL_PAGES_PER_SOURCE = 12
 
 EVENT_CATEGORIES = {
     "earnings",
@@ -61,6 +64,7 @@ MATERIAL_PATTERNS = [
         r"financial results",
         r"financial call",
         r"quarterly results",
+        r"report.{0,50}(?:fiscal|first|second|third|fourth).{0,30}quarter.{0,30}results",
         r"results conference call",
         r"investor day",
         r"analyst day",
@@ -168,8 +172,10 @@ def fetch_text(url: str) -> str:
             "Accept": "text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8",
         },
     )
-    with urlopen(request, timeout=24) as response:
-        body = response.read()
+    with urlopen(request, timeout=REQUEST_TIMEOUT_SECONDS) as response:
+        body = response.read(MAX_RESPONSE_BYTES + 1)
+        if len(body) > MAX_RESPONSE_BYTES:
+            raise OSError(f"response exceeds {MAX_RESPONSE_BYTES} bytes")
         encoding = response.headers.get_content_charset() or "utf-8"
     return body.decode(encoding, errors="replace")
 
@@ -304,7 +310,11 @@ def time_from_context(text: str, position: int, default_timezone: str) -> Tuple[
 
 def classify_event(title: str, body: str = "") -> Optional[str]:
     text = f"{title} {body[:600]}".lower()
-    if re.search(r"earnings|financial results|financial call|quarterly results|results conference call", text):
+    if re.search(
+        r"earnings|financial results|financial call|quarterly results|results conference call|"
+        r"report.{0,50}(?:fiscal|first|second|third|fourth).{0,30}quarter.{0,30}results",
+        text,
+    ):
         return "earnings"
     if re.search(r"monthly sales|monthly revenue|production.{0,40}deliver|deliveries.{0,40}deploy", text):
         return "operating_data"
@@ -541,21 +551,33 @@ def discover_tsmc(company: Dict[str, Any], html: str, start: date, end: date) ->
 
 
 def discover_company_events(
-    company: Dict[str, Any], start: date, end: date
+    company: Dict[str, Any], start: date, end: date, source_health: Optional[Dict[str, int]] = None
 ) -> List[Dict[str, Any]]:
     events: List[Dict[str, Any]] = []
     seen_urls = set()
     for discovery_url in company["discovery_urls"]:
+        if source_health is not None:
+            source_health["checked"] += 1
         try:
             html = fetch_text(discovery_url)
         except (HTTPError, URLError, TimeoutError, OSError) as exc:
+            if source_health is not None:
+                source_health["failed"] += 1
             print(f"warning: could not check {company['name']} source {discovery_url}: {exc}", file=sys.stderr)
             continue
+        if source_health is not None:
+            source_health["successful"] += 1
 
         if company["id"] == "tsmc":
             events.extend(discover_tsmc(company, html, start, end))
 
         parser = parse_page(html)
+        source_event = build_discovered_event(
+            company, company["name"], discovery_url, html, start, end
+        )
+        if source_event:
+            events.append(source_event)
+        detail_pages_checked = 0
         for href, title in parser.links:
             if not href or not is_material_title(title):
                 continue
@@ -563,6 +585,14 @@ def discover_company_events(
             if event_url in seen_urls or not domain_allowed(event_url, company["allowed_domains"]):
                 continue
             seen_urls.add(event_url)
+            if detail_pages_checked >= MAX_DETAIL_PAGES_PER_SOURCE:
+                print(
+                    f"warning: capped detail checks for {discovery_url} at "
+                    f"{MAX_DETAIL_PAGES_PER_SOURCE}",
+                    file=sys.stderr,
+                )
+                break
+            detail_pages_checked += 1
             try:
                 detail_html = fetch_text(event_url)
             except (HTTPError, URLError, TimeoutError, OSError) as exc:
@@ -575,16 +605,26 @@ def discover_company_events(
 
 
 def discover_regulatory_events(
-    config: Dict[str, Any], companies: Sequence[Dict[str, Any]], start: date, end: date
+    config: Dict[str, Any],
+    companies: Sequence[Dict[str, Any]],
+    start: date,
+    end: date,
+    source_health: Optional[Dict[str, int]] = None,
 ) -> List[Dict[str, Any]]:
     events: List[Dict[str, Any]] = []
     allowed_domains = config.get("regulator_allowed_domains", [])
     for source_url in config.get("regulator_sources", []):
+        if source_health is not None:
+            source_health["checked"] += 1
         try:
             html = fetch_text(source_url)
         except (HTTPError, URLError, TimeoutError, OSError) as exc:
+            if source_health is not None:
+                source_health["failed"] += 1
             print(f"warning: could not check regulator source {source_url}: {exc}", file=sys.stderr)
             continue
+        if source_health is not None:
+            source_health["successful"] += 1
         parser = parse_page(html)
         for href, title in parser.links:
             lowered = title.lower()
@@ -737,6 +777,8 @@ def all_allowed_domains(config: Dict[str, Any]) -> List[str]:
 
 def validate_event_payload(payload: Dict[str, Any], config: Dict[str, Any]) -> List[str]:
     errors: List[str] = []
+    if not payload.get("checked_at"):
+        errors.append("checked_at is required")
     companies = config.get("companies", [])
     expected_ids = {company["id"] for company in companies}
     payload_ids = {company.get("id") for company in payload.get("companies", [])}
@@ -811,11 +853,15 @@ def validate_event_payload(payload: Dict[str, Any], config: Dict[str, Any]) -> L
 def semantic_payload(payload: Dict[str, Any]) -> Dict[str, Any]:
     comparable = deepcopy(payload)
     comparable.pop("updated_at", None)
+    comparable.pop("checked_at", None)
     return comparable
 
 
 def build_payload(
-    config: Dict[str, Any], events: Sequence[Dict[str, Any]], updated_at: str
+    config: Dict[str, Any],
+    events: Sequence[Dict[str, Any]],
+    updated_at: str,
+    checked_at: Optional[str] = None,
 ) -> Dict[str, Any]:
     companies = [
         {
@@ -831,6 +877,7 @@ def build_payload(
         "schema_version": 1,
         "timezone": "Asia/Shanghai",
         "horizon_days": int(config.get("horizon_days", DEFAULT_DAYS)),
+        "checked_at": checked_at or updated_at,
         "updated_at": updated_at,
         "companies": companies,
         "events": list(events),
@@ -867,30 +914,42 @@ def main() -> int:
     previous_events = previous_payload.get("events", [])
 
     discovered: List[Dict[str, Any]] = []
+    source_health = {"checked": 0, "successful": 0, "failed": 0}
     if not args.offline:
         end = start + timedelta(days=args.days)
         for company in config["companies"]:
-            discovered.extend(discover_company_events(company, start, end))
-        discovered.extend(discover_regulatory_events(config, config["companies"], start, end))
+            discovered.extend(discover_company_events(company, start, end, source_health))
+        discovered.extend(
+            discover_regulatory_events(config, config["companies"], start, end, source_health)
+        )
+        if source_health["successful"] == 0:
+            print("error: every configured official source failed", file=sys.stderr)
+            return 1
+        print(
+            "official source checks: "
+            f"{source_health['successful']} succeeded, {source_health['failed']} failed"
+        )
 
     events = merge_events(
         config["companies"], curated, discovered, previous_events, start, args.days, now
     )
     previous_updated_at = previous_payload.get("updated_at", now.isoformat(timespec="seconds"))
-    candidate = build_payload(config, events, previous_updated_at)
+    checked_at = now.isoformat(timespec="seconds")
+    candidate = build_payload(config, events, previous_updated_at, checked_at)
     errors = validate_event_payload(candidate, config)
     if errors:
         for error in errors:
             print(f"error: {error}", file=sys.stderr)
         return 1
 
-    if previous_payload and semantic_payload(previous_payload) == semantic_payload(candidate):
-        print(f"technology-company calendar is unchanged ({len(events)} events)")
-        return 0
-
-    candidate["updated_at"] = now.isoformat(timespec="seconds")
+    content_changed = not previous_payload or semantic_payload(previous_payload) != semantic_payload(candidate)
+    if content_changed:
+        candidate["updated_at"] = checked_at
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(candidate, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    state = "changed" if content_changed else "unchanged"
+    mode = "rebuilt from curated data" if args.offline else "checked official sources"
+    print(f"{mode}; event content {state} ({len(events)} events)")
     print(f"wrote {len(events)} events to {args.output}")
     return 0
 

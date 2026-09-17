@@ -180,6 +180,22 @@ class TechCompanyEventTests(unittest.TestCase):
         self.assertEqual(period, "FY2027 Q2")
         self.assertEqual(slug, "fy2027-q2")
 
+    def test_report_fiscal_quarter_results_is_an_earnings_event(self):
+        title = "Micron Technology to Report Fiscal Fourth Quarter Results on September 30, 2026"
+        self.assertTrue(updater.is_material_title(title))
+        self.assertEqual(updater.classify_event(title), "earnings")
+
+    def test_checked_at_does_not_change_event_semantics(self):
+        first = updater.build_payload(self.config, [], "2026-09-03T16:18:40+08:00", "2026-09-16T05:50:00+08:00")
+        second = updater.build_payload(self.config, [], "2026-09-03T16:18:40+08:00", "2026-09-17T05:50:00+08:00")
+        self.assertEqual(updater.semantic_payload(first), updater.semantic_payload(second))
+
+    def test_validator_requires_last_check_time(self):
+        payload = updater.build_payload(self.config, [], "2026-09-03T16:18:40+08:00")
+        payload.pop("checked_at")
+        errors = updater.validate_event_payload(payload, self.config)
+        self.assertIn("checked_at is required", errors)
+
 
 if __name__ == "__main__":
     unittest.main()
