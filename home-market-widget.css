@@ -21,7 +21,7 @@
 .market-quote-card {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: 200px minmax(132px, 176px) minmax(0, 1fr) auto;
   align-items: center;
   min-width: 0;
   gap: 18px;
@@ -48,10 +48,7 @@
 }
 
 .market-quote-primary {
-  display: flex;
-  align-items: center;
-  min-width: 0;
-  gap: clamp(18px, 3vw, 38px);
+  display: contents;
 }
 
 .market-quote-heading strong {
@@ -82,10 +79,11 @@
   line-height: 1;
   text-overflow: ellipsis;
   white-space: nowrap;
-  flex: 0 0 auto;
+  justify-self: start;
 }
 
 .market-quote-change {
+  grid-column: 4;
   justify-self: end;
   width: fit-content;
   border-radius: 999px;
@@ -126,7 +124,14 @@
   }
 
   .market-quote-primary {
+    display: flex;
+    align-items: center;
+    min-width: 0;
     gap: 14px;
+  }
+
+  .market-quote-change {
+    grid-column: auto;
   }
 
   .market-quote-value {
