@@ -47,6 +47,42 @@ jobs:
         continue-on-error: true
         run: python scripts/update_market_prices.py
 
+      - name: Enable one-off Jobless Claims test
+        shell: bash
+        run: |
+          if [[ "$(TZ=Asia/Shanghai date +%F)" != "2026-09-17" ]]; then
+            echo "One-off Jobless Claims test is inactive outside 2026-09-17 Beijing time."
+            exit 0
+          fi
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("scripts/build_macro_brief.py")
+          text = path.read_text(encoding="utf-8")
+
+          old_whitelist = 'BRIEF_WHITELIST = {"CPI", "PPI", "PCE", "NFP", "Retail", "FOMC"}'
+          new_whitelist = 'BRIEF_WHITELIST = {"CPI", "PPI", "PCE", "NFP", "Retail", "FOMC", "Jobless Claims"}'
+          if old_whitelist not in text:
+              raise SystemExit("Expected Macro Brief whitelist definition not found")
+          text = text.replace(old_whitelist, new_whitelist, 1)
+
+          watch_anchor = '}\n\n\ndef load_json'
+          watch_injection = '''}
+WATCH_POINTS["Jobless Claims"] = [
+    "初请失业金人数是否明显偏离预期",
+    "就业降温信号是否改变市场对Fed后续利率路径的判断",
+    "美元、短端美债、黄金与BTC是否出现一致的重新定价",
+]
+
+
+def load_json'''
+          if watch_anchor not in text:
+              raise SystemExit("Expected WATCH_POINTS insertion point not found")
+          text = text.replace(watch_anchor, watch_injection, 1)
+          path.write_text(text, encoding="utf-8")
+          print("Enabled Jobless Claims for the 2026-09-17 one-off Macro Brief test.")
+          PY
+
       - name: Build eligible Macro Brief
         id: brief
         shell: bash
