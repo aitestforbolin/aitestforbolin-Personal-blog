@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="btc-etf-flow.css?v=20260819-summary-1" />
     <link rel="stylesheet" href="tech-events.css?v=20260721-1" />
     <link rel="stylesheet" href="editorial-refresh.css?v=20260916-impact-dot-1" />
-    <link rel="stylesheet" href="home-market-widget.css?v=20260917-1" />
+    <link rel="stylesheet" href="market-pulse.css?v=20260729-1" />
     <link rel="stylesheet" href="home-fundraising.css?v=20260820-dual-prompts-1" />
     <link rel="stylesheet" href="us-macro/us-macro.css?v=20260819-3" />
   </head>
@@ -150,9 +150,9 @@
         <div class="market-prices-head">
           <div>
             <p class="eyebrow">Cross-Asset Market Pulse</p>
-            <h2 id="market-prices-title">跨资产市场快照</h2>
+            <h2 id="market-prices-title">主要资产价格</h2>
             <p>
-              集中查看美股指数、美债收益率、美元、商品期货与比特币；行情由 TradingView 提供。
+              在同一张图上切换股指、美元、美债收益率、商品与比特币，并用进攻、防御与宏观敏感板块观察市场结构。
             </p>
           </div>
           <a
@@ -165,61 +165,65 @@
           </a>
         </div>
 
-        <div class="market-widget-shell">
-          <div class="market-widget-fallback" aria-label="TradingView 行情快捷入口">
-            <p>行情组件载入中；若未显示，可直接打开对应的 TradingView 图表。</p>
-            <div class="market-widget-fallback-grid">
-              <a href="https://www.tradingview.com/chart/?symbol=SP%3ASPX" target="_blank" rel="noreferrer">SPX</a>
-              <a href="https://www.tradingview.com/chart/?symbol=NASDAQ%3ANDX" target="_blank" rel="noreferrer">NDX</a>
-              <a href="https://www.tradingview.com/chart/?symbol=TVC%3AUS02Y" target="_blank" rel="noreferrer">US 2Y</a>
-              <a href="https://www.tradingview.com/chart/?symbol=TVC%3AUS10Y" target="_blank" rel="noreferrer">US 10Y</a>
-              <a href="https://www.tradingview.com/chart/?symbol=TVC%3ADXY" target="_blank" rel="noreferrer">DXY</a>
-              <a href="https://www.tradingview.com/chart/?symbol=COMEX%3AGC1%21" target="_blank" rel="noreferrer">Gold · GC1!</a>
-              <a href="https://www.tradingview.com/chart/?symbol=ICEEUR%3ABRN1%21" target="_blank" rel="noreferrer">Brent · BRN1!</a>
-              <a href="https://www.tradingview.com/chart/?symbol=COINBASE%3ABTCUSD" target="_blank" rel="noreferrer">BTC</a>
+        <div class="market-chart-card market-pulse-card" data-market-module>
+          <div
+            class="market-pulse-breadth"
+            data-market-breadth
+            aria-label="市场宽度"
+            aria-live="polite"
+          ></div>
+
+          <div
+            class="market-pulse-tabs"
+            data-market-tabs
+            role="tablist"
+            aria-label="切换主要资产"
+          ></div>
+
+          <div class="market-pulse-head">
+            <div class="market-pulse-identity">
+              <div class="market-pulse-title">
+                <h3 data-market-name>标普 500</h3>
+                <span data-market-code>SPX</span>
+              </div>
+              <p data-market-session>美股常规交易时段 · 盘中</p>
+            </div>
+            <div class="market-pulse-quote">
+              <strong data-market-price>—</strong>
+              <span class="market-pulse-change" data-market-change>等待行情</span>
             </div>
           </div>
 
-          <div class="tradingview-widget-container" aria-label="TradingView 跨资产行情">
-            <div class="tradingview-widget-container__widget"></div>
-            <script
-              type="text/javascript"
-              src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
-              async
-            >
-              {
-                "colorTheme": "light",
-                "dateRange": "1D",
-                "showChart": false,
-                "locale": "zh_CN",
-                "largeChartUrl": "",
-                "isTransparent": true,
-                "showSymbolLogo": true,
-                "showFloatingTooltip": false,
-                "width": "100%",
-                "height": "460",
-                "tabs": [
-                  {
-                    "title": "跨资产",
-                    "symbols": [
-                      { "s": "SP:SPX", "d": "SPX" },
-                      { "s": "NASDAQ:NDX", "d": "NDX" },
-                      { "s": "TVC:US02Y", "d": "美国 2Y 收益率" },
-                      { "s": "TVC:US10Y", "d": "美国 10Y 收益率" },
-                      { "s": "TVC:DXY", "d": "美元指数" },
-                      { "s": "COMEX:GC1!", "d": "COMEX 黄金期货" },
-                      { "s": "ICEEUR:BRN1!", "d": "Brent 期货" },
-                      { "s": "COINBASE:BTCUSD", "d": "BTC / USD" }
-                    ]
-                  }
-                ]
-              }
-            </script>
+          <div class="market-pulse-controls">
+            <span class="market-pulse-status" data-market-status>
+              正在连接市场数据
+            </span>
+            <div
+              class="market-pulse-ranges"
+              data-market-ranges
+              aria-label="选择图表时间范围"
+            ></div>
           </div>
 
-          <p class="market-widget-note">
-            TradingView 免费行情可能延迟；期货为连续近月合约，仅供研究参考。
-          </p>
+          <div
+            class="market-pulse-chart"
+            data-market-chart
+            aria-live="polite"
+          ></div>
+
+          <div class="market-pulse-footer">
+            <span data-market-source>
+              Yahoo Finance · 价格可能延迟 · 仅供研究参考
+            </span>
+            <a
+              href="https://www.tradingview.com/chart/?symbol=TVC%3ASPX"
+              data-market-external
+              target="_blank"
+              rel="noreferrer"
+            >
+              在 TradingView 查看完整图表 ↗
+            </a>
+          </div>
         </div>
       </section>
       <section
@@ -434,6 +438,7 @@
     <footer class="site-footer">
       <p>© 2026 Bolin Brief · Independent notes from Asia / Shanghai.</p>
     </footer>
+    <script src="market-prices.js?v=20260818-xauusd-1"></script>
     <script src="btc-etf-flow.js?v=20260819-summary-1"></script>
     <script src="tech-events.js?v=20260818-retail-earnings-1"></script>
     <script src="macro-calendar-model.js?v=20260916-ff-us-only-1"></script>
