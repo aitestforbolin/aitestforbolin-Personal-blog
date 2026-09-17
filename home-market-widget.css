@@ -7,7 +7,7 @@
 
 .market-snapshot-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .market-snapshot-loading {
@@ -21,20 +21,17 @@
 .market-quote-card {
   position: relative;
   display: grid;
+  grid-template-columns: minmax(180px, 1fr) minmax(130px, auto) 88px;
+  align-items: center;
   min-width: 0;
-  gap: 14px;
-  padding: 19px 20px 18px;
-  border-right: 1px solid rgba(117, 108, 97, 0.14);
+  gap: 24px;
+  padding: 15px 20px;
   border-bottom: 1px solid rgba(117, 108, 97, 0.14);
   color: var(--text);
   transition: background 160ms ease, box-shadow 160ms ease;
 }
 
-.market-quote-card:nth-child(4n) {
-  border-right: 0;
-}
-
-.market-quote-card:nth-last-child(-n + 4) {
+.market-quote-card:last-child {
   border-bottom: 0;
 }
 
@@ -45,11 +42,9 @@
 }
 
 .market-quote-heading {
-  display: flex;
+  display: grid;
   min-width: 0;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 10px;
+  gap: 3px;
 }
 
 .market-quote-heading strong {
@@ -80,9 +75,11 @@
   line-height: 1;
   text-overflow: ellipsis;
   white-space: nowrap;
+  justify-self: end;
 }
 
 .market-quote-change {
+  justify-self: end;
   width: fit-content;
   border-radius: 999px;
   padding: 4px 8px;
@@ -114,37 +111,11 @@
   font-size: 0.75rem;
 }
 
-@media (max-width: 860px) {
-  .market-snapshot-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .market-quote-card:nth-child(4n) {
-    border-right: 1px solid rgba(117, 108, 97, 0.14);
-  }
-
-  .market-quote-card:nth-child(2n) {
-    border-right: 0;
-  }
-
-  .market-quote-card:nth-last-child(-n + 4) {
-    border-bottom: 1px solid rgba(117, 108, 97, 0.14);
-  }
-
-  .market-quote-card:nth-last-child(-n + 2) {
-    border-bottom: 0;
-  }
-}
-
 @media (max-width: 520px) {
   .market-quote-card {
-    gap: 11px;
-    padding: 16px 14px;
-  }
-
-  .market-quote-heading {
-    display: grid;
-    gap: 3px;
+    grid-template-columns: minmax(0, 1fr) minmax(82px, auto) 68px;
+    gap: 10px;
+    padding: 14px;
   }
 
   .market-quote-value {
