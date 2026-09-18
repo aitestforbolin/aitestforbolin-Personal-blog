@@ -49,6 +49,64 @@
   transform: translateY(-2px);
 }
 
+
+.fundraising-hero-actions {
+  display: grid;
+  gap: 10px;
+  min-width: min(320px, 100%);
+}
+
+.fundraising-triage-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  min-height: 72px;
+  border-radius: 9px;
+  padding: 14px 18px;
+  background: var(--accent-dark);
+  color: #fffdf8;
+  box-shadow: 0 14px 30px rgba(92, 49, 35, 0.17);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.fundraising-triage-link span:first-child {
+  display: grid;
+  gap: 3px;
+}
+
+.fundraising-triage-link small {
+  color: rgba(255, 253, 248, 0.72);
+  font-size: 0.64rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.fundraising-triage-link strong {
+  font-family: var(--font-display) !important;
+  font-size: 1.05rem;
+}
+
+.fundraising-triage-link:hover,
+.fundraising-triage-link:focus-visible {
+  color: #fffdf8;
+  outline: none;
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(92, 49, 35, 0.22);
+}
+
+.fundraising-meta-triage {
+  color: var(--accent-dark);
+  font-size: 0.76rem;
+  font-weight: 850;
+}
+
+.fundraising-meta-triage:hover,
+.fundraising-meta-triage:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+
 .fundraising-panel {
   margin-top: 30px;
   border: 1px solid var(--line);
@@ -266,7 +324,12 @@
     font-size: clamp(2.7rem, 14vw, 4rem);
   }
 
-  .fundraising-source-link {
+  .fundraising-hero-actions {
+    width: 100%;
+  }
+
+  .fundraising-source-link,
+  .fundraising-triage-link {
     width: 100%;
   }
 
