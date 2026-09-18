@@ -243,31 +243,6 @@
   outline: none;
 }
 
-.fundraising-project-research {
-  min-height: 38px;
-  border: 1px solid rgba(164, 79, 52, 0.46);
-  border-radius: 999px;
-  padding: 7px 13px;
-  background: rgba(251, 250, 246, 0.84);
-  color: var(--accent-dark);
-  cursor: pointer;
-  font-family: var(--font-site) !important;
-  font-size: 0.76rem;
-  font-weight: 850;
-  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
-}
-
-.fundraising-project-research:hover,
-.fundraising-project-research:focus-visible {
-  background: var(--accent-dark);
-  color: #fffdf8;
-  outline: none;
-  transform: translateY(-1px);
-}
-
-.fundraising-project-research:disabled { cursor: wait; opacity: 0.75; }
-.fundraising-project-research[data-copy-state="success"] { border-color: #427a58; color: #356548; }
-.fundraising-project-research[data-copy-state="error"] { border-color: #a33; color: #a33; }
 
 .fundraising-note,
 .fundraising-error {
