@@ -289,7 +289,7 @@ When a new daily publication is ready, write the current payload and its byte-id
 
 If research, generation, validation, or the GitHub commit fails, do not overwrite the last good `data/web3-daily-triage.json`. Report the failure in ChatGPT with the specific stage and reason.
 
-After successful publication, the human-facing ChatGPT result may remain concise because the full Daily Triage is available at the website reader page. The research content and classification must still follow this Skill exactly.
+After successful publication, keep the human-facing ChatGPT result concise: state that the Web3 Daily Triage was published successfully and direct the user to `/fundraising/daily-triage/`. Do not duplicate the full report in ChatGPT unless the user explicitly asks for it. The research content and classification must still follow this Skill exactly.
 
 ## Output quality checks
 
