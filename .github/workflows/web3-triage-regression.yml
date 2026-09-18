@@ -39,10 +39,13 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install test dependency
+        run: python -m pip install pytest
+
       - name: Validate regression runner
         run: |
           python -m py_compile scripts/run_web3_triage_regression.py
-          python -m unittest tests.test_web3_triage_regression tests.test_web3_triage_model_runner
+          python -m pytest -q tests/test_web3_triage_regression.py tests/test_web3_triage_model_runner.py
 
       - name: Check OpenAI API key
         run: |
