@@ -1,0 +1,77 @@
+name: Web3 triage regression
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: OpenAI model ID
+        required: true
+        default: gpt-5.6-sol
+        type: string
+      reasoning_effort:
+        description: Reasoning effort
+        required: true
+        default: medium
+        type: choice
+        options:
+          - low
+          - medium
+          - high
+
+permissions:
+  contents: read
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_MODEL: ${{ inputs.model }}
+      OPENAI_REASONING_EFFORT: ${{ inputs.reasoning_effort }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install test dependency
+        run: python -m pip install pytest
+
+      - name: Validate regression runner
+        run: |
+          python -m py_compile scripts/run_web3_triage_regression.py
+          python -m pytest -q tests/test_web3_triage_regression.py tests/test_web3_triage_model_runner.py
+
+      - name: Check OpenAI API key
+        run: |
+          if [ -z "${OPENAI_API_KEY}" ]; then
+            echo "::error::OPENAI_API_KEY repository secret is not configured."
+            exit 2
+          fi
+
+      - name: Run blind 10-case model regression
+        run: |
+          mkdir -p artifacts
+          python scripts/run_web3_triage_regression.py \
+            --output artifacts/web3-triage-actual.json
+
+      - name: Score regression
+        run: |
+          python scripts/evaluate_web3_triage_regression.py \
+            artifacts/web3-triage-actual.json \
+            > artifacts/web3-triage-score.json
+          cat artifacts/web3-triage-score.json
+
+      - name: Upload regression artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: web3-triage-regression-${{ github.run_id }}
+          path: artifacts/
+          if-no-files-found: warn
+          retention-days: 14
