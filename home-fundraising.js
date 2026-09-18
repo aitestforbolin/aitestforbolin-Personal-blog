@@ -118,19 +118,9 @@
           ${isNew ? '<em class="home-fundraising-new">新！</em>' : ""}
           <small>${escapeHtml(formatRound(project.round))} · ${escapeHtml(formatAmount(project.amount_usd))}</small>
         </span>
-        <span class="home-fundraising-actions">
-          <button class="home-fundraising-research" type="button" data-research-copy data-prompt-type="initial" data-project-name="${escapeHtml(project.name)}" data-project-url="${escapeHtml(href)}">初筛</button>
-          <button class="home-fundraising-research" type="button" data-research-copy data-prompt-type="research" data-project-name="${escapeHtml(project.name)}" data-project-url="${escapeHtml(href)}">研究</button>
-        </span>
       </article>`;
     }).join("");
 
-    list.querySelectorAll("[data-research-copy]").forEach((button) => {
-      button.addEventListener("click", (event) => {
-        event.preventDefault();
-        window.BolinResearchPrompt.copyFromButton(button);
-      });
-    });
   }
 
   loadData()
