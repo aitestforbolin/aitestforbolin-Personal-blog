@@ -51,12 +51,12 @@ Main topics: 5 to 10 when evidence supports them; never invent topics to reach f
 Watchlist: at most 8.
 Disagreements: at most 6.
 Noise summary: at most 8 short items.
-Order topics by practical research importance because the homepage shows only the first five.
+Order topics by practical research importance. The homepage no longer renders topic cards; it uses homeHighlights only.
 
 ## Output JSON contract
 
-Top-level fields must be exactly: schemaVersion, status, reportDate, generatedAt, sourceGeneratedAt, sourcePostCount, sourceListCount, overview, topics, watchlist, disagreements, noiseSummary.
-schemaVersion = 1; status = "success"; reportDate = current Asia/Shanghai YYYY-MM-DD; generatedAt = ISO timestamp with +08:00; sourceGeneratedAt copied from input; sourcePostCount = posts.length; sourceListCount = 4.
+Top-level fields must be exactly: schemaVersion, status, reportDate, generatedAt, sourceGeneratedAt, sourcePostCount, sourceListCount, overview, homeHighlights, topics, watchlist, disagreements, noiseSummary.
+schemaVersion = 1; status = "success"; reportDate = current Asia/Shanghai YYYY-MM-DD; generatedAt = ISO timestamp with +08:00; sourceGeneratedAt copied from input; sourcePostCount = posts.length; sourceListCount = 4.\nhomeHighlights must be an array of 3 to 5 concise Chinese sentences for the homepage. Each item must contain one distinct information point, with no numeric prefix, no bullet character in the text, and no duplicated wording. Prefer one line each: major regulatory/market shift, major project/ecosystem development, important emerging narrative, and any key counter-signal or divergence. Keep each item compact enough to scan quickly.
 Each topics item contains: title, importance (high or medium), summary, whyItMatters, facts, interpretations, authors, sourceUrls, sourceCount, confidence (high, medium, or low).
 Each watchlist item contains: signal, reason, authors, sourceUrls.
 Each disagreements item contains: topic, positions, sourceUrls.
