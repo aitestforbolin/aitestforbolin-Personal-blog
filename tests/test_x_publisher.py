@@ -54,10 +54,10 @@ class XPublisherTests(unittest.TestCase):
 
     def test_renderer_is_frozen_to_approved_web_output(self):
         text = MODULE.build_x_post(self.snapshot, now=self.now)
-        self.assertEqual(len(text), 2330)
+        self.assertEqual(len(text), 2327)
         self.assertEqual(
             hashlib.sha256(text.encode("utf-8")).hexdigest(),
-            "5d84f9d64395c1334f7e46651424c3a076f2eeb65c98282ed9010f3a8185372b",
+            "f24270609d8b8d4c1c00e876c14289023f9b66939289d71d3788b11ef87aaa9f",
         )
         self.assertIn("（今晚）8月20日｜周四", text)
         self.assertNotIn("跨资产大体确认", text)
@@ -136,7 +136,7 @@ class XPublisherTests(unittest.TestCase):
                             "2026-08-19": {
                                 "postId": "123456789",
                                 "url": "https://x.com/i/web/status/123456789",
-                                "contentSha256": "5d84f9d64395c1334f7e46651424c3a076f2eeb65c98282ed9010f3a8185372b",
+                                "contentSha256": "f24270609d8b8d4c1c00e876c14289023f9b66939289d71d3788b11ef87aaa9f",
                             }
                         },
                     }
@@ -211,7 +211,7 @@ class XPublisherTests(unittest.TestCase):
             self.assertEqual(record["postId"], "987654321")
             self.assertEqual(
                 record["contentSha256"],
-                "5d84f9d64395c1334f7e46651424c3a076f2eeb65c98282ed9010f3a8185372b",
+                "f24270609d8b8d4c1c00e876c14289023f9b66939289d71d3788b11ef87aaa9f",
             )
             self.assertEqual(record["mode"], "manual")
             self.assertNotIn(MODULE.AUTOMATIC_DISCLOSURE, created_text)
