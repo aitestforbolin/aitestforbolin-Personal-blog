@@ -51,8 +51,13 @@ def test_web3_triage_reader_is_linked_from_site():
 
     assert 'href="daily-triage/"' in fundraising
     assert 'href="fundraising/daily-triage/"' in home
+    fundraising_section = home.split('id="fundraising"', 1)[1].split("</section>", 1)[0]
+    copy_block = fundraising_section.split('class="briefing-home-copy"', 1)[1].split("</div>", 1)[0]
+    assert "home-fundraising-triage" in copy_block
+    assert "home-fundraising-triage" not in fundraising_section.split('class="fundraising-home-panel"', 1)[1]
     assert "每日融资项目初筛" in reader
-    assert "../../data/web3-daily-triage.json" in renderer
+    assert 'document.currentScript?.src' in renderer
+    assert 'new URL("../../data/web3-daily-triage.json", SCRIPT_URL).href' in renderer
     assert "ACTION" in renderer
     assert "WATCH" in renderer
     assert "STOP" in renderer
