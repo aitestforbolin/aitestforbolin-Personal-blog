@@ -1,7 +1,8 @@
 (function () {
   "use strict";
 
-  const DATA_URL = "../../data/web3-daily-triage.json";
+  const SCRIPT_URL = document.currentScript?.src || window.location.href;
+  const DATA_URL = new URL("../../data/web3-daily-triage.json", SCRIPT_URL).href;
   const RAW_DATA_URL =
     "https://raw.githubusercontent.com/aitestforbolin/aitestforbolin-Personal-blog/main/data/web3-daily-triage.json";
 
@@ -175,7 +176,7 @@
   }
 
   async function fetchPayload(url) {
-    const target = new URL(url, window.location.href);
+    const target = new URL(url);
     target.searchParams.set("_", Date.now().toString());
     const response = await fetch(target, { cache: "no-store" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -185,7 +186,8 @@
   async function load() {
     try {
       return await fetchPayload(DATA_URL);
-    } catch (_siteError) {
+    } catch (siteError) {
+      console.warn("Primary Daily Triage data request failed", siteError);
       return await fetchPayload(RAW_DATA_URL);
     }
   }
