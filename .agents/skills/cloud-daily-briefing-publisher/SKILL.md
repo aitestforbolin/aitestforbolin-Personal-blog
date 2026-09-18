@@ -56,7 +56,19 @@ If there is no unpublished new complete trading session, do not generate another
 
 ## No-new-session status
 
-When there is no unpublished new complete trading session, update only `main:data/run-status.json`:
+Before writing a no-new-session status, read the existing `main:data/run-status.json`.
+
+If the existing status has the same `runDate` as the current Asia/Shanghai calendar date and the same `asOf` as the target trading session, and any of the following is true:
+
+- `briefingCommit` is non-null;
+- `stage` is a downstream stage such as `x` or `email`;
+- `status` is already `success` or `no_new_session`;
+
+then treat this as a repeated execution of an already-started or completed daily run. Do not modify `data/run-status.json`, do not alter the briefing or archive, and stop. Preserve the existing downstream/final status exactly as-is.
+
+This idempotency guard exists only to prevent a repeated/manual rerun from overwriting a real downstream result such as `x_publish_failed`. It does not change the normal first-run behavior at 07:00.
+
+When there is no unpublished new complete trading session and the idempotency guard above does not apply, update only `main:data/run-status.json`:
 
 - `schemaVersion = 1`
 - `runDate` = current calendar date in Asia/Shanghai
