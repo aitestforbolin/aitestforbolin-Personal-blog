@@ -71,6 +71,21 @@ class DailyMarketStatusSectorTests(unittest.TestCase):
         self.assertNotIn("schedule:", workflow)
         self.assertIn("workflow_dispatch:", workflow)
 
+    def test_current_fedwatch_snapshot_targets_an_unfinished_meeting(self):
+        payload = json.loads(
+            (ROOT / "data" / "daily-market-status.json").read_text(encoding="utf-8")
+        )
+        fed = payload["fedProbability"]
+        self.assertEqual(fed["meetingStartDate"], "2026-10-27")
+        self.assertEqual(fed["probabilities"], {})
+        self.assertEqual(fed["status"], "unavailable")
+
+    def test_frontend_only_renders_verified_structured_fedwatch_data(self):
+        script = (ROOT / "daily-market-status" / "daily-market-status.js").read_text(encoding="utf-8")
+        self.assertIn("function verifiedFedProbability(fed)", script)
+        self.assertIn("meetingEnd < Date.now()", script)
+        self.assertIn("下一次 FOMC 概率：数据核验中", script)
+
 
 if __name__ == "__main__":
     unittest.main()
