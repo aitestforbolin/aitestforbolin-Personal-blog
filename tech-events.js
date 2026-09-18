@@ -1,7 +1,6 @@
 (function () {
-  const DATA_URL = "data/tech-company-events.json?v=20260903-tracked-universe-1";
+  const DATA_URL = "data/tech-company-events.json?v=20260918-full-window-1";
   const SHANGHAI_OFFSET = "+08:00";
-  const DEFAULT_HORIZON_DAYS = 7;
   const DAY_MS = 86400000;
 
   const CATEGORY_LABELS = {
@@ -46,7 +45,6 @@
     company: "all",
     companies: [],
     events: [],
-    horizonDays: DEFAULT_HORIZON_DAYS,
     updatedAt: "",
   };
 
@@ -77,12 +75,6 @@
 
   function eventEndDate(event) {
     return event.window_end || event.date_bjt || event.window_start;
-  }
-
-  function isInHorizon(event) {
-    const startDistance = dayDistance(eventStartDate(event));
-    const endDistance = dayDistance(eventEndDate(event));
-    return endDistance >= 0 && startDistance <= state.horizonDays;
   }
 
   function formatDate(dateText, includeYear) {
@@ -145,7 +137,6 @@
 
   function filteredEvents() {
     return state.events
-      .filter(isInHorizon)
       .filter((event) => state.category === "all" || event.event_category === state.category)
       .filter((event) => state.company === "all" || event.company_id === state.company)
       .sort((a, b) => {
@@ -233,9 +224,9 @@
   }
 
   function renderStatus(events) {
-    const total = state.events.filter(isInHorizon).length;
+    const total = state.events.length;
     if (!events.length) {
-      status.textContent = `当前筛选下，未来 ${state.horizonDays} 天暂无关键事件。`;
+      status.textContent = "当前筛选下暂无关键事件。";
       return;
     }
     const confirmed = events.filter((event) => event.confirmation === "confirmed").length;
@@ -314,7 +305,6 @@
     .then((payload) => {
       state.companies = Array.isArray(payload.companies) ? payload.companies : [];
       state.events = Array.isArray(payload.events) ? payload.events : [];
-      state.horizonDays = DEFAULT_HORIZON_DAYS;
       state.updatedAt = payload.updated_at || "";
       updated.textContent = formatUpdatedAt(state.updatedAt);
       populateCompanies();

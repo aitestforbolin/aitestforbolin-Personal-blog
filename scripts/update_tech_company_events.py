@@ -655,7 +655,7 @@ def discover_earnings_calendar_events(config: Dict[str, Any], companies: Sequenc
             events.append({
                 "event_id": f"{company['id']}-earnings-{period_slug}", "company_id": company["id"],
                 "event_category": "earnings", "event_name": f"{company['name']} {period}财报",
-                "reported_period": period, "importance": "core", "status": "scheduled", "confirmation": "confirmed",
+                "reported_period": period, "importance": "core", "status": "scheduled", "confirmation": "inferred",
                 "date_type": "exact", "date_bjt": bjt_day.isoformat(), "time_bjt": None, "market_timing": timing,
                 "original_time": f"{us_day.isoformat()} {row.get('time') or 'time not supplied'} America/New_York",
                 "original_timezone": "America/New_York", "eps_estimate": row.get("epsForecast") or None,
@@ -750,6 +750,23 @@ def preference_score(event: Dict[str, Any]) -> Tuple[int, int]:
     return confirmation, date_type
 
 
+def matching_earnings_event_id(selected: Dict[str, Dict[str, Any]], event: Dict[str, Any]) -> Optional[str]:
+    """Find the same earnings release even when calendar and IR use different IDs."""
+    if event.get("event_category") != "earnings":
+        return None
+    for event_id, existing in selected.items():
+        if existing.get("event_category") != "earnings" or existing.get("company_id") != event.get("company_id"):
+            continue
+        if existing.get("reported_period") and existing.get("reported_period") == event.get("reported_period"):
+            return event_id
+        try:
+            if abs((event_start_date(existing) - event_start_date(event)).days) <= 21:
+                return event_id
+        except (ValueError, TypeError):
+            continue
+    return None
+
+
 def merge_events(
     companies: Sequence[Dict[str, Any]],
     curated: Sequence[Dict[str, Any]],
@@ -775,6 +792,10 @@ def merge_events(
                     continue
             except (ValueError, TypeError):
                 continue
+            matching_id = matching_earnings_event_id(selected, event)
+            if matching_id:
+                event_id = matching_id
+                event["event_id"] = matching_id
             current = selected.get(event_id)
             if current is None or preference_score(event) > preference_score(current):
                 selected[event_id] = event

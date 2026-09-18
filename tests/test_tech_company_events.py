@@ -190,6 +190,22 @@ class TechCompanyEventTests(unittest.TestCase):
         self.assertEqual(events[0]["date_bjt"], "2026-10-13")
         self.assertEqual(events[0]["eps_estimate"], "5.12")
         self.assertEqual(events[0]["revenue_estimate"], "46.2B")
+        self.assertEqual(events[0]["confirmation"], "inferred")
+
+    def test_confirmed_official_earnings_replaces_matching_nasdaq_inference(self):
+        inferred = {
+            "event_id": "jpmorgan_chase-earnings-quarter-ended-2026-09-30",
+            "company_id": "jpmorgan_chase", "event_category": "earnings", "event_name": "JPMorgan Chase 财报",
+            "reported_period": "截至 2026-09-30 季度", "importance": "core", "status": "scheduled",
+            "confirmation": "inferred", "date_type": "exact", "date_bjt": "2026-10-13", "market_timing": "before_open",
+            "source_label": "Nasdaq Earnings Calendar", "source_url": "https://api.nasdaq.com/api/calendar/earnings?date=2026-10-13",
+        }
+        official = deepcopy(inferred)
+        official.update({"event_id": "jpmorgan_chase-earnings-2026-q3", "confirmation": "confirmed", "time_bjt": "20:30", "source_label": "JPMorgan Chase Investor Relations", "source_url": "https://www.jpmorganchase.com/ir/events"})
+        events = updater.merge_events(list(self.companies.values()), [official], [inferred], [], date(2026, 9, 18), 35, datetime(2026, 9, 18, tzinfo=ZoneInfo("Asia/Shanghai")))
+        self.assertEqual(len(events), 1)
+        self.assertEqual(events[0]["confirmation"], "confirmed")
+        self.assertEqual(events[0]["source_label"], "JPMorgan Chase Investor Relations")
 
     def test_ordinal_fiscal_period_has_stable_id(self):
         period, slug = updater.extract_reported_period("NVIDIA 2nd Quarter FY27 Financial Results")
