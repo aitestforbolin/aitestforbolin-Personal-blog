@@ -47,9 +47,9 @@ class TechCompanyEventTests(unittest.TestCase):
     def test_tracking_universe_matches_requested_symbols(self):
         self.assertEqual(
             [company["ticker"] for company in self.config["companies"]],
-            ["META", "NVDA", "AMZN", "GOOGL", "AAPL", "VOO", "JPM", "MSFT", "WMT", "MU", "SNDK"],
+            ["META", "NVDA", "AMZN", "GOOGL", "AAPL", "JPM", "MSFT", "WMT", "MU", "SNDK"],
         )
-        self.assertEqual(len(self.companies), 11)
+        self.assertEqual(len(self.companies), 10)
 
     def test_standard_time_converts_with_sixteen_hour_offset(self):
         html = """
@@ -173,7 +173,23 @@ class TechCompanyEventTests(unittest.TestCase):
         payload = updater.build_payload(self.config, events, "2026-07-21T08:15:00+08:00")
         payload["events"][0]["source_url"] = "https://example.com/unofficial"
         errors = updater.validate_event_payload(payload, self.config)
-        self.assertTrue(any("official allowlist" in error for error in errors))
+        self.assertTrue(any("configured allowlist" in error for error in errors))
+
+    def test_nasdaq_calendar_builds_tracked_earnings_with_estimates_and_bjt_timing(self):
+        config = deepcopy(self.config)
+        config["earnings_calendar"]["url_template"] = "https://example.test/earnings?date={day}"
+        original = updater.fetch_text
+        updater.fetch_text = lambda url: json.dumps({"data": {"rows": [{"symbol": "JPM", "time": "Before Market Open", "epsForecast": "5.12", "revenueForecast": "46.2B", "fiscalQuarterEnding": "09/30/2026"}]}})
+        try:
+            events = updater.discover_earnings_calendar_events(config, list(self.companies.values()), date(2026, 10, 13), date(2026, 10, 13))
+        finally:
+            updater.fetch_text = original
+        self.assertEqual(len(events), 1)
+        self.assertEqual(events[0]["company_id"], "jpmorgan_chase")
+        self.assertEqual(events[0]["market_timing"], "before_open")
+        self.assertEqual(events[0]["date_bjt"], "2026-10-13")
+        self.assertEqual(events[0]["eps_estimate"], "5.12")
+        self.assertEqual(events[0]["revenue_estimate"], "46.2B")
 
     def test_ordinal_fiscal_period_has_stable_id(self):
         period, slug = updater.extract_reported_period("NVIDIA 2nd Quarter FY27 Financial Results")

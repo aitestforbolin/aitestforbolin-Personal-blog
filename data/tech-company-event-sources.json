@@ -2,6 +2,11 @@
   "schema_version": 1,
   "timezone": "Asia/Shanghai",
   "horizon_days": 35,
+  "earnings_calendar": {
+    "source_label": "Nasdaq Earnings Calendar",
+    "url_template": "https://api.nasdaq.com/api/calendar/earnings?date={day}",
+    "allowed_domains": ["api.nasdaq.com", "nasdaq.com"]
+  },
   "companies": [
     {
       "id": "meta",
@@ -71,17 +76,6 @@
       "source_label": "Apple Investor Relations",
       "discovery_urls": ["https://investor.apple.com/", "https://www.apple.com/newsroom/topics/events/"],
       "allowed_domains": ["apple.com", "investor.apple.com"]
-    },
-    {
-      "id": "vanguard_sp500_etf",
-      "name": "Vanguard S&P 500 ETF",
-      "ticker": "VOO",
-      "group": "market_benchmark",
-      "group_zh": "市场基准 ETF",
-      "default_timezone": "America/New_York",
-      "source_label": "Vanguard VOO Fund Information",
-      "discovery_urls": ["https://investor.vanguard.com/investment-products/etfs/profile/voo"],
-      "allowed_domains": ["investor.vanguard.com", "vanguard.com"]
     },
     {
       "id": "jpmorgan_chase",

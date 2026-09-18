@@ -28,6 +28,7 @@ DEFAULT_DAYS = 35
 REQUEST_TIMEOUT_SECONDS = 12
 MAX_RESPONSE_BYTES = 5_000_000
 MAX_DETAIL_PAGES_PER_SOURCE = 12
+NASDAQ_EARNINGS_URL = "https://api.nasdaq.com/api/calendar/earnings?date={day}"
 
 EVENT_CATEGORIES = {
     "earnings",
@@ -575,11 +576,13 @@ def discover_company_events(
         source_event = build_discovered_event(
             company, company["name"], discovery_url, html, start, end
         )
-        if source_event:
+        if source_event and source_event["event_category"] != "earnings":
             events.append(source_event)
         detail_pages_checked = 0
         for href, title in parser.links:
             if not href or not is_material_title(title):
+                continue
+            if classify_event(title) == "earnings":
                 continue
             event_url = urljoin(discovery_url, href)
             if event_url in seen_urls or not domain_allowed(event_url, company["allowed_domains"]):
@@ -601,6 +604,65 @@ def discover_company_events(
             event = build_discovered_event(company, title, event_url, detail_html, start, end)
             if event:
                 events.append(event)
+    return events
+
+
+def normalize_calendar_time(value: Any) -> str:
+    text = " ".join(str(value or "").lower().replace("-", " ").split())
+    if "before" in text and ("open" in text or "market" in text):
+        return "before_open"
+    if "after" in text and ("close" in text or "market" in text):
+        return "after_close"
+    return "time_tbd"
+
+
+def calendar_reported_period(value: Any, event_day: date) -> Tuple[str, str]:
+    raw = str(value or "").strip()
+    for pattern in ("%m/%d/%Y", "%Y-%m-%d", "%m/%d/%y"):
+        try:
+            ending = datetime.strptime(raw, pattern).date()
+            return f"截至 {ending.isoformat()} 季度", f"quarter-ended-{ending.isoformat()}"
+        except ValueError:
+            pass
+    quarter = ((event_day.month - 1) // 3) + 1
+    return f"{event_day.year} Q{quarter}", f"{event_day.year}-q{quarter}"
+
+
+def discover_earnings_calendar_events(config: Dict[str, Any], companies: Sequence[Dict[str, Any]], start: date, end: date) -> List[Dict[str, Any]]:
+    """Read Nasdaq's public daily earnings calendar and retain tracked symbols only."""
+    calendar = config.get("earnings_calendar", {})
+    tracked = {company["ticker"].upper(): company for company in companies}
+    events: List[Dict[str, Any]] = []
+    for offset in range((end - start).days + 1):
+        us_day = start + timedelta(days=offset)
+        source_url = calendar.get("url_template", NASDAQ_EARNINGS_URL).format(day=us_day.isoformat())
+        try:
+            payload = json.loads(fetch_text(source_url))
+        except (HTTPError, URLError, TimeoutError, OSError, json.JSONDecodeError) as exc:
+            raise OSError(f"Nasdaq earnings calendar unavailable for {us_day}: {exc}") from exc
+        rows = ((payload.get("data") or {}).get("rows") or [])
+        if not isinstance(rows, list):
+            raise OSError(f"Nasdaq earnings calendar returned an unexpected payload for {us_day}")
+        for row in rows:
+            if not isinstance(row, dict):
+                continue
+            company = tracked.get(str(row.get("symbol") or "").upper())
+            if not company:
+                continue
+            timing = normalize_calendar_time(row.get("time"))
+            bjt_day = us_day + timedelta(days=1) if timing == "after_close" else us_day
+            period, period_slug = calendar_reported_period(row.get("fiscalQuarterEnding"), us_day)
+            events.append({
+                "event_id": f"{company['id']}-earnings-{period_slug}", "company_id": company["id"],
+                "event_category": "earnings", "event_name": f"{company['name']} {period}财报",
+                "reported_period": period, "importance": "core", "status": "scheduled", "confirmation": "confirmed",
+                "date_type": "exact", "date_bjt": bjt_day.isoformat(), "time_bjt": None, "market_timing": timing,
+                "original_time": f"{us_day.isoformat()} {row.get('time') or 'time not supplied'} America/New_York",
+                "original_timezone": "America/New_York", "eps_estimate": row.get("epsForecast") or None,
+                "revenue_estimate": row.get("revenueForecast") or None,
+                "source_label": calendar.get("source_label", "Nasdaq Earnings Calendar"), "source_url": source_url,
+                "source_published_at": None,
+            })
     return events
 
 
@@ -772,6 +834,7 @@ def all_allowed_domains(config: Dict[str, Any]) -> List[str]:
     for company in config["companies"]:
         domains.extend(company.get("allowed_domains", []))
     domains.extend(config.get("regulator_allowed_domains", []))
+    domains.extend(config.get("earnings_calendar", {}).get("allowed_domains", []))
     return sorted(set(domains))
 
 
@@ -837,7 +900,7 @@ def validate_event_payload(payload: Dict[str, Any], config: Dict[str, Any]) -> L
         except (ValueError, TypeError):
             errors.append(f"{label}: invalid ISO date")
         if not domain_allowed(str(event.get("source_url", "")), allowed_domains):
-            errors.append(f"{label}: source is not on the official allowlist")
+            errors.append(f"{label}: source is not on the configured allowlist")
         semantic_key = (
             event.get("company_id"),
             event.get("event_category"),
@@ -922,6 +985,11 @@ def main() -> int:
         discovered.extend(
             discover_regulatory_events(config, config["companies"], start, end, source_health)
         )
+        try:
+            discovered.extend(discover_earnings_calendar_events(config, config["companies"], start, end))
+            print("Nasdaq earnings calendar check succeeded")
+        except OSError as exc:
+            print(f"warning: {exc}; retaining last-known-good earnings events", file=sys.stderr)
         if source_health["successful"] == 0:
             print("error: every configured official source failed", file=sys.stderr)
             return 1
