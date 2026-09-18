@@ -10,11 +10,11 @@
     />
     <link rel="stylesheet" href="styles.css?v=20260819-us-macro-1" />
     <link rel="stylesheet" href="macro-alerts.css?v=20260916-ff-fields-1" />
-    <link rel="stylesheet" href="btc-etf-flow-signal.css?v=20260917-2" />
-    <link rel="stylesheet" href="tech-events.css?v=20260721-1" />
-    <link rel="stylesheet" href="editorial-refresh.css?v=20260916-impact-dot-1" />
+    <link rel="stylesheet" href="btc-etf-flow-signal.css?v=20260918-home-order-1" />
+    <link rel="stylesheet" href="tech-events.css?v=20260918-full-window-1" />
+    <link rel="stylesheet" href="editorial-refresh.css?v=20260918-home-order-1" />
     <link rel="stylesheet" href="home-market-widget.css?v=20260917-5" />
-    <link rel="stylesheet" href="home-fundraising.css?v=20260820-dual-prompts-1" />
+    <link rel="stylesheet" href="home-fundraising.css?v=20260918-home-order-1" />
     <link rel="stylesheet" href="us-macro/us-macro.css?v=20260819-3" />
   </head>
   <body>
@@ -31,11 +31,9 @@
         <a href="macro-brief/">Macro Brief</a>
         <a href="us-macro/">美国宏观</a>
         <a href="#macro-calendar">宏观日历</a>
-        <a href="#tech-events">财报与公司事件</a>
-        <a href="#btc-etf-flow">ETF资金流</a>
-        <a href="fundraising/">融资追踪</a>
-        <a href="europe-watch/">欧洲观察</a>
-        <a href="#about">关于</a>
+        <a href="#tech-events">公司事件</a>
+        <a href="#web3">Web3</a>
+        <a href="#europe-watch">欧洲观察</a>
       </nav>
     </header>
 
@@ -60,7 +58,8 @@
             做下一件正确的事情
           </p>
           <div class="hero-actions">
-            <a class="button secondary" href="#macro-calendar">查看宏观日历</a>
+            <a class="button primary" href="daily-market-status/">每日市场早报</a>
+            <a class="button secondary" href="macro-brief/">Macro Brief</a>
           </div>
           <div class="hero-topics" aria-label="网站核心内容">
             <span>跨资产市场</span>
@@ -90,18 +89,8 @@
               <p>查看最新完整美股交易日的市场状态与关键驱动。</p>
             </div>
             <div class="briefing-home-actions">
-              <a class="button primary" href="daily-market-status/">查看状态</a>
+              <a class="button primary" href="daily-market-status/">查看最新早报</a>
               <a class="button secondary" href="markets/index.html">历史综述</a>
-            </div>
-          </article>
-          <article class="briefing-home-card" data-channel="europe-watch">
-            <div>
-              <div class="post-meta"><span class="post-tag">欧洲观察</span></div>
-              <h3>欧洲观察</h3>
-              <p>每天 07:30 固定记录过去 24 小时 EU 制度政策与德国经济社会的重点变化。</p>
-            </div>
-            <div class="briefing-home-actions">
-              <a class="button primary" href="europe-watch/">查看观察</a>
             </div>
           </article>
         </div>
@@ -140,86 +129,6 @@
           </div>
         </div>
       </section>
-      <section
-        class="section btc-etf-flow"
-        id="btc-etf-flow"
-        aria-labelledby="btc-etf-flow-title"
-        data-btc-etf-flow
-      >
-        <div class="btc-etf-flow-head">
-          <div>
-            <p class="eyebrow">BTC ETF Flow</p>
-            <h2 id="btc-etf-flow-title">比特币现货ETF资金流</h2>
-            <p>用最新资金流、近 5 日累计与连续方向快速判断现货 ETF 的资金背景。</p>
-          </div>
-        </div>
-
-        <div class="btc-etf-signal-card" data-btc-etf-flow>
-          <div class="btc-etf-signal-meta">
-            <span data-btc-etf-updated>正在载入 ETF 资金流...</span>
-            <a
-              href="https://farside.co.uk/bitcoin-etf-flow-all-data/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              数据来源：Farside Investors ↗
-            </a>
-          </div>
-          <div class="btc-etf-signal-grid" data-btc-etf-summary></div>
-        </div>
-      </section>
-
-      <section
-        class="section briefing-home"
-        id="fundraising"
-        aria-labelledby="fundraising-title"
-        data-home-fundraising
-      >
-        <div class="briefing-home-copy">
-          <p class="eyebrow">Crypto Fundraising</p>
-          <h2 id="fundraising-title">最新加密项目融资</h2>
-          <p>
-            展示最近公开收录的 5 个融资项目，点击项目可跳转至 Crypto-Fundraising 原站。
-          </p>
-        </div>
-        <div class="fundraising-home-panel">
-          <div class="home-fundraising-meta">
-            <span class="home-fundraising-meta-primary">
-              <span data-home-fundraising-updated>正在载入融资项目...</span>
-              <a class="home-fundraising-chat" href="https://chatgpt.com/" target="_blank" rel="noreferrer">打开 ChatGPT ↗</a>
-            </span>
-            <span>数据来源：Crypto-Fundraising</span>
-          </div>
-          <div class="home-fundraising-list" data-home-fundraising-list></div>
-          <div class="home-fundraising-footer">
-            <a href="fundraising/">查看完整融资追踪 →</a>
-          </div>
-        </div>
-      </section>
-
-      <section
-        class="section us-macro-home"
-        id="us-macro"
-        aria-labelledby="us-macro-title"
-        data-us-macro-home
-      >
-        <div class="us-macro-home-head">
-          <div>
-            <p class="eyebrow">US Macro Core Dashboard</p>
-            <h2 id="us-macro-title">美国宏观核心数据</h2>
-            <p>长期保留通胀、就业、消费与经济活动的最新一期，不因公布超过48小时而消失。</p>
-          </div>
-          <a class="button secondary" href="us-macro/">查看15项指标</a>
-        </div>
-        <div class="us-macro-summary-grid" data-us-macro-summary aria-live="polite">
-          <p>正在载入美国宏观状态…</p>
-        </div>
-        <div class="us-macro-home-footer">
-          <span data-us-macro-updated>正在读取数据日期…</span>
-          <span>按数据公布更新 · 非实时</span>
-        </div>
-      </section>
-
       <section
         class="section macro-calendar"
         id="macro-calendar"
@@ -291,7 +200,7 @@
             <p>追踪指定核心标的的财报、经营数据与关键活动，全部按北京时间显示。</p>
           </div>
           <div class="tech-events-source-note">
-            <strong>只收录官方来源</strong>
+            <strong>财报日历与官方来源</strong>
             <span data-tech-events-updated>正在读取更新时间...</span>
           </div>
         </div>
@@ -319,6 +228,92 @@
             正在载入科技事件...
           </div>
           <div class="tech-event-list" data-tech-events-list></div>
+        </div>
+      </section>
+
+      <section
+        class="section us-macro-home"
+        id="us-macro"
+        aria-labelledby="us-macro-title"
+        data-us-macro-home
+      >
+        <div class="us-macro-home-head">
+          <div>
+            <p class="eyebrow">US Macro Core Dashboard</p>
+            <h2 id="us-macro-title">美国宏观核心数据</h2>
+            <p>长期保留通胀、就业、消费与经济活动的最新一期，不因公布超过48小时而消失。</p>
+          </div>
+          <a class="button secondary" href="us-macro/">查看15项指标</a>
+        </div>
+        <div class="us-macro-summary-grid" data-us-macro-summary aria-live="polite">
+          <p>正在载入美国宏观状态…</p>
+        </div>
+        <div class="us-macro-home-footer">
+          <span data-us-macro-updated>正在读取数据日期…</span>
+          <span>按数据公布更新 · 非实时</span>
+        </div>
+      </section>
+
+      <section class="section web3-region" id="web3" aria-labelledby="web3-title">
+        <div class="web3-region-head">
+          <p class="eyebrow">Web3 Research Desk</p>
+          <h2 id="web3-title">Web3</h2>
+          <p>从现货 ETF 资金与新项目融资两个维度观察加密市场。</p>
+        </div>
+
+        <section class="web3-region-item btc-etf-flow" id="btc-etf-flow" aria-labelledby="btc-etf-flow-title" data-btc-etf-flow>
+          <div class="btc-etf-flow-head">
+            <div>
+              <p class="eyebrow">BTC ETF Flow</p>
+              <h3 id="btc-etf-flow-title">比特币现货ETF资金流</h3>
+              <p>用最新资金流、近 5 日累计与连续方向快速判断现货 ETF 的资金背景。</p>
+            </div>
+          </div>
+
+          <div class="btc-etf-signal-card" data-btc-etf-flow>
+            <div class="btc-etf-signal-meta">
+              <span data-btc-etf-updated>正在载入 ETF 资金流...</span>
+              <a href="https://farside.co.uk/bitcoin-etf-flow-all-data/" target="_blank" rel="noreferrer">数据来源：Farside Investors ↗</a>
+            </div>
+            <div class="btc-etf-signal-grid" data-btc-etf-summary></div>
+          </div>
+        </section>
+
+        <section class="web3-region-item briefing-home" id="fundraising" aria-labelledby="fundraising-title" data-home-fundraising>
+          <div class="briefing-home-copy">
+            <p class="eyebrow">Crypto Fundraising</p>
+            <h3 id="fundraising-title">最新加密项目融资</h3>
+            <p>展示最近公开收录的 5 个融资项目，点击项目可跳转至 Crypto-Fundraising 原站。</p>
+          </div>
+          <div class="fundraising-home-panel">
+            <div class="home-fundraising-meta">
+              <span class="home-fundraising-meta-primary">
+                <span data-home-fundraising-updated>正在载入融资项目...</span>
+                <a class="home-fundraising-chat" href="https://chatgpt.com/" target="_blank" rel="noreferrer">打开 ChatGPT ↗</a>
+              </span>
+              <span>数据来源：Crypto-Fundraising</span>
+            </div>
+            <div class="home-fundraising-list" data-home-fundraising-list></div>
+            <div class="home-fundraising-footer"><a href="fundraising/">查看完整融资追踪 →</a></div>
+          </div>
+        </section>
+      </section>
+
+      <section class="section briefing-home europe-home" id="europe-watch" aria-labelledby="europe-watch-title">
+        <div class="briefing-home-copy">
+          <p class="eyebrow">Europe Watch</p>
+          <h2 id="europe-watch-title">欧洲观察</h2>
+          <p>每天固定记录过去 24 小时 EU 制度政策与德国经济社会的重点变化。</p>
+        </div>
+        <div class="briefing-home-cards">
+          <article class="briefing-home-card" data-channel="europe-watch">
+            <div>
+              <div class="post-meta"><span class="post-tag">欧洲</span></div>
+              <h3>欧洲观察</h3>
+              <p>查看欧盟政策、德国经济与社会运行的最新简报。</p>
+            </div>
+            <div class="briefing-home-actions"><a class="button primary" href="europe-watch/">查看欧洲观察</a></div>
+          </article>
         </div>
       </section>
 
@@ -350,12 +345,12 @@
       <p>© 2026 Bolin Brief · Independent notes from Asia / Shanghai.</p>
     </footer>
     <script src="home-market-snapshot.js?v=20260917-2"></script>
-    <script src="btc-etf-flow-signal.js?v=20260917-2"></script>
-    <script src="tech-events.js?v=20260818-retail-earnings-1"></script>
+    <script src="btc-etf-flow-signal.js?v=20260918-home-order-1"></script>
+    <script src="tech-events.js?v=20260918-full-window-1"></script>
     <script src="macro-calendar-model.js?v=20260916-ff-us-only-1"></script>
     <script src="macro-calendar.js?v=20260916-today-only-1"></script>
     <script src="research-prompt.js?v=20260820-dual-prompts-1"></script>
-    <script src="home-fundraising.js?v=20260820-dual-prompts-2"></script>
+    <script src="home-fundraising.js?v=20260918-home-order-1"></script>
     <script src="us-macro/us-macro.js?v=20260917-ff-1"></script>
   </body>
 </html>

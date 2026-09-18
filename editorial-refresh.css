@@ -132,7 +132,7 @@ main,
   grid-template-columns: minmax(0, 1.08fr) minmax(380px, 0.92fr);
   gap: clamp(42px, 6vw, 82px);
   min-height: auto;
-  padding: clamp(72px, 9vw, 116px) 0 clamp(76px, 9vw, 108px);
+  padding: clamp(56px, 7vw, 82px) 0 clamp(60px, 7vw, 84px);
 }
 
 .hero-copy {
@@ -177,7 +177,33 @@ h2 {
 }
 
 .hero-actions {
-  margin-top: 32px;
+  margin-top: 26px;
+}
+
+.web3-region {
+  display: grid;
+  gap: clamp(40px, 6vw, 68px);
+}
+
+.web3-region-head {
+  max-width: 720px;
+}
+
+.web3-region-head p:last-child {
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.web3-region-item {
+  margin: 0;
+}
+
+.web3-region-item .btc-etf-flow-head h3,
+.web3-region-item .briefing-home-copy h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.45rem);
+  line-height: 1.14;
 }
 
 .button,
@@ -695,7 +721,7 @@ select:focus-visible {
 
   .hero {
     gap: 42px;
-    padding: 56px 0 70px;
+    padding: 44px 0 54px;
   }
 
   h1 {
