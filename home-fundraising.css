@@ -135,45 +135,46 @@
 .home-fundraising-footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 16px;
   padding: 14px 20px;
   border-top: 1px solid rgba(117, 108, 97, 0.16);
 }
 
-.home-fundraising-triage {
+.briefing-home-copy .home-fundraising-triage {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
   gap: 22px;
-  min-width: min(330px, 100%);
+  width: min(330px, 100%);
+  margin-top: 24px;
   border-radius: 8px;
-  padding: 11px 14px;
+  padding: 12px 15px;
   background: var(--accent-dark);
   color: #fffdf8;
   box-shadow: 0 10px 24px rgba(92, 49, 35, 0.14);
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-.home-fundraising-triage > span:first-child {
+.briefing-home-copy .home-fundraising-triage > span:first-child {
   display: grid;
   gap: 2px;
 }
 
-.home-fundraising-triage small {
+.briefing-home-copy .home-fundraising-triage small {
   color: rgba(255, 253, 248, 0.7);
   font-size: 0.61rem;
   font-weight: 850;
   letter-spacing: 0.08em;
 }
 
-.home-fundraising-triage strong {
+.briefing-home-copy .home-fundraising-triage strong {
   font-family: var(--font-display) !important;
   font-size: 0.94rem;
 }
 
-.home-fundraising-triage:hover,
-.home-fundraising-triage:focus-visible {
+.briefing-home-copy .home-fundraising-triage:hover,
+.briefing-home-copy .home-fundraising-triage:focus-visible {
   color: #fffdf8;
   outline: none;
   transform: translateY(-1px);
@@ -207,10 +208,9 @@
     justify-content: flex-start;
   }
   .home-fundraising-footer {
-    align-items: stretch;
-    flex-direction: column;
+    justify-content: flex-start;
   }
-  .home-fundraising-triage {
+  .briefing-home-copy .home-fundraising-triage {
     width: 100%;
   }
   .home-fundraising-tracker {
