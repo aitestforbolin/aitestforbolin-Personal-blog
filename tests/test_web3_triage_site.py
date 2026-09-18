@@ -5,6 +5,8 @@ ROOT = Path(__file__).resolve().parents[1]
 CURRENT = ROOT / "data" / "web3-daily-triage.json"
 FUNDRAISING_PAGE = ROOT / "fundraising" / "index.html"
 HOME = ROOT / "index.html"
+HOME_FUNDRAISING = ROOT / "home-fundraising.js"
+FUNDRAISING_RENDERER = ROOT / "fundraising" / "fundraising.js"
 READER = ROOT / "fundraising" / "daily-triage" / "index.html"
 RENDERER = ROOT / "fundraising" / "daily-triage" / "daily-triage.js"
 
@@ -61,3 +63,19 @@ def test_web3_triage_reader_is_linked_from_site():
     assert "ACTION" in renderer
     assert "WATCH" in renderer
     assert "STOP" in renderer
+
+
+def test_row_level_manual_research_buttons_stay_removed():
+    home_renderer = HOME_FUNDRAISING.read_text(encoding="utf-8")
+    fundraising_renderer = FUNDRAISING_RENDERER.read_text(encoding="utf-8")
+    home = HOME.read_text(encoding="utf-8")
+    fundraising = FUNDRAISING_PAGE.read_text(encoding="utf-8")
+
+    assert "data-research-copy" not in home_renderer
+    assert "data-prompt-type" not in home_renderer
+    assert "BolinResearchPrompt" not in home_renderer
+    assert "data-research-copy" not in fundraising_renderer
+    assert "data-prompt-type" not in fundraising_renderer
+    assert "BolinResearchPrompt" not in fundraising_renderer
+    assert "research-prompt.js" not in home
+    assert "research-prompt.js" not in fundraising
