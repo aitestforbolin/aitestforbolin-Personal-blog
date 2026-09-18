@@ -42,6 +42,8 @@ def test_skill_contains_core_safety_and_decision_contract():
         "new_live_no_token",
         "existing_token",
         "renamed_existing",
+        "confirmed live/tradable native token",
+        "If `token_status` is `token_live`, the final decision must be `STOP`",
     ):
         assert required in text
 
