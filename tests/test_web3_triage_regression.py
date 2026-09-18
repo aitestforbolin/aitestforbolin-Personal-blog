@@ -44,6 +44,13 @@ def test_skill_contains_core_safety_and_decision_contract():
         "renamed_existing",
         "confirmed live/tradable native token",
         "If `token_status` is `token_live`, the final decision must be `STOP`",
+        "data/crypto-fundraising-history.json",
+        "previous working day's 14:00",
+        "previous Friday's 14:00",
+        "event_id",
+        "今日新增融资项目",
+        "今日没有需要新增研究的融资项目",
+        "Do not guess, silently fall back to old rules",
     ):
         assert required in text
 

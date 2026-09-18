@@ -25,6 +25,28 @@ Important: `feed_is_new` means only that the financing item is newly seen in the
 
 If the feed provides `first_seen_at`, treat it the same way: it only means the event was first observed by our ingestion system, not that the underlying project was newly founded.
 
+## Scheduled execution data contract
+
+For the normal Daily Triage Scheduled Task, use the latest `main` branch of `aitestforbolin/aitestforbolin-Personal-blog`.
+
+Primary candidate source:
+
+- `data/crypto-fundraising-history.json`
+
+Supplemental visibility source:
+
+- `data/crypto-fundraising.json`, which only represents the current homepage's recent five items and must not be treated as the complete candidate set.
+
+Candidate window:
+
+- On Tuesday through Friday, include events whose `first_seen_at` is later than the previous working day's 14:00 in UTC+8.
+- On Monday, include events whose `first_seen_at` is later than the previous Friday's 14:00 in UTC+8.
+- `first_seen_at` is only an ingestion timestamp. Never use it as evidence that the project itself is new.
+- If a prior successful Daily Triage run can confirm that an `event_id` was already reported, exclude it to avoid duplicate research.
+- If prior-run deduplication history is unavailable, use the `first_seen_at` window as the fallback and state that deduplication is based on the time window.
+
+If the Skill itself or the required candidate data cannot be read, report the failure clearly and stop. Do not guess, silently fall back to old rules, or reconstruct the workflow from memory.
+
 ## Event filtering
 
 This skill is for financing-project triage. Exclude events explicitly labeled `M&A`, acquisition, or merger before project research, and do not count them as new financing projects. They are transaction events, not financing rounds for this workflow. Keep events with an unknown or missing round for verification rather than dropping them automatically.
@@ -147,11 +169,11 @@ Do not use feed freshness as project age. Set one of:
 
 Also record `token_status` separately as `no_token_found`, `token_announced`, `token_live`, or `unconfirmed`.
 
-## Required output
+## Per-project research record
 
-Return one JSON object per project. Do not wrap it in Markdown fences.
+Use the following structure as the internal research contract, and return it directly only when machine-readable output is explicitly requested. For the normal Daily Triage Scheduled Task, render the human-facing Chinese brief defined in the next section instead of exposing raw JSON.
 
-Required shape:
+Internal shape:
 
 {
   "project_name": "string",
@@ -195,6 +217,40 @@ Required shape:
     }
   ]
 }
+
+
+## Daily Triage scheduled output
+
+For the normal Scheduled Task, do not output raw JSON. Produce a concise Chinese daily brief designed to be read in 3–5 minutes.
+
+Start with:
+
+`今日新增融资项目：N 个`
+
+Then group results in this order:
+
+1. `现在值得行动`
+2. `值得观察`
+3. `跳过`
+
+For each ACTION and WATCH project, include:
+
+- 项目名
+- 融资：金额、轮次、领投；无法确认时明确写未确认
+- 项目是什么：用普通人能理解的中文解释
+- 简单机制：避免术语堆叠
+- 项目状态：新项目 / 已有项目 / 已发币 / 改名 / 不明确
+- 普通用户现在能做什么，以及是否需要真实资金
+- 近期 Points / Season / Testnet / Campaign / Token / Airdrop 等官方激励状态
+- 为什么是 ACTION 或 WATCH
+- ACTION 的最小可控建议动作，或 WATCH 的具体 recheck trigger
+- 官网和官方 X；无法可靠确认时明确写未确认
+
+For STOP projects, keep each item to 1–2 concise sentences with the core reason. A confirmed live/tradable native token should be mentioned as the decisive reason when applicable.
+
+If filtering leaves no new financing projects, output only:
+
+`今日没有需要新增研究的融资项目。`
 
 ## Output quality checks
 
