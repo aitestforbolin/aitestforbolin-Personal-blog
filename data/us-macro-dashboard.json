@@ -1,22 +1,22 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-09-18T00:00:00+08:00",
+  "generatedAt": "2026-09-18T10:19:01+08:00",
   "asOf": "2026-09-16",
   "title": "美国宏观核心数据",
   "summary": [
     {
       "id": "inflation",
       "label": "通胀",
-      "state": "等待最新发布",
-      "tone": "cooling",
-      "detail": "仅使用 Forex Factory 已发布值。"
+      "state": "压力偏高",
+      "tone": "weakening",
+      "detail": "核心CPI同比2.4%。"
     },
     {
       "id": "employment",
       "label": "就业",
-      "state": "等待最新发布",
-      "tone": "cooling",
-      "detail": "仅使用 Forex Factory 已发布值。"
+      "state": "保持韧性",
+      "tone": "expanding",
+      "detail": "非农+162k，失业率4.1%。"
     },
     {
       "id": "consumption",
@@ -28,9 +28,9 @@
     {
       "id": "activity",
       "label": "经济活动",
-      "state": "等待最新发布",
-      "tone": "cooling",
-      "detail": "仅使用 Forex Factory 已发布值。"
+      "state": "保持扩张",
+      "tone": "expanding",
+      "detail": "制造业ISM+54.6，服务业ISM+55.4，工业产出环比+0.2%。"
     }
   ],
   "groups": [
@@ -62,7 +62,7 @@
               "previous": "3.4%"
             }
           ],
-          "trend": "等待 Forex Factory 的已发布数据。"
+          "trend": "已写入最新一期；积累满3期后显示中期趋势。"
         },
         {
           "id": "core-cpi",
@@ -86,7 +86,7 @@
               "previous": "2.5%"
             }
           ],
-          "trend": "等待 Forex Factory 的已发布数据。"
+          "trend": "已写入最新一期；积累满3期后显示中期趋势。"
         },
         {
           "id": "ppi",
@@ -110,7 +110,7 @@
               "previous": null
             }
           ],
-          "trend": "等待 Forex Factory 的已发布数据。"
+          "trend": "已写入最新一期；积累满3期后显示中期趋势。"
         },
         {
           "id": "core-ppi",
@@ -134,7 +134,7 @@
               "previous": null
             }
           ],
-          "trend": "等待 Forex Factory 的已发布数据。"
+          "trend": "已写入最新一期；积累满3期后显示中期趋势。"
         },
         {
           "id": "core-pce",
@@ -158,7 +158,7 @@
               "previous": null
             }
           ],
-          "trend": "等待 Forex Factory 的已发布数据。"
+          "trend": "已写入最新一期；积累满3期后显示中期趋势。"
         }
       ]
     },
@@ -184,7 +184,7 @@
               "previous": "21K"
             }
           ],
-          "trend": "等待 Forex Factory 的已发布数据。"
+          "trend": "已写入最新一期；积累满3期后显示中期趋势。"
         },
         {
           "id": "unemployment",
@@ -202,7 +202,7 @@
               "previous": "4.1%"
             }
           ],
-          "trend": "等待 Forex Factory 的已发布数据。"
+          "trend": "已写入最新一期；积累满3期后显示中期趋势。"
         },
         {
           "id": "earnings",
@@ -226,7 +226,7 @@
               "previous": null
             }
           ],
-          "trend": "等待 Forex Factory 的已发布数据。"
+          "trend": "已写入最新一期；积累满3期后显示中期趋势。"
         }
       ]
     },
@@ -241,7 +241,7 @@
           "title": "Retail Sales",
           "period": null,
           "releaseDate": "2026-09-16",
-          "updatedAt": "2026-09-17T17:19:07+08:00",
+          "updatedAt": "2026-09-18T10:19:01+08:00",
           "source": "Forex Factory",
           "sourceUrl": "https://www.forexfactory.com/calendar?day=sep16.2026",
           "rows": [
@@ -259,7 +259,7 @@
           "title": "Core Retail Sales",
           "period": null,
           "releaseDate": "2026-09-16",
-          "updatedAt": "2026-09-17T17:19:07+08:00",
+          "updatedAt": "2026-09-18T10:19:01+08:00",
           "source": "Forex Factory",
           "sourceUrl": "https://www.forexfactory.com/calendar?day=sep16.2026",
           "rows": [
@@ -288,7 +288,7 @@
               "previous": "0.3%"
             }
           ],
-          "trend": "等待 Forex Factory 的已发布数据。"
+          "trend": "已写入最新一期；积累满3期后显示中期趋势。"
         }
       ]
     },
@@ -314,7 +314,7 @@
               "previous": "1.5%"
             }
           ],
-          "trend": "等待 Forex Factory 的已发布数据。"
+          "trend": "已写入最新一期；积累满3期后显示中期趋势。"
         },
         {
           "id": "ism-manufacturing",
@@ -332,7 +332,7 @@
               "previous": "55.6"
             }
           ],
-          "trend": "等待 Forex Factory 的已发布数据。"
+          "trend": "已写入最新一期；积累满3期后显示中期趋势。"
         },
         {
           "id": "ism-services",
@@ -350,7 +350,7 @@
               "previous": "54.1"
             }
           ],
-          "trend": "等待 Forex Factory 的已发布数据。"
+          "trend": "已写入最新一期；积累满3期后显示中期趋势。"
         },
         {
           "id": "industrial-production",
@@ -368,7 +368,7 @@
               "previous": "0.3%"
             }
           ],
-          "trend": "等待 Forex Factory 的已发布数据。"
+          "trend": "已写入最新一期；积累满3期后显示中期趋势。"
         }
       ]
     }
@@ -393,7 +393,7 @@
       "只写入 release_status=released 且 actual 非空的 Forex Factory 数据。",
       "没有当前已发布值的字段会等待下一次对应数据发布。"
     ],
-    "fetchedAt": "2026-09-18T00:00:00+08:00",
+    "fetchedAt": "2026-09-18T10:19:01+08:00",
     "source": "Forex Factory"
   }
 }

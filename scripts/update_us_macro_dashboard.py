@@ -244,6 +244,15 @@ def refresh_trends(dashboard: dict, history: dict) -> None:
             card["trend"] = trend_from_history(history, card["id"], primary["label"])
 
 
+def derived_state(dashboard: dict) -> str:
+    """Serialize fields calculated from cards/history, excluding run timestamps."""
+    payload = {
+        "summary": dashboard.get("summary", []),
+        "trends": {card["id"]: card.get("trend") for card in card_lookup(dashboard).values()},
+    }
+    return json.dumps(payload, ensure_ascii=False, sort_keys=True)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--calendar", type=Path, default=DEFAULT_CALENDAR)
@@ -258,11 +267,13 @@ def main() -> int:
     history = load_json(args.history, {"schemaVersion": "1.0", "observations": []})
     fetched_at = datetime.now(ZoneInfo("Asia/Shanghai")).replace(microsecond=0).isoformat()
     updates = sum(apply_released_event(dashboard, history, event, fetched_at) for event in sorted(calendar, key=lambda item: item.get("date", "")) if isinstance(event, dict))
-    if not updates and not migrated:
-        print("no new released Forex Factory macro values; dashboard unchanged")
-        return 0
+    before_derived_state = derived_state(dashboard)
     refresh_trends(dashboard, history)
     refresh_summary(dashboard)
+    derived_changed = derived_state(dashboard) != before_derived_state
+    if not updates and not migrated and not derived_changed:
+        print("no new released Forex Factory macro values; dashboard unchanged")
+        return 0
     dates = [card.get("releaseDate") for card in card_lookup(dashboard).values() if card.get("releaseDate")]
     dashboard["generatedAt"], dashboard["asOf"] = fetched_at, max(dates) if dates else None
     dashboard["dataQuality"]["fetchedAt"] = fetched_at

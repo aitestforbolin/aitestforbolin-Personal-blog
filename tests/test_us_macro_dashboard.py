@@ -150,6 +150,34 @@ class USMacroDashboardTests(unittest.TestCase):
         }
         self.assertIn("最近3期由0.1变为0.6", updater.trend_from_history(history, "retail-sales", "Retail Sales m/m"))
 
+    def test_historical_backfill_refreshes_summary_and_trends_without_new_calendar_events(self):
+        dashboard, history = updater.make_dashboard(), {"schemaVersion": "1.0", "observations": []}
+        events = [
+            ff_event("美国CPI / 核心CPI", [
+                ff_metric("CPI环比", "0.4%"), ff_metric("CPI同比", "3.4%"),
+                ff_metric("核心CPI环比", "0.3%"), ff_metric("核心CPI同比", "2.4%"),
+            ], "2026-09-11"),
+            ff_event("美国非农 / 失业率 / 平均时薪", [
+                ff_metric("非农", "162K", "75K", "103K"), ff_metric("失业率", "4.1%", "4.2%", "4.2%"),
+            ], "2026-09-04"),
+            ff_event("美国ISM制造业PMI", [ff_metric("ISM制造业PMI", "54.6", "55.2", "55.6")], "2026-09-01"),
+        ]
+        for event in events:
+            updater.apply_released_event(dashboard, history, event, "2026-09-18T00:00:00+08:00")
+
+        directory, dashboard, _, result = self.run_update([], dashboard, history)
+        try:
+            cards = self.cards(dashboard)
+            summary = {item["id"]: item for item in dashboard["summary"]}
+            self.assertIn("updated 0 dashboard rows", result.stdout)
+            self.assertEqual(summary["inflation"]["state"], "压力偏高")
+            self.assertEqual(summary["employment"]["state"], "保持韧性")
+            self.assertEqual(summary["activity"]["state"], "保持扩张")
+            self.assertEqual(cards["cpi"]["trend"], "已写入最新一期；积累满3期后显示中期趋势。")
+            self.assertEqual(cards["nfp"]["trend"], "已写入最新一期；积累满3期后显示中期趋势。")
+        finally:
+            directory.cleanup()
+
     def test_old_dashboard_is_migrated_to_forex_factory_only_schema(self):
         legacy = {"schemaVersion": "1.0", "groups": [], "summary": []}
         directory, dashboard, _, result = self.run_update([], dashboard=legacy)
