@@ -23,6 +23,12 @@ Treat feed metadata as a discovery hint, not as verified truth.
 
 Important: `feed_is_new` means only that the financing item is newly seen in the feed. It does **not** prove that the underlying project is new, unlaunched, untokenized, or not renamed.
 
+If the feed provides `first_seen_at`, treat it the same way: it only means the event was first observed by our ingestion system, not that the underlying project was newly founded.
+
+## Event filtering
+
+This skill is for financing-project triage. Exclude events explicitly labeled `M&A`, acquisition, or merger before project research, and do not count them as new financing projects. They are transaction events, not financing rounds for this workflow. Keep events with an unknown or missing round for verification rather than dropping them automatically.
+
 ## Core questions
 
 For each project, answer only what is necessary to decide whether it deserves the user's attention:
