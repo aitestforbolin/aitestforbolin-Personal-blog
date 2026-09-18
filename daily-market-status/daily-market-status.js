@@ -43,6 +43,11 @@
     ["防御板块", [["XLV", "XLV（健康医疗）"], ["XLU", "XLU（公共事业）"], ["XLP", "XLP（必需消费）"]]],
     ["宏观敏感板块", [["XLE", "XLE（能源）"], ["XLI", "XLI（工业）"], ["XLB", "XLB（材料）"], ["XLRE", "XLRE（房地产）"], ["XLF", "XLF（金融）"]]],
   ];
+  const sessionAssetIds = new Set([
+    ...indexConfig.map(([id]) => id),
+    ...sectorConfig.flatMap(([, items]) => items.map(([id]) => id)),
+  ]);
+  const MAX_SESSION_CHANGE_PERCENT = 25;
 
   let snapshot = null;
   let etfData = null;
@@ -159,9 +164,60 @@
     element.dataset.level = level || "fresh";
   }
 
+  function internallyConsistentMarketChange(item) {
+    const price = finiteNumber(item?.price);
+    const previousClose = finiteNumber(item?.previousClose);
+    const change = finiteNumber(item?.change);
+    const changePercent = finiteNumber(item?.changePercent);
+    if (
+      price === null || previousClose === null || change === null ||
+      changePercent === null || price <= 0 || previousClose <= 0 ||
+      Math.abs(changePercent) > MAX_SESSION_CHANGE_PERCENT
+    ) return false;
+    const expectedChange = price - previousClose;
+    const expectedPercent = (expectedChange / previousClose) * 100;
+    if (Math.abs(change - expectedChange) > Math.max(0.02, Math.abs(price) * 1e-9)) {
+      return false;
+    }
+    if (Math.abs(changePercent - expectedPercent) > 0.005) return false;
+    return change === 0 || changePercent === 0 || (change > 0) === (changePercent > 0);
+  }
+
+  function staticSessionChangeValid(item) {
+    return internallyConsistentMarketChange(item) &&
+      item?.comparisonBasis === "yahoo_daily_history" &&
+      item?.priceDate === snapshot?.asOf &&
+      typeof item?.previousCloseDate === "string" &&
+      item.previousCloseDate < item.priceDate;
+  }
+
+  function liveSessionChangeValid(item) {
+    const updatedAt = finiteNumber(item?.updatedAt);
+    return item?.status === "ok" &&
+      internallyConsistentMarketChange(item) &&
+      updatedAt !== null &&
+      marketClockParts(updatedAt).date === snapshot?.asOf;
+  }
+
+  function marketChangeLabel(item) {
+    return item?.__changeValidated ? formatPercent(item.changePercent) : "数据核验中";
+  }
+
+  function sessionChangesReady() {
+    return [...sessionAssetIds].every((id) => marketMap.get(id)?.__changeValidated);
+  }
+
   function fallbackMap() {
     return new Map(
-      (snapshot?.fallback?.markets || []).map((item) => [item.id, item])
+      (snapshot?.fallback?.markets || []).map((item) => [
+        item.id,
+        {
+          ...item,
+          __changeValidated: sessionAssetIds.has(item.id)
+            ? staticSessionChangeValid(item)
+            : true,
+        },
+      ])
     );
   }
 
@@ -170,7 +226,8 @@
     target.innerHTML = indexConfig
       .map(([id, label]) => {
         const item = marketMap.get(id);
-        return `<span class="pipe-item ${directionClass(item?.changePercent)}">${label} ${formatPercent(item?.changePercent)}</span>`;
+        const direction = item?.__changeValidated ? directionClass(item.changePercent) : "is-flat";
+        return `<span class="pipe-item ${direction}">${label} ${marketChangeLabel(item)}</span>`;
       })
       .join("");
   }
@@ -205,7 +262,8 @@
               ${items
                 .map(([id, label]) => {
                   const item = marketMap.get(id);
-                  return `<span class="pipe-item ${directionClass(item?.changePercent)}">${label} ${formatPercent(item?.changePercent)}</span>`;
+                  const direction = item?.__changeValidated ? directionClass(item.changePercent) : "is-flat";
+                  return `<span class="pipe-item ${direction}">${label} ${marketChangeLabel(item)}</span>`;
                 })
                 .join("")}
             </div>
@@ -1332,10 +1390,15 @@
     renderView();
     root.querySelector("[data-page-date]").textContent =
       `${formatDate(snapshot.asOf)}｜最新完成交易日`;
+    const ready = sessionChangesReady();
     const copyButton = root.querySelector("[data-copy-body]");
-    if (copyButton) copyButton.disabled = false;
+    if (copyButton) copyButton.disabled = !ready;
     const xButton = root.querySelector("[data-copy-x]");
-    if (xButton) xButton.disabled = false;
+    if (xButton) xButton.disabled = !ready;
+    if (!ready) {
+      setState("equities", "静态快照未通过上一交易日核验｜等待实时接口", "stale");
+      root.querySelector("[data-page-state]").textContent = "数据核验中";
+    }
   }
 
   async function loadStatic() {
@@ -1381,11 +1444,16 @@
           (item) =>
             item?.status === "ok" &&
             Number.isFinite(Number(item.price)) &&
+            (!sessionAssetIds.has(item.id) || liveSessionChangeValid(item)) &&
             (!treasuryIds.has(item.id) && !closeAnchorIds.has(item.id)
               ? true
               : trustedMacroSource(item.id, item))
         )
-        .forEach((item) => merged.set(item.id, { ...merged.get(item.id), ...item }));
+        .forEach((item) => merged.set(item.id, {
+          ...merged.get(item.id),
+          ...item,
+          __changeValidated: true,
+        }));
       marketMap = merged;
       if (Array.isArray(breadthResponse.data) && breadthResponse.data.length) {
         breadthData = breadthResponse.data;
@@ -1394,8 +1462,19 @@
       renderBreadth();
       renderSectors();
       renderMacro();
+      const ready = sessionChangesReady();
+      const copyButton = root.querySelector("[data-copy-body]");
+      if (copyButton) copyButton.disabled = !ready;
+      const xButton = root.querySelector("[data-copy-x]");
+      if (xButton) xButton.disabled = !ready;
       const liveCount = liveMarkets.filter((item) => item?.status === "ok").length;
-      setState("equities", `实时接口正常｜${liveCount} 项行情｜每 60 秒刷新`, "fresh");
+      setState(
+        "equities",
+        ready
+          ? `实时接口正常｜${liveCount} 项行情｜每 60 秒刷新`
+          : "实时接口返回不完整｜数据核验中",
+        ready ? "fresh" : "stale"
+      );
       const comparableCount = macroConfig.filter(([id]) => {
         const comparison = anchorComparison(id, marketMap.get(id));
         return comparison.previous !== null && comparison.anchor !== null;
@@ -1405,15 +1484,25 @@
         `双层口径正常｜${comparableCount}/${macroConfig.length} 项完成固定比较`,
         comparableCount === macroConfig.length ? "fresh" : "stale"
       );
-      root.querySelector("[data-page-state]").textContent = "实时数据已连接";
+      root.querySelector("[data-page-state]").textContent = ready
+        ? "实时数据已连接"
+        : "数据核验中";
       retryIndex = 0;
       scheduleRefresh(RETRY_DELAYS[0]);
     } catch (error) {
       const delay = RETRY_DELAYS[Math.min(retryIndex, RETRY_DELAYS.length - 1)];
       retryIndex += 1;
-      setState("equities", "实时接口暂不可用｜显示已核验快照", "stale");
+      setState(
+        "equities",
+        sessionChangesReady()
+          ? "实时接口暂不可用｜显示已核验快照"
+          : "实时接口暂不可用｜静态数据核验中",
+        "stale"
+      );
       setState("macro", "部分数据为已核验快照｜自动退避重试", "stale");
-      root.querySelector("[data-page-state]").textContent = "快照模式";
+      root.querySelector("[data-page-state]").textContent = sessionChangesReady()
+        ? "快照模式"
+        : "数据核验中";
       scheduleRefresh(delay);
     }
   }

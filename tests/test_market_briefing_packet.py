@@ -26,6 +26,19 @@ def asset(source="Yahoo Finance"):
 
 
 class MarketBriefingPacketTests(unittest.TestCase):
+    @staticmethod
+    def yahoo_daily_payload(rows, chart_previous_close=None):
+        return {
+            "chart": {"result": [{
+                "meta": {"chartPreviousClose": chart_previous_close},
+                "timestamp": [
+                    int(dt.datetime.fromisoformat(day + "T16:00:00-04:00").timestamp())
+                    for day, _ in rows
+                ],
+                "indicators": {"quote": [{"close": [value for _, value in rows]}]},
+            }]}
+        }
+
     def test_rows_from_supported_shapes(self):
         rows = [{"id": "SPX"}]
         self.assertEqual(MODULE.rows_from(rows, ("markets",)), rows)
@@ -43,6 +56,45 @@ class MarketBriefingPacketTests(unittest.TestCase):
             }),
             {"sourceRevision": "rev-1", "fetchedAt": 123},
         )
+
+    def test_2026_09_17_dow_uses_previous_actual_trading_day(self):
+        payload = self.yahoo_daily_payload(
+            [
+                ("2026-09-15", 52064.10),
+                ("2026-09-16", 51461.90),
+                ("2026-09-17", 51778.04),
+            ],
+            chart_previous_close=52064.10,
+        )
+        row = {"id": "DJI", "previousClose": 52064.10, "changePercent": -0.55}
+        self.assertTrue(MODULE.normalize_session_market(row, "2026-09-17", payload))
+        self.assertAlmostEqual(row["price"], 51778.04, places=2)
+        self.assertAlmostEqual(row["previousClose"], 51461.90, places=2)
+        self.assertAlmostEqual(row["change"], 316.14, places=2)
+        self.assertAlmostEqual(row["changePercent"], 0.6143, places=4)
+        self.assertEqual(row["priceDate"], "2026-09-17")
+        self.assertEqual(row["previousCloseDate"], "2026-09-16")
+        self.assertEqual(MODULE.session_change_issues(row, "2026-09-17"), [])
+
+    def test_all_index_and_sector_assets_have_daily_history_mappings(self):
+        self.assertEqual(
+            set(MODULE.SESSION_YAHOO_SYMBOLS),
+            MODULE.SESSION_MARKET_IDS,
+        )
+
+    def test_session_change_validation_rejects_inconsistent_values(self):
+        row = {
+            "id": "SPX",
+            "price": 101,
+            "previousClose": 100,
+            "change": -1,
+            "changePercent": 1,
+            "priceDate": "2026-09-17",
+            "previousCloseDate": "2026-09-16",
+        }
+        issues = MODULE.session_change_issues(row, "2026-09-17")
+        self.assertIn("SPX:change_mismatch", issues)
+        self.assertIn("SPX:direction_mismatch", issues)
 
     def test_market_api_requests_five_day_history(self):
         self.assertIn("range=5d", MODULE.MARKETS_URL)
@@ -403,8 +455,15 @@ class MarketBriefingPacketTests(unittest.TestCase):
             ],
         }
 
-        def fake_fetch(url):
-            return markets if url == MODULE.MARKETS_URL else breadth
+        def fake_fetch(url, attempts=3):
+            if url == MODULE.MARKETS_URL:
+                return markets
+            if url == MODULE.BREADTH_URL:
+                return breadth
+            return self.yahoo_daily_payload([
+                ("2026-08-24", 99.0),
+                ("2026-08-25", 100.0),
+            ])
 
         def fake_candidate(ticker):
             return {

@@ -61,6 +61,8 @@ jobs:
         run: |
           python -m unittest tests/test_market_briefing_packet.py -v
           python -m unittest tests/test_market_packet_trigger.py -v
+          python -m unittest tests/test_validate_x_snapshot.py -v
+          python -m unittest tests/test_daily_market_status_sectors.py -v
       - name: Build packet
         id: packet_build
         if: steps.packet_gate.outputs.build == 'true'

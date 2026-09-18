@@ -1,17 +1,32 @@
 import copy
 import unittest
 
-from scripts.validate_x_snapshot import SnapshotQualityError, validate_snapshot
+from scripts.validate_x_snapshot import (
+    REQUIRED_SESSION_MARKETS,
+    SnapshotQualityError,
+    validate_snapshot,
+)
 
 
 class XSnapshotQualityTests(unittest.TestCase):
     def complete_snapshot(self):
+        session_markets = [
+            {
+                "id": market_id,
+                "price": 101.0,
+                "previousClose": 100.0,
+                "change": 1.0,
+                "changePercent": 1.0,
+                "priceDate": "2026-09-17",
+                "previousCloseDate": "2026-09-16",
+                "comparisonBasis": "yahoo_daily_history",
+            }
+            for market_id in REQUIRED_SESSION_MARKETS
+        ]
         return {
+            "asOf": "2026-09-17",
             "fallback": {
-                "markets": [
-                    {"id": "SPX", "changePercent": 0.1},
-                    {"id": "IXIC", "changePercent": -0.2},
-                    {"id": "DJI", "changePercent": 0.3},
+                "markets": session_markets + [
                     {"id": "US02Y", "previousClose": 4.1, "price": 4.2},
                     {"id": "US10Y", "previousClose": 4.6, "price": 4.7},
                     {"id": "US30Y", "previousClose": 5.1, "price": 5.2},
@@ -61,6 +76,21 @@ class XSnapshotQualityTests(unittest.TestCase):
             }
         )
         with self.assertRaisesRegex(SnapshotQualityError, "SP500"):
+            validate_snapshot(snapshot)
+
+    def test_inconsistent_dow_change_is_blocked(self):
+        snapshot = self.complete_snapshot()
+        dow = next(row for row in snapshot["fallback"]["markets"] if row["id"] == "DJI")
+        dow["change"] = -1.0
+        dow["changePercent"] = -1.0
+        with self.assertRaisesRegex(SnapshotQualityError, "DJI"):
+            validate_snapshot(snapshot)
+
+    def test_missing_previous_close_provenance_is_blocked(self):
+        snapshot = self.complete_snapshot()
+        spx = next(row for row in snapshot["fallback"]["markets"] if row["id"] == "SPX")
+        spx.pop("previousCloseDate")
+        with self.assertRaisesRegex(SnapshotQualityError, "SPX"):
             validate_snapshot(snapshot)
 
     def test_partial_nasdaq_flat_count_is_allowed(self):

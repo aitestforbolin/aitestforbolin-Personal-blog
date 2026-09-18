@@ -19,6 +19,12 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SNAPSHOT = ROOT / "data" / "daily-market-status.json"
 REQUIRED_INDEXES = ("SPX", "IXIC", "DJI")
+REQUIRED_SESSION_MARKETS = (
+    "SPX", "IXIC", "DJI", "SOX",
+    "XLK", "XLY", "XLC", "XLV", "XLU", "XLP",
+    "XLE", "XLI", "XLB", "XLRE", "XLF",
+)
+MAX_SESSION_CHANGE_PERCENT = 25.0
 REQUIRED_BREADTH = ("SP500", "NASDAQ")
 REQUIRED_TREASURIES = ("US02Y", "US10Y", "US30Y")
 REQUIRED_COMPARABLE_MACRO_ANCHORS = ("DXY", "BRN1!", "BTCUSDT")
@@ -54,18 +60,56 @@ def require_numbers(errors: list[str], label: str, row: dict[str, Any], fields: 
         errors.append(f"{label}: missing numeric {', '.join(missing)}")
 
 
+def validate_market_change(
+    errors: list[str], market_id: str, row: dict[str, Any], snapshot_date: str | None
+) -> None:
+    """Require a plausible, reproducible previous-close comparison."""
+    fields = ("price", "previousClose", "change", "changePercent")
+    values = {field: finite_number(row.get(field)) for field in fields}
+    missing = [field for field, value in values.items() if value is None]
+    if missing:
+        errors.append(f"{market_id}: missing numeric {', '.join(missing)}")
+        return
+    price = float(values["price"])
+    previous = float(values["previousClose"])
+    change = float(values["change"])
+    percent = float(values["changePercent"])
+    if price <= 0 or previous <= 0:
+        errors.append(f"{market_id}: previousClose/price must be positive")
+        return
+    expected_change = price - previous
+    expected_percent = expected_change / previous * 100
+    if abs(change - expected_change) > max(0.02, abs(price) * 1e-9):
+        errors.append(f"{market_id}: change != price - previousClose")
+    if abs(percent - expected_percent) > 0.005:
+        errors.append(f"{market_id}: changePercent cannot be recomputed")
+    if change != 0 and percent != 0 and (change > 0) != (percent > 0):
+        errors.append(f"{market_id}: change direction mismatch")
+    if abs(percent) > MAX_SESSION_CHANGE_PERCENT:
+        errors.append(f"{market_id}: implausible previousClose comparison")
+    price_date = row.get("priceDate")
+    previous_date = row.get("previousCloseDate")
+    if price_date != snapshot_date:
+        errors.append(f"{market_id}: priceDate does not match snapshot")
+    if not isinstance(previous_date, str) or not isinstance(price_date, str) or previous_date >= price_date:
+        errors.append(f"{market_id}: previousCloseDate is not an earlier trading day")
+    if row.get("comparisonBasis") != "yahoo_daily_history":
+        errors.append(f"{market_id}: unverified previousClose basis")
+
+
 def validate_snapshot(snapshot: dict[str, Any]) -> None:
     errors: list[str] = []
     markets = keyed_rows(snapshot.get("fallback", {}).get("markets"))
     breadth = keyed_rows(snapshot.get("fallback", {}).get("breadth"))
     anchors = keyed_rows(snapshot.get("macroAnchors"))
+    snapshot_date = snapshot.get("asOf")
 
-    for market_id in REQUIRED_INDEXES:
+    for market_id in REQUIRED_SESSION_MARKETS:
         row = markets.get(market_id)
         if not row:
             errors.append(f"{market_id}: missing market row")
             continue
-        require_numbers(errors, market_id, row, ("changePercent",))
+        validate_market_change(errors, market_id, row, snapshot_date)
 
     for breadth_id in REQUIRED_BREADTH:
         row = breadth.get(breadth_id)

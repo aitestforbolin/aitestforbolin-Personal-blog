@@ -55,6 +55,15 @@ class DailyMarketStatusSectorTests(unittest.TestCase):
         self.assertIn('stored?.symbol === "GC=F"', script)
         self.assertIn('item.sourceSymbol === "GC=F"', script)
 
+    def test_unverified_static_session_changes_are_hidden_until_live_validation(self):
+        script = (
+            ROOT / "daily-market-status" / "daily-market-status.js"
+        ).read_text(encoding="utf-8")
+        self.assertIn('return item?.__changeValidated ? formatPercent(item.changePercent) : "数据核验中"', script)
+        self.assertIn("staticSessionChangeValid(item)", script)
+        self.assertIn("liveSessionChangeValid(item)", script)
+        self.assertIn("copyButton.disabled = !ready", script)
+
     def test_delayed_capture_schedule_is_disabled(self):
         workflow = (
             ROOT / ".github" / "workflows" / "capture-gold-close-backup.yml"
