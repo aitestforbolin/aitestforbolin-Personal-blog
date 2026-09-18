@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web3 Daily Triage | Bolin Brief</title>
+    <meta
+      name="description"
+      content="工作日 Web3 融资项目初筛：ACTION、WATCH 与 STOP。"
+    />
+    <link rel="stylesheet" href="../../styles.css?v=20260918-web3-triage-1" />
+    <link rel="stylesheet" href="../../editorial-refresh.css?v=20260918-web3-triage-1" />
+    <link rel="stylesheet" href="daily-triage.css?v=20260918-web3-triage-1" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../../" aria-label="返回 Bolin Brief 首页">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span class="brand-copy">
+          <strong>Bolin Brief</strong>
+          <small>Daily Intelligence</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Web3 Daily Triage 导航">
+        <a href="../../#web3">Web3</a>
+        <a href="../">融资追踪</a>
+        <a href="./" aria-current="page">Daily Triage</a>
+      </nav>
+    </header>
+
+    <main class="triage-page" data-triage-page>
+      <header class="triage-hero">
+        <p class="eyebrow">Web3 Research Desk · Daily Triage</p>
+        <h1>每日融资项目初筛</h1>
+        <p class="triage-intro">从最新融资事件中筛出现在值得行动、值得观察和可以跳过的项目。</p>
+        <div class="triage-meta">
+          <span data-triage-date>正在读取最新简报…</span>
+          <span class="triage-dot" aria-hidden="true"></span>
+          <span data-triage-window>正在核对候选窗口…</span>
+        </div>
+      </header>
+
+      <section class="triage-summary" aria-label="今日初筛摘要">
+        <div class="triage-summary-count">
+          <small>今日新增融资项目</small>
+          <strong data-triage-total>—</strong>
+        </div>
+        <div class="triage-summary-grid">
+          <div><small>ACTION</small><strong data-triage-action>—</strong><span>现在值得行动</span></div>
+          <div><small>WATCH</small><strong data-triage-watch>—</strong><span>值得继续观察</span></div>
+          <div><small>STOP</small><strong data-triage-stop>—</strong><span>当前无需跟踪</span></div>
+        </div>
+      </section>
+
+      <p class="triage-note" data-triage-note></p>
+
+      <section class="triage-section triage-section-action" data-section="ACTION">
+        <header>
+          <span class="triage-section-kicker">ACTION</span>
+          <h2>现在值得行动</h2>
+        </header>
+        <div class="triage-project-list" data-list="ACTION"></div>
+      </section>
+
+      <section class="triage-section triage-section-watch" data-section="WATCH">
+        <header>
+          <span class="triage-section-kicker">WATCH</span>
+          <h2>值得观察</h2>
+        </header>
+        <div class="triage-project-list" data-list="WATCH"></div>
+      </section>
+
+      <section class="triage-section triage-section-stop" data-section="STOP">
+        <header>
+          <span class="triage-section-kicker">STOP</span>
+          <h2>跳过</h2>
+        </header>
+        <div class="triage-project-list" data-list="STOP"></div>
+      </section>
+
+      <section class="triage-empty" data-triage-empty hidden>
+        今日没有需要新增研究的融资项目。
+      </section>
+
+      <section class="triage-error" data-triage-error hidden>
+        <strong>Daily Triage 暂时无法读取。</strong>
+        <span>上一份网站正文不会被自动删除，请稍后重试。</span>
+      </section>
+    </main>
+
+    <footer class="site-footer triage-footer">
+      <span>由 ChatGPT Scheduled Task 按 GitHub 最新 Skill 自动生成 · 仅作研究整理</span>
+      <a href="../">返回融资追踪</a>
+    </footer>
+
+    <script src="daily-triage.js?v=20260918-web3-triage-1"></script>
+  </body>
+</html>

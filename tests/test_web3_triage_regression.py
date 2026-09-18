@@ -51,6 +51,11 @@ def test_skill_contains_core_safety_and_decision_contract():
         "今日新增融资项目",
         "今日没有需要新增研究的融资项目",
         "Do not guess, silently fall back to old rules",
+        "data/web3-daily-triage.json",
+        "data/web3-daily-triage/archive/YYYY-MM-DD.json",
+        "reportedEventIds",
+        "one atomic GitHub commit",
+        "do not overwrite the last good",
     ):
         assert required in text
 

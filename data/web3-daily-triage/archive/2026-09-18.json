@@ -1,0 +1,329 @@
+{
+  "schemaVersion": 1,
+  "runDate": "2026-09-18",
+  "publishedAt": "2026-09-18T16:42:00+08:00",
+  "windowStart": "2026-09-17T14:00:00+08:00",
+  "windowEnd": "2026-09-18T14:00:00+08:00",
+  "sourceUpdatedAt": "2026-09-18T03:33:05+00:00",
+  "status": "success",
+  "deduplicationNote": "首次网站发布基线；候选按 first_seen_at 时间窗口确定，并排除 M&A / Acquisition / Merger。",
+  "reportedEventIds": [
+    "crypto-fundraising-ponygo--2026-09--round-unknown",
+    "crypto-fundraising-velocity--2026-09--series-a",
+    "crypto-fundraising-usd-ai-permian-labs--2026-09--round-unknown",
+    "crypto-fundraising-tare--2026-09--seed",
+    "crypto-fundraising-finloop--2026-09--series-a",
+    "crypto-fundraising-fin-com--2026-09--seed"
+  ],
+  "counts": {
+    "new": 6,
+    "action": 0,
+    "watch": 1,
+    "stop": 5
+  },
+  "projects": [
+    {
+      "event_id": "crypto-fundraising-ponygo--2026-09--round-unknown",
+      "source_detail_url": "https://crypto-fundraising.info/projects/ponygo/",
+      "project_name": "PonyGo",
+      "decision": "WATCH",
+      "financing": {
+        "amount_usd": null,
+        "round": null,
+        "lead_investors": [],
+        "announcement_date": "2026-09-18",
+        "confidence": "low"
+      },
+      "plain_explanation": "PonyGo 自称一站式 Web3 金融聚合平台，覆盖 AI 收益、RWA、Meme Launchpad 与 Crypto Travel 等多个方向。",
+      "mechanism_simple": "目前公开资料不足以确认完整产品形态。现阶段更像多产品入口的早期平台，需要等待官网、Docs 或实际产品进一步验证。",
+      "project_status": {
+        "category": "unclear",
+        "token_status": "unconfirmed",
+        "note": "尚未可靠确认原生代币已上线，也未确认完整产品状态。"
+      },
+      "participation": {
+        "available_now": false,
+        "what_user_can_do": null,
+        "requires_real_funds": false,
+        "friction_or_risk": "产品与官方入口证据不足，当前不建议连接钱包或投入资金。"
+      },
+      "incentives": {
+        "status": "unconfirmed",
+        "types": [],
+        "details": "截至本次核验，未确认可靠的官方 Points、Season、Testnet 或 Airdrop 活动。"
+      },
+      "why": [
+        "Pantera Capital 战略投资的说法目前缺少投资方官方侧的对应确认。",
+        "产品、Docs 与普通用户实际入口证据仍不足。",
+        "项目仍可能处于较早阶段，因此保留一次后续核验价值。"
+      ],
+      "next_step": null,
+      "recheck_trigger": "Pantera 官方确认投资，或 PonyGo 上线可验证官网、Docs、实际产品中的任意一项。",
+      "website_url": null,
+      "x_url": null,
+      "evidence": [
+        {
+          "claim": "融资事件来源页",
+          "url": "https://crypto-fundraising.info/projects/ponygo/",
+          "source_type": "database",
+          "confidence": "medium"
+        },
+        {
+          "claim": "独立核查指出投资方官方确认仍不足",
+          "url": "https://0xmakase.co.jp/ja/news/fundraising/2026-09-18-ponygo",
+          "source_type": "other",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-usd-ai-permian-labs--2026-09--round-unknown",
+      "source_detail_url": "https://crypto-fundraising.info/projects/usd-ai-permian-labs/",
+      "project_name": "USD.AI (Permian Labs)",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": 40000000,
+        "round": null,
+        "lead_investors": [],
+        "announcement_date": "2026-09-15",
+        "confidence": "high"
+      },
+      "plain_explanation": "USD.AI 用稳定币资金为 GPU 等 AI 基础设施资产提供融资。",
+      "mechanism_simple": "用户存入稳定币后，资金进入与 GPU 信贷相关的收益体系；协议通过借款利息等来源形成收益。",
+      "project_status": {
+        "category": "existing_token",
+        "token_status": "token_live",
+        "note": "原生治理代币 CHIP 已正式上线并可交易。"
+      },
+      "participation": {
+        "available_now": true,
+        "what_user_can_do": "可使用协议现有稳定币与收益产品。",
+        "requires_real_funds": true,
+        "friction_or_risk": "涉及真实资金、信贷和流动性风险。"
+      },
+      "incentives": {
+        "status": "confirmed",
+        "types": [
+          "token",
+          "season"
+        ],
+        "details": "项目已有 CHIP 代币及历史奖励体系。"
+      },
+      "why": [
+        "原生代币 CHIP 已确认上线并可交易，按当前 Skill 属于硬 STOP。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://usd.ai/",
+      "x_url": "https://x.com/USDai_Official",
+      "evidence": [
+        {
+          "claim": "CHIP 已上线",
+          "url": "https://usd.ai/insights/chip-is-live",
+          "source_type": "official_blog",
+          "confidence": "high"
+        },
+        {
+          "claim": "4000 万美元循环债务额度",
+          "url": "https://www.prnewswire.com/news-releases/usdai-secures-40m-stablecoin-based-revolving-debt-facility-from-k3-capital-302879442.html",
+          "source_type": "other",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-tare--2026-09--seed",
+      "source_detail_url": "https://crypto-fundraising.info/projects/tare/",
+      "project_name": "Tare",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": 13250000,
+        "round": "Seed",
+        "lead_investors": [
+          "Blockchain Capital"
+        ],
+        "announcement_date": "2026-09-16",
+        "confidence": "high"
+      },
+      "plain_explanation": "Tare 面向私人信贷市场，把贷款发起、服务、融资和投资流程放进可审计的软件与链上基础设施。",
+      "mechanism_simple": "核心是服务贷款发起方、资本提供者和机构投资者，而不是给普通散户提供直接产品。",
+      "project_status": {
+        "category": "new_live_no_token",
+        "token_status": "no_token_found",
+        "note": "未发现已上线原生代币，但产品定位主要面向机构信贷参与者。"
+      },
+      "participation": {
+        "available_now": false,
+        "what_user_can_do": null,
+        "requires_real_funds": false,
+        "friction_or_risk": "普通用户缺少有意义的当前参与入口。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "截至本次核验，未发现面向普通用户的官方积分、测试网或空投活动。"
+      },
+      "why": [
+        "融资和机构背书较强，但当前产品路径主要服务专业信贷参与者，普通用户没有值得投入注意力的早期入口。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://tare.ai/",
+      "x_url": null,
+      "evidence": [
+        {
+          "claim": "融资与产品定位",
+          "url": "https://www.prnewswire.com/news-releases/tare-raises-13-25-million-to-build-an-end-to-end-exchange-for-private-credit-302880497.html",
+          "source_type": "other",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-velocity--2026-09--series-a",
+      "source_detail_url": "https://crypto-fundraising.info/projects/velocity/",
+      "project_name": "Velocity",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": 10000000,
+        "round": "Series A extension",
+        "lead_investors": [],
+        "announcement_date": "2026-09-17",
+        "confidence": "high"
+      },
+      "plain_explanation": "Velocity 为企业和支付公司提供稳定币支付、结算、FX 与资金管理基础设施。",
+      "mechanism_simple": "它把稳定币与传统支付网络连接起来，主要让企业财务团队和金融机构完成跨境资金流转。",
+      "project_status": {
+        "category": "existing_no_token",
+        "token_status": "no_token_found",
+        "note": "已有实际业务，但不是普通用户导向的早期产品。"
+      },
+      "participation": {
+        "available_now": false,
+        "what_user_can_do": null,
+        "requires_real_funds": false,
+        "friction_or_risk": "普通用户没有直接参与路径。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "未发现普通用户可参与的官方激励。"
+      },
+      "why": [
+        "业务主要面向企业、支付公司与金融机构，融资事件没有产生普通用户早期参与机会。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://www.velocity.xyz/",
+      "x_url": null,
+      "evidence": [
+        {
+          "claim": "企业稳定币支付与资金管理定位",
+          "url": "https://www.velocity.xyz/",
+          "source_type": "official_site",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-finloop--2026-09--series-a",
+      "source_detail_url": "https://crypto-fundraising.info/projects/finloop/",
+      "project_name": "Finloop",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": 10000000,
+        "round": "Series A+",
+        "lead_investors": [],
+        "announcement_date": null,
+        "confidence": "medium"
+      },
+      "plain_explanation": "Finloop 是面向银行、券商、家族办公室等机构的财富科技与 RWA 平台。",
+      "mechanism_simple": "平台为机构提供资产发行、交易和财富管理相关技术与产品入口。",
+      "project_status": {
+        "category": "existing_no_token",
+        "token_status": "no_token_found",
+        "note": "成熟机构业务，不属于普通用户早期机会。"
+      },
+      "participation": {
+        "available_now": false,
+        "what_user_can_do": null,
+        "requires_real_funds": false,
+        "friction_or_risk": "部分产品面向专业投资者，普通用户参与价值低。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "未发现普通用户激励。"
+      },
+      "why": [
+        "核心客户是金融机构与专业投资者，当前融资不构成普通用户可参与机会。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://www.finlooprwa.com/",
+      "x_url": null,
+      "evidence": [
+        {
+          "claim": "机构财富科技与 RWA 定位",
+          "url": "https://www.finlooprwa.com/about",
+          "source_type": "official_site",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-fin-com--2026-09--seed",
+      "source_detail_url": "https://crypto-fundraising.info/projects/fin-com/",
+      "project_name": "Fin.com",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": 20000000,
+        "round": "Seed",
+        "lead_investors": [
+          "Expa"
+        ],
+        "announcement_date": "2026-09-15",
+        "confidence": "high"
+      },
+      "plain_explanation": "Fin.com 为企业和金融科技公司提供稳定币与本地银行网络结合的跨境支付基础设施。",
+      "mechanism_simple": "企业通过 API 完成收款、换汇、资金持有和跨境 payout，属于 B2B 支付基础设施。",
+      "project_status": {
+        "category": "existing_no_token",
+        "token_status": "no_token_found",
+        "note": "虽近期走出隐身模式，但已有团队和实际业务，不是面向散户的新应用。"
+      },
+      "participation": {
+        "available_now": false,
+        "what_user_can_do": null,
+        "requires_real_funds": false,
+        "friction_or_risk": "没有普通用户值得执行的参与路径。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "未发现面向普通用户的官方激励。"
+      },
+      "why": [
+        "主要服务 Fintech、支付公司和企业，融资事件没有转化成普通用户早期机会。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://www.fin.com/",
+      "x_url": null,
+      "evidence": [
+        {
+          "claim": "2000 万美元 Seed 与业务定位",
+          "url": "https://www.prnewswire.com/news-releases/fincom-emerges-from-stealth-with-20m-from-expa-and-coinbase-ventures-powering-customers-that-serve-825-million-users-302878719.html",
+          "source_type": "other",
+          "confidence": "high"
+        },
+        {
+          "claim": "企业跨境支付产品",
+          "url": "https://www.fin.com/",
+          "source_type": "official_site",
+          "confidence": "high"
+        }
+      ]
+    }
+  ]
+}

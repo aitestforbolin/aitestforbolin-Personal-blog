@@ -252,6 +252,45 @@ If filtering leaves no new financing projects, output only:
 
 `今日没有需要新增研究的融资项目。`
 
+## Website publication contract
+
+For the normal Scheduled Task, a successful Daily Triage is also a website publication.
+
+Read the existing current publication when available:
+
+- `data/web3-daily-triage.json`
+
+Successful publication writes:
+
+- current: `data/web3-daily-triage.json`
+- immutable archive: `data/web3-daily-triage/archive/YYYY-MM-DD.json`
+
+All GitHub reads and writes must use the GitHub Connector. Never use local Git, shell Git, CLI, or another remote write path.
+
+The website payload uses `schemaVersion = 1` and must contain at minimum:
+
+- `runDate`: Scheduled Task calendar date in UTC+8;
+- `publishedAt`: ISO timestamp with `+08:00`;
+- `windowStart` and `windowEnd`: the candidate window actually used;
+- `sourceUpdatedAt`: timestamp from the fundraising-history input when available;
+- `status = "success"`;
+- `deduplicationNote`: concise description of the dedup basis;
+- `reportedEventIds`: cumulative event ids already successfully reported, carrying forward prior ids and appending the current run's researched non-M&A events;
+- `counts`: `new`, `action`, `watch`, and `stop`;
+- `projects`: the per-project research records for this run, including `event_id` and `source_detail_url`.
+
+Use `reportedEventIds` from the latest successful website payload as the preferred persistent deduplication history. If it is unavailable, fall back to the time-window rule already defined above.
+
+Publish a valid daily payload even when there are zero new projects: `counts.new = 0` and `projects = []`. This lets the website show that the scheduled run completed successfully rather than leaving yesterday's report looking current.
+
+Before publishing, check whether `data/web3-daily-triage/archive/YYYY-MM-DD.json` already exists. Never overwrite an existing archive. If today's archive already exists, treat the run as already published and do not create a second daily publication.
+
+When a new daily publication is ready, write the current payload and its byte-identical archive in one atomic GitHub commit using Git Data operations. Confirm the commit succeeds before claiming that the website was updated.
+
+If research, generation, validation, or the GitHub commit fails, do not overwrite the last good `data/web3-daily-triage.json`. Report the failure in ChatGPT with the specific stage and reason.
+
+After successful publication, keep the human-facing ChatGPT result concise: state that the Web3 Daily Triage was published successfully and direct the user to `/fundraising/daily-triage/`. Do not duplicate the full report in ChatGPT unless the user explicitly asks for it. The research content and classification must still follow this Skill exactly.
+
 ## Output quality checks
 
 Before finalizing:
