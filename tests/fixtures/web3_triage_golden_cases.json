@@ -1,0 +1,213 @@
+{
+  "version": "0.1",
+  "purpose": "Regression cases distilled from the user's historical Web3 project research. Expected decisions reflect the user's actual action at the time, not hindsight returns.",
+  "cases": [
+    {
+      "id": "brix",
+      "project_name": "Brix",
+      "expected_decision": "ACTION",
+      "input_snapshot": {
+        "signals": [
+          "Raised $5.5M and launched a MegaETH mainnet Epoch 1 deposit activity shortly after financing.",
+          "Mafia/MegaETH ecosystem project with a plausible ecosystem-reward angle.",
+          "Product tokenizes Turkish money-market-fund exposure; headline yield is high but TRY depreciation risk is material.",
+          "No confirmed native points/airdrop program at the time."
+        ],
+        "participation": "Ordinary users could deposit on mainnet with real funds; user intended a small end-to-end test rather than a large allocation."
+      },
+      "expected_basis": [
+        "Concrete early participation window existed.",
+        "Potential MegaETH ecosystem reward created asymmetric optionality.",
+        "Action could be tested with small capital despite product-level currency risk."
+      ],
+      "anti_patterns": [
+        "Do not classify ACTION because of the 45%+ headline APY alone."
+      ]
+    },
+    {
+      "id": "robin-markets",
+      "project_name": "Robin Markets",
+      "expected_decision": "WATCH",
+      "input_snapshot": {
+        "signals": [
+          "Angel financing led by Fabric Ventures.",
+          "Built around Polymarket positions and lets matched YES/NO inventory earn DeFi yield.",
+          "Only about $90k TVL and roughly 30 active staking addresses in the research snapshot.",
+          "A points system existed, but points mainly boosted yield and were not a credible token/airdrop signal.",
+          "Base APY around 4% was not compelling relative to protocol risk."
+        ],
+        "participation": "Users could stake positions, but the reward/risk trade-off was weak."
+      },
+      "expected_basis": [
+        "Interesting prediction-market adjacency, but weak live data.",
+        "Incentives were not attractive enough.",
+        "Current yield did not justify multi-protocol DeFi risk."
+      ],
+      "recheck_trigger": "Material growth in TVL/users or a substantially stronger official incentive program."
+    },
+    {
+      "id": "saturn",
+      "project_name": "Saturn",
+      "expected_decision": "WATCH",
+      "input_snapshot": {
+        "signals": [
+          "Raised $0.8M led by YZi Labs and later a $2M seed led by Spartan Group.",
+          "Season 1 explicitly allocated 5% of governance tokens to participants and did not require KYC for claiming.",
+          "Product routes stablecoin deposits into STRC exposure to earn Strategy preferred-share dividends.",
+          "Opportunity was heavily promoted by KOLs and expected returns were capped rather than highly asymmetric.",
+          "Meaningful returns required capital that competed with higher-upside opportunities."
+        ],
+        "participation": "Curve LP / deposit participation was possible, but user chose to postpone."
+      },
+      "expected_basis": [
+        "The product and incentive were real, so it was not a STOP.",
+        "Crowded promotion reduced early-opportunity quality.",
+        "Capital efficiency was inferior to higher-upside alternatives for the user."
+      ],
+      "recheck_trigger": "A materially better reward/capital-efficiency setup or a less crowded new participation phase."
+    },
+    {
+      "id": "noise",
+      "project_name": "Noise",
+      "expected_decision": "ACTION",
+      "input_snapshot": {
+        "signals": [
+          "AttentionFi thesis could become a new narrative.",
+          "The main risk was opaque/index-provider discretion over attention scores.",
+          "User could participate while capping expected spend/slippage below about $100 and engage in the community."
+        ],
+        "participation": "Low-budget experimentation plus community contribution was available."
+      },
+      "expected_basis": [
+        "Early narrative exposure with bounded downside.",
+        "Participation cost could be explicitly capped.",
+        "The user planned active product/community testing rather than passive speculation."
+      ]
+    },
+    {
+      "id": "surf-ai",
+      "project_name": "Surf AI",
+      "expected_decision": "ACTION",
+      "input_snapshot": {
+        "signals": [
+          "Crypto AI research/workflow product with Deep Research, Studio and agent tooling.",
+          "Research concluded that Surf did not have clear category-leading PMF or moat.",
+          "Token/TGE expectation was downgraded because of the close relationship with already-tokenized Cyber.",
+          "The user had an immediate real workflow need: combining crypto research with AI agents and no-code experiments."
+        ],
+        "participation": "A one-month Pro subscription could directly test whether the product improved the user's research workflow."
+      },
+      "expected_basis": [
+        "Real personal utility outweighed weak token expectations.",
+        "A one-month subscription was a controlled product-validation experiment.",
+        "ACTION was for usage, not for farming an assumed airdrop."
+      ],
+      "anti_patterns": [
+        "Do not require a token or airdrop thesis for ACTION when the product has immediate utility."
+      ]
+    },
+    {
+      "id": "tradexyz",
+      "project_name": "TradeXYZ",
+      "expected_decision": "ACTION",
+      "input_snapshot": {
+        "signals": [
+          "Hyperliquid venue for 24/7 traditional-asset perps including equities, commodities and pre-IPO exposure.",
+          "Research viewed the project as high quality but too large/crowded for a small retail user to expect outsized farming returns.",
+          "The user had a concrete use case: hedge xStocks exposure and maintain Hyperliquid trader activity."
+        ],
+        "participation": "User planned about $1,500 and daily monitoring of funding/positions."
+      },
+      "expected_basis": [
+        "Concrete hedging utility existed independent of token speculation.",
+        "Large-scale/crowded participation reduced airdrop asymmetry but did not remove product usefulness.",
+        "Action had a defined purpose and stop condition."
+      ],
+      "anti_patterns": [
+        "Do not downgrade to WATCH solely because the airdrop opportunity is not highly asymmetric."
+      ]
+    },
+    {
+      "id": "aeon",
+      "project_name": "AEON",
+      "expected_decision": "STOP",
+      "input_snapshot": {
+        "signals": [
+          "Raised $8M with YZi Labs involvement.",
+          "Crypto payment gateway serving merchants, wallets, exchanges, super apps and AI-agent applications.",
+          "The research found that meaningful participation was mainly for builders/merchants rather than ordinary users.",
+          "Timeline showed heavy marketing/giveaway activity, which weakened confidence in the opportunity."
+        ],
+        "participation": "No meaningful ordinary-user participation path justified further tracking."
+      },
+      "expected_basis": [
+        "Strong investor signal did not create a user opportunity.",
+        "Core audience was not the user's participation profile.",
+        "No relevant participation path meant further attention was not justified."
+      ],
+      "anti_patterns": [
+        "Do not classify ACTION or WATCH merely because YZi Labs invested."
+      ]
+    },
+    {
+      "id": "cycles",
+      "project_name": "Cycles",
+      "expected_decision": "WATCH",
+      "input_snapshot": {
+        "signals": [
+          "Raised about $8.7M in a payment/privacy/institutional-clearing direction.",
+          "Core product is an open clearing/netting network; retail-facing Cycle Pay existed but was secondary.",
+          "A points program existed, but deposits were then limited to Neutron and the user did not see strong retail value in DeFi stablecoin yield alone.",
+          "Base integration and a future fiat-bank-account product could materially improve the user path."
+        ],
+        "participation": "Possible but not compelling at the time."
+      },
+      "expected_basis": [
+        "Project was early and worth retaining.",
+        "Current retail path was weak.",
+        "Specific future integrations could change the decision."
+      ],
+      "recheck_trigger": "Base deposit integration or launch of the fiat bank account product."
+    },
+    {
+      "id": "hylo",
+      "project_name": "Hylo",
+      "expected_decision": "WATCH",
+      "input_snapshot": {
+        "signals": [
+          "High-yield stablecoin plus leveraged SOL/xAssets system with an active points program.",
+          "Mechanism was complex and depended on sustained demand for leveraged xAssets.",
+          "The user questioned whether the project solved a large enough real problem.",
+          "Current participation window was late and V2/xBTC were the next meaningful product milestones."
+        ],
+        "participation": "User chose to track for learning/research rather than participate with capital."
+      },
+      "expected_basis": [
+        "Mechanism was worth following but PMF remained uncertain.",
+        "Current timing and market regime were not attractive.",
+        "V2 and xBTC were concrete future decision points."
+      ],
+      "recheck_trigger": "V2 mainnet launch and introduction of xBTC or other new xAssets."
+    },
+    {
+      "id": "otomato",
+      "project_name": "Otomato",
+      "expected_decision": "ACTION",
+      "input_snapshot": {
+        "signals": [
+          "Raised $2M and had about 3,000+ users in the research snapshot.",
+          "Read-only DeFi portfolio monitoring and alerting product covering liquidation risk, yield changes, security events, protocol news and other position-aware signals.",
+          "Main weaknesses were protocol coverage and alert timeliness.",
+          "Participation was nearly free: install the app and add a wallet address without signing or custody.",
+          "The product directly addressed the user's need to reduce manual monitoring burden; token optionality was secondary."
+        ],
+        "participation": "Install app, register wallet addresses and test alert quality."
+      },
+      "expected_basis": [
+        "Clear real-world utility for an active DeFi user.",
+        "Very low-friction, low-capital product test.",
+        "Potential token upside was additive, not the core thesis."
+      ]
+    }
+  ]
+}
