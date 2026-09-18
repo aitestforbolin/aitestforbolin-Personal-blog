@@ -1,0 +1,120 @@
+.x-intelligence-home {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.62fr) minmax(0, 1.38fr);
+  gap: clamp(28px, 5vw, 64px);
+}
+
+.x-intelligence-home-head {
+  padding-bottom: 17px;
+  border-bottom: 1px solid rgba(24, 25, 22, 0.16);
+}
+
+.x-intelligence-home-head h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.45rem);
+  line-height: 1.14;
+}
+
+.x-intelligence-home-head p:last-child {
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.x-intelligence-home-panel {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(251, 250, 246, 0.94);
+  padding: 18px;
+}
+
+.x-intelligence-home-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.x-intelligence-home-overview {
+  margin: 16px 0;
+  color: var(--ink);
+  line-height: 1.72;
+}
+
+.x-intelligence-home-list {
+  display: grid;
+}
+
+.x-intelligence-home-item {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 14px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+
+.x-intelligence-home-rank {
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+.x-intelligence-home-item h4 {
+  margin: 0 0 6px;
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+
+.x-intelligence-home-item h4 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.x-intelligence-home-item h4 a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.x-intelligence-home-item p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.62;
+}
+
+.x-intelligence-home-item small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+.x-intelligence-home-footer {
+  margin-top: 8px;
+  padding-top: 15px;
+  border-top: 1px solid var(--line);
+}
+
+.x-intelligence-home-footer a {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.x-intelligence-home-empty {
+  margin: 18px 0 4px;
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .x-intelligence-home {
+    grid-template-columns: 1fr;
+  }
+
+  .x-intelligence-home-meta {
+    display: grid;
+  }
+}
