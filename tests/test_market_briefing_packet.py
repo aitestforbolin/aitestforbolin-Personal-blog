@@ -99,6 +99,35 @@ class MarketBriefingPacketTests(unittest.TestCase):
     def test_market_api_requests_five_day_history(self):
         self.assertIn("range=5d", MODULE.MARKETS_URL)
 
+    def test_fedwatch_rolls_to_next_meeting_after_fomc_ends(self):
+        target = MODULE.build_fedwatch_target(
+            dt.datetime.fromisoformat("2026-09-18T10:00:00+08:00")
+        )
+        self.assertEqual(target["meetingStartDate"], "2026-10-27")
+        self.assertEqual(target["meetingEndDate"], "2026-10-28T14:00:00-04:00")
+        self.assertEqual(target["probabilities"], {})
+
+    def test_fedwatch_keeps_current_meeting_before_it_ends(self):
+        target = MODULE.build_fedwatch_target(
+            dt.datetime.fromisoformat("2026-09-16T13:59:00-04:00")
+        )
+        self.assertEqual(target["meetingStartDate"], "2026-09-15")
+
+    def test_fedwatch_rolls_across_december_to_next_year(self):
+        target = MODULE.build_fedwatch_target(
+            dt.datetime.fromisoformat("2026-12-09T14:01:00-05:00")
+        )
+        self.assertEqual(target["meetingStartDate"], "2027-01-26")
+
+    def test_stale_fedwatch_is_never_publishable(self):
+        stale = {
+            "status": "available", "meetingEndDate": "2026-09-16T14:00:00-04:00",
+            "probabilities": {"hike25": {"current": 100}},
+        }
+        self.assertTrue(MODULE.build_fedwatch_target)
+        from scripts.fomc import fedwatch_is_publishable
+        self.assertFalse(fedwatch_is_publishable(stale, dt.datetime(2026, 9, 18, tzinfo=dt.timezone.utc)))
+
     def test_safe_error_details_preserve_http_status_and_retries(self):
         failure = MODULE.FetchFailure(
             category="http",
