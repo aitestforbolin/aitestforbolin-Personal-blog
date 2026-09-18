@@ -65,6 +65,13 @@ class MacroBriefTests(unittest.TestCase):
         self.assertIn("非盘中", payload["market"]["treasuries"][0]["note"])
         self.assertIn("预期 0.8%", payload["copyText"])
 
+    def test_stale_fedwatch_is_not_reused_in_macro_brief(self):
+        daily = {"fedProbability": {
+            "status": "available", "meetingEndDate": "2026-09-16T14:00:00-04:00",
+            "probabilities": {"hike25": {"current": 100}},
+        }}
+        self.assertEqual(brief.fed_snapshot(daily)["status"], "unavailable")
+
     def test_capture_at_55_minutes_waits_without_generating(self):
         plan = self.plan_minutes_before(self.fomc, 55)
         self.assertEqual(plan["action"], "wait")
