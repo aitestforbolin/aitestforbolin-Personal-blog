@@ -60,7 +60,7 @@
       <div class="us-macro-row">
         <span class="us-macro-row-label">${escapeHtml(row.label)}</span>
         <span class="us-macro-actual ${actualMovementClass(row.actual, row.previous)}">${displayValue(row.actual)}</span>
-        <span>${displayValue(row.consensus)}</span>
+        <span>${displayValue(row.forecast ?? row.consensus)}</span>
         <span>${displayValue(row.previous)}</span>
       </div>
     `).join("");
