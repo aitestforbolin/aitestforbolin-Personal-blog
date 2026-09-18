@@ -17,7 +17,7 @@
 }
 
 
-.x-intelligence-home-head p:last-child {
+.x-intelligence-home-head p:not(.eyebrow) {
   color: var(--muted);
   line-height: 1.72;
 }
