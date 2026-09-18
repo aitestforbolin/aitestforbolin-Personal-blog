@@ -139,6 +139,17 @@ class USMacroDashboardTests(unittest.TestCase):
         finally:
             directory.cleanup()
 
+    def test_trends_ignore_non_forex_factory_history(self):
+        history = {
+            "observations": [
+                {"cardId": "retail-sales", "rowLabel": "Retail Sales m/m", "releaseDate": "2026-07-15", "actual": "9.9%", "source": "BLS"},
+                {"cardId": "retail-sales", "rowLabel": "Retail Sales m/m", "releaseDate": "2026-07-15", "actual": "0.1%", "source": "Forex Factory"},
+                {"cardId": "retail-sales", "rowLabel": "Retail Sales m/m", "releaseDate": "2026-08-14", "actual": "0.3%", "source": "Forex Factory"},
+                {"cardId": "retail-sales", "rowLabel": "Retail Sales m/m", "releaseDate": "2026-09-16", "actual": "0.6%", "source": "Forex Factory"},
+            ]
+        }
+        self.assertIn("最近3期由0.1变为0.6", updater.trend_from_history(history, "retail-sales", "Retail Sales m/m"))
+
     def test_old_dashboard_is_migrated_to_forex_factory_only_schema(self):
         legacy = {"schemaVersion": "1.0", "groups": [], "summary": []}
         directory, dashboard, _, result = self.run_update([], dashboard=legacy)
