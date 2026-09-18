@@ -1,0 +1,86 @@
+name: Update X intelligence input
+
+on:
+  schedule:
+    # Mon-Fri 12:35 Asia/Shanghai = 04:35 UTC.
+    - cron: "35 4 * * 1-5"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/update-x-intelligence-input.yml
+      - scripts/update_x_intelligence_input.py
+      - data/x-intelligence-sources.json
+
+permissions:
+  contents: write
+
+concurrency:
+  group: x-intelligence-input
+  cancel-in-progress: false
+
+jobs:
+  update-x-intelligence-input:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install collector dependency
+        run: pip install requests
+
+      - name: Validate collector
+        run: python -m py_compile scripts/update_x_intelligence_input.py
+
+      - name: Fetch X Lists
+        env:
+          SOCIALDATA_API_KEY: ${{ secrets.SOCIALDATA_API_KEY }}
+          X_INTELLIGENCE_MAX_COST_USD: "0.10"
+          X_INTELLIGENCE_WINDOW_HOURS: "24"
+          X_INTELLIGENCE_MAX_PAGES: "10"
+        run: python scripts/update_x_intelligence_input.py
+
+      - name: Validate canonical input JSON
+        run: |
+          python -m json.tool data/x-intelligence-input.json >/dev/null
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          payload = json.loads(Path("data/x-intelligence-input.json").read_text())
+          assert payload["schemaVersion"] == 1
+          assert payload["listsRequested"] == 4
+          assert payload["listsCompleted"] == 4
+          assert payload["stoppedForBudget"] is False
+          assert payload["stats"]["uniqueTweetsInWindow"] == len(payload["posts"])
+          print("validated", len(payload["posts"]), "posts")
+          PY
+
+      - name: Commit refreshed X intelligence input
+        run: |
+          if git diff --quiet -- data/x-intelligence-input.json; then
+            echo "X intelligence input is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/x-intelligence-input.json
+          git commit -m "Update X intelligence input"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if git rebase origin/main && git push origin HEAD:main; then
+              exit 0
+            fi
+            git rebase --abort || true
+            sleep $((attempt * 5))
+          done
+          echo "::error::Could not push X intelligence input after 3 attempts."
+          exit 1
