@@ -12,8 +12,14 @@ import argparse
 import json
 import math
 import sys
+import datetime as dt
 from pathlib import Path
 from typing import Any
+
+try:
+    from fomc import fedwatch_is_publishable
+except ModuleNotFoundError:
+    from scripts.fomc import fedwatch_is_publishable
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -152,8 +158,8 @@ def validate_snapshot(snapshot: dict[str, Any]) -> None:
     fed = snapshot.get("fedProbability")
     if not isinstance(fed, dict):
         errors.append("fedProbability: missing object")
-    else:
-        require_numbers(errors, "fedProbability", fed, ("previous", "current"))
+    elif fed.get("status") == "available" and not fedwatch_is_publishable(fed, dt.datetime.now(dt.timezone.utc)):
+        errors.append("fedProbability: stale or invalid meeting")
 
     if not snapshot.get("view"):
         errors.append("view: empty")

@@ -157,6 +157,25 @@
     });
   }
 
+  function verifiedFedProbability(fed) {
+    const meetingEnd = Date.parse(fed?.meetingEndDate || "");
+    if (fed?.status !== "available" || !Number.isFinite(meetingEnd) || meetingEnd < Date.now()) {
+      return null;
+    }
+    return Object.values(fed.probabilities || {}).find((item) =>
+      item && Number.isFinite(Number(item.current))
+    ) || null;
+  }
+
+  function fedProbabilityLine(fed, compact) {
+    const probability = verifiedFedProbability(fed);
+    if (!probability) return compact ? "下一次FOMC概率 数据核验中" : "下一次 FOMC 概率：数据核验中";
+    const label = compact ? "下一次FOMC概率" : `${fed.meetingLabel || "下一次 FOMC"} ${probability.label || "概率"}`;
+    return directionIcon(probability.previous, probability.current) + " " + label + "：" +
+      formatNumber(probability.previous, 1) + (probability.unit || "%") + " → " +
+      formatNumber(probability.current, 1) + (probability.unit || "%");
+  }
+
   function setState(name, text, level) {
     const element = root.querySelector(`[data-state="${name}"]`);
     if (!element) return;
@@ -770,14 +789,7 @@
 
     const fed = snapshot.fedProbability || {};
     lines.push(
-      "• " +
-        directionIcon(fed.previous, fed.current) +
-        " 美联储加息可能性：" +
-        formatNumber(fed.previous, 1) +
-        (finiteNumber(fed.previous) === null ? "" : fed.unit || "") +
-        " → " +
-        formatNumber(fed.current, 1) +
-        (finiteNumber(fed.current) === null ? "" : fed.unit || ""),
+      "• " + fedProbabilityLine(fed, false),
       "• " + documentAssetLine("原油", comparisons.get("BRN1!"), 2, ""),
       "• " + goldAssetLine(comparisons.get("GOLD"), false),
       "• " + documentAssetLine("BTC", comparisons.get("BTCUSDT"), 0, "")
@@ -978,9 +990,7 @@
       compactXAssetLine("美债2Y", comparisons.get("US02Y"), 3, "%"),
       compactXAssetLine("美债10Y", comparisons.get("US10Y"), 3, "%"),
       compactXAssetLine("美债30Y", comparisons.get("US30Y"), 3, "%"),
-      directionIcon(fed.previous, fed.current) + "加息概率 " +
-        formatNumber(fed.previous, 1) + (fed.unit || "") + "→" +
-        formatNumber(fed.current, 1) + (fed.unit || ""),
+      fedProbabilityLine(fed, true),
       compactXAssetLine("Brent", comparisons.get("BRN1!"), 2, ""),
       goldAssetLine(comparisons.get("GOLD"), true),
       compactXAssetLine("BTC", comparisons.get("BTCUSDT"), 0, ""),
@@ -1300,18 +1310,18 @@
       ? `<strong>日度锚点 ${escapeHtml(formatMarketAnchor(latestAnchor))}</strong><span>实时截至 ${escapeHtml(formatClock(latestQuote))} 北京</span><span>${fixedCount}/${comparisons.length} 项完成固定比较</span>`
       : "正在建立美股收盘锚点…";
 
-    const fed = snapshot.fedProbability;
+    const fed = snapshot.fedProbability || {};
+    const fedProbability = verifiedFedProbability(fed);
     rows.splice(
       7,
       0,
-      fixedSnapshotRow(
-        fed.label,
-        fed.previous,
-        fed.current,
-        fed.unit,
-        fed.source,
-        `上次 ${fed.previousAsOf}｜本次 ${fed.currentAsOf}`
-      )
+      fedProbability
+        ? fixedSnapshotRow(
+          `${fed.meetingLabel || "下一次 FOMC"} ${fedProbability.label || "概率"}`,
+          fedProbability.previous, fedProbability.current, fedProbability.unit || "%", fed.source,
+          `核验于 ${fed.checkedAt || "时间待核验"}`
+        )
+        : fixedSnapshotRow("下一次 FOMC 概率", null, null, "", fed.source || "CME FedWatch", "数据核验中")
     );
     const etf = etfData?.latest || {
       date: snapshot.etfFlow.date,

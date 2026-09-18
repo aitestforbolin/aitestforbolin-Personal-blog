@@ -56,7 +56,7 @@ class XSnapshotQualityTests(unittest.TestCase):
                 {"id": "GOLD", "previous": 4667.1, "anchor": 4603.6},
                 {"id": "BTCUSDT", "previous": 78789, "anchor": 78504},
             ],
-            "fedProbability": {"previous": 40.1, "current": 39.0},
+            "fedProbability": {"status": "unavailable", "reason": "数据核验中"},
             "view": ["市场观点"],
         }
 
@@ -110,6 +110,15 @@ class XSnapshotQualityTests(unittest.TestCase):
         gold = next(row for row in snapshot["macroAnchors"] if row["id"] == "GOLD")
         gold["anchor"] = None
         with self.assertRaisesRegex(SnapshotQualityError, "GOLD"):
+            validate_snapshot(snapshot)
+
+    def test_stale_available_fedwatch_is_blocked(self):
+        snapshot = self.complete_snapshot()
+        snapshot["fedProbability"] = {
+            "status": "available", "meetingEndDate": "2026-09-16T14:00:00-04:00",
+            "probabilities": {"hike25": {"current": 100}},
+        }
+        with self.assertRaisesRegex(SnapshotQualityError, "stale or invalid meeting"):
             validate_snapshot(snapshot)
 
 

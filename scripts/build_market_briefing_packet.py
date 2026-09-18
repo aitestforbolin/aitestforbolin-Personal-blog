@@ -15,6 +15,11 @@ from urllib.parse import quote
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
+try:
+    from fomc import build_fedwatch_target
+except ModuleNotFoundError:  # Support direct execution and unit-test imports.
+    from scripts.fomc import build_fedwatch_target
+
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "data" / "market-briefing-packet.json"
@@ -1216,19 +1221,19 @@ def build_packet(now: dt.datetime | None = None) -> dict:
             "validationCompleteCovers": [
                 "markets", "breadth", "macroAssets", "candidateStocks"
             ],
-            "informationalOnly": ["fed", "btcEtf", "futureEvents"],
+            "informationalOnly": ["btcEtf", "futureEvents"],
         },
         "sourceAudit": source_audit,
         "markets": [compact_market(row, trading_date) for row in markets],
         "breadth": breadth,
         "macroAssets": macro_assets,
-        "fed": {"status": "requires_model_verification", "method": "CME FedWatch"},
+        "fed": build_fedwatch_target(generated),
         "btcEtf": latest_etf,
         "futureEvents": future_events(local_calendar_date(generated)),
         "candidateStocks": candidates,
         "modelTasks": [
             "核验最新完整交易日与异常字段",
-            "核验FedWatch概率与本次核验时间",
+            "核验下一场尚未结束的 FOMC 会议对应的 CME FedWatch 概率，并核对 meeting date 与当前日期；禁止使用已经结束会议的概率。",
             "为符合门槛的核心个股补充公司级直接证据",
             "解释市场并生成6—8段观点",
         ],

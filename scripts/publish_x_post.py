@@ -281,6 +281,8 @@ def build_x_post(snapshot: dict[str, Any], now: dt.datetime | None = None) -> st
     us10y = markets.get("US10Y", {})
     us30y = markets.get("US30Y", {})
     fed = snapshot.get("fedProbability", {})
+    fed_probabilities = fed.get("probabilities", {}) if isinstance(fed, dict) else {}
+    fed_primary = next((item for item in fed_probabilities.values() if isinstance(item, dict)), {})
     brent = anchors.get("BRN1!", {})
     gold = anchors.get("GOLD", {})
     btc = anchors.get("BTCUSDT", {})
@@ -290,7 +292,7 @@ def build_x_post(snapshot: dict[str, Any], now: dt.datetime | None = None) -> st
             macro_line("美债2Y", us02y.get("previousClose"), us02y.get("price"), 3, "%"),
             macro_line("美债10Y", us10y.get("previousClose"), us10y.get("price"), 3, "%"),
             macro_line("美债30Y", us30y.get("previousClose"), us30y.get("price"), 3, "%"),
-            macro_line("加息概率", fed.get("previous"), fed.get("current"), 1, str(fed.get("unit") or "")),
+            macro_line("下一次FOMC概率", fed_primary.get("previous"), fed_primary.get("current"), 1, str(fed_primary.get("unit") or "%")) if fed.get("status") == "available" else "· 下一次FOMC概率：数据核验中",
             macro_line("Brent", brent.get("previous"), brent.get("anchor"), 2),
             gold_line(gold),
             macro_line("BTC", btc.get("previous"), btc.get("anchor"), 0),

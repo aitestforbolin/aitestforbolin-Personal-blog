@@ -9,6 +9,11 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+try:
+    from fomc import fedwatch_is_publishable
+except ModuleNotFoundError:
+    from scripts.fomc import fedwatch_is_publishable
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SHANGHAI = ZoneInfo("Asia/Shanghai")
@@ -242,18 +247,25 @@ def treasury_snapshot(daily: dict) -> list[dict]:
 
 def fed_snapshot(daily: dict) -> dict:
     row = daily.get("fedProbability")
-    if not isinstance(row, dict) or not isinstance(row.get("current"), (int, float)):
-        return {"status": "unavailable", "note": "沿用每日早报；当前暂不可用"}
+    now = datetime.now(tz=ZoneInfo("Asia/Shanghai"))
+    if not fedwatch_is_publishable(row, now):
+        reason = row.get("reason") if isinstance(row, dict) else None
+        return {"label": "下一次 FOMC 概率：数据核验中", "status": "unavailable",
+                "note": reason or "FedWatch 暂不可用 / 数据核验中；未沿用已结束会议的数据"}
+    probabilities = row["probabilities"]
+    primary = next((item for item in probabilities.values() if isinstance(item, dict) and isinstance(item.get("current"), (int, float))), None)
+    if not primary:
+        return {"status": "unavailable", "note": "FedWatch 暂不可用 / 数据核验中"}
     return {
-        "label": row.get("label") or "FedWatch概率",
-        "value": row.get("current"),
-        "previous": row.get("previous"),
+        "label": f"{row.get('meetingLabel') or '下一次 FOMC'} {primary.get('label') or '概率'}",
+        "value": primary.get("current"),
+        "previous": primary.get("previous"),
         "unit": row.get("unit") or "%",
-        "asOf": row.get("currentAsOf") or daily.get("publishedAt") or daily.get("asOf"),
+        "asOf": row.get("checkedAt") or daily.get("publishedAt") or daily.get("asOf"),
         "source": row.get("source") or "每日市场早报",
         "sourceUrl": row.get("sourceUrl"),
         "status": "available",
-        "note": "沿用最近一期每日早报，不代表事件前即时概率",
+        "note": "已核验下一场尚未结束的 FOMC 会议；不代表事件前即时概率",
     }
 
 
