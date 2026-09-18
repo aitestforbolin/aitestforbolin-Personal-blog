@@ -6,20 +6,11 @@
 
   const updated = root.querySelector("[data-home-x-updated]");
   const stats = root.querySelector("[data-home-x-stats]");
-  const overview = root.querySelector("[data-home-x-overview]");
-  const list = root.querySelector("[data-home-x-list]");
+  const highlightsNode = root.querySelector("[data-home-x-highlights]");
 
   const DATA_URL = "data/x-intelligence.json";
   const RAW_URL = "https://raw.githubusercontent.com/aitestforbolin/aitestforbolin-Personal-blog/main/data/x-intelligence.json";
-  const CACHE_KEY = "bolin.xIntelligence.latest.v1";
-
-  function escapeHtml(value) {
-    return String(value == null ? "" : value)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;");
-  }
+  const CACHE_KEY = "bolin.xIntelligence.latest.v2";
 
   async function fetchJson(value) {
     const url = new URL(value, window.location.href);
@@ -74,39 +65,60 @@
     }).format(date);
   }
 
+  function fallbackHighlights(payload) {
+    if (!payload.overview) return [];
+    return String(payload.overview)
+      .split(/(?<=[。！？])/)
+      .map(function (item) { return item.trim(); })
+      .filter(Boolean)
+      .slice(0, 5);
+  }
+
+  function renderHighlights(items) {
+    highlightsNode.innerHTML = "";
+    if (!items.length) {
+      const empty = document.createElement("p");
+      empty.className = "x-intelligence-home-empty";
+      empty.textContent = "X Intelligence 尚未首次生成。";
+      highlightsNode.appendChild(empty);
+      return;
+    }
+
+    items.slice(0, 5).forEach(function (item) {
+      const row = document.createElement("p");
+      row.className = "x-intelligence-home-highlight";
+
+      const marker = document.createElement("span");
+      marker.className = "x-intelligence-home-marker";
+      marker.setAttribute("aria-hidden", "true");
+      marker.textContent = "•";
+
+      const text = document.createElement("span");
+      text.textContent = item;
+
+      row.appendChild(marker);
+      row.appendChild(text);
+      highlightsNode.appendChild(row);
+    });
+  }
+
   function render(payload) {
     updated.textContent = formatUpdated(payload.generatedAt);
     stats.textContent = payload.status === "success"
       ? "扫描 " + Number(payload.sourcePostCount || 0) + " Posts · " + (payload.topics || []).length + " Topics"
       : "等待 ChatGPT Brief";
 
-    overview.textContent = payload.overview || "X Intelligence 尚未首次生成。";
+    const highlights = Array.isArray(payload.homeHighlights) && payload.homeHighlights.length
+      ? payload.homeHighlights
+      : fallbackHighlights(payload);
 
-    const topics = Array.isArray(payload.topics) ? payload.topics.slice(0, 5) : [];
-    if (!topics.length) {
-      list.innerHTML = '<p class="x-intelligence-home-empty">暂无已发布的重点主题。</p>';
-      return;
-    }
-
-    list.innerHTML = topics.map(function (topic, index) {
-      const authors = Array.isArray(topic.authors) ? topic.authors.slice(0, 4) : [];
-      const meta = authors.length ? "@" + authors.join(" · @") : "";
-      return '<article class="x-intelligence-home-item">' +
-        '<span class="x-intelligence-home-rank">' + String(index + 1).padStart(2, "0") + '</span>' +
-        '<div>' +
-          '<h4><a href="x-intelligence/#topic-' + (index + 1) + '">' + escapeHtml(topic.title || "未命名主题") + '</a></h4>' +
-          '<p>' + escapeHtml(topic.summary || "") + '</p>' +
-          (meta ? '<small>' + escapeHtml(meta) + '</small>' : '') +
-        '</div>' +
-      '</article>';
-    }).join("");
+    renderHighlights(highlights);
   }
 
   load().then(render).catch(function (error) {
     console.error(error);
     updated.textContent = "数据暂时无法载入";
     stats.textContent = "";
-    overview.textContent = "X Intelligence 暂时无法载入。";
-    list.innerHTML = "";
+    renderHighlights(["X Intelligence 暂时无法载入。"]);
   });
 })();
