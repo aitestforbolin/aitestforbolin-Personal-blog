@@ -2,9 +2,10 @@ name: Update crypto fundraising
 
 on:
   schedule:
-    # GitHub Actions cron uses UTC. Run Tue-Sat at 08:30 / 10:30 Asia/Shanghai.
-    - cron: "30 0 * * 2-6"
-    - cron: "30 2 * * 2-6"
+    # GitHub Actions cron uses UTC. Run Mon-Fri at 08:30 / 10:30 / 13:30 UTC+8.
+    - cron: "30 0 * * 1-5"
+    - cron: "30 2 * * 1-5"
+    - cron: "30 5 * * 1-5"
   push:
     branches:
       - main
@@ -58,13 +59,13 @@ jobs:
 
       - name: Commit updated fundraising data
         run: |
-          if git diff --quiet -- data/crypto-fundraising.json; then
-            echo "Crypto fundraising data is already up to date."
+          if git diff --quiet -- data/crypto-fundraising.json data/crypto-fundraising-history.json; then
+            echo "Crypto fundraising data and history are already up to date."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/crypto-fundraising.json
+          git add data/crypto-fundraising.json data/crypto-fundraising-history.json
           git commit -m "Update crypto fundraising data"
           for attempt in 1 2 3; do
             git fetch origin main
