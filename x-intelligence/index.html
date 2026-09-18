@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X 讯息 | Bolin Brief</title>
+    <meta
+      name="description"
+      content="自动整理关注 X Lists 过去 24 小时的重要信息、多人共振、弱信号与观点分歧。"
+    />
+    <link rel="stylesheet" href="../styles.css?v=20260728-3" />
+    <link rel="stylesheet" href="../editorial-refresh.css?v=20260721-1" />
+    <link rel="stylesheet" href="x-intelligence.css?v=20260918-1" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../" aria-label="回到首页">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span class="brand-copy">
+          <strong>Bolin Brief</strong>
+          <small>Daily Intelligence</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="../daily-market-status/">每日市场早报</a>
+        <a href="../macro-brief/">Macro Brief</a>
+        <a href="./" aria-current="page">X 讯息</a>
+        <a href="../#btc-etf-flow">ETF资金流</a>
+        <a href="../#fundraising">融资</a>
+      </nav>
+    </header>
+
+    <main class="x-intelligence-page" data-x-intelligence-page>
+      <header class="x-intelligence-hero">
+        <p class="eyebrow">X Intelligence · Beijing Time</p>
+        <h1>X 讯息</h1>
+        <p class="x-intelligence-lede">
+          将关注列表过去 24 小时的信息流压缩为事件、观点、分歧与弱信号。
+        </p>
+        <div class="x-intelligence-mast-meta">
+          <span data-x-date>等待首次生成</span>
+          <span class="x-intelligence-dot" aria-hidden="true"></span>
+          <span data-x-stats>正在载入数据</span>
+        </div>
+      </header>
+
+      <section class="x-intelligence-section" aria-labelledby="x-overview-title">
+        <div class="x-section-number" aria-hidden="true">00</div>
+        <div class="x-section-body">
+          <p class="eyebrow">Overview</p>
+          <h2 id="x-overview-title">今日概览</h2>
+          <p class="x-overview" data-x-overview>正在载入…</p>
+        </div>
+      </section>
+
+      <section class="x-intelligence-section" aria-labelledby="x-topics-title">
+        <div class="x-section-number" aria-hidden="true">01</div>
+        <div class="x-section-body">
+          <p class="eyebrow">Priority Topics</p>
+          <h2 id="x-topics-title">优先关注</h2>
+          <div class="x-topic-list" data-x-topics></div>
+        </div>
+      </section>
+
+      <section class="x-intelligence-section" aria-labelledby="x-watch-title">
+        <div class="x-section-number" aria-hidden="true">02</div>
+        <div class="x-section-body">
+          <p class="eyebrow">Watchlist</p>
+          <h2 id="x-watch-title">弱信号 / 继续观察</h2>
+          <div data-x-watchlist></div>
+        </div>
+      </section>
+
+      <section class="x-intelligence-section" aria-labelledby="x-disagreements-title">
+        <div class="x-section-number" aria-hidden="true">03</div>
+        <div class="x-section-body">
+          <p class="eyebrow">Disagreements</p>
+          <h2 id="x-disagreements-title">观点分歧</h2>
+          <div data-x-disagreements></div>
+        </div>
+      </section>
+
+      <section class="x-intelligence-section" aria-labelledby="x-noise-title">
+        <div class="x-section-number" aria-hidden="true">04</div>
+        <div class="x-section-body">
+          <p class="eyebrow">Collapsed Noise</p>
+          <h2 id="x-noise-title">已折叠内容</h2>
+          <div class="x-noise-list" data-x-noise></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Bolin Brief · Independent notes from Asia / Shanghai.</p>
+    </footer>
+    <script src="x-intelligence.js?v=20260918-1"></script>
+  </body>
+</html>
