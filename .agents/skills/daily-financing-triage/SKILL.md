@@ -29,6 +29,8 @@ If the feed provides `first_seen_at`, treat it the same way: it only means the e
 
 This skill is for financing-project triage. Exclude events explicitly labeled `M&A`, acquisition, or merger before project research, and do not count them as new financing projects. They are transaction events, not financing rounds for this workflow. Keep events with an unknown or missing round for verification rather than dropping them automatically.
 
+Apply a second hard filter for token status: if reliable evidence confirms that the project's native token is already live/tradable, classify the project as `STOP` immediately for this daily triage workflow. Do not keep an already-tokenized project in `WATCH`, even if it has a new financing round, a new product launch, points, campaigns, or other incentives. The purpose of this workflow is to find pre-token or otherwise still-early opportunities. Only override this rule when the user explicitly asks to research already-tokenized projects.
+
 ## Core questions
 
 For each project, answer only what is necessary to decide whether it deserves the user's attention:
@@ -36,8 +38,8 @@ For each project, answer only what is necessary to decide whether it deserves th
 1. What is the project, in plain Chinese?
 2. What did it raise, and who led or participated?
 3. What does the product actually do? Explain the core mechanism simply, without jargon stacking.
-4. Is this truly a new project, or an existing/renamed/already-tokenized project?
-5. Can an ordinary user do anything meaningful now?
+4. Is this truly a new project, or an existing/renamed/already-tokenized project? Check token status early. If the native token is confirmed live/tradable, stop the triage here with `STOP`.
+5. If the project passes the token-status filter, can an ordinary user do anything meaningful now?
 6. Is there a recent official incentive: points, season, testnet, campaign, rewards, token/airdrop confirmation, or another participation program?
 7. Is there a real user need or a credible low-cost early-participation opportunity?
 8. Based on utility, timing, cost, risk, and participation quality, should the result be ACTION, WATCH, or STOP?
@@ -74,7 +76,9 @@ Do not perform a 3-6 competitor matrix, exhaustive team background check, token 
 
 ### ACTION
 
-Use `ACTION` when there is a concrete action worth considering now and the reason is strong enough to justify attention.
+Use `ACTION` only after the project passes the hard token-status filter. A project with a confirmed live/tradable native token is not eligible for `ACTION` in this workflow.
+
+For eligible projects, use `ACTION` when there is a concrete action worth considering now and the reason is strong enough to justify attention.
 
 A valid ACTION can come from either of two paths:
 
@@ -87,7 +91,9 @@ ACTION also does not mean "invest heavily". Recommend the smallest sensible vali
 
 ### WATCH
 
-Use `WATCH` when the project is worth retaining but action now is not compelling.
+Use `WATCH` only after the project passes the hard token-status filter. A project with a confirmed live/tradable native token is not eligible for `WATCH` in this workflow.
+
+For eligible projects, use `WATCH` when the project is worth retaining but action now is not compelling.
 
 Typical reasons:
 
@@ -107,7 +113,8 @@ Typical reasons:
 
 - no meaningful ordinary-user participation and no clear future catalyst;
 - product is primarily for builders, merchants, institutions, or another audience with no relevant user path;
-- it is an old/already-tokenized/renamed project and the new financing event does not create a new opportunity;
+- its native token is already confirmed live/tradable; this is an automatic STOP for this workflow;
+- it is an old or renamed project and the new financing event does not create a relevant pre-token opportunity;
 - the only thesis is prestige investors, financing size, marketing activity, or vague airdrop speculation;
 - the product has no clear user value and no credible early-participation asymmetry.
 
@@ -117,6 +124,7 @@ STOP means "do not spend more research attention now", not "the project is bad".
 
 Apply these principles consistently:
 
+- A confirmed live/tradable native token is a hard STOP for this daily triage workflow; do not keep the project in WATCH.
 - Funding size and famous VCs are discovery signals, not decision rules.
 - Ask "what can an ordinary user meaningfully do now?" before being impressed by narrative.
 - Real personal utility can outweigh weak token expectations.
@@ -195,6 +203,7 @@ Before finalizing:
 - Confirm that project identity is correct.
 - Confirm financing amount/round/lead investor against at least one credible source when possible.
 - Confirm that "new project", "already tokenized", and "renamed" are independent research judgments, not copied from `feed_is_new`.
+- If `token_status` is `token_live`, the final decision must be `STOP`; do not output ACTION or WATCH.
 - For any claimed points/season/testnet/airdrop/token activity, require an official source or mark it unconfirmed.
 - Keep `plain_explanation` and `mechanism_simple` understandable to a non-specialist.
 - Do not let funding prestige alone produce ACTION.
