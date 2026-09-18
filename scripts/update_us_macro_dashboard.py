@@ -164,7 +164,7 @@ def upsert_history(history: dict, event: dict, card_id: str, row_label: str, met
 def trend_from_history(history: dict, card_id: str, row_label: str) -> str:
     values = {}
     for item in history.get("observations", []):
-        if item.get("cardId") == card_id and item.get("rowLabel") == row_label:
+        if item.get("source") == FOREX_FACTORY and item.get("cardId") == card_id and item.get("rowLabel") == row_label:
             value = parse_number(item.get("actual"))
             if value is not None:
                 values[item.get("releaseDate") or ""] = value
