@@ -11,6 +11,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from urllib.error import HTTPError, URLError
+from urllib.parse import quote
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
@@ -37,6 +38,24 @@ FIXED_ANCHOR_IDS = {"DXY", "BRN1!", "GOLD", "BTCUSDT"}
 TREASURY_IDS = {"US02Y", "US10Y", "US30Y"}
 MACRO_IDS = FIXED_ANCHOR_IDS | TREASURY_IDS
 SESSION_MARKET_IDS = REQUIRED_MARKETS - MACRO_IDS
+SESSION_YAHOO_SYMBOLS = {
+    "SPX": "^GSPC",
+    "IXIC": "^IXIC",
+    "DJI": "^DJI",
+    "SOX": "^SOX",
+    "XLK": "XLK",
+    "XLY": "XLY",
+    "XLC": "XLC",
+    "XLV": "XLV",
+    "XLU": "XLU",
+    "XLP": "XLP",
+    "XLE": "XLE",
+    "XLI": "XLI",
+    "XLB": "XLB",
+    "XLRE": "XLRE",
+    "XLF": "XLF",
+}
+MAX_SESSION_CHANGE_PERCENT = 25.0
 YAHOO_ANCHOR_SYMBOLS = {
     "DXY": "DX-Y.NYB",
     "BRN1!": "BZ=F",
@@ -162,6 +181,136 @@ def finite_number(value: object) -> float | None:
     return number if number == number and number not in (float("inf"), float("-inf")) else None
 
 
+def yahoo_daily_session_pair(payload: object, trading_date: str) -> dict | None:
+    """Return the target close and the prior actual trading-day close.
+
+    Yahoo metadata such as chartPreviousClose can refer to an unexpected session
+    in multi-day requests. Daily bars are authoritative here: group them by the
+    New York market date, select trading_date, then select the latest earlier bar.
+    """
+    try:
+        result = payload["chart"]["result"][0]
+        timestamps = result.get("timestamp") or []
+        closes = result.get("indicators", {}).get("quote", [{}])[0].get("close") or []
+    except (KeyError, IndexError, TypeError):
+        return None
+
+    eastern = ZoneInfo("America/New_York")
+    by_date: dict[str, dict] = {}
+    for raw_time, raw_close in zip(timestamps, closes):
+        close = finite_number(raw_close)
+        if close is None or not isinstance(raw_time, (int, float)):
+            continue
+        day = dt.datetime.fromtimestamp(raw_time, tz=dt.timezone.utc).astimezone(eastern).date().isoformat()
+        if day > trading_date:
+            continue
+        by_date[day] = {"date": day, "value": close, "time": int(raw_time * 1000)}
+
+    current = by_date.get(trading_date)
+    previous_days = [day for day in sorted(by_date) if day < trading_date]
+    if current is None or not previous_days:
+        return None
+    return {"current": current, "previous": by_date[previous_days[-1]]}
+
+
+def session_change_issues(row: dict, trading_date: str | None) -> list[str]:
+    """Validate a completed U.S. session change and its date provenance."""
+    market_id = str(row.get("id") or "unknown")
+    values = {
+        key: finite_number(row.get(key))
+        for key in ("price", "previousClose", "change", "changePercent")
+    }
+    issues: list[str] = []
+    missing = [key for key, value in values.items() if value is None]
+    if missing:
+        return [f"{market_id}:missing_{','.join(missing)}"]
+    price = float(values["price"])
+    previous = float(values["previousClose"])
+    change = float(values["change"])
+    percent = float(values["changePercent"])
+    if price <= 0 or previous <= 0:
+        issues.append(f"{market_id}:non_positive_close")
+        return issues
+    expected_change = price - previous
+    expected_percent = expected_change / previous * 100
+    if abs(change - expected_change) > max(0.02, abs(price) * 1e-9):
+        issues.append(f"{market_id}:change_mismatch")
+    if abs(percent - expected_percent) > 0.005:
+        issues.append(f"{market_id}:percent_mismatch")
+    if (change > 0) != (percent > 0) and change != 0 and percent != 0:
+        issues.append(f"{market_id}:direction_mismatch")
+    if abs(percent) > MAX_SESSION_CHANGE_PERCENT:
+        issues.append(f"{market_id}:implausible_percent")
+    price_date = row.get("priceDate")
+    previous_date = row.get("previousCloseDate")
+    if not trading_date or price_date != trading_date:
+        issues.append(f"{market_id}:price_date_mismatch")
+    if not isinstance(previous_date, str) or not isinstance(price_date, str) or previous_date >= price_date:
+        issues.append(f"{market_id}:previous_close_date_invalid")
+    return issues
+
+
+def normalize_session_market(row: dict, trading_date: str, payload: object) -> bool:
+    """Replace upstream metadata changes with values derived from daily bars."""
+    pair = yahoo_daily_session_pair(payload, trading_date)
+    if pair is None:
+        return False
+    current = pair["current"]
+    previous = pair["previous"]
+    price = float(current["value"])
+    previous_close = float(previous["value"])
+    change = price - previous_close
+    row.update({
+        "price": price,
+        "previousClose": previous_close,
+        "change": change,
+        "changePercent": change / previous_close * 100,
+        "updatedAt": current["time"],
+        "tradingDate": trading_date,
+        "priceDate": current["date"],
+        "previousCloseDate": previous["date"],
+        "comparisonBasis": "yahoo_daily_history",
+        "source": "Yahoo Finance",
+        "sourceSymbol": SESSION_YAHOO_SYMBOLS[str(row.get("id"))],
+        "status": "ok",
+    })
+    return True
+
+
+def normalize_session_markets(rows: list[dict], trading_date: str | None) -> list[str]:
+    """Normalize every index and sector against Yahoo daily history."""
+    if not trading_date:
+        return ["missing_trading_date"]
+    by_id = {str(row.get("id")): row for row in rows if row.get("id")}
+    errors: list[str] = []
+    def fetch_daily(symbol: str) -> object:
+        url = (
+            "https://query1.finance.yahoo.com/v8/finance/chart/"
+            f"{quote(symbol, safe='')}?range=10d&interval=1d&events=div%2Csplits"
+        )
+        return fetch_json(url, attempts=2)
+
+    requested = {
+        market_id: symbol
+        for market_id, symbol in SESSION_YAHOO_SYMBOLS.items()
+        if market_id in by_id
+    }
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        futures = {
+            executor.submit(fetch_daily, symbol): market_id
+            for market_id, symbol in requested.items()
+        }
+        for future in as_completed(futures):
+            market_id = futures[future]
+            try:
+                payload = future.result()
+                if not normalize_session_market(by_id[market_id], trading_date, payload):
+                    errors.append(f"{market_id}:daily_pair_missing")
+            except Exception as exc:
+                errors.append(f"{market_id}:{safe_error_details(exc)['category']}")
+    return sorted(errors)
+
+
 def breadth_quality_issues(rows: list[dict]) -> tuple[list[str], list[str]]:
     """Validate IDs, counts and the published advance-percent calculation."""
     by_id = {str(row.get("id")): row for row in rows if row.get("id")}
@@ -267,7 +416,8 @@ def compact_market(row: dict, trading_date: str | None = None) -> dict:
     keys = (
         "id", "name", "price", "previousClose", "change", "changePercent",
         "currency", "updatedAt", "source", "sourceSymbol", "instrumentType",
-        "proxyFor", "status", "seriesStatus",
+        "proxyFor", "status", "seriesStatus", "priceDate", "previousCloseDate",
+        "comparisonBasis",
     )
     item = {key: row.get(key) for key in keys if key in row}
     observed_date = market_date(row)
@@ -833,7 +983,21 @@ def build_packet(now: dt.datetime | None = None) -> dict:
         ) if value
     }
     trading_date = next(iter(index_dates)) if len(index_dates) == 1 else None
+    session_normalization_errors = normalize_session_markets(markets, trading_date)
     session_date_issues = session_market_date_issues(markets, trading_date)
+    session_change_validation_issues = [
+        issue
+        for row in markets
+        if row.get("id") in SESSION_MARKET_IDS
+        for issue in session_change_issues(row, trading_date)
+    ]
+    source_audit["sessionCloseNormalization"] = {
+        "status": "ok" if not session_normalization_errors else "error",
+        "provider": "Yahoo Finance",
+        "basis": "daily_history_current_and_previous_actual_trading_day",
+        "count": len(SESSION_MARKET_IDS) - len(session_normalization_errors),
+        "errors": session_normalization_errors,
+    }
 
     missing_breadth, invalid_breadth = breadth_quality_issues(breadth)
     if missing_breadth or invalid_breadth:
@@ -853,6 +1017,14 @@ def build_packet(now: dt.datetime | None = None) -> dict:
         critical_errors.append("index_date_mismatch:" + ",".join(sorted(index_dates)))
     if session_date_issues:
         critical_errors.append("session_market_issues:" + ",".join(session_date_issues))
+    if session_normalization_errors:
+        critical_errors.append(
+            "session_close_normalization_failed:" + ",".join(session_normalization_errors)
+        )
+    if session_change_validation_issues:
+        critical_errors.append(
+            "session_change_validation_failed:" + ",".join(session_change_validation_issues)
+        )
 
     if not trading_date:
         critical_errors.append("trading_date_unavailable")
@@ -1067,6 +1239,8 @@ def build_packet(now: dt.datetime | None = None) -> dict:
             "missingBreadth": missing_breadth,
             "invalidBreadth": invalid_breadth,
             "sessionMarketIssues": session_date_issues,
+            "sessionCloseNormalizationErrors": session_normalization_errors,
+            "sessionChangeValidationIssues": session_change_validation_issues,
             "macroProviderIssues": provider_issues,
             "candidateQuoteFailures": candidate_errors,
             "candidateQuoteErrors": {
