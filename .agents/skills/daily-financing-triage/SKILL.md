@@ -39,8 +39,11 @@ Supplemental visibility source:
 
 Candidate window:
 
-- On Tuesday through Friday, include events whose `first_seen_at` is later than the previous working day's 14:00 in UTC+8.
-- On Monday, include events whose `first_seen_at` is later than the previous Friday's 14:00 in UTC+8.
+- The Scheduled Task runs every calendar day at 14:00 in UTC+8.
+- Set the current `windowEnd` to today's 14:00 in UTC+8.
+- If the latest successful Daily Triage publication is readable, use its `windowEnd` as the new `windowStart`. This intentionally catches up the full gap after a missed or failed run instead of dropping events.
+- If no prior successful publication is available, fall back to the previous calendar day's 14:00 in UTC+8.
+- Include events whose `first_seen_at` is later than `windowStart` and no later than `windowEnd`.
 - `first_seen_at` is only an ingestion timestamp. Never use it as evidence that the project itself is new.
 - If a prior successful Daily Triage run can confirm that an `event_id` was already reported, exclude it to avoid duplicate research.
 - If prior-run deduplication history is unavailable, use the `first_seen_at` window as the fallback and state that deduplication is based on the time window.
