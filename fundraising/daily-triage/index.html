@@ -6,11 +6,11 @@
     <title>Web3 Daily Triage | Bolin Brief</title>
     <meta
       name="description"
-      content="工作日 Web3 融资项目初筛：ACTION、WATCH 与 STOP。"
+      content="每日 Web3 融资项目初筛：ACTION、WATCH 与 STOP。"
     />
     <link rel="stylesheet" href="../../styles.css?v=20260918-web3-triage-1" />
     <link rel="stylesheet" href="../../editorial-refresh.css?v=20260918-web3-triage-1" />
-    <link rel="stylesheet" href="daily-triage.css?v=20260918-web3-triage-1" />
+    <link rel="stylesheet" href="daily-triage.css?v=20260919-archive-1" />
   </head>
   <body>
     <header class="site-header">
@@ -37,6 +37,13 @@
           <span data-triage-date>正在读取最新简报…</span>
           <span class="triage-dot" aria-hidden="true"></span>
           <span data-triage-window>正在核对候选窗口…</span>
+        </div>
+        <div class="triage-archive-nav" aria-label="Web3 Daily Triage 历史存档">
+          <label for="triage-archive-date">历史记录</label>
+          <input id="triage-archive-date" type="date" data-triage-archive-date />
+          <button type="button" data-triage-load-date>查看日期</button>
+          <button type="button" data-triage-latest>最新一期</button>
+          <span data-triage-archive-status aria-live="polite"></span>
         </div>
       </header>
 
@@ -93,6 +100,6 @@
       <a href="../">返回融资追踪</a>
     </footer>
 
-    <script src="daily-triage.js?v=20260918-web3-triage-2"></script>
+    <script src="daily-triage.js?v=20260919-archive-1"></script>
   </body>
 </html>
