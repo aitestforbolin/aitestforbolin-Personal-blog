@@ -294,6 +294,17 @@ If research, generation, validation, or the GitHub commit fails, do not overwrit
 
 After successful publication, keep the human-facing ChatGPT result concise: state that the Web3 Daily Triage was published successfully and direct the user to `/fundraising/daily-triage/`. Do not duplicate the full report in ChatGPT unless the user explicitly asks for it. The research content and classification must still follow this Skill exactly.
 
+## Email notification contract
+
+For the normal Scheduled Task, send an email notification after each run so publication status is visible without opening ChatGPT.
+
+- On success, send the notification only after the website publication commit has succeeded.
+- The success email must include the UTC+8 run date, ACTION/WATCH/STOP counts, and the website path `/fundraising/daily-triage/`.
+- On failure at any stage (required input read, research, generation, validation, publication, or commit), send a failure email containing the failed stage and the specific error reason when available.
+- Email delivery is a notification side effect, not part of the atomic website publication. If the website publication succeeded but email delivery fails, do not roll back or alter the successful publication. Report the email-delivery failure clearly in ChatGPT.
+- If the email notification itself cannot be sent because the configured mail capability, credentials, recipient, or provider is unavailable, report that exact limitation; do not invent a recipient or silently claim delivery.
+- Use the configured notification recipient and mail mechanism available to the execution environment. Do not hard-code credentials, addresses, or provider secrets into this Skill.
+
 ## Output quality checks
 
 Before finalizing:
