@@ -5,6 +5,9 @@
   const DATA_URL = new URL("../../data/web3-daily-triage.json", SCRIPT_URL).href;
   const RAW_DATA_URL =
     "https://raw.githubusercontent.com/aitestforbolin/aitestforbolin-Personal-blog/main/data/web3-daily-triage.json";
+  const ARCHIVE_BASE_URL = new URL("../../data/web3-daily-triage/archive/", SCRIPT_URL).href;
+  const RAW_ARCHIVE_BASE_URL =
+    "https://raw.githubusercontent.com/aitestforbolin/aitestforbolin-Personal-blog/main/data/web3-daily-triage/archive/";
 
   const root = document.querySelector("[data-triage-page]");
   if (!root) return;
@@ -183,13 +186,22 @@
     return validate(await response.json());
   }
 
-  async function load() {
+  async function loadFrom(primaryUrl, rawUrl) {
     try {
-      return await fetchPayload(DATA_URL);
+      return await fetchPayload(primaryUrl);
     } catch (siteError) {
       console.warn("Primary Daily Triage data request failed", siteError);
-      return await fetchPayload(RAW_DATA_URL);
+      return await fetchPayload(rawUrl);
     }
+  }
+
+  function loadLatest() {
+    return loadFrom(DATA_URL, RAW_DATA_URL);
+  }
+
+  function loadArchive(date) {
+    const filename = encodeURIComponent(date) + ".json";
+    return loadFrom(ARCHIVE_BASE_URL + filename, RAW_ARCHIVE_BASE_URL + filename);
   }
 
   function render(data) {
@@ -203,6 +215,8 @@
     root.querySelector("[data-triage-watch]").textContent = Number(counts.watch ?? 0);
     root.querySelector("[data-triage-stop]").textContent = Number(counts.stop ?? 0);
     root.querySelector("[data-triage-note]").textContent = data.deduplicationNote || "";
+    const archiveInput = root.querySelector("[data-triage-archive-date]");
+    if (archiveInput && !archiveInput.value && data.runDate) archiveInput.value = data.runDate;
 
     const groups = { ACTION: [], WATCH: [], STOP: [] };
     data.projects.forEach((project) => {
@@ -225,13 +239,44 @@
     root.querySelector("[data-triage-empty]").hidden = data.projects.length !== 0;
   }
 
-  load()
-    .then(render)
-    .catch((error) => {
+  const archiveInput = root.querySelector("[data-triage-archive-date]");
+  const archiveStatus = root.querySelector("[data-triage-archive-status]");
+
+  async function showLatest() {
+    const data = await loadLatest();
+    root.querySelector("[data-triage-error]").hidden = true;
+    render(data);
+    if (archiveStatus) archiveStatus.textContent = "当前显示最新一期";
+  }
+
+  root.querySelector("[data-triage-load-date]")?.addEventListener("click", async () => {
+    const date = archiveInput?.value;
+    if (!date) return;
+    if (archiveStatus) archiveStatus.textContent = `正在读取 ${date}…`;
+    try {
+      const data = await loadArchive(date);
+      root.querySelector("[data-triage-error]").hidden = true;
+      render(data);
+      if (archiveStatus) archiveStatus.textContent = `已载入 ${date} 存档`;
+    } catch (error) {
       console.error(error);
-      root.querySelector("[data-triage-error]").hidden = false;
-      root.querySelectorAll(".triage-section, .triage-summary, .triage-note").forEach((item) => {
-        item.hidden = true;
-      });
+      if (archiveStatus) archiveStatus.textContent = `${date} 没有可读取的存档`;
+    }
+  });
+
+  root.querySelector("[data-triage-latest]")?.addEventListener("click", () => {
+    showLatest().catch((error) => {
+      console.error(error);
+      if (archiveStatus) archiveStatus.textContent = "最新一期暂时无法载入";
     });
+  });
+
+  showLatest().catch((error) => {
+    console.error(error);
+    root.querySelector("[data-triage-error]").hidden = false;
+    root.querySelectorAll(".triage-section, .triage-summary, .triage-note").forEach((item) => {
+      item.hidden = true;
+    });
+    if (archiveStatus) archiveStatus.textContent = "最新一期暂时无法载入";
+  });
 })();
