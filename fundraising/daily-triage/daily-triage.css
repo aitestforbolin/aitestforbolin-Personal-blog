@@ -44,6 +44,48 @@
   background: var(--accent);
 }
 
+.triage-archive-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.triage-archive-nav label {
+  color: var(--ink);
+  font-weight: 850;
+}
+
+.triage-archive-nav input,
+.triage-archive-nav button {
+  min-height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 6px 9px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+}
+
+.triage-archive-nav button {
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.triage-archive-nav button:hover,
+.triage-archive-nav button:focus-visible {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.triage-archive-nav [data-triage-archive-status] {
+  flex-basis: 100%;
+  min-height: 1.2em;
+}
+
 .triage-summary {
   display: grid;
   grid-template-columns: minmax(180px, 0.65fr) minmax(0, 1.35fr);
