@@ -7,7 +7,7 @@ description: Read the canonical 24h X List packet, cluster it into a concise res
 
 ## Goal
 
-Generate the weekday X Intelligence briefing from data/x-intelligence-input.json in aitestforbolin/aitestforbolin-Personal-blog main.
+Generate the daily X Intelligence briefing from data/x-intelligence-input.json in aitestforbolin/aitestforbolin-Personal-blog main.
 Publish the finalized structured briefing to data/x-intelligence.json on main.
 GitHub Actions is the collection layer; the scheduled Chat task is the reasoning and publishing layer. Do not re-scrape X or call SocialData from the Chat task.
 
@@ -16,12 +16,12 @@ GitHub Actions is the collection layer; the scheduled Chat task is the reasoning
 Repository: aitestforbolin/aitestforbolin-Personal-blog
 Branch: main
 Required reads: data/x-intelligence-input.json and current data/x-intelligence.json.
-Required write: data/x-intelligence.json.
+Required writes: data/x-intelligence.json and immutable daily archive data/x-intelligence/archive/YYYY-MM-DD.json.
 All GitHub reads and writes must use the connected GitHub Connector. Do not use local Git, CLI, shell Git, or another GitHub write path.
 
 ## Time contract
 
-Scheduled run: Monday through Friday at 13:00 Asia/Shanghai.
+Scheduled run: every day at 13:00 Asia/Shanghai.
 Interpret reportDate in Asia/Shanghai.
 
 ## Input hard gates
@@ -66,9 +66,13 @@ All sourceUrls must come from the packet only. Do not write hidden reasoning, cr
 ## Publication contract
 
 Read current data/x-intelligence.json only as publication state, not evidence.
-Publish only the complete finalized JSON through the GitHub Connector.
-After writing, read the remote file back and confirm status == "success", reportDate is today, sourceGeneratedAt equals input generatedAt, and sourcePostCount equals posts.length.
-If the GitHub write fails, do not use another write path.
+For every successful daily publication, write the complete finalized JSON to both:
+- current: data/x-intelligence.json
+- immutable archive: data/x-intelligence/archive/YYYY-MM-DD.json
+Before publishing, check whether today's archive already exists. Never overwrite an existing archive. If it already exists, treat that date as already published and verify the existing archive instead of creating a second copy.
+When publishing a new date, write current and archive as byte-identical files in one atomic GitHub commit using Git Data operations through the GitHub Connector.
+After writing, read both remote files back and confirm status == "success", reportDate is today, sourceGeneratedAt equals input generatedAt, sourcePostCount equals posts.length, and current is byte-identical to the archive.
+If the GitHub write fails, do not use another write path and do not overwrite the last good current publication.
 
 ## Chat output
 
