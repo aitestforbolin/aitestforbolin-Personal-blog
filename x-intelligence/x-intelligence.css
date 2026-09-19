@@ -38,6 +38,48 @@
   background: currentColor;
 }
 
+.x-archive-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.x-archive-nav label {
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.x-archive-nav input,
+.x-archive-nav button {
+  min-height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 6px 9px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+}
+
+.x-archive-nav button {
+  cursor: pointer;
+  font-weight: 750;
+}
+
+.x-archive-nav button:hover,
+.x-archive-nav button:focus-visible {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.x-archive-nav [data-x-archive-status] {
+  flex-basis: 100%;
+  min-height: 1.2em;
+}
+
 .x-intelligence-section {
   display: grid;
   grid-template-columns: 72px minmax(0, 1fr);
