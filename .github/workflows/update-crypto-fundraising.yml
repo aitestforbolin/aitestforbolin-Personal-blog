@@ -96,13 +96,13 @@ jobs:
 
       - name: Commit updated fundraising data and refresh receipt
         run: |
-          if git diff --quiet -- data/crypto-fundraising.json data/crypto-fundraising-history.json data/crypto-fundraising-refresh-status.json; then
-            echo "Crypto fundraising data and refresh receipt are already current."
-            exit 0
-          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/crypto-fundraising.json data/crypto-fundraising-history.json data/crypto-fundraising-refresh-status.json
+          if git diff --cached --quiet; then
+            echo "Crypto fundraising data and refresh receipt are already current."
+            exit 0
+          fi
           git commit -m "Update crypto fundraising data"
           for attempt in 1 2 3; do
             git fetch origin main
