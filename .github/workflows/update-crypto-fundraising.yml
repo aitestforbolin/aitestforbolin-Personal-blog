@@ -1,18 +1,11 @@
 name: Update crypto fundraising
 
 on:
-  schedule:
-    # GitHub Actions cron uses UTC. Run daily at 08:30 / 10:30 / 13:30 UTC+8.
-    - cron: "30 0 * * *"
-    - cron: "30 2 * * *"
-    - cron: "30 5 * * *"
   push:
     branches:
       - main
     paths:
-      - .github/workflows/update-crypto-fundraising.yml
-      - scripts/update_crypto_fundraising.py
-      - tests/test_crypto_fundraising.py
+      - data/crypto-fundraising-trigger.json
   workflow_dispatch:
 
 permissions:
@@ -57,15 +50,59 @@ jobs:
           python -m py_compile scripts/update_crypto_fundraising.py
           python -m unittest tests.test_crypto_fundraising
 
-      - name: Commit updated fundraising data
+      - name: Record refresh completion
+        env:
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
         run: |
-          if git diff --quiet -- data/crypto-fundraising.json data/crypto-fundraising-history.json; then
-            echo "Crypto fundraising data and history are already up to date."
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          trigger_path = Path("data/crypto-fundraising-trigger.json")
+          trigger = {}
+          if trigger_path.exists():
+              try:
+                  trigger = json.loads(trigger_path.read_text(encoding="utf-8"))
+              except Exception:
+                  trigger = {}
+
+          if os.environ.get("GITHUB_EVENT_NAME") == "push":
+              request_id = str(trigger.get("requestId") or "")
+              requested_at = trigger.get("requestedAt")
+          else:
+              request_id = "manual-" + os.environ["GITHUB_RUN_ID"]
+              requested_at = None
+
+          if not request_id:
+              raise RuntimeError("Missing requestId in crypto-fundraising-trigger.json")
+
+          status = {
+              "schemaVersion": 1,
+              "status": "success",
+              "requestId": request_id,
+              "requestedAt": requested_at,
+              "completedAt": datetime.now(timezone.utc).isoformat(),
+              "githubRunId": int(os.environ["GITHUB_RUN_ID"]),
+          }
+          Path("data/crypto-fundraising-refresh-status.json").write_text(
+              json.dumps(status, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          print(json.dumps(status, ensure_ascii=False))
+          PY
+
+      - name: Commit updated fundraising data and refresh receipt
+        run: |
+          if git diff --quiet -- data/crypto-fundraising.json data/crypto-fundraising-history.json data/crypto-fundraising-refresh-status.json; then
+            echo "Crypto fundraising data and refresh receipt are already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/crypto-fundraising.json data/crypto-fundraising-history.json
+          git add data/crypto-fundraising.json data/crypto-fundraising-history.json data/crypto-fundraising-refresh-status.json
           git commit -m "Update crypto fundraising data"
           for attempt in 1 2 3; do
             git fetch origin main
@@ -75,5 +112,5 @@ jobs:
             git rebase --abort || true
             sleep $((attempt * 5))
           done
-          echo "Could not push crypto fundraising data after 3 attempts."
+          echo "::error::Could not push crypto fundraising data after 3 attempts."
           exit 1

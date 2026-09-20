@@ -1,17 +1,12 @@
 name: Update X intelligence input
 
 on:
-  schedule:
-    # Daily 12:35 Asia/Shanghai = 04:35 UTC.
-    - cron: "35 4 * * *"
-  workflow_dispatch:
   push:
     branches:
       - main
     paths:
       - data/x-intelligence-trigger.json
-      - scripts/update_x_intelligence_input.py
-      - data/x-intelligence-sources.json
+  workflow_dispatch:
 
 permissions:
   contents: write
