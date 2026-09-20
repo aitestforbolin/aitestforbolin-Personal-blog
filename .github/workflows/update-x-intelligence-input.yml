@@ -9,7 +9,7 @@ on:
     branches:
       - main
     paths:
-      - .github/workflows/update-x-intelligence-input.yml
+      - data/x-intelligence-trigger.json
       - scripts/update_x_intelligence_input.py
       - data/x-intelligence-sources.json
 
