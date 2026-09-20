@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: crypto-fundraising-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   update-crypto-fundraising:

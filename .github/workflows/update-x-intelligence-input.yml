@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: x-intelligence-input
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   update-x-intelligence-input:
