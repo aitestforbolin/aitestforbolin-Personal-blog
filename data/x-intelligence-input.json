@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
   "source": "SocialData X List Tweets",
-  "generatedAt": "2026-09-21T05:30:18.636735+00:00",
+  "generatedAt": "2026-09-21T06:55:36.112582+00:00",
   "windowHours": 24,
-  "cutoffUtc": "2026-09-20T05:30:18.636735+00:00",
+  "cutoffUtc": "2026-09-20T06:55:36.112582+00:00",
   "listsRequested": 4,
   "listsCompleted": 4,
   "stoppedForBudget": false,
-  "estimatedCostUsd": 0.0714,
+  "estimatedCostUsd": 0.0722,
   "stats": {
-    "billedTweets": 357,
-    "uniqueTweetsInWindow": 101,
-    "usefulRatio": 0.2829,
+    "billedTweets": 361,
+    "uniqueTweetsInWindow": 105,
+    "usefulRatio": 0.2909,
     "contentMix": {
-      "originals": 25,
-      "replies": 26,
+      "originals": 27,
+      "replies": 28,
       "direct_quotes": 43,
       "retweets": 7,
-      "posts_with_media": 41
+      "posts_with_media": 40
     }
   },
   "perList": [
@@ -25,18 +25,18 @@
       "name": "List-1",
       "id": "2092526123754414115",
       "pages": 1,
-      "returned": 91,
-      "within_window": 18,
-      "discarded_old": 73,
+      "returned": 93,
+      "within_window": 19,
+      "discarded_old": 74,
       "crossed_cutoff": true
     },
     {
       "name": "List-2",
       "id": "2062314900266127784",
       "pages": 1,
-      "returned": 93,
-      "within_window": 56,
-      "discarded_old": 37,
+      "returned": 94,
+      "within_window": 59,
+      "discarded_old": 35,
       "crossed_cutoff": true
     },
     {
@@ -52,13 +52,442 @@
       "name": "List-4",
       "id": "2089990503555072281",
       "pages": 1,
-      "returned": 81,
+      "returned": 82,
       "within_window": 14,
-      "discarded_old": 67,
+      "discarded_old": 68,
       "crossed_cutoff": true
     }
   ],
   "posts": [
+    {
+      "list_name": "List-1",
+      "list_id": "2092526123754414115",
+      "tweet_id": "2101925074844754314",
+      "created_at": "2026-09-21T06:42:44.000000Z",
+      "kind": "reply",
+      "author": {
+        "username": "PhyrexNi",
+        "name": "Phyrex"
+      },
+      "text": "漏了一个群众演员，贡献了一双大长腿，感谢 国宝@pandaBA007",
+      "url": "https://x.com/PhyrexNi/status/2101925074844754314",
+      "engagement": {
+        "views": 623,
+        "likes": 0,
+        "replies": 0,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2101924082346524996",
+      "created_at": "2026-09-21T06:38:47.000000Z",
+      "kind": "reply",
+      "author": {
+        "username": "0xYond",
+        "name": "Yond (DeFi Arc)"
+      },
+      "text": "@standard_rsv 愿景原文：\nhttps://t.co/UEmkUw8zwE",
+      "url": "https://x.com/0xYond/status/2101924082346524996",
+      "engagement": {
+        "views": 74,
+        "likes": 0,
+        "replies": 0,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [
+        "https://www.standardreserve.xyz/app/manifesto/"
+      ],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2101924020535070875",
+      "created_at": "2026-09-21T06:38:33.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "0xYond",
+        "name": "Yond (DeFi Arc)"
+      },
+      "text": "Day 7 @standard_rsv 小结 ——\n\n久等了，放了个周末假没有更新。\n\n昨天睡前 $STANDARD 突然泵了一根 +25% 的大阳线，主要是因为官方释出了愿景文章。大概提炼一下要点：\n1) 股票上链是金融创新，但链上美股池子都很浅，不足以带来大量交易。要有流动性，链上金融才有革命性的意义\n2) Standard 金库积累了很多收入，会用来反哺 STANDARD 代币，使之成为链上股票的流动性枢纽\n\n以下是今日小结：\n- 系统总分行数：1694\n- 当前区块排放量 (72h): 2310240\n- 分行拍卖成交价：7589.58 - 10213.73\n- 分行每日排放：454.59\n- 静态回本周期：16.7 – 22.5 天\n\n可以看到静态回本周期在过去几天里面正在缩短，加上 $STANDARD 兑 e/u 本位在升值，回本情况得到进一步改善",
+      "url": "https://x.com/0xYond/status/2101924020535070875",
+      "engagement": {
+        "views": 310,
+        "likes": 2,
+        "replies": 1,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": {
+        "tweet_id": "2100849218449735978",
+        "username": "0xYond",
+        "name": "Yond (DeFi Arc)",
+        "text": "Day 4 @standard_rsv 小结 ——\n\n- 系统总分行数：1399\n- 当前区块排放量 (72h): 2100121\n- 分行拍卖成交价：10363.25 - 12543.7\n- 分行每日排放：500.38\n- 静态回本周期：20.7–25.1 天\n\n今日无操作，散会！",
+        "created_at": "2026-09-18T07:27:40.000000Z",
+        "url": "https://x.com/0xYond/status/2100849218449735978",
+        "external_urls": [],
+        "media": {
+          "types": [],
+          "urls": []
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-1",
+      "list_id": "2092526123754414115",
+      "tweet_id": "2101922952321421628",
+      "created_at": "2026-09-21T06:34:18.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "PhyrexNi",
+        "name": "Phyrex"
+      },
+      "text": "最近一直在看 bitcoin:native 的数据，并没有发现明显的异样，所以感觉 Bitcoin 的价格暂时应该还比较稳定，而且近期也没有预期中可能会有风险的数据。\n\n但从交易所的净流量数据来看，最近一段时间交易所的净流入会大于净流出，而且持续一段时间了。\n\n说人话就是现在开始又越来越多的 Bitcoin 开始寄存在交易所中，还没有被消化，虽然更多的存量并不一定代表就会砸盘，但确实存量越高，导致价格下行的风险就会越大。\n\n目前来看影响并不大，但如果净转入的量更多，净转出的量不足，仍然代表了更多的投资者有离场的打算。\n\n@Gate Crypto、美股、港股、韩股、黄金、CFD、预测市场一站交易",
+      "url": "https://x.com/PhyrexNi/status/2101922952321421628",
+      "engagement": {
+        "views": 3270,
+        "likes": 10,
+        "replies": 10,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HSuEYDTbQAAZ7Ka.jpg"
+        ]
+      },
+      "quote": {
+        "tweet_id": "2100871041216098631",
+        "username": "PhyrexNi",
+        "name": "Phyrex",
+        "text": "美日加息并未因为 bitcoin:native 投资者恐慌抛售\n\n美联储和日本加息的时候我都在关注 Bitcoin 的数据，尤其是会不会有恐慌抛售的数据出现，从目前来看即便是在会议的当天或者是准备加息的当周，又或者是提前一周两周都没有看到有大量 bitcoin:native 转移到交易所的数据。\n\n这个数据蛮重要的，因为即便是到现在 DEX 已经很完善了，但如果现货抛售除了大型机构的 OTC 以外，更多的还是通过交易所执行的，所以转移到交易所的数据就能看出投资者，尤其是散户对于美联储和日本加息是不是出现担心的状态。\n\n实际来看虽然本周二到周五转入量相比前两周稍微多了一点，但在一年的转移数据中仍然是处于较低的水平，这就说明虽然有部分的投资者会担心加息，但大多数的持仓者并没有过分担心，这也是 Bitcoin 价格较为稳定的原因之一。\n\n @Gate Crypto、美股、港股、韩股、黄金、CFD、预测市场一站交易",
+        "created_at": "2026-09-18T08:54:23.000000Z",
+        "url": "https://x.com/PhyrexNi/status/2100871041216098631",
+        "external_urls": [],
+        "media": {
+          "types": [
+            "photo"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/media/HSfJqRKbcAEbZgm.jpg"
+          ]
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2101919529836450302",
+      "created_at": "2026-09-21T06:20:42.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "Benjieming1Q84",
+        "name": "Benjieming的撸毛之旅"
+      },
+      "text": "Robinhood链的Fables，有点像Huma，我陆续加了一些资金，但是没有做多号：\n➊空投预期明确(积分活动到10月5号)。\n➋页面简洁。\n\n明天上线稳定币池子，蹲一下。 https://t.co/wCRPeVcuAE",
+      "url": "https://x.com/Benjieming1Q84/status/2101919529836450302",
+      "engagement": {
+        "views": 1129,
+        "likes": 3,
+        "replies": 5,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HSuEdKVbQAAzNxZ.jpg"
+        ]
+      },
+      "quote": {
+        "tweet_id": "2096127420541833540",
+        "username": "Benjieming1Q84",
+        "name": "Benjieming的撸毛之旅",
+        "text": "⭐️Fables积分数据出来了：\n❶我放了100U，两天144分，但我第一天有一段时间“跑出区间”了，我又重新组的LP。\n❷我结合自己和其他人的数据，基本上，如果ETH/USDG池子，1U的积分大概是0.7-0.8分，仅供参考。\nhttps://t.co/b3o46ZHLFI https://t.co/HdBxs3VBEV",
+        "created_at": "2026-09-05T06:44:55.000000Z",
+        "url": "https://x.com/Benjieming1Q84/status/2096127420541833540",
+        "external_urls": [
+          "https://www.fables.fi/r/cnztnb"
+        ],
+        "media": {
+          "types": [
+            "photo"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/media/HRbwnoWacAALRG5.jpg"
+          ]
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-1",
+      "list_id": "2092526123754414115",
+      "tweet_id": "2101918456765616497",
+      "created_at": "2026-09-21T06:16:26.000000Z",
+      "kind": "original",
+      "author": {
+        "username": "ArtofSpecuycky",
+        "name": "Art of Speculation"
+      },
+      "text": "未来纳指有望连续跑赢标普\n这轮加息周期里，资金正在从全面撒网转向极度集中，而这种集中的方向，跟1999年那轮加息周期的走法非常像。\n\n过去大家习惯的逻辑是市场好的时候资金会比较均匀地流向各个板块，等权重指数(RSP)、小盘股(IWM)这类代表市场广度的标的会跟着一起走强。最近RSP和IWM的结构偏弱，说明主力资金不愿意雨露均沾了。\n\n取而代之的是一种更极端的集中打法，所有的资本被挤压进一条极窄的通道，只往那些对利率不敏感、同时资本回报率(ROIC)极高的公司里砸。\n\n为什么会这样？因为像Meta、Amazon、Google这些巨头手里握着百亿级的充沛现金流，多加25个基点的借贷成本对它们来说根本不痛不痒，它们庞大的AI资本开支不会因为加息放缓。加息对这批现金流极强的公司没有杀伤力，但对那些依赖借贷扩张、现金流本来就紧张的中小盘公司，压力就完全不一样了。这也是为什么资金会往头部集中。\n\n这个走势，跟1999年那轮加息周期非常像。\n\n历史上1999年美联储开启连续加息的时候，发生过一件挺反直觉的事。标普500当时表现相当平淡，但纳斯达克却走出了一段单边主升浪。被压制的是那些依赖借贷、缺乏定价权的传统行业和中小盘公司，但现金流充沛、成长性极强的科技巨头在加息周期里持续跑赢。\n\n现在把SPY和QQQ的相对比率拿出来看，会发现这个比率最近已经跌破了50日均线。这个技术形态，跟1999到2000年美联储首次加息之后走出来的走势，几乎是完全一致的。历史不会简单重复，但技术结构上高度相似。所以我觉得科技股和半导体接下来大概率会全面跑赢大盘。\n\n如果这个逻辑继续成立，接下来的操作思路应该更聚焦。传统意义上买大盘、买等权重、追求广度这套打法，在这轮加息周期里可能会持续跑输。那些现金流极其充沛、ROIC极高、对利率脱敏的头部科技和半导体公司，会持续吸走市场里大部分的增量资金。这也是为什么最近RSP、IWM这类反映市场广度的指标持续走弱，指数还是能维持强势。\n\n历史只是参考，不能保证1999年那轮纳指最终也走向了泡沫破裂，资金极度集中既是趋势的加速器，也可能是风险的放大器。但至少在当下这个阶段，从ROIC逻辑、巨头资本开支的刚性和SPY/QQQ相对比率的技术形态这三个角度交叉验证下来，纳指跑赢标普这个判断目前看有比较扎实的支撑。接下来的仓位配置可以更倾向于向这条主线集中。",
+      "url": "https://x.com/ArtofSpecuycky/status/2101918456765616497",
+      "engagement": {
+        "views": 3103,
+        "likes": 17,
+        "replies": 2,
+        "reposts": 2,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2101917013786411286",
+      "created_at": "2026-09-21T06:10:42.000000Z",
+      "kind": "original",
+      "author": {
+        "username": "TechFlowPost",
+        "name": "TechFlow 深潮｜APP 已上线"
+      },
+      "text": "如果你打新，那就只赚打新收益，切忌持币。因为这十多年的上币数据显示，市场真的在惩罚“钻石手”。\n\nGSR 统计了 2013 年以来 2300 多次主流交易所的上币记录。数据结论非常直白：新币跌破发行价的时间中位数仅为 3 天，90 天内跌幅中位数达 50%。\n\n结合行业惯用的“低流通、高 FDV”模式，代币生命周期呈现以下特征：\n\n1/ 高估值 = 持续失血 \nFDV 超过 10 亿美元上线的代币，一年后回报率中位数为 -81%。投入 1 美元，360 天后仅剩 0.19 美元。\n\n2/ 流通量决定抗跌性 \n自 ICO 时代起，首发流通量中位数由 38% 降至 13%。数据显示，首发流通量低于 20% 的项目，一年后平均下跌 75%；流通量处于 30% 至 50% 的项目，跌幅收窄至 45%。\n\n当极少的初始流通筹码碰上天价的完全稀释估值，短暂炒作过后就是解锁期无尽的抛压。这种“上线即阴跌”的资产，根本无法为二级市场提供建仓空间。\n\n所以，与其苦等项目方“良心发现”去优化发行结构，不如直接把这份报告当成二级交易者的《新币生还指南》。基于上述数据，普通人在当下市场该如何自处？\n\n🛑 1/ 放弃长线信仰，打新只做“渣男” \n\n既然中位数是 3 天破发、90 天腰斩，那就彻底放弃对 VC 币的“钻石手”幻想。开盘首日的流动性溢价一旦吃完，绝对不要拿利润去和即将到来的巨量解锁抗衡。\n\n🔍 2/ 强执行“20% 流通”过滤线 \n\n把首日流通量作为核心风控指标。遇到流通量低于 20% 的天王级项目，直接默认它是“结构性做空盘”，除了开盘狂欢，后续绝不接盘；只有首发流通在 30%-50% 的项目，才值得你去分析它的基本面和二次建仓的机会。\n\n⏳ 3/ 真正的抄底，请等到一年以后 \n\n高 FDV 代币一年后中位数仅剩 0.19 美元。如果你真的看好某个项目的技术或生态，请管住手。等时间熬满 300 天，等早期空投和第一轮私募解锁的筹码被市场砸出真正的底部后，再去捡带血的筹码。",
+      "url": "https://x.com/TechFlowPost/status/2101917013786411286",
+      "engagement": {
+        "views": 2312,
+        "likes": 7,
+        "replies": 6,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HSuCSp5XYAA_qd_.jpg"
+        ]
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-1",
+      "list_id": "2092526123754414115",
+      "tweet_id": "2101911338750738562",
+      "created_at": "2026-09-21T05:48:09.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "PhyrexNi",
+        "name": "Phyrex"
+      },
+      "text": "2026年9月20日（29 شهریور）傍晚约19:30，在德黑兰 آزادگان高速公路附近拍到天空中有一串彩色灯光，靠近云层、没有声音、缓慢移动。\n\n小伙伴们都在猜测这玩意是什么，不知道是不是美国的新武器😂😂 https://t.co/zD791J8HRo",
+      "url": "https://x.com/PhyrexNi/status/2101911338750738562",
+      "engagement": {
+        "views": 12675,
+        "likes": 17,
+        "replies": 19,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "video"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/amplify_video_thumb/2101910405929107456/img/dbOqKM-n9BGJyOQO.jpg",
+          "https://video.twimg.com/amplify_video/2101910405929107456/vid/avc1/320x568/GHxKq-EMsytLqFhA.mp4?tag=29",
+          "https://video.twimg.com/amplify_video/2101910405929107456/vid/avc1/480x852/j_1Rozeob7n74Lt6.mp4?tag=29",
+          "https://video.twimg.com/amplify_video/2101910405929107456/vid/avc1/720x1280/1FOqcPyKO2ocDz3-.mp4?tag=29"
+        ]
+      },
+      "quote": {
+        "tweet_id": "2100123067813179760",
+        "username": "PhyrexNi",
+        "name": "Phyrex",
+        "text": "伊朗硬控全球石油，沙特原油出口受阻正在加速石油价格的上涨\n\n目前有消息称，沙特已经通知部分欧洲客户，取消9月下旬的原油出货，延布港的原油装船也出现暂停。东西管道遭到袭击后停运，让沙特原本用来绕开霍尔木兹的出口路线也出了问题。\n\n这条管道此前每天输送约400万桶原油，相当于全球石油供应的4%左右。如果长时间无法恢复，库存又逐渐消耗，原油的价格就会面临更大的压力。\n\n这次最让市场担心的在于霍尔木兹的运输还没有恢复正常，沙特通往红海的替代路线又受到影响。可以选择的出口渠道越少，市场对任何一次袭击、一次延迟交付都会更加敏感。\n\n欧洲如果临时增加采购，也需要去寻找北海、美国或者其他地区的原油。这些货源本来就有其他买家，短时间内更多人争同一批能按时交付的原油，采购成本就可能继续上升，压力也会传到其他地区。\n\n而导致沙特东西管道停运的原因是疑似与亲伊朗的伊拉克武装有关。所以不服伊朗不行，一己之力硬控了全球石油价格 7个 月，而所有人对它都束手无措，厉害了！应该叫爸爸。\n\n @Gate Crypto、美股、港股、韩股、黄金、CFD、预测市场一站交易",
+        "created_at": "2026-09-16T07:22:12.000000Z",
+        "url": "https://x.com/PhyrexNi/status/2100123067813179760",
+        "external_urls": [],
+        "media": {
+          "types": [
+            "photo"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/media/HSRve8SaAAAuqFL.jpg"
+          ]
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-1",
+      "list_id": "2092526123754414115",
+      "tweet_id": "2101909380681859456",
+      "created_at": "2026-09-21T05:40:22.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "qinbafrank",
+        "name": "qinbafrank"
+      },
+      "text": "油价不出问题，那么市场也不会出问题。这里的逻辑在于：若油价不出问题，美债收益率短期内也不太会出问题，市场交易油价和长债利率触顶顶可能性，因为产业基本面还是强劲，当宏观扰动暂时褪出，自然在这个期间情绪会持续修复。\n\nAnthropic的上市推迟到11月，openAI也表示到27年IPO：这一方面减少上市吸血的担忧；另一方面anthropic上市推迟原因是认为三季度业绩会很好，努力做业绩。对市场也是好事。\n\n上周末伊朗最高国家安全委员会秘书也是穆杰塔巴的代表雷扎伊提了7个条件（其中三条是美军停火、停止封锁、解冻伊朗资产，余下四条不明确）；虽然胡塞和沙特持续紧张，但是只要有的谈对市场就是好事。看本周联大期间美伊海湾国家会谈，有没有新的进展、然后还有关键的中美会晤；还是前面说的，油价不出问题不再飙升，市场也会平稳📈。\n\n最早是17号这里聊到，市场是在交易油价见顶的可能性，只要油价回落，即使沃什再放鹰，市场的情绪还是能起来：\nhttps://t.co/94XAACkyf5\n\n本条由@bitget_zh赞助，「Bitget 买美股：秒级入场，丝滑交易",
+      "url": "https://x.com/qinbafrank/status/2101909380681859456",
+      "engagement": {
+        "views": 10353,
+        "likes": 21,
+        "replies": 10,
+        "reposts": 0,
+        "quotes": 1
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": {
+        "tweet_id": "2101623460615102871",
+        "username": "qinbafrank",
+        "name": "qinbafrank",
+        "text": "油价是决定加息路径的关键变量，能源冲击是核心扰动。这是高盛GBM系列播客 《The Breaks of the Game》的最新一集核心观点。这期是高盛对冲基金业务全球主管Tony Pasquariello主持，高盛研究部高级顾问Dominic Wilson与全球风险主管Josh Schiffrin主要分享。他们认为市场目前定价的约四次累计加息\"明显偏多\"，两人均认为本轮加息周期实际落地次数更可能为两次。\n两人均指出，油价走势是决定最终加息路径的关键变量，一旦油价出现实质性回落，将为全球多类资产提供同步走强的条件。跟我之前很多观点一致性很类似，详细梳理下。\n\n这期播客核心内容要点，\n1、加息路径：市场定价“四次”明显偏多，两人更看好两次\n市场当时已定价本轮累计约四次加息（一个较完整的紧缩周期）。两人认为这明显过头。基准情形是10月再加一次，然后进入较长时间暂停。实际风险更可能是各央行加息力度不及市场预期；\n\n2、油价是决定加息路径的关键变量\n油价大涨被两人视为今年最大的市场意外，持续推高通胀预期，也让市场对加息路径定价越来越激进。一旦油价出现实质性回落，通胀压力会缓解，加息必要性下降，并为全球多类资产同步走强创造条件。油价回落也被视为债市最可能的催化剂；\n\n3、债市：长端实际利率已处多年罕见高位，利空消化较多，但还需催化剂\n10年期美债约5%、30年期实际利率超过3%，是相当长时间未见的水平。财政赤字、通胀粘性等利空已被市场消化不少，估值吸引力上升。但在AI资本开支融资需求、财政赤字和增长韧性没有实质性变化前，收益率大幅下行空间有限。需要油价下跌这类偏多头催化剂，买家才会更积极回归；\n\n4、股市：韧性超预期，当前是近期较清晰的做多窗口之一\n尽管油价飙升、收益率上行、AI不确定性存在，股市仍展现超预期韧性。原因主要是大规模资本开支周期和实体经济增长依然强劲。当前点位已计入较悲观情景（四次加息、高收益率、油价超100美元），因此“看到缓解路径变得容易得多”。Wilson 将此时点描述为近期多头侧较清晰的做多窗口（虽不如7月底那么好，但感觉类似），可用低成本期权做保护或博取上行。\n\n5、宏观与美联储会议后环境\n9月FOMC后，短期政策不确定性下降，被视作配置窗口。增长仍有韧性（约2%），劳动力市场好于部分预期。通胀仍高于目标，但能源冲击是核心扰动。AI、财政赤字和资本竞争推高了实际利率，若没有AI capex转向或增长意外下行，鸽派转向空间有限。\n\n6、高盛年底交易思路\n1）美元：受美联储相对鹰派、美国经济领先支撑，倾向走强。\n2）“全资产上涨”窗口：若中期选举后油价下行，可能出现股债商品等同步走强的交易机会，但需要油价下跌作为催化剂。\n3）超长端高实际收益率：中长期仍有配置价值。\n4）利率定价：对年底前加息定价向下修正越来越有信心，倾向用低成本期权结构参与。\n\n这跟个人之前观点很类似，是油价再决定市场近期的走势，油价回落叠加基本面还是很强势，支撑本周后半周市场上行。后续还是要看油价走势： https://t.co/R8noHp3Gme",
+        "created_at": "2026-09-20T10:44:13.000000Z",
+        "url": "https://x.com/qinbafrank/status/2101623460615102871",
+        "external_urls": [],
+        "media": {
+          "types": [
+            "photo"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/media/HSp3ZRsaYAAS2lP.jpg"
+          ]
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-1",
+      "list_id": "2092526123754414115",
+      "tweet_id": "2101908210961801383",
+      "created_at": "2026-09-21T05:35:43.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "PhyrexNi",
+        "name": "Phyrex"
+      },
+      "text": "很可惜，都 24 小时了，我放在阳台的四粒花生都还在原来的位置上，动都没动过。\n\n感谢大家的参与，其中有很多小伙伴都猜对了，不过第一位给出正确答案的是 44100.sign @mylovedota2009 ，恭喜你，我会清 @Gate_zh 的小伙伴 陆兄 @Gate_luqingxiao 寄一份 Gate 的周边给你，谢谢。 https://t.co/xDqIZBIBzP",
+      "url": "https://x.com/PhyrexNi/status/2101908210961801383",
+      "engagement": {
+        "views": 7827,
+        "likes": 27,
+        "replies": 19,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HSt1-14awAAP7jd.jpg"
+        ]
+      },
+      "quote": {
+        "tweet_id": "2101555022618402997",
+        "username": "PhyrexNi",
+        "name": "Phyrex",
+        "text": "我放了四颗花生🥜在这四个位置，小伙伴有兴趣的可以猜一下，我晚上回来的时候花生还剩下几颗。那颗花生或者那几颗花生会被吃掉。\n\n第一位回答正确的小伙伴我会请 @Gate_zh 寄一份周边给你。 https://t.co/HhrgnJwKHE",
+        "created_at": "2026-09-20T06:12:17.000000Z",
+        "url": "https://x.com/PhyrexNi/status/2101555022618402997",
+        "external_urls": [],
+        "media": {
+          "types": [
+            "photo"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/media/HSo5JpwaMAA4Sju.jpg"
+          ]
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
     {
       "list_name": "List-1",
       "list_id": "2092526123754414115",
@@ -72,9 +501,9 @@
       "text": "昨天听 Beyond 聊起这件事，只能说现在有很多小伙伴都在疯狂的找角度，能用的都用上了，我是没资格说什么的，但如果是真的慈善，如果发起人没有想要发币的意愿，还是应该尊重发起人的。\n\n最近看到了一些较大影响力事件的发起人都在和同名 Meme 保持距离，就是不想被人裹挟，而且为此去折磨受害者的完全就是畜生行为。\n\n赚钱确实很重要，但并不是什么钱都应该赚，尤其是沾染人血的钱都去赚，太下作了。",
       "url": "https://x.com/PhyrexNi/status/2101902529789587747",
       "engagement": {
-        "views": 2725,
-        "likes": 9,
-        "replies": 3,
+        "views": 8033,
+        "likes": 18,
+        "replies": 6,
         "reposts": 0,
         "quotes": 0
       },
@@ -122,11 +551,11 @@
       "text": "越来越多的网站开始接受加密货币付款，但是 UI 和体验都非常原始。\n\n其实使用 LI.​FI 应该是很容易提高和改善优化点的，对于收款方只需要选择收款货币就可以，然后用户直接点击，钱包里有什么资产用什么。如果有最好，直接转账支付，如果没有，找到最短、最便宜路径，做一个 bridge 或者 swap 就好了。\n\n谁来写个 widget？没人我过两天写一个。",
       "url": "https://x.com/brucexu_eth/status/2101901552218960122",
       "engagement": {
-        "views": 162,
-        "likes": 1,
-        "replies": 2,
+        "views": 626,
+        "likes": 3,
+        "replies": 4,
         "reposts": 0,
-        "quotes": 0
+        "quotes": 1
       },
       "external_urls": [],
       "media": {
@@ -157,9 +586,9 @@
       "text": "这次很多初次见面的小伙伴都说我线上和线下的反差很大，其实在正常生活上我就这么一个人，和我一起线下聚会过的小伙伴都知道，我基本上就是活跃气氛的。\n\n本身生活和赚钱就是一件压抑的事情，到了该放松的时候就应该尽情的放纵自己。\n\n欢迎小伙伴收看，我和四个泳装美女的故事，短剧《倪生我梦》。\n\n主演 初号机 @ScarlettWeb3 Yuki Rabbit @0xYukiRabbit 0xMeow @0xMeow0130 Hedda @Rav_Hedda \n\n友情客串 UNICORN @UnicornBitcoin 林克 @CryptoSociety42 王短鸟 @Wangduanniao Cato_KT @Cato_KT \n\n工具人 PhyrexNi @PhyrexNi",
       "url": "https://x.com/PhyrexNi/status/2101899533857022433",
       "engagement": {
-        "views": 4874,
-        "likes": 18,
-        "replies": 11,
+        "views": 19275,
+        "likes": 49,
+        "replies": 37,
         "reposts": 0,
         "quotes": 0
       },
@@ -212,10 +641,10 @@
       "text": "8月30号预判，筑底看相对7月30号低点是走个higher low，double bottom还是lower low，现在看来是higher low。今天估计会突破9月8号高点创一个higher high了。周四中美会晤后回调突破回踩下跌趋势线，btc，半导体还可以加仓买。 https://t.co/76J9JWPalF",
       "url": "https://x.com/ArtofSpecuycky/status/2101898211443273731",
       "engagement": {
-        "views": 2729,
-        "likes": 11,
-        "replies": 4,
-        "reposts": 0,
+        "views": 6738,
+        "likes": 27,
+        "replies": 6,
+        "reposts": 1,
         "quotes": 0
       },
       "external_urls": [],
@@ -248,10 +677,10 @@
       "text": "老黄有点亲自下场“雷神之锤”的味道了。\n\n之前有人扒过 Anthropic 涉嫌花钱制造“AI 毁灭论”的爆料，最近老黄在公开采访中直接对直接对 Altman 和 Dario 进行了敲打和提醒。\n\n黄仁勋在下面这个采访中公开表示：“别让现在流行的 AI 导致末日的叙事，使他们得以免除现有的法律约束。” \n\nAI 巨头们天天喊着要新监管，其实是想用新法案来“覆盖”和“豁免”他们目前面临的侵权、数据窃取等现行法律的起诉。\n\n他们不是想要更多约束，而是想要“免死金牌”。\n\n之前的独立调查者爆料的意思大概是，Anthropic 故意先放大 AI 末日论的恐慌，再以“救世主”姿态要求政府设立极高门槛的合规审查。\n\n目的就是用天价合规成本，把开源生态和中小创业者直接掐死在摇篮里，自己在合规的舒适区里有话语权。\n\nAI 有没有带来末日不知道，人的利益争夺是很确定的。",
       "url": "https://x.com/TechFlowPost/status/2101892886526652925",
       "engagement": {
-        "views": 3728,
-        "likes": 7,
-        "replies": 2,
-        "reposts": 0,
+        "views": 6222,
+        "likes": 10,
+        "replies": 3,
+        "reposts": 1,
         "quotes": 0
       },
       "external_urls": [],
@@ -299,7 +728,7 @@
       "text": "🎉 Bitget 八周年特别互动开奖啦！\n\n恭喜以下 5 位用户获得 20 U 奖励：\n\n@invhnHnez0zvaU7\n@jamboochuuu999\n@Ikanasin_13\n@stephenrisser\n@Radjkura\n\n请以上中奖用户在开奖公布之日起 7 天内，通过私信向 @TechFlowPost 提供您的 Bitget UID，以便发放奖励。\n\n⚠️ 逾期未提供 UID 将视为自动放弃中奖资格，请大家及时查看并联系我们。\n\n感谢大家参与本次活动，也祝 TechFlow × Bitget 的朋友们继续在 Crypto 世界好运常伴 🎁",
       "url": "https://x.com/TechFlowPost/status/2101890903719674347",
       "engagement": {
-        "views": 592,
+        "views": 883,
         "likes": 3,
         "replies": 4,
         "reposts": 1,
@@ -330,7 +759,7 @@
       "text": "美国人快来啊，活儿很大，很多朋友要塞，每笔你都能赚中介费啊！！",
       "url": "https://x.com/spark888/status/2101883335341666606",
       "engagement": {
-        "views": 181,
+        "views": 308,
         "likes": 0,
         "replies": 0,
         "reposts": 0,
@@ -361,8 +790,8 @@
       "text": "📢Alpha 日报\n1⃣9月21日 暂无空投预告\n9月24日(pPoly) 新推出的Pre-Access打新模式，公司上市前股份代币化认购。代币总量10亿，链上池子价格15.5，对应FDV155亿，Polymarket最新一轮融资的公司估值约为 210 亿美元。\n\n耐心点，命运会把你带到你该去的地方。\n\n2️⃣昨日限价单总交易量：1,483,561,514\n（较前一日-8.91% ）  \n\n3️⃣交易赛进度 \nCP 交易赛  \n昨日7228→ 今日9978\n(增加了2750)\n\nDEBIT 交易赛\n昨日75351→ 今日159785\n(增加了84434)\n\nKII 交易赛\n昨日26→ 今日93520\n(增加了93494)\n\n4️⃣今日推荐（30 天内上线代币，积分 ×4）\n交易赛推荐：暂无\n纯交易量推荐：  限价单刷DGAI（剩25天）",
       "url": "https://x.com/0xXIAOc/status/2101879262500552894",
       "engagement": {
-        "views": 5544,
-        "likes": 27,
+        "views": 7748,
+        "likes": 32,
         "replies": 11,
         "reposts": 0,
         "quotes": 1
@@ -396,7 +825,7 @@
       "text": "修正一下，8月23日后天早上八点截止。羡慕死你们美国人了！",
       "url": "https://x.com/spark888/status/2101878698177970425",
       "engagement": {
-        "views": 276,
+        "views": 436,
         "likes": 1,
         "replies": 2,
         "reposts": 0,
@@ -427,9 +856,9 @@
       "text": "万能的推友圈，有用X Money的美国人吗？\n\n这个老外的上一个free mint说是一千刀利润\n\n这次是用X Money打8U，应该给白或者NFT\n\n明天早上八点结束，感觉有的赚啊\n\n我想多号打，有美国人带带我吗，可以给你劳务费，稍微便宜点儿😭\n\n目前可以去 @RXu107 老师那里打点，15刀一个号，我转了一个号 https://t.co/60UBJ9sRiB",
       "url": "https://x.com/spark888/status/2101877628961747340",
       "engagement": {
-        "views": 1288,
-        "likes": 10,
-        "replies": 16,
+        "views": 2183,
+        "likes": 17,
+        "replies": 23,
         "reposts": 0,
         "quotes": 0
       },
@@ -462,8 +891,8 @@
       "text": "报告原source：\nhttps://t.co/sK8LRFvo4F",
       "url": "https://x.com/TechFlowPost/status/2101874767297175657",
       "engagement": {
-        "views": 931,
-        "likes": 1,
+        "views": 1200,
+        "likes": 2,
         "replies": 1,
         "reposts": 0,
         "quotes": 0
@@ -495,10 +924,10 @@
       "text": "不冷不热的知识：BTC 在 8 月的短短 5 天内，创下了 2 年来最强劲的单周涨幅，暴涨约 25%。\n\n这波拉涨到底是什么驱动的呢？是真的增量资金入场了？\n\n在最近 @glassnode  和 @Bybit_Official  的联合报告里，结论指向了合约市场：\n\n上涨几乎完全由“空头爆仓”驱动的，而非新增的多头杠杆。\n\n几个值得关注的点：\n\n1.价格上涨，但杠杆撤退\n在 BTC 价格上涨 24.6% 的同时，以币本位计价的未平仓合约量反而下降了 12.6%。这在交易逻辑上意味着：\n上涨的动力根本不是交易员在疯狂建仓开多，而是由于原有的空头仓位被强制平仓，产生了巨大的被动买盘。\n\n2.空头祭天，法力无边\n在这波极速拉升中，高达 89% 的清算资金全部来自于空头头寸。\n一场经典的“轧空（Short Squeeze）”踩踏，空头被逼平仓买入，把价格往上推。\n\n3.一天干碎了长达一年的期权趋势\n在期权市场，为了对冲下行风险，看跌期权的定价此前已经连续 361 天高于看涨期权。\n但在 8 月这短短一个交易日的“逼空”行情下，长达近一年的看跌偏见被瞬间终结，市场迎来了极致的重新定价。\n\n抛下各种新闻消息来看，在这个处于存量博弈周期的市场里，最猛烈的拉盘往往不需要主力花多少真金白银。\n\n只需要在流动性薄弱的时候，把对手盘逼到爆仓边缘，让他们自己的平仓单成为推高价格的最强燃料。",
       "url": "https://x.com/TechFlowPost/status/2101874764872851492",
       "engagement": {
-        "views": 5471,
-        "likes": 26,
-        "replies": 7,
-        "reposts": 1,
+        "views": 8152,
+        "likes": 44,
+        "replies": 10,
+        "reposts": 4,
         "quotes": 0
       },
       "external_urls": [],
@@ -532,7 +961,7 @@
       "text": "$IMD 这个项目，有趣的点就在于，dev从来不在推特发产品更新，每次有动静都是用在以太坊上发交易说话。然后社区会有几个链上专家实时在推特更新动态。\n\n太tm degen了。当时1u的价格买IMD 就是因为喜欢这种古法 build的逼格🥲",
       "url": "https://x.com/nbblock/status/2101873645824164159",
       "engagement": {
-        "views": 758,
+        "views": 883,
         "likes": 4,
         "replies": 0,
         "reposts": 0,
@@ -563,9 +992,9 @@
       "text": "【ZRC20会是ZEC生态的下一个热点吗？ -还很早期】\n\n⭐️上周六在推特Space中，在聊ZEC链的NFT热潮过了之后，会不会像比特币链一样，再出一个“铭文热潮”。\n⭐️我自己不是专业搞技术的，属于是“半吊子”，但是我爱研究，我谈谈我的看法，大家参考。\n\n1️⃣之前也聊过，其实币圈的造富效应，大多数情况是抓住“新资产发行”的机会，就是发币，而很多情况，币圈的创新也是来自于“新资产发行方式的创新”，例如：\n❶ICO\n❷DeFi\n❸公链之争和L2\n❹NFT\n❺铭文\n❻TON链小游戏\n❼DePIN\n❽RWA和股票代币化\n等等......\n2️⃣目前币圈的所有公链，想要发币，其实可以分为“协议层方案”和“应用层方案”两大类：\n❶“协议层方案”例如以太坊的ERC-20等，发币合约就在链上部署和执行，余额也是直接显示在链上。\n❷“应用层方案”例如比特币的BRC-20等，链本身不能执行发币的合约，只能把“一段约定好的数据上链”，再靠链下索引器显示余额。\n3️⃣先说我了解到的结论：\n❶ZEC链和BTC链都属于POW公链，有相似之处，但又不一样，ZEC链的“ZEC铭文”是属于”应用层方案“，不是ZEC链发行资产的“最后一站”，最后一站可能会是“ZSA“，就是协议层方案，而“ZSA“目前是测试网阶段，什么时候主网还不确定。\n❷所以，在ZSA主网之前，ZEC链是可以通过“ZEC铭文”的方式，先炒作一波。\n\n(比特币的侧链和RGB等，这里不聊)",
       "url": "https://x.com/Benjieming1Q84/status/2101872628684509191",
       "engagement": {
-        "views": 2117,
-        "likes": 10,
-        "replies": 10,
+        "views": 2474,
+        "likes": 11,
+        "replies": 13,
         "reposts": 0,
         "quotes": 0
       },
@@ -610,7 +1039,7 @@
       "text": "@RXu107 这是evm地址：0xb78c0b2763446f8ceaae9442d8d052e6eb505352",
       "url": "https://x.com/spark888/status/2101870814283084226",
       "engagement": {
-        "views": 109,
+        "views": 130,
         "likes": 0,
         "replies": 0,
         "reposts": 0,
@@ -641,7 +1070,7 @@
       "text": "@RXu107 猫猫转你了，谢啦，这是哈希0xb92e59671364f302fbc62b030746cb3cfc2d3e45f4ffa49b9aec0aaf8fa8623f",
       "url": "https://x.com/spark888/status/2101870686084255866",
       "engagement": {
-        "views": 383,
+        "views": 490,
         "likes": 0,
         "replies": 1,
         "reposts": 0,
@@ -672,8 +1101,8 @@
       "text": "bn alpha 新币 pPoly (Paimon Polymarket SPV) @Polymarket  @Paimon_Finance \n\n拿polymarket额度打新，在bn钱包进行，\ncake主办，大概 5m 额度，参与形式和SPXC打新类似，\n从前几天的测试camp来看，只能用 U和USDC参与\n\n相关信息\n1. 开盘时间: 2026-09-24 17:00:00 UTC+8\n2. bsc contract: 0x1d80392d12caaaf9e333bb0bb7f021eacf297fe6\n3. pair: pPOLY/U\n4. 池子区间和狙击价见 图1 图2\n\n和以往的alpha新币不同，这种开盘的博弈点不多\n加了1.5M U池子，10.8-15.5价格区间承接，差不多是给参与打新的兜底，算是很有诚意了\n上方池子极浅，100K 就会狙到26的价格，500K就会把池子买空\n狙击到20多刀后，参与打新的几百万刀筹码肯定是选择落袋为安的，就别傻傻的跟在狙击后面追了",
       "url": "https://x.com/aLiiDeez/status/2101867460651864299",
       "engagement": {
-        "views": 4739,
-        "likes": 25,
+        "views": 6408,
+        "likes": 34,
         "replies": 10,
         "reposts": 4,
         "quotes": 0
@@ -708,7 +1137,7 @@
       "text": "石油是不是按照线在走🤭 https://t.co/eUhcHqYTSW",
       "url": "https://x.com/ArtofSpecuycky/status/2101865351432860014",
       "engagement": {
-        "views": 7507,
+        "views": 9060,
         "likes": 28,
         "replies": 5,
         "reposts": 0,
@@ -762,8 +1191,8 @@
       "text": "适合加入以太坊基金会叙事部，担任部长。",
       "url": "https://x.com/brucexu_eth/status/2101864626036334592",
       "engagement": {
-        "views": 773,
-        "likes": 3,
+        "views": 1015,
+        "likes": 4,
         "replies": 2,
         "reposts": 0,
         "quotes": 0
@@ -809,9 +1238,9 @@
       "text": "🌐 9 月 21 日 - 9 月 27 日｜本周大事件\n\n📅 9 月 21 日｜星期一\n🔵 FOMC 票委、芝加哥联储主席古尔斯比发表讲话\n🔵 AICC 2026 人工智能计算大会\n🔵 纳指季度再平衡生效，SpaceX 权重将升至 2.82%\n🔵 富时中国 A50 指数纳入中微公司、生益科技\n\n📅 9 月 22 日｜星期二\n🔵 美联储副主席杰斐逊在 2026 年美债市场会议发表讲话\n\n📅 9 月 23 日｜星期三\n🔵 高通骁龙峰会\n🔵 Meta Connect 2026\n🔵 $SOON 将于 9 月 23 日解锁，价值约 376 万美元，占流通量 3.62%\n\n📅 9 月 24 日｜星期四\n🔵 Phantom 终止支持 Sui 网络\n🔵 $SOSO 将于 9 月 24 日解锁，价值约 684 万美元，占流通量 5.97%\n\n📅 9 月 25 日｜星期五\n🥮 中秋节：沪深北三大交易所 9 月 25 日至 27 日休市\n🔵 Switchboard 预言机关闭\n🔵 $H 将于 9 月 25 日解锁，价值约 1929 万美元，占流通量 7.34%\n🔵 $XPL 将于 9 月 25 日解锁，价值约 1.52 亿美元，占流通量 5.97%\n\n📅 9 月 26 日｜星期六\n🔵 $STBL 将于 9 月 26 日解锁，价值约 534 万美元，占流通量 4.42%",
       "url": "https://x.com/TechFlowPost/status/2101860001287426108",
       "engagement": {
-        "views": 2371,
+        "views": 2620,
         "likes": 2,
-        "replies": 6,
+        "replies": 9,
         "reposts": 0,
         "quotes": 0
       },
@@ -844,8 +1273,8 @@
       "text": "继续上涨，9月22日，项目方会公布路线图和对 $EDEL 的新赋能，可能是下一个催化剂",
       "url": "https://x.com/nbblock/status/2101857689001398784",
       "engagement": {
-        "views": 1508,
-        "likes": 3,
+        "views": 1711,
+        "likes": 4,
         "replies": 2,
         "reposts": 0,
         "quotes": 0
@@ -891,7 +1320,7 @@
       "text": "一会到了看看钱包再决定是 星巴克 还是 瑞幸 还是蜜雪冰城",
       "url": "https://x.com/brucexu_eth/status/2101856181446959133",
       "engagement": {
-        "views": 211,
+        "views": 234,
         "likes": 0,
         "replies": 0,
         "reposts": 0,
@@ -922,7 +1351,7 @@
       "text": "截图是9月17日，在backpack, $BP 启动那天在tg频道里发的。\n\n美国合规交易所、Solana唯一的交易所（有生态卡位）、代币化美股叙事。\n\n每一轮都会有新的交易所诞生，且最好是经历过熊市洗盘的。 Backpack符合上面这几点。\n\n确实空投发的不大方，现在用的人也不多，但如果没缺点也不是现在这个估值了对吧。",
       "url": "https://x.com/nbblock/status/2101856032163324096",
       "engagement": {
-        "views": 884,
+        "views": 1007,
         "likes": 0,
         "replies": 0,
         "reposts": 0,
@@ -957,7 +1386,7 @@
       "text": "按仓约人 https://t.co/fHY74a1P8v",
       "url": "https://x.com/brucexu_eth/status/2101854488621687125",
       "engagement": {
-        "views": 1211,
+        "views": 1380,
         "likes": 5,
         "replies": 4,
         "reposts": 0,
@@ -992,11 +1421,11 @@
       "text": "这个人 @jackbutcher  搞了一个新的项目活动\n\n只需要通过X-Money 转 8 刀\n\n就可以拿到他下一个项目的白名单\n\n他的上个项目是 free mint，单号大概有一千刀左右的利润\n\n但由于 X Money 需要美国 SSN 来进行注册\n\n我看到很多朋友没有这个机会\n\n这个时候猫交所就要上线，给大家搞点福利了。\n\n但猫猫是美国留学生，自然而然是有这个 SSN 的\n\n给地址\n\n0xbcae41cb0dd02441f95e7f5cb0d6750540e6c84f\n\n转 15 刀，我通过 X-Money 向 @jackbutcher 转8刀帮你拿白单",
       "url": "https://x.com/RXu107/status/2101852997412438458",
       "engagement": {
-        "views": 35374,
-        "likes": 81,
-        "replies": 73,
-        "reposts": 8,
-        "quotes": 6
+        "views": 56033,
+        "likes": 93,
+        "replies": 78,
+        "reposts": 9,
+        "quotes": 8
       },
       "external_urls": [],
       "media": {
@@ -1035,10 +1464,10 @@
       "text": "互联网金融体系中的美元治国术，这是Circle总裁Heath Tarbert9月初在众议院金融服务委员会全委会听证会上的讲话主旨。做为前CFTC主席、前财政部负责国际市场的助理部长，Tarbert把把稳定币和市场结构立法，提高到美元、国家安全和下一代支付基础设施的层级上，看看美国从业者是如何用高纬度的话术来阐述理念和愿景（当时也有为了推动清晰法案的诉求），不一定同意他的所有观点，但这个视角值得看看：\n1）美元的全球角色是挣来的资产，不是与生俱来的权利——全球储备占比从 90 年代末的 70% 以上掉到今天约 57%；\n2）“美元治国术”不是货币政策也不是制裁，而是让美元始终成为全球第一选择\n3）企业正在用软件重建金融管道：互联网金融系统（货币的互联网）快、永远在线、秒级结算；\n4）AI agents 不会为夜晚、周末、节假日停下来，它们需要快速、可编程、永远在线的 rails——而谁来搭 rails，谁就写规则；\n5）一个系统可以以美元计价，却由另一个国家治理——那才是战略风险。\n\n1、什么是「美元治国术」\nTarbert 给「美元治国术」（dollar statecraft）下了定义：这不是货币政策，也不是制裁，而是让美元始终成为全球的第一选择。做对了，借贷成本保持低位、美国的经济领导力延续；做错了，就会失去阵地。需要有意识地运用美国的法律、市场和制度公信力，让美元始终处在价值流转体系的中心。\n\n2、系统可以用美元计价，却由别人治理 这是 Tarbert 眼中的战略风险：一个系统可以以美元计价，却由另一个国家治理。美国的领导力意味着，市场要服从美国的披露规则、托管机构要接受美国检查人员的监督、什么才算最终结果要由美国法律说了算，而且这个委员会可以追究相关方的责任——这一切光靠美元本身是无法保证的。\n\n3、AI agents 与 24/7 rails 两年前，代理型经济还只是一个概念；今天，软件代理已经在代表个人和企业进行交易。它们不会为了夜晚、周末或节假日停下来，需要快速、可编程、永远在线的 rails。Tarbert 的判断很直接：无论谁来搭建这些 rails，谁就来书写规则——「它们应该是美国的 rails、美国的规则」。\n\n核心就是这个经济体应当建在美国轨道上、以美元计价、受美国法律管辖。\n\n他拿自己 2018 年推动 CFIUS 改革作类比：当年战略竞争对手瞄准有军事用途的新兴技术，法律必须赶在风险跑赢制度之前更新。今天主题不同，但战略抉择一样——美国的技术领导权关系到国防和经济繁荣，法律必须跟上。\n贯穿始终的一句话是他任 CFTC 主席时写过的：“我们如何监管，与我们监管什么同样重要。”\n对美元也是如此：地位不靠宣示，是靠背后法律与制度的质量。谁在这项技术上领先，谁最终就会书写游戏规则。\n\nTarbert真正想推动的政策层级：\n1）把 GENIUS 和 CLARITY 抬到“美元治国术”的战略高度——不只是管加密行业，而是决定金融基础设施上链后，美元和美国规则还能否处在核心。\n2）推动 CLARITY 完成立法——GENIUS 建的是美元层，下一步是把交易、托管、中介、客户保护和市场监管纳入联邦框架。\n3）严格实施 GENIUS——堵住离岸套利，覆盖中介，外国须达可比标准。\n4）把政策视野扩到整套金融体系上链——货币、证券、抵押品、支付、结算、资本市场都在迁；竞争的核心是运行轨道、治理权和规则权。\n5）强化合规美国基础设施这条路线——美元计价、美国法律、受监管稳定币、机构级结算网络、可编程金融、AI Agent 支付。\n\n在他看来，这就是互联网金融体系中的美元治国术：不是靠宣示捍卫的一种货币，而是一套由美国法律治理、由美国企业和可信伙伴建成、足够可信、足够有流动性、足够有用，因而世界继续选择它的金融体系。",
       "url": "https://x.com/qinbafrank/status/2101852144815259844",
       "engagement": {
-        "views": 17186,
-        "likes": 33,
+        "views": 19523,
+        "likes": 39,
         "replies": 14,
-        "reposts": 4,
+        "reposts": 5,
         "quotes": 0
       },
       "external_urls": [],
@@ -1082,9 +1511,9 @@
       "text": "11.2USD 美团上团个券，你就能到中医馆，让经验丰富的老中医给你咔咔咔，把你背部错位的小骨头推回去（应该是几年前杠铃大重量的后遗症），然后告诉你是筋膜炎，主要是胸肌拉伸导致不平衡再加上看手机电脑紧绷导致的，然后给你推拿放松解决问题。\n\n我只能说这是中国奇迹。然后就是之前主要练胸肌肯定不行，背肌要一起练，不平衡就会出问题。",
       "url": "https://x.com/brucexu_eth/status/2101852144349651366",
       "engagement": {
-        "views": 2143,
+        "views": 2518,
         "likes": 10,
-        "replies": 9,
+        "replies": 10,
         "reposts": 0,
         "quotes": 0
       },
@@ -1113,8 +1542,8 @@
       "text": "【如何从交易所提现ZEC代币到链上钱包？】\n\n⭐️我前几天都是使用Nori自带的Swap功能进行ZEC兑换，手续费0.5U。\n⭐️目前主流交易所的提现手续费已经下降到0.75U(之前都是接近15U)，还可以了，我分享这个过程。\n\n1️⃣我以币安交易所为例，点击提币，填写相关信息，重点是：\n❶接收地址必须是钱包的t1透明地址，而不是u1屏蔽地址。\n❷最好多提5U，用于手续费预留。\n❸提币需要时间，链上确认也需要时间，最好提前30分钟进行操作。\n2️⃣提币到钱包的t1透明地址后，需要转移到u1屏蔽地址才能参加链上交互，点击一下t1地址的余额，会弹出“Shield(屏蔽)”的窗口，点击“Shield”。\n3️⃣等待大约3分钟，资产就可以转移到u1屏蔽地址了。\n4️⃣使用Nori自带的Swap功能进行ZEC兑换的方法，在我引用的这条推文中。",
       "url": "https://x.com/Benjieming1Q84/status/2101845950298005858",
       "engagement": {
-        "views": 2942,
-        "likes": 16,
+        "views": 3291,
+        "likes": 20,
         "replies": 8,
         "reposts": 2,
         "quotes": 1
@@ -1167,7 +1596,7 @@
       "text": "Zaddr更换钱包地址：\n\nhttps://t.co/yv30AW9nQl",
       "url": "https://x.com/Benjieming1Q84/status/2101838173840216245",
       "engagement": {
-        "views": 581,
+        "views": 639,
         "likes": 0,
         "replies": 1,
         "reposts": 0,
@@ -1200,8 +1629,8 @@
       "text": "之前不小心使用Zodl钱包申请Zaddr白名单的小伙伴，目前还可以“更改钱包地址”：\n❶网站我放到评论区了。\n❷进入网站之后，点击“Change Wallet”，用X登录，贴新的钱包地址进来进行更改。\n\nZodl钱包虽然是“官方钱包”，但是因为它只有手机端📱，且它的隐私机制，会导致钱包地址“总是会变”，不太适合Mint NFT等链上交互。\n\n所以ZEC链的链上交互还是建议使用Noir电脑端💻插件钱包，如果不方便使用电脑，那就没办法了。",
       "url": "https://x.com/Benjieming1Q84/status/2101838015601799675",
       "engagement": {
-        "views": 2943,
-        "likes": 14,
+        "views": 3241,
+        "likes": 15,
         "replies": 13,
         "reposts": 0,
         "quotes": 0
@@ -1253,9 +1682,9 @@
       "text": "升级了 iOS 27 我的 iPhone14 ProMax 开始卡了😮‍💨",
       "url": "https://x.com/brucexu_eth/status/2101832964921565646",
       "engagement": {
-        "views": 1249,
+        "views": 1451,
         "likes": 5,
-        "replies": 3,
+        "replies": 4,
         "reposts": 0,
         "quotes": 0
       },
@@ -1284,7 +1713,7 @@
       "text": "ZEC链的Zaddr这个NFT项目今天晚上9点开始Mint。\n\n目前铸造和市场已经可以通过密码\"ZADDR-OKGO51M-2800\"登录了，我试了，还能登录进去：\n❶进入网站之后，点击右上角的“Sign in”，可以使用Noir插件钱包地址进行注册和登录。\n❷Mint NFT的倒计时、价格和总数等，也有显示。\n\n官方说，铸造前网站会完全开放，网站在我引用的官推中。",
       "url": "https://x.com/Benjieming1Q84/status/2101832115654672843",
       "engagement": {
-        "views": 6938,
+        "views": 7554,
         "likes": 6,
         "replies": 4,
         "reposts": 1,
@@ -1335,7 +1764,7 @@
       "text": "新的工作流程下，感觉建立了一个新的平衡，就是 sub agent 还有处理工作 todo 的预处理是完全走 DeepSeek Flash 或者 Grok 杂七杂八的 Subscription。\n\n然后人交互的部分，比如说在 Telegram check 或者说那个去手工进一步执行的时候走那个 GPT 6 Astra，然后实际的消耗不是那么大。用量差不多正好耗完。\n\n这样人参与的时候，这个交互过程质量和速度快了很多。然后做一些纠正，完事了纠正的这个规则会自己升级预处理 skills。改进这个之前的东西。实现比较完美的平衡。",
       "url": "https://x.com/brucexu_eth/status/2101831477910741092",
       "engagement": {
-        "views": 1311,
+        "views": 1393,
         "likes": 8,
         "replies": 1,
         "reposts": 0,
@@ -1366,8 +1795,8 @@
       "text": "美股期货高开，看起来soxl没加仓机会了。周末地缘影响不大，最多周一双方互相在周二谈判前极限施压小跌一点，小跌就是买入机会，上涨趋势不变。起码拿到中美会晤结束前。 https://t.co/DvLjV9DUF8",
       "url": "https://x.com/ArtofSpecuycky/status/2101823506782851355",
       "engagement": {
-        "views": 17775,
-        "likes": 44,
+        "views": 19781,
+        "likes": 45,
         "replies": 6,
         "reposts": 1,
         "quotes": 0
@@ -1417,8 +1846,8 @@
       "text": "https://t.co/bN0AjEfrwr",
       "url": "https://x.com/brucexu_eth/status/2101822670203768893",
       "engagement": {
-        "views": 1893,
-        "likes": 15,
+        "views": 2147,
+        "likes": 16,
         "replies": 0,
         "reposts": 1,
         "quotes": 0
@@ -1448,7 +1877,7 @@
       "text": "跟",
       "url": "https://x.com/brucexu_eth/status/2101803081629655288",
       "engagement": {
-        "views": 751,
+        "views": 790,
         "likes": 0,
         "replies": 1,
         "reposts": 0,
@@ -1493,8 +1922,8 @@
       "text": "可惜有生之年大概率看不到了，所以我给我的小孩起名叫银河，希望他们这代会踏足银河系。\n\n然后有个比较大的问题就是这个视频太乐观了感觉，有点像太阳朋克，但是如果 AI 失控，大概率会走向赛博朋克的混乱。",
       "url": "https://x.com/brucexu_eth/status/2101797441045684400",
       "engagement": {
-        "views": 1936,
-        "likes": 6,
+        "views": 2005,
+        "likes": 7,
         "replies": 3,
         "reposts": 0,
         "quotes": 0
@@ -1543,11 +1972,11 @@
       "text": "虽然稍微有些波动，但周末仍然林平稳的过去了，这个周末最重要的事情莫过于川普和伊朗之间的拉扯，一方面伊朗表示川普有和谈的希望，另一方面伊朗又表示美国可能回对伊朗进行新一轮的打击，但川普本人的表态则更加暧昧，说对伊朗的关系是开放性的，一切皆有可能，从市场角度来看能重新回到和平谈判是最好的。\n\n美联储和日本加息后，市场上短期的利空因素已经不多了，下周也没有关键性的数据，即便是几乎每天都有美联储官员的讲话，但内容上再鹰可能也就是这么回事，最多就是接下来的两次议息会议都加息，而且现在来看市场已经开始预期十月会加息了，随意差数据能带来的结果也就是这么回事。\n\n我个人觉得市场的注意力重点还是在美国和伊朗，美国和中国以及美国中期选举上，和伊朗的关系决定于霍尔木兹接下来的走势，以及美国通胀的趋势，而和中国的关系则影响关税、稀土、芯片、AI以及全球供应链。下周的川习会很重要，未必一定能谈出多大的成果，只要双方愿意继续谈，没有突然增加关税和出口限制，对市场来说就已经算是好消息。\n\n这么来看，只要不出现突发状况，Bitcoin 和美股应该还算是挺平稳的，只要川普别做什么逆天的发言就行，下周二开始双币的低买仍然会以 75,000 美元左右为主。\n\n@Gate Crypto、美股、港股、韩股、黄金、CFD、预测市场一站交易",
       "url": "https://x.com/PhyrexNi/status/2101766907699593504",
       "engagement": {
-        "views": 15202,
+        "views": 16049,
         "likes": 37,
         "replies": 15,
         "reposts": 0,
-        "quotes": 0
+        "quotes": 1
       },
       "external_urls": [],
       "media": {
@@ -1596,7 +2025,7 @@
       "text": "@DahLiaWeb3 时间截止是到周三，也就是9月23日",
       "url": "https://x.com/PhyrexNi/status/2101756017340256338",
       "engagement": {
-        "views": 3115,
+        "views": 3241,
         "likes": 0,
         "replies": 0,
         "reposts": 0,
@@ -1627,9 +2056,9 @@
       "text": "$imd 4.6了，nft也1.3e地板，bond应该随时启动，真正的增长要开始了，中文圈还没看到什么小作文，看来还是非常early，继续冲！",
       "url": "https://x.com/Arron_finance/status/2101747581479158040",
       "engagement": {
-        "views": 6941,
-        "likes": 31,
-        "replies": 5,
+        "views": 7428,
+        "likes": 36,
+        "replies": 6,
         "reposts": 2,
         "quotes": 0
       },
@@ -1672,7 +2101,7 @@
       "text": "Clip sourced from @variational_lvs's podcast with @ethanrkho.",
       "url": "https://x.com/variational_io/status/2101733199944814985",
       "engagement": {
-        "views": 1957,
+        "views": 2054,
         "likes": 17,
         "replies": 1,
         "reposts": 0,
@@ -1723,10 +2152,10 @@
       "text": "The Variational protocol is designed for two main applications:\n\nOmni for retail traders to trade every global market with TradFi-level liquidity.\n\nPro for institutions to modernize OTC derivatives trading and bring it on-chain. https://t.co/OR3FE7ZklT",
       "url": "https://x.com/variational_io/status/2101733187982631119",
       "engagement": {
-        "views": 15835,
-        "likes": 197,
-        "replies": 23,
-        "reposts": 18,
+        "views": 16721,
+        "likes": 205,
+        "replies": 24,
+        "reposts": 19,
         "quotes": 6
       },
       "external_urls": [],
@@ -1762,8 +2191,8 @@
       "text": "成熟的交易员应该抛弃价格洁癖，势来了就该勇敢追，而还有些bp反撸还在一直骂，有这时间买点早赚回来了🤣🤣 $BP",
       "url": "https://x.com/Arron_finance/status/2101732921111687251",
       "engagement": {
-        "views": 4573,
-        "likes": 14,
+        "views": 4822,
+        "likes": 15,
         "replies": 5,
         "reposts": 0,
         "quotes": 0
@@ -1809,7 +2238,7 @@
       "text": "感恩，达成💪 https://t.co/1htkH8SogI",
       "url": "https://x.com/spark888/status/2101719376651247812",
       "engagement": {
-        "views": 172,
+        "views": 182,
         "likes": 0,
         "replies": 0,
         "reposts": 0,
@@ -1844,9 +2273,9 @@
       "text": "Standard 更新来了。\n\n我理解就是在做大了 Treasury 之后，团队开始思考那这部分钱做什么，最后得出的结论是给代币化股票市场提供流动性。\n\n最底层的思路其实和 Long 的 robinhood:0x2e8c31162b855a2ffa90f6f8634643ad6f111e18 是一样的，都是希望帮 Robinhood Chain 去解决代币化股票流动性稀薄的问题。",
       "url": "https://x.com/0xSleepinRain/status/2101709733736620288",
       "engagement": {
-        "views": 5009,
-        "likes": 15,
-        "replies": 8,
+        "views": 5434,
+        "likes": 16,
+        "replies": 9,
         "reposts": 0,
         "quotes": 0
       },
@@ -1897,7 +2326,7 @@
       "text": "场外  不影响未来可能会有空投😛勿过度解读",
       "url": "https://x.com/0xStudy/status/2101705795285242347",
       "engagement": {
-        "views": 952,
+        "views": 999,
         "likes": 0,
         "replies": 0,
         "reposts": 0,
@@ -1928,7 +2357,7 @@
       "text": "NFT打新让我从每日一更变为每日三更，感恩了",
       "url": "https://x.com/spark888/status/2101703120086761659",
       "engagement": {
-        "views": 349,
+        "views": 370,
         "likes": 1,
         "replies": 2,
         "reposts": 0,
@@ -1959,7 +2388,7 @@
       "text": "CN Alpha最新ZEC严选项目 @zkghosts_ \n\n必做，精英们告诉我是下一个zkSNARKs\n\n总量10000，拍卖7500，资金库1500，幽灵名单1000\n\n这个模式让我想起了地板1个ZEC的故人\n\n如何获得幽灵名单呢？\n\n进入官网 → https://t.co/YUm0xdBSIh\n→ 链接推特\n→ 完成关注等任务\n→ 引用置顶发一篇推文\n\n我看好这个项目，幽灵特征很符合ZEC调性。白名单就1000个，别偷懒了，速肝！\n\nZEC能火就是因为很多人还在“太麻烦懒得学”状态，那么随时都可能继续出现大毛。",
       "url": "https://x.com/spark888/status/2101700177769955473",
       "engagement": {
-        "views": 2707,
+        "views": 2822,
         "likes": 28,
         "replies": 22,
         "reposts": 0,
@@ -2018,7 +2447,7 @@
       "text": "老马速度交互，饿死了 $bots",
       "url": "https://x.com/Arron_finance/status/2101699516093374973",
       "engagement": {
-        "views": 3539,
+        "views": 3595,
         "likes": 3,
         "replies": 2,
         "reposts": 0,
@@ -2065,7 +2494,7 @@
       "text": "Keep up with what’s trending in real time, only at @noisedotxyz https://t.co/EvX6oQge5S",
       "url": "https://x.com/noisedotxyz/status/2101689355945287872",
       "engagement": {
-        "views": 187,
+        "views": 190,
         "likes": 2,
         "replies": 0,
         "reposts": 0,
@@ -2100,7 +2529,7 @@
       "text": "South Park came back as South America, a jab at Trump renaming Lake Ontario to Lake America.",
       "url": "https://x.com/noisedotxyz/status/2101689352648565152",
       "engagement": {
-        "views": 213,
+        "views": 219,
         "likes": 1,
         "replies": 1,
         "reposts": 0,
@@ -2135,7 +2564,7 @@
       "text": "Here’s a recap of everything interesting that happened this week: https://t.co/Si8B7eQKcn",
       "url": "https://x.com/noisedotxyz/status/2101689328741101862",
       "engagement": {
-        "views": 3173,
+        "views": 3221,
         "likes": 20,
         "replies": 5,
         "reposts": 3,
@@ -2170,7 +2599,7 @@
       "text": "说说 base:0x5f980dcfc4c0fa3911554cf5ab288ed0eb13dba3 \n1. Gitlawb 可以简单理解成给 AI agent 用的 GitHub，让 agent 能自己管理代码仓库、提交代码、协作开发。\n现在它的产品已经延伸到 OpenClaude、模型调用服务 OpenGateway，以及可以直接做应用的 Playground。\n\n2.  开发者 @kevincodex  最近又做了 @openlaunch_lol 多链发射台，目前支持 Base、RH、Arc\n\n3. 开发者捣鼓的有趣的东西非常多，像最近的 果蝇 https://t.co/ZCSH7y6qyn 和 缪斯世界 https://t.co/hS1xEs9vYx\nmuseworld今天还在 openlaunch发行了代币，最高达到1.5M，用gitlawb进行池子配对，顺带把gitlawb价格拉了个翻倍，但也只有5M\n曾经的gitlawb市值高达40M+，产品好，但难有价值获；现在迎来了转折，无论是发射台，还是开发者捣鼓的新项目，他都在为gitlawb赋能，并且正在进行gitlawb的品牌重塑\nhttps://t.co/MKJA49ep3V\n\n希望 Kevin能实现这个愿景，开发者们在 Gitlawb Playground 做应用，再到 OpenLaunch 发币\n“build your dream app in Gitlawb Playground and tokenize in OpenLaunch.  all free”",
       "url": "https://x.com/aLiiDeez/status/2101689125015634418",
       "engagement": {
-        "views": 6040,
+        "views": 6118,
         "likes": 60,
         "replies": 5,
         "reposts": 7,
@@ -2220,7 +2649,7 @@
       "text": "推特还是对流量太饥渴了，这一轮爆料开始还有点意思，越往后越跑偏。各种一眼胡编的，写的给人创始人都招来澄清🤣",
       "url": "https://x.com/spark888/status/2101676738673881504",
       "engagement": {
-        "views": 525,
+        "views": 551,
         "likes": 1,
         "replies": 0,
         "reposts": 0,
@@ -2251,8 +2680,8 @@
       "text": "Swaps offer better liquidity and flatter, more predictable funding rates than perps. Perps have only one remaining edge: trading hours.\n\nAs our TradFi partners (and finance broadly) move towards 24/7 trading, swaps will trade around the clock.\n\nSwaps &gt; perps.",
       "url": "https://x.com/variational_io/status/2101676505281732712",
       "engagement": {
-        "views": 19887,
-        "likes": 268,
+        "views": 20839,
+        "likes": 271,
         "replies": 31,
         "reposts": 20,
         "quotes": 10
@@ -2298,7 +2727,7 @@
       "text": "以下8位小伙伴，请私信我ZEC钱包地址：\n\n@Cryptocheng777\n@xiaoyulaos31664\n@xiaoyuan202402\n@alao51843489\n@btc_Mxy\n@ming191316\n@cixinyu91\n@XinYeLuMao https://t.co/fTcSJ6IQax",
       "url": "https://x.com/Benjieming1Q84/status/2101673601133158856",
       "engagement": {
-        "views": 611,
+        "views": 628,
         "likes": 0,
         "replies": 0,
         "reposts": 0,
@@ -2333,8 +2762,8 @@
       "text": "问了一圈没人知道是什么新瓜\n\n我去查了一下，好么，币圈百科说这个BlockFucus的二狗，和丫丫合伙垄断了交易所的营销😂\n\n有点抽象吧？\n\n关于我认识的丫丫，我几千粉丝时候就关注我了。虽然没啥深入合作，但对于当时的我来说给我很大鼓励。\n\n再其次，所谓的营销垄断，早期的全真丫丫就给过很多次资源，何来的垄断呢😂\n\n我看丫丫直接主动申请了内部审计介入调查，接受任意举报。挺好，如果真有狠料可以直接报送给币安啊。\n\n另外币圈能不能歇歇了，啥有用信息没有。\n\n天天就各种爆料，真料假料也不知道，也没看出什么实锤，互相泼大粪。\n\n我平时也看币圈百科的各种瓜，这次啥实锤都没有，直接给人勤勤恳恳干活的女生曝光了，真没啥意思吧？",
       "url": "https://x.com/spark888/status/2101672406071103563",
       "engagement": {
-        "views": 7454,
-        "likes": 34,
+        "views": 7800,
+        "likes": 36,
         "replies": 43,
         "reposts": 0,
         "quotes": 0
@@ -2378,8 +2807,8 @@
       "text": "what assets should we tokenize next?",
       "url": "https://x.com/xStocksFi/status/2101671526500380985",
       "engagement": {
-        "views": 18399,
-        "likes": 208,
+        "views": 18801,
+        "likes": 212,
         "replies": 106,
         "reposts": 7,
         "quotes": 6
@@ -2409,7 +2838,7 @@
       "text": "绝对是广告片级别的水准，辛苦@Rocky_Bitcoin @Meta8Mate @sanyi_eth_ @charles48011843",
       "url": "https://x.com/qinbafrank/status/2101663789531930672",
       "engagement": {
-        "views": 24397,
+        "views": 24909,
         "likes": 15,
         "replies": 11,
         "reposts": 0,
@@ -2460,7 +2889,7 @@
       "text": "source：https://t.co/AiT2tkeNZ5",
       "url": "https://x.com/TechFlowPost/status/2101662154181189659",
       "engagement": {
-        "views": 1749,
+        "views": 1778,
         "likes": 0,
         "replies": 0,
         "reposts": 0,
@@ -2493,8 +2922,8 @@
       "text": "你用AI时，AI 幻觉最大能闯多大的祸？\n\n据外媒报道，它差点让美军对中国货船采取登船行动，险些挑起冲突。\n\n据 CNN 援引知情人士称，美国特种作战司令部一名分析员用AI 聊天机器人把开源信息与机密信号情报拼在一起，生成了一份“完全虚假”的情报报告。\n\n其中 AI 产生了严重的“幻觉”，把一艘在中东海域正常航行的中国船只，错误的识别成了“正在运输核武器项目部件”。\n\n美军一度准备拦截登船，所幸行动前官员复查报告，发现是聊天机器人误判货物，才紧急叫停。\n\n一名知情人士说，这“几乎引发了一场战争”。不过报道未能确认船上实际装了什么，也未说明用的是哪款模型。\n\n虽然这只是个个例，可能是临时工的锅，但从大方向上来，美国政府似乎在军事方面已经全盘接入了 AI ：\n\n去年 12 月，五角大楼引进了谷歌的 Gemini（定制版）作为军方 AI 平台的基础。\n\n上个月，他们又把 Grok 给加进了选项清单，平台用户已超过 150 万。\n\n此外，Anthropic 也曾为美方情报工作提供过定制模型。\n\n用这些不同的 AI 模型分给不同部门，装多了真的不会出问题吗？\n\n虽然大多数时候是智能，但少数智障时刻的后果可能很严重。",
       "url": "https://x.com/TechFlowPost/status/2101662150108586079",
       "engagement": {
-        "views": 5179,
-        "likes": 3,
+        "views": 5422,
+        "likes": 4,
         "replies": 19,
         "reposts": 0,
         "quotes": 0
@@ -2524,7 +2953,7 @@
       "text": "敖丙每个帖子的含金量依然在上升\n\n上次对 $ake 的预测，9月20号之前进行收网，今天刚好20号🤣，又又又被敖丙蒙对了 https://t.co/tFPaTcd1WG",
       "url": "https://x.com/ElonKely_/status/2101653457161863521",
       "engagement": {
-        "views": 557,
+        "views": 586,
         "likes": 2,
         "replies": 2,
         "reposts": 0,
@@ -2578,7 +3007,7 @@
       "text": "RT @spicycandy00: 我也补充一句回关。\n小账号前期要的不是回关，是出现在别人的时间线上。\n回关是结果，不是策略。\n\n如果你有以下问题的话：\n\n1️⃣你觉得自己写的东西和别人的大差不差，但你的浏览是别人的1/10，甚至1/20… https://t.co/DxTp…",
       "url": "https://x.com/spark888/status/2101648276437295141",
       "engagement": {
-        "views": 68,
+        "views": 69,
         "likes": 0,
         "replies": 0,
         "reposts": 4,
@@ -2643,9 +3072,9 @@
       "text": "不准跌了啊😭\n我还有家人要养活😭 robinhood:0x39dbed3a2bd333467115de45665cc57f813c4571",
       "url": "https://x.com/0xStudy/status/2101643098845806790",
       "engagement": {
-        "views": 5996,
+        "views": 6054,
         "likes": 26,
-        "replies": 10,
+        "replies": 13,
         "reposts": 0,
         "quotes": 1
       },
@@ -2686,7 +3115,7 @@
       "text": "推荐阅读《播客笔记｜之前梭哈 ZEC 盈利的交易员 Taiki：这轮周期 ZEC 看到 $20,000，隐私版储值资产正被重新定价》\n\nhttps://t.co/9rfylFbEyw",
       "url": "https://x.com/TechFlowPost/status/2101640283339268598",
       "engagement": {
-        "views": 1842,
+        "views": 1871,
         "likes": 1,
         "replies": 0,
         "reposts": 0,
@@ -2719,7 +3148,7 @@
       "text": "恭喜中奖，地址已记录~\n@ZhanweiC @yangyi8863 @CHEN95796655 @xiomn22133 @Xiaooyyyu @yujuhao @i0xtop @Meichin333333 @0xsea63 @like_it_ez @Asomeasu @zpr6fwsdyd @kingzw888 @Born2trade_",
       "url": "https://x.com/spark888/status/2101633036232315170",
       "engagement": {
-        "views": 389,
+        "views": 393,
         "likes": 8,
         "replies": 10,
         "reposts": 0,
@@ -2750,8 +3179,8 @@
       "text": "疯狂看多 CX 能到什么程度？\n\n之前选择重仓梭哈 ZEC 的交易员 @TaikiMaeda2 ，在最新一期播客中，进一步离谱的看多： $ZEC 的牛市目标可以看到 20,000 美元，而我们现在可能还处在「狂暴牛市」的早期。\n\n目标价过于夸张了，但他为什么敢在 ZEC 上下这么重的注？以及什么时候准备撤退，这才是值得大家借鉴的事情。\n\n里面几个核心观点：\n\n1️⃣ ZEC 不是普通山寨，而是「隐私版 BTC」\n\nTaiki 认为，BTC 早期一直面临可编程性、扩展性和隐私三个问题，ETH、SOL 吃到了前两个方向的红利，而 ZEC 押注的是隐私。\n\n目前 ZEC 市值只有 BTC 的约 1.8%～1.9%。历史上 LTC 曾达到 BTC 的 8%，BCH 甚至长期处于 10%～20% 区间。\n所以他的算法非常简单：\n\nBTC = $100k\nZEC = BTC 市值的 5% → 约 $5,000\nZEC = BTC 市值的 20% → 约 $20,000\n\n2️⃣ ZEC 越涨，基本面反而越强\n\n他的核心逻辑是「反身性」。\n\nZEC 价格上涨 → 屏蔽池价值变大 → 能容纳更多财富 → 隐私效果和实际用途增强 → 吸引更多资金进入。\n\n所以在 Taiki 看来，价格本身就是 Zcash 基本面的一部分。\n\n3️⃣ 真正应该承担风险的时候，是所有人都觉得危险的时候\n\nTaiki 认为，当市场充满恐慌、大家握着现金不敢买时，感知风险最高，但实际风险可能反而最低。\n\n等 BTC 突破关键位置、所有人重新宣布「牛市回来了」并开始加杠杆时，反而应该逐渐减仓。\n\n他的原则是：牛市前 10%～30% 阶段承担最多风险，越往后风险敞口越小。\n\n4️⃣ ZEC 怎么止盈？看它占 BTC 市值的比例\n\nTaiki 用的是「下一个 2 倍」框架：\n\n1% → 2%，容易\n2% → 4%，仍然可以\n4% → 8%，难度明显增加\n8% → 16%，越来越难\n\n因此他的第一目标是 ZEC 达到 BTC 市值的 3%～4%，届时先卸掉杠杆、留下现金，现货继续持有。\n\n5️⃣ 赢家摊平赢家，不要给输家补仓\n\n这也是整期我觉得最值得记住的一句话。\n\nTaiki 的交易哲学不是追求高胜率，而是追求「长打率」：错的时候小亏，对的时候重仓吃完整趋势。\n\n用他自己的话说：「把所有鸡蛋放进一个篮子，然后死死盯住它。做一头有勇气的猪。」\n\n当然，他目前持有 $ZEC $HYPE $LIT 等仓位，部分还使用了杠杆，所以这些极其乐观的目标价首先应该理解为一个屁股决定脑袋的重仓者的交易框架，而不是价格预言。",
       "url": "https://x.com/TechFlowPost/status/2101627438530965928",
       "engagement": {
-        "views": 18362,
-        "likes": 45,
+        "views": 18782,
+        "likes": 46,
         "replies": 13,
         "reposts": 7,
         "quotes": 0
@@ -2788,7 +3217,7 @@
       "text": "RT @Mercy_okx: 周末不打球，人生路白走🏸友谊赛友谊赛！\n\n为什么我抱足球？因为这个周边好看🙈！有喜欢的朋友一键三连本条，抽三位同款足球(＾₀＾)⚽️！\n\n感谢到场！@Pandachen007 @luyaoyuan @0xSleepinRain @choc07_ @…",
       "url": "https://x.com/0xSleepinRain/status/2101626862288150852",
       "engagement": {
-        "views": 504,
+        "views": 506,
         "likes": 0,
         "replies": 0,
         "reposts": 2,
@@ -2854,7 +3283,7 @@
       "text": "@Benjieming1Q84 @AbstractChain @acxgRMTY @YNOvv1 哈哈哈 @jessepollak 应该不会找Bn搞这些🤣",
       "url": "https://x.com/0xStudy/status/2101626786849374381",
       "engagement": {
-        "views": 188,
+        "views": 189,
         "likes": 0,
         "replies": 0,
         "reposts": 0,
@@ -2885,7 +3314,7 @@
       "text": "@0xStudy @AbstractChain @acxgRMTY @YNOvv1 万一是Base呢，😄",
       "url": "https://x.com/Benjieming1Q84/status/2101625092946162034",
       "engagement": {
-        "views": 501,
+        "views": 506,
         "likes": 1,
         "replies": 1,
         "reposts": 0,
@@ -2916,7 +3345,7 @@
       "text": "Note: Please review the Pre-Market V3 trading materials to fully understand the rules and risks before participating.\n\nTutorial: https://t.co/rpEnSKRDa6\n\nDocs: https://t.co/YJLmsERRWO\n\nFor any questions, feel free to reach out to us in the official Aspecta/BuildKey community group: https://t.co/IbyAo3dqOj",
       "url": "https://x.com/aspecta_ai/status/2101625092640006546",
       "engagement": {
-        "views": 1057,
+        "views": 1076,
         "likes": 9,
         "replies": 0,
         "reposts": 0,
@@ -2951,7 +3380,7 @@
       "text": "📚 The important stages breakdown:\n\n➤ Trade: Before TGE\n\n- Long/short with market or limit orders\n\n➤ Trade + Settle: TGE ~ TGE+72h\n\n- Trading continues while settlement starts\n- Settle positions across multiple windows\n- Funding fees applied if long settlement requests can't be fully filled\n\n➤ Close & Share (Final Settlement): TGE+72h\n\n- Final Settlement DDL: TGE+72h\n- The final window for short users to deliver tokens and settle\n- Once this window ends, all long traders share the liquidity, settled tokens, and unsettled collateral in the pool\n\nTGE refers to the earliest of the following events: Binance Alpha listing, CEX listing (with withdrawal enabled), or on-chain trading pair available.\n\nThe launch rules and schedule may be adjusted before launch. Please refer to the information on the launch day for final details.",
       "url": "https://x.com/aspecta_ai/status/2101625080627577165",
       "engagement": {
-        "views": 1431,
+        "views": 1464,
         "likes": 12,
         "replies": 2,
         "reposts": 0,
@@ -2982,9 +3411,9 @@
       "text": "The first Aspecta Pre-Market V3 goes live at 9 AM UTC on Sep 21, featuring @alloxdotai\n\n🌍 Long/Short starting at $80M FDV\n🔗 https://t.co/IAgSkvSlu3\n\n- No liquidation risk\n- Market & limit orders supported\n- Trading continues post-TGE\n- Settlement live across multiple windows\n\nMore details below 🧵",
       "url": "https://x.com/aspecta_ai/status/2101625055981838393",
       "engagement": {
-        "views": 155206,
-        "likes": 294,
-        "replies": 27,
+        "views": 156368,
+        "likes": 296,
+        "replies": 37,
         "reposts": 156,
         "quotes": 4
       },
@@ -3083,11 +3512,11 @@
       "text": "油价是决定加息路径的关键变量，能源冲击是核心扰动。这是高盛GBM系列播客 《The Breaks of the Game》的最新一集核心观点。这期是高盛对冲基金业务全球主管Tony Pasquariello主持，高盛研究部高级顾问Dominic Wilson与全球风险主管Josh Schiffrin主要分享。他们认为市场目前定价的约四次累计加息\"明显偏多\"，两人均认为本轮加息周期实际落地次数更可能为两次。\n两人均指出，油价走势是决定最终加息路径的关键变量，一旦油价出现实质性回落，将为全球多类资产提供同步走强的条件。跟我之前很多观点一致性很类似，详细梳理下。\n\n这期播客核心内容要点，\n1、加息路径：市场定价“四次”明显偏多，两人更看好两次\n市场当时已定价本轮累计约四次加息（一个较完整的紧缩周期）。两人认为这明显过头。基准情形是10月再加一次，然后进入较长时间暂停。实际风险更可能是各央行加息力度不及市场预期；\n\n2、油价是决定加息路径的关键变量\n油价大涨被两人视为今年最大的市场意外，持续推高通胀预期，也让市场对加息路径定价越来越激进。一旦油价出现实质性回落，通胀压力会缓解，加息必要性下降，并为全球多类资产同步走强创造条件。油价回落也被视为债市最可能的催化剂；\n\n3、债市：长端实际利率已处多年罕见高位，利空消化较多，但还需催化剂\n10年期美债约5%、30年期实际利率超过3%，是相当长时间未见的水平。财政赤字、通胀粘性等利空已被市场消化不少，估值吸引力上升。但在AI资本开支融资需求、财政赤字和增长韧性没有实质性变化前，收益率大幅下行空间有限。需要油价下跌这类偏多头催化剂，买家才会更积极回归；\n\n4、股市：韧性超预期，当前是近期较清晰的做多窗口之一\n尽管油价飙升、收益率上行、AI不确定性存在，股市仍展现超预期韧性。原因主要是大规模资本开支周期和实体经济增长依然强劲。当前点位已计入较悲观情景（四次加息、高收益率、油价超100美元），因此“看到缓解路径变得容易得多”。Wilson 将此时点描述为近期多头侧较清晰的做多窗口（虽不如7月底那么好，但感觉类似），可用低成本期权做保护或博取上行。\n\n5、宏观与美联储会议后环境\n9月FOMC后，短期政策不确定性下降，被视作配置窗口。增长仍有韧性（约2%），劳动力市场好于部分预期。通胀仍高于目标，但能源冲击是核心扰动。AI、财政赤字和资本竞争推高了实际利率，若没有AI capex转向或增长意外下行，鸽派转向空间有限。\n\n6、高盛年底交易思路\n1）美元：受美联储相对鹰派、美国经济领先支撑，倾向走强。\n2）“全资产上涨”窗口：若中期选举后油价下行，可能出现股债商品等同步走强的交易机会，但需要油价下跌作为催化剂。\n3）超长端高实际收益率：中长期仍有配置价值。\n4）利率定价：对年底前加息定价向下修正越来越有信心，倾向用低成本期权结构参与。\n\n这跟个人之前观点很类似，是油价再决定市场近期的走势，油价回落叠加基本面还是很强势，支撑本周后半周市场上行。后续还是要看油价走势： https://t.co/R8noHp3Gme",
       "url": "https://x.com/qinbafrank/status/2101623460615102871",
       "engagement": {
-        "views": 27687,
-        "likes": 66,
+        "views": 37506,
+        "likes": 67,
         "replies": 10,
         "reposts": 14,
-        "quotes": 1
+        "quotes": 2
       },
       "external_urls": [],
       "media": {
@@ -3134,7 +3563,7 @@
       "text": "RT @tokens: INSIGHT: RWA volume on @Solana hit ~$3.3B in the last 30 days, led by @xStocksFi ($1.6B), @Backpack Securities ($1.1B), and @Pr…",
       "url": "https://x.com/xStocksFi/status/2101622513315062252",
       "engagement": {
-        "views": 2439,
+        "views": 2454,
         "likes": 0,
         "replies": 0,
         "reposts": 8,
@@ -3181,7 +3610,7 @@
       "text": "RT @tokens: INSIGHT: Most held tokenized equities on @Solana;\n\n1. Nvidia $NVDAx: 94,752\n2. S&amp;P 500 $SPYx 70,833\n3. Tesla $TSLAx: 39,574\n4.…",
       "url": "https://x.com/xStocksFi/status/2101622485804540167",
       "engagement": {
-        "views": 2073,
+        "views": 2088,
         "likes": 0,
         "replies": 0,
         "reposts": 6,
@@ -3228,7 +3657,7 @@
       "text": "@0xStudy 卧槽，现在就重新入职阿尔法事业",
       "url": "https://x.com/spark888/status/2101621050887090348",
       "engagement": {
-        "views": 353,
+        "views": 356,
         "likes": 1,
         "replies": 0,
         "reposts": 0,
@@ -3259,7 +3688,7 @@
       "text": "RT @evilcos: 相比 FomoPeek App 在 iPhone 上投毒盗币的案例，更建议阅读下这个叫 ComeCome（拜托拜托）的外卖 App 类似手法的投毒盗币案例 https://t.co/BPXiRrYIPo\n\n这种说明可能某些真的看似正常的 App，你用了…",
       "url": "https://x.com/brucexu_eth/status/2101618507670749695",
       "engagement": {
-        "views": 38,
+        "views": 39,
         "likes": 0,
         "replies": 0,
         "reposts": 9,
@@ -3322,8 +3751,8 @@
       "text": "上周老币普涨让大家有种翻身的错觉，但拉一下数据就会发现，只有少数币高潮了，大部分其实都还没回来。\n\n以去年10月加密市场的前高位为分界点来看：\n\n目前市值靠前的币里，只有 VVV 、ZEC、DRV、HYPE、NEAR、UNI 、MORPHO 以及 SKY 这8个币突破了去年10月以来的前高，从大跌的坑里爬了出来。\n\n这其中只有 VVV 一骑绝尘，比去年10月高了10多倍。\n\n其他大部分山寨，虽然有普涨，但离去年的盛景仍有很远的距离。\n\n而作为 Beta 的 BTC 、ETH 和 SOL，相较于去年10月，仍分别低了 -30%，-40% 和 -48%。\n\n最终，不可能所有山寨币都能牛回，有炒作空间的还是有实际业务和叙事能跟上版本变化的那一波。",
       "url": "https://x.com/TechFlowPost/status/2101615098540298270",
       "engagement": {
-        "views": 15838,
-        "likes": 25,
+        "views": 16431,
+        "likes": 26,
         "replies": 22,
         "reposts": 3,
         "quotes": 1
@@ -3375,7 +3804,7 @@
       "text": "大家猜测币安钱包Pre-Access 活动第一期可能是Polymarket，主要是因为：\n- 链上已经有Paimon Polymarket SPV Token(pPOLY)。\n- Paimon是YZi Labs投的项目，专门做链上RWA、Pre-IPO SPV 代币。\n\n而且：\n- 第一期，大概率不可能是小项目，Polymarket体量和热度说得通。\n- 但也都只是猜测而已。 https://t.co/VI3Q3dWv9X",
       "url": "https://x.com/Benjieming1Q84/status/2101615045985853607",
       "engagement": {
-        "views": 9577,
+        "views": 9749,
         "likes": 11,
         "replies": 7,
         "reposts": 1,
@@ -3423,7 +3852,7 @@
       "text": "按照过往经验，这种情况还有操作空间，但是一旦形成全面牛市的共识的时候，就应该快跑了，但是大部分人那时候往里冲",
       "url": "https://x.com/brucexu_eth/status/2101611590969913661",
       "engagement": {
-        "views": 323,
+        "views": 330,
         "likes": 0,
         "replies": 0,
         "reposts": 0,
@@ -3454,7 +3883,7 @@
       "text": "市场又到了互道傻逼的分歧时刻了🤣\n这种时刻，接下来的剧本无非就是三种：上涨、下跌和横盘。",
       "url": "https://x.com/brucexu_eth/status/2101606446031097868",
       "engagement": {
-        "views": 2401,
+        "views": 2460,
         "likes": 11,
         "replies": 26,
         "reposts": 1,
@@ -3485,7 +3914,7 @@
       "text": "grok world flip musebook! $bots",
       "url": "https://x.com/Arron_finance/status/2101598135474913578",
       "engagement": {
-        "views": 4402,
+        "views": 4443,
         "likes": 7,
         "replies": 1,
         "reposts": 0,
@@ -3539,7 +3968,7 @@
       "text": "古有皇帝赐名，今有懂王给AI改姓。\n\n懂王认为，“人工智能（AI）”这个词太掉价了，既不准确也不优雅。\n\n他提议把 AI 升级改名为“优越智能（SI）”、“极端智能（EI）”或者“至高智能（Supreme Intelligence）”其中之一。\n老马也在评论区附和着评论。\n\n改名，其实某种程度上意味着叙事升级，或者对叙事控制权的掌控，这波加密很熟啊。\n\n小编盲猜接下来会有些不温不火的加密 AI 项目改名或者出新功能时贴合这几个新概念，蹭一下热度和注意力。\n\n技术到没到“至高”并不重要，眼下的加密市场老项目换个高大上的新马甲炒一波叙事，才有可能吸引资金注意。",
       "url": "https://x.com/TechFlowPost/status/2101597348912627870",
       "engagement": {
-        "views": 13876,
+        "views": 14261,
         "likes": 9,
         "replies": 7,
         "reposts": 0,
@@ -3582,8 +4011,8 @@
       "text": "都在传Poly要IPO？去扒了扒\n\n这是币安Alpha常用的地址：\n0xeCc90d54B10ADd1ab746ABE7E83abe178B72aa9E\n\n八天前收到了 $pPOLY (Paimon Polymarket SPV Token意思是\"私募股权 SPV 代币\") \nhttps://t.co/s53EkDZ5WQ\n\n总量1B  如图价格15.5 按FDV 155亿打IPO，舒服了 如果是真的 那空投别指望了兄弟；融资3.17B  按15.5B打  24号下午5点上线  流通0.032%  \n\n概率还挺大的  可信度高  根据这个名字 Paimon 应该是 @Paimon_Finance 由YZI投资的BNB上最大的 RWA，这两个月官推天天都在发Polymarket来着\n\n而且正好  刚刚 @BinanceWallet 介绍了和Pancake合作的Pre-Access活动，就是IPO\n\n综上 有福了 @Polymarket 🤣🤣🤣等官宣吧  现在刷Alpha积分来得及吗哥",
       "url": "https://x.com/0xStudy/status/2101596968988659837",
       "engagement": {
-        "views": 59889,
-        "likes": 164,
+        "views": 61024,
+        "likes": 165,
         "replies": 46,
         "reposts": 3,
         "quotes": 7
@@ -3622,10 +4051,10 @@
       "text": "【币安钱包新推出的Pre-Access 活动是什么和如何参加？ -我的理解】\n\n⭐️这条推文分享我的理解，一些金融词汇可能表达的不太准确。\n⭐️直接把我引用的推文发给AI，AI也能解读，但AI解读得“很难懂”，不够“通俗”，它用的词汇也不好理解。\n\n1️⃣Pre-Access活动是什么？\n- 我的理解是，Pre-Access活动是一种打新活动，打新内容是Pre-Access Token，就是指“未上市公司的股票代币化”(AI说，称为挂钩某家未上市公司估值的代币化间接敞口，更准确)。\n- 这家公司可能很快IPO，也可能很久以后才IPO。\n- 和6月份我们参加的SpaceX的IPO打新不是一回事，因为SpaceX IPO的日程是确定的。\n2️⃣参与门槛和额度分配\n- 币安Alpha积分。\n- bStocks交易量和持仓量。\n- 安小将徽章。\n(Alpha积分和bStocks链上等级越高，额度越高；持有安小将徽章可获得额外额度)\n3️⃣如何参与？\n- 在币安钱包这边等活动上线。",
       "url": "https://x.com/Benjieming1Q84/status/2101595763730210873",
       "engagement": {
-        "views": 16499,
+        "views": 16891,
         "likes": 14,
         "replies": 6,
-        "reposts": 3,
+        "reposts": 4,
         "quotes": 1
       },
       "external_urls": [],
@@ -3675,7 +4104,7 @@
       "text": "Aspecta Pre-Market V3 launch coming very soon.\n\n@aspecta_intern broke it down into 7 easy reads. Start here 👇",
       "url": "https://x.com/aspecta_ai/status/2101595063801479672",
       "engagement": {
-        "views": 12631,
+        "views": 12788,
         "likes": 94,
         "replies": 20,
         "reposts": 3,
@@ -3722,9 +4151,9 @@
       "text": "预计9月24日币安有首个Pre-IPO项目Polymarket打新\n\n目前合约已经部署，开始时间是9月24日17：00\n代币为Paimon Polymarket SPV Token，即Polymarket股票的PreAccess代币化映射。\n\n这是 Polymarket 推出的首个在 BSC 上线的 PreAccess 代币，由 paimon. Finance发行。\n\ncz之前x上提及的Pre-IPOs，指的就是这个，本次是BSC链首个Pre-IPO。\n具体Pre-IPOs打新规则，以币安实际公告为准。",
       "url": "https://x.com/marktowin8/status/2101591691132305436",
       "engagement": {
-        "views": 24553,
-        "likes": 104,
-        "replies": 15,
+        "views": 25201,
+        "likes": 107,
+        "replies": 16,
         "reposts": 5,
         "quotes": 4
       },
@@ -3802,8 +4231,8 @@
       "text": "为什么没有人用豆包语音输入法？直接是免费的，体验还特别好。",
       "url": "https://x.com/brucexu_eth/status/2101586144903508176",
       "engagement": {
-        "views": 6758,
-        "likes": 7,
+        "views": 6878,
+        "likes": 8,
         "replies": 26,
         "reposts": 0,
         "quotes": 2
@@ -3849,8 +4278,8 @@
       "text": "近期最爽的一笔套利 $G\n\n监控检测到了 OKX 的差价\n扫了一眼研究了一下是 OKX ETH 链没开\n\n可惜当时还是个傻逼新手\n信了 OKX 页面显示的 9.18 八点多开 ETH 充提\n先空了 Binance 合约多了 OKX 现货\n预计 1% 的利润\n\n时间一到发现开启时间延后了两天\n结合最近的 LSK 立马意识到不对劲\n仔细研究一下发现是类似的套路\n果断割肉止损亏了差不多 1%\n\n想了一下要逼空套利只能通过负费率收租和拉高\n重新在 Binance 开设空单和买入现货\n赌一下走负费率收租，可以吃到期现差价\n当时还有微薄的正费率可以吃\n基本可以看作只有资金成本\n\n大仓位对套再配合了一个小多单\n可惜最终的判断是错误的\n可能是多头太多了看起来是直接收网了\n导致多单保本走的\n套利最高有 30% 利润，实际平到 13% 左右\n\n还是没想到直接收网了\n以为要磨一磨\n套路大家都懂了那么爆空叙事也变成了一种诱多",
       "url": "https://x.com/EleveResearch/status/2101585439367045202",
       "engagement": {
-        "views": 11062,
-        "likes": 46,
+        "views": 11251,
+        "likes": 47,
         "replies": 9,
         "reposts": 4,
         "quotes": 0
@@ -3880,7 +4309,7 @@
       "text": "法案不过就不过吧，加息要加就加吧，结果现在说是要三战了，打个土狗就这么多灾多难？",
       "url": "https://x.com/Arron_finance/status/2101580812848398752",
       "engagement": {
-        "views": 19598,
+        "views": 19735,
         "likes": 42,
         "replies": 10,
         "reposts": 0,
@@ -3911,7 +4340,7 @@
       "text": "$BP 起飞了， $CARDS 昨天大宇老师抬了一手也好起来了，solana的反击开始了！",
       "url": "https://x.com/Arron_finance/status/2101574073843372298",
       "engagement": {
-        "views": 9102,
+        "views": 9199,
         "likes": 31,
         "replies": 26,
         "reposts": 1,
@@ -3956,7 +4385,7 @@
       "text": "一路走来，感谢reboot哥、ZC哥、奶糖、独眼、Musol等带我赚钱还互动的优秀大佬看得起我。\n\n也感谢曾经瞧不上小弟的大v们鞭策我，路遥知马力，撸毛人干啥都不会放弃。",
       "url": "https://x.com/spark888/status/2101567258300752231",
       "engagement": {
-        "views": 720,
+        "views": 730,
         "likes": 9,
         "replies": 2,
         "reposts": 0,
@@ -3973,323 +4402,19 @@
       "retweet_is_quote": false,
       "retweet_quote": null,
       "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2101565445132419544",
-      "created_at": "2026-09-20T06:53:41.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "spark888",
-        "name": "spark🌟"
-      },
-      "text": "我也聊聊回关这个话题？\n\n首先表明态度，撸毛和肝DC的都该去起号。\n\n行情不好时能恰点100~300U广子；行情好时，KOL消息源更广、撸毛效率更高，甚至肝身份要白名单都更容易。\n\n我自己是去年monad和zama肝完后，顿悟了开始起号。\n\n——该不该起号呢？\n往远了说，zksync人家水多多整了个zksync中文账号，到最后威胁项目方曝光内幕，吃了笔大额封口费。\n\n往近了说，昨天抽zecfrogs的白，一个老铁的回复让我挺扎心的，入圈8年亏没了，现在没账号要个白名单都难上加难！\n\n再邪恶点，近期曝光的各种瓜大家吃爽了，如果敢于作恶，成为大V能赚到你想象不到的钱。\n\n其实想明白了一件事就好，无论是项目还是合作，需要的是曝光度，如果你不是KOL对于他们没有意义。\n\n——起号的过程\n绕回到“回关”话题，起号前没想到这是个敏感问题。\n\n要关注对于大部分做帐号的小伙伴，是无法避免的路径。\n\n很多大v说的你足够优秀、足够有趣，自然就会回关。实际上呢，我自认为一直写文章用心，很多大v我陪伴几周认真互动，最后人家心比铁还硬，就是不回关。\n\n对于zhaozhao老师这种，我反而可以理解，因为少数大v是真有赚钱本事的，对于关注相对洁癖，人家这真不算装逼，只是没精力关注这些回关事宜。\n\n有些我不太喜欢的老师是这样的，本身自己就是个广子号，往前翻翻去年年底自己还在舔关注，转眼成大v了不仅不关注你，没事还得批判你几句。\n\n所以起号其实还挺累的，主要心累。\n\n————————————————\n\n写一半越写越没意思，本来想删了，但是对于日更博主这也是个素材。\n\n时过境迁，我早已经不舔人了，xhunt也很久不关心了。\n\n建议曾经DC战友都去起号，因为你们大多善良且磨练的忍耐性极强，值得赚更多的钱。\n\n另外，舔“回关”确实是小账号的来时路。但是要明白，最终一切还是回到本源，你要有优质内容，不然舔来的别人也会取关你。做多自己才是唯一正解。",
-      "url": "https://x.com/spark888/status/2101565445132419544",
-      "engagement": {
-        "views": 21654,
-        "likes": 101,
-        "replies": 71,
-        "reposts": 1,
-        "quotes": 6
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HSo8-llaIAASQi6.png"
-        ]
-      },
-      "quote": {
-        "tweet_id": "2100958451174425053",
-        "username": "mk66623",
-        "name": "麦克",
-        "text": "奴隶上位后，对待奴隶只会比主人更狠辣。\n\n经常看到有人把蓝鸟会、全真的人挂在推特上鞭尸，仅仅是因为人家求你回个关。\n\n格局忒低了。你完全可以忽视，又何必为难他们。\n\n你想想，自己不也是从小兵做起的吗？是不是曾经也负债过，也风餐露宿过，住青旅、吃沙县和麦当劳。没有这些 KOC 的托举，你算个屁啊！\n\n你无非就是乞讨得早，从一些项目方那里要到饭了，早吃到币圈的红利。现在你上岸了，洋巴上了，开始得意忘形。不懂感恩就算了，还要反过来堵死这些KOC 的出路。\n\n学学川沐吧，看看什么叫不畏强权、托举弱者，为不公发声，为弱者发声。这才是一个大博主该有的品格。",
-        "created_at": "2026-09-18T14:41:43.000000Z",
-        "url": "https://x.com/mk66623/status/2100958451174425053",
-        "external_urls": [],
-        "media": {
-          "types": [],
-          "urls": []
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-1",
-      "list_id": "2092526123754414115",
-      "tweet_id": "2101557211252330892",
-      "created_at": "2026-09-20T06:20:58.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "qinbafrank",
-        "name": "qinbafrank"
-      },
-      "text": "这应该是股票业务布局最广的加密交易所了，在GateEvent上看到@Gate分享的这张图印象深刻：美港韩日四大股票市场都覆盖。\n\n26年加密交易所普遍在做的事情——把 TradFi搬进加密平台，做成“一个账户打通加密资产和传统资产”的超级 App。覆盖广度上，Gate无疑是最积极的。\n\n当然还不只是简单接入股票，Gate也同时提供现货、衍生品、代币化、新股、RWA 理财等多种形态。这相当是要用“四大股市 + 衍生品 + 代币化 + RWA”把用户和资金留在自己生态里，把Gate交易所升级成全资产入口。\n\n@Gate_luqingxiao @Gate @Gate_zh\n#GateEvent",
-      "url": "https://x.com/qinbafrank/status/2101557211252330892",
-      "engagement": {
-        "views": 20295,
-        "likes": 16,
-        "replies": 12,
-        "reposts": 0,
-        "quotes": 3
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HSo67JwawAAVA4s.jpg"
-        ]
-      },
-      "quote": {
-        "tweet_id": "2026602891998539876",
-        "username": "qinbafrank",
-        "name": "qinbafrank",
-        "text": "真的是一个新时代的到来：\n昨天币安alpha上线了Ondo的美股代币、coinbase正式上线5*24小时的美股交易、OKX也上线了美股代币合约，\n再加上更早更激进拥抱各类传统金融资产交易的Bitget。\n可以说加密领域前几大交易所基本上都已经全面拥抱代币化股票，未来更进一步拥抱各类代币化金融资产也是大趋所取。对于加密市场来说，是机遇也是挑战，其实挑战更大。资产上链、RWA、代币化进程是个人很关注的一个大的板块，之前写了大量的相关推文。\n\n去年7月中梳理过一次，有必要把去年7月中之后相关的推文再梳理一下，7月之前的相关推文看转发引用的推文即可：\n1、加密未来的方向\n1）250805、关于加密未来的一个暴论：探索加密原生应用场景可能一开始就错了，加密未来场景最有可能就是两个：\n一是资产上链、跟传统真实资产相结合，发挥加密做为新资本范式的功能；\n二是跟AI的充分结合 。\nhttps://t.co/fxEff8Aq6n\n\n2）251207 对币市虚无的探讨，未来的机会\nhttps://t.co/sZzPXcVqgO\n\n2、关于代币化进程的监管\n1）sec主席的三次重要演讲\n250513 首次明确提出首次明确提出证券要从链上传统数据库往区块链账本系统迁移；建立一个合理、清晰的加密资产监管框架，为加密资产的发行、托管和交易制定明确的规则； https://t.co/056bDfwQ4W\n\n250802 宣布启动Crypto project计划宣布要把美国所有市场迁移到链上 https://t.co/rQeqnXosnM\n\n250912 在巴黎经合组织上的讲话，未来两大趋势 链上资本市场与代理金融（Agentic Finance）https://t.co/V857YKL0WW\n\n2）251203 SEC创新豁免是什么？（现在还没推出）https://t.co/w3tkRf3T36\n\n3、美股上链资产形态和对加密的影响\n1）250828 股票上链最终形态展望 https://t.co/6SplRmTVi5\n\n2）250911 币市CEX未来一年会越来越多感受美股代币化趋势的影响，对资产运营、用户运营都是挑战 https://t.co/sIfMWd0J9C\n\n3）250921 币安、base等大力扶持perps dex一个重要原因一个重要核心的原因是随着美股或者各种真实资产（股、债、基金、reits、股权等）代币化进程不断深化中心化交易所和山寨币市场都被大幅度挤压 。要去抢占美股/传统真实资产代币化后的衍生品市场。 https://t.co/yndrQf0ONk\n\n4）251019 未来更多的优质资产供给，defi和链上衍生品会扩张到远大于当下的体量 https://t.co/Q2T2wM7CUa\n\n5）260120 链上券商未来的竞争点https://t.co/TUKzW7Bmli\n\n6）251218 金融交易平台的终局：超级APP https://t.co/7cAxEipwrj\n\n4、传统金融市场交易所的探索\n1）250910 纳斯达克探索股票代币化甚至直接代币化ipo https://t.co/DkYFAQqUBg\n\n2）251212 DTCC拿到Sec无异议函，托管资产代币化https://t.co/tipGaHWUjk\n\n3）260119 纽交所入局代币化证券 https://t.co/dxYUTC4FWN\n\n4）251216 美股加密化，纳斯达克将推出5*23小时交易 https://t.co/mahSpmKlHX",
-        "created_at": "2026-02-25T10:19:16.000000Z",
-        "url": "https://x.com/qinbafrank/status/2026602891998539876",
-        "external_urls": [],
-        "media": {
-          "types": [],
-          "urls": []
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-1",
-      "list_id": "2092526123754414115",
-      "tweet_id": "2101555713516712022",
-      "created_at": "2026-09-20T06:15:01.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "PhyrexNi",
-        "name": "Phyrex"
-      },
-      "text": "中俄否决了联合国延长伊朗制裁监督小组授权的决议\n\n9 月 17 日联合国安理会就延长伊朗制裁专家小组授权进行表决，最终 11 票赞成，中国和俄罗斯投下否决票，巴基斯坦和索马里弃权，决议没有通过。这个专家小组负责调查伊朗有没有违反联合国制裁，并向安理会提交报告。\n\n这件事背后的分歧还是 2025 年欧美重新启动对伊朗制裁的问题。欧美认为伊朗违反了 2015 年伊核协议，所以通过 snapback 恢复联合国制裁。中国和俄罗斯一直不承认这套程序合法，因此也不认可在这个基础上继续延长制裁监督机制。\n\n美国认为中俄否决以后，会让伊朗制裁执行出现更大的监督空白。中俄则认为西方把安理会和制裁机制政治化，伊朗核问题应该重新通过外交谈判解决。其实这个专家小组过去一年已经因为人选谈不拢而没有正常运作了。\n\n放到现在的美伊冲突背景下看，这也说明安理会内部对于伊朗问题的分裂越来越明显。美国和欧洲希望继续通过制裁施压，中国和俄罗斯则不接受现有制裁恢复的法律基础，后面想再通过联合国形成统一的对伊朗制裁和监督机制，只会越来越难。\n\n @Gate Crypto、美股、港股、韩股、黄金、CFD、预测市场一站交易",
-      "url": "https://x.com/PhyrexNi/status/2101555713516712022",
-      "engagement": {
-        "views": 19491,
-        "likes": 40,
-        "replies": 27,
-        "reposts": 0,
-        "quotes": 2
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HSo5xt-aQAAtxrn.jpg"
-        ]
-      },
-      "quote": {
-        "tweet_id": "2100170907817857031",
-        "username": "PhyrexNi",
-        "name": "Phyrex",
-        "text": "中国敦促尽早开放霍尔木兹，伊朗仍要求美国履行承诺\n\n9月16日王毅在北京同伊朗外长阿拉格齐会谈，敦促美伊保持理性和克制，回到6月的《伊斯兰堡谅解备忘录》，尽早开放霍尔木兹海峡，同时明确表示，不希望冲突继续向也门和红海蔓延。\n\n我个人的理解是，中国在支持伊朗维护正当权益的同时，也在要求伊朗考虑其他国家的能源和贸易利益。霍尔木兹受阻，已经影响了包括中国在内的石油进口国。如果红海再出问题，沙特通过东西输油管道将原油送往红海、绕开霍尔木兹的出口路线也会受到影响。现在这条管道本身又出现停运，后续如果航运风险继续扩大，进口国寻找替代供应的成本还会增加。\n\n阿拉格齐这次也表示，希望重回外交解决渠道，并称伊朗已经与阿曼形成开放霍尔木兹海峡的方案，但仍要求美国履行承诺。6月的谈判框架涉及美国解除海上封锁、伊朗恢复商船通航，以及后续制裁和核问题的谈判。所以即便伊朗愿意谈，开放海峡的方案也已经有了，美国如何调整封锁、双方如何落实承诺，仍然需要解决。这次会谈还没有公布恢复通航的日期。\n\n我更倾向于认为，这次会谈释放了继续谈判的积极信号，中国也明确表达了对冲突扩大的担忧。但能否让油价持续回落，还要看美国和伊朗接下来有没有实际行动。\n\n @Gate Crypto、美股、港股、韩股、黄金、CFD、预测市场一站交易",
-        "created_at": "2026-09-16T10:32:18.000000Z",
-        "url": "https://x.com/PhyrexNi/status/2100170907817857031",
-        "external_urls": [],
-        "media": {
-          "types": [
-            "photo"
-          ],
-          "urls": [
-            "https://pbs.twimg.com/media/HSVOTgkaQAANcNv.jpg"
-          ]
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-1",
-      "list_id": "2092526123754414115",
-      "tweet_id": "2101555022618402997",
-      "created_at": "2026-09-20T06:12:17.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "PhyrexNi",
-        "name": "Phyrex"
-      },
-      "text": "我放了四颗花生🥜在这四个位置，小伙伴有兴趣的可以猜一下，我晚上回来的时候花生还剩下几颗。那颗花生或者那几颗花生会被吃掉。\n\n第一位回答正确的小伙伴我会请 @Gate_zh 寄一份周边给你。 https://t.co/HhrgnJwKHE",
-      "url": "https://x.com/PhyrexNi/status/2101555022618402997",
-      "engagement": {
-        "views": 54139,
-        "likes": 113,
-        "replies": 331,
-        "reposts": 0,
-        "quotes": 1
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HSo5JpwaMAA4Sju.jpg"
-        ]
-      },
-      "quote": {
-        "tweet_id": "2101553014133973190",
-        "username": "PhyrexNi",
-        "name": "Phyrex",
-        "text": "正在工作的时候有不速之客闯入。\n\n我等下放点花生🥜看看能不能吸引几只。\n\n@Gate 这次提供的环境真不错。 https://t.co/iL5sMrLZtX",
-        "created_at": "2026-09-20T06:04:18.000000Z",
-        "url": "https://x.com/PhyrexNi/status/2101553014133973190",
-        "external_urls": [],
-        "media": {
-          "types": [
-            "video"
-          ],
-          "urls": [
-            "https://pbs.twimg.com/amplify_video_thumb/2101552763465510912/img/H8oOB6BnWacWAorp.jpg",
-            "https://video.twimg.com/amplify_video/2101552763465510912/vid/avc1/320x568/Vrs43JVNKqS5zyT-.mp4?tag=29",
-            "https://video.twimg.com/amplify_video/2101552763465510912/vid/avc1/480x852/8n3tZVtAAc_vsHQa.mp4?tag=29",
-            "https://video.twimg.com/amplify_video/2101552763465510912/vid/avc1/720x1280/3pg_a_X9ZYXM2TD1.mp4?tag=29",
-            "https://video.twimg.com/amplify_video/2101552763465510912/vid/avc1/1080x1920/wacCkBjHGLd9t5wY.mp4?tag=29",
-            "https://video.twimg.com/amplify_video/2101552763465510912/vid/avc1/2160x3840/WmoNmkE6_4bnpo2h.mp4?tag=29"
-          ]
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-1",
-      "list_id": "2092526123754414115",
-      "tweet_id": "2101553014133973190",
-      "created_at": "2026-09-20T06:04:18.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "PhyrexNi",
-        "name": "Phyrex"
-      },
-      "text": "正在工作的时候有不速之客闯入。\n\n我等下放点花生🥜看看能不能吸引几只。\n\n@Gate 这次提供的环境真不错。 https://t.co/iL5sMrLZtX",
-      "url": "https://x.com/PhyrexNi/status/2101553014133973190",
-      "engagement": {
-        "views": 74870,
-        "likes": 65,
-        "replies": 34,
-        "reposts": 1,
-        "quotes": 1
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "video"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/amplify_video_thumb/2101552763465510912/img/H8oOB6BnWacWAorp.jpg",
-          "https://video.twimg.com/amplify_video/2101552763465510912/vid/avc1/320x568/Vrs43JVNKqS5zyT-.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2101552763465510912/vid/avc1/480x852/8n3tZVtAAc_vsHQa.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2101552763465510912/vid/avc1/720x1280/3pg_a_X9ZYXM2TD1.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2101552763465510912/vid/avc1/1080x1920/wacCkBjHGLd9t5wY.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2101552763465510912/vid/avc1/2160x3840/WmoNmkE6_4bnpo2h.mp4?tag=29"
-        ]
-      },
-      "quote": {
-        "tweet_id": "2101256756878073888",
-        "username": "PhyrexNi",
-        "name": "Phyrex",
-        "text": "今天的工作环境，面朝大海，春暖花开。\n\n天上还有战斗机。 https://t.co/f4W0Ns2aZg",
-        "created_at": "2026-09-19T10:27:04.000000Z",
-        "url": "https://x.com/PhyrexNi/status/2101256756878073888",
-        "external_urls": [],
-        "media": {
-          "types": [
-            "photo"
-          ],
-          "urls": [
-            "https://pbs.twimg.com/media/HSkp4YAaMAAqcDs.jpg"
-          ]
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-1",
-      "list_id": "2092526123754414115",
-      "tweet_id": "2101551844866814238",
-      "created_at": "2026-09-20T05:59:39.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "PhyrexNi",
-        "name": "Phyrex"
-      },
-      "text": "由 Bitget 赞助的小伙伴我已经在 AI 抽出来了，我把符合标准的 ID 喂了 ChatGPT ，让 ChatGPT 随机抽取的 Dahlia @DahLiaWeb3  ，恭喜，请你在三天内私信联系我，没有抽中的小伙伴也不用灰心，可以继续报名第二个赞助商的“素人”抽取。\n\nPS：如果抽中的小伙伴因为各种原因无法满足行程，我将会重新抽取。如果超过三天没有联系我，也会重新抽取。\n\n感谢第二位赞助商 @NeoSoulAI ，而且还需要特别感谢的是其它的两位赞助商都是各赞助一位小伙伴，而 NeoSoul 则一口气赞助了三位小伙伴来新加坡，每位小伙伴赞助 1,000 美元。\n\n其中有两位小伙伴会由 NeoSoul 自己的活动抽取社区小伙伴。\n\n同样在该推文的下方我会随机抽取一位“素人”小伙伴，NeoSoul 已经是 @BNBCHAIN 中 AI 板块排名非常考前的项目了，这次抽中的小伙伴还可以作为特别嘉宾参加 BNBChain 在新加坡的活动。\n\n抽取条件除了是素人以外，还需要关注 @NeoSoulAI 的官方 X 账户，然后在该推文下方留言即可以。\n\n真的非常感谢各位老板们的赞助，能帮助一些本来无缘来新加坡的小伙伴体验 F1 + 亚洲最大加密货币盛宴，我也发现报名的小伙伴越来越多，大家都非常的踊跃，可惜了这次的时间比较短，准备的也比较仓促，所以能赞助来新加坡的小伙伴还是非常有限的。\n\n在接下来的大型活动中，我会准备的更加充分一些，而且我也会联合更多的小伙伴和赞助商，看看是不是可以带更多的素人小伙伴感受到加密货币大会的热闹，带大家从线下去了解你平时使用的项目。",
-      "url": "https://x.com/PhyrexNi/status/2101551844866814238",
-      "engagement": {
-        "views": 22444,
-        "likes": 85,
-        "replies": 93,
-        "reposts": 5,
-        "quotes": 1
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "video"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/amplify_video_thumb/2101548553877561344/img/JT505KjF4bo_1-a6.jpg",
-          "https://video.twimg.com/amplify_video/2101548553877561344/vid/avc1/474x270/xlkhJq--k-o61dF_.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2101548553877561344/vid/avc1/632x360/kdMLSgru_YSjc0Yi.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2101548553877561344/vid/avc1/1266x720/N1BeXSsvuGDqUAt5.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2101548553877561344/vid/avc1/1900x1080/cK8iGOTMaEbobct0.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2101548553877561344/vid/avc1/2828x1606/qOdgBJohoWbwrGUI.mp4?tag=29"
-        ]
-      },
-      "quote": {
-        "tweet_id": "2100152129570873439",
-        "username": "PhyrexNi",
-        "name": "Phyrex",
-        "text": "昨天和小伙伴开玩笑，发现很多小伙伴都说想来新加坡参加 Token 2049 ，但是新加坡的差旅费太贵了，所以我想做一个“公益”的活动。\n\n当然这是我异想天开的，可能都不会有人支持也说不定。\n\n如果是参会的项目方我会免费的帮项目方拍一个展台的视频，并且对项目方的小伙伴做一个采访，当然会在我的 X 中发出来，算是 Token 2049 探馆的一部分。\n\n或者你自定义一个 Token 2049 期间的曝光，我来衡量是否可以执行。如果可以，也没问题。\n\n条件是必须邀请一名想要来新加坡参加 Token 2049 的“素人”小伙伴，并解决这名小伙伴在 Token 2049 期间的差旅费。\n\n素人定义：非加密货币产业从业者，非知名 KOL 或者 内容输出者。\n\n目前暂定三个吧，多了也接不过来。\n\n以后有可能的话，每次大型活动我都会做类似的安排，尽量帮助一些想要参加活动的小伙伴。\n\n视频样本：https://t.co/G8xR9G6U5d",
-        "created_at": "2026-09-16T09:17:41.000000Z",
-        "url": "https://x.com/PhyrexNi/status/2100152129570873439",
-        "external_urls": [],
-        "media": {
-          "types": [
-            "video"
-          ],
-          "urls": [
-            "https://pbs.twimg.com/amplify_video_thumb/1841819158063022081/img/qBVpCA9KW14k4IRH.jpg",
-            "https://video.twimg.com/amplify_video/1841819158063022081/vid/avc1/480x270/urc4ishmO6PNSW2D.mp4?tag=16",
-            "https://video.twimg.com/amplify_video/1841819158063022081/vid/avc1/640x360/M6vwyAuFyp8gLxW7.mp4?tag=16",
-            "https://video.twimg.com/amplify_video/1841819158063022081/vid/avc1/1280x720/4jYCxHgCTa_f_MJD.mp4?tag=16",
-            "https://video.twimg.com/amplify_video/1841819158063022081/vid/avc1/1920x1080/kwAecHSKquhs4EuU.mp4?tag=16"
-          ]
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
     }
-  ]
+  ],
+  "executionLineage": {
+    "schemaVersion": 2,
+    "runId": "x-intelligence:runtime-check-x-2026-09-21-01",
+    "requestId": "runtime-check-x-2026-09-21-01",
+    "triggerSha": "6446c4778216b93c9ec3b048f5dfe7ce24277222",
+    "githubRunId": 35570550130,
+    "scheduledAt": "2026-09-21T06:56:00Z",
+    "startedAt": "2026-09-21T06:55:36.112070+00:00",
+    "sourceCheckedAt": "2026-09-21T06:55:45.046882+00:00",
+    "sourceUpdatedAt": "2026-09-21T06:42:44+00:00",
+    "completedAt": "2026-09-21T06:55:45.046942+00:00",
+    "publishedAt": null
+  }
 }
