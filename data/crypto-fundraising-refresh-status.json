@@ -1,8 +1,45 @@
 {
-  "schemaVersion": 1,
-  "status": "success",
-  "requestId": "dispatcher-test-web3-2026-09-21-01",
-  "requestedAt": "2026-09-21T05:12:00Z",
-  "completedAt": "2026-09-21T05:30:24.203755+00:00",
-  "githubRunId": 35564756148
+  "schemaVersion": 2,
+  "automation": "web3-daily-triage",
+  "runId": "web3-daily-triage:runtime-check-web3-2026-09-21-01",
+  "requestId": "runtime-check-web3-2026-09-21-01",
+  "result": "unchanged",
+  "lineage": {
+    "triggerType": "push",
+    "triggerSha": "f0e3a8cd75223ae6cfc21400c8f3e7d024a51a39",
+    "githubRunId": 35570565498,
+    "githubRunAttempt": 1
+  },
+  "timestamps": {
+    "scheduledAt": "2026-09-21T06:57:00Z",
+    "startedAt": "2026-09-21T06:56:21.810997+00:00",
+    "sourceCheckedAt": "2026-09-21T06:56:23.673868+00:00",
+    "sourceUpdatedAt": "2026-09-19T01:12:37+00:00",
+    "completedAt": "2026-09-21T06:56:23.674164+00:00",
+    "publishedAt": null
+  },
+  "legacyRequestedAt": null,
+  "stages": {
+    "collection": {
+      "status": "unchanged",
+      "completedAt": "2026-09-21T06:56:23.674164+00:00",
+      "details": {
+        "feedChanged": false,
+        "historyChanged": false,
+        "projectCount": 5,
+        "eventCount": 11,
+        "coverage": "observed snapshots of the five-item homepage feed; not a complete source-wide archive"
+      }
+    },
+    "validation": {
+      "status": "success",
+      "completedAt": "2026-09-21T06:56:23.674164+00:00"
+    },
+    "publication": {
+      "status": "not_run"
+    },
+    "notification": {
+      "status": "not_run"
+    }
+  }
 }
