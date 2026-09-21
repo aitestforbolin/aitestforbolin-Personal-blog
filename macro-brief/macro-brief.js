@@ -28,10 +28,18 @@
   }
 
   function render(payload) {
-    if (!payload || payload.status !== "ready") {
+    const scheduledAt = new Date(payload?.event?.scheduledAt || "");
+    const isExpired = payload?.status === "ready"
+      && Number.isFinite(scheduledAt.getTime())
+      && scheduledAt.getTime() <= Date.now();
+
+    if (!payload || payload.status !== "ready" || isExpired) {
       waiting.hidden = false;
       content.hidden = true;
-      setText("[data-waiting-message]", payload && payload.message ? payload.message : "系统会在白名单事件公布前10—30分钟生成。");
+      const message = isExpired
+        ? "上一份 Macro Brief 已过期；系统会在下一次白名单事件公布前10—30分钟生成。"
+        : (payload && payload.message ? payload.message : "系统会在白名单事件公布前10—30分钟生成。");
+      setText("[data-waiting-message]", message);
       return;
     }
     waiting.hidden = true;
