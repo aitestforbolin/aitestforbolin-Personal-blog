@@ -325,6 +325,11 @@
   gap: 5px;
 }
 
+.triage-empty[hidden],
+.triage-error[hidden] {
+  display: none;
+}
+
 .triage-error strong { color: var(--accent-dark); }
 
 .triage-footer {
