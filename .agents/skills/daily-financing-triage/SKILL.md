@@ -39,10 +39,12 @@ Supplemental visibility source:
 
 Candidate window:
 
-- The Scheduled Task runs every calendar day at 14:00 in UTC+8.
-- Set the current `windowEnd` to today's 14:00 in UTC+8.
+- The Intelligence Dispatcher starts every calendar day at about 13:00 in UTC+8, and this Web3 stage runs after the X Intelligence stage completes.
+- Before selecting candidates, the Dispatcher must actively refresh the fundraising source and confirm the matching refresh receipt.
+- After that refresh succeeds, read the refreshed `data/crypto-fundraising-history.json`. Set the current `windowEnd` to its valid `updated_at` value (this is also the publication `sourceUpdatedAt`). Do not use a fixed 13:00 or 14:00 cutoff, because newly discovered events receive their `first_seen_at` during the refresh itself.
+- If `updated_at` is missing, invalid, or older than the current successful refresh, fail the run rather than guessing a cutoff.
 - If the latest successful Daily Triage publication is readable, use its `windowEnd` as the new `windowStart`. This intentionally catches up the full gap after a missed or failed run instead of dropping events.
-- If no prior successful publication is available, fall back to the previous calendar day's 14:00 in UTC+8.
+- If no prior successful publication is available, fall back to exactly 24 hours before the current `windowEnd`.
 - Include events whose `first_seen_at` is later than `windowStart` and no later than `windowEnd`.
 - `first_seen_at` is only an ingestion timestamp. Never use it as evidence that the project itself is new.
 - If a prior successful Daily Triage run can confirm that an `event_id` was already reported, exclude it to avoid duplicate research.
