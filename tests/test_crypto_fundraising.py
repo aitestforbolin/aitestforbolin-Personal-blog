@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import os
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -151,6 +153,92 @@ class CryptoFundraisingTests(unittest.TestCase):
         ), patch.object(updater.time, "sleep"):
             with self.assertRaises(updater.BridgeDataError):
                 updater.fetch_bridge_payload()
+
+    def test_unchanged_refresh_has_distinct_receipt_and_lineage(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            output = root / "feed.json"
+            history_output = root / "history.json"
+            trigger = root / "trigger.json"
+            receipt_output = root / "receipt.json"
+            previous_feed = updater.build_payload(VALID_PAYLOAD, None)
+            previous_feed["updated_at"] = "2026-09-19T01:12:37+00:00"
+            previous_history = updater.build_history_payload(previous_feed, None)
+            output.write_text(json.dumps(previous_feed), encoding="utf-8")
+            history_output.write_text(json.dumps(previous_history), encoding="utf-8")
+            trigger.write_text(
+                json.dumps({"schemaVersion": 1, "requestId": "web3-run-1"}),
+                encoding="utf-8",
+            )
+
+            with (
+                patch.object(updater, "OUTPUT", output),
+                patch.object(updater, "HISTORY_OUTPUT", history_output),
+                patch.object(updater, "TRIGGER_PATH", trigger),
+                patch.object(updater, "RECEIPT_OUTPUT", receipt_output),
+                patch.object(updater, "fetch_bridge_payload", return_value=VALID_PAYLOAD),
+                patch.dict(
+                    os.environ,
+                    {
+                        "GITHUB_EVENT_NAME": "push",
+                        "GITHUB_RUN_ID": "200",
+                        "GITHUB_RUN_ATTEMPT": "1",
+                        "GITHUB_SHA": "e" * 40,
+                    },
+                    clear=False,
+                ),
+            ):
+                updater.main()
+
+            receipt = json.loads(receipt_output.read_text(encoding="utf-8"))
+
+        self.assertEqual(receipt["requestId"], "web3-run-1")
+        self.assertEqual(receipt["lineage"]["triggerSha"], "e" * 40)
+        self.assertEqual(receipt["result"], "unchanged")
+        self.assertEqual(receipt["stages"]["collection"]["status"], "unchanged")
+        self.assertEqual(receipt["stages"]["validation"]["status"], "success")
+
+    def test_http_404_is_persisted_as_fetch_failed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            trigger = root / "trigger.json"
+            receipt_output = root / "receipt.json"
+            trigger.write_text(
+                json.dumps({"schemaVersion": 1, "requestId": "web3-run-404"}),
+                encoding="utf-8",
+            )
+            error = updater.BridgeDataError(
+                "Bridge returned HTTP 404",
+                http_status=404,
+                failure_status="fetch_failed",
+            )
+            with (
+                patch.object(updater, "OUTPUT", root / "feed.json"),
+                patch.object(updater, "HISTORY_OUTPUT", root / "history.json"),
+                patch.object(updater, "TRIGGER_PATH", trigger),
+                patch.object(updater, "RECEIPT_OUTPUT", receipt_output),
+                patch.object(updater, "fetch_bridge_payload", side_effect=error),
+                patch.dict(
+                    os.environ,
+                    {
+                        "GITHUB_EVENT_NAME": "push",
+                        "GITHUB_RUN_ID": "201",
+                        "GITHUB_RUN_ATTEMPT": "1",
+                        "GITHUB_SHA": "f" * 40,
+                    },
+                    clear=False,
+                ),
+            ):
+                with self.assertRaises(updater.BridgeDataError):
+                    updater.run_main()
+
+            receipt = json.loads(receipt_output.read_text(encoding="utf-8"))
+
+        self.assertEqual(receipt["result"], "failed")
+        self.assertEqual(receipt["stages"]["collection"]["status"], "fetch_failed")
+        self.assertEqual(
+            receipt["stages"]["collection"]["details"]["errorCode"], "http_404"
+        )
 
     def test_published_data_and_frontend_keep_five_item_contract(self):
         payload = json.loads(

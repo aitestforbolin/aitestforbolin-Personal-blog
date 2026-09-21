@@ -9,11 +9,42 @@ from urllib.parse import urlparse
 
 import requests
 
+try:
+    from scripts.execution_receipt import (
+        lineage_for_payload,
+        new_receipt,
+        set_collection,
+        set_validation,
+        trigger_context,
+        utc_now,
+        validate_receipt,
+        write_json_atomic,
+    )
+except ModuleNotFoundError:  # Direct execution: python scripts/update_x_intelligence_input.py
+    from execution_receipt import (
+        lineage_for_payload,
+        new_receipt,
+        set_collection,
+        set_validation,
+        trigger_context,
+        utc_now,
+        validate_receipt,
+        write_json_atomic,
+    )
+
 API_BASE = "https://api.socialdata.tools/twitter/list/{list_id}/tweets"
 PRICE_PER_TWEET = 0.0002
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES_PATH = ROOT / "data" / "x-intelligence-sources.json"
 OUTPUT_PATH = ROOT / "data" / "x-intelligence-input.json"
+TRIGGER_PATH = ROOT / "data" / "x-intelligence-trigger.json"
+RECEIPT_PATH = ROOT / "data" / "x-intelligence-refresh-status.json"
+
+
+class SourceFetchError(RuntimeError):
+    def __init__(self, message, *, http_status=None):
+        super().__init__(message)
+        self.http_status = http_status
 
 
 def parse_dt(value):
@@ -40,16 +71,26 @@ def get_page(api_key, list_id, cursor=None):
             if response.status_code == 200:
                 return response.json()
             if response.status_code == 402:
-                raise RuntimeError("SocialData balance is insufficient (HTTP 402)")
+                raise SourceFetchError(
+                    "SocialData balance is insufficient (HTTP 402)", http_status=402
+                )
             if response.status_code in (429, 500, 502, 503):
-                last_error = RuntimeError("HTTP %s: %s" % (response.status_code, response.text[:300]))
+                last_error = SourceFetchError(
+                    "HTTP %s: %s" % (response.status_code, response.text[:300]),
+                    http_status=response.status_code,
+                )
                 time.sleep(2 ** attempt)
                 continue
-            raise RuntimeError("HTTP %s: %s" % (response.status_code, response.text[:500]))
+            raise SourceFetchError(
+                "HTTP %s: %s" % (response.status_code, response.text[:500]),
+                http_status=response.status_code,
+            )
         except requests.RequestException as exc:
-            last_error = exc
+            last_error = SourceFetchError(str(exc))
             time.sleep(2 ** attempt)
-    raise RuntimeError("SocialData request failed after retries: %s" % last_error)
+    if isinstance(last_error, SourceFetchError):
+        raise last_error
+    raise SourceFetchError("SocialData request failed after retries: %s" % last_error)
 
 
 def tweet_url(tweet):
@@ -191,6 +232,11 @@ def normalize(tweet, list_name, list_id):
 
 
 def main():
+    started_at = utc_now()
+    context = trigger_context(TRIGGER_PATH, "x-intelligence")
+    receipt = new_receipt("x-intelligence", context, started_at)
+    write_json_atomic(RECEIPT_PATH, receipt)
+
     api_key = os.environ.get("SOCIALDATA_API_KEY", "").strip()
     if not api_key:
         raise RuntimeError("Missing SOCIALDATA_API_KEY")
@@ -281,6 +327,28 @@ def main():
             posts.append(row)
     posts.sort(key=lambda item: item.get("created_at") or "", reverse=True)
 
+    source_checked_at = utc_now()
+    source_dates = [parse_dt(row.get("created_at")) for row in posts]
+    source_dates = [value for value in source_dates if value is not None]
+    source_updated_at = max(source_dates).isoformat() if source_dates else None
+    completed_at = utc_now()
+    collection_status = "empty_valid" if not posts else "success"
+    set_collection(
+        receipt,
+        collection_status,
+        source_checked_at=source_checked_at,
+        source_updated_at=source_updated_at,
+        completed_at=completed_at,
+        details={
+            "listsRequested": len(lists),
+            "listsCompleted": len(per_list),
+            "postCount": len(posts),
+            "estimatedCostUsd": round(billed * PRICE_PER_TWEET, 6),
+        },
+    )
+    set_validation(receipt, "success", completed_at=completed_at)
+    validate_receipt(receipt)
+
     output = {
         "schemaVersion": 1,
         "source": "SocialData X List Tweets",
@@ -305,9 +373,11 @@ def main():
         },
         "perList": per_list,
         "posts": posts,
+        "executionLineage": lineage_for_payload(receipt),
     }
 
-    OUTPUT_PATH.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
+    write_json_atomic(OUTPUT_PATH, output)
+    write_json_atomic(RECEIPT_PATH, receipt)
     print(json.dumps({
         "listsCompleted": len(per_list),
         "posts": len(posts),
@@ -316,9 +386,43 @@ def main():
     }, ensure_ascii=False))
 
 
-if __name__ == "__main__":
+def run_main():
     try:
         main()
     except Exception as exc:
+        try:
+            context = trigger_context(TRIGGER_PATH, "x-intelligence")
+            existing = None
+            if RECEIPT_PATH.exists():
+                existing = json.loads(RECEIPT_PATH.read_text(encoding="utf-8"))
+            receipt = existing if isinstance(existing, dict) else new_receipt(
+                "x-intelligence", context, utc_now()
+            )
+            completed_at = utc_now()
+            http_status = getattr(exc, "http_status", None)
+            missing_credentials = str(exc) == "Missing SOCIALDATA_API_KEY"
+            is_fetch_failure = isinstance(exc, SourceFetchError) or missing_credentials
+            failure_status = "fetch_failed" if is_fetch_failure else "failed"
+            error_code = "http_404" if http_status == 404 else failure_status
+            set_collection(
+                receipt,
+                failure_status,
+                source_checked_at=None if missing_credentials else completed_at,
+                source_updated_at=None,
+                completed_at=completed_at,
+                details={
+                    "errorCode": error_code,
+                    "httpStatus": http_status,
+                    "message": str(exc)[:500],
+                },
+            )
+            validate_receipt(receipt)
+            write_json_atomic(RECEIPT_PATH, receipt)
+        except Exception as receipt_exc:
+            print("::error::Could not persist failure receipt: %s" % receipt_exc, file=sys.stderr)
         print("::error::%s" % exc, file=sys.stderr)
         raise
+
+
+if __name__ == "__main__":
+    run_main()

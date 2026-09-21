@@ -4,9 +4,8 @@
 from __future__ import annotations
 
 import json
-import os
 import re
-import tempfile
+import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -14,9 +13,34 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
+try:
+    from scripts.execution_receipt import (
+        lineage_for_payload,
+        new_receipt,
+        set_collection,
+        set_validation,
+        trigger_context,
+        utc_now,
+        validate_receipt,
+        write_json_atomic,
+    )
+except ModuleNotFoundError:  # Direct execution: python scripts/update_crypto_fundraising.py
+    from execution_receipt import (
+        lineage_for_payload,
+        new_receipt,
+        set_collection,
+        set_validation,
+        trigger_context,
+        utc_now,
+        validate_receipt,
+        write_json_atomic,
+    )
+
 SITE_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = SITE_ROOT / "data" / "crypto-fundraising.json"
 HISTORY_OUTPUT = SITE_ROOT / "data" / "crypto-fundraising-history.json"
+TRIGGER_PATH = SITE_ROOT / "data" / "crypto-fundraising-trigger.json"
+RECEIPT_OUTPUT = SITE_ROOT / "data" / "crypto-fundraising-refresh-status.json"
 BRIDGE_URL = "https://crypto-fundraising-bridge.laibocszd.chatgpt.site/api/crypto-fundraising"
 FETCH_TIMEOUT = 30
 FETCH_RETRIES = 2
@@ -27,6 +51,17 @@ SOURCE_HOST = "crypto-fundraising.info"
 
 class BridgeDataError(RuntimeError):
     """The bridge response or local persisted data violates the expected contract."""
+
+    def __init__(
+        self,
+        message: str,
+        *,
+        http_status: int | None = None,
+        failure_status: str = "failed",
+    ):
+        super().__init__(message)
+        self.http_status = http_status
+        self.failure_status = failure_status
 
 
 def canonical_detail_url(value: object) -> str:
@@ -128,7 +163,11 @@ def fetch_bridge_payload() -> dict[str, object]:
         try:
             with urlopen(request, timeout=FETCH_TIMEOUT) as response:
                 if response.status != 200:
-                    raise BridgeDataError(f"Bridge returned HTTP {response.status}")
+                    raise BridgeDataError(
+                        f"Bridge returned HTTP {response.status}",
+                        http_status=response.status,
+                        failure_status="fetch_failed",
+                    )
                 payload = json.loads(response.read().decode("utf-8"))
             validate_bridge_payload(payload)
             return payload
@@ -140,11 +179,29 @@ def fetch_bridge_payload() -> dict[str, object]:
             json.JSONDecodeError,
             BridgeDataError,
         ) as error:
-            last_error = error
+            if isinstance(error, HTTPError):
+                last_error = BridgeDataError(
+                    f"Bridge returned HTTP {error.code}",
+                    http_status=error.code,
+                    failure_status="fetch_failed",
+                )
+            else:
+                last_error = error
             if attempt < FETCH_RETRIES:
                 time.sleep(attempt * 5)
+    if isinstance(last_error, BridgeDataError):
+        failure_status = last_error.failure_status
+        http_status = last_error.http_status
+    elif isinstance(last_error, (URLError, TimeoutError)):
+        failure_status = "fetch_failed"
+        http_status = None
+    else:
+        failure_status = "failed"
+        http_status = None
     raise BridgeDataError(
-        f"Could not fetch a valid bridge payload after {FETCH_RETRIES} attempts"
+        f"Could not fetch a valid bridge payload after {FETCH_RETRIES} attempts",
+        http_status=http_status,
+        failure_status=failure_status,
     ) from last_error
 
 
@@ -315,21 +372,18 @@ def history_events_equal(
     )
 
 
-def write_json(path: Path, payload: dict[str, object]) -> None:
-    rendered = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
-    with tempfile.NamedTemporaryFile(
-        "w", encoding="utf-8", dir=path.parent, delete=False
-    ) as handle:
-        handle.write(rendered)
-        temporary_path = Path(handle.name)
-    os.replace(temporary_path, path)
-
-
 def main() -> None:
+    started_at = utc_now()
+    context = trigger_context(TRIGGER_PATH, "web3-daily-triage")
+    receipt = new_receipt("web3-daily-triage", context, started_at)
+    write_json_atomic(RECEIPT_OUTPUT, receipt)
+
     previous_feed = load_previous_payload()
     previous_history = load_history_payload()
 
-    current_feed = build_payload(fetch_bridge_payload(), previous_feed)
+    bridge_payload = fetch_bridge_payload()
+    source_checked_at = utc_now()
+    current_feed = build_payload(bridge_payload, previous_feed)
     current_history = build_history_payload(
         current_feed,
         previous_history,
@@ -338,22 +392,79 @@ def main() -> None:
 
     feed_changed = project_data_changed(current_feed, previous_feed)
     history_changed = not history_events_equal(current_history, previous_history)
+    completed_at = utc_now()
+    collection_status = "success" if feed_changed or history_changed else "unchanged"
+    source_updated_at = current_history.get("updated_at")
+    set_collection(
+        receipt,
+        collection_status,
+        source_checked_at=source_checked_at,
+        source_updated_at=str(source_updated_at) if source_updated_at else None,
+        completed_at=completed_at,
+        details={
+            "feedChanged": feed_changed,
+            "historyChanged": history_changed,
+            "projectCount": len(current_feed["projects"]),
+            "eventCount": len(current_history["events"]),
+            "coverage": current_history.get("coverage"),
+        },
+    )
+    set_validation(receipt, "success", completed_at=completed_at)
+    validate_receipt(receipt)
+    current_feed["executionLineage"] = lineage_for_payload(receipt)
 
     if not feed_changed and not history_changed:
+        write_json_atomic(RECEIPT_OUTPUT, receipt)
         print("Crypto fundraising data and observed history are unchanged.")
         return
 
     if feed_changed:
-        write_json(OUTPUT, current_feed)
+        write_json_atomic(OUTPUT, current_feed)
         print(f"Updated {OUTPUT} with {len(current_feed['projects'])} bridge projects.")
 
     if history_changed:
-        write_json(HISTORY_OUTPUT, current_history)
+        write_json_atomic(HISTORY_OUTPUT, current_history)
         print(
             f"Updated {HISTORY_OUTPUT} with "
             f"{len(current_history['events'])} observed financing events."
         )
+    write_json_atomic(RECEIPT_OUTPUT, receipt)
+
+
+def run_main() -> None:
+    try:
+        main()
+    except Exception as exc:
+        try:
+            context = trigger_context(TRIGGER_PATH, "web3-daily-triage")
+            existing = None
+            if RECEIPT_OUTPUT.exists():
+                existing = json.loads(RECEIPT_OUTPUT.read_text(encoding="utf-8"))
+            receipt = existing if isinstance(existing, dict) else new_receipt(
+                "web3-daily-triage", context, utc_now()
+            )
+            completed_at = utc_now()
+            http_status = getattr(exc, "http_status", None)
+            failure_status = getattr(exc, "failure_status", "failed")
+            error_code = "http_404" if http_status == 404 else failure_status
+            set_collection(
+                receipt,
+                failure_status,
+                source_checked_at=completed_at,
+                source_updated_at=None,
+                completed_at=completed_at,
+                details={
+                    "errorCode": error_code,
+                    "httpStatus": http_status,
+                    "message": str(exc)[:500],
+                },
+            )
+            validate_receipt(receipt)
+            write_json_atomic(RECEIPT_OUTPUT, receipt)
+        except Exception as receipt_exc:
+            print(f"Could not persist failure receipt: {receipt_exc}", file=sys.stderr)
+        raise
 
 
 if __name__ == "__main__":
-    main()
+    run_main()

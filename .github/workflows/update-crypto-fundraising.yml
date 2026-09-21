@@ -32,6 +32,13 @@ jobs:
           python-version: "3.11"
 
       - name: Refresh latest fundraising projects from bridge
+        id: collect
+        continue-on-error: true
+        env:
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}
+          GITHUB_SHA: ${{ github.sha }}
         run: |
           for attempt in 1 2; do
             if python scripts/update_crypto_fundraising.py; then
@@ -46,59 +53,36 @@ jobs:
           exit 1
 
       - name: Validate fundraising data contract
+        id: validate
+        continue-on-error: true
+        if: steps.collect.outcome == 'success'
         run: |
-          python -m py_compile scripts/update_crypto_fundraising.py
+          python -m py_compile scripts/execution_receipt.py scripts/update_crypto_fundraising.py
           python -m unittest tests.test_crypto_fundraising
 
-      - name: Record refresh completion
-        env:
-          GITHUB_EVENT_NAME: ${{ github.event_name }}
-          GITHUB_RUN_ID: ${{ github.run_id }}
+      - name: Record validation failure
+        if: steps.validate.outcome == 'failure'
         run: |
           python - <<'PY'
           import json
-          import os
-          from datetime import datetime, timezone
           from pathlib import Path
-
-          trigger_path = Path("data/crypto-fundraising-trigger.json")
-          trigger = {}
-          if trigger_path.exists():
-              try:
-                  trigger = json.loads(trigger_path.read_text(encoding="utf-8"))
-              except Exception:
-                  trigger = {}
-
-          if os.environ.get("GITHUB_EVENT_NAME") == "push":
-              request_id = str(trigger.get("requestId") or "")
-              requested_at = trigger.get("requestedAt")
-          else:
-              request_id = "manual-" + os.environ["GITHUB_RUN_ID"]
-              requested_at = None
-
-          if not request_id:
-              raise RuntimeError("Missing requestId in crypto-fundraising-trigger.json")
-
-          status = {
-              "schemaVersion": 1,
-              "status": "success",
-              "requestId": request_id,
-              "requestedAt": requested_at,
-              "completedAt": datetime.now(timezone.utc).isoformat(),
-              "githubRunId": int(os.environ["GITHUB_RUN_ID"]),
-          }
-          Path("data/crypto-fundraising-refresh-status.json").write_text(
-              json.dumps(status, ensure_ascii=False, indent=2) + "\n",
-              encoding="utf-8",
-          )
-          print(json.dumps(status, ensure_ascii=False))
+          from scripts.execution_receipt import set_validation, utc_now, validate_receipt, write_json_atomic
+          path = Path("data/crypto-fundraising-refresh-status.json")
+          receipt = json.loads(path.read_text(encoding="utf-8"))
+          set_validation(receipt, "failed", completed_at=utc_now(), reason="workflow contract validation failed")
+          validate_receipt(receipt)
+          write_json_atomic(path, receipt)
           PY
 
       - name: Commit updated fundraising data and refresh receipt
+        if: always() && steps.collect.outcome != 'cancelled'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/crypto-fundraising.json data/crypto-fundraising-history.json data/crypto-fundraising-refresh-status.json
+          git add data/crypto-fundraising-refresh-status.json
+          if [ "${{ steps.collect.outcome }}" = "success" ] && [ "${{ steps.validate.outcome }}" = "success" ]; then
+            git add data/crypto-fundraising.json data/crypto-fundraising-history.json
+          fi
           if git diff --cached --quiet; then
             echo "Crypto fundraising data and refresh receipt are already current."
             exit 0
@@ -113,4 +97,10 @@ jobs:
             sleep $((attempt * 5))
           done
           echo "::error::Could not push crypto fundraising data after 3 attempts."
+          exit 1
+
+      - name: Fail workflow when collection failed
+        if: always() && (steps.collect.outcome != 'success' || steps.validate.outcome != 'success')
+        run: |
+          echo "::error::Crypto fundraising collection or validation failed; failure receipt was preserved."
           exit 1

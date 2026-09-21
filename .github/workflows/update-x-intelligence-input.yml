@@ -34,17 +34,26 @@ jobs:
         run: pip install requests
 
       - name: Validate collector
-        run: python -m py_compile scripts/update_x_intelligence_input.py
+        run: python -m py_compile scripts/execution_receipt.py scripts/update_x_intelligence_input.py
 
       - name: Fetch X Lists
+        id: collect
+        continue-on-error: true
         env:
           SOCIALDATA_API_KEY: ${{ secrets.SOCIALDATA_API_KEY }}
           X_INTELLIGENCE_MAX_COST_USD: "0.10"
           X_INTELLIGENCE_WINDOW_HOURS: "24"
           X_INTELLIGENCE_MAX_PAGES: "10"
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}
+          GITHUB_SHA: ${{ github.sha }}
         run: python scripts/update_x_intelligence_input.py
 
       - name: Validate canonical input JSON
+        id: validate
+        continue-on-error: true
+        if: steps.collect.outcome == 'success'
         run: |
           python -m json.tool data/x-intelligence-input.json >/dev/null
           python - <<'PY'
@@ -56,19 +65,44 @@ jobs:
           assert payload["listsCompleted"] == 4
           assert payload["stoppedForBudget"] is False
           assert payload["stats"]["uniqueTweetsInWindow"] == len(payload["posts"])
+          receipt = json.loads(Path("data/x-intelligence-refresh-status.json").read_text())
+          lineage = payload["executionLineage"]
+          assert receipt["schemaVersion"] == 2
+          assert lineage["requestId"] == receipt["requestId"]
+          assert lineage["triggerSha"] == receipt["lineage"]["triggerSha"]
+          assert receipt["stages"]["collection"]["status"] in {"success", "empty_valid"}
+          assert receipt["stages"]["validation"]["status"] == "success"
           print("validated", len(payload["posts"]), "posts")
           PY
 
-      - name: Commit refreshed X intelligence input
+      - name: Record validation failure
+        if: steps.validate.outcome == 'failure'
         run: |
-          if git diff --quiet -- data/x-intelligence-input.json; then
-            echo "X intelligence input is already current."
-            exit 0
-          fi
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.execution_receipt import set_validation, utc_now, validate_receipt, write_json_atomic
+          path = Path("data/x-intelligence-refresh-status.json")
+          receipt = json.loads(path.read_text(encoding="utf-8"))
+          set_validation(receipt, "failed", completed_at=utc_now(), reason="workflow contract validation failed")
+          validate_receipt(receipt)
+          write_json_atomic(path, receipt)
+          PY
+
+      - name: Commit X input and execution receipt
+        if: always() && steps.collect.outcome != 'cancelled'
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/x-intelligence-input.json
-          git commit -m "Update X intelligence input"
+          git add data/x-intelligence-refresh-status.json
+          if [ "${{ steps.collect.outcome }}" = "success" ] && [ "${{ steps.validate.outcome }}" = "success" ]; then
+            git add data/x-intelligence-input.json
+          fi
+          if git diff --cached --quiet; then
+            echo "X intelligence input and execution receipt are already current."
+            exit 0
+          fi
+          git commit -m "Record X intelligence execution"
           for attempt in 1 2 3; do
             git fetch origin main
             if git rebase origin/main && git push origin HEAD:main; then
@@ -78,4 +112,10 @@ jobs:
             sleep $((attempt * 5))
           done
           echo "::error::Could not push X intelligence input after 3 attempts."
+          exit 1
+
+      - name: Fail workflow when collection failed
+        if: always() && (steps.collect.outcome != 'success' || steps.validate.outcome != 'success')
+        run: |
+          echo "::error::X intelligence collection or validation failed; failure receipt was preserved."
           exit 1
