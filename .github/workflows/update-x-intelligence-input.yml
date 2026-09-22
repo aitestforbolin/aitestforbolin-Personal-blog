@@ -9,8 +9,8 @@ on:
   schedule:
     # Primary production run: 12:30 Asia/Shanghai.
     - cron: "30 4 * * *"
-    # One-time 2026-09-22 cron-path verification around 16:47 Asia/Shanghai.
-    - cron: "47 8 22 9 *"
+    # One-time 2026-09-22 full-path verification around 16:50 Asia/Shanghai.
+    - cron: "50 8 22 9 *"
   workflow_dispatch:
 
 permissions:
