@@ -1,58 +1,71 @@
 {
-  "updated_at": "2026-09-19T01:12:37+00:00",
+  "updated_at": "2026-09-22T09:33:00+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-dtcpay",
+      "id": "crypto-fundraising-xstable",
       "source_rank": 1,
+      "name": "XStable",
+      "round": null,
+      "announced_month": "2026-09",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/xstable/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-travix",
+      "source_rank": 2,
+      "name": "Travix",
+      "round": "Seed",
+      "announced_month": "2026-09",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/travix/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-catchback",
+      "source_rank": 3,
+      "name": "CatchBack",
+      "round": "Seed",
+      "announced_month": "2026-09",
+      "amount_usd": 8000000,
+      "detail_url": "https://crypto-fundraising.info/projects/catchback/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-ponygo",
+      "source_rank": 4,
+      "name": "PonyGo",
+      "round": null,
+      "announced_month": "2026-09",
+      "amount_usd": 2000000,
+      "detail_url": "https://crypto-fundraising.info/projects/ponygo/",
+      "is_new": false
+    },
+    {
+      "id": "crypto-fundraising-dtcpay",
+      "source_rank": 5,
       "name": "dtcpay",
       "round": "Series A",
       "announced_month": "2026-09",
       "amount_usd": 15000000,
       "detail_url": "https://crypto-fundraising.info/projects/dtcpay/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-openzeppelin",
-      "source_rank": 2,
-      "name": "OpenZeppelin",
-      "round": "M&A",
-      "announced_month": "2026-09",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/openzeppelin/",
       "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-ponygo",
-      "source_rank": 3,
-      "name": "PonyGo",
-      "round": null,
-      "announced_month": "2026-09",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/ponygo/",
-      "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-rep",
-      "source_rank": 4,
-      "name": "Rep",
-      "round": "Angel",
-      "announced_month": "2026-09",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/rep/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-tenka",
-      "source_rank": 5,
-      "name": "Tenka",
-      "round": "Pre-seed",
-      "announced_month": "2026-09",
-      "amount_usd": 2000000,
-      "detail_url": "https://crypto-fundraising.info/projects/tenka/",
-      "is_new": true
     }
-  ]
+  ],
+  "executionLineage": {
+    "schemaVersion": 2,
+    "runId": "web3-daily-triage:web3-fix-20260922T093226Z",
+    "requestId": "web3-fix-20260922T093226Z",
+    "triggerSha": "bc1837d7ea940fa2d6ff95edf7fa5276fb439816",
+    "githubRunId": 35710995446,
+    "scheduledAt": "2026-09-22T09:32:26Z",
+    "startedAt": "2026-09-22T09:32:58.349027+00:00",
+    "sourceCheckedAt": "2026-09-22T09:33:00.568938+00:00",
+    "sourceUpdatedAt": "2026-09-22T09:33:00+00:00",
+    "completedAt": "2026-09-22T09:33:00.569220+00:00",
+    "publishedAt": null
+  }
 }
