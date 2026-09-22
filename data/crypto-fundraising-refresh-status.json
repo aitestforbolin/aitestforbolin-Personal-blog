@@ -1,28 +1,28 @@
 {
   "schemaVersion": 2,
   "automation": "web3-daily-triage",
-  "runId": "web3-daily-triage:manual-web3-2026-09-22",
-  "requestId": "manual-web3-2026-09-22",
+  "runId": "web3-daily-triage:manual-web3-2026-09-22-retry2",
+  "requestId": "manual-web3-2026-09-22-retry2",
   "result": "failed",
   "lineage": {
     "triggerType": "push",
-    "triggerSha": "a7943e1321c9da695b3b05d14b39cfe4ec5068ef",
-    "githubRunId": 35708639566,
+    "triggerSha": "d1416c80281d0597de5ce98d70bda24db99eab76",
+    "githubRunId": 35708999853,
     "githubRunAttempt": 1
   },
   "timestamps": {
-    "scheduledAt": "2026-09-22T09:07:00Z",
-    "startedAt": "2026-09-22T09:08:30.980827+00:00",
-    "sourceCheckedAt": "2026-09-22T09:08:40.168656+00:00",
+    "scheduledAt": "2026-09-22T09:15:00Z",
+    "startedAt": "2026-09-22T09:12:45.260136+00:00",
+    "sourceCheckedAt": "2026-09-22T09:12:53.418145+00:00",
     "sourceUpdatedAt": null,
-    "completedAt": "2026-09-22T09:08:40.168656+00:00",
+    "completedAt": "2026-09-22T09:12:53.418145+00:00",
     "publishedAt": null
   },
   "legacyRequestedAt": null,
   "stages": {
     "collection": {
       "status": "fetch_failed",
-      "completedAt": "2026-09-22T09:08:40.168656+00:00",
+      "completedAt": "2026-09-22T09:12:53.418145+00:00",
       "details": {
         "errorCode": "fetch_failed",
         "httpStatus": 502,
