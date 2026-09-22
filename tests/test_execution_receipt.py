@@ -90,29 +90,7 @@ class ExecutionReceiptTests(unittest.TestCase):
             ):
                 context = trigger_context(trigger, "x-intelligence")
 
-        self.assertEqual(context["requestId"], "x-intelligence-gh-456")
-
-    def test_schedule_run_does_not_depend_on_trigger_file(self):
-        with tempfile.TemporaryDirectory() as directory:
-            missing_trigger = Path(directory) / "missing-trigger.json"
-            with patch.dict(
-                os.environ,
-                {
-                    "GITHUB_EVENT_NAME": "schedule",
-                    "GITHUB_RUN_ID": "789",
-                    "GITHUB_RUN_ATTEMPT": "1",
-                    "GITHUB_SHA": "b" * 40,
-                },
-                clear=False,
-            ):
-                context = trigger_context(missing_trigger, "x-intelligence")
-
-        self.assertEqual(context["requestId"], "x-intelligence-gh-789")
-        self.assertEqual(context["triggerType"], "schedule")
-        self.assertEqual(context["triggerSha"], "b" * 40)
-        self.assertIsNone(context["scheduledAt"])
-        self.assertIsNone(context["legacyRequestedAt"])
-
+        self.assertEqual(context["requestId"], "manual-456")
 
     def test_404_is_fetch_failed_not_unchanged(self):
         context = {

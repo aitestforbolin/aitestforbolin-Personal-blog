@@ -6,9 +6,6 @@ on:
       - main
     paths:
       - data/x-intelligence-trigger.json
-  schedule:
-    # Primary production run: 12:30 Asia/Shanghai.
-    - cron: "30 4 * * *"
   workflow_dispatch:
 
 permissions:
