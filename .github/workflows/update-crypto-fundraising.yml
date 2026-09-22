@@ -31,7 +31,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Refresh latest fundraising projects from bridge
+      - name: Refresh latest fundraising projects
         id: collect
         continue-on-error: true
         env:
@@ -45,11 +45,11 @@ jobs:
               exit 0
             fi
             if [ "$attempt" -lt 2 ]; then
-              echo "Fundraising bridge returned no valid five-item payload; retrying in 20 seconds."
+              echo "Fundraising source returned no valid five-item payload; retrying in 20 seconds."
               sleep 20
             fi
           done
-          echo "::error::Fundraising bridge failed validation; the previously published data was preserved."
+          echo "::error::Fundraising source failed validation; the previously published data was preserved."
           exit 1
 
       - name: Validate fundraising data contract

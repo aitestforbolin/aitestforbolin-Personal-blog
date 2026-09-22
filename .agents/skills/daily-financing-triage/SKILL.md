@@ -40,8 +40,8 @@ Supplemental visibility source:
 
 Candidate window:
 
-- The Intelligence Dispatcher starts every calendar day at about 13:00 in UTC+8, and this Web3 stage runs after the X Intelligence stage completes.
-- Before selecting candidates, the Dispatcher must actively refresh the fundraising source and confirm the matching schemaVersion 2 receipt.
+- A daily reminder is sent at 13:00 UTC+8. The actual Web3 run begins only after the user asks ChatGPT to execute the combined X + Web3 workflow.
+- Before selecting candidates, the interactive runner must actively refresh the fundraising source and confirm the matching schemaVersion 2 receipt.
 - Require a non-empty requestId and triggerSha, requestId matching `^[A-Za-z0-9._-]+$`, collection status `success` or `unchanged`, and validation status `success`. The requestId must match the active trigger; requestId and triggerSha must both match any executionLineage present in the refreshed feed. A `fetch_failed`, `failed`, or `stale_source` collection must never be converted into publication success.
 - Use requestId + triggerSha as the authoritative freshness proof. Never accept a refresh merely because `requestedAt`, `completedAt`, or another self-reported timestamp looks recent. A legacy schemaVersion 1 receipt may remain readable for history/debugging but must not prove a new scheduled run.
 - After a matching refresh, use `receipt.timestamps.completedAt` as the current `windowEnd`. Do not use a fixed 13:00 or 14:00 cutoff. The collector assigns newly discovered events a `first_seen_at` during the refresh before that receipt is completed, so those events are included in the same run.

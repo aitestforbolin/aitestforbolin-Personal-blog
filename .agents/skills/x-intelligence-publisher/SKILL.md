@@ -9,7 +9,7 @@ description: Read the canonical 24h X List packet, cluster it into a concise res
 
 Generate the daily X Intelligence briefing from data/x-intelligence-input.json in aitestforbolin/aitestforbolin-Personal-blog main.
 Publish the finalized structured briefing to data/x-intelligence.json on main.
-GitHub Actions is the collection layer; the scheduled Chat task is the reasoning and publishing layer. Do not re-scrape X or call SocialData from the Chat task.
+GitHub Actions is the collection layer; the interactive ChatGPT run is the reasoning and publishing layer. Do not re-scrape X or call SocialData from the Chat task.
 
 ## Repository and access contract
 
@@ -21,7 +21,7 @@ All GitHub reads and writes must use the connected GitHub Connector. Do not use 
 
 ## Time contract
 
-Scheduled run: every day at 13:00 Asia/Shanghai.
+Daily reminder: 13:00 Asia/Shanghai. The actual X run begins only after the user asks ChatGPT to execute the combined X + Web3 workflow.
 Interpret reportDate in Asia/Shanghai.
 
 ## Input hard gates

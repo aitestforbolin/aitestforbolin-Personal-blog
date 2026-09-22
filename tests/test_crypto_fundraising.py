@@ -145,11 +145,28 @@ class CryptoFundraisingTests(unittest.TestCase):
         ]
         self.assertEqual(len(project_one_events), 2)
 
+    def test_bridge_failure_falls_back_to_direct_homepage(self):
+        with patch.object(
+            updater,
+            "urlopen",
+            side_effect=updater.HTTPError(updater.BRIDGE_URL, 502, "Bad Gateway", {}, None),
+        ), patch.object(
+            updater,
+            "fetch_direct_source_payload",
+            return_value=VALID_PAYLOAD,
+        ), patch.object(updater.time, "sleep"):
+            payload = updater.fetch_bridge_payload()
+        self.assertEqual(payload["projects"][0]["name"], "Project 1")
+
     def test_bridge_failure_never_creates_a_payload(self):
         with patch.object(
             updater,
             "urlopen",
             side_effect=URLError("bridge unavailable"),
+        ), patch.object(
+            updater,
+            "fetch_direct_source_payload",
+            side_effect=RuntimeError("direct source unavailable"),
         ), patch.object(updater.time, "sleep"):
             with self.assertRaises(updater.BridgeDataError):
                 updater.fetch_bridge_payload()

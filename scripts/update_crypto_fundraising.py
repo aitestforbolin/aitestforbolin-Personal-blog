@@ -14,6 +14,11 @@ from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
 try:
+    from scripts.crypto_fundraising_direct import fetch_direct_source_payload
+except ModuleNotFoundError:
+    from crypto_fundraising_direct import fetch_direct_source_payload
+
+try:
     from scripts.execution_receipt import (
         lineage_for_payload,
         new_receipt,
@@ -198,11 +203,17 @@ def fetch_bridge_payload() -> dict[str, object]:
     else:
         failure_status = "failed"
         http_status = None
-    raise BridgeDataError(
-        f"Could not fetch a valid bridge payload after {FETCH_RETRIES} attempts",
-        http_status=http_status,
-        failure_status=failure_status,
-    ) from last_error
+    try:
+        direct_payload = fetch_direct_source_payload(timeout=FETCH_TIMEOUT)
+        validate_bridge_payload(direct_payload)
+        print("Bridge unavailable; used direct Crypto-Fundraising homepage fallback.", file=sys.stderr)
+        return direct_payload
+    except Exception as direct_error:
+        raise BridgeDataError(
+            "Could not fetch a valid fundraising payload from the bridge or direct homepage",
+            http_status=http_status,
+            failure_status="fetch_failed" if failure_status == "fetch_failed" else failure_status,
+        ) from direct_error
 
 
 def load_json_object(path: Path, *, allow_missing: bool = True) -> dict[str, object] | None:
