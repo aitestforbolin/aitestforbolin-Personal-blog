@@ -6,6 +6,11 @@ on:
       - main
     paths:
       - data/crypto-fundraising-trigger.json
+  schedule:
+    # Primary production run: 12:40 Asia/Shanghai.
+    - cron: "40 4 * * *"
+    # One-time 2026-09-22 cron-path verification around 16:47 Asia/Shanghai.
+    - cron: "47 8 22 9 *"
   workflow_dispatch:
 
 permissions:

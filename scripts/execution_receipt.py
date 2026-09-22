@@ -49,21 +49,31 @@ def load_trigger(path: Path) -> dict[str, Any]:
 
 
 def trigger_context(trigger_path: Path, automation: str) -> dict[str, Any]:
-    trigger = load_trigger(trigger_path)
     event_name = os.environ.get("GITHUB_EVENT_NAME", "local")
     run_id = os.environ.get("GITHUB_RUN_ID")
-    request_id = str(trigger.get("requestId") or "").strip()
-    if event_name != "push":
-        request_id = f"manual-{run_id}" if run_id else f"local-{automation}-{utc_now()}"
-    if not request_id:
-        raise RuntimeError(f"Missing requestId in {trigger_path}")
 
-    scheduled_at = trigger.get("scheduledAt")
-    if not isinstance(scheduled_at, str) or not scheduled_at.strip():
+    if event_name == "push":
+        trigger = load_trigger(trigger_path)
+        request_id = str(trigger.get("requestId") or "").strip()
+        if not request_id:
+            raise RuntimeError(f"Missing requestId in {trigger_path}")
+
+        scheduled_at = trigger.get("scheduledAt")
+        if not isinstance(scheduled_at, str) or not scheduled_at.strip():
+            scheduled_at = None
+
+        legacy_requested_at = trigger.get("requestedAt")
+        if not isinstance(legacy_requested_at, str) or not legacy_requested_at.strip():
+            legacy_requested_at = None
+    else:
+        # Scheduled/manual GitHub runs are first-class collector executions and
+        # must not inherit identity or timestamps from an old trigger file.
+        if run_id:
+            request_id = f"{automation}-gh-{run_id}"
+        else:
+            suffix = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+            request_id = f"local-{automation}-{suffix}"
         scheduled_at = None
-
-    legacy_requested_at = trigger.get("requestedAt")
-    if not isinstance(legacy_requested_at, str) or not legacy_requested_at.strip():
         legacy_requested_at = None
 
     return {
@@ -203,7 +213,7 @@ def validate_receipt(receipt: dict[str, Any]) -> None:
     lineage = receipt.get("lineage")
     if not isinstance(lineage, dict):
         raise ValueError("receipt.lineage must be an object")
-    if lineage.get("triggerType") in {"push", "workflow_dispatch"}:
+    if lineage.get("triggerType") in {"push", "workflow_dispatch", "schedule"}:
         trigger_sha = lineage.get("triggerSha")
         if not isinstance(trigger_sha, str) or not re.fullmatch(r"[0-9a-fA-F]{40}", trigger_sha):
             raise ValueError("receipt.lineage.triggerSha must be a 40-character commit SHA")
