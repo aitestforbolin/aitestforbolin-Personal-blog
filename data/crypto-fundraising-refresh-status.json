@@ -1,39 +1,36 @@
 {
   "schemaVersion": 2,
   "automation": "web3-daily-triage",
-  "runId": "web3-daily-triage:runtime-check-web3-2026-09-21-01",
-  "requestId": "runtime-check-web3-2026-09-21-01",
-  "result": "unchanged",
+  "runId": "web3-daily-triage:manual-web3-2026-09-22",
+  "requestId": "manual-web3-2026-09-22",
+  "result": "failed",
   "lineage": {
     "triggerType": "push",
-    "triggerSha": "f0e3a8cd75223ae6cfc21400c8f3e7d024a51a39",
-    "githubRunId": 35570565498,
+    "triggerSha": "a7943e1321c9da695b3b05d14b39cfe4ec5068ef",
+    "githubRunId": 35708639566,
     "githubRunAttempt": 1
   },
   "timestamps": {
-    "scheduledAt": "2026-09-21T06:57:00Z",
-    "startedAt": "2026-09-21T06:56:21.810997+00:00",
-    "sourceCheckedAt": "2026-09-21T06:56:23.673868+00:00",
-    "sourceUpdatedAt": "2026-09-19T01:12:37+00:00",
-    "completedAt": "2026-09-21T06:56:23.674164+00:00",
+    "scheduledAt": "2026-09-22T09:07:00Z",
+    "startedAt": "2026-09-22T09:08:30.980827+00:00",
+    "sourceCheckedAt": "2026-09-22T09:08:40.168656+00:00",
+    "sourceUpdatedAt": null,
+    "completedAt": "2026-09-22T09:08:40.168656+00:00",
     "publishedAt": null
   },
   "legacyRequestedAt": null,
   "stages": {
     "collection": {
-      "status": "unchanged",
-      "completedAt": "2026-09-21T06:56:23.674164+00:00",
+      "status": "fetch_failed",
+      "completedAt": "2026-09-22T09:08:40.168656+00:00",
       "details": {
-        "feedChanged": false,
-        "historyChanged": false,
-        "projectCount": 5,
-        "eventCount": 11,
-        "coverage": "observed snapshots of the five-item homepage feed; not a complete source-wide archive"
+        "errorCode": "fetch_failed",
+        "httpStatus": 502,
+        "message": "Could not fetch a valid bridge payload after 2 attempts"
       }
     },
     "validation": {
-      "status": "success",
-      "completedAt": "2026-09-21T06:56:23.674164+00:00"
+      "status": "not_run"
     },
     "publication": {
       "status": "not_run"
