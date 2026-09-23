@@ -3,7 +3,7 @@
   "automation": "web3-daily-triage",
   "runId": "web3-daily-triage:scheduled-web3-2026-09-23T025855Z",
   "requestId": "scheduled-web3-2026-09-23T025855Z",
-  "result": "in_progress",
+  "result": "failed",
   "lineage": {
     "triggerType": "push",
     "triggerSha": "65832799cf2bc67d4d10e80490fd176981a634ad",
@@ -36,7 +36,11 @@
       "completedAt": "2026-09-23T03:00:05.368386+00:00"
     },
     "publication": {
-      "status": "not_run"
+      "status": "failed",
+      "completedAt": "2026-09-23T03:01:39.300Z",
+      "details": {
+        "reason": "GitHub Connector cannot obtain main branch tree/ref SHA required to create an atomic Git Data commit containing both current and immutable archive; non-atomic fallback not permitted by Skill."
+      }
     },
     "notification": {
       "status": "not_run"
