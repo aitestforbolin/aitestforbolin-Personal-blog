@@ -1,28 +1,28 @@
 {
   "schemaVersion": 2,
   "automation": "web3-daily-triage",
-  "runId": "web3-daily-triage:fixcheck-web3-20260923-064155Z",
-  "requestId": "fixcheck-web3-20260923-064155Z",
+  "runId": "web3-daily-triage:luna-web3-20260923-064620Z",
+  "requestId": "luna-web3-20260923-064620Z",
   "result": "unchanged",
   "lineage": {
     "triggerType": "push",
-    "triggerSha": "b0bc0aaa87a10b8564dc4d76449db9418812d607",
-    "githubRunId": 35827985286,
+    "triggerSha": "c558fbf5379bf672ac9292dd8c1671b0a9cec01d",
+    "githubRunId": 35828439792,
     "githubRunAttempt": 1
   },
   "timestamps": {
-    "scheduledAt": "2026-09-23T06:41:55Z",
-    "startedAt": "2026-09-23T06:42:49.771285+00:00",
-    "sourceCheckedAt": "2026-09-23T06:42:51.882812+00:00",
+    "scheduledAt": "2026-09-23T06:46:20Z",
+    "startedAt": "2026-09-23T06:48:27.152112+00:00",
+    "sourceCheckedAt": "2026-09-23T06:48:28.387223+00:00",
     "sourceUpdatedAt": "2026-09-23T03:00:05+00:00",
-    "completedAt": "2026-09-23T06:42:51.883086+00:00",
+    "completedAt": "2026-09-23T06:48:28.387559+00:00",
     "publishedAt": null
   },
   "legacyRequestedAt": null,
   "stages": {
     "collection": {
       "status": "unchanged",
-      "completedAt": "2026-09-23T06:42:51.883086+00:00",
+      "completedAt": "2026-09-23T06:48:28.387559+00:00",
       "details": {
         "feedChanged": false,
         "historyChanged": false,
@@ -33,7 +33,7 @@
     },
     "validation": {
       "status": "success",
-      "completedAt": "2026-09-23T06:42:51.883086+00:00"
+      "completedAt": "2026-09-23T06:48:28.387559+00:00"
     },
     "publication": {
       "status": "not_run"
