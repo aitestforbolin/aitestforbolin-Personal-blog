@@ -126,11 +126,11 @@ def validate_snapshot(snapshot: dict[str, Any]) -> None:
             errors.append(f"{breadth_id}: source status is unavailable")
 
     for market_id in REQUIRED_TREASURIES:
-        row = markets.get(market_id)
+        row = anchors.get(market_id)
         if not row:
-            errors.append(f"{market_id}: missing Treasury row")
+            errors.append(f"{market_id}: missing Treasury macro anchor")
             continue
-        require_numbers(errors, market_id, row, ("previousClose", "price"))
+        require_numbers(errors, market_id, row, ("previous", "anchor"))
 
     for anchor_id in REQUIRED_COMPARABLE_MACRO_ANCHORS:
         row = anchors.get(anchor_id)
@@ -154,6 +154,32 @@ def validate_snapshot(snapshot: dict[str, Any]) -> None:
         errors.append("fedProbability: missing object")
     else:
         require_numbers(errors, "fedProbability", fed, ("previous", "current"))
+        previous = finite_number(fed.get("previous"))
+        current = finite_number(fed.get("current"))
+        if previous is not None and current is not None:
+            for paragraph in snapshot.get("view", []):
+                text = str(paragraph or "")
+                marker = text.find("FedWatch")
+                if marker < 0:
+                    continue
+                tail = text[marker: marker + 240]
+                if not (
+                    ("由" in tail or "从" in tail)
+                    and any(word in tail for word in ("降至", "升至", "降到", "升到", "→", "->"))
+                ):
+                    continue
+                percentages = [
+                    float(value)
+                    for value in __import__("re").findall(r"(\d+(?:\.\d+)?)\s*%", tail)
+                ]
+                if len(percentages) >= 2 and (
+                    abs(percentages[0] - previous) > 0.05
+                    or abs(percentages[1] - current) > 0.05
+                ):
+                    errors.append(
+                        "fedProbability: FedWatch prose does not match structured previous/current"
+                    )
+                break
 
     if not snapshot.get("view"):
         errors.append("view: empty")

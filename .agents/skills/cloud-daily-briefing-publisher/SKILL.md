@@ -152,6 +152,10 @@ For every successful briefing generation:
 
 The model may add or update qualitative fields such as `drivers`, `events`, `fedProbability`, `view`, `verdict`, and qualitative source-audit notes. It must not rewrite packet-covered mechanical rows into a shorter shape.
 
+`fedProbability` is the single structured source of truth for the briefing's FedWatch probability comparison. Populate its `previous` and `current` values from the same cited research observation. If `view` explicitly states a FedWatch before/after probability transition, those numbers must match `fedProbability.previous` and `fedProbability.current` apart from display rounding. Do not independently retype a different FedWatch pair in prose.
+
+Gold instrument identity must also be preserved. If the packet uses Yahoo `GC=F` / `GC_FUTURES`, treat it as a COMEX gold-futures proxy for XAU/USD and never label it as XAU/USD spot. Only Swissquote/XAU/USD spot data may be labelled as XAU/USD spot.
+
 Before any GitHub write, perform a pre-commit structural check on the candidate briefing:
 
 1. all 15 session rows exist;
@@ -160,7 +164,9 @@ Before any GitHub write, perform a pre-commit structural check on the candidate 
 4. every session row has a string `previousCloseDate` earlier than `priceDate`;
 5. every session row has `comparisonBasis == "yahoo_daily_history"`;
 6. the candidate's packet-covered mechanical values and provenance fields match the packet source rows;
-7. the current file and archive candidate are identical.
+7. any explicit FedWatch before/after transition in `view` matches `fedProbability.previous/current`;
+8. gold provider/symbol identity is preserved so a futures proxy cannot be presented as spot;
+9. the current file and archive candidate are identical.
 
 If any check fails, do not commit the briefing or archive. Write only the canonical failed run status with `stage = "briefing"` and `reasonCode = "briefing_generation_failed"`.
 

@@ -80,6 +80,39 @@ class XPublisherTests(unittest.TestCase):
         self.assertIn("黄金（XAU/USD）：最新 4,603.56", text)
         self.assertIn("固定锚点缺失，未计算日内变动", text)
 
+    def test_gold_futures_proxy_is_never_labelled_as_spot(self):
+        snapshot = json.loads(json.dumps(self.snapshot))
+        gold = next(row for row in snapshot["macroAnchors"] if row["id"] == "GOLD")
+        gold.update({
+            "provider": "Yahoo Finance",
+            "symbol": "GC=F",
+            "previous": 4380.7,
+            "anchor": 4400.5,
+            "latest": 4400.5,
+        })
+        text = MODULE.build_x_post(snapshot, now=self.now)
+        self.assertIn("COMEX黄金期货（XAU/USD代理）", text)
+        self.assertNotIn("📈黄金（XAU/USD）： 4,380.70 → 4,400.50", text)
+
+    def test_treasuries_render_from_official_macro_anchors(self):
+        snapshot = json.loads(json.dumps(self.snapshot))
+        for market_id in ("US02Y", "US10Y", "US30Y"):
+            row = next(
+                item for item in snapshot["fallback"]["markets"] if item["id"] == market_id
+            )
+            row["previousClose"] = 1.0
+            row["price"] = 9.0
+        text = MODULE.build_x_post(snapshot, now=self.now)
+        self.assertIn("—美债2Y： 4.190% → 4.190%", text)
+        self.assertIn("📉美债10Y： 4.710% → 4.650%", text)
+        self.assertIn("📉美债30Y： 5.280% → 5.190%", text)
+        self.assertNotIn("1.000% → 9.000%", text)
+
+    def test_default_event_window_is_anchored_to_snapshot_publication_time(self):
+        text = MODULE.build_x_post(self.snapshot)
+        self.assertIn("Walmart 2027财年第二季度财报与电话会", text)
+        self.assertIn("美国S&P Global制造业与服务业PMI初值", text)
+
     def test_missing_nasdaq_flat_count_is_omitted(self):
         snapshot = json.loads(json.dumps(self.snapshot))
         nasdaq = next(row for row in snapshot["fallback"]["breadth"] if row["id"] == "NASDAQ")

@@ -52,6 +52,9 @@ class XSnapshotQualityTests(unittest.TestCase):
             },
             "macroAnchors": [
                 {"id": "DXY", "previous": 98.9, "anchor": 99.1},
+                {"id": "US02Y", "previous": 4.1, "anchor": 4.2},
+                {"id": "US10Y", "previous": 4.6, "anchor": 4.7},
+                {"id": "US30Y", "previous": 5.1, "anchor": 5.2},
                 {"id": "BRN1!", "previous": 86.0, "anchor": 86.5},
                 {"id": "GOLD", "previous": 4667.1, "anchor": 4603.6},
                 {"id": "BTCUSDT", "previous": 78789, "anchor": 78504},
@@ -111,6 +114,31 @@ class XSnapshotQualityTests(unittest.TestCase):
         gold["anchor"] = None
         with self.assertRaisesRegex(SnapshotQualityError, "GOLD"):
             validate_snapshot(snapshot)
+
+    def test_missing_treasury_macro_anchor_is_blocked(self):
+        snapshot = self.complete_snapshot()
+        snapshot["macroAnchors"] = [
+            row for row in snapshot["macroAnchors"] if row["id"] != "US10Y"
+        ]
+        with self.assertRaisesRegex(SnapshotQualityError, "US10Y"):
+            validate_snapshot(snapshot)
+
+    def test_fedwatch_transition_mismatch_is_blocked(self):
+        snapshot = self.complete_snapshot()
+        snapshot["fedProbability"] = {"previous": 55.4, "current": 53.1}
+        snapshot["view"] = [
+            "Reuters援引CME FedWatch显示10月加息概率由前一日57.6%降至53.1%。"
+        ]
+        with self.assertRaisesRegex(SnapshotQualityError, "FedWatch prose"):
+            validate_snapshot(snapshot)
+
+    def test_fedwatch_transition_matching_structured_values_passes(self):
+        snapshot = self.complete_snapshot()
+        snapshot["fedProbability"] = {"previous": 57.6, "current": 53.1}
+        snapshot["view"] = [
+            "Reuters援引CME FedWatch显示10月加息概率由前一日57.6%降至53.1%。"
+        ]
+        validate_snapshot(snapshot)
 
 
 if __name__ == "__main__":

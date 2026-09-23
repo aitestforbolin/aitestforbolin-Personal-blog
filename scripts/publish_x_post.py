@@ -161,18 +161,31 @@ def macro_line(label: str, previous: Any, current: Any, decimals: int, suffix: s
     return f"{icon}{label}： {left} → {right}"
 
 
+def gold_label(row: dict[str, Any]) -> str:
+    """Name gold without presenting a futures proxy as XAU/USD spot."""
+    symbol = str(row.get("symbol") or row.get("sourceSymbol") or "").strip().upper()
+    instrument_id = str(row.get("instrumentId") or "").strip().upper()
+    provider = str(row.get("provider") or row.get("source") or "").strip().casefold()
+    if symbol == "GC=F" or instrument_id == "GC_FUTURES":
+        return "COMEX黄金期货（XAU/USD代理）"
+    if symbol in {"XAU/USD", "XAUUSD"} or provider == "swissquote":
+        return "黄金（XAU/USD）"
+    return "黄金"
+
+
 def gold_line(row: dict[str, Any]) -> str:
     """Render a comparable move, or an explicitly labelled latest-only quote."""
+    label = gold_label(row)
     previous = finite_number(row.get("previous"))
     anchor = finite_number(row.get("anchor"))
     if previous is not None and anchor is not None:
-        return macro_line("黄金（XAU/USD）", previous, anchor, 2)
+        return macro_line(label, previous, anchor, 2)
 
     latest = finite_number(row.get("latest"))
     if latest is None:
         raise PublishError("GOLD is missing both a fixed anchor and a latest quote")
     return (
-        f"—黄金（XAU/USD）：最新 {format_number(latest, 2)}"
+        f"—{label}：最新 {format_number(latest, 2)}"
         "（16:00 ET固定锚点缺失，未计算日内变动）"
     )
 
@@ -215,7 +228,7 @@ def validate_snapshot(snapshot: dict[str, Any], required_as_of: str | None = Non
             )
 
     anchors = macro_anchor_map(snapshot)
-    for anchor_id in ("DXY", "BRN1!", "BTCUSDT"):
+    for anchor_id in ("DXY", "US02Y", "US10Y", "US30Y", "BRN1!", "BTCUSDT"):
         row = anchors.get(anchor_id)
         if not row or any(finite_number(row.get(field)) is None for field in ("previous", "anchor")):
             raise PublishError(f"Snapshot macro anchor {anchor_id} is incomplete")
@@ -227,6 +240,11 @@ def validate_snapshot(snapshot: dict[str, Any], required_as_of: str | None = Non
     )
     if not has_gold_comparison and finite_number(gold.get("latest")) is None:
         raise PublishError("Snapshot GOLD is missing both a fixed anchor and a latest quote")
+    fed = snapshot.get("fedProbability")
+    if not isinstance(fed, dict) or any(
+        finite_number(fed.get(field)) is None for field in ("previous", "current")
+    ):
+        raise PublishError("Snapshot fedProbability is incomplete")
     if not snapshot.get("view"):
         raise PublishError("Snapshot view section is empty")
     return as_of
@@ -235,7 +253,9 @@ def validate_snapshot(snapshot: dict[str, Any], required_as_of: str | None = Non
 def build_x_post(snapshot: dict[str, Any], now: dt.datetime | None = None) -> str:
     """Build the final approved longform text without changing its content rules."""
     validate_snapshot(snapshot)
-    current = (now or dt.datetime.now(UTC)).astimezone(SHANGHAI)
+    current = (
+        now or parse_datetime(str(snapshot.get("publishedAt") or ""))
+    ).astimezone(SHANGHAI)
     markets = market_map(snapshot)
     anchors = macro_anchor_map(snapshot)
     lines = [f"每日市场早报｜{published_date_label(snapshot)}", "", "01｜美股", "", "▍三大核心指数"]
@@ -277,9 +297,9 @@ def build_x_post(snapshot: dict[str, Any], now: dt.datetime | None = None) -> st
 
     lines.extend(("", "02｜宏观资产数据（美股交易时段变化）", ""))
     dxy = anchors.get("DXY", {})
-    us02y = markets.get("US02Y", {})
-    us10y = markets.get("US10Y", {})
-    us30y = markets.get("US30Y", {})
+    us02y = anchors.get("US02Y", {})
+    us10y = anchors.get("US10Y", {})
+    us30y = anchors.get("US30Y", {})
     fed = snapshot.get("fedProbability", {})
     brent = anchors.get("BRN1!", {})
     gold = anchors.get("GOLD", {})
@@ -287,9 +307,9 @@ def build_x_post(snapshot: dict[str, Any], now: dt.datetime | None = None) -> st
     lines.extend(
         (
             macro_line("美元", dxy.get("previous"), dxy.get("anchor"), 3),
-            macro_line("美债2Y", us02y.get("previousClose"), us02y.get("price"), 3, "%"),
-            macro_line("美债10Y", us10y.get("previousClose"), us10y.get("price"), 3, "%"),
-            macro_line("美债30Y", us30y.get("previousClose"), us30y.get("price"), 3, "%"),
+            macro_line("美债2Y", us02y.get("previous"), us02y.get("anchor"), 3, "%"),
+            macro_line("美债10Y", us10y.get("previous"), us10y.get("anchor"), 3, "%"),
+            macro_line("美债30Y", us30y.get("previous"), us30y.get("anchor"), 3, "%"),
             macro_line("加息概率", fed.get("previous"), fed.get("current"), 1, str(fed.get("unit") or "")),
             macro_line("Brent", brent.get("previous"), brent.get("anchor"), 2),
             gold_line(gold),
