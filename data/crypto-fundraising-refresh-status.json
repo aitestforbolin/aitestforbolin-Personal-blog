@@ -3,7 +3,7 @@
   "automation": "web3-daily-triage",
   "runId": "web3-daily-triage:luna-web3-20260923-063611Z",
   "requestId": "luna-web3-20260923-063611Z",
-  "result": "unchanged",
+  "result": "failed",
   "lineage": {
     "triggerType": "push",
     "triggerSha": "5ec01b0a99a1503a570b0b0bf1614ccf2aacdc11",
@@ -32,14 +32,25 @@
       }
     },
     "validation": {
-      "status": "success",
-      "completedAt": "2026-09-23T06:36:28.418318+00:00"
+      "status": "failed",
+      "completedAt": "2026-09-23T06:36:28.418318+00:00",
+      "details": {
+        "collectorValidation": "success",
+        "consumerLineageCheck": "failed",
+        "reason": "data/crypto-fundraising.json.executionLineage does not match this run's requestId/triggerSha/runId; retained requestId scheduled-web3-2026-09-23T025855Z, triggerSha 65832799cf2bc67d4d10e80490fd176981a634ad, githubRunId 35812562078."
+      }
     },
     "publication": {
-      "status": "not_run"
+      "status": "not_run",
+      "details": {
+        "reason": "Stopped before research/publication because required refreshed-feed lineage did not match the active receipt."
+      }
     },
     "notification": {
-      "status": "not_run"
+      "status": "success",
+      "completedAt": "2026-09-23T06:38:10.000Z",
+      "provider": "Gmail",
+      "messageId": "1a0ccfbacd1aa344"
     }
   }
 }
