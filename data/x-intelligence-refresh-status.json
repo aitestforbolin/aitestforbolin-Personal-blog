@@ -3,7 +3,7 @@
   "automation": "x-intelligence",
   "runId": "x-intelligence:bridge-x-2026-09-23T0525Z",
   "requestId": "bridge-x-2026-09-23T0525Z",
-  "result": "in_progress",
+  "result": "success",
   "lineage": {
     "triggerType": "push",
     "triggerSha": "16e318452fc7da9996f27f2b6328d05b1a27c9b2",
@@ -39,7 +39,12 @@
       "commitSha": "f8b36b69f0617da9ffce7bb8b3107b3a1c1a3052"
     },
     "notification": {
-      "status": "not_run"
+      "status": "success",
+      "completedAt": "2026-09-23T13:39:18+08:00",
+      "details": {
+        "provider": "gmail",
+        "messageId": "1a0ccc668ec35f55"
+      }
     }
   }
 }
