@@ -3,7 +3,7 @@
   "automation": "x-intelligence",
   "runId": "x-intelligence:luna-x-20260923-061839Z",
   "requestId": "luna-x-20260923-061839Z",
-  "result": "in_progress",
+  "result": "success",
   "lineage": {
     "triggerType": "push",
     "triggerSha": "a63456ad978ffdfb3249a09cc0a3c397204aad8d",
@@ -39,7 +39,10 @@
       "commitSha": "b234778f08b79c59f68ec31c6457b52fc83738cc"
     },
     "notification": {
-      "status": "not_run"
+      "status": "success",
+      "provider": "Gmail",
+      "messageId": "1a0ccf24f2695c44",
+      "completedAt": "2026-09-23 06:27:37+00:00"
     }
   }
 }
