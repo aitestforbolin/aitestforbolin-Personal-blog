@@ -1,191 +1,49 @@
 {
   "schemaVersion": 1,
   "status": "success",
-  "reportDate": "2026-09-23",
-  "generatedAt": "2026-09-23T13:34:13+08:00",
-  "sourceGeneratedAt": "2026-09-23T05:25:50.524400+00:00",
-  "sourcePostCount": 122,
+  "reportDate": "2026-09-22",
+  "generatedAt": "2026-09-22T17:12:00+08:00",
+  "sourceGeneratedAt": "2026-09-22T09:08:00.423016+00:00",
+  "sourcePostCount": 135,
   "sourceListCount": 4,
   "executionLineage": {
-    "runId": "x-intelligence:bridge-x-2026-09-23T0525Z",
-    "requestId": "bridge-x-2026-09-23T0525Z",
-    "triggerSha": "16e318452fc7da9996f27f2b6328d05b1a27c9b2",
-    "githubRunId": 35822356302,
-    "scheduledAt": null,
-    "startedAt": "2026-09-23T05:25:50.523946+00:00",
-    "sourceCheckedAt": "2026-09-23T05:26:01.314545+00:00",
-    "sourceUpdatedAt": "2026-09-23T05:17:15+00:00",
-    "completedAt": "2026-09-23T05:26:01.314591+00:00",
-    "publishedAt": "2026-09-23T13:34:13+08:00"
+    "runId": "x-intelligence:manual-x-2026-09-22",
+    "requestId": "manual-x-2026-09-22",
+    "triggerSha": "e7bbf50022d5d13ed025c93c88b3f168abb71338",
+    "githubRunId": 35708631944,
+    "scheduledAt": "2026-09-22T09:07:00Z",
+    "startedAt": "2026-09-22T09:08:00.422586+00:00",
+    "sourceCheckedAt": "2026-09-22T09:08:11.103323+00:00",
+    "sourceUpdatedAt": "2026-09-22T09:02:25+00:00",
+    "completedAt": "2026-09-22T09:08:11.103376+00:00",
+    "publishedAt": "2026-09-22T17:12:00+08:00"
   },
   "executionStatus": {
     "collection": "success",
     "validation": "success",
     "publication": "success"
   },
-  "overview": "过去 24 小时的信息流主线从单点投机转向更清晰的基础设施与分发竞争：Circle 与 Binance 通过 1 亿美元股权投资和五年合作强化 USDC 分发，Arc 主网上 StableFX、稳定币与 BTC 资产接入继续扩张；xStocks 在 X Layer、OKX 和 Base 等场景的交易与资产规模继续增长。AI 侧，OpenAI 官方宣布 GPT-6 Sol/Luna 并下调 API 价格，华语开发者同时把 Hermes/JEV 一类 Agent 进一步用于编码、信息处理和交易。另一面，RH/FOMO 与 ZEC NFT 的实际参与反馈明显转弱，说明高热叙事正在出现分化。",
+  "overview": "过去 24 小时的信息流主线集中在链上金融产品继续向传统资产和预市场延伸：Aspecta Pre-Market V3 明确了限价单、TGE 后持续交易与分阶段结算机制，并预告 Concrete 市场；xStocks 在 X Layer 的代币化股票规模继续增长。宏观侧，中美纽约经贸磋商的公开信息偏向继续沟通，并新增 AI 对话机制，但关税、稀土等核心议题仍缺少明确结果。Strategy 继续使用现金增持 BTC 并回购 STRC。ZEC NFT 热度则出现明显降温信号，参与者开始反馈链上体验、流动性与项目质量问题。",
   "homeHighlights": [
-    "Circle 与 Binance 宣布 1 亿美元战略股权投资和新的五年 USDC 合作，稳定币分发竞争继续加速。",
-    "Arc 主网开始承载 StableFX、ZARU/USDC、cirBTC 等资产与结算场景，生态从上线转向实际金融应用。",
-    "xStocks 在 X Layer 累计交易量突破 15 亿美元，OKX 上 AUM 超过 2 亿美元，代币化股票继续扩张。",
-    "OpenAI 官方宣布 GPT-6 Sol/Luna，并称 API 价格相较 GPT-5.6 推广价降低 50%。",
-    "Agentic Trading 与 Agent 编排讨论升温，但实际使用者同时反馈授权和执行确认仍是明显摩擦。"
+    "Aspecta Pre-Market V3 将限价单、TGE 后交易和分阶段结算带入链上预市场，Concrete 将于 9 月 23 日上线。",
+    "xStocks 在 X Layer 的代币化股票市值被转引为约 1.73 亿美元，链上股票继续扩张。",
+    "中美纽约经贸磋商公开表态偏正面，并新增 AI 对话机制，但关税与稀土等核心问题尚未见明确数字。",
+    "Strategy 一周增持 950 BTC，并同时回购 STRC，资金来自已有美元现金。",
+    "ZEC NFT 参与者开始集中反馈钱包、流动性和项目质量问题，短期热度出现降温信号。"
   ],
   "topics": [
     {
-      "title": "Circle × Binance：1 亿美元股权投资与五年 USDC 分发合作",
+      "title": "Aspecta Pre-Market V3 扩展链上预市场交易与结算机制",
       "importance": "high",
-      "summary": "Circle 官方信息被多条帖子引用：Binance 向 Circle 战略投资 1 亿美元，并把双方 USDC 合作续至五年，重点扩大新兴市场的 USDC 获取和使用。",
-      "whyItMatters": "这不是单次上币合作，而是稳定币发行方与全球交易分发渠道之间更长期的绑定，可能强化 USDC 在交易、储蓄和支付场景中的分发能力。",
-      "facts": [
-        "Circle 官方帖子称 Binance 投资 1 亿美元并签署新的五年商业协议。",
-        "协议重点是扩大 USDC 在新兴市场和 Binance 全球平台上的可用性。",
-        "qinbafrank 同期把 Circle 的交易、支付、Arc 与 CPN 视为正在形成的分销网络。"
-      ],
-      "interpretations": [
-        "信息流中的主要判断是 Circle 正从单一稳定币发行向更完整的结算和分发网络扩展，但网络效应是否形成仍需继续观察。"
-      ],
-      "authors": [
-        "circle",
-        "PhyrexNi",
-        "qinbafrank",
-        "xStocksFi"
-      ],
-      "sourceUrls": [
-        "https://x.com/circle/status/2102367809082909123",
-        "https://x.com/PhyrexNi/status/2102367919086977405",
-        "https://x.com/qinbafrank/status/2102580335578059079",
-        "https://x.com/xStocksFi/status/2102374489296339379"
-      ],
-      "sourceCount": 4,
-      "confidence": "high"
-    },
-    {
-      "title": "Arc 主网进入金融应用落地阶段：StableFX、ZARU 与 cirBTC 接入",
-      "importance": "high",
-      "summary": "Arc 官方连续发布主网上线后的金融应用进展：Circle 的 StableFX 已在 Arc 上运行，ZARU/USDC 可 24/7 原子结算，cirBTC 也开始进入交易与数据平台；生态统计帖称主网上线不足一周已有约 170 个项目。",
-      "whyItMatters": "Arc 的观察重点正在从“有没有主网”转向能否承载真实外汇、稳定币和抵押资产结算，这些使用场景比单纯生态数量更能验证链的定位。",
-      "facts": [
-        "Arc 官方称 StableFX 已在主网上线，支持 24/7 的链上外汇报价与结算。",
-        "ZARUniversal 转发信息称 ZARU/USDC 通过 StableFX RFQ 并在 Arc 上原子结算。",
-        "Goldsky 的生态盘点被 Arc 转发，称上线不足一周已有约 170 个项目、17 个类别和 12 个验证者。"
-      ],
-      "interpretations": [
-        "早期交易量仍主要集中在 DeFi、桥和 Circle 自身轨道，银行、支付机构等更大规模接入仍需要后续验证。"
-      ],
-      "authors": [
-        "arc",
-        "ZARUniversal",
-        "goldskyio",
-        "TowerExchange",
-        "birdeye_so"
-      ],
-      "sourceUrls": [
-        "https://x.com/arc/status/2102428211011608891",
-        "https://x.com/ZARUniversal/status/2102341087562182979",
-        "https://x.com/goldskyio/status/2102186121555849516",
-        "https://x.com/TowerExchange/status/2102402265889882274",
-        "https://x.com/birdeye_so/status/2102305958546624953"
-      ],
-      "sourceCount": 5,
-      "confidence": "high"
-    },
-    {
-      "title": "代币化股票规模继续增长，24/7 交易成为共同产品方向",
-      "importance": "high",
-      "summary": "xStocksFi 与相关生态账号披露多项扩张数据：X Layer 上 xStocks 累计交易量超过 15 亿美元，OKX 上 xStocks AUM 超过 2 亿美元；Token Terminal 数据还显示 SPYx、QQQb 等代币化 ETF 过去一周继续扩张。",
-      "whyItMatters": "代币化证券开始同时出现资产规模、交易量和流动性工具，后续更值得跟踪真实交易深度、持仓留存和不同平台之间的结算标准。",
-      "facts": [
-        "X Layer 官方被 xStocksFi 转发称 xStocks 累计交易量超过 15 亿美元。",
-        "xStocksFi 称 OKX 的 xStocks AUM 在两个月内超过 2 亿美元。",
-        "Token Terminal 被转发称 SPYx、QQQb、IBITon 一周合计增加约 1,670 万美元市值。",
-        "Base 官方继续强调代币化股票 24/7 交易，并转发 Revert 对 10 个股票池的 LP 工具支持。"
-      ],
-      "interpretations": [
-        "增长数据主要来自项目和生态账号，应继续用链上持仓、成交深度与第三方数据交叉观察，而不是只看名义 AUM。"
-      ],
-      "authors": [
-        "xStocksFi",
-        "XLayerOfficial",
-        "tokenterminal",
-        "base",
-        "revertfinance"
-      ],
-      "sourceUrls": [
-        "https://x.com/XLayerOfficial/status/2102335872309809628",
-        "https://x.com/xStocksFi/status/2102314483880456610",
-        "https://x.com/tokenterminal/status/2102492875561050615",
-        "https://x.com/base/status/2102379399957893416",
-        "https://x.com/revertfinance/status/2102465723704492093"
-      ],
-      "sourceCount": 5,
-      "confidence": "high"
-    },
-    {
-      "title": "GPT-6 Sol/Luna 发布并降价，模型效率继续成为 Agent 扩张基础",
-      "importance": "high",
-      "summary": "OpenAI 官方帖子被 thsottiaux 引用，宣布 GPT-6 Sol 和 GPT-6 Luna 上线，并称缓存与推理效率改善后，API 价格较 GPT-5.6 推广定价降低 50%；相关账号同时称两款模型已进入 Codex。",
-      "whyItMatters": "更低的推理成本会直接影响长期运行 Agent、编码自动化和大规模工作流的可行性，尤其适合观察复杂任务是否能从偶发使用转成持续执行。",
-      "facts": [
-        "OpenAI 官方帖子宣布 GPT-6 Sol 和 GPT-6 Luna。",
-        "官方帖子称两款模型 API 价格较 GPT-5.6 推广定价降低 50%。",
-        "Khazix0918 称两款模型已经在 Codex 中上线。"
-      ],
-      "interpretations": [
-        "价格下降会改善 Agent 经济性，但真实成本仍取决于上下文长度、调用频率和任务链设计。"
-      ],
-      "authors": [
-        "OpenAI",
-        "thsottiaux",
-        "Khazix0918"
-      ],
-      "sourceUrls": [
-        "https://x.com/OpenAI/status/2102460975790137662",
-        "https://x.com/thsottiaux/status/2102463847714247142",
-        "https://x.com/Khazix0918/status/2102458773470351379"
-      ],
-      "sourceCount": 3,
-      "confidence": "high"
-    },
-    {
-      "title": "Agentic Trading 从演示走向真实执行，但授权摩擦仍明显",
-      "importance": "high",
-      "summary": "brucexu_eth 连续分享用 Agent 完成交易、分析和工具编排的实测，并报告一笔小仓位交易约 72% 收益；同时他明确指出授权确认过多导致执行变慢和利润回吐。TechFlowPost 则汇总 JEV 在自动交易、预测市场、链上投研等 20+ 用例。",
-      "whyItMatters": "Agent 的关键瓶颈正在从“能不能分析”转向“能不能安全、低延迟地行动”，授权设计、钱包权限与风控很可能决定 Agent Trading 是否能从实验进入持续使用。",
-      "facts": [
-        "brucexu_eth 表示其 Agent Trading 第一笔小仓位交易完成清仓并取得约 72% 收益。",
-        "同一账号多次强调授权确认过多，影响买卖执行速度。",
-        "TechFlowPost 汇总多个 JEV 自动交易和链上研究案例，显示开发者实验数量快速增加。"
-      ],
-      "interpretations": [
-        "单笔盈利不能证明策略有效，但“分析能力够用、执行权限拖慢”是当前值得持续验证的产品问题。",
-        "Hermes 一类上层 Agent 被部分开发者视为协调 Codex、信息流和部署工具的潜在入口。"
-      ],
-      "authors": [
-        "brucexu_eth",
-        "TechFlowPost"
-      ],
-      "sourceUrls": [
-        "https://x.com/brucexu_eth/status/2102372306471559186",
-        "https://x.com/brucexu_eth/status/2102577188600164640",
-        "https://x.com/brucexu_eth/status/2102621109174882408",
-        "https://x.com/TechFlowPost/status/2102347363322912859"
-      ],
-      "sourceCount": 4,
-      "confidence": "medium"
-    },
-    {
-      "title": "Aspecta Pre-Market V3 上线，扩展限价单与 TGE 后结算窗口",
-      "importance": "medium",
-      "summary": "Aspecta 官方披露 Pre-Market V3 支持市价单与限价单，交易可延续至 TGE 后，并通过多个结算窗口完成交割；Concrete 市场安排在 9 月 23 日 09:00 UTC 上线。",
-      "whyItMatters": "链上预市场正从简单的 TGE 前撮合演变为持续交易和更复杂的结算产品，值得观察流动性、交割风险与手续费结构是否改善。",
+      "summary": "Aspecta 官方披露 Pre-Market V3 支持市场单与限价单，并把交易阶段延伸到 TGE 后 72 小时的多窗口结算；Concrete 将于 9 月 23 日 09:00 UTC 上线 V3 市场。",
+      "whyItMatters": "预市场产品开始从简单的 TGE 前撮合转向持续交易和更细的交割机制，值得观察其能否降低传统 pre-market 的交割摩擦和流动性割裂。",
       "facts": [
         "V3 支持 market 与 limit orders。",
-        "TGE 到 TGE+72h 期间交易继续并开始分窗口结算。",
-        "Concrete V3 市场由官方宣布于 9 月 23 日 09:00 UTC 上线。"
+        "TGE 后交易继续，并进入多窗口结算，最终结算截止 TGE+72h。",
+        "Aspecta 官方宣布 Concrete V3 市场将于 9 月 23 日 09:00 UTC 上线。"
       ],
       "interpretations": [
-        "更完整的交易工具可能提升可用性，同时也增加用户理解规则和结算机制的成本。"
+        "更复杂的结算设计可能提升预市场可用性，但也增加规则理解与结算风险。"
       ],
       "authors": [
         "aspecta_ai",
@@ -200,135 +58,170 @@
       "confidence": "high"
     },
     {
-      "title": "BTC 与 ETH 现货 ETF 出现更明显的资金回补信号",
-      "importance": "medium",
-      "summary": "PhyrexNi 的跟踪帖称，9 月 21 日 ETH 现货 ETF 单日净增持约 6.9 万枚，BTC 现货 ETF 单日净增持约 1.53 万枚，且 BTC 增持产品数量由 3 只扩大到 6 只。",
-      "whyItMatters": "如果资金回补从少数产品扩散到更多 ETF，说明机构侧风险偏好可能比单日价格反弹更有持续性；但这些数字仍应继续观察后续交易日。",
+      "title": "代币化股票继续扩张，xStocks 在 X Layer 的规模上升",
+      "importance": "high",
+      "summary": "xStocksFi 转发 Token Terminal 数据称，xStocks 在 X Layer 发行的代币化股票市值达到约 1.728 亿美元，过去一个月增长约 187%，MSTRx、CRCLx、SPCXx 居前。",
+      "whyItMatters": "代币化股票正在从概念验证转向可观察的资产规模与流动性竞争，交易所、钱包、发行和结算基础设施的真实使用数据更值得持续跟踪。",
       "facts": [
-        "帖子称 ETH 现货 ETF 单日净增持约 6.9 万枚。",
-        "帖子称 BTC 现货 ETF 单日净增持约 1.53 万枚。",
-        "BTC 增持产品数量被称从 3 只扩大到 6 只。"
+        "转发数据称总市值约 1.728 亿美元。",
+        "MSTRx、CRCLx、SPCXx 被列为规模领先资产。"
       ],
       "interpretations": [
-        "两日回补还不足以确认长期趋势，但参与产品扩散是比单日净流入更值得观察的变化。"
+        "增长速度很快，但仍需观察规模能否持续以及二级流动性是否同步扩大。"
       ],
       "authors": [
-        "PhyrexNi"
+        "xStocksFi",
+        "tokenterminal"
       ],
       "sourceUrls": [
-        "https://x.com/PhyrexNi/status/2102453691211280404",
-        "https://x.com/PhyrexNi/status/2102453190998548689"
+        "https://x.com/xStocksFi/status/2101962978988011741",
+        "https://x.com/tokenterminal/status/2101842518916886568"
       ],
       "sourceCount": 2,
       "confidence": "medium"
     },
     {
-      "title": "RH/FOMO 与 ZEC NFT 出现退潮信号，短期投机热度分化",
-      "importance": "medium",
-      "summary": "TechFlowPost 称 RH 链 FOMO 活跃钱包和交易量较月初峰值明显下降，并出现 KOL 对带单机制的公开质疑；0xStudy 与 Benjieming1Q84 则分别表示 ZEC NFT 流动性、钱包体验和项目质量不足，准备退出或降低关注。",
-      "whyItMatters": "当热点从“机会密集”转向“退出困难、流动性不足和信任下降”，继续参与的时间成本与反撸风险会迅速上升，适合作为降低追逐强度的反向信号。",
+      "title": "中美经贸磋商新增 AI 对话机制，核心贸易问题仍待后续",
+      "importance": "high",
+      "summary": "qinbafrank 对纽约经贸磋商的整理称，中美公开表态总体偏向继续沟通，贸易、投资和 AI 均进入讨论，美方提出建立 AI 对话机制；关税休战、稀土等关键问题在当前信息流中仍没有明确结果。",
+      "whyItMatters": "对风险资产而言，真正影响预期的仍是关税、关键矿产和贸易安排的实质变化；AI 对话机制则增加了一个新的政策沟通渠道。",
       "facts": [
-        "TechFlowPost 给出的数据称 FOMO 活跃钱包与交易量较月初峰值大幅下降。",
-        "0xStudy 明确表示停止参与 ZEC NFT，并列出钱包、流动性、项目质量和时间成本问题。",
-        "Benjieming1Q84 表示 ZEC NFT 应告一段落，并强调 NFT 变现需要真实买方。"
+        "帖子转述中方代表称会谈“聊得不错”。",
+        "帖子称双方讨论贸易、投资和 AI，并提到建立 AI 对话机制。",
+        "当前帖子没有给出关税休战延期或稀土安排的明确数字。"
       ],
       "interpretations": [
-        "这些主要是链上数据整理和参与者体验，适合作为热度退潮信号，而不能直接推断整个生态失去价值。"
+        "公开信号偏向风险管控和继续谈判，而不是核心分歧已经解决。"
       ],
       "authors": [
-        "TechFlowPost",
-        "0xStudy",
-        "Benjieming1Q84"
+        "qinbafrank"
       ],
       "sourceUrls": [
-        "https://x.com/TechFlowPost/status/2102623492843901027",
-        "https://x.com/0xStudy/status/2102322617344770365",
-        "https://x.com/Benjieming1Q84/status/2102310335164334319"
+        "https://x.com/qinbafrank/status/2102316458181087249"
       ],
-      "sourceCount": 3,
+      "sourceCount": 1,
       "confidence": "medium"
-    }
-  ],
-  "watchlist": [
-    {
-      "signal": "predict.fun 将多个市场类别的 Maker rebate 提升至最高 30%",
-      "reason": "补贴直接影响预测市场做市经济性，值得观察是否带来流动性迁移和真实成交增长。",
-      "authors": [
-        "predictdotfun",
-        "dingalingts"
-      ],
-      "sourceUrls": [
-        "https://x.com/predictdotfun/status/2102407403564421615",
-        "https://x.com/dingalingts/status/2102268837890809910"
-      ]
     },
     {
-      "signal": "OKX 宣布 10 月 6 日新加坡产品发布会",
-      "reason": "官方只确认将展示新产品，链上金融、RWA、支付或 AI 交易等具体内容目前仍属于社区推测，应等发布会实物。",
+      "title": "Strategy 继续增持 BTC，并用现金回购 STRC",
+      "importance": "high",
+      "summary": "PhyrexNi 整理称 Strategy 在 9 月 14–20 日花费约 7570 万美元买入 950 BTC，同时花费约 1.74 亿美元回购 STRC；相关资金来自已有美元现金。",
+      "whyItMatters": "Strategy 的资本管理不再只有发行证券买 BTC，也在现金充足时同时进行 BTC 增持和优先股回购，值得观察其美元储备与资本结构变化。",
+      "facts": [
+        "帖子称新增 950 BTC，均价约 79,670 美元。",
+        "帖子称回购约 177 万股 STRC，支出约 1.74 亿美元。",
+        "帖子称两项支出均来自已有美元现金。"
+      ],
+      "interpretations": [
+        "现金储备正在同时承担 BTC 配置、证券回购、股息和利息支付等多重用途。"
+      ],
       "authors": [
-        "Mercy_okx",
-        "qinbafrank",
-        "octopusycc"
+        "PhyrexNi"
       ],
       "sourceUrls": [
-        "https://x.com/Mercy_okx/status/2102301240961171595",
-        "https://x.com/qinbafrank/status/2102320182639419783",
-        "https://x.com/octopusycc/status/2102398639687741883"
-      ]
+        "https://x.com/PhyrexNi/status/2102315637058249114"
+      ],
+      "sourceCount": 1,
+      "confidence": "medium"
     },
     {
-      "signal": "Base TVL 被官方称达到 62 亿美元新高",
-      "reason": "需要继续结合链上股票、USDC、Aave 等具体应用的留存与成交观察，而不是只看 TVL。",
+      "title": "ZEC NFT 热度出现明显反向反馈",
+      "importance": "medium",
+      "summary": "0xStudy 在实际参与后公开表示退出 ZEC NFT 玩法，理由包括链与钱包体验差、流动性不足、项目质量参差以及白名单/Mint/退款流程耗时；这是此前 ZEC NFT 热度中的一个明显反向信号。",
+      "whyItMatters": "此前 ZEC 生态主要由新鲜感和早期资产发行叙事推动，如果实际用户体验、流动性和项目可信度无法改善，短期注意力可能快速流失。",
+      "facts": [
+        "帖子明确表示不再继续参与 ZEC NFT。",
+        "其列举钱包和链体验、流动性、项目跑路/收费以及时间成本等问题。"
+      ],
+      "interpretations": [
+        "这是单个参与者经验，不能代表整个生态，但与此前高热叙事形成值得跟踪的反向样本。"
+      ],
+      "authors": [
+        "0xStudy"
+      ],
+      "sourceUrls": [
+        "https://x.com/0xStudy/status/2102322617344770365"
+      ],
+      "sourceCount": 1,
+      "confidence": "medium"
+    },
+    {
+      "title": "Base 与稳定币、链上股票叙事继续汇合",
+      "importance": "medium",
+      "summary": "Base 官方发布“Stablecoins go global on Base”，同时信息流中链上股票和传统资产代币化继续扩张。单条官方帖子文本信息有限，但方向上与近期稳定币支付、RWA 和链上证券基础设施扩张一致。",
+      "whyItMatters": "Base 若继续承接稳定币支付与传统资产链上化，后续值得关注发行方、支付场景和真实结算量，而不是只看生态口号。",
+      "facts": [
+        "Base 官方发布 Stablecoins go global on Base。"
+      ],
+      "interpretations": [
+        "当前文本上下文不足以确认具体产品或合作，应等待后续官方细节。"
+      ],
       "authors": [
         "base"
       ],
       "sourceUrls": [
-        "https://x.com/base/status/2102419363144048954"
+        "https://x.com/base/status/2101964239946592305"
+      ],
+      "sourceCount": 1,
+      "confidence": "low"
+    }
+  ],
+  "watchlist": [
+    {
+      "signal": "OKX 将于 10 月 6 日举行 OKX Now 发布会",
+      "reason": "社区预期可能涉及链上金融、RWA、支付或 AI 交易，但当前数据包中的官方引用只确认发布会本身，具体产品仍待公布。",
+      "authors": [
+        "qinbafrank",
+        "Mercy_okx"
+      ],
+      "sourceUrls": [
+        "https://x.com/qinbafrank/status/2102320182639419783",
+        "https://x.com/Mercy_okx/status/2102301240961171595"
       ]
     },
     {
-      "signal": "X 时间线内直接交易入口被社区解读为接入 Coinbase、Kraken、Gemini、IBKR 和 Moomoo",
-      "reason": "如果官方后续确认完整范围，X 可能成为新的金融分发入口；当前帖子包含社区解读，需等待更明确官方细节。",
+      "signal": "ETH Shanghai 聚焦开源、隐私、Agent 与个人主权",
+      "reason": "活动组织者称 Vitalik 等将参与，议题覆盖隐私密码学、Agent、稳定币、预测市场和抗量子，适合观察以太坊下一阶段叙事。",
       "authors": [
-        "X",
-        "aLiiDeez"
+        "yuxin_pig",
+        "0xSleepinRain"
       ],
       "sourceUrls": [
-        "https://x.com/X/status/2102147636702634195",
-        "https://x.com/aLiiDeez/status/2102339500903199025"
+        "https://x.com/yuxin_pig/status/2101960887469043845",
+        "https://x.com/0xSleepinRain/status/2101965965743579338"
+      ]
+    },
+    {
+      "signal": "市场风险偏好明显修复",
+      "reason": "多个交易账户表达牛市/FOMO 情绪，BTC 重新站上 85,000 美元附近；情绪改善是真实信号，但价格目标和喊单不应作为事实依据。",
+      "authors": [
+        "TechFlowPost",
+        "Arron_finance",
+        "0xStudy"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2101979245878837397",
+        "https://x.com/Arron_finance/status/2101964858774441988",
+        "https://x.com/0xStudy/status/2101967874290295101"
       ]
     }
   ],
   "disagreements": [
     {
-      "topic": "Agentic Trading 的当前成熟度",
+      "topic": "ZEC 生态短期机会是否仍值得参与",
       "positions": [
-        "一类观点认为 Agent 已经能完成分析、执行和工具编排，并开始产生真实交易结果。",
-        "实际使用反馈同时显示授权确认和安全限制会显著拖慢交易执行，说明自动行动仍未完全成熟。"
+        "此前信息流持续出现 ZEC NFT、白名单和新资产发行机会，体现较高注意力。",
+        "最新实际参与反馈开始强调流动性、钱包体验、项目质量和时间成本，认为继续参与的收益风险比下降。"
       ],
       "sourceUrls": [
-        "https://x.com/brucexu_eth/status/2102577188600164640",
-        "https://x.com/brucexu_eth/status/2102372306471559186"
-      ]
-    },
-    {
-      "topic": "短期热点链是否仍值得继续投入时间",
-      "positions": [
-        "部分参与者仍在寻找 RH、ZEC 等热点生态中的新池子和短期收益机会。",
-        "另一些实际参与者开始因流动性、磨损、钱包体验和项目质量而主动撤退。"
-      ],
-      "sourceUrls": [
-        "https://x.com/0xStudy/status/2102331356143649001",
-        "https://x.com/0xStudy/status/2102322617344770365",
-        "https://x.com/Benjieming1Q84/status/2102310335164334319"
+        "https://x.com/0xStudy/status/2102322617344770365"
       ]
     }
   ],
   "noiseSummary": [
-    "纯价格目标、短线喊单与晒单未作为主要事实依据。",
-    "返佣邀请码、交易所活动和空投推广内容仅在存在产品变化时保留。",
-    "缺少文字上下文的图片、视频和单链接帖子未据此推断事实。",
-    "社区对尚未公布产品、代币和空投的猜测与官方信息分开处理。",
-    "重复转发只作为传播信号，不重复计为独立事实来源。"
+    "纯价格目标、喊单与晒单未作为事实依据。",
+    "交易所返佣、注册推广和抽奖内容已折叠。",
+    "缺乏文字上下文的图片和视频未据此推断具体事实。",
+    "社区对未公布产品和发布会内容的猜测与官方确认分开处理。"
   ]
 }
