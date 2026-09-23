@@ -138,6 +138,34 @@ The packet supplies the target-session numeric/mechanical facts for indices, bre
 
 The new immutable archive must be byte-for-byte identical in JSON content to the newly generated current `data/daily-market-status.json`.
 
+## Mechanical data preservation and pre-commit gate
+
+Packet-covered mechanical data must never be reconstructed, summarized, selectively copied, or simplified by the model.
+
+For every successful briefing generation:
+
+- build `fallback.markets` by copying the target-session packet rows, preserving every field and value present in the packet;
+- for session assets (`SPX`, `IXIC`, `DJI`, `SOX`, `XLK`, `XLY`, `XLC`, `XLV`, `XLU`, `XLP`, `XLE`, `XLI`, `XLB`, `XLRE`, `XLF`), use the corresponding `packet.markets` row without dropping fields;
+- for `DXY`, `BTCUSDT`, `BRN1!`, `US02Y`, `US10Y`, `US30Y`, and `GOLD`, use the corresponding `packet.macroAssets` row without dropping fields;
+- copy `packet.breadth` into `fallback.breadth` without dropping fields;
+- derive `macro24h` and `macroAnchors` only from the packet's comparison objects and preserve their timing/provenance fields.
+
+The model may add or update qualitative fields such as `drivers`, `events`, `fedProbability`, `view`, `verdict`, and qualitative source-audit notes. It must not rewrite packet-covered mechanical rows into a shorter shape.
+
+Before any GitHub write, perform a pre-commit structural check on the candidate briefing:
+
+1. all 15 session rows exist;
+2. every session row has numeric `price`, `previousClose`, `change`, and `changePercent`;
+3. every session row has `priceDate == asOf`;
+4. every session row has a string `previousCloseDate` earlier than `priceDate`;
+5. every session row has `comparisonBasis == "yahoo_daily_history"`;
+6. the candidate's packet-covered mechanical values and provenance fields match the packet source rows;
+7. the current file and archive candidate are identical.
+
+If any check fails, do not commit the briefing or archive. Write only the canonical failed run status with `stage = "briefing"` and `reasonCode = "briefing_generation_failed"`.
+
+This gate is mandatory even when the visible page would still render correctly from live APIs.
+
 ## Research contract
 
 When the packet passes validation, treat its market values as the numeric fact source.
