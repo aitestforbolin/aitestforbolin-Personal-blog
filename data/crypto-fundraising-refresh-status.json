@@ -1,28 +1,28 @@
 {
   "schemaVersion": 2,
   "automation": "web3-daily-triage",
-  "runId": "web3-daily-triage:bridge-web3-2026-09-23T0525Z",
-  "requestId": "bridge-web3-2026-09-23T0525Z",
-  "result": "success",
+  "runId": "web3-daily-triage:auto-smoke-web3-20260923-055807Z",
+  "requestId": "auto-smoke-web3-20260923-055807Z",
+  "result": "unchanged",
   "lineage": {
     "triggerType": "push",
-    "triggerSha": "e3710d5f57c1941a9883a17f7ddbb469b61352e8",
-    "githubRunId": 35822360378,
+    "triggerSha": "3004c8a5b1a49718320785a7b13a7618fff20242",
+    "githubRunId": 35824645414,
     "githubRunAttempt": 1
   },
   "timestamps": {
-    "scheduledAt": null,
-    "startedAt": "2026-09-23T05:25:53.702494+00:00",
-    "sourceCheckedAt": "2026-09-23T05:25:55.069853+00:00",
+    "scheduledAt": "2026-09-23T05:58:07Z",
+    "startedAt": "2026-09-23T05:58:38.486373+00:00",
+    "sourceCheckedAt": "2026-09-23T05:58:40.065362+00:00",
     "sourceUpdatedAt": "2026-09-23T03:00:05+00:00",
-    "completedAt": "2026-09-23T05:25:55.070167+00:00",
-    "publishedAt": "2026-09-23T13:36:53+08:00"
+    "completedAt": "2026-09-23T05:58:40.065635+00:00",
+    "publishedAt": null
   },
   "legacyRequestedAt": null,
   "stages": {
     "collection": {
       "status": "unchanged",
-      "completedAt": "2026-09-23T05:25:55.070167+00:00",
+      "completedAt": "2026-09-23T05:58:40.065635+00:00",
       "details": {
         "feedChanged": false,
         "historyChanged": false,
@@ -33,19 +33,13 @@
     },
     "validation": {
       "status": "success",
-      "completedAt": "2026-09-23T05:25:55.070167+00:00"
+      "completedAt": "2026-09-23T05:58:40.065635+00:00"
     },
     "publication": {
-      "status": "success",
-      "commitSha": "b14f706222ba80735f92b88d38807e3413abd181"
+      "status": "not_run"
     },
     "notification": {
-      "status": "success",
-      "completedAt": "2026-09-23T13:39:18+08:00",
-      "details": {
-        "provider": "gmail",
-        "messageId": "1a0ccc67661240f3"
-      }
+      "status": "not_run"
     }
   }
 }
