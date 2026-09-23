@@ -180,6 +180,12 @@ class CryptoFundraisingTests(unittest.TestCase):
             receipt_output = root / "receipt.json"
             previous_feed = updater.build_payload(VALID_PAYLOAD, None)
             previous_feed["updated_at"] = "2026-09-19T01:12:37+00:00"
+            previous_feed["executionLineage"] = {
+                "runId": "web3-daily-triage:old-run",
+                "requestId": "old-run",
+                "triggerSha": "d" * 40,
+                "githubRunId": 199,
+            }
             previous_history = updater.build_history_payload(previous_feed, None)
             output.write_text(json.dumps(previous_feed), encoding="utf-8")
             history_output.write_text(json.dumps(previous_history), encoding="utf-8")
@@ -208,12 +214,25 @@ class CryptoFundraisingTests(unittest.TestCase):
                 updater.main()
 
             receipt = json.loads(receipt_output.read_text(encoding="utf-8"))
+            refreshed_feed = json.loads(output.read_text(encoding="utf-8"))
 
         self.assertEqual(receipt["requestId"], "web3-run-1")
         self.assertEqual(receipt["lineage"]["triggerSha"], "e" * 40)
         self.assertEqual(receipt["result"], "unchanged")
         self.assertEqual(receipt["stages"]["collection"]["status"], "unchanged")
         self.assertEqual(receipt["stages"]["validation"]["status"], "success")
+        self.assertEqual(
+            refreshed_feed["executionLineage"]["requestId"], "web3-run-1"
+        )
+        self.assertEqual(
+            refreshed_feed["executionLineage"]["triggerSha"], "e" * 40
+        )
+        self.assertEqual(
+            refreshed_feed["executionLineage"]["runId"], receipt["runId"]
+        )
+        self.assertEqual(
+            refreshed_feed["updated_at"], "2026-09-19T01:12:37+00:00"
+        )
 
     def test_http_404_is_persisted_as_fetch_failed(self):
         with tempfile.TemporaryDirectory() as directory:
