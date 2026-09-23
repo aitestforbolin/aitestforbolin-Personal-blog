@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 2,
+  "automation": "web3-daily-triage",
+  "runId": "web3-daily-triage:luna-web3-20260923-063611Z",
+  "requestId": "luna-web3-20260923-063611Z",
+  "result": "failed",
+  "lineage": {
+    "triggerType": "push",
+    "triggerSha": "5ec01b0a99a1503a570b0b0bf1614ccf2aacdc11",
+    "githubRunId": 35827533024,
+    "githubRunAttempt": 1
+  },
+  "timestamps": {
+    "scheduledAt": "2026-09-23T06:36:11Z",
+    "startedAt": "2026-09-23T06:36:27.138470+00:00",
+    "sourceCheckedAt": "2026-09-23T06:36:28.418005+00:00",
+    "sourceUpdatedAt": "2026-09-23T03:00:05+00:00",
+    "completedAt": "2026-09-23T06:36:28.418318+00:00",
+    "publishedAt": null
+  },
+  "legacyRequestedAt": null,
+  "stages": {
+    "collection": {
+      "status": "unchanged",
+      "completedAt": "2026-09-23T06:36:28.418318+00:00",
+      "details": {
+        "feedChanged": false,
+        "historyChanged": false,
+        "projectCount": 5,
+        "eventCount": 16,
+        "coverage": "observed snapshots of the five-item homepage feed; not a complete source-wide archive"
+      }
+    },
+    "validation": {
+      "status": "failed",
+      "completedAt": "2026-09-23T06:36:28.418318+00:00",
+      "details": {
+        "collectorValidation": "success",
+        "consumerLineageCheck": "failed",
+        "reason": "data/crypto-fundraising.json.executionLineage does not match this run's requestId/triggerSha/runId; retained requestId scheduled-web3-2026-09-23T025855Z, triggerSha 65832799cf2bc67d4d10e80490fd176981a634ad, githubRunId 35812562078."
+      }
+    },
+    "publication": {
+      "status": "not_run",
+      "details": {
+        "reason": "Stopped before research/publication because required refreshed-feed lineage did not match the active receipt."
+      }
+    },
+    "notification": {
+      "status": "success",
+      "completedAt": "2026-09-23T06:37:45.276Z",
+      "provider": "Gmail",
+      "messageId": "1a0ccfbacd1aa344"
+    }
+  }
+}
