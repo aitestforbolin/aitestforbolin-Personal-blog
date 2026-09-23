@@ -425,6 +425,13 @@ def main() -> None:
     current_feed["executionLineage"] = lineage_for_payload(receipt)
 
     if not feed_changed and not history_changed:
+        # Business data is unchanged, but this refresh still has a new execution
+        # lineage. Persist that lineage on the supplemental feed so downstream
+        # freshness checks can match the active receipt without pretending the
+        # source itself changed.
+        refreshed_feed = dict(previous_feed or current_feed)
+        refreshed_feed["executionLineage"] = lineage_for_payload(receipt)
+        write_json_atomic(OUTPUT, refreshed_feed)
         write_json_atomic(RECEIPT_OUTPUT, receipt)
         print("Crypto fundraising data and observed history are unchanged.")
         return
