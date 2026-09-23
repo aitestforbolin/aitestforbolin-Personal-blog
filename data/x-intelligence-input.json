@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
   "source": "SocialData X List Tweets",
-  "generatedAt": "2026-09-23T03:00:02.269723+00:00",
+  "generatedAt": "2026-09-23T05:10:41.596551+00:00",
   "windowHours": 24,
-  "cutoffUtc": "2026-09-22T03:00:02.269723+00:00",
+  "cutoffUtc": "2026-09-22T05:10:41.596551+00:00",
   "listsRequested": 4,
   "listsCompleted": 4,
   "stoppedForBudget": false,
-  "estimatedCostUsd": 0.0694,
+  "estimatedCostUsd": 0.07,
   "stats": {
-    "billedTweets": 347,
-    "uniqueTweetsInWindow": 118,
-    "usefulRatio": 0.3401,
+    "billedTweets": 350,
+    "uniqueTweetsInWindow": 121,
+    "usefulRatio": 0.3457,
     "contentMix": {
-      "originals": 40,
-      "replies": 17,
-      "direct_quotes": 46,
+      "originals": 37,
+      "replies": 21,
+      "direct_quotes": 48,
       "retweets": 15,
-      "posts_with_media": 59
+      "posts_with_media": 61
     }
   },
   "perList": [
@@ -25,8 +25,8 @@
       "name": "List-1",
       "id": "2092526123754414115",
       "pages": 1,
-      "returned": 89,
-      "within_window": 26,
+      "returned": 87,
+      "within_window": 24,
       "discarded_old": 63,
       "crossed_cutoff": true
     },
@@ -34,9 +34,9 @@
       "name": "List-2",
       "id": "2062314900266127784",
       "pages": 1,
-      "returned": 84,
-      "within_window": 39,
-      "discarded_old": 45,
+      "returned": 87,
+      "within_window": 44,
+      "discarded_old": 43,
       "crossed_cutoff": true
     },
     {
@@ -52,13 +52,644 @@
       "name": "List-4",
       "id": "2089990503555072281",
       "pages": 1,
-      "returned": 83,
+      "returned": 85,
       "within_window": 19,
-      "discarded_old": 64,
+      "discarded_old": 66,
       "crossed_cutoff": true
     }
   ],
   "posts": [
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2102625341357641867",
+      "created_at": "2026-09-23T05:05:20.000000Z",
+      "kind": "reply",
+      "author": {
+        "username": "spark888",
+        "name": "spark🌟"
+      },
+      "text": "卡死我了我草泥马OPENSEA和METAMASK https://t.co/VyELakyS8E",
+      "url": "https://x.com/spark888/status/2102625341357641867",
+      "engagement": {
+        "views": 26,
+        "likes": 0,
+        "replies": 0,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HS4GmbpaYAAu0Qo.png"
+        ]
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2102625284092805499",
+      "created_at": "2026-09-23T05:05:07.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "Arron_finance",
+        "name": "Arron🐱"
+      },
+      "text": "主网启动了，真正的挑战开始了 $WEBSITE",
+      "url": "https://x.com/Arron_finance/status/2102625284092805499",
+      "engagement": {
+        "views": 469,
+        "likes": 1,
+        "replies": 0,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": {
+        "tweet_id": "2102595068989472933",
+        "username": "notawebsite_rh",
+        "name": "this is not a website",
+        "text": "PageMarkets is now live on mainnet!\n\nIt took a little longer than expected, but with the final security clearance, we can now release PageMarkets to everyone\n\nWhat does this mean for you?\n\nLet's find out 🧵👇 https://t.co/r4yROZlzPI",
+        "created_at": "2026-09-23T03:05:03.000000Z",
+        "url": "https://x.com/notawebsite_rh/status/2102595068989472933",
+        "external_urls": [],
+        "media": {
+          "types": [
+            "photo"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/media/HS3q-mzbAAAgr9b.jpg"
+          ]
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2102624015307395254",
+      "created_at": "2026-09-23T05:00:04.000000Z",
+      "kind": "reply",
+      "author": {
+        "username": "0xStudy",
+        "name": "0xStudy"
+      },
+      "text": "靠 这池子真的垃圾 没啥用别存🤣",
+      "url": "https://x.com/0xStudy/status/2102624015307395254",
+      "engagement": {
+        "views": 37,
+        "likes": 0,
+        "replies": 0,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2102623492843901027",
+      "created_at": "2026-09-23T04:58:00.000000Z",
+      "kind": "original",
+      "author": {
+        "username": "TechFlowPost",
+        "name": "TechFlow 深潮｜APP 已上线"
+      },
+      "text": "涨的时候众星捧月，亏的时候墙倒众人推。\n\n随着 RH 链上退潮，一些海外 KOL 这几天正掀起一场“反 FOMO”清算浪潮。\n\n比如 @Xeer  公开炮轰社交交易 App「FOMO」有带单黑幕，平台上的“神级交易员”是收钱表演的骗子，\n\n而 @waleswoosh  更是直接晒出注销 fomo 账户的截图，感觉心灰意冷。\n\n这些帖子能够引来极高的浏览和点赞量，一定程度上也代表着大众的情绪。\n\n情绪的共鸣并非空穴来风，链上数据也提供了一定证据：\n\n1.RH 链上的 FOMO 活跃钱包，从月初峰值的10万多个，到20号最低点只有4.7万个，已经腰斩；\n\n2.RH 链上 用 FOMO 打出去的交易量，从月初峰值的近400M，到20号最低点只有42M，下降快90%\n\n3. Dune 相关数据面板显示，8月17日时能统计到近30万个 fomo 地址，其中盈利占比 6.1%；今天能统计到60多万个地址，地址翻了一倍，但盈利地址占比变成了 5.3%。\n\n当行情火热、水龙头大开时，在 fomo 上找车头，分析行为和跟单是政治正确。\n\n行情好的时候，人人是股神；潮水退去，才发现神坛上坐着的神特别少，甚至还有些拿赞助费的“特约演员”。\n\n不过站在逆向交易的视角，这或许也是一个关键信号。\n\n当一个生态经历最极端的信任崩塌和情绪踩踏时，泥沙俱下砸出来的带血筹码，反而会让里面的优质资产迎来黄金坑。",
+      "url": "https://x.com/TechFlowPost/status/2102623492843901027",
+      "engagement": {
+        "views": 944,
+        "likes": 2,
+        "replies": 2,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HS39xDVbUAAo1Sy.jpg",
+          "https://pbs.twimg.com/media/HS39xC5a4AAHSPB.jpg",
+          "https://pbs.twimg.com/media/HS39xC6bcAA9SLk.jpg",
+          "https://pbs.twimg.com/media/HS39xDJaoAAChaA.png"
+        ]
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-4",
+      "list_id": "2089990503555072281",
+      "tweet_id": "2102621109174882408",
+      "created_at": "2026-09-23T04:48:31.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "brucexu_eth",
+        "name": "brucexu.eth"
+      },
+      "text": "刚刚在车上才突然想到，未来的入口 coding agents 很有可能是 Hermes agents，而不是 Codex 或者 Claude Code。\n\n辅助人类编码的是编码辅助工具，真正接管开发的才是可以替代程序员的 Coding Agent。\n\n从群聊社媒舆情监控、工单自动化、TODO 分流再到指挥 Codex 这样的工具实际干活、部署上线，以及调用多个工具测试或者给出修改意见。\n\n只有 Hermes Agents 满足我这样的想象。",
+      "url": "https://x.com/brucexu_eth/status/2102621109174882408",
+      "engagement": {
+        "views": 429,
+        "likes": 2,
+        "replies": 0,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": {
+        "tweet_id": "2101933006952808663",
+        "username": "brucexu_eth",
+        "name": "brucexu.eth",
+        "text": "我觉得大概半程吧。原因如下：现在 coding agent 可以写代码，完成一些相对明确、简单的任务；但需要人的干预去完成具体的东西，可能还要人看一看架构。或者一些更大型、更重要的事情，它还没有办法很好地独立完成。\n\n如果彻底结束，我觉得起码可以真正取代掉大部分程序员。比如，整个软件工程体系都可以完成：直接从产品到应用，从用户反馈到功能上线和改进，再迭代升级。\n\n因为我们认为，coding agent 其实是在取代 developer。那么，达到取代 Developer 的时候，应该就差不多了。",
+        "created_at": "2026-09-21T07:14:15.000000Z",
+        "url": "https://x.com/brucexu_eth/status/2101933006952808663",
+        "external_urls": [],
+        "media": {
+          "types": [],
+          "urls": []
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2102620566792614000",
+      "created_at": "2026-09-23T04:46:22.000000Z",
+      "kind": "reply",
+      "author": {
+        "username": "spark888",
+        "name": "spark🌟"
+      },
+      "text": "也可以理解为还没卖Credits的可以捏一下",
+      "url": "https://x.com/spark888/status/2102620566792614000",
+      "engagement": {
+        "views": 89,
+        "likes": 0,
+        "replies": 1,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2102619956521419206",
+      "created_at": "2026-09-23T04:43:57.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "spark888",
+        "name": "spark🌟"
+      },
+      "text": "很有意思，有人在造Credits的飞轮\n\n@token_works 发了个CreditStrategy币\n\n我理解为蹭jack的Credit NFT热度\n\n第一小时高税\n\n80% 的税收用于购买底层 NFT\n10% 作为版税支付给创作者\n10% 用于购买并销毁 PNKSTR\n\n也就是最终利好Credits NFT\n\n现在金库里309ETH + 73NFT\n\n胆大的可以扫地版了，很有意思分享一下，DYOR",
+      "url": "https://x.com/spark888/status/2102619956521419206",
+      "engagement": {
+        "views": 534,
+        "likes": 4,
+        "replies": 5,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HS4BXwQa0AA-NMI.jpg"
+        ]
+      },
+      "quote": {
+        "tweet_id": "2102598955620343909",
+        "username": "spark888",
+        "name": "spark🌟",
+        "text": "X MONEY打钱开图了，地板0.035E，100U左右\n\n8U → 100U 12X\n\n不过我图呢卧槽？\nhttps://t.co/Nawf1vkeeO",
+        "created_at": "2026-09-23T03:20:30.000000Z",
+        "url": "https://x.com/spark888/status/2102598955620343909",
+        "external_urls": [
+          "https://opensea.io/collection/credits"
+        ],
+        "media": {
+          "types": [],
+          "urls": []
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-1",
+      "list_id": "2092526123754414115",
+      "tweet_id": "2102619415846219942",
+      "created_at": "2026-09-23T04:41:48.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "ArtofSpecuycky",
+        "name": "Art of Speculation"
+      },
+      "text": "原油现在这里离箱体下沿86很近了，估计会有个小反弹到ema 20后然后再接着跌。 https://t.co/1CHkTLEklz",
+      "url": "https://x.com/ArtofSpecuycky/status/2102619415846219942",
+      "engagement": {
+        "views": 3172,
+        "likes": 8,
+        "replies": 2,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HS4BN0Ta8AAw9wn.jpg"
+        ]
+      },
+      "quote": {
+        "tweet_id": "2100542707676668414",
+        "username": "ArtofSpecuycky",
+        "name": "Art of Speculation",
+        "text": "石油技术分析\n目前到了上升通道的上沿，日线出现RSI顶背离，日线级别的一般会持续两周左右。我用技术面预判下，下周二的谈判川子会taco和开空单。油价下来，风险资产起飞。",
+        "created_at": "2026-09-17T11:09:42.000000Z",
+        "url": "https://x.com/ArtofSpecuycky/status/2100542707676668414",
+        "external_urls": [],
+        "media": {
+          "types": [
+            "photo"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/media/HSafwihaYAE7C0Y.jpg"
+          ]
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2102619053827449264",
+      "created_at": "2026-09-23T04:40:21.000000Z",
+      "kind": "original",
+      "author": {
+        "username": "marktowin8",
+        "name": "Marktowin-项目投研家"
+      },
+      "text": "【一图流】币安钱包Predict足球Alpha积分加5分活动指南，磨损1.5u\n\n币安钱包新出Alpha积分活动了，这次也是加5分，活动时间内做完，第二天加5分。磨损大概1.65u，建议查看订单薄后市价买卖，这样不会被夹。\n\n【活动时间】\n北京时间:9月23日8:00~9月30日7:59\n【活动规则】\n足球预测买入超过50u。\n\n【操作指南】\n1.提现51u到币安钱包。\n2.查看订单薄深度合适后，市价快速买入51u足球预测后马上卖出。\n（此外限价买卖可以做到无损，但是也容易烂手里，并且费时间，不建议）\n\n【磨损】\n市价和手续费磨损1.65u，如果有钱包邀请码能再省0.15u，实际磨损1.5u。\n（币安钱包使用邀请码MARKTOWIN，30%自动返。）\n\n以下是 #一图流 币安钱包Predict足球Alpha积分+5分活动指南：",
+      "url": "https://x.com/marktowin8/status/2102619053827449264",
+      "engagement": {
+        "views": 944,
+        "likes": 13,
+        "replies": 3,
+        "reposts": 3,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HS4AuHXaMAAsuXl.jpg"
+        ]
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-4",
+      "list_id": "2089990503555072281",
+      "tweet_id": "2102612749612392791",
+      "created_at": "2026-09-23T04:15:18.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "brucexu_eth",
+        "name": "brucexu.eth"
+      },
+      "text": "大的要来了 Jumper！",
+      "url": "https://x.com/brucexu_eth/status/2102612749612392791",
+      "engagement": {
+        "views": 473,
+        "likes": 0,
+        "replies": 2,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": {
+        "tweet_id": "2102397638465478942",
+        "username": "jumperapp",
+        "name": "Jumper",
+        "text": "The ticker is $JUMP\nThe super-app for onchain finance. https://t.co/kYjuBUW2cg",
+        "created_at": "2026-09-22T14:00:32.000000Z",
+        "url": "https://x.com/jumperapp/status/2102397638465478942",
+        "external_urls": [],
+        "media": {
+          "types": [
+            "video"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/amplify_video_thumb/2102392644307701760/img/C17a1ACNotX2Pi3X.jpg",
+            "https://video.twimg.com/amplify_video/2102392644307701760/vid/avc1/480x270/5Ot0P8uI6MLIi5VP.mp4?tag=29",
+            "https://video.twimg.com/amplify_video/2102392644307701760/vid/avc1/640x360/gj3dFTAqoI3O-qAR.mp4?tag=29",
+            "https://video.twimg.com/amplify_video/2102392644307701760/vid/avc1/1280x720/UCJP5nO4hQX_fu6m.mp4?tag=29"
+          ]
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2102605775948456430",
+      "created_at": "2026-09-23T03:47:36.000000Z",
+      "kind": "reply",
+      "author": {
+        "username": "TechFlowPost",
+        "name": "TechFlow 深潮｜APP 已上线"
+      },
+      "text": "推荐阅读《播客笔记｜别等暴跌抄底了，链上分析师揭秘：BTC 之前 6 万 已完成散户出清，10 万就是止盈线》\n\nhttps://t.co/HhydHokr1L",
+      "url": "https://x.com/TechFlowPost/status/2102605775948456430",
+      "engagement": {
+        "views": 742,
+        "likes": 1,
+        "replies": 0,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [
+        "https://www.techflowpost.com/article/34187"
+      ],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2102605599217172973",
+      "created_at": "2026-09-23T03:46:54.000000Z",
+      "kind": "original",
+      "author": {
+        "username": "TechFlowPost",
+        "name": "TechFlow 深潮｜APP 已上线"
+      },
+      "text": "比特币链上分析师 James Check @Checkmatey 从 2 月开始加大定投，到 8 月已经部署了 90% 的计划资金，但随着 BTC 接近 10 万美元，他准备收手了。\n\n有意思的是，他做出这一系列判断，几乎没有依赖大家熟悉的“四年周期”。\n\n在他看来，四年周期更像“一块坏掉的钟”，真正值得看的，是顶部买家什么时候亏到投降、长期持有者什么时候停止卖出，以及筹码最终流向了谁。\n\n这期播客里，他还直接表示自己对山寨币“毫无兴趣”，持仓为零。\n\n分享里面几个核心观点：\n\n1. 6 万和 5.8 万美元没有本质区别，真正重要的是中间隔了六个月\n\n2 月跌至 6 万美元是“价格痛”，6、7 月跌至 5.8 万美元则是“时间痛”。两轮投降式抛售完成后，大量高成本筹码已经转移到更高信念的持有者手中。\n\n2. 利空砸不下去，本身就是底部信号\n\nETF 净流出 85 亿美元等利空集中出现，BTC 却横盘两个多月。James 将其视为典型的卖方枯竭。\n\n3. 400 万枚 BTC 从浮亏转为浮盈，市场心理已经发生变化\n\n约占供应量 20% 的 BTC 在本轮反弹中重新进入盈利状态。在 James 看来，这种规模的成本基础修复足以改变持有者行为，让下一次回调更容易迎来买盘。\n\n4. 他已经完成 90% 的资金部署，10 万美元附近停止加仓\n\nJames 从 2 月开始重手 DCA，并不执着于精准抄到最低点。对他而言，6 万、6.2 万还是 5.9 万美元并不重要，关键是在“深度价值区”完成筹码积累。\n\n5. 真正会让他改变判断的，是长期持有者反常抛售\n\n如果“老钱”在明显低于历史高点的位置就开始大量派发，他才会重新审视当前的看多框架。目前他并没有看到这种行为。\n\n6. 四年周期已经不是一个好指南针\n\n市场不会因为日历走到某个月就自动见底。真正的循环是：\n\n顶部买家被套 → 浮亏扩大 → 实亏抛售 → 横盘磨底 → 最终投降 → 筹码重新进入长期持有者手中。\n\n所以 James 给出的那句话，可能才是整期播客最值得记住的：“寻找证据，而不是看日历。”\n\n至于山寨币，他的态度更加极端：零持仓，也没兴趣。\n\n即使代币化股票大规模上链，他也认为真正有价值的是特斯拉、英伟达这些资产，而不是承载它们的区块链“铁轨”。",
+      "url": "https://x.com/TechFlowPost/status/2102605599217172973",
+      "engagement": {
+        "views": 4137,
+        "likes": 23,
+        "replies": 10,
+        "reposts": 4,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "video"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/amplify_video_thumb/2102604700142968833/img/cOq2coUkR2GKgGLd.jpg",
+          "https://video.twimg.com/amplify_video/2102604700142968833/vid/avc1/480x270/gEnHCxilXS4oO7f_.mp4?tag=29",
+          "https://video.twimg.com/amplify_video/2102604700142968833/vid/avc1/640x360/Go8BFbc0AbDM8umA.mp4?tag=29",
+          "https://video.twimg.com/amplify_video/2102604700142968833/vid/avc1/1280x720/MKWbebAU8tfqc9B7.mp4?tag=29"
+        ]
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2102604357078577201",
+      "created_at": "2026-09-23T03:41:57.000000Z",
+      "kind": "reply",
+      "author": {
+        "username": "spark888",
+        "name": "spark🌟"
+      },
+      "text": "尼玛啊卖飞了，0.04E了，12万都有人接盘啊？\n\n《这次不一样》《早知道》《贪了》 《没跑掉》《差一分》《我感觉要涨》《我感觉要跌》《还会跌的》《又亏了》《要跑吗》《老师怎么办》《下次一定跟》《救命》《大腿拍断》《价值投资》《5年后再看》《下次一定遵守纪律》《违反了我的系统》 《以后控制仓位慢慢来》《不敢跟家里人说》《事到如今最对不起的就是家人》",
+      "url": "https://x.com/spark888/status/2102604357078577201",
+      "engagement": {
+        "views": 127,
+        "likes": 1,
+        "replies": 0,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2102600397961736496",
+      "created_at": "2026-09-23T03:26:13.000000Z",
+      "kind": "reply",
+      "author": {
+        "username": "spark888",
+        "name": "spark🌟"
+      },
+      "text": "到货了，感恩，这就是艺术 https://t.co/m3nJkvHFna",
+      "url": "https://x.com/spark888/status/2102600397961736496",
+      "engagement": {
+        "views": 247,
+        "likes": 0,
+        "replies": 3,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HS3v6hraQAAZb1o.png"
+        ]
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2102598955620343909",
+      "created_at": "2026-09-23T03:20:30.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "spark888",
+        "name": "spark🌟"
+      },
+      "text": "X MONEY打钱开图了，地板0.035E，100U左右\n\n8U → 100U 12X\n\n不过我图呢卧槽？\nhttps://t.co/Nawf1vkeeO",
+      "url": "https://x.com/spark888/status/2102598955620343909",
+      "engagement": {
+        "views": 2315,
+        "likes": 9,
+        "replies": 10,
+        "reposts": 1,
+        "quotes": 1
+      },
+      "external_urls": [
+        "https://opensea.io/collection/credits"
+      ],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": {
+        "tweet_id": "2102580552855629953",
+        "username": "spark888",
+        "name": "spark🌟",
+        "text": "jack的X MONEY打钱即将上线\n\nNFT系列名称CREDITS，每一笔X MONEY符合资格的8美元付款，会生成一个NFT\n\n总量122154，铸造免费，正在部署\n\n烧毁80个CREDITS可以制作一份STATEMENT，最多可制作1526份STATEMENT\n\n————————————————\n\n总结一下，保持了jack风格的社会实践+通缩模式，整个过程仍会非常火热。\n\n关于价格，场外从150刀一度跌至50刀。锚定jack前系列NFT，地板价约0.2E / 10。\n\n预计CREDITS初始地板价50-100刀，60U打的有风险，15U打的稳赚，8U打的血赚。",
+        "created_at": "2026-09-23T02:07:22.000000Z",
+        "url": "https://x.com/spark888/status/2102580552855629953",
+        "external_urls": [],
+        "media": {
+          "types": [
+            "photo"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/media/HS3d3UKaAAA_Fq1.jpg"
+          ]
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2102598096576520625",
+      "created_at": "2026-09-23T03:17:05.000000Z",
+      "kind": "original",
+      "author": {
+        "username": "0xXIAOc",
+        "name": "小C | 🔶BNB"
+      },
+      "text": "📢Alpha 日报\n1⃣9月23日 暂无空投预告\n9月24日 pPOLY 17:00开始交易，目前盘前价格25.45，参考盘前价格，打1万U收益616U。\n\n假装你行，直到你真的能行。\n\n2️⃣昨日限价单总交易量：1,784,607,333\n（较前一日+8.58% ）  \n\n3️⃣交易赛进度 \nDEBIT 交易赛\n昨日250347→ 今日301065\n(增加了50718)\n\nKII 交易赛\n昨日141843→ 今日201045\n(增加了59202)\n\n4️⃣今日推荐（30 天内上线代币，积分 ×4）\n交易赛推荐：暂无\n纯交易量推荐：  限价单刷DGAI（剩23天）",
+      "url": "https://x.com/0xXIAOc/status/2102598096576520625",
+      "engagement": {
+        "views": 5986,
+        "likes": 22,
+        "replies": 16,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HS3txWka0AAQcY4.png"
+        ]
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
     {
       "list_name": "List-2",
       "list_id": "2062314900266127784",
@@ -72,9 +703,9 @@
       "text": "马斯克 @elonmusk 最近强烈推荐大家体验一下中国的高铁，还特别喊话：别老盯着手机，多看看外面的风景。\n\n平时习惯了时刻切页面、盯盘、刷信息流，中秋国庆这趟旅途，不如给大脑放个真正的假。抬起头看看窗外，祝大家都能在假期里看到属于自己的风景。🍂✨",
       "url": "https://x.com/TechFlowPost/status/2102591696018002403",
       "engagement": {
-        "views": 809,
-        "likes": 2,
-        "replies": 3,
+        "views": 4605,
+        "likes": 7,
+        "replies": 12,
         "reposts": 1,
         "quotes": 0
       },
@@ -110,11 +741,11 @@
       "text": "感觉中国人骨子里就是爱好和平的浪漫主义者。\n\n以前有了火药，西方拿来做枪炮出去侵略，中国拿来做鞭炮庆祝节日。\n\n现在有了 LLM，西方拿来做网络攻击、渲染各种安全恐惧、开启出口管制，中国人拿来做鹈鹕骑自行车。\n\nhttps://t.co/xFsDhBgIye https://t.co/5pYQ5uy3Vu",
       "url": "https://x.com/brucexu_eth/status/2102588236191396269",
       "engagement": {
-        "views": 162,
-        "likes": 1,
-        "replies": 1,
-        "reposts": 0,
-        "quotes": 0
+        "views": 7315,
+        "likes": 18,
+        "replies": 17,
+        "reposts": 1,
+        "quotes": 2
       },
       "external_urls": [
         "https://claude-opus-5-5.riba2534.cn/"
@@ -151,7 +782,7 @@
       "text": "RT @PANewsCN: 肖风、Vitalik等共话以太坊未来，ETHShanghai 2026聚焦隐私、开源、AI和未来金融\n\n9月22日，由@ETHPanda_Org 、PANews和The Excited Few联合主办的ETHShanghai 2026正式在上海正式启…",
       "url": "https://x.com/brucexu_eth/status/2102587548598174017",
       "engagement": {
-        "views": 20,
+        "views": 35,
         "likes": 0,
         "replies": 0,
         "reposts": 2,
@@ -196,7 +827,7 @@
       "text": "等待期间可以先上网站探索一下\nhttps://t.co/FEmcAo7QoY",
       "url": "https://x.com/spark888/status/2102581305426981121",
       "engagement": {
-        "views": 178,
+        "views": 343,
         "likes": 1,
         "replies": 0,
         "reposts": 0,
@@ -229,11 +860,11 @@
       "text": "jack的X MONEY打钱即将上线\n\nNFT系列名称CREDITS，每一笔X MONEY符合资格的8美元付款，会生成一个NFT\n\n总量122154，铸造免费，正在部署\n\n烧毁80个CREDITS可以制作一份STATEMENT，最多可制作1526份STATEMENT\n\n————————————————\n\n总结一下，保持了jack风格的社会实践+通缩模式，整个过程仍会非常火热。\n\n关于价格，场外从150刀一度跌至50刀。锚定jack前系列NFT，地板价约0.2E / 10。\n\n预计CREDITS初始地板价50-100刀，60U打的有风险，15U打的稳赚，8U打的血赚。",
       "url": "https://x.com/spark888/status/2102580552855629953",
       "engagement": {
-        "views": 1196,
-        "likes": 13,
-        "replies": 20,
+        "views": 4257,
+        "likes": 17,
+        "replies": 22,
         "reposts": 0,
-        "quotes": 0
+        "quotes": 1
       },
       "external_urls": [],
       "media": {
@@ -280,11 +911,11 @@
       "text": "《Circle稳定币网络全景图》从强网络效应护城河的构建角度去看Circle与币安的深度合作。昨晚披露币安跟Circle的深度合作，对于Circle来说跟最大的加密交易所进一步深度绑定，意义重大。但更深入的去看，这就是一个如何一步步从无到有建立起业务护城河和典型商业案例。\n\n8月初有聊过，强网络效应平台的护城河，核心是“规模+密度+切换成本”。这些东西在起步阶段几乎都不存在，必须靠产品、补贴、营销、收购或监管套利，在真实竞争中一点一点积累。一旦过了临界点，效应会自我强化，看起来像“天生壁垒”，但回头看，几乎没有一家是躺着拿到的。\n\n1、再回看Circle在CEX上的布局\n1）coinbase自然不用说，USDC最核心的深度分销关系，“储备分成+全产品介入”模式；\n2）币安，之前已经开始战略合作，昨晚更深度合作之后，这已经是Circle目前唯一同时具备股权 + 长期激励费 + 钱包基础设施嵌入的交易所关系，绑定深度仅次于Coinbase；\n3）OKX\n去年7月战略合作，给6000万+用户提供1:1的USD↔USDC兑换，打通银行出入金，并做教育和社区推广， \n\n今年9月再升级，扩大OKX现货、保证金、期货里的USDC计价市场；推出由Circle出资的USDC保证金增长计划（满足持仓和交易量条件可领奖励）。跟OKX合作，从出入金打通，做到交易场景全覆盖\n\n4）Bybit：把USDC从交易对扩到理财、返现和日常支付\n5）Kraken：补USDC深度，同时导入EURC\n\n2、Circle的整体布局\n除了CEX的布局动作，还要把Circle在链上、企业资金流、支付、银行层面的合作放在一起看。以前 Circle 是：\n发行 USDC，让更多交易所支持 USDC。\n\n现在它正在变成：\n用 Coinbase、Binance、Hyperliquid 控制“钱停在哪里”；\n用 Intuit、JCB、Nium、Tazapay 控制“钱怎么流”；\n再用 CPN + Arc 尝试控制“钱怎么结算”。\n\n这意味着USDC开始争夺交易和支付系统里的“默认结算资产”位置。\n\n3、Circle已经开始形成一张完整的分销网络：\n银行美元\n→ BNY / Standard Chartered\n→ USDC\n→ Coinbase / Binance / Hyperliquid\n→ CPN / Arc\n→ Nium / Tazapay / JCB / Intuit\n→ 企业、商户、个人\n\n这个网络也是分层的：\n1）交易平台解决的是“USDC 放在哪里、拿来交易什么、能不能当保证金”；\n2）支付平台解决的是“USDC 能不能真正进入企业资金流、商户收款和跨境结算”；\n3）再往下一层，Arc + CPN 则试图把这些合作伙伴连接成 Circle 自己的一套网络。\n\n一旦这个闭环真正跑起来，USDC 的竞争逻辑就会变成：\n“谁控制的美元结算网络更广、场景更深、用户资金停留时间更长。”\n\n最后就形成下面这幅《Circle 稳定币网络全景图》，这样我们会直观地看出 CRCL 已经从“稳定币发行商”走到哪一步。\n\n也是8月初推文聊到的：稳定币法案通过也才一年时间，稳定币领域正在打这场垒“网络效应”筑“护城河”的仗，战斗正酣。\n\n之前聊60上下是Cricle的安全边际：\n https://t.co/b0dvHyqyC0\n之前对Circle的理解竞争力的理解： https://t.co/cyuMsZ1xZZ\n现在能看出来网络效应正在初步建立，虽然还没有完全建立支配地位，但这个势头已经开始显现",
       "url": "https://x.com/qinbafrank/status/2102580335578059079",
       "engagement": {
-        "views": 8475,
-        "likes": 27,
-        "replies": 8,
-        "reposts": 7,
-        "quotes": 0
+        "views": 25550,
+        "likes": 58,
+        "replies": 16,
+        "reposts": 20,
+        "quotes": 3
       },
       "external_urls": [],
       "media": {
@@ -327,8 +958,8 @@
       "text": "给 Hermes Agent 接上了 Zhihu CLI，可以把老的信息渠道接入了。以后也不用自己刷知乎了，直接分析出跟自己相关的信息。\n\n关键是配合自己的 context、第一性原理的思考 prompt 等等。而且信息直接进入自己的 Agent memory，未来可以形成进一步学习和提升。\n\n继续加速进化。 https://t.co/2UmikRqWzX",
       "url": "https://x.com/brucexu_eth/status/2102579138230198666",
       "engagement": {
-        "views": 333,
-        "likes": 2,
+        "views": 620,
+        "likes": 3,
         "replies": 0,
         "reposts": 0,
         "quotes": 0
@@ -362,9 +993,9 @@
       "text": "原子弹继续爆炸，这次人是瘫坐在高铁上。\n\nAgentic Coding 已经干掉了一大部分程序，Agentic Trading 绝对会干掉一大部分交易员。\n\n复盘、分析、高效进入、合约安全分析、无情绪止盈止损，我滴妈，这手动和人工学习得训练多久？我昨天可是一整天在 ETHShanghai 会场忙。\n\n可惜 Agent 太小心，我明明授权了它自动操作，但还是来回发邮件让我确认。利润回吐一些。\n\n不过我不打算公开很多细节了，留到小范围研讨吧，或者等我确实验证稳定了而且容量吃不满再做一些收费课程。\n\n随便简单展示点没那么相关的给大家看看，以前手动做这种分析要了命了，现在几秒钟，一句话。",
       "url": "https://x.com/brucexu_eth/status/2102577188600164640",
       "engagement": {
-        "views": 896,
-        "likes": 5,
-        "replies": 2,
+        "views": 3011,
+        "likes": 22,
+        "replies": 3,
         "reposts": 0,
         "quotes": 0
       },
@@ -409,8 +1040,8 @@
       "text": "饮食安全太重要了，吃过几次亏，每次出门都要带蒙脱石，家里尽量不留剩菜。\n\n有一说一，出门在外，我宁愿吃连锁预制菜，其实这种出品可能还稳定一点。",
       "url": "https://x.com/brucexu_eth/status/2102572853359267996",
       "engagement": {
-        "views": 1373,
-        "likes": 2,
+        "views": 2817,
+        "likes": 3,
         "replies": 1,
         "reposts": 0,
         "quotes": 1
@@ -452,10 +1083,10 @@
       "text": "美伊深夜传来好消息，昨天最重要的事件是——美伊进行了3小时“非常富有成效”的会谈：1、川普表示，美国官员早前与伊朗代表团进行了三个小时的会晤，与伊朗的会晤进展顺利。他表示，与伊朗的会晤非常富有成效，将在不久的将来安排另一次会谈。美国中东问题特使威特科夫则就与伊朗的会谈表示，目前感觉非常好。\n\n2、伊朗方面确认外长在联合国大会期间与美国总统特使威特科夫会晤。伊朗方面向美国代表传达了“严格”的条件，重启霍尔木兹海峡的条件包括立即解除海上封锁、立即释放被冻结的伊朗资产，以及结束所有“抵抗”前线的战争。\n\n最关键的核心是：双方谈完之后，没有谈崩，又安排下一次会谈。而且不是礼节性的见面、已经存在可以讨论的具体交换条件。\n\n这就进一步提振了市场预和情绪：油价继续下跌，美股加密都进一步上涨。\n\n还是之前的聊的：基本面还很强劲的情况下、油价不出问题则市场也不出问题。宏观压制因素被接触、基本面支撑就能往上蹿。\n\n本条由@bitget_zh赞助，「Bitget 买美股：秒级入场，丝滑交易",
       "url": "https://x.com/qinbafrank/status/2102570676016345385",
       "engagement": {
-        "views": 19686,
-        "likes": 48,
-        "replies": 14,
-        "reposts": 6,
+        "views": 34777,
+        "likes": 81,
+        "replies": 19,
+        "reposts": 9,
         "quotes": 0
       },
       "external_urls": [],
@@ -500,7 +1131,7 @@
       "text": "【总结】\n\n1️⃣以上的项目，都更新在我“置顶的空投表格中”了。\n2️⃣目前的方向是：\n❶追热点，例如前几天的Robinhood、Arc和ZEC三条链的NFT白名单和热门MEME币。\n❷坚持做“短平快”+“预期高”的中小项目，保证活下来。\n❸大项目也继续跟着。\n\nhttps://t.co/QHIaEet1wy",
       "url": "https://x.com/Benjieming1Q84/status/2102568282746409257",
       "engagement": {
-        "views": 325,
+        "views": 462,
         "likes": 0,
         "replies": 0,
         "reposts": 0,
@@ -545,7 +1176,7 @@
       "text": "【🧵-6】 TermiX\n\n1️⃣TermiX是币安投资项目，目前上线Kaito，几乎明牌空投。\n2️⃣详细参考我下面的推文。\nhttps://t.co/Jz2Z4zYuje https://t.co/NESPwyYUus",
       "url": "https://x.com/Benjieming1Q84/status/2102567374255976716",
       "engagement": {
-        "views": 355,
+        "views": 488,
         "likes": 0,
         "replies": 1,
         "reposts": 0,
@@ -596,10 +1227,10 @@
       "text": "RT @elonmusk: @_sholtodouglas Maybe sooner",
       "url": "https://x.com/aLiiDeez/status/2102567193959665787",
       "engagement": {
-        "views": 218,
+        "views": 269,
         "likes": 0,
         "replies": 0,
-        "reposts": 163,
+        "reposts": 178,
         "quotes": 0
       },
       "external_urls": [],
@@ -639,10 +1270,10 @@
       "text": "Tom Lee这次说对了：9月初的看涨判断,没毛病\n上周9月FOMC会议,新任主席沃什三年来首次选择了加息25个基点。当时市场情绪一片哀嚎,但回过头看Tom当时给出的分析框架分析的没问题。\n\n美联储给的三大加息理由,Tom的分析是\n第一个理由是经济过于强劲。Tom的反驳是克利夫兰联储早在30年前就论证过经济增长不是低通胀的敌人,堪萨斯联储今年也明确指出,由AI和生产力进步驱动的供给侧扩张,能同时提升产出、压低价格,本质上是通缩性质的,不该被当成加息的理由。更讽刺的是,沃什自己过去当联储理事的时候还说过美联储不该因为经济增长就加息,应该盯紧通胀,这次自己打自己的脸。\n\n第二个理由是通胀向2%回落的速度不够快。Tom指出当前的通胀数据存在严重的统计失真和一次性扰动。高盛的分析显示,有四大一次性因素会在未来6个月让通胀自然下降100个基点。股市上涨导致资产管理费按比例走高、被错误统计成服务通胀。闪存和存储芯片价格出现偏离9个标准差的异常波动,扭曲了软件和配件的通胀分项。再加上伊朗地缘危机和关税带来的短期价格脉冲。更关键的是美国经济分析局9月30日会调整核心PCE的统计方法,预计直接下修20到40个基点,让核心PCE从3.4%骤降到接近3.0%。\n\n第三个理由是地缘政治与原油冲击。Tom的反驳是油价飙升属于典型的供给侧冲击,货币政策对短期供给端根本没有作用,而且政策传导存在明显滞后。等6个月后加息开始在实体经济里显现效果的时候,油价冲击早就消退了,到时候这轮紧缩会变成不合时宜地压制一个正常运转的经济,时机踩反了。\n\n为什么Tom当时判断这是绝佳的入场时机\n除了逐条拆解加息理由,Tom还列出了六个支撑他继续看多的核心逻辑。\n\n一是鹰派政策已经见顶。美联储已经亮出了自己能拿出的最严苛底牌,不可能变得更鹰了,接下来只要数据稍微边际转软,官员们就只能从极端鹰派的表态往回走。\n二是9月30日的PCE统计修正,会给鸽派转向提供直接的数据支持,这是已经排上日程的事。\n三是特朗普这次的反应耐人寻味。他没有像以前对鲍威尔那样猛烈抨击沃什,只是重申美国应该维持1%以下的低利率来减轻利息负担,语气明显温和了不少,侧面说明这次加息很可能只是新班子在建立抗通胀信誉的一次短期姿态动作,不是要开启一轮紧缩周期。\n四是加息幅度不足以真正扼杀经济,累计25到50个基点的微幅加息,不可能摧毁目前这么强韧的美国实体经济和上市公司盈利能力。\n五是技术面出现了底背离，大盘在利率决议后经历了一波瀑布式急跌,但RSI却在悄悄回升,这个形态跟8月份见底大涨前的走势很像。\n六是消费端的风向标，Costco即将公布财报,有机会重新提振市场对美国消费韧性的信心。\n\n领涨主线跑出来了，滞后板块也在修复\n从组合表现看,这套逻辑这段时间确实兑现得不错。大盘组合里表现最好的是加密生态(MicroStrategy、Robinhood)以及AI基础设施这条主线。中盘组合里生物科技和加密矿企也在领跑。相对滞后的是金融股,短期受加息和收益率曲线扰动压制。",
       "url": "https://x.com/ArtofSpecuycky/status/2102561709047321056",
       "engagement": {
-        "views": 8890,
-        "likes": 48,
-        "replies": 9,
-        "reposts": 8,
+        "views": 13082,
+        "likes": 61,
+        "replies": 10,
+        "reposts": 9,
         "quotes": 0
       },
       "external_urls": [],
@@ -670,11 +1301,11 @@
       "text": "https://t.co/0o8OtwjkC1",
       "url": "https://x.com/Khazix0918/status/2102559433872257106",
       "engagement": {
-        "views": 12876,
-        "likes": 75,
+        "views": 18632,
+        "likes": 93,
         "replies": 12,
         "reposts": 3,
-        "quotes": 4
+        "quotes": 7
       },
       "external_urls": [],
       "media": {
@@ -701,10 +1332,10 @@
       "text": "【农历新年之前“发币预期大”的6个“中小项目” -20260923】\n\n⭐️当前阶段，“大型项目”的发币预期反而低了，或者是，短期之内看不到希望，我把重心先转移到“中小项目” ，保证能活下来。\n⭐️我只分享了我在重点参加的，我在线程中继续分享目前的进度和参与角度。\n\n1️⃣农历新年之前“发币预期大”的6个“中小项目”\n❶Fables\n❷Axis Robotics\n❸StandX\n❹Primus\n❺SmartX\n❻TermiX\n2️⃣Base、Ink和PolyMarket，甚至是Predictfun和xStocks，目前没有看到想要尽快发币的“线索”。",
       "url": "https://x.com/Benjieming1Q84/status/2102555691068383507",
       "engagement": {
-        "views": 2742,
-        "likes": 10,
-        "replies": 8,
-        "reposts": 1,
+        "views": 3463,
+        "likes": 11,
+        "replies": 11,
+        "reposts": 2,
         "quotes": 0
       },
       "external_urls": [],
@@ -746,9 +1377,9 @@
       "text": "肯定是合法合规，正经正当的办呀。实际上政府从来也不抵触区块链技术，但你要是在上面去传销什么的，那肯定不行。\n\n其实去年也跟什么一些区域的政府官员吃过饭，问过他们的态度，就是你要是违法违规踩红线，那肯定直接重拳出击。你要是合法合规技术讨论，那就宽容一些。中国还是比较务实的。",
       "url": "https://x.com/brucexu_eth/status/2102553206291374087",
       "engagement": {
-        "views": 4129,
-        "likes": 11,
-        "replies": 1,
+        "views": 7154,
+        "likes": 25,
+        "replies": 3,
         "reposts": 0,
         "quotes": 2
       },
@@ -789,11 +1420,11 @@
       "text": "Arc Mainnet launched with more than infrastructure.\nIt launched with builders.\n\nFrom San Francisco to Nigeria, Vietnam, India, Turkey, Singapore, Brazil, France, Argentina, and beyond, the Arc community is already building what comes next.\n\nArc is live.\n\nBuilt so you can build. https://t.co/doqCzIPPL7",
       "url": "https://x.com/arc/status/2102518307957899414",
       "engagement": {
-        "views": 21178,
-        "likes": 444,
-        "replies": 100,
-        "reposts": 58,
-        "quotes": 15
+        "views": 24392,
+        "likes": 535,
+        "replies": 109,
+        "reposts": 72,
+        "quotes": 19
       },
       "external_urls": [],
       "media": {
@@ -828,11 +1459,11 @@
       "text": "Maybe our cutest launch so far. But still packing the biggest punch.",
       "url": "https://x.com/thsottiaux/status/2102509507415048245",
       "engagement": {
-        "views": 480534,
-        "likes": 4999,
-        "replies": 663,
-        "reposts": 112,
-        "quotes": 58
+        "views": 574407,
+        "likes": 5665,
+        "replies": 765,
+        "reposts": 125,
+        "quotes": 61
       },
       "external_urls": [],
       "media": {
@@ -879,7 +1510,7 @@
       "text": "RT @tokenterminal: SPYx leads tokenized ETF market cap growth over the past 7 days\n\nSPYx: +$8.4M\nQQQb: +$5.3M\nIBITon: +$3M\n\nThe top three a…",
       "url": "https://x.com/xStocksFi/status/2102494091187765677",
       "engagement": {
-        "views": 1792,
+        "views": 1887,
         "likes": 0,
         "replies": 0,
         "reposts": 3,
@@ -926,9 +1557,9 @@
       "text": "伊朗电视台称，伊朗为重新开放霍尔木兹海峡所提出的条件是，必须立即解除海上封锁，并立即归还所有被冻结的伊朗资金。\n\n这个条件和之前表述的是一样的，再次重复了一遍，现在就看川普会不会接招了。 https://t.co/6ZU11yi3UM",
       "url": "https://x.com/PhyrexNi/status/2102493820105671111",
       "engagement": {
-        "views": 23468,
-        "likes": 44,
-        "replies": 13,
+        "views": 27672,
+        "likes": 51,
+        "replies": 16,
         "reposts": 0,
         "quotes": 0
       },
@@ -973,9 +1604,9 @@
       "text": "很久没有聊石油了，是因为我觉得该聊的聊的差不多了，没什么可以继续说的了，我总不能天天去说为什么油价不能到 150 美元或者 200 美元吧，就像永远有人想买更便宜的 Bitcoin 是一个道理，今天跌到 60,000 美元就总会有人认为会跌到 40,000 美元是一样，你就是再说，该不听的人也不会听的。\n\n油价关乎的不是一个国家的生计，是全球几乎所有国家都共同面对的，封锁霍尔木兹倒霉的不仅仅是美国，远在亚洲的国家也同样受到冲击，伊朗已经正式承认了再次与美方会晤，并且提出了条件，而川普透露的是这次达成协议的概率还是挺大的。\n\n这场战争打到现在嘴硬意义已经不大了，双方都付出了非常大的代价，即便是川普也非常希望能在中期选举前解决高油价的问题，而伊朗港口的封锁也让伊朗内部产生了很大的压力，即便是神权国家，民众也是要吃饭的。\n\n不仅是油价 Bitcoin 的价格也会受到中国领导人访美带来影响，各界都认为中国这次重点不是商务谈判，而是解决美国和中国，美国和伊朗，甚至是俄罗斯的一些问题，尤其是伊朗的问题，中国已经被视为“少数能说动伊朗恢复霍尔木兹”的国家。\n\n @Gate Crypto、美股、港股、韩股、黄金、CFD、预测市场一站交易",
       "url": "https://x.com/PhyrexNi/status/2102490816950469011",
       "engagement": {
-        "views": 10843,
-        "likes": 29,
-        "replies": 10,
+        "views": 12307,
+        "likes": 33,
+        "replies": 13,
         "reposts": 0,
         "quotes": 0
       },
@@ -1026,10 +1657,10 @@
       "text": "RT @ZARUniversal: ZARU is live on @arc. \n\nAs a founding currency pair on @circle StableFX, the ZARU/USDC pair now trades onchain, 24/7, in…",
       "url": "https://x.com/arc/status/2102480035915633044",
       "engagement": {
-        "views": 6745,
+        "views": 6958,
         "likes": 0,
         "replies": 0,
-        "reposts": 6,
+        "reposts": 7,
         "quotes": 0
       },
       "external_urls": [],
@@ -1073,10 +1704,10 @@
       "text": "Welcome to Arc 101, Episode 12.\n\nPricing is only part of the FX workflow. Execution certainty matters too.\n\nThis episode walks through a StableFX trade from quote to funding to deterministic settlement on Arc. https://t.co/5XKd4n8FhQ",
       "url": "https://x.com/arc/status/2102473009076601089",
       "engagement": {
-        "views": 16597,
-        "likes": 405,
-        "replies": 79,
-        "reposts": 62,
+        "views": 17902,
+        "likes": 429,
+        "replies": 81,
+        "reposts": 66,
         "quotes": 6
       },
       "external_urls": [],
@@ -1112,9 +1743,9 @@
       "text": "借用这件事说说一个潜规则。\n\n币圈并没有那么太平，币圈也没有人都很大度，币圈有很多的小团体，还有很多人确实就不对付，尤其是线上互相拉黑的，线下遇到了脾气好的可能打个哈哈就过去了，如果遇到脾气不好的不定整出什么事。\n\n尤其是已经公开在公众场合撕了很多场的，在宴请的时候是应该注意一些，要么就是请 A 别请 B ，要么就是请 B 别请 A ，一定非要请的时候起码要把两个人分开点，而且派专人看看。\n\n可能会有小伙伴说，这都是什么玩意，请个人还这么费劲，实际上还真是这样，大凡公开场合宴请的人多少都是有些“本事”的，好好的发布会变成了大型声讨现场就不好了。\n\n我已经遇到过很多次了，比如在香港，两个对线很久的竟然被安排坐在一起，稍微有点苗头估计就动手了，在这种情况下如果是靠当事人自己的控制，那就是一种风险，有小伙伴说过，断人钱财如杀人父母，因为这种事撕起来的，线下就很难控制了。\n\nBD小伙伴真的要稍微想一想了，别花了钱结果变成负面了。\n\n另外就是过于嚣张跋扈的，即便名气再大也有可能会变成事故现场。",
       "url": "https://x.com/PhyrexNi/status/2102472810157543611",
       "engagement": {
-        "views": 43680,
-        "likes": 84,
-        "replies": 39,
+        "views": 55564,
+        "likes": 91,
+        "replies": 46,
         "reposts": 0,
         "quotes": 5
       },
@@ -1155,7 +1786,7 @@
       "text": "A 2c improvement on 50,000 contracts is $1,000. Now multiply that by every game in the season.\n\nFor any serious trading firm, checking every exchange for the best price & fills not optional.\n\nRiver Markets handles this all for you, giving you an average price improvement of 2c, letting you focus on your models and trading.",
       "url": "https://x.com/river_markets/status/2102471885997150558",
       "engagement": {
-        "views": 1614,
+        "views": 1720,
         "likes": 12,
         "replies": 4,
         "reposts": 2,
@@ -1186,7 +1817,7 @@
       "text": "RT @revertfinance: Revert Rewards are now live on Base\n\nSomeone has to keep the 24/7 stock market on Base running. It might as well be you.…",
       "url": "https://x.com/base/status/2102471475500290391",
       "engagement": {
-        "views": 14821,
+        "views": 15286,
         "likes": 0,
         "replies": 0,
         "reposts": 3,
@@ -1233,11 +1864,11 @@
       "text": "GPT-6 Sol and Luna are out. Not only are they a very significant improvement across the board, but also in writing and general \"you know when you try it\" quality. \n\nWe are also permanently reducing the API price by 50% making both of them viable for a ton of new usecases and making your usage go further too, even on the subscriptions.\n\nAnd one more thing. We are loading a banked reset into all accounts of our Plus, Pro and Business users. Let's go!\n\nhttps://t.co/00DRh1sRrO",
       "url": "https://x.com/thsottiaux/status/2102463847714247142",
       "engagement": {
-        "views": 2098792,
-        "likes": 21919,
-        "replies": 2692,
-        "reposts": 1449,
-        "quotes": 875
+        "views": 2296983,
+        "likes": 22832,
+        "replies": 2765,
+        "reposts": 1484,
+        "quotes": 894
       },
       "external_urls": [
         "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
@@ -1278,10 +1909,10 @@
       "text": "Orrrrr\n\nYou could trade on Coinbase Wallet.",
       "url": "https://x.com/CoinbaseWallet/status/2102460106160111944",
       "engagement": {
-        "views": 18687,
-        "likes": 310,
-        "replies": 86,
-        "reposts": 20,
+        "views": 19677,
+        "likes": 324,
+        "replies": 88,
+        "reposts": 21,
         "quotes": 4
       },
       "external_urls": [],
@@ -1309,9 +1940,9 @@
       "text": "GPT-6 Sol和GPT-6 Luna已经在Codex中上线。 https://t.co/S0xfO3LwNH",
       "url": "https://x.com/Khazix0918/status/2102458773470351379",
       "engagement": {
-        "views": 21616,
-        "likes": 82,
-        "replies": 37,
+        "views": 23744,
+        "likes": 83,
+        "replies": 38,
         "reposts": 2,
         "quotes": 2
       },
@@ -1344,7 +1975,7 @@
       "text": "Not available in the US or to US persons. Geo restrictions apply. Read Kraken's xStocks Risk Disclosure at https://t.co/6DxT0H882r or at https://t.co/VHPAyjGH2j. https://t.co/UKv6P6bf6e",
       "url": "https://x.com/xStocksFi/status/2102453806235783369",
       "engagement": {
-        "views": 1025,
+        "views": 1106,
         "likes": 3,
         "replies": 0,
         "reposts": 0,
@@ -1382,8 +2013,8 @@
       "text": "GameStock.\n\n$GMEx saw the largest increase in onchain transfer activity across 800 xStocks over the last 24h. https://t.co/yub4DOH0K6",
       "url": "https://x.com/xStocksFi/status/2102453802419003868",
       "engagement": {
-        "views": 11696,
-        "likes": 140,
+        "views": 12505,
+        "likes": 145,
         "replies": 23,
         "reposts": 8,
         "quotes": 5
@@ -1417,9 +2048,9 @@
       "text": "2026年9月21日 ethereum:native 现货 ETF 单日净增持约 6.90 万枚，两天已补回此前三天减持量的约 91%，最近七个交易日累计净增持约 10.13 万枚。\n\n @Gate Crypto、美股、港股、韩股、黄金、CFD、预测市场一站交易 https://t.co/gsdbN0kexJ",
       "url": "https://x.com/PhyrexNi/status/2102453691211280404",
       "engagement": {
-        "views": 8285,
-        "likes": 26,
-        "replies": 14,
+        "views": 8889,
+        "likes": 27,
+        "replies": 15,
         "reposts": 0,
         "quotes": 0
       },
@@ -1464,9 +2095,9 @@
       "text": "2026年9月21日 bitcoin:native 现货 ETF 单日净增持约 1.53 万枚，增持产品从 3 只扩大到 6 只，最近七个交易日累计净增持约 1.02 万枚，回补的数量和参与的产品都在增加。\n\n @Gate Crypto、美股、港股、韩股、黄金、CFD、预测市场一站交易 https://t.co/UjTOB9Y1dZ",
       "url": "https://x.com/PhyrexNi/status/2102453190998548689",
       "engagement": {
-        "views": 7978,
-        "likes": 15,
-        "replies": 7,
+        "views": 9215,
+        "likes": 18,
+        "replies": 8,
         "reposts": 0,
         "quotes": 0
       },
@@ -1515,10 +2146,10 @@
       "text": "USDC deposits and instant access for the Base community\n\nLive now on the Aave app 👻",
       "url": "https://x.com/base/status/2102441686437892344",
       "engagement": {
-        "views": 35236,
-        "likes": 299,
-        "replies": 53,
-        "reposts": 45,
+        "views": 36597,
+        "likes": 318,
+        "replies": 58,
+        "reposts": 52,
         "quotes": 4
       },
       "external_urls": [],
@@ -1562,11 +2193,11 @@
       "text": "We have been focusing on efficiency and intelligence for all. \n\nVery proud of the team. Only possible when you have incredible models at the top end of the capability that you can then use to make a big difference in everything else.",
       "url": "https://x.com/thsottiaux/status/2102440619616682120",
       "engagement": {
-        "views": 2494918,
-        "likes": 12258,
-        "replies": 1687,
-        "reposts": 310,
-        "quotes": 197
+        "views": 2656953,
+        "likes": 12461,
+        "replies": 1695,
+        "reposts": 314,
+        "quotes": 201
       },
       "external_urls": [],
       "media": {
@@ -1593,7 +2224,7 @@
       "text": "Your friends don’t always see what you see.\n\nYou know they’re missing out.\n\nOn Noise°, you can back your conviction and get paid for what you just know.\n\nProve them wrong. https://t.co/bOGiAInUCT",
       "url": "https://x.com/noisedotxyz/status/2102437243877204041",
       "engagement": {
-        "views": 3390,
+        "views": 3458,
         "likes": 38,
         "replies": 5,
         "reposts": 4,
@@ -1632,9 +2263,9 @@
       "text": "感谢邀请，正好也想请教一下 Brant 最近美股的走势。",
       "url": "https://x.com/PhyrexNi/status/2102436186136678643",
       "engagement": {
-        "views": 10516,
-        "likes": 42,
-        "replies": 11,
+        "views": 11140,
+        "likes": 45,
+        "replies": 13,
         "reposts": 1,
         "quotes": 0
       },
@@ -1679,11 +2310,11 @@
       "text": "Onchain FX is live on Arc.\n\nNearly $10 trillion moves through FX markets every day, much of it still on rails built for a world that closes at 5pm.\n\nStableFX, Circle’s onchain FX engine, is now live on Arc mainnet:\n→ Settle 24/7: near-instant or deferred to fit your schedule\n→ Minimize settlement risk: both sides get funded, or neither does\n→ Reduce operational overhead: contract once, trade with multiple vetted counterparties\n→ Get competitive pricing through a unified RFQ model\n\nThe always-on economy needs always-on FX. It’s being built on Arc.\n\nhttps://t.co/mwlc0Lo2j5",
       "url": "https://x.com/arc/status/2102428211011608891",
       "engagement": {
-        "views": 35663,
-        "likes": 494,
-        "replies": 89,
-        "reposts": 87,
-        "quotes": 23
+        "views": 47492,
+        "likes": 534,
+        "replies": 93,
+        "reposts": 90,
+        "quotes": 25
       },
       "external_urls": [
         "https://www.circle.com/stablefx"
@@ -1716,7 +2347,7 @@
       "text": "$CLAW 和 claw的生态在ai叙事回来的时候就是现在的 $STONK ！",
       "url": "https://x.com/Arron_finance/status/2102421910596604038",
       "engagement": {
-        "views": 3231,
+        "views": 3349,
         "likes": 3,
         "replies": 0,
         "reposts": 3,
@@ -1759,7 +2390,7 @@
       "text": "RT @TowerExchange: cirBTC by @circle is live on Tower!\n\nTrade it here: https://t.co/XaNSBopU71 https://t.co/ZWMx3d5eD2",
       "url": "https://x.com/arc/status/2102420773550096754",
       "engagement": {
-        "views": 6975,
+        "views": 7073,
         "likes": 0,
         "replies": 0,
         "reposts": 12,
@@ -1828,7 +2459,7 @@
       "text": "RT @birdeye_so: $cirBTC from @circle is now verified on Birdeye.\n\nCircle Wrapped Bitcoin brings 1:1, BTC-backed liquidity to the @arc ecosy…",
       "url": "https://x.com/arc/status/2102419763318444360",
       "engagement": {
-        "views": 6935,
+        "views": 7033,
         "likes": 0,
         "replies": 0,
         "reposts": 3,
@@ -1889,11 +2520,11 @@
       "text": "$6.2 Billion in TVL\n\nA new ATH https://t.co/wAvxVSso7z",
       "url": "https://x.com/base/status/2102419363144048954",
       "engagement": {
-        "views": 90388,
-        "likes": 1114,
-        "replies": 181,
-        "reposts": 109,
-        "quotes": 82
+        "views": 94774,
+        "likes": 1167,
+        "replies": 184,
+        "reposts": 121,
+        "quotes": 86
       },
       "external_urls": [],
       "media": {
@@ -1924,9 +2555,9 @@
       "text": "感觉挺多是为了存钱阶段后 0.1换币\n0.1换币对应市值应该就不到2M\n7天后还在2M以上都是赚的 \n这样理解应该没问题？ https://t.co/LClffv1Bop",
       "url": "https://x.com/0xStudy/status/2102419267639808492",
       "engagement": {
-        "views": 404,
-        "likes": 0,
-        "replies": 1,
+        "views": 436,
+        "likes": 1,
+        "replies": 2,
         "reposts": 0,
         "quotes": 0
       },
@@ -1959,7 +2590,7 @@
       "text": "RT @Tangem: Day 2, and you can already swap into $USDC on @arc.\n\nDirectly in the Tangem app without leaving self-custody. \n\nTry it yourself…",
       "url": "https://x.com/arc/status/2102416652952551544",
       "engagement": {
-        "views": 6925,
+        "views": 7018,
         "likes": 0,
         "replies": 0,
         "reposts": 59,
@@ -2026,10 +2657,10 @@
       "text": "RT @goldskyio: Curious about what people are building on Arc?\n\nJust under a week into @Arc's mainnet launch, we mapped out the ecosystem an…",
       "url": "https://x.com/arc/status/2102416595784200617",
       "engagement": {
-        "views": 6774,
+        "views": 6868,
         "likes": 0,
         "replies": 0,
-        "reposts": 14,
+        "reposts": 16,
         "quotes": 0
       },
       "external_urls": [],
@@ -2073,7 +2704,7 @@
       "text": "RT @moonpay: we heard AI agents love stablecoins…\n\n@arc is now live on @PayBox!",
       "url": "https://x.com/arc/status/2102416130325524768",
       "engagement": {
-        "views": 6566,
+        "views": 6651,
         "likes": 0,
         "replies": 0,
         "reposts": 37,
@@ -2135,9 +2766,9 @@
       "text": "我现在越来越觉得，这轮市场真正的拐点，可能已经开始出现了。\n\n过去几个月市场交易的是一条很简单的链条：\n\n霍尔木兹受阻 → 原油高位 → 通胀重新抬头 → 全球央行被迫加息 → 风险资产承压。\n\n但最近几天，这条链条开始出现了一股完全相反的力量。\n\n美联储加息已经落地，日本央行也继续加息。\n\n当高油价真的开始传导到通胀、利率和经济之后，美日韩对于原油问题的态度明显变得更紧迫。\n\n美国持续释放战略石油储备，日本已经动用库存保障供应，韩国甚至开始讨论参与霍尔木兹海峡的航运安全。\n\n更值得注意的是外交端。\n\n中国和伊朗谈，核心议题之一就是尽快恢复霍尔木兹海峡通航；\n\n美伊重新出现谈判窗口，伊朗甚至提出，如果美国缓和军事压力、解除港口封锁，可以在一周内重新开放霍尔木兹；\n\n接下来的中美会谈，伊朗和能源问题同样绕不开。\n\n所以我现在看这些事情，不会把它们拆开。\n\n真正的拐点，不是哪一场和谈。\n\n而是当高油价最终逼到通胀和加息这一步之后，各方第一次都有足够强的动力，让原油重新下来。\n\n今天市场其实已经开始交易这股“反向力量”：\n\n霍尔木兹缓和 → 原油回落 → 通胀预期降温 → 加息压力边际下降 → 风险资产重新获得支撑。\n\n如果这个逻辑继续兑现，我认为接下来最值得交易的，可能已经不是继续追高原油，而是寻找这轮宏观拐点之后的反向机会。\n\n————————————\n\n最近正好 MSX 在做「秋日淘金」活动，RWA 现货和合约交易都能参与，奖池 50,000 USDT，还有 iPhone DUO / iPhone 18 Pro、$APPL 和限定金钞等奖励。\n\n活动一、金秋现货礼｜瓜分10,000 USDT，最高领 300 USDT\n总奖池：10,000 USDT 合约体验金\n规则：活动期间，累计RWA现货交易量 ≥ 100 USDT，即可参与对应档位奖池瓜分，单人最高可得300 USDT合约体验金！\n\n活动二、金秋合约礼｜竞逐 40,000 USDT，赢 iPhone Duo 与限定金钞\n活动期间，累计合约交易量达到指定门槛，即有机会赢 iPhone DUO及MSX 限定金钞等豪礼，总奖池价值 40,000 USDT！\n\n活动三、金秋幸运礼｜惊喜加码，抽 MSX 限定周边\n活动期间，满足以下任一条件，即可自动获得抽奖资格，无需手动参与抽奖：\n• 累计RWA现货交易量 ≥ 100 USDT；\n• 累计合约交易量 ≥ 1,000 USDT。",
       "url": "https://x.com/octopusycc/status/2102414336065257596",
       "engagement": {
-        "views": 15602,
-        "likes": 14,
-        "replies": 6,
+        "views": 16497,
+        "likes": 15,
+        "replies": 9,
         "reposts": 0,
         "quotes": 0
       },
@@ -2182,9 +2813,9 @@
       "text": "做得好好的，Trump上桌说\n\n你们都别做了 我要伟大操盘一波 \n\n那得了 都别做了\n\n继续敏捷吧\n\n今日直播有感",
       "url": "https://x.com/octopusycc/status/2102413663051431999",
       "engagement": {
-        "views": 7991,
-        "likes": 27,
-        "replies": 7,
+        "views": 8212,
+        "likes": 29,
+        "replies": 9,
         "reposts": 0,
         "quotes": 0
       },
@@ -2213,7 +2844,7 @@
       "text": "留点e转换博一博🤓",
       "url": "https://x.com/0xStudy/status/2102413587604238709",
       "engagement": {
-        "views": 649,
+        "views": 693,
         "likes": 0,
         "replies": 1,
         "reposts": 0,
@@ -2244,7 +2875,7 @@
       "text": "Up to 30% Maker Rebates are live now!",
       "url": "https://x.com/predictdotfun/status/2102407403564421615",
       "engagement": {
-        "views": 2891,
+        "views": 2994,
         "likes": 13,
         "replies": 9,
         "reposts": 1,
@@ -2289,9 +2920,9 @@
       "text": "BNC增发了，目前mNAV已经大于1。\n\nYZi Labs 在9月17日当天行使了约 760 万份低价权证，行权价 0.00001 美元/股，因此 BNC 向其发行了对应数量的普通股。\n\n差不多增发了总股本的18.5%。\n\n坏消息是BNC持股者每股对应的BNB变少了。\n\n好消息是YZI labs持股比例增加了。BNC与 CZ、币安的绑定更深了。\n\nBSC规则怪谈扩散到了美股，到底是丧事喜办还是伟大的撤退，我们拭目以待。",
       "url": "https://x.com/nbblock/status/2102406631015522712",
       "engagement": {
-        "views": 6072,
-        "likes": 13,
-        "replies": 19,
+        "views": 6368,
+        "likes": 15,
+        "replies": 21,
         "reposts": 1,
         "quotes": 1
       },
@@ -2320,10 +2951,10 @@
       "text": "什么Muse、Grok Bot，都不如一台属于自己的24小时Agent终端。\n把之前M4的Macmini鸟枪换炮一下...就是这价格真的涨的太恐怖了... https://t.co/N2opEDFcHf",
       "url": "https://x.com/Khazix0918/status/2102405386309665101",
       "engagement": {
-        "views": 59408,
-        "likes": 94,
-        "replies": 61,
-        "reposts": 1,
+        "views": 65058,
+        "likes": 102,
+        "replies": 73,
+        "reposts": 2,
         "quotes": 0
       },
       "external_urls": [],
@@ -2355,8 +2986,8 @@
       "text": "Chart sourced from the Variational stats page: https://t.co/GntQPqe0WX",
       "url": "https://x.com/variational_io/status/2102401300449358153",
       "engagement": {
-        "views": 1990,
-        "likes": 11,
+        "views": 2104,
+        "likes": 12,
         "replies": 1,
         "reposts": 0,
         "quotes": 0
@@ -2388,11 +3019,11 @@
       "text": "The Variational Treasury has crossed $8.5M, with $2M+ added in the past month. https://t.co/nzJHCBYn6m",
       "url": "https://x.com/variational_io/status/2102401287686074699",
       "engagement": {
-        "views": 14259,
-        "likes": 318,
+        "views": 15204,
+        "likes": 324,
         "replies": 42,
-        "reposts": 24,
-        "quotes": 12
+        "reposts": 25,
+        "quotes": 13
       },
       "external_urls": [],
       "media": {
@@ -2423,8 +3054,8 @@
       "text": "When I said “get in here smolting”\n\nThis isn’t what I meant. https://t.co/VzTkng5UTC",
       "url": "https://x.com/CoinbaseWallet/status/2102398779051958385",
       "engagement": {
-        "views": 24804,
-        "likes": 283,
+        "views": 25323,
+        "likes": 289,
         "replies": 80,
         "reposts": 23,
         "quotes": 17
@@ -2458,9 +3089,9 @@
       "text": "10.6见\n\n一起来看新加坡的OKX的全球发布会了！\n\n@star_okx @okxchinese @Jiajia_OKX https://t.co/OgstNkb1mR",
       "url": "https://x.com/octopusycc/status/2102398639687741883",
       "engagement": {
-        "views": 5618,
+        "views": 5712,
         "likes": 7,
-        "replies": 21,
+        "replies": 26,
         "reposts": 0,
         "quotes": 0
       },
@@ -2509,7 +3140,7 @@
       "text": "纳指冲新高🚀🚀",
       "url": "https://x.com/ArtofSpecuycky/status/2102395581738176667",
       "engagement": {
-        "views": 10447,
+        "views": 10752,
         "likes": 37,
         "replies": 8,
         "reposts": 0,
@@ -2540,11 +3171,11 @@
       "text": "tell a friend, tokenization is winning",
       "url": "https://x.com/xStocksFi/status/2102393874111144090",
       "engagement": {
-        "views": 10121,
-        "likes": 283,
-        "replies": 53,
+        "views": 10401,
+        "likes": 285,
+        "replies": 54,
         "reposts": 15,
-        "quotes": 6
+        "quotes": 7
       },
       "external_urls": [],
       "media": {
@@ -2571,7 +3202,7 @@
       "text": "https://t.co/2qXk7mANgv\n开播了",
       "url": "https://x.com/octopusycc/status/2102390566554423787",
       "engagement": {
-        "views": 4853,
+        "views": 5022,
         "likes": 2,
         "replies": 3,
         "reposts": 0,
@@ -2620,7 +3251,7 @@
       "text": "昨日 GLW INTC SNDK BE INTC都做出正确判断 谢谢大家",
       "url": "https://x.com/octopusycc/status/2102390155911020939",
       "engagement": {
-        "views": 7299,
+        "views": 7457,
         "likes": 17,
         "replies": 6,
         "reposts": 0,
@@ -2651,7 +3282,7 @@
       "text": "石油下跌，昨天的预判还行。\n\n复盘昨日和挖掘今日机会了。\n\n待会儿见。\n\n@heyibinance @binancezh @yingbinance @Yuki27__ @pearbinance https://t.co/xwJ2BMYByn",
       "url": "https://x.com/octopusycc/status/2102388376263631287",
       "engagement": {
-        "views": 7156,
+        "views": 7350,
         "likes": 6,
         "replies": 6,
         "reposts": 0,
@@ -2686,10 +3317,10 @@
       "text": "Traditional market hours:\n→ Mon-Fri\n→ 9:30-16:00\n\nTokenized stocks on Base:\n→ Mon-Sun\n→ 24/7",
       "url": "https://x.com/base/status/2102379399957893416",
       "engagement": {
-        "views": 54289,
-        "likes": 442,
-        "replies": 114,
-        "reposts": 60,
+        "views": 55707,
+        "likes": 452,
+        "replies": 115,
+        "reposts": 62,
         "quotes": 18
       },
       "external_urls": [],
@@ -2717,9 +3348,9 @@
       "text": "路透社 9月22日报道，一名伊朗高级官员表示：如果美国减轻军事压力，并解除对伊朗港口的封锁，伊朗可以在七天内重新开放霍尔木兹海峡。\n\n先不说这条信息是真的还是假的，最近油价已经开会回落 WTI 几乎跌破 90 美元，而一周前这个价格突破了 105 美元。\n\n就在很多小伙伴还在等 150 美元或者 200 美元石油的时候，伊朗和美国已经非常默契的开始互相给台阶了，当然这其中很有可能是中国等第三方国家斡旋的结果。\n\n做空石油仍然是非常正确的选择。本周中国领导人访美，如果一切顺利，10月份油价有望回到 80 美元以内或者更低。\n\n还是那句话，做空石油，我还是很有信心的。\n\n @Gate Crypto、美股、港股、韩股、黄金、CFD、预测市场一站交易",
       "url": "https://x.com/PhyrexNi/status/2102378268888543471",
       "engagement": {
-        "views": 27542,
-        "likes": 61,
-        "replies": 28,
+        "views": 28372,
+        "likes": 63,
+        "replies": 31,
         "reposts": 4,
         "quotes": 0
       },
@@ -2764,7 +3395,7 @@
       "text": "Not available in the US or to US persons. Geo restrictions apply. Read Kraken's xStocks Risk Disclosure at https://t.co/6DxT0H882r or at https://t.co/VHPAyjGH2j. https://t.co/f1ptSTzr17",
       "url": "https://x.com/xStocksFi/status/2102374493637509270",
       "engagement": {
-        "views": 1125,
+        "views": 1158,
         "likes": 7,
         "replies": 0,
         "reposts": 0,
@@ -2802,8 +3433,8 @@
       "text": "The stock market is yet to officially open.\n\nCRCLx trades 24/7 just like USDC because the future of the dollar and equities is onchain and always on.\n\nTokenized by xStocks. https://t.co/3q3kdNidRm",
       "url": "https://x.com/xStocksFi/status/2102374489296339379",
       "engagement": {
-        "views": 11217,
-        "likes": 188,
+        "views": 11376,
+        "likes": 189,
         "replies": 27,
         "reposts": 10,
         "quotes": 2
@@ -2855,10 +3486,10 @@
       "text": "人才啊！",
       "url": "https://x.com/PhyrexNi/status/2102373365185237173",
       "engagement": {
-        "views": 70516,
-        "likes": 108,
-        "replies": 30,
-        "reposts": 5,
+        "views": 74095,
+        "likes": 113,
+        "replies": 33,
+        "reposts": 8,
         "quotes": 0
       },
       "external_urls": [],
@@ -2906,9 +3537,9 @@
       "text": "清仓了，不过量不大，但是有 72% 的收益率。差不多大半天。有空写个复盘吧，我觉得还是挺有意思的。但就是这个授权真的是需要严肃处理，严肃影响了这个买入卖出的操作速度，导致利润回吐了一些。不过作为 Agent Trading 的第一笔，还是相当的不错的。",
       "url": "https://x.com/brucexu_eth/status/2102372306471559186",
       "engagement": {
-        "views": 4389,
-        "likes": 14,
-        "replies": 3,
+        "views": 6882,
+        "likes": 15,
+        "replies": 4,
         "reposts": 0,
         "quotes": 1
       },
@@ -2949,9 +3580,9 @@
       "text": "Binance 直接投资 Circle 1 亿美元，双方签下新的五年合作协议。该笔交易说明 @binance 重新获得美国资本商业接纳的一个信号。 @circle 背后的美国资本愿意接受 Binance 入股，看重的是 Binance 的全球用户、交易需求和稳定币渠道。\n\n$CRCL 要扩大 USDC 的市场，Binance 能提供资金之外的业务价值。此次合作中 Binance 可以获得与相关 USDC 持有规模挂钩的月度激励，同时通过股权分享 Circle 的增长。\n\n接下来很有可能在 Binance 享受到和 Coinbase 一样持有 USDC 就有（或增加一些需求）生息的补贴。",
       "url": "https://x.com/PhyrexNi/status/2102367919086977405",
       "engagement": {
-        "views": 17494,
+        "views": 18008,
         "likes": 61,
-        "replies": 20,
+        "replies": 22,
         "reposts": 2,
         "quotes": 1
       },
@@ -3005,11 +3636,11 @@
       "text": "这项目今天关注度挺高 @MeridianCapDAO\n\n挺多人关注 昨天晚上没什么人聊，今晚上刚看有朋友在讨论 加入了一下，写个帖子方便刚去关注的xd懂玩法 不要乱存呀\n\n玩法流程就是图2，共五天  今晚9点开始  存钱 换购 赎回 三个板块都很重要，不是光存进去不需要管那种\n\n①前五天是存钱获得gMCD 根据不同池子TVL进行瓜分\n\n②5天存款结束后，CONVERSIONS期间  没取的就被以0.1的价格换gMCD，这部分项目方收到的会拿去做MCD的LP\n\n③再就是7天线性gMCD赎回兑MCD，从而卖出MCD离场\n\n昨天就有两个哥们问我当时我也没搞懂，今天看 @Mojito_cx 存了点  看完文档也存了 0.5E 还有一个小时开始五天倒计时  五天后取出撸一波GENESIS存款期的gMCD，希望人没事测；不懂的把文档发给ai就行  免得造成资金损失\n\n撸过熊链的应该记得Yeet和BakerDAO  就是这项目方 @lordpemby \n\n我写的较拙  Yond哥写的👇",
       "url": "https://x.com/0xStudy/status/2102367789587759106",
       "engagement": {
-        "views": 11272,
+        "views": 11931,
         "likes": 30,
         "replies": 19,
         "reposts": 2,
-        "quotes": 1
+        "quotes": 0
       },
       "external_urls": [],
       "media": {
@@ -3055,9 +3686,9 @@
       "text": "ETHShanghai 2026 圆满结束！直接超出预期，来了好多老朋友，没想到这种行情下还能来这么多。\n\n这个活动组太棒了，做过大会才知道有多累 🫡 @yuxin_pig @yoyocao_eth @Bitzack_01 Zhiyuan 还有志愿者们🫡\n\n也感谢赞助方和合作方，还有各位嘉宾！ https://t.co/PKefH3S0Su",
       "url": "https://x.com/brucexu_eth/status/2102353357486879128",
       "engagement": {
-        "views": 2610,
-        "likes": 47,
-        "replies": 25,
+        "views": 2771,
+        "likes": 48,
+        "replies": 31,
         "reposts": 0,
         "quotes": 0
       },
@@ -3090,7 +3721,7 @@
       "text": "RT @PANewsCN: https://t.co/aImRYAQLA5",
       "url": "https://x.com/brucexu_eth/status/2102350795723477327",
       "engagement": {
-        "views": 33,
+        "views": 35,
         "likes": 0,
         "replies": 0,
         "reposts": 14,
@@ -3133,7 +3764,7 @@
       "text": "更多细节，欢迎阅读《JEV 爆火成为 AI 新宠：盘点 20+ 个最前沿的加密实战用例与叙事标的》\n\nhttps://t.co/3Mi3asSdzK",
       "url": "https://x.com/TechFlowPost/status/2102349172959539533",
       "engagement": {
-        "views": 1115,
+        "views": 1135,
         "likes": 2,
         "replies": 1,
         "reposts": 0,
@@ -3237,10 +3868,10 @@
       "text": "救命，这两天所有人都在讨论 JEV，说这个“哑巴 AI”是终极生产力。\n\n上次小龙虾爆火你们也是这么说的。\n\n面对新东西，“小聋瞎”小编还没跟上趟，但本着“我可以不会写代码，但我必须给兄弟们做电子菩萨”的原则，\n\n小编连夜翻遍帖子，把这波 JEV 狂潮里的20多个前沿加密实战用例与叙事标的给盘了一遍，\n\n发现大家已经搞出了各路自动交易、预测市场评估、链上投研、情绪监测等产品。\n\n一波聚合如下，赚钱不一定，但收藏不亏：\n\n1. 高频交易与自动化机器人\n\njev-trader\n作者： Jarrod Watts，Monad 基金会首席 AI 工程师，@jarrodwatts\n简介： 这大概是加密圈里最先火起来的 Jev 案例。\n作者在 Monad 上搭了个会自己挂单的机器人，每个区块大约 300 毫秒，先看一眼 Kuru 上 MON/USDC 的买卖盘，再问 Jev 一句「现在该买还是该卖」。\nJev 只给方向和把握，代码负责把限价单挂到盘口里侧，等别人来成交。它更像在演示 JEV 的能力「判断快到能跟上出块」，作者自己也写了这不是稳赚策略。\n默认可以空转看盘，接上私钥才会真下单，可以当启蒙和喂给自己的 AI 训练用。\n\n项目地址： https://t.co/BzVuajtoLb\n演示： https://t.co/aH8hG5H8fG\n原帖连接： https://t.co/EX2lZudCUN\n\nJev-trade\n作者： aowang（GitHub：aowang-ai）\n简介： 把上面那套思路搬到了 Hyperliquid。还是 Jev 看盘、代码下单，但这次同时盯 BTC、ETH、SOL、DOGE、BNB，五个币各用一个钱包，互不影响。\nJev 这次可以选买、卖，也可以说先别动。页面上能看到实时 K 线、成交点和盈亏，看起来像一个小型交易台，不是只给开发者看的仓库。\n\n项目地址： https://t.co/tZtg0o5VZV\n演示： https://t.co/ikQluwUNud\n\njev-market-reflex\n作者： zzsong1023（GitHub 作者名） \n简介： 接的是 Kraken 上 BTC、ETH、SOL 的真实行情，但目前是模拟盘。\n程序先把盘口压成一小段状态，问 Jev 买、卖还是持有，再用固定规则去做模拟成交。适合想先看「Jev 面对活行情会怎么决策」，又暂时不想把真金白银接进去的人。\n\n项目地址： https://t.co/0du0PwOBxt\n\n给 Jev 1 万美元做比特币交易\n作者： Abol，@abolbuild\n\n简介： 直接把一笔钱交给 Jev 相关的交易流程，看它拿着比特币会怎么选买、卖、加仓还是减风险。\n\n原帖连接： https://t.co/dsXPD81e5m\n\nBTC/ETH 合约模拟系统\n作者： Michael Hudsonrt，AI Agent Builder @Mrooo03\n\n简介： 中文圈里比较直白的一篇实操记录。作者觉得 Jev 判断很快，就拿去跑合约自动买卖，结果第一轮亏得挺狠，后来把过程写成文章。用的话，价值主要在分析「别人真实踩过的坑」，给自己的 Build 提供参考\n\n原帖连接： https://t.co/cxOXxmLAWS\n\n5 秒决策的 Jev Trader\n作者： Gencay，LearnWithMeAI 作者\n\n简介： 作者从币安公开行情里抽了十几个信号，比如价差、买卖力量、盘口是否有毒，每隔 5 秒打包给 Jev，让它判断方向、市场状态和这单值不值得进。\n适合看「高频问询」怎么搭，不适合直接当实盘模板。\n\n项目地址： https://t.co/Nsm21LOoEx\n\n2.市场情绪与链上投研\n\nJev X Sentiment Analysis\n作者： brainstormity，https://t.co/TXwWrrJ0ga 创始人，@brainstormity\n简介： 这个更像情绪研究，不只是下单机器人。\n你丢进 BTC、ETH、SOL 这类标的，它去拉几十到一千条最新推文，再叠上资金费率、RSI、成交量。Jev 给出现在偏多还是偏空、情绪热到哪一档，最后吐一张带入场、止损、目标的卡片。\n\n项目地址： https://t.co/yaMEKvmwDu\n原帖连接： https://t.co/aNdSXu83lo\n\njevscan\n作者： jevbook 团队，@jevbook\n简介： 面向「代币合约安全监测」。你给它一个 EVM 代币地址，它让 Jev 在 ape、watch、avoid 里选一个，并带上概率。\n作者把它做成命令行，也接了 MCP，意思是你的交易 Agent 也可以直接问它「这个盘要不要上」。更像投研里的第一道过滤器，不是完整策略。\n\n项目地址： https://t.co/IwChLV4KQo\n原帖连接： https://t.co/3pvgnVGVLk\n\nVerdictJEV\n作者： 匿名\n简介：项目打分检测器。 打开网页，贴合约地址或项目 GitHub，Jev 会看曲线、持仓集中度、部署者历史，以及仓库是不是空壳、刷星、停更。输出的是质量、爆发潜力、rug 风险这类判断。\n\n站点还绑了一个 $VJEV 代币：判好的会回购，判差的会销毁。研究工具和代币玩法叠在一起，值得警惕。\n项目地址： https://t.co/KSpYZkejoc\n\n3.预测市场\nJevymarket\n作者： Markus Haas（GitHub：markusbug）\n\n简介： Jev 自己不上网、也没有「今天发生了什么」的记忆，所以先让一个会搜索的模型把新闻证据写成简报，再把简报交给 Jev 定价。\nJev 给出的概率如果比 Polymarket 盘口更好，机器人才考虑下单。思路很清楚：聊天模型负责找材料，Jev 负责拍板。\n\n项目地址： https://t.co/gQpr5sZfgO\n\nhttps://t.co/Q2dEYhgzCH 的 Jev 价格问答实验\n作者： https://t.co/Q2dEYhgzCH News 编辑部\n\n简介： 记者没有让 Jev 去跑策略，直接拿当下市场材料问它：比特币会不会先打到 8.5 万、9 万、10 万。报道里 Jev 给 8.5 万的概率大约一半出头，当时盘口更乐观。\n\n小编评价这属于“同行卷我”，加密媒体开始把它当成可以快速给概率的研究助手。 \n\n原帖连接： https://t.co/ox5mNtlYYh\n\n4.圈内机构实验\n\nTradeRank 上的 Jev\n作者： TradeRank 赛事平台收录的项目；模型来自 TypeSafe\n\n简介： AI交易大赛。把 Jev 丢进一个公开模拟赛里，和其他大模型一起做加密货币和美股。每天用同一批标的、同一笔虚拟本金做一次决策。\n好处是能横向看它 quietly 选仓时表不表现；坏处是赛季还很短，现在基本看不出稳定优势。更适合当对照实验，不适合当跟单信号。\n\n项目地址： https://t.co/IFxHNsUn9O\n平台说明：https://t.co/le4vcDhxvZ\n\nBitget AgentHub 上的 Jev BTC 策略演示\n作者： Bitget 官方，@bitget\n简介： 交易所把自己的市场数据和 Jev 接在一起，给黑客松参赛者玩。\n有个演示是每 5 秒扫一遍盘口、清算和巨鲸动向，零点几秒内让 Jev 做一次方向判断，再在平台里模拟成交。\n更像「你们可以在我们这儿用 Jev 做交易 Agent」，不是已经验证过的公开实盘产品。\n\n项目地址： 需进入 Bitget AgentHub\n原帖连接： https://t.co/Gybq5uOUcr\n\n还有一些高风险的 AI meme 币，这部分仅做展示，也有不少同名币，DYOR：\n\n1. AI 充当项目方与金库管理员\n\nJevBall / JevBallAgent： 核心叙事是“AI 当 Dev”。交易税进入专属金库，由 JEV 模型决定何时等待、回购或销毁。项目方强调智能合约中剥离了“卖出”功能。\n\nJust Jev ($JEV)： 主打“无人掌握金库钥匙”。手续费进入合约后，每分钟由 JEV 决策进行回购、销毁或购买股票代币。\n\n2. 收益分配与生态代币\n\nOpenJEV ($JEV)： 在 Robinhood Chain 发行，交易手续费进入公开金库，专项用于支付 JEV 的 API 调用费用，以支持更多人免费测试该模型。\n\nJevpay ($JEVPAY)： 一场链上分红实验。交易税的 75% 用于分红，每次分红前将持币钱包数据喂给 JEV，由 AI 来判断谁有资格获取奖励。\n\nJevons ($JEVONS)： 除基础的税收回购销毁外，新增了持有该代币等于让 JEV 协助接触 NVDA、GOOGL 等代币化 AI 股票的叙事。\n\n3. 衍生基建与代币化股票\n\nJevdesk： \n存入 USDG 后，JEV 会在每个 Tick 根据行情给出代币化美股的“多/空/平”指令。产品本质是现金结算的方向押注，而非真实买入对应股票。\n\nJevPad： \n建立在 Robinhood Chain 上的发射台。发行的代币锁定 2% 税收，专属的 JEV Agent 负责利用这些资金进行宣发、回购或销毁。\n\n最后提示：\n新工具只要没太大门槛，加密永远是最新的试验田之一。\n\n这里面不一定所有东西都有用，但面向注意力的表演和演示 Demo，有时就已经比其他项目快一步了。\n\n对于普通玩家来说，那些工具层理的东西可以拿来用用，但“炒作 AI 自治概念”则需要谨慎操作。",
       "url": "https://x.com/TechFlowPost/status/2102347363322912859",
       "engagement": {
-        "views": 9142,
-        "likes": 41,
-        "replies": 15,
-        "reposts": 8,
+        "views": 9614,
+        "likes": 42,
+        "replies": 18,
+        "reposts": 9,
         "quotes": 0
       },
       "external_urls": [
@@ -3291,7 +3922,7 @@
       "text": "@spark888 🏃逃离地球表面",
       "url": "https://x.com/0xStudy/status/2102346316529741865",
       "engagement": {
-        "views": 85,
+        "views": 86,
         "likes": 0,
         "replies": 0,
         "reposts": 0,
@@ -3322,7 +3953,7 @@
       "text": "@0xStudy 别玩了，伟大的撤退",
       "url": "https://x.com/spark888/status/2102345992888795428",
       "engagement": {
-        "views": 83,
+        "views": 84,
         "likes": 1,
         "replies": 1,
         "reposts": 0,
@@ -3353,7 +3984,7 @@
       "text": "从x发布的视频看，很快就能支持 hashtag跳转购买了\n官方公布的首批 5 家是：\n加密货币：Coinbase、Kraken、Gemini\n股票 / ETF：Interactive Brokers、Moomoo（富途在美国的品牌）\n\n多了个超强入口，而首发支持的3家加密货币交易所，有竞争态势的  base robinhood bsc sol中算是利好base吧\n\n加仓了些 basecat:native blue-chip-4:native \n\nhttps://t.co/QtGFrOPY6o",
       "url": "https://x.com/aLiiDeez/status/2102339500903199025",
       "engagement": {
-        "views": 3154,
+        "views": 3229,
         "likes": 11,
         "replies": 4,
         "reposts": 0,
@@ -3408,7 +4039,7 @@
       "text": "RT @XLayerOfficial: $1.5B+ and counting.\n\n@xStocksFi cumulative trading volume on X Layer continues to climb, reflecting growing demand for…",
       "url": "https://x.com/xStocksFi/status/2102337622131749096",
       "engagement": {
-        "views": 2295,
+        "views": 2309,
         "likes": 0,
         "replies": 0,
         "reposts": 7,
@@ -3455,7 +4086,7 @@
       "text": "着急给孩子组装“室内单杠”，单位写错了，不是U，是ZEC。\n\n学校又一场浩浩荡荡的“运动”，开始了。\n\n孩子们，每天跑2000多米，外加体育课，外加晚上单杠打卡。\n\n卖“室内单杠”的，又狠狠赚一笔。 https://t.co/IFAOnfpgxx",
       "url": "https://x.com/Benjieming1Q84/status/2102337152243941478",
       "engagement": {
-        "views": 905,
+        "views": 934,
         "likes": 0,
         "replies": 2,
         "reposts": 0,
@@ -3490,7 +4121,7 @@
       "text": "草稿箱里还存着一篇Paimon的其他pre-IPO“趣事”\n\n当时因为觉得币安做兜底 pPOLY肯定稳赚 所以就没发，觉得没参考意义，这不来了  Flap选择和Listadao一起干  既然沙克也干了 那我也干\n\n如下图2-4是没有币安钱包做兜底给低价筹码的情况： https://t.co/hM9cmqtdMY",
       "url": "https://x.com/0xStudy/status/2102336955455590485",
       "engagement": {
-        "views": 10883,
+        "views": 11463,
         "likes": 13,
         "replies": 7,
         "reposts": 0,
@@ -3544,9 +4175,9 @@
       "text": "Fables昨晚的这个稳定币池 进出有点麻烦的\n\n磨损有点  只出在aUSD上面 走Uni应该是最低磨损了也要0.25% \n\nfrxUSD在rbh直接换磨损0.5%，得先主网USDC兑换为主网的frxUSD，然后这里从主网跨入Rbh： https://t.co/OSks0qzWGG\n\n昨晚凌晨刚出来去组了1KU试水 没一会就超区间 但给了几百分  中午重新改区间加进去了，明天再看了 主要是Merkl的额外奖励  8小时分发一次提高的pool apr\n\n————————————\n\n附上CA 免得大家找错搞错\naUSD的rbh链CA:\n0x4f11d7603d1b0d0f021db552d8a6d88d7fa38ecf\n\nfrxUSD的主网CA:\n0xcacd6fd266af91b8aed52accc382b4e165586e29\n\n————————————\n\n建议还是：小额没必要 大额怕烦恼  看看就好  仅供在玩的人参考，我也不拉人  因为不知道你来了积分能不能回磨损本  所以别来卷 怕你亏🤪  dyor @fablesfi \n\n（ETH/USDG池子前几天Fomopeek那一次换钱包后就撤了没重新加，手里拿着现货ETH和USDG  不错 涨幅应该比积分值钱）",
       "url": "https://x.com/0xStudy/status/2102331356143649001",
       "engagement": {
-        "views": 3485,
-        "likes": 10,
-        "replies": 3,
+        "views": 3680,
+        "likes": 11,
+        "replies": 5,
         "reposts": 1,
         "quotes": 0
       },
@@ -3602,8 +4233,8 @@
       "text": "说一下 $BTW 吧：\n\n有一说一，不得不服 $BTW 的庄，昨天几个 KOL 和大户在相对高点把手上的货转到交易所全部给清掉了，结果今天 mm 直接照单全收，大有一副你抛多少，我收多少的霸气感\n\n链上筹码情况：\n根据链上数据汇总，包含今天庄收的筹码，目前几大钱包总持仓共计有 224.6 亿枚代表，合计约 183.5 亿美金筹码\n\n全网OI持仓：\n这几天的 OI 持仓一直没掉，反而有增加，截止今天的数据，FDV 80.89 亿美金，MC 22.73 亿美金，全网 OI 为 1.81 亿美金，市值排行已经位居 33 名\n\n总结：\n跟据这个庄一系列的行为操作来看， $BTW 绝对会是下一个神盘，目前全网流通量是 28.1 亿枚，庄已控筹 224.6 亿枚，占比 84%  筹码，这个代币我们 #敖丙社区 是从  0.082 附近按头买入，现在已经涨幅 1300% 了，期待下一个新高",
       "url": "https://x.com/ElonKely_/status/2102330911471829043",
       "engagement": {
-        "views": 3506,
-        "likes": 11,
+        "views": 3797,
+        "likes": 13,
         "replies": 1,
         "reposts": 0,
         "quotes": 0
@@ -3637,8 +4268,8 @@
       "text": "币安 ALpha上的这个 R2 明显有操盘手在控着。 \n\n最低那个点到了就马上快速回升，加上本身有地推的属性在，护盘的能力应该会比其他项目好些。\n\n但目前这个盘面结构需要继续观察，现价进的话，个人感觉有风险，博的就是不会再跌破那个最低点。\n\n稳点的话，先等个 HL 出来先，小周期的更高点先放在 0.0122 这边。\n\n盘面上的动作证明有操盘手在专注这个币，那就看看后续的结构怎么走先。\n\n好的操盘手，都会给出诱人的进场结构出来。后续再拉高杀，那时候就各凭本事跑了。",
       "url": "https://x.com/YSI_crypto/status/2102327447492624501",
       "engagement": {
-        "views": 4701,
-        "likes": 6,
+        "views": 4809,
+        "likes": 7,
         "replies": 7,
         "reposts": 0,
         "quotes": 0
@@ -3672,8 +4303,8 @@
       "text": "草 刚睡醒 感觉ZEC的nft其实没玩下去的必要了\n\n①链卡又难用 流动性很一般 大佬想进来扫货都懒得折腾 钱包和链都难用  卡一下都烦的不想继续玩，龙头跌的腰折 回到开盘价得有人扫九百多张NFT才行 就那样了吧\n\n②Zec链创业Dev骗子巨巨巨多，昨晚有个freemint 开打后显示要10U服务费哈哈草(之前还给我很多GTD让我发帖抽奖  觉得不靠谱就没发 幸好没发 坑人10U来的)  ；还有直接打开收款地址 喊你扫码付款的；还有收了钱跑路就不退款的；目前跑路破发或还没开始就结束的都N个了\n\n③那要是有非常好信誉且有实力的老项目方来做呢？感觉有的玩，但是 既然都这种  那哥几个肯定拿不到白名单  又是只能看着别人发财  嘿嘿  跑去搞又只会被白嫖几篇帖子\n\n④行情好不如跑去玩玩现货 玩玩土狗啥的  至少农一下随时跑，搞Zec是耽误一会白名单时间  耽误一会mint时间  耽误一会退款时间 再耽误一会反撸卖出时间，最后花费精力很久  余额-50%🙃这周做过最错误的决定就是玩这些  幸好只搞了一个Zaddr  其他没耽误什么，没错Zaddr还破发了 舒服 \n\n⑤一个隐私链  玩法居然是每天给项目方用本人的社交账号转发推文，隐私你大坝  白名单白你大坝 全是给项目方做嫁衣；核心还是没有Fomo情绪  只有猪脚饭情绪  每个人都想来这里搞一碗猪脚饭，然后...Dev也是这样想的  然后shit满天飞  \n\n综上  不玩了 提现跑路",
       "url": "https://x.com/0xStudy/status/2102322617344770365",
       "engagement": {
-        "views": 4944,
-        "likes": 42,
+        "views": 5076,
+        "likes": 43,
         "replies": 25,
         "reposts": 0,
         "quotes": 1
@@ -3707,7 +4338,7 @@
       "text": "RT @aspecta_intern: 👀 Intern Guide | Aspecta Pre-Market V3\n\n#2 Limit Orders\n\n不想一直盯着 Pre-Market Price？\n\nV3 正式支持 Limit Orders（限价单）：\n\n• 提前设置目标…",
       "url": "https://x.com/aspecta_ai/status/2102322282396078323",
       "engagement": {
-        "views": 672,
+        "views": 677,
         "likes": 0,
         "replies": 0,
         "reposts": 1,
@@ -3754,7 +4385,7 @@
       "text": "Note: Please review the Pre-Market V3 trading materials to fully understand the rules and risks before participating.\n\nTutorial: https://t.co/rpEnSKRDa6\n\nDocs: https://t.co/YJLmsERRWO\n\nFor any questions, feel free to reach out to us in the official Aspecta/BuildKey community group: https://t.co/IbyAo3dqOj",
       "url": "https://x.com/aspecta_ai/status/2102321388350800334",
       "engagement": {
-        "views": 586,
+        "views": 597,
         "likes": 4,
         "replies": 0,
         "reposts": 0,
@@ -3789,7 +4420,7 @@
       "text": "📚 The important stages breakdown:\n\n➤ Trade: Before TGE\n\n- Long/short with market or limit orders\n\n➤ Trade + Settle: TGE to TGE+72h\n\n- Trading continues while settlement starts\n- Settle positions across multiple windows\n- Funding fees applied if long settlement requests can't be fully filled\n\n➤ Close & Share (Final Settlement): TGE+72h\n\n- Final Settlement DDL: TGE+72h\n- The final window for short users to deliver tokens and settle\n- Once this window ends, all long traders share the liquidity, settled tokens, and unsettled collateral in the pool\n\nTGE refers to the earliest of the following events: Binance Alpha listing, CEX listing (with withdrawal enabled), or on-chain trading pair available.\n\nThe launch rules and schedule may be adjusted before launch. Please refer to the information on the launch day for final details.",
       "url": "https://x.com/aspecta_ai/status/2102321376417964086",
       "engagement": {
-        "views": 789,
+        "views": 806,
         "likes": 7,
         "replies": 2,
         "reposts": 0,
@@ -3820,11 +4451,11 @@
       "text": "🔥 @ConcreteXYZ is coming to Aspecta Pre-Market V3 at 9 AM UTC on Sep 23.\n\n🌍 Long/Short starting at $250M FDV\n🔗 https://t.co/7A6eFHuG9r\n\n- No liquidation risk\n- Market & limit orders supported\n- Trading continues post-TGE\n- Settlement live across multiple windows\n\n📌 Please note: Concrete V2 and V3 are two separate pools. Rules, orders, and positions are independent.",
       "url": "https://x.com/aspecta_ai/status/2102321351902269928",
       "engagement": {
-        "views": 17040,
-        "likes": 164,
-        "replies": 25,
+        "views": 17520,
+        "likes": 165,
+        "replies": 26,
         "reposts": 6,
-        "quotes": 8
+        "quotes": 10
       },
       "external_urls": [
         "https://trade.aspecta.ai/projects/usdt/V3_Concrete"
@@ -3857,9 +4488,9 @@
       "text": "还挺期待OKX Now10月6日的这场发布会上会拿出什么样的重磅产产品来，大概率是链上金融/RWA、支付、AI交易等这些方面，更想看他们具体做出来了什么，以及这些模块怎么组合在一起，毕竟OKX的产品能力还是有口皆碑的。\n\n去不了现场的童鞋10月6日可以一起看直播！\nOKX Now https://t.co/ZbyUueGCtZ",
       "url": "https://x.com/qinbafrank/status/2102320182639419783",
       "engagement": {
-        "views": 16659,
-        "likes": 15,
-        "replies": 17,
+        "views": 17145,
+        "likes": 19,
+        "replies": 19,
         "reposts": 0,
         "quotes": 0
       },
@@ -3908,9 +4539,9 @@
       "text": "“聊的不错”李成钢在中美新一轮高层经贸磋商首日会后对会谈这个表态，会不会也给这次中美元首会晤定了调呢？看着次中美在纽约的高层经贸会谈，整体来看双方公开表态都偏正面，重点放在落实此前共识、建立沟通机制上。关税休战延期、稀土供应等核心难点，公开层面没有给出明确结论，预计留给元首会晤处理。\n\n1、中方表态\n中方口径里主线还是传统经贸议题（落实此前共识、贸易投资、关税安排、非敏感商品清单等），AI是新增的一项对话内容。\n\n中国国际贸易谈判代表李成钢会后对媒体表示：“聊得不错”。他同时确认，贸易、投资都谈了，人工智能方面也开展了对话。\n\n2、美方表态\n美方则把AI抬得更高。贝森特会后反复讲“就贸易和人工智能进行了非常成功的接触”，并主动披露美方提议建立“美中人工智能对话”机制，具体包括国家安全级别AI事件的通报机制。\n\n格里尔也专门说明，芯片出口管制不在这次AI对话的议程里。美方把这个机制称为从“不透明转向更加透明”的一步，并表示双方同意继续谈。\n\n看起来经贸磋商的主轴还是贸易、关税休战、稀土/关键矿产、农产品采购、贸易委员会落地这些“老问题”；\n\n目前可见的进展主要是机制层面：AI对话机制和贸易委员会开始运转。具体降税清单、休战延期时长、稀土出口规模等实质性数字就等后面看在元首会晤后是否能有结论了。\n\nAI对话机制是这次新增、也是双方首次正式拿到经贸团队桌面上谈的议题，美方推动更积极，中方予以回应并同意继续对话。这个AI对话机制更像是为即将到来的元首会晤准备的一个“新成果点”和风险管控渠道。\n\n本条由@bitget_zh赞助，「Bitget 买美股：秒级入场，丝滑交易",
       "url": "https://x.com/qinbafrank/status/2102316458181087249",
       "engagement": {
-        "views": 35646,
+        "views": 36385,
         "likes": 46,
-        "replies": 45,
+        "replies": 50,
         "reposts": 3,
         "quotes": 2
       },
@@ -3955,9 +4586,9 @@
       "text": "在9月14日至9月20日期间，Strategy 一共花了 7,570 万美元，买入 950 枚 Bitcoin，买入均价约为 79,670 美元，期间没有通过 ATM 在市场上出售任何股票。截至9月20日， $MSTR  的 bitcoin:native  持仓增加至 846,000 枚，总购入成本约 638 亿美元，持仓均价约为 75,416 美元。\n\n在过去一周 MSTR 还花了 1.74 亿美元，回购 1,771,238 股 $STRC ，每股回购均价约为 98.24 美元。本周买入 Bitcoin 和回购 STRC 的资金，全部来自已有的美元现金，两项合计支出约 2.497 亿美元。\n\n回购以后，优先股回购计划目前还剩 8.751 亿美元额度，MSTR 普通股回购计划另外还有 10 亿美元额度。\n\n本周 MSTR 还动用了 5,740 万美元储备，支付优先股股息和债务利息。截至9月20日，用来支持这两项支付的美元储备为 50.4 亿美元，另外还有 10.5 亿美元现金，可以用于买入 Bitcoin、补充美元储备和其他资本管理用途，两部分合计约 60.9 亿美元。\n\n@Gate Crypto、美股、港股、韩股、黄金、CFD、预测市场一站交易",
       "url": "https://x.com/PhyrexNi/status/2102315637058249114",
       "engagement": {
-        "views": 16994,
-        "likes": 28,
-        "replies": 21,
+        "views": 17411,
+        "likes": 29,
+        "replies": 22,
         "reposts": 2,
         "quotes": 1
       },
@@ -4006,7 +4637,7 @@
       "text": "Not available in the US or to US persons. Geo restrictions apply. Read Kraken's xStocks Risk Disclosure at https://t.co/6DxT0H882r or at https://t.co/VHPAyjGH2j. https://t.co/GLd92uBqtC",
       "url": "https://x.com/xStocksFi/status/2102314487059759529",
       "engagement": {
-        "views": 1158,
+        "views": 1179,
         "likes": 5,
         "replies": 0,
         "reposts": 1,
@@ -4044,8 +4675,8 @@
       "text": "xStocks AUM on @OKX has crossed $200M in just two months.\n\nThrough its Unified Tokenized Stock product and @xLayerOfficial, users can access the world’s largest tokenized stocks and ETFs 24/7.\n\nBuilt on the xStocks framework from day one. https://t.co/3LXG1PD6XA",
       "url": "https://x.com/xStocksFi/status/2102314483880456610",
       "engagement": {
-        "views": 18241,
-        "likes": 146,
+        "views": 18413,
+        "likes": 148,
         "replies": 23,
         "reposts": 12,
         "quotes": 4
@@ -4083,9 +4714,9 @@
       "text": "兄弟们，spark也是好起来了\n\n收到了OKX新加坡活动的邀请函\n\n我听说是本年度最值得参加的OKX线下大会\n\n10月6日，star总将在新加坡，展示OKX在build什么，畅谈OKX现状和未来。\n\n感谢 @misaENFP 的邀请，It's my honor🫡\n\n另外如果有想去新加坡活动或者韩国KBW的，可以联系我（我认识的），misa小姐姐可以带队参加活动。",
       "url": "https://x.com/spark888/status/2102311869998604367",
       "engagement": {
-        "views": 3584,
+        "views": 3639,
         "likes": 61,
-        "replies": 62,
+        "replies": 69,
         "reposts": 0,
         "quotes": 1
       },
@@ -4135,7 +4766,7 @@
       "text": "https://t.co/DujKbZzFN6",
       "url": "https://x.com/TechFlowPost/status/2102311036301054205",
       "engagement": {
-        "views": 1332,
+        "views": 1358,
         "likes": 2,
         "replies": 0,
         "reposts": 1,
@@ -4168,9 +4799,9 @@
       "text": "币涨了，给它找一个理由，说服自己它能继续涨很重要。\n\n在过去1年的加密市场里，这个最热门的理由叫做“真实收入”：\n\n套用市盈率逻辑，在大部分项目归于死寂时，认为如果还有协议有源源不断的现金流，那它在二级市场的币价就有坚实的估值支撑。\n\n有收入的项目，基本面就好，代币一定涨吗？\n\nCoinGecko 最新排行榜显示，今年到现在，排名top 15 的项目拿走了全网 56%（约 34 亿美元）的收入，协议确实赚得盆满钵满，但这其中的许多代币却在经历无尽的阴跌。\n\n比如 WLFI 暴跌超 61%，Aave 下跌 17.8%。\n\n所以，不要无脑把项目有收入当利好指标，你买的币没涨，可能跟这几个原因有关。\n\n这个版本的项目收入，有一种收入叫做“与你无关”。\n\n榜单上一半的高收入项目，其商业模式和代币持有人毫无关系。比如 Paxos 和 World Liberty Financial，赚的是现实世界资产的国债息差，净利润全归发行实体；\n\n而另一种收入叫做价值没捕获到代币上。\n\n协议收费是一回事，钱怎么分是另一回事。如果项目方把赚来的几千万美元全部囤在自己的金库里，既不回购销毁，也不给质押者分红，那么账面收入对二级市场的买盘和币价毫无支撑作用。\n\n还有一种收入叫做给“高 FDV 打掩护”。\n\n部分标榜“高收入”的项目，同时背负着极高的FDV，处于天量筹码解锁的高通胀周期。\n每天新增的代币抛压，远大于协议收入带来的回购买盘，基本面利好根本挡不住供需失衡导致的崩盘。\n\n比如下面这个表里，只有 HYPE 做到了最赚钱且涨的最离谱，其他的要么是涨幅不够，要么是赚钱币还跌。\n\n而 CARDS 则是另一种意外，硬是玩出了不一样的资产品类。\n\n以及，加密市场已经呈现出“超级赌场”与“胖前端”的胜利。一些没有币的前端交易工具，赚的盆满钵满，甚至比 DeFi 项目的收入还要多。\n\n对于普通交易者而言，别再对数据看板上的“协议收入”抱有盲目迷信。\n\n搞清楚项目的钱是怎么赚的，以及更核心的一点，项目方到底分不分钱给持币者，如何回购代币，是这个周期里炒老登币的投研要点之一。",
       "url": "https://x.com/TechFlowPost/status/2102310982945239198",
       "engagement": {
-        "views": 6334,
-        "likes": 34,
-        "replies": 27,
+        "views": 6679,
+        "likes": 37,
+        "replies": 29,
         "reposts": 5,
         "quotes": 0
       },
@@ -4204,7 +4835,7 @@
       "text": "Zaddr这个NFT，下午刚刚开始交易时，地板价一度砸到0.007U，快要归零了，我就没再管。\n\n目前地板价已经回到0.02U，我挂了0.02U，不知道能不能卖掉。\n\nZEC的NFT，应该是要告一段落了。\n\nNFT和炒币不同：\n❶炒币只要池子在，或交易所不下架，想变现，可以立即变现。\n❷NFT不一样，想卖，得有人买才行。 https://t.co/vSyMyi9lH9",
       "url": "https://x.com/Benjieming1Q84/status/2102310335164334319",
       "engagement": {
-        "views": 7926,
+        "views": 8088,
         "likes": 23,
         "replies": 31,
         "reposts": 0,
@@ -4255,7 +4886,7 @@
       "text": "感谢邀请 https://t.co/n0noIM2Bp3",
       "url": "https://x.com/0xSleepinRain/status/2102304816844448037",
       "engagement": {
-        "views": 3870,
+        "views": 3956,
         "likes": 19,
         "replies": 9,
         "reposts": 0,
@@ -4290,9 +4921,9 @@
       "text": "$ETH 当前这个位置，减仓。\n\n我做箱体都是按照箱体高度来测算后续TP，一般来说 TP1 是必到的，也就是昨天说的 275 附近。\n\nTP2 属于概率到，强势的行情中，TP2可以作为目标。既然目前 TP1 产生了受阻现象，不管后面有没有继续上去。\n\n在 2570 这块做回踩和突破的，我的个人建议都是在这里减仓止盈。可以设个突破新高后的警报，响了再追。",
       "url": "https://x.com/YSI_crypto/status/2102296149613007263",
       "engagement": {
-        "views": 16541,
-        "likes": 41,
-        "replies": 33,
+        "views": 16975,
+        "likes": 45,
+        "replies": 34,
         "reposts": 5,
         "quotes": 0
       },
@@ -4337,10 +4968,10 @@
       "text": "好东西...\n这些很多时候，真的就是创作者的命根子了，但是卡尔也全放出来了。\n真的，AI时代，我们看到的好多好多人和公司，展现的开源和分享精神，好像又让互联网，回到了二十年前的那个盛夏。",
       "url": "https://x.com/Khazix0918/status/2102294644977778827",
       "engagement": {
-        "views": 150686,
-        "likes": 717,
-        "replies": 202,
-        "reposts": 115,
+        "views": 160450,
+        "likes": 747,
+        "replies": 229,
+        "reposts": 118,
         "quotes": 3
       },
       "external_urls": [],
@@ -4415,7 +5046,7 @@
       "text": "Day 8 @standard_rsv 小结 ——\n\n今天项目方发布了 v.1.1 更新。但与此同时，美元本位净值第一次出现了回撤（挖的币不够跌得多）😭\n\nv1.1 的更新内容\n> 为了照顾不同时区的用户，每日拍卖现在分两轮进行。「每 12h 一轮，每轮拍卖 50 个分行」vs 之前的「每 24h 一轮，每轮拍卖 100 个分行」\n> 为了避免荷兰拍前期价格过高没人出价的情况，修改了拍卖价格曲线，现在拍卖前期价格下降得更快了\n> 协议自营流动性现在只会买 $STANDARD vs 之前会匹配 STANDARD/ETH 的双边流动性\n\n今日小结\n- 系统总分行数：1741\n- 当前区块排放量 (72h): 2310240\n- 分行拍卖成交价：7285.88 - 8316.99\n- 分行每日排放：442.32\n- 静态回本周期：16.5 – 18.8 天\n\n现在每日的通胀率在 0.84% 左右，后续需要观望每日拍卖销毁的代币数量是否能抵消通胀",
       "url": "https://x.com/0xYond/status/2102282618914181149",
       "engagement": {
-        "views": 2345,
+        "views": 2380,
         "likes": 8,
         "replies": 6,
         "reposts": 0,
@@ -4458,10 +5089,10 @@
       "text": "RT @dingalingts: We’re adding 30% maker rebates for a wide range of markets on @predictdotfun \n\nBetter liquidity, more rewards, more fun",
       "url": "https://x.com/predictdotfun/status/2102278553215848873",
       "engagement": {
-        "views": 1323,
+        "views": 1335,
         "likes": 0,
         "replies": 0,
-        "reposts": 4,
+        "reposts": 5,
         "quotes": 0
       },
       "external_urls": [],
@@ -4515,9 +5146,9 @@
       "text": "欢迎朋友找我面基🫡",
       "url": "https://x.com/brucexu_eth/status/2102271957261832505",
       "engagement": {
-        "views": 2224,
+        "views": 2305,
         "likes": 21,
-        "replies": 0,
+        "replies": 8,
         "reposts": 1,
         "quotes": 0
       },
@@ -4551,508 +5182,19 @@
       "retweet_is_quote": false,
       "retweet_quote": null,
       "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-1",
-      "list_id": "2092526123754414115",
-      "tweet_id": "2102261639382978662",
-      "created_at": "2026-09-22T05:00:07.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "PhyrexNi",
-        "name": "Phyrex"
-      },
-      "text": "Unicorn 的这个问题我还真的和很多小伙伴都讨论过。\n\n不论是传统的小伙伴还是币圈的，都有一个类似的同性，大多数的小伙伴在现金流突破 200 万美元以后更多的是选择保守，而选择激进的小伙伴非常少，或者说大多数选择激进的小伙伴要么就暴富了，要么就暴负了。\n\n传统的小伙伴往往会有 100 万美元左右买债或者是做一些固收，尤其是还在上班的小伙伴很少会把这些钱投资去实体产业或者做生意，大多数小伙伴来说，100万 美元超过 3% 的收益，也就是大概 3 万美元会作为家庭风险投资，比如投资股票等等。\n\n剩下的 100 万美元中，基本一半左右会配置一些美股指数，比如 VOO 和 QQQ 这种，或者是定投一些资产，都是属于较低风险，长期回报不错的。\n\n剩下的一半往往都是当活钱用的。而这种生活其实和 Unicorn 说的一样，勉强是在国内能过上躺平的生活，但想要跨越阶级还是很难的，尤其是上有老下有小的时候。而再赌一次，前几年我身边确实不少，包括很多大厂的小伙伴，结果多数都回去老实打工了，少数确实过的更好。\n\n但最近两年身边敢去赌的人越来越少了，国内的经济不是非常景气，上班的担心失业，创业的担心清算，能保证正常收入就不错了。\n\n流动资金再高一些的就会去配置私行和保险，这两种前者是尽量让资金跑赢通胀，私行就没准备能赚大钱，跑赢通胀已经不错了，后者就是为了尽量避免生活降级。\n\n这个阶段的小伙伴真的是看着口袋资金还不错，但过的还是小心谨慎，当然，如果是年轻的单身，就是另一回事了。",
-      "url": "https://x.com/PhyrexNi/status/2102261639382978662",
-      "engagement": {
-        "views": 31646,
-        "likes": 58,
-        "replies": 57,
-        "reposts": 4,
-        "quotes": 1
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": {
-        "tweet_id": "2100636077975601638",
-        "username": "UnicornBitcoin",
-        "name": "UNICORN⚡️🦄",
-        "text": "百万美金地狱\n\n净资产一旦摸到 100 到 300 万，再好好配置，大多数地方光靠被动收入就能过得很舒服\n\n但这笔钱，还是撑不起你和家人真正想要的那种活法\n\n你就卡在那个点上：算成了，可又差那么一口气\n\n最操蛋的是，组合涨 50%，你生活几乎没变化；跌 50%，直接把你打回原形\n\n所以照理说，这阶段该转入守财模式\n\n可有时候我还是会想：要不就他妈算了，最后再全押一把\n\n明知自己有本事把七位数低位的账户干到八位数\n\n但另一边，你经历过 FTX 暴雷，也扛过 1011那波，一个黑天鹅就能让你清零\n\n说个破局的招，就买比特币，拿住到20万刀再说",
-        "created_at": "2026-09-17T17:20:43.000000Z",
-        "url": "https://x.com/UnicornBitcoin/status/2100636077975601638",
-        "external_urls": [],
-        "media": {
-          "types": [],
-          "urls": []
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-1",
-      "list_id": "2092526123754414115",
-      "tweet_id": "2102255811288580519",
-      "created_at": "2026-09-22T04:36:58.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "octopusycc",
-        "name": "大老师Bugsbunny"
-      },
-      "text": "新学习到的一个词\n\n在上海的苏北人=脱北者",
-      "url": "https://x.com/octopusycc/status/2102255811288580519",
-      "engagement": {
-        "views": 10168,
-        "likes": 35,
-        "replies": 25,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-4",
-      "list_id": "2089990503555072281",
-      "tweet_id": "2102254445082116335",
-      "created_at": "2026-09-22T04:31:32.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "thsottiaux",
-        "name": "Tibo"
-      },
-      "text": "Ladies and gentlemen... start... your... ENGINES. We are almost Tuesday and I promised a reset for Tuesday. Among some other things. See you soon.",
-      "url": "https://x.com/thsottiaux/status/2102254445082116335",
-      "engagement": {
-        "views": 5309023,
-        "likes": 27483,
-        "replies": 5480,
-        "reposts": 1357,
-        "quotes": 1656
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2102254362777297320",
-      "created_at": "2026-09-22T04:31:12.000000Z",
-      "kind": "reply",
-      "author": {
-        "username": "spark888",
-        "name": "spark🌟"
-      },
-      "text": "行了白激动了，不是两万个tx，是两万个钱包。很多人塞了几十个。预估总NFT供应量15万以上。价值缩水十倍的话，60U打的都未必能回本。 https://t.co/a03pwbrr1b",
-      "url": "https://x.com/spark888/status/2102254362777297320",
-      "engagement": {
-        "views": 854,
-        "likes": 0,
-        "replies": 1,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HSy0nm4b0AANdJ6.png"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2102253371919045051",
-      "created_at": "2026-09-22T04:27:16.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "TechFlowPost",
-        "name": "TechFlow 深潮｜APP 已上线"
-      },
-      "text": "X 宣布接入直接用 Cashtag 买股票和加密的事，其实之前在产品负责人 @nikitabier 在任时就已经看出端倪。\n\n之前是能显示股票和代币价格，现在是点一下能跳转交易。目前大家都在讨论说 Everything App 要闭环了，但细节可能值得单独拿出来说一下。\n\n首先，这门生意的阳谋很精明：X 把牌照、托管、合规这些最容易暴雷的脏活累活全甩给了合作方，自己只负责垄断大家“冲动下单”的那一秒，稳稳当个情绪收费站。\n\n目前官方宣传视频里也能看到，点击tag后会跳转到某个券商，再由这个券商下单买入。\n\n只是这里面存在着巨大的割裂感。X 的时间线是全球的，但目前能按下 Trade 按钮的主要还是美国用户。\n\n于是很有可能我们在时间线里疯狂 FOMO、争吵、奶项目，做纯粹的“情绪劳动”；真正完成便利交易闭环的，是别的时区里的大爷们。\n\n当然也有可能是先 CX先买 ，再抛给更多 X 上的韭菜🤡\n\n但从小编每日的工作体感来看，我只想吐槽一句：在想着承接全球几百亿美元的流动性之前， X 能不能先把那个灾难级的编辑器修一修？\n\n不知道大家发内容时有没有这种感觉，想带个资产的 $ 标签，简直是在跟系统搏斗。\n\n差一个特定的空格，系统就能把你前后的字全吞了；\n想打个圈内人尽皆知的币，结果被强行映射到八竿子打不着的美股上；\n最搞心态的是，好好的标签动不动就失效，长长的一串底层合约地址（CA）直接在正文里裸奔，像乱码一样挂在时间线上。\n\n想把全世界的社交讨论无缝转化成交易订单，这个野心确实很大。\n\n但在接管全球流动性之前，拜托先让我们舒舒服服地把一个 $TICKER 打对吧？",
-      "url": "https://x.com/TechFlowPost/status/2102253371919045051",
-      "engagement": {
-        "views": 11405,
-        "likes": 30,
-        "replies": 16,
-        "reposts": 0,
-        "quotes": 1
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": {
-        "tweet_id": "2102147572123025700",
-        "username": "XBusiness",
-        "name": "Business",
-        "text": "Introducing Cashtag Partners for stocks and crypto 🚀\n\nX is the best source of financial news for traders and investors, and we've made it easier than ever to connect financial conversations with the ability to trade. https://t.co/52cqDNqwix",
-        "created_at": "2026-09-21T21:26:51.000000Z",
-        "url": "https://x.com/XBusiness/status/2102147572123025700",
-        "external_urls": [],
-        "media": {
-          "types": [
-            "video"
-          ],
-          "urls": [
-            "https://pbs.twimg.com/amplify_video_thumb/2102141760403025922/img/EXf29RWfTaKwGFbm.jpg",
-            "https://video.twimg.com/amplify_video/2102141760403025922/vid/avc1/480x270/O__wG1Ym95SHMKUF.mp4?tag=29",
-            "https://video.twimg.com/amplify_video/2102141760403025922/vid/avc1/640x360/xskFQghQy3b7DbYt.mp4?tag=29",
-            "https://video.twimg.com/amplify_video/2102141760403025922/vid/avc1/1280x720/RaIBVy4bn4QjE-I9.mp4?tag=29",
-            "https://video.twimg.com/amplify_video/2102141760403025922/vid/avc1/1920x1080/cswFgGSDFJEx-y0r.mp4?tag=29"
-          ]
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-4",
-      "list_id": "2089990503555072281",
-      "tweet_id": "2102252679330460089",
-      "created_at": "2026-09-22T04:24:31.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "Khazix0918",
-        "name": "数字生命卡兹克"
-      },
-      "text": "https://t.co/UoYkJPERks",
-      "url": "https://x.com/Khazix0918/status/2102252679330460089",
-      "engagement": {
-        "views": 29279,
-        "likes": 99,
-        "replies": 20,
-        "reposts": 2,
-        "quotes": 3
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2102252224697299072",
-      "created_at": "2026-09-22T04:22:42.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "0xXIAOc",
-        "name": "小C | 🔶BNB"
-      },
-      "text": "📢Alpha 日报\n1⃣9月22日 暂无空投预告\n\n只有弱者才渴望确定性，强者在羞耻中开辟天地。\n\n2️⃣昨日限价单总交易量：1,624,076,391\n（较前一日+9.47% ）  \n\n3️⃣交易赛进度 \nCP 交易赛  今天21点结束\n昨日9978→ 今日11687\n(增加了1709)\n\nPIEVERSE 交易赛  今天21点结束\n昨日0→ 今日59242\n(增加了59242)\n\nDEBIT 交易赛\n昨日159785→ 今日250347\n(增加了90562)\n\nKII 交易赛\n昨日93520→ 今日141843\n(增加了48323)\n\n4️⃣今日推荐（30 天内上线代币，积分 ×4）\n交易赛推荐：暂无\n纯交易量推荐：  限价单刷DGAI（剩24天）",
-      "url": "https://x.com/0xXIAOc/status/2102252224697299072",
-      "engagement": {
-        "views": 9491,
-        "likes": 30,
-        "replies": 10,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HSyzOivaUAAoHGt.png"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2102247872385433607",
-      "created_at": "2026-09-22T04:05:25.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "Benjieming1Q84",
-        "name": "Benjieming的撸毛之旅"
-      },
-      "text": "坐标中国大陆地区的小伙伴，如果和我一样，经常使用币安和OKX出金，且是重度使用。\n\n那么，ZEC链上的资产转回交易所时，我觉得有必要用海妖Kraken中转一下。\n\n也可能没必要，或许是我太小心翼翼了。\n\n总之，隐私赛道的币，还是中转一下，比较放心一点。 https://t.co/KxvU4o3b2h",
-      "url": "https://x.com/Benjieming1Q84/status/2102247872385433607",
-      "engagement": {
-        "views": 18596,
-        "likes": 33,
-        "replies": 52,
-        "reposts": 0,
-        "quotes": 1
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HSyvDqDbkAAzgm1.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2102247150713549142",
-      "created_at": "2026-09-22T04:02:33.000000Z",
-      "kind": "reply",
-      "author": {
-        "username": "spark888",
-        "name": "spark🌟"
-      },
-      "text": "2023年的NFT现在还有0.2E，太有实力了\nhttps://t.co/oCxIJ6YiFV",
-      "url": "https://x.com/spark888/status/2102247150713549142",
-      "engagement": {
-        "views": 1083,
-        "likes": 1,
-        "replies": 1,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [
-        "https://opensea.io/collection/vv-checks"
-      ],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2102245495842468129",
-      "created_at": "2026-09-22T03:55:58.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "spark888",
-        "name": "spark🌟"
-      },
-      "text": "拍断大腿了\n\n昨天X Money打钱居然才25225个地址，应该是大毛了\n\n市值：25225 * 8 = 201800美元\n\nGrok查了一下 @jackbutcher 这哥们\n\n2023年 - Checks VV Edition\n24小时开放打8美元，共铸造16031枚，地板价巅峰0.7E，现在仍然有0.17E\n\n2023年 - Opepen Edition\nFree mint 16000枚，地板价巅峰0.9E，现在仍然有0.1E\n\n这次往一半价格考虑，单地址也应该有200U利润，我知道一些老师找留子塞满了，麻了\n\n——spark反思：\n我真是个大傻子😭\n\n昨天早上推友说已经打了4万地址了，感觉小毛。\n\n而且我记成明天早上八点结束了，嫌代打60U太贵了，也没好意思找美国留子朋友。\n\n还好Vera姐给中国猴友打了一个，感恩！",
-      "url": "https://x.com/spark888/status/2102245495842468129",
-      "engagement": {
-        "views": 13321,
-        "likes": 23,
-        "replies": 29,
-        "reposts": 1,
-        "quotes": 2
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HSymgXzbQAAIQjH.png"
-        ]
-      },
-      "quote": {
-        "tweet_id": "2101877628961747340",
-        "username": "spark888",
-        "name": "spark🌟",
-        "text": "万能的推友圈，有用X Money的美国人吗？\n\n这个老外的上一个free mint说是一千刀利润\n\n这次是用X Money打8U，应该给白或者NFT\n\n明天早上八点结束，感觉有的赚啊\n\n我想多号打，有美国人带带我吗，可以给你劳务费，稍微便宜点儿😭\n\n目前可以去 @RXu107 老师那里打点，15刀一个号，我转了一个号 https://t.co/60UBJ9sRiB",
-        "created_at": "2026-09-21T03:34:12.000000Z",
-        "url": "https://x.com/spark888/status/2101877628961747340",
-        "external_urls": [],
-        "media": {
-          "types": [
-            "photo"
-          ],
-          "urls": [
-            "https://pbs.twimg.com/media/HStejlvboAAuCfN.jpg"
-          ]
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2102237452949950759",
-      "created_at": "2026-09-22T03:24:01.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "TechFlowPost",
-        "name": "TechFlow 深潮｜APP 已上线"
-      },
-      "text": "如果你错过了这轮山寨币普涨，没关系，你的芯片/科技股又涨回来了。\n\nAMD 的股价 9 月 21 日收涨近 10% 至 615.52 美元，创历史新高，公司市值首次突破 1 万亿美元，成为继英伟达、博通和美光之后第4家市值达到1万亿的美国半导体公司。\n\nAMD 过去 5 个交易日累计上涨约 24%，年内涨幅超过 180%。\n\n而在电脑装机市场，目前主流的CPU选择，除了英特尔，大家普遍认为 AMD 的 U 更有性价比。\n\n昨天一整个交易日， $INTC  +12%， $MU +5%, $NVDA +2.3%。\n\n半导体板块在经历了前期的剧烈调整和获利回吐后，正在借由AI 需求依然深不见底的底气，开启新一轮上攻行情。\n\n小编依稀记得，几个月前币圈玩家们都在炒美股，鲜有人谈加密；现在的情绪似乎又反过来了。\n\n风水轮流转，分散投资，总有一个会涨。",
-      "url": "https://x.com/TechFlowPost/status/2102237452949950759",
-      "engagement": {
-        "views": 6585,
-        "likes": 18,
-        "replies": 10,
-        "reposts": 1,
-        "quotes": 1
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HSylxS-bsAAbmOV.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-1",
-      "list_id": "2092526123754414115",
-      "tweet_id": "2102234512482832775",
-      "created_at": "2026-09-22T03:12:20.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "nbblock",
-        "name": "CJ_Blockchain, CFA"
-      },
-      "text": "染黄毛有什么好处？\n\n黄毛不仅是精神上黄毛，也需要物理上执行。 https://t.co/No6zVW0Esz",
-      "url": "https://x.com/nbblock/status/2102234512482832775",
-      "engagement": {
-        "views": 106943,
-        "likes": 1480,
-        "replies": 99,
-        "reposts": 61,
-        "quotes": 8
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HSyjFk-aQAAP6ln.png"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2102231950052503819",
-      "created_at": "2026-09-22T03:02:09.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "0xYond",
-        "name": "Yond (DeFi Arc)"
-      },
-      "text": "如果你在 $PENDLE 车上，但缺乏长持的信仰，强烈建议读一下这篇文章进行信仰充值\n\nPendle 的雄心壮志，是要成为一切链上资产/业务的利率交易入口。从流量分发，到扩大资本效率，Pendle 将会统治整个 Crypto 行业的利率交易板块\n\n而利率（或者叫 APR / yield / interest / dividend ）又是金融中最核心的概念\n- 利率是所有资产定价的底层坐标系。它决定了现金流值多少钱、风险收益是否合理、杠杆是否成立，以及资本的流向\n- 利率是资金的时间价格，也是风险、流动性和机会成本的集中表达\n\n我看到的是星辰大海",
-      "url": "https://x.com/0xYond/status/2102231950052503819",
-      "engagement": {
-        "views": 12828,
-        "likes": 89,
-        "replies": 14,
-        "reposts": 15,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": {
-        "tweet_id": "2102186179760365804",
-        "username": "pendle_fi",
-        "name": "Pendle",
-        "text": "https://t.co/QfduHu5AWK",
-        "created_at": "2026-09-22T00:00:16.000000Z",
-        "url": "https://x.com/pendle_fi/status/2102186179760365804",
-        "external_urls": [],
-        "media": {
-          "types": [],
-          "urls": []
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "x-intelligence:scheduled-x-2026-09-23T025855Z",
-    "requestId": "scheduled-x-2026-09-23T025855Z",
-    "triggerSha": "24f89b68c7ca0a090ceebd05d6592b56aacacb22",
-    "githubRunId": 35812560931,
-    "scheduledAt": "2026-09-23T02:58:55Z",
-    "startedAt": "2026-09-23T03:00:02.269270+00:00",
-    "sourceCheckedAt": "2026-09-23T03:00:13.460076+00:00",
-    "sourceUpdatedAt": "2026-09-23T02:51:39+00:00",
-    "completedAt": "2026-09-23T03:00:13.460124+00:00",
+    "runId": "x-intelligence:manual-x-2026-09-23T050900Z",
+    "requestId": "manual-x-2026-09-23T050900Z",
+    "triggerSha": "406ea21047a8947bfa8d067cafc12ac51c380a23",
+    "githubRunId": 35821327480,
+    "scheduledAt": null,
+    "startedAt": "2026-09-23T05:10:41.595979+00:00",
+    "sourceCheckedAt": "2026-09-23T05:10:50.754476+00:00",
+    "sourceUpdatedAt": "2026-09-23T05:05:20+00:00",
+    "completedAt": "2026-09-23T05:10:50.754542+00:00",
     "publishedAt": null
   }
 }

@@ -1,45 +1,41 @@
 {
   "schemaVersion": 2,
   "automation": "x-intelligence",
-  "runId": "x-intelligence:scheduled-x-2026-09-23T025855Z",
-  "requestId": "scheduled-x-2026-09-23T025855Z",
-  "result": "failed",
+  "runId": "x-intelligence:manual-x-2026-09-23T050900Z",
+  "requestId": "manual-x-2026-09-23T050900Z",
+  "result": "in_progress",
   "lineage": {
     "triggerType": "push",
-    "triggerSha": "24f89b68c7ca0a090ceebd05d6592b56aacacb22",
-    "githubRunId": 35812560931,
+    "triggerSha": "406ea21047a8947bfa8d067cafc12ac51c380a23",
+    "githubRunId": 35821327480,
     "githubRunAttempt": 1
   },
   "timestamps": {
-    "scheduledAt": "2026-09-23T02:58:55Z",
-    "startedAt": "2026-09-23T03:00:02.269270+00:00",
-    "sourceCheckedAt": "2026-09-23T03:00:13.460076+00:00",
-    "sourceUpdatedAt": "2026-09-23T02:51:39+00:00",
-    "completedAt": "2026-09-23T03:00:13.460124+00:00",
+    "scheduledAt": null,
+    "startedAt": "2026-09-23T05:10:41.595979+00:00",
+    "sourceCheckedAt": "2026-09-23T05:10:50.754476+00:00",
+    "sourceUpdatedAt": "2026-09-23T05:05:20+00:00",
+    "completedAt": "2026-09-23T05:10:50.754542+00:00",
     "publishedAt": null
   },
   "legacyRequestedAt": null,
   "stages": {
     "collection": {
       "status": "success",
-      "completedAt": "2026-09-23T03:00:13.460124+00:00",
+      "completedAt": "2026-09-23T05:10:50.754542+00:00",
       "details": {
         "listsRequested": 4,
         "listsCompleted": 4,
-        "postCount": 118,
-        "estimatedCostUsd": 0.0694
+        "postCount": 121,
+        "estimatedCostUsd": 0.07
       }
     },
     "validation": {
       "status": "success",
-      "completedAt": "2026-09-23T03:00:13.460124+00:00"
+      "completedAt": "2026-09-23T05:10:50.754542+00:00"
     },
     "publication": {
-      "status": "failed",
-      "completedAt": "2026-09-23T03:01:39.300Z",
-      "details": {
-        "reason": "GitHub Connector cannot obtain main branch tree/ref SHA required to create an atomic Git Data commit containing both current and immutable archive; non-atomic fallback not permitted by Skill."
-      }
+      "status": "not_run"
     },
     "notification": {
       "status": "not_run"
