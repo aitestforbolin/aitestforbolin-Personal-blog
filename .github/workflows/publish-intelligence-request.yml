@@ -1,0 +1,52 @@
+name: Publish intelligence request
+on:
+  push:
+    branches: [main]
+    paths:
+      - data/x-intelligence-publish-request.json
+      - data/web3-daily-triage-publish-request.json
+permissions:
+  contents: write
+concurrency:
+  group: intelligence-publication-bridge
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Detect request kind
+        id: kind
+        run: |
+          git fetch origin main
+          changed="$(git diff-tree --root --no-commit-id --name-only -r "$GITHUB_SHA")"
+          if grep -Fx 'data/x-intelligence-publish-request.json' <<< "$changed" >/dev/null; then echo 'kind=x' >> "$GITHUB_OUTPUT"; fi
+          if grep -Fx 'data/web3-daily-triage-publish-request.json' <<< "$changed" >/dev/null; then
+            if grep -Fx 'data/x-intelligence-publish-request.json' <<< "$changed" >/dev/null; then echo 'Multiple publication requests in one commit are not allowed'; exit 2; fi
+            echo 'kind=web3' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Validate and create atomic publication commit
+        id: publish
+        if: steps.kind.outputs.kind != ''
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          python scripts/publish_intelligence_request.py --kind '${{ steps.kind.outputs.kind }}' | tee /tmp/publish.out
+          grep '^publication_commit=' /tmp/publish.out >> "$GITHUB_OUTPUT"
+      - name: Push publication and receipt commits
+        if: steps.kind.outputs.kind != ''
+        run: |
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            git rebase origin/main
+            sleep $((attempt * 5))
+          done
+          exit 1
