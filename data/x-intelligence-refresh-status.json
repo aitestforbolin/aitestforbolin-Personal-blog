@@ -1,38 +1,38 @@
 {
   "schemaVersion": 2,
   "automation": "x-intelligence",
-  "runId": "x-intelligence:auto-smoke-x-20260923-054713Z",
-  "requestId": "auto-smoke-x-20260923-054713Z",
+  "runId": "x-intelligence:luna-x-20260923-061839Z",
+  "requestId": "luna-x-20260923-061839Z",
   "result": "in_progress",
   "lineage": {
     "triggerType": "push",
-    "triggerSha": "2e7d6d19d6fa8d9d7c1aba1237e50c1342e086ed",
-    "githubRunId": 35823903870,
+    "triggerSha": "a63456ad978ffdfb3249a09cc0a3c397204aad8d",
+    "githubRunId": 35826248710,
     "githubRunAttempt": 1
   },
   "timestamps": {
-    "scheduledAt": "2026-09-23T05:47:13Z",
-    "startedAt": "2026-09-23T05:48:02.863296+00:00",
-    "sourceCheckedAt": "2026-09-23T05:48:12.112677+00:00",
-    "sourceUpdatedAt": "2026-09-23T05:36:11+00:00",
-    "completedAt": "2026-09-23T05:48:12.112749+00:00",
+    "scheduledAt": "2026-09-23T06:18:39Z",
+    "startedAt": "2026-09-23T06:20:03.228522+00:00",
+    "sourceCheckedAt": "2026-09-23T06:20:15.062919+00:00",
+    "sourceUpdatedAt": "2026-09-23T06:07:26+00:00",
+    "completedAt": "2026-09-23T06:20:15.062980+00:00",
     "publishedAt": null
   },
   "legacyRequestedAt": null,
   "stages": {
     "collection": {
       "status": "success",
-      "completedAt": "2026-09-23T05:48:12.112749+00:00",
+      "completedAt": "2026-09-23T06:20:15.062980+00:00",
       "details": {
         "listsRequested": 4,
         "listsCompleted": 4,
-        "postCount": 122,
-        "estimatedCostUsd": 0.07
+        "postCount": 116,
+        "estimatedCostUsd": 0.0704
       }
     },
     "validation": {
       "status": "success",
-      "completedAt": "2026-09-23T05:48:12.112749+00:00"
+      "completedAt": "2026-09-23T06:20:15.062980+00:00"
     },
     "publication": {
       "status": "not_run"
