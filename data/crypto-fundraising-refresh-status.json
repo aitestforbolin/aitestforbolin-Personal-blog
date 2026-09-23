@@ -3,7 +3,7 @@
   "automation": "web3-daily-triage",
   "runId": "web3-daily-triage:bridge-web3-2026-09-23T0525Z",
   "requestId": "bridge-web3-2026-09-23T0525Z",
-  "result": "unchanged",
+  "result": "success",
   "lineage": {
     "triggerType": "push",
     "triggerSha": "e3710d5f57c1941a9883a17f7ddbb469b61352e8",
@@ -40,7 +40,12 @@
       "commitSha": "b14f706222ba80735f92b88d38807e3413abd181"
     },
     "notification": {
-      "status": "not_run"
+      "status": "success",
+      "completedAt": "2026-09-23T13:39:18+08:00",
+      "details": {
+        "provider": "gmail",
+        "messageId": "1a0ccc67661240f3"
+      }
     }
   }
 }
