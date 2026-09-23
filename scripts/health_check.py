@@ -109,7 +109,7 @@ def check(root: Path, now: dt.datetime):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--root", type=Path, default=Path(__file__).resolve().parent)
+    p.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     p.add_argument("--now", default=None)
     p.add_argument("--notify", action="store_true")
     args = p.parse_args()
