@@ -70,7 +70,7 @@ def check(root: Path, now: dt.datetime):
             continue
         try:
             trigger_dt = dt.datetime.fromisoformat(str(trigger_time).replace("Z", "+00:00"))
-            if now - trigger_dt < dt.timedelta(minutes=75):
+            if now - trigger_dt < dt.timedelta(minutes=30):
                 continue
         except (TypeError, ValueError):
             pass
@@ -109,7 +109,7 @@ def check(root: Path, now: dt.datetime):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
+    p.add_argument("--root", type=Path, default=Path(__file__).resolve().parent)
     p.add_argument("--now", default=None)
     p.add_argument("--notify", action="store_true")
     args = p.parse_args()
