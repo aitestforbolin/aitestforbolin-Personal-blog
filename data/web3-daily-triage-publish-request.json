@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "bridge-web3-2026-09-23T0525Z",
-  "triggerSha": "e3710d5f57c1941a9883a17f7ddbb469b61352e8",
+  "requestId": "luna-web3-20260923-064620Z",
+  "triggerSha": "c558fbf5379bf672ac9292dd8c1671b0a9cec01d",
   "publicationDate": "2026-09-23",
-  "publishedAt": "2026-09-23T13:36:53+08:00",
+  "publishedAt": "2026-09-23T14:49:41+08:00",
   "payload": {
     "schemaVersion": 1,
     "runDate": "2026-09-23",
-    "publishedAt": "2026-09-23T13:36:53+08:00",
+    "publishedAt": "2026-09-23T14:49:41+08:00",
     "windowStart": "2026-09-21T05:30:24.203755+00:00",
-    "windowEnd": "2026-09-23T05:25:55.070167+00:00",
+    "windowEnd": "2026-09-23T06:48:28.387559+00:00",
     "sourceUpdatedAt": "2026-09-23T03:00:05+00:00",
-    "status": "success",
+    "status": "unchanged",
     "executionLineage": {
-      "runId": "web3-daily-triage:bridge-web3-2026-09-23T0525Z",
-      "requestId": "bridge-web3-2026-09-23T0525Z",
-      "triggerSha": "e3710d5f57c1941a9883a17f7ddbb469b61352e8",
-      "githubRunId": 35822360378,
-      "scheduledAt": null,
-      "startedAt": "2026-09-23T05:25:53.702494+00:00",
-      "sourceCheckedAt": "2026-09-23T05:25:55.069853+00:00",
+      "runId": "web3-daily-triage:luna-web3-20260923-064620Z",
+      "requestId": "luna-web3-20260923-064620Z",
+      "triggerSha": "c558fbf5379bf672ac9292dd8c1671b0a9cec01d",
+      "githubRunId": 35828439792,
+      "scheduledAt": "2026-09-23T06:46:20Z",
+      "startedAt": "2026-09-23T06:48:27.152112+00:00",
+      "sourceCheckedAt": "2026-09-23T06:48:28.387223+00:00",
       "sourceUpdatedAt": "2026-09-23T03:00:05+00:00",
-      "completedAt": "2026-09-23T05:25:55.070167+00:00",
-      "publishedAt": "2026-09-23T13:36:53+08:00"
+      "completedAt": "2026-09-23T06:48:28.387559+00:00",
+      "publishedAt": "2026-09-23T14:49:41+08:00"
     },
     "executionStatus": {
       "collection": "unchanged",
       "validation": "success",
-      "publication": "success"
+      "publication": "not_run"
     },
-    "deduplicationNote": "以上一期成功发布的 windowEnd 作为窗口起点，以本次 fresh receipt.completedAt 作为 windowEnd；使用累计 reportedEventIds 去重，并在研究前排除 M&A / acquisition / merger。本次虽 collection=unchanged，但窗口内仍有 5 个此前未成功发布的非 M&A 融资事件，因此完成补漏研究并发布。",
+    "deduplicationNote": "以上一期成功发布的 windowEnd 作为 windowStart，以本次 schemaVersion 2 receipt.timestamps.completedAt 作为 windowEnd；使用上一成功 publication 的累计 reportedEventIds 去重，先排除 M&A / acquisition / merger。本次 source collection=unchanged，但窗口中发现 5 个尚未报告的非 M&A 融资事件，逐项完成研究。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
