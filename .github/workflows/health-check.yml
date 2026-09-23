@@ -2,9 +2,9 @@ name: Check published workflow outcomes
 
 on:
   schedule:
-    # 08:15 and 21:00 Asia/Shanghai; X/Web3 run only when a trigger exists.
+    # 08:15 and 14:00 Asia/Shanghai; X/Web3 run only when a trigger exists.
     - cron: '15 0 * * 2-6'
-    - cron: '0 13 * * *'
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 permissions:

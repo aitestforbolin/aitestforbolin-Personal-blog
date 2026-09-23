@@ -57,7 +57,7 @@ class HealthCheckTests(unittest.TestCase):
 
     def test_recent_trigger_gets_grace_period(self):
         self.market()
-        self.put("data/x-intelligence-trigger.json", {"requestId": "x-20260923-01", "scheduledAt": "2026-09-23T12:30:00Z"})
+        self.put("data/x-intelligence-trigger.json", {"requestId": "x-20260923-01", "scheduledAt": "2026-09-23T12:40:00Z"})
         checked, issues = check(self.root, self.now)
         self.assertEqual(checked, ["market briefing"])
         self.assertFalse(issues)
