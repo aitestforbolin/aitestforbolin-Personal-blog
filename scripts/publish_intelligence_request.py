@@ -9,6 +9,12 @@ def fail(m): print(m,file=sys.stderr); raise SystemExit(2)
 def load(p):
  try:return json.loads(p.read_text())
  except Exception as e:fail(f"cannot read {p}: {e}")
+def set_payload_publication_status(payload,status):
+ execution_status=payload.get("executionStatus")
+ if not isinstance(execution_status,dict):return
+ publication=execution_status.get("publication")
+ if isinstance(publication,dict):publication["status"]=status
+ else:execution_status["publication"]=status
 def main():
  ap=argparse.ArgumentParser();ap.add_argument("--kind",choices=CONFIG);a=ap.parse_args();c=CONFIG[a.kind]
  req=load(c["request"]);receipt=load(c["receipt"]);payload=req.get("payload")
@@ -32,8 +38,7 @@ def main():
  if not published:fail("publishedAt missing")
  payload["executionLineage"]["publishedAt"]=published
  if "publishedAt" in payload:payload["publishedAt"]=published
- pub=(payload.get("executionStatus") or {}).get("publication")
- if isinstance(pub,dict):pub["status"]="success"
+ set_payload_publication_status(payload,"success")
  text=json.dumps(payload,ensure_ascii=False,indent=2)+"\n";c["current"].write_text(text);archive.parent.mkdir(parents=True,exist_ok=True);archive.write_text(text)
  subprocess.run(["git","add","--",str(c["current"]),str(archive)],check=True);subprocess.run(["git","commit","-m",f"Publish {a.kind} intelligence for {date}"],check=True)
  sha=subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip()
