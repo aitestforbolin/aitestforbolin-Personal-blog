@@ -1,39 +1,39 @@
 {
   "schemaVersion": 2,
   "automation": "web3-daily-triage",
-  "runId": "web3-daily-triage:web3-fix-20260922T093226Z",
-  "requestId": "web3-fix-20260922T093226Z",
+  "runId": "web3-daily-triage:scheduled-web3-2026-09-23T025855Z",
+  "requestId": "scheduled-web3-2026-09-23T025855Z",
   "result": "in_progress",
   "lineage": {
     "triggerType": "push",
-    "triggerSha": "bc1837d7ea940fa2d6ff95edf7fa5276fb439816",
-    "githubRunId": 35710995446,
+    "triggerSha": "65832799cf2bc67d4d10e80490fd176981a634ad",
+    "githubRunId": 35812562078,
     "githubRunAttempt": 1
   },
   "timestamps": {
-    "scheduledAt": "2026-09-22T09:32:26Z",
-    "startedAt": "2026-09-22T09:32:58.349027+00:00",
-    "sourceCheckedAt": "2026-09-22T09:33:00.568938+00:00",
-    "sourceUpdatedAt": "2026-09-22T09:33:00+00:00",
-    "completedAt": "2026-09-22T09:33:00.569220+00:00",
+    "scheduledAt": "2026-09-23T02:58:55Z",
+    "startedAt": "2026-09-23T03:00:01.150859+00:00",
+    "sourceCheckedAt": "2026-09-23T03:00:05.368092+00:00",
+    "sourceUpdatedAt": "2026-09-23T03:00:05+00:00",
+    "completedAt": "2026-09-23T03:00:05.368386+00:00",
     "publishedAt": null
   },
   "legacyRequestedAt": null,
   "stages": {
     "collection": {
       "status": "success",
-      "completedAt": "2026-09-22T09:33:00.569220+00:00",
+      "completedAt": "2026-09-23T03:00:05.368386+00:00",
       "details": {
         "feedChanged": true,
         "historyChanged": true,
         "projectCount": 5,
-        "eventCount": 14,
+        "eventCount": 16,
         "coverage": "observed snapshots of the five-item homepage feed; not a complete source-wide archive"
       }
     },
     "validation": {
       "status": "success",
-      "completedAt": "2026-09-22T09:33:00.569220+00:00"
+      "completedAt": "2026-09-23T03:00:05.368386+00:00"
     },
     "publication": {
       "status": "not_run"
