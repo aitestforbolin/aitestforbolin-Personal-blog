@@ -1,28 +1,28 @@
 {
   "schemaVersion": 2,
   "automation": "web3-daily-triage",
-  "runId": "web3-daily-triage:manual-web3-2026-09-23T050900Z",
-  "requestId": "manual-web3-2026-09-23T050900Z",
-  "result": "failed",
+  "runId": "web3-daily-triage:bridge-web3-2026-09-23T0525Z",
+  "requestId": "bridge-web3-2026-09-23T0525Z",
+  "result": "unchanged",
   "lineage": {
     "triggerType": "push",
-    "triggerSha": "19456b9165a7b3197bef6cbaef108c96d531b3f1",
-    "githubRunId": 35821333368,
+    "triggerSha": "e3710d5f57c1941a9883a17f7ddbb469b61352e8",
+    "githubRunId": 35822360378,
     "githubRunAttempt": 1
   },
   "timestamps": {
     "scheduledAt": null,
-    "startedAt": "2026-09-23T05:10:58.783697+00:00",
-    "sourceCheckedAt": "2026-09-23T05:10:59.909272+00:00",
+    "startedAt": "2026-09-23T05:25:53.702494+00:00",
+    "sourceCheckedAt": "2026-09-23T05:25:55.069853+00:00",
     "sourceUpdatedAt": "2026-09-23T03:00:05+00:00",
-    "completedAt": "2026-09-23T05:10:59.909562+00:00",
+    "completedAt": "2026-09-23T05:25:55.070167+00:00",
     "publishedAt": null
   },
   "legacyRequestedAt": null,
   "stages": {
     "collection": {
       "status": "unchanged",
-      "completedAt": "2026-09-23T05:10:59.909562+00:00",
+      "completedAt": "2026-09-23T05:25:55.070167+00:00",
       "details": {
         "feedChanged": false,
         "historyChanged": false,
@@ -33,14 +33,10 @@
     },
     "validation": {
       "status": "success",
-      "completedAt": "2026-09-23T05:10:59.909562+00:00"
+      "completedAt": "2026-09-23T05:25:55.070167+00:00"
     },
     "publication": {
-      "status": "failed",
-      "completedAt": "2026-09-23T05:16:00+00:00",
-      "details": {
-        "reason": "Atomic Git Data publication commit was blocked by OpenAI safety check. Non-atomic fallback is prohibited by Skill."
-      }
+      "status": "not_run"
     },
     "notification": {
       "status": "not_run"
