@@ -1,28 +1,28 @@
 {
   "schemaVersion": 2,
   "automation": "x-intelligence",
-  "runId": "x-intelligence:bridge-x-2026-09-23T0525Z",
-  "requestId": "bridge-x-2026-09-23T0525Z",
-  "result": "success",
+  "runId": "x-intelligence:auto-smoke-x-20260923-054713Z",
+  "requestId": "auto-smoke-x-20260923-054713Z",
+  "result": "in_progress",
   "lineage": {
     "triggerType": "push",
-    "triggerSha": "16e318452fc7da9996f27f2b6328d05b1a27c9b2",
-    "githubRunId": 35822356302,
+    "triggerSha": "2e7d6d19d6fa8d9d7c1aba1237e50c1342e086ed",
+    "githubRunId": 35823903870,
     "githubRunAttempt": 1
   },
   "timestamps": {
-    "scheduledAt": null,
-    "startedAt": "2026-09-23T05:25:50.523946+00:00",
-    "sourceCheckedAt": "2026-09-23T05:26:01.314545+00:00",
-    "sourceUpdatedAt": "2026-09-23T05:17:15+00:00",
-    "completedAt": "2026-09-23T05:26:01.314591+00:00",
-    "publishedAt": "2026-09-23T13:34:13+08:00"
+    "scheduledAt": "2026-09-23T05:47:13Z",
+    "startedAt": "2026-09-23T05:48:02.863296+00:00",
+    "sourceCheckedAt": "2026-09-23T05:48:12.112677+00:00",
+    "sourceUpdatedAt": "2026-09-23T05:36:11+00:00",
+    "completedAt": "2026-09-23T05:48:12.112749+00:00",
+    "publishedAt": null
   },
   "legacyRequestedAt": null,
   "stages": {
     "collection": {
       "status": "success",
-      "completedAt": "2026-09-23T05:26:01.314591+00:00",
+      "completedAt": "2026-09-23T05:48:12.112749+00:00",
       "details": {
         "listsRequested": 4,
         "listsCompleted": 4,
@@ -32,19 +32,13 @@
     },
     "validation": {
       "status": "success",
-      "completedAt": "2026-09-23T05:26:01.314591+00:00"
+      "completedAt": "2026-09-23T05:48:12.112749+00:00"
     },
     "publication": {
-      "status": "success",
-      "commitSha": "f8b36b69f0617da9ffce7bb8b3107b3a1c1a3052"
+      "status": "not_run"
     },
     "notification": {
-      "status": "success",
-      "completedAt": "2026-09-23T13:39:18+08:00",
-      "details": {
-        "provider": "gmail",
-        "messageId": "1a0ccc668ec35f55"
-      }
+      "status": "not_run"
     }
   }
 }
