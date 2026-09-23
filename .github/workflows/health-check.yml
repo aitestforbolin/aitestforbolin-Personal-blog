@@ -1,0 +1,34 @@
+name: Check published workflow outcomes
+
+on:
+  schedule:
+    # 08:15 and 21:00 Asia/Shanghai; X/Web3 run only when a trigger exists.
+    - cron: '15 0 * * 2-6'
+    - cron: '0 13 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: business-outcome-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check business outcome contracts
+        env:
+          ICLOUD_SMTP_USER: ${{ secrets.ICLOUD_SMTP_USER }}
+          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
+          EMAIL_NOTIFY_TO: ${{ secrets.EMAIL_NOTIFY_TO }}
+          GITHUB_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python scripts/health_check.py --notify
