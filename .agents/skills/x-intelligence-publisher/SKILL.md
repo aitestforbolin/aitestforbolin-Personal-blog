@@ -9,19 +9,19 @@ description: Read the canonical 24h X List packet, cluster it into a concise res
 
 Generate the daily X Intelligence briefing from data/x-intelligence-input.json in aitestforbolin/aitestforbolin-Personal-blog main.
 Publish the finalized structured briefing to data/x-intelligence.json on main.
-GitHub Actions is the collection layer; the interactive ChatGPT run is the reasoning and publishing layer. Do not re-scrape X or call SocialData from the Chat task.
+GitHub Actions collects and atomically publishes the data; the independently scheduled ChatGPT task validates the fresh input, writes the publication request, and produces the research briefing. Do not re-scrape X or call SocialData from the Chat task.
 
 ## Repository and access contract
 
 Repository: aitestforbolin/aitestforbolin-Personal-blog
 Branch: main
 Required reads: data/x-intelligence-input.json, data/x-intelligence-refresh-status.json, and current data/x-intelligence.json.
-Required writes: data/x-intelligence.json, immutable daily archive data/x-intelligence/archive/YYYY-MM-DD.json, current receipt data/x-intelligence-refresh-status.json, and final receipt archive data/x-intelligence/run-receipts/YYYY-MM-DD--REQUEST_ID.json.
+Chat task writes: data/x-intelligence-trigger.json, data/x-intelligence-publish-request.json, and after notification the finalized current/request-specific receipts. The publisher Action writes the byte-identical current data/x-intelligence.json and immutable daily archive data/x-intelligence/archive/YYYY-MM-DD.json, then records publication in the receipt.
 All GitHub reads and writes must use the connected GitHub Connector. Do not use local Git, CLI, shell Git, or another GitHub write path.
 
 ## Time contract
 
-Daily reminder: 13:00 Asia/Shanghai. The actual X run begins only after the user asks ChatGPT to execute the combined X + Web3 workflow.
+Run automatically at 13:00 Asia/Shanghai under the enabled X Intelligence Scheduled Task. X and Web3 are independent runs; neither waits for the user or for the other task. If a valid archive for today already exists, verify it and stop without starting another collection.
 Interpret reportDate in Asia/Shanghai.
 
 ## Input hard gates
@@ -82,11 +82,10 @@ For every successful daily publication, write the complete finalized JSON to bot
 - current: data/x-intelligence.json
 - immutable archive: data/x-intelligence/archive/YYYY-MM-DD.json
 Before publishing, check whether today's archive already exists. Never overwrite an existing archive. If it already exists, treat that date as already published and verify the existing archive instead of creating a second copy.
-When publishing a new date, write current and archive as byte-identical files in one atomic GitHub commit using Git Data operations through the GitHub Connector.
-After writing, read both remote files back and confirm status == "success", reportDate is today, sourceGeneratedAt equals input generatedAt, sourcePostCount equals posts.length, and current is byte-identical to the archive.
-If the GitHub write fails, do not use another write path and do not overwrite the last good current publication.
+For a new date, write the full payload and matching requestId/triggerSha to data/x-intelligence-publish-request.json through the GitHub Connector. Wait for .github/workflows/publish-intelligence-request.yml. Its publisher Action validates the request and atomically commits byte-identical current and archive files; do not directly write either file or use another publication path.
+After the Action, read both remote files and the receipt back. Confirm status == "success", reportDate is today, sourceGeneratedAt equals input generatedAt, sourcePostCount equals posts.length, requestId/triggerSha match, current is byte-identical to the archive, and the receipt records publication success with the actual commit SHA. A green Action alone is insufficient. If any check fails, report the exact stage and preserve the last good current publication.
 
-After remote read-back succeeds, update the schemaVersion 2 receipt instead of replacing it with a single success flag. Set `timestamps.publishedAt` to the real publication time and `stages.publication.status = "success"` with the publication commit SHA. Leave all collector timestamps unchanged. The trigger SHA and requestId must still match the published payload. Do not claim final success while notification is still `not_run`.
+The publisher Action records `timestamps.publishedAt` and `stages.publication.status = "success"` with its actual commit SHA. After read-back, preserve its collector and publication timestamps and SHA when finalizing the receipt after the notification attempt. Do not claim final success while notification is still `not_run`.
 
 ## Chat output
 

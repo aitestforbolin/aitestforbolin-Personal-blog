@@ -37,22 +37,23 @@ Primary candidate source:
 Supplemental visibility source:
 
 - `data/crypto-fundraising.json`, which only represents the current homepage's recent five items and must not be treated as the complete candidate set.
+- The history is an accumulation of observed snapshots of that five-item homepage feed. Neither it nor this daily report proves complete coverage of all newly announced financing events across the source.
 
 Candidate window:
 
-- A daily reminder is sent at 13:00 UTC+8. The actual Web3 run begins only after the user asks ChatGPT to execute the combined X + Web3 workflow.
-- Before selecting candidates, the interactive runner must actively refresh the fundraising source and confirm the matching schemaVersion 2 receipt.
+- Run automatically at 13:00 Asia/Shanghai under the enabled Web3 Daily Triage Scheduled Task, independently of X and without waiting for the user. If a valid archive for today exists, verify it and stop without collecting again.
+- Before selecting candidates, the scheduled runner must actively refresh the fundraising source and confirm the matching schemaVersion 2 receipt.
 - Require a non-empty requestId and triggerSha, requestId matching `^[A-Za-z0-9._-]+$`, collection status `success` or `unchanged`, and validation status `success`. The requestId must match the active trigger; requestId and triggerSha must both match any executionLineage present in the refreshed feed. A `fetch_failed`, `failed`, or `stale_source` collection must never be converted into publication success.
 - Use requestId + triggerSha as the authoritative freshness proof. Never accept a refresh merely because `requestedAt`, `completedAt`, or another self-reported timestamp looks recent. A legacy schemaVersion 1 receipt may remain readable for history/debugging but must not prove a new scheduled run.
 - After a matching refresh, use `receipt.timestamps.completedAt` as the current `windowEnd`. Do not use a fixed 13:00 or 14:00 cutoff. The collector assigns newly discovered events a `first_seen_at` during the refresh before that receipt is completed, so those events are included in the same run.
 - Read the refreshed `data/crypto-fundraising-history.json` separately and copy its `updated_at` into publication `sourceUpdatedAt` when available. The history file may legitimately keep an older `updated_at` when the source content is unchanged, so `sourceUpdatedAt` must not be used as the candidate-window cutoff.
 - If the matching receipt's `timestamps.completedAt` is missing or invalid, fail the run rather than guessing a cutoff.
 - `scheduledAt`, `startedAt`, `sourceCheckedAt`, `sourceUpdatedAt`, `completedAt`, and `publishedAt` have distinct meanings. Preserve null when a value is unavailable; never copy `requestedAt`, `generatedAt`, or another field into a different timestamp slot.
-- If the latest successful Daily Triage publication is readable, use its `windowEnd` as the new `windowStart`. This intentionally catches up the full gap after a missed or failed run instead of dropping events.
+- If the latest verified Daily Triage publication is readable, use its `windowEnd` as the new `windowStart`, whether its top-level status is `success` or `unchanged`. Verify its publication receipt before using it; an older `unchanged` payload may still have researched candidates. This catches up the full gap after a missed or failed run without dropping events.
 - If no prior successful publication is available, fall back to exactly 24 hours before the current `windowEnd`.
 - Include events whose `first_seen_at` is later than `windowStart` and no later than `windowEnd`.
 - `first_seen_at` is only an ingestion timestamp. Never use it as evidence that the project itself is new.
-- If a prior successful Daily Triage run can confirm that an `event_id` was already reported, exclude it to avoid duplicate research.
+- If a prior verified published Daily Triage run can confirm that an `event_id` was already reported, exclude it to avoid duplicate research.
 - If prior-run deduplication history is unavailable, use the `first_seen_at` window as the fallback and state that deduplication is based on the time window.
 
 If the Skill itself or the required candidate data cannot be read, report the failure clearly and stop. Do not guess, silently fall back to old rules, or reconstruct the workflow from memory.
@@ -235,7 +236,7 @@ For the normal Scheduled Task, do not output raw JSON. Produce a concise Chinese
 
 Start with:
 
-`今日新增融资项目：N 个`
+`本次新观察到并完成初筛的融资项目：N 个`
 
 Then group results in this order:
 
@@ -258,9 +259,9 @@ For each ACTION and WATCH project, include:
 
 For STOP projects, keep each item to 1–2 concise sentences with the core reason. A confirmed live/tradable native token should be mentioned as the decisive reason when applicable.
 
-If filtering leaves no new financing projects, output only:
+If filtering leaves no newly observed financing projects, output only:
 
-`今日没有需要新增研究的融资项目。`
+`本次没有需要新增研究的融资项目。`
 
 ## Website publication contract
 
@@ -285,7 +286,7 @@ The website payload uses `schemaVersion = 1` and must contain at minimum:
 - `publishedAt`: ISO timestamp with `+08:00`;
 - `windowStart` and `windowEnd`: the candidate window actually used;
 - `sourceUpdatedAt`: timestamp from the fundraising-history input when available;
-- `status`: `success` when new candidate processing completed, or `unchanged` when collection succeeded but source data did not change and there are no new candidates;
+- `status`: `success` when one or more newly observed candidates were processed, including after a collector `unchanged` refresh; `unchanged` only when collection was unchanged and there are zero new candidates;
 - `executionLineage`: runId, requestId, triggerSha, githubRunId, scheduledAt, startedAt, sourceCheckedAt, sourceUpdatedAt, completedAt, and actual publishedAt copied from the validated lineage without timestamp substitution;
 - `executionStatus`: exact collection, validation, and publication outcomes;
 - `deduplicationNote`: concise description of the dedup basis;
@@ -293,15 +294,15 @@ The website payload uses `schemaVersion = 1` and must contain at minimum:
 - `counts`: `new`, `action`, `watch`, and `stop`;
 - `projects`: the per-project research records for this run, including `event_id` and `source_detail_url`.
 
-Use `reportedEventIds` from the latest successful website payload as the preferred persistent deduplication history. If it is unavailable, fall back to the time-window rule already defined above.
+Use `reportedEventIds` from the latest verified published website payload (including a valid `unchanged` publication) as the preferred persistent deduplication history. If it is unavailable, fall back to the time-window rule already defined above.
 
-Publish a valid daily payload even when there are zero new projects: `counts.new = 0` and `projects = []`. If the collector outcome is `unchanged`, publish top-level `status = "unchanged"`; if the source changed but filtering leaves no projects, use `status = "success"`. A future `empty_valid` collector outcome must remain explicit in `executionStatus.collection`, not be erased. This lets the website show a verified no-change run without calling every no-op a business success.
+Publish a valid daily payload even when there are zero new projects: `counts.new = 0` and `projects = []`. Set top-level `status = "unchanged"` only when the collector outcome is `unchanged` and there are no new candidates; when `counts.new > 0`, use `status = "success"` and preserve an `unchanged` collector outcome in `executionStatus.collection`. If the source changed but filtering leaves no projects, use `status = "success"`. A future `empty_valid` collector outcome must remain explicit in `executionStatus.collection`, not be erased. This lets the website show a verified no-change run without calling every no-op a business success.
 
 Before publishing, check whether `data/web3-daily-triage/archive/YYYY-MM-DD.json` already exists. Never overwrite an existing archive. If today's archive already exists, treat the run as already published and do not create a second daily publication.
 
-When a new daily publication is ready, write the current payload and its byte-identical archive in one atomic GitHub commit using Git Data operations. Confirm the commit succeeds before claiming that the website was updated.
+When a new daily publication is ready, write the full payload and matching requestId/triggerSha to `data/web3-daily-triage-publish-request.json` through the GitHub Connector, then wait for `.github/workflows/publish-intelligence-request.yml`. The publisher Action validates and atomically commits the byte-identical current and archive. Do not write either file directly or use a non-atomic fallback. Verify the Action's real publication commit SHA, remote current/archive equality, and correct payload publication status before claiming success.
 
-After remote read-back succeeds, update the run receipt: set `timestamps.publishedAt` to the real publication time and `stages.publication.status` to `success` or `unchanged` as appropriate, including the publication commit SHA. Keep trigger SHA, requestId, and all collector timestamps unchanged. Do not claim final success while notification remains `not_run`.
+The publisher Action records `timestamps.publishedAt` and `stages.publication.status = "success"` with the real commit SHA even for a verified no-change daily publication. After remote read-back, preserve those fields and collector timestamps when finalizing the notification receipt. Do not claim final success while notification remains `not_run`.
 
 If research, generation, validation, or the GitHub commit fails, do not overwrite the last good `data/web3-daily-triage.json`. Report the failure in ChatGPT with the specific stage and reason.
 

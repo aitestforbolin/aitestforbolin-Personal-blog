@@ -15,6 +15,10 @@ def set_payload_publication_status(payload,status):
  publication=execution_status.get("publication")
  if isinstance(publication,dict):publication["status"]=status
  else:execution_status["publication"]=status
+def normalize_web3_status(payload,collection):
+ counts=payload.get("counts") or {}
+ if not isinstance(counts,dict) or type(counts.get("new")) is not int or counts["new"]<0:fail("invalid Web3 candidate count")
+ payload["status"]="success" if counts["new"]>0 or collection=="success" else "unchanged"
 def main():
  ap=argparse.ArgumentParser();ap.add_argument("--kind",choices=CONFIG);a=ap.parse_args();c=CONFIG[a.kind]
  req=load(c["request"]);receipt=load(c["receipt"]);payload=req.get("payload")
@@ -39,6 +43,7 @@ def main():
  payload["executionLineage"]["publishedAt"]=published
  if "publishedAt" in payload:payload["publishedAt"]=published
  set_payload_publication_status(payload,"success")
+ if a.kind=="web3":normalize_web3_status(payload,collection)
  text=json.dumps(payload,ensure_ascii=False,indent=2)+"\n";c["current"].write_text(text);archive.parent.mkdir(parents=True,exist_ok=True);archive.write_text(text)
  subprocess.run(["git","add","--",str(c["current"]),str(archive)],check=True);subprocess.run(["git","commit","-m",f"Publish {a.kind} intelligence for {date}"],check=True)
  sha=subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip()

@@ -48,6 +48,21 @@ class PublishIntelligenceRequestTests(unittest.TestCase):
             payload["executionStatus"]["publication"]["commitSha"]
         )
 
+    def test_web3_new_candidates_after_unchanged_collection_are_published(self):
+        payload = {"status": "unchanged", "counts": {"new": 5}}
+        publisher.normalize_web3_status(payload, "unchanged")
+        self.assertEqual(payload["status"], "success")
+
+    def test_web3_verified_zero_candidate_refresh_stays_unchanged(self):
+        payload = {"status": "success", "counts": {"new": 0}}
+        publisher.normalize_web3_status(payload, "unchanged")
+        self.assertEqual(payload["status"], "unchanged")
+
+    def test_web3_changed_source_with_zero_candidates_is_success(self):
+        payload = {"counts": {"new": 0}}
+        publisher.normalize_web3_status(payload, "success")
+        self.assertEqual(payload["status"], "success")
+
 
 if __name__ == "__main__":
     unittest.main()
