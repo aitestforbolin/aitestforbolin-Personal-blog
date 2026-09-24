@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-24T15:52:43+00:00",
+  "generatedAt": "2026-09-24T23:55:26+00:00",
   "timezone": "Asia/Shanghai",
   "status": "healthy",
   "failedSources": [],
@@ -38,7 +38,7 @@
         }
       ],
       "releasedAt": null,
-      "retrievedAt": "2026-09-24T15:52:43+00:00",
+      "retrievedAt": "2026-09-24T23:55:26+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -98,7 +98,7 @@
         }
       ],
       "releasedAt": "2026-09-24T15:52:43.900Z",
-      "retrievedAt": "2026-09-24T15:52:43+00:00",
+      "retrievedAt": "2026-09-24T23:55:26+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "legacy": {
@@ -165,7 +165,7 @@
         }
       ],
       "releasedAt": null,
-      "retrievedAt": "2026-09-24T15:52:43+00:00",
+      "retrievedAt": "2026-09-24T23:55:26+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -173,6 +173,66 @@
         "date_et": "2026-09-24",
         "time_et": "10:15",
         "time_shanghai": "22:15",
+        "title": "FF::President Trump Speaks",
+        "title_cn": "President Trump Speaks",
+        "period": null,
+        "category": "macro",
+        "importance": "medium",
+        "stars": 3,
+        "source": "Forex Factory",
+        "url": "https://www.forexfactory.com/calendar",
+        "result_source": "Forex Factory 市场日历",
+        "result_url": "https://www.forexfactory.com/calendar",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar",
+        "metric_values": [
+          {
+            "label": "公布值",
+            "source_title": "President Trump Speaks",
+            "actual": null,
+            "forecast": null,
+            "previous": null,
+            "consensus_source": "Forex Factory 市场日历",
+            "consensus_url": "https://www.forexfactory.com/calendar"
+          }
+        ],
+        "release_status": "scheduled",
+        "calendar_status": "healthy"
+      }
+    },
+    {
+      "id": "us-16c1f2987cb4",
+      "eventType": "data",
+      "country": "US",
+      "period": null,
+      "scheduledAt": "2026-09-25T07:55:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "President Trump Speaks",
+      "category": "macro",
+      "importance": "medium",
+      "stars": 3,
+      "source": "Forex Factory",
+      "sourceUrl": "https://www.forexfactory.com/calendar",
+      "metrics": [
+        {
+          "id": "metric-1",
+          "label": "公布值",
+          "actual": null,
+          "forecast": null,
+          "previous": null,
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        }
+      ],
+      "releasedAt": null,
+      "retrievedAt": "2026-09-24T23:55:26+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "scheduled",
+      "legacy": {
+        "date": "2026-09-25",
+        "date_et": "2026-09-24",
+        "time_et": "19:55",
+        "time_shanghai": "07:55",
         "title": "FF::President Trump Speaks",
         "title_cn": "President Trump Speaks",
         "period": null,
@@ -234,7 +294,7 @@
         }
       ],
       "releasedAt": null,
-      "retrievedAt": "2026-09-24T15:52:43+00:00",
+      "retrievedAt": "2026-09-24T23:55:26+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
