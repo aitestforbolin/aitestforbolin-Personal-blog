@@ -35,6 +35,11 @@ on:
         required: true
         default: "100"
         type: string
+  push:
+    branches:
+      - main
+    paths:
+      - data/x-author-search-request.json
 
 permissions:
   contents: write
@@ -48,12 +53,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
-      SEARCH_USERNAME: ${{ inputs.username }}
-      SEARCH_KEYWORDS: ${{ inputs.keywords }}
-      SEARCH_DAYS: ${{ inputs.days }}
-      SEARCH_MATCH: ${{ inputs.match }}
-      SEARCH_INCLUDE_REPLIES: ${{ inputs.include_replies }}
-      SEARCH_MAX_RESULTS: ${{ inputs.max_results }}
       SOCIALDATA_API_KEY: ${{ secrets.SOCIALDATA_API_KEY }}
 
     steps:
@@ -72,7 +71,15 @@ jobs:
           python -m py_compile scripts/search_x_author.py
           python tests/test_search_x_author.py
 
-      - name: Search author posts
+      - name: Search author posts from manual inputs
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          SEARCH_USERNAME: ${{ inputs.username }}
+          SEARCH_KEYWORDS: ${{ inputs.keywords }}
+          SEARCH_DAYS: ${{ inputs.days }}
+          SEARCH_MATCH: ${{ inputs.match }}
+          SEARCH_INCLUDE_REPLIES: ${{ inputs.include_replies }}
+          SEARCH_MAX_RESULTS: ${{ inputs.max_results }}
         run: |
           args=(
             --username "$SEARCH_USERNAME"
@@ -85,6 +92,11 @@ jobs:
             args+=(--include-replies)
           fi
           python scripts/search_x_author.py "${args[@]}"
+
+      - name: Search author posts from request file
+        if: github.event_name == 'push'
+        run: |
+          python scripts/search_x_author.py --request-file data/x-author-search-request.json
 
       - name: Validate output
         run: |
