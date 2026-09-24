@@ -41,11 +41,11 @@ Supplemental visibility source:
 
 Candidate window:
 
-- Run automatically at 13:00 Asia/Shanghai under the enabled Web3 Daily Triage Scheduled Task, independently of X and without waiting for the user. If a valid archive for today exists, verify it and stop without collecting again.
+- Run automatically at 09:00 Asia/Shanghai under the enabled Web3 Daily Triage Scheduled Task, independently of X and without waiting for the user. If a valid archive for today exists, verify it and stop without collecting again.
 - Before selecting candidates, the scheduled runner must actively refresh the fundraising source and confirm the matching schemaVersion 2 receipt.
 - Require a non-empty requestId and triggerSha, requestId matching `^[A-Za-z0-9._-]+$`, collection status `success` or `unchanged`, and validation status `success`. The requestId must match the active trigger; requestId and triggerSha must both match any executionLineage present in the refreshed feed. A `fetch_failed`, `failed`, or `stale_source` collection must never be converted into publication success.
 - Use requestId + triggerSha as the authoritative freshness proof. Never accept a refresh merely because `requestedAt`, `completedAt`, or another self-reported timestamp looks recent. A legacy schemaVersion 1 receipt may remain readable for history/debugging but must not prove a new scheduled run.
-- After a matching refresh, use `receipt.timestamps.completedAt` as the current `windowEnd`. Do not use a fixed 13:00 or 14:00 cutoff. The collector assigns newly discovered events a `first_seen_at` during the refresh before that receipt is completed, so those events are included in the same run.
+- After a matching refresh, use `receipt.timestamps.completedAt` as the current `windowEnd`. Do not use the scheduled start time as a cutoff. The collector assigns newly discovered events a `first_seen_at` during the refresh before that receipt is completed, so those events are included in the same run.
 - Read the refreshed `data/crypto-fundraising-history.json` separately and copy its `updated_at` into publication `sourceUpdatedAt` when available. The history file may legitimately keep an older `updated_at` when the source content is unchanged, so `sourceUpdatedAt` must not be used as the candidate-window cutoff.
 - If the matching receipt's `timestamps.completedAt` is missing or invalid, fail the run rather than guessing a cutoff.
 - `scheduledAt`, `startedAt`, `sourceCheckedAt`, `sourceUpdatedAt`, `completedAt`, and `publishedAt` have distinct meanings. Preserve null when a value is unavailable; never copy `requestedAt`, `generatedAt`, or another field into a different timestamp slot.
