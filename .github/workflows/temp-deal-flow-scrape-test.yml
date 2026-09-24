@@ -17,20 +17,32 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Fetch Deal Flow page and parse ten rows
+      - name: Diagnose source responses and parser
         run: |
           python - <<'PY'
+          from urllib.request import Request, urlopen
           from scripts import crypto_fundraising_direct as parser
 
-          parser.SOURCE_URL = "https://crypto-fundraising.info/deal-flow/"
-          parser.PROJECT_LIMIT = 10
-          payload = parser.fetch_direct_source_payload(timeout=30, retries=2)
-          projects = payload["projects"]
-          if len(projects) != 10:
-              raise SystemExit(f"Expected 10 projects, got {len(projects)}")
-          for item in projects:
-              print(
-                  f'{item["source_rank"]}\t{item["name"]}\t{item["round"] or "Unknown"}\t'
-                  f'{item["announced_month"]}\t{item["amount_usd"]}\t{item["detail_url"]}'
-              )
+          for source_url in ("https://crypto-fundraising.info/", "https://crypto-fundraising.info/deal-flow/"):
+              request = Request(source_url, headers={
+                  "Accept": "text/html,application/xhtml+xml",
+                  "User-Agent": "personal-site-crypto-fundraising/4.0",
+              })
+              try:
+                  with urlopen(request, timeout=30) as response:
+                      body = response.read().decode("utf-8", errors="replace")
+                      print(f"URL={source_url} status={response.status} final={response.url} type={response.headers.get('Content-Type')} bytes={len(body)}")
+                  print(f"rows={body.lower().count('<tr')} project_links={body.count('/projects/')} title={body[body.lower().find('<title'):body.lower().find('</title>')+8][:250]}")
+                  print(f"challenge_markers={{key: key.lower() in body.lower() for key in ('cloudflare', 'captcha', 'access denied', 'enable javascript')}}")
+                  parser.SOURCE_URL = source_url
+                  parser.PROJECT_LIMIT = 10
+                  try:
+                      payload = parser.parse_homepage_payload(body)
+                      print(f"parsed_count={len(payload['projects'])}")
+                      for item in payload["projects"]:
+                          print(f"{item['source_rank']}\t{item['name']}\t{item['round']}\t{item['announced_month']}\t{item['amount_usd']}")
+                  except Exception as exc:
+                      print(f"parse_error={type(exc).__name__}: {exc}")
+              except Exception as exc:
+                  print(f"request_error={type(exc).__name__}: {exc}")
           PY
