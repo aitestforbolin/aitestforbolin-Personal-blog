@@ -3,7 +3,7 @@
   "automation": "web3-daily-triage",
   "runId": "web3-daily-triage:luna-web3-20260924-021435Z",
   "requestId": "luna-web3-20260924-021435Z",
-  "result": "in_progress",
+  "result": "success",
   "lineage": {
     "triggerType": "push",
     "triggerSha": "42744db86459d6dc56ccf71cd4d17fd99af97d84",
@@ -40,7 +40,10 @@
       "commitSha": "f48d5a13ae36916389f18f3f360b1a337e0c38fd"
     },
     "notification": {
-      "status": "not_run"
+      "status": "success",
+      "completedAt": "2026-09-24T02:22:00Z",
+      "provider": "Gmail",
+      "messageId": "1a0d1357125a22b4"
     }
   }
 }
