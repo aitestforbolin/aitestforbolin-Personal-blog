@@ -224,10 +224,34 @@ def media(tweet: dict) -> dict:
     return {"types": types[:4], "urls": urls[:8]}
 
 
+def tweet_context(tweet: dict | None) -> dict | None:
+    if not isinstance(tweet, dict):
+        return None
+    user = tweet.get("user") or {}
+    return {
+        "tweet_id": str(tweet.get("id_str") or tweet.get("id") or ""),
+        "created_at": tweet.get("tweet_created_at") or tweet.get("created_at") or "",
+        "author": {
+            "username": user.get("screen_name") or "",
+            "name": user.get("name") or "",
+        },
+        "text": tweet.get("full_text") or tweet.get("text") or "",
+        "url": tweet_url(tweet),
+        "external_urls": external_urls(tweet),
+        "media": media(tweet),
+        "quote": tweet_context(quoted),
+        "quote_context_missing": bool(
+            (tweet.get("is_quote_status") or tweet.get("quoted_status_id_str") or tweet.get("quoted_status_id"))
+            and not isinstance(quoted, dict)
+        ),
+    }
+
+
 def normalize(tweet: dict) -> dict:
     user = tweet.get("user") or {}
     tweet_id = str(tweet.get("id_str") or tweet.get("id") or "")
     username = str(user.get("screen_name") or "")
+    quoted = tweet.get("quoted_status")
     return {
         "tweet_id": tweet_id,
         "created_at": tweet.get("tweet_created_at") or tweet.get("created_at") or "",
