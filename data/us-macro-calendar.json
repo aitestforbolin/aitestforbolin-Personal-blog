@@ -43,24 +43,60 @@
     "stars": 3,
     "source": "Forex Factory",
     "url": "https://www.forexfactory.com/calendar",
-    "result_source": "Forex Factory 市场日历",
-    "result_url": "https://www.forexfactory.com/calendar",
+    "result_source": "Forex Factory 网页日历",
+    "result_url": "https://www.forexfactory.com/calendar?day=sep24.2026",
     "consensus_source": "Forex Factory 市场日历",
     "consensus_url": "https://www.forexfactory.com/calendar",
     "metric_values": [
       {
         "label": "初请失业金人数",
         "source_title": "Unemployment Claims",
-        "actual": null,
+        "actual": "197K",
         "forecast": "201K",
-        "previous": "196K",
+        "previous": "198K",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar",
+        "actual_source": "Forex Factory 网页日历",
+        "actual_url": "https://www.forexfactory.com/calendar?day=sep24.2026"
+      }
+    ],
+    "release_status": "released",
+    "forecast": "初请失业金人数 201K",
+    "previous": "初请失业金人数 198K",
+    "released_at": "2026-09-24T15:52:43.900Z",
+    "actual_updated_at": "2026-09-24T15:52:43.900Z",
+    "actual": "初请失业金人数 197K",
+    "calendar_status": "healthy"
+  },
+  {
+    "date": "2026-09-24",
+    "date_et": "2026-09-24",
+    "time_et": "10:15",
+    "time_shanghai": "22:15",
+    "title": "FF::President Trump Speaks",
+    "title_cn": "President Trump Speaks",
+    "period": null,
+    "category": "macro",
+    "importance": "medium",
+    "stars": 3,
+    "source": "Forex Factory",
+    "url": "https://www.forexfactory.com/calendar",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar",
+    "consensus_source": "Forex Factory 市场日历",
+    "consensus_url": "https://www.forexfactory.com/calendar",
+    "metric_values": [
+      {
+        "label": "公布值",
+        "source_title": "President Trump Speaks",
+        "actual": null,
+        "forecast": null,
+        "previous": null,
         "consensus_source": "Forex Factory 市场日历",
         "consensus_url": "https://www.forexfactory.com/calendar"
       }
     ],
     "release_status": "scheduled",
-    "forecast": "初请失业金人数 201K",
-    "previous": "初请失业金人数 196K",
     "calendar_status": "healthy"
   },
   {
