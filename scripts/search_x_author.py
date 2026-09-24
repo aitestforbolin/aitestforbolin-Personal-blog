@@ -239,11 +239,6 @@ def tweet_context(tweet: dict | None) -> dict | None:
         "url": tweet_url(tweet),
         "external_urls": external_urls(tweet),
         "media": media(tweet),
-        "quote": tweet_context(quoted),
-        "quote_context_missing": bool(
-            (tweet.get("is_quote_status") or tweet.get("quoted_status_id_str") or tweet.get("quoted_status_id"))
-            and not isinstance(quoted, dict)
-        ),
     }
 
 
@@ -272,6 +267,11 @@ def normalize(tweet: dict) -> dict:
         },
         "external_urls": external_urls(tweet),
         "media": media(tweet),
+        "quote": tweet_context(quoted),
+        "quote_context_missing": bool(
+            (tweet.get("is_quote_status") or tweet.get("quoted_status_id_str") or tweet.get("quoted_status_id"))
+            and not isinstance(quoted, dict)
+        ),
     }
 
 
