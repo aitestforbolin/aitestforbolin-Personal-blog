@@ -1,293 +1,273 @@
 {
   "schemaVersion": 1,
-  "kind": "x",
-  "requestId": "luna-x-20260923-061839Z",
-  "triggerSha": "a63456ad978ffdfb3249a09cc0a3c397204aad8d",
-  "publicationDate": "2026-09-23",
-  "publishedAt": "2026-09-23T14:25:50+08:00",
+  "requestId": "luna-x-20260924-021450Z",
+  "triggerSha": "04f1b4b2b2390395fcd1fd2483c3e6be477d2b2a",
+  "publicationDate": "2026-09-24",
+  "publishedAt": "2026-09-24T10:17:07+08:00",
   "payload": {
     "schemaVersion": 1,
     "status": "success",
-    "reportDate": "2026-09-23",
-    "generatedAt": "2026-09-23T14:25:50+08:00",
-    "sourceGeneratedAt": "2026-09-23T06:20:03.229171+00:00",
-    "sourcePostCount": 116,
+    "reportDate": "2026-09-24",
+    "generatedAt": "2026-09-24T10:17:07+08:00",
+    "sourceGeneratedAt": "2026-09-24T02:15:19.749272+00:00",
+    "sourcePostCount": 119,
     "sourceListCount": 4,
     "executionLineage": {
-      "runId": "x-intelligence:luna-x-20260923-061839Z",
-      "requestId": "luna-x-20260923-061839Z",
-      "triggerSha": "a63456ad978ffdfb3249a09cc0a3c397204aad8d",
-      "githubRunId": 35826248710,
-      "scheduledAt": "2026-09-23T06:18:39Z",
-      "startedAt": "2026-09-23T06:20:03.228522+00:00",
-      "sourceCheckedAt": "2026-09-23T06:20:15.062919+00:00",
-      "sourceUpdatedAt": "2026-09-23T06:07:26+00:00",
-      "completedAt": "2026-09-23T06:20:15.062980+00:00",
-      "publishedAt": "2026-09-23T14:25:50+08:00"
+      "runId": "x-intelligence:luna-x-20260924-021450Z",
+      "requestId": "luna-x-20260924-021450Z",
+      "triggerSha": "04f1b4b2b2390395fcd1fd2483c3e6be477d2b2a",
+      "githubRunId": 35946457465,
+      "scheduledAt": "2026-09-24T02:14:50Z",
+      "startedAt": "2026-09-24T02:15:19.748709+00:00",
+      "sourceCheckedAt": "2026-09-24T02:15:33.375349+00:00",
+      "sourceUpdatedAt": "2026-09-24T02:03:15+00:00",
+      "completedAt": "2026-09-24T02:15:33.375413+00:00",
+      "publishedAt": "2026-09-24T10:17:07+08:00"
     },
     "executionStatus": {
       "collection": "success",
       "validation": "success",
       "publication": {
-        "status": "pending"
+        "status": "not_run"
       }
     },
-    "overview": "过去 24 小时的信息流呈现两条相互牵动的主线：一边是美伊接触、霍尔木兹与油价回落带来的宏观风险缓和预期；另一边是稳定币分发、代币化股票和 AI Agent 产品持续推进。具体链上机会仍高度分化：Aspecta Pre-Market V3 进入新结算机制阶段，Circle/Binance 合作与 xStocks 数据受到集中传播；同时 RH/FOMO、ZEC NFT 和积分挖矿参与者开始更具体地讨论流动性、磨损与退出成本。本简报将帖子转述与事实层、作者观点及注意力信号分开；市场与链上数字均按帖子归属陈述，未经外部核验。",
+    "overview": "9 月 24 日扫描 4 个列表、119 条 Posts。信息流主要聚焦美债/油价的宏观分歧、代币化股票与预测市场产品扩张、Variational 发币预期，以及 AI Agent 的工具入口叙事。项目指标和宏观数字多由帖子转述或项目方披露，不能等同于独立核验；最值得跟踪的是实际流动性、产品使用与正式规则。",
     "homeHighlights": [
-      "多名账号转述美伊接触与霍尔木兹条件，市场解读偏向油价回落、通胀压力缓和，但尚无帖子证明协议已达成。",
-      "Circle 与 Binance 宣布 1 亿美元战略投资及五年 USDC 合作；这是稳定币分发网络竞争的新进展。",
-      "xStocks 相关账号披露 OKX AUM 超 2 亿美元、X Layer 累计交易量超 15 亿美元，项目方数据仍需独立验证。",
-      "Agentic Trading、Hermes/JEV 等讨论从概念走向小规模实测，但授权确认和安全风控仍卡住自动执行。",
-      "Aspecta Pre-Market V3 将 Concrete 市场安排在 9 月 23 日 09:00 UTC 上线，并加入限价单与 TGE 后分阶段结算。"
+      "强劲 PMI 与鹰派定价推高美债收益率的叙事，和美伊缓和、油价回落预期正面冲突，宏观交易进入验证阶段。",
+      "xStocks 相关账号称持有人达到 40 万，并推进借贷收益金库；规模数字仍需用活跃度、深度与退出能力验证。",
+      "predict.fun 与 Binance Wallet 把股票涨跌预测压缩到 15 分钟窗口，结算基准和争议处理将成为体验关键。",
+      "Variational 被多帖描述为计划 Q4 TGE、32% 积分空投；资格、快照与 tokenomics 仍应以官方完整规则为准。",
+      "BTC/ETH ETF 流量转正的说法与山寨币盈利广度偏弱并存，尚不能概括为全市场风险偏好同步扩散。"
     ],
     "topics": [
       {
-        "title": "美伊接触与霍尔木兹重新开放预期推动油价、风险偏好叙事",
+        "title": "美债收益率急升与外交缓和预期相撞，宏观交易转向验证阶段",
         "importance": "high",
-        "summary": "信息流多帖转述美伊代表接触、后续会谈安排，以及伊朗提出解除港口封锁、释放被冻结资产等条件后重开霍尔木兹的主张；也有帖子整理海湾国家对航运和地区安全的诉求。围绕这些消息，作者把原油从高位回落解读为通胀与加息压力的潜在缓和，并据此看好风险资产。",
-        "whyItMatters": "如果航道和冲突风险实质缓解，能源价格可能减轻通胀与利率预期对风险资产的压制；但当前信息流主要是 KOL 对会谈、转述报道和政策表态的整理，不能把谈判信号等同于协议落实。",
+        "summary": "多条帖子把美债收益率上冲归因于强劲的美国 PMI、成本通胀与偏鹰派官员表态；另一组观点则继续围绕美伊谈判、霍尔木兹和中美访问预期交易油价回落。也有人把收益率与油价反弹视作涨势中的短暂回调。",
+        "whyItMatters": "利率和能源两条路径对风险资产的方向影响相反；市场焦点已从“缓和预期”转为经济数据、外交进展与价格能否兑现。帖中具体数据均为作者转述，未独立核实。",
         "facts": [
-          "帖子转述美国与伊朗代表进行了约三小时会晤，并称双方计划继续接触；该内容来自信息流转述，并非本 packet 中的原始会议文件。",
-          "多帖转述伊朗将解除海上封锁、释放被冻结资产及结束相关战线等列为重新开放霍尔木兹的条件；另一帖称若美方缓和军事压力、解除港口封锁，伊方可在七天内重开。",
-          "帖子同时记录周边国家对恢复航运、能源设施保护及参与地区安全安排的关注。"
+          "qinbafrank 转述 9 月 PMI 综合指数 58.4、服务业 58.7，并称 10 年期和 30 年期美债收益率分别升至约 5.12% 和 5.41%。",
+          "PhyrexNi 转述 10 年期收益率一度约 5.087%，并将油价反弹与收益率上行并列为市场回调背景。",
+          "多帖讨论美伊接触、霍尔木兹通航条件及周边国家的航运安全诉求；其中部分内容是对媒体或官员表态的二手转述。"
         ],
         "interpretations": [
-          "qinbafrank、PhyrexNi 与 octopusycc 等将谈判和油价下行联系起来，认为宏观逆风边际减弱会支持风险偏好；ArtofSpecuycky 将其扩展为“宏观拐点”交易。",
-          "这些是市场解释与方向判断，不是已确认的谈判结果；油价走势、会谈进度与风险资产之间仍有多重条件。"
+          "qinbafrank 将强数据和 Barr 的鹰派讲话视作收益率上冲主因；另有作者认为中美会晤后的短期获利回吐可能提供买入机会。",
+          "看多油价回落的一方押注外交缓和能压低能源溢价；谨慎一方强调谈判尚未兑现且航运风险仍在。"
         ],
         "authors": [
-          "PhyrexNi",
           "qinbafrank",
-          "octopusycc",
-          "ArtofSpecuycky"
+          "PhyrexNi",
+          "ArtofSpecuycky",
+          "octopusycc"
         ],
         "sourceUrls": [
-          "https://x.com/PhyrexNi/status/2102628336753316027",
-          "https://x.com/qinbafrank/status/2102570676016345385",
-          "https://x.com/PhyrexNi/status/2102493820105671111",
-          "https://x.com/PhyrexNi/status/2102490816950469011",
-          "https://x.com/PhyrexNi/status/2102378268888543471",
-          "https://x.com/octopusycc/status/2102414336065257596",
-          "https://x.com/ArtofSpecuycky/status/2102561709047321056",
-          "https://x.com/qinbafrank/status/2102316458181087249"
+          "https://x.com/qinbafrank/status/2102929311103864959",
+          "https://x.com/PhyrexNi/status/2102860058698867092",
+          "https://x.com/PhyrexNi/status/2102791164709752848",
+          "https://x.com/qinbafrank/status/2102768906247233932",
+          "https://x.com/ArtofSpecuycky/status/2102718042102800799",
+          "https://x.com/PhyrexNi/status/2102628336753316027"
+        ],
+        "sourceCount": 14,
+        "confidence": "medium"
+      },
+      {
+        "title": "代币化股票从持有与交易扩展到借贷、收益和短周期预测",
+        "importance": "high",
+        "summary": "xStocks 相关账号集中传播持有人数与交易量增长，并推进 Kraken 上的 xStocks Vaults（由 Kamino 等支持）；Base 也展示 Coinbase 代币化股票日成交。与此同时，predict.fun 与 Binance Wallet 推出 15 分钟股票涨跌预测市场。",
+        "whyItMatters": "产品形态正由代币化标的本身延伸至抵押借贷、做市激励和预测市场，显示渠道整合加深；但持有人、成交额和增长数字多来自项目/生态账号，需观察真实深度、留存、价差、对手方与地区限制。",
+        "facts": [
+          "xStocksFi 称持有人数达到 40 万、两周新增 15 万；另称 Raydium 上单日成交 1.6 亿美元，近 23 日 13 亿美元。",
+          "Kamino、Veda、Sentora 与 Kraken 相关帖子介绍以 SPYx、QQQx、NVDAx 等为标的的收益金库，描述为用代币化股票作抵押、借出稳定币后再换回标的。",
+          "Base 展示 Coinbase 代币化股票日成交上行；predict.fun 表示其 15 分钟股票涨跌市场已上线并使用 Chainlink、Binance Futures 指数价格。"
+        ],
+        "interpretations": [
+          "生态方将这些指标视为代币化股票走向主流的证据；但本 packet 没有独立审计成交、持有人活跃度或净收益，激励活动也可能放大短期数据。",
+          "15 分钟预测市场与股票交易相邻但并非同一种产品，需留意结算基准、规则和司法辖区限制。"
+        ],
+        "authors": [
+          "xStocksFi",
+          "base",
+          "predictdotfun",
+          "CoinbaseWallet"
+        ],
+        "sourceUrls": [
+          "https://x.com/xStocksFi/status/2102760539818758564",
+          "https://x.com/xStocksFi/status/2102785582955176083",
+          "https://x.com/xStocksFi/status/2102706513441853671",
+          "https://x.com/base/status/2102756204271280186",
+          "https://x.com/predictdotfun/status/2102760235429765532",
+          "https://x.com/xStocksFi/status/2102781258640380237"
+        ],
+        "sourceCount": 17,
+        "confidence": "medium"
+      },
+      {
+        "title": "股票预测市场短周期化，结算裁决仍是产品设计难点",
+        "importance": "high",
+        "summary": "predict.fun 与 Binance Wallet 宣传 15 分钟股票涨跌市场，覆盖多只大型科技股；River Markets 则认为体育博彩与预测市场正在融合。另有长帖以 GenLayer 为例讨论自然语言事件的争议裁决，指出产品扩张并不自动解决结果定义、误判和申诉成本。",
+        "whyItMatters": "更短周期和更广品类可能扩大预测市场使用场景，但结算可信度、价格来源与裁决机制决定用户能否信任市场，而不只是交易入口是否方便。",
+        "facts": [
+          "predict.fun 帖称市场使用 Chainlink 并查询 Binance Futures 指数价格；Binance Wallet 转发帖列出 AMZN、AVGO、GOOGL、META、MSFT、MU、NVDA、TSM 等。",
+          "River Markets 观察到 DraftKings、Underdog、FanDuel 推出自有预测市场产品，认为博彩与预测市场品类正在趋同。",
+          "octopusycc 以产品“发布”是否等于事件完成为例介绍 GenLayer 的多验证者裁决设想，同时提醒模型可能漏看材料或共享同源偏差。"
+        ],
+        "interpretations": [
+          "市场规模扩张与结算质量不是同一件事；短周期产品尤其需要明确价格时点、数据源和异常处理。",
+          "GenLayer 的裁决层需求仍是作者对未来 Agent 经济的推演，packet 未提供其误判率或真实争议处理数据。"
+        ],
+        "authors": [
+          "predictdotfun",
+          "BinanceWallet",
+          "river_markets",
+          "octopusycc"
+        ],
+        "sourceUrls": [
+          "https://x.com/predictdotfun/status/2102760235429765532",
+          "https://x.com/river_markets/status/2102829205407076835",
+          "https://x.com/octopusycc/status/2102819512773173639",
+          "https://x.com/aspecta_ai/status/2102672748199993361"
         ],
         "sourceCount": 8,
         "confidence": "medium"
       },
       {
-        "title": "Circle × Binance 以投资和五年合作加深 USDC 分发",
+        "title": "Variational 宣布 Q4 发币与 32% 积分空投，积分稀释和正式条款待确认",
         "importance": "high",
-        "summary": "Circle 官方帖子被 xStocksFi、PhyrexNi 等引用，称 Binance 对 Circle 作出 1 亿美元战略投资，并签订新的五年商业协议以扩大新兴市场及 Binance 平台上的 USDC 获取和使用。qinbafrank 将此放进 Circle 与交易平台、支付和结算网络的扩张框架中。",
-        "whyItMatters": "长期分销关系和交易场景结合，可能加强 USDC 的渠道覆盖；更重要的验证指标将是实际使用、资金停留、支付结算规模和合作激励，而不是宣布本身。",
+        "summary": "Variational 官方账号发布链接后，多名账户称其计划 Q4 TGE、32% 份额面向积分持有人且首日解锁；传播帖还描述团队/投资人锁定、收入用于回购销毁等 tokenomics。参与者同时担忧延期会继续累积积分、稀释单人份额。",
+        "whyItMatters": "高比例即时解锁空投可能让长期积分参与者获得流动性，但可分配比例、资格、快照、解锁和回购规则都会显著影响预期；本 packet 中多项细节主要来自转述，需等正式规则。",
         "facts": [
-          "Circle 的原帖称 Binance 投资 1 亿美元，并签署新的五年商业协议。",
-          "原帖将合作目标表述为扩大新兴市场和 Binance 全球平台上的 USDC 可用性。",
-          "信息流另有长帖把这一关系与 Circle 的交易、支付和结算网络扩张相连；这部分属于作者的商业战略解释。"
+          "variational_io 发出相关官方链接；Benjieming1Q84 与 0xStudy 等转述 Q4 TGE、32% 空投与积分资格安排。",
+          "0xStudy 指出项目此前由 Q3 延期至 Q4，继续累积分数可能稀释每个积分的潜在份额。",
+          "另有 Variational 帖子称交易者通过 swaps 建立 500 万美元以上仓位且全包执行成本低于 1bp；这是项目方产品表现陈述。"
         ],
         "interpretations": [
-          "KOL 观点认为 Circle 正从稳定币发行向更完整的美元分发与结算网络扩展；网络效应是否能形成、合作能否带来可持续收入仍待观察。"
+          "社群把 token launch 解读为积分兑现窗口，但日期和条款仍需要正式公告确认。",
+          "交易成本主张若可复现会是产品竞争信号；packet 没有独立成交样本或方法说明。"
         ],
         "authors": [
-          "circle",
-          "xStocksFi",
-          "PhyrexNi",
-          "qinbafrank"
+          "variational_io",
+          "0xYond",
+          "Benjieming1Q84",
+          "0xStudy"
         ],
         "sourceUrls": [
-          "https://x.com/circle/status/2102367809082909123",
-          "https://x.com/xStocksFi/status/2102374489296339379",
-          "https://x.com/PhyrexNi/status/2102367919086977405",
-          "https://x.com/qinbafrank/status/2102580335578059079"
+          "https://x.com/variational_io/status/2102929439063765192",
+          "https://x.com/Benjieming1Q84/status/2102941197933441498",
+          "https://x.com/0xStudy/status/2102933386474209488",
+          "https://x.com/0xStudy/status/2102932272697774311"
         ],
-        "sourceCount": 3,
-        "confidence": "high"
-      },
-      {
-        "title": "代币化股票扩张同时押注 24/7 交易与链上流动性",
-        "importance": "high",
-        "summary": "xStocks 相关账号披露 OKX 上 AUM 超过 2 亿美元、X Layer 累计交易量超过 15 亿美元，并称 GME 代币转账活动上升、SPYx/QQQb/IBITon 一周市值合计增加约 1,670 万美元。Base 继续宣传代币化股票 24/7 交易，并转发 Revert 覆盖 10 个股票池的 LP 工具与奖励；Base 还宣称 TVL 创 62 亿美元新高，且 Aave 已开放面向 Base 社区的 USDC 存取。",
-        "whyItMatters": "叙事正从“资产上链”延伸到全天候交易、做市激励和钱包/借贷分发；不过成交、AUM 与 TVL 数字大多来自项目或生态账号，规模不等于持续深度、用户留存或实际风险调整后收益。",
-        "facts": [
-          "xStocks 账号称其在 OKX 的 AUM 两个月内超过 2 亿美元，并称 X Layer 上累计交易量超过 15 亿美元。",
-          "Token Terminal 数据经 xStocksFi 转发，称 SPYx、QQQb、IBITon 过去一周合计增加约 1,670 万美元市值。",
-          "Base 帖子宣传链上代币化股票可 24/7 交易，并转发 Revert 对 Aerodrome 10 个代币化股票池的 LP 工具和奖励。",
-          "xStocks 帖子提示产品对美国及美国人士不可用并存在地区限制。"
-        ],
-        "interpretations": [
-          "24/7 交易和做市工具是产品层面的推进；是否形成有效流动性需观察实际成交深度、价差、资产支持与跨平台结算。",
-          "多项增长数字来自发行方或生态参与者，应视作披露/传播信号，而非独立审计结论。"
-        ],
-        "authors": [
-          "xStocksFi",
-          "XLayerOfficial",
-          "tokenterminal",
-          "base",
-          "revertfinance",
-          "aave"
-        ],
-        "sourceUrls": [
-          "https://x.com/xStocksFi/status/2102314483880456610",
-          "https://x.com/XLayerOfficial/status/2102337622131749096",
-          "https://x.com/xStocksFi/status/2102453802419003868",
-          "https://x.com/xStocksFi/status/2102494091187765677",
-          "https://x.com/base/status/2102379399957893416",
-          "https://x.com/base/status/2102471475500290391",
-          "https://x.com/base/status/2102441686437892344",
-          "https://x.com/base/status/2102419363144048954",
-          "https://x.com/xStocksFi/status/2102453806235783369"
-        ],
-        "sourceCount": 9,
+        "sourceCount": 6,
         "confidence": "medium"
       },
       {
-        "title": "AI Agent 从编码与信息整理扩展到交易，但执行授权仍是瓶颈",
-        "importance": "high",
-        "summary": "信息流汇集了三类信号：开发者把 Hermes 接入知乎 CLI 和其他工具处理个人信息流；brucexu_eth 分享 Agent 协助分析并执行一笔小仓位交易的体验；TechFlowPost 汇总 JEV 的自动交易、预测市场和链上研究演示。同时，OpenAI 官方帖宣布 GPT-6 Sol/Luna，并称 API 价格相较 GPT-5.6 推广价下降 50%。",
-        "whyItMatters": "若模型推理成本下降并能安全调用外部工具，Agent 的长期运行和交易自动化更可行；但单次高回报、演示案例和创作者主张不能证明策略稳定，更不能替代钱包授权与风险控制。",
+        "title": "Agent 讨论从模型能力转向语音入口、工具编排与场景占位",
+        "importance": "medium",
+        "summary": "OpenAI 官方帖称 ChatGPT Voice 可调用邮箱、日历和 Slack 等插件，并由 GPT-6 Astra、Sol、Luna 提供支持；开发者/KOL 则讨论 Hermes 作为跨工具 coding agent 入口，以及 Muse 可能带来的消费级 Agent 想象。",
+        "whyItMatters": "讨论焦点从“模型更强”转向能否嵌入具体工作流并跨工具完成任务；当前 packet 的采用证据仍以产品公告和个人判断为主，尚不足以证明大规模自主执行或明确商业回报。",
         "facts": [
-          "OpenAI 官方帖称 GPT-6 Sol 与 Luna 上线，并称其 API 定价较 GPT-5.6 推广价低 50%；X 帖子另称模型已进入 Codex。",
-          "brucexu_eth 表示其 Agent 完成一笔小仓位交易并报告约 72% 收益，同时指出过多授权确认拖慢执行并导致部分利润回吐。",
-          "同一账号将 Hermes 描述为协调社媒监控、工单、TODO、编码工具和部署的上层 Agent，并称已接入 Zhihu CLI。",
-          "TechFlowPost 汇总 JEV 的自动交易、模拟盘、情绪分析和预测市场案例，其中不少明确属于实验、模拟或演示。",
-          "ArtofSpecuycky 把 Muse 描述为可能扩展至 C 端的 Agent 趋势；这是对市场和应用前景的推演，不是已验证的采用数据。"
+          "OpenAI 帖子介绍 Voice 可调用插件，并在 ChatGPT Work 网页及移动端使用。",
+          "brucexu_eth 将 Hermes 描述为协调社媒监控、工单、TODO 与编码工具的可能入口；ArtofSpecuycky 将 Muse 类产品视作消费级 Agent 机会。",
+          "亦有帖子认为模型成本下降会使场景与生态整合更重要。"
         ],
         "interpretations": [
-          "成本下降改善潜在单位经济性，但真实运行成本仍取决于上下文、调用频率、工具链和监督开销。",
-          "当前更可验证的问题是权限确认、执行延迟、安全边界和可复现表现；一笔盈利交易没有统计意义上的策略证明。"
+          "看多者认为 Agent 将扩大软件与 AI 基础设施的使用面；这些属于市场推演，packet 未含可比的留存、任务成功率或付费数据。"
         ],
         "authors": [
           "OpenAI",
-          "thsottiaux",
-          "Khazix0918",
           "brucexu_eth",
-          "TechFlowPost",
           "ArtofSpecuycky"
         ],
         "sourceUrls": [
-          "https://x.com/OpenAI/status/2102460975790137662",
-          "https://x.com/thsottiaux/status/2102463847714247142",
-          "https://x.com/Khazix0918/status/2102458773470351379",
+          "https://x.com/thsottiaux/status/2102814202117411196",
           "https://x.com/brucexu_eth/status/2102621109174882408",
-          "https://x.com/brucexu_eth/status/2102579138230198666",
-          "https://x.com/brucexu_eth/status/2102577188600164640",
-          "https://x.com/brucexu_eth/status/2102372306471559186",
-          "https://x.com/TechFlowPost/status/2102347363322912859",
-          "https://x.com/ArtofSpecuycky/status/2102636172430500135"
-        ],
-        "sourceCount": 9,
-        "confidence": "medium"
-      },
-      {
-        "title": "Aspecta Pre-Market V3 将 Concrete 纳入多窗口交易与结算",
-        "importance": "high",
-        "summary": "Aspecta 官方账号公布 Concrete V3 市场计划于 9 月 23 日 09:00 UTC 上线，支持市价单和限价单、TGE 后继续交易并在多个窗口结算；材料称最终结算截止 TGE+72 小时，长短仓还可能涉及资金费。帖子提醒 V2 与 V3 是不同资金池，规则可能在上线前调整。",
-        "whyItMatters": "预市场产品正在尝试把 TGE 前价格发现延伸到上市与交割过程；窗口化结算和继续交易可能改善使用体验，也会增加资金费、交割与规则理解风险。",
-        "facts": [
-          "Aspecta 官方帖子给出 Concrete V3 计划上线时间为 9 月 23 日 09:00 UTC，并称支持 long/short、市价单、限价单和 TGE 后交易。",
-          "Aspecta 教学帖将交易阶段描述为 TGE 前交易、TGE 至 TGE+72 小时交易并分窗结算、之后最终结算；帖子称未充分满足长仓请求时可能产生 funding fees。",
-          "官方提醒 Concrete V2、V3 为独立资金池，并提示以 launch-day 规则为准。"
-        ],
-        "interpretations": [
-          "新机制增加交易与结算灵活性，但“无 liquidation risk”等宣传不能等同于无损失风险；应重点观察深度、结算履约和资金费结构。"
-        ],
-        "authors": [
-          "aspecta_ai",
-          "aspecta_intern"
-        ],
-        "sourceUrls": [
-          "https://x.com/aspecta_ai/status/2102321351902269928",
-          "https://x.com/aspecta_ai/status/2102321376417964086",
-          "https://x.com/aspecta_ai/status/2102321388350800334",
-          "https://x.com/aspecta_ai/status/2102322282396078323"
-        ],
-        "sourceCount": 4,
-        "confidence": "high"
-      },
-      {
-        "title": "ETF 净流入回补与 Strategy 现金买币、回购并行",
-        "importance": "medium",
-        "summary": "PhyrexNi 跟踪帖称 9 月 21 日 BTC 现货 ETF 单日净增持约 1.53 万枚、ETH 现货 ETF 约 6.90 万枚，并称 BTC 增持产品由 3 只扩大到 6 只。另有帖子称 Strategy 在 9 月 14–20 日以已有现金买入 950 BTC，同时回购约 177 万股 STRC；资金均来自已有美元现金。",
-        "whyItMatters": "资金流与参与产品广度比单日价格叙事更适合跟踪；Strategy 同时配置 BTC、回购优先股并承担股息/利息支出，关键在现金储备和资本分配的持续性。",
-        "facts": [
-          "PhyrexNi 的帖子称 BTC 现货 ETF 单日净增持约 1.53 万枚、七日净增持约 1.02 万枚，净增持产品从 3 只增至 6 只。",
-          "同一账号称 ETH 现货 ETF 单日净增持约 6.90 万枚、近七日净增持约 10.13 万枚。",
-          "帖子称 Strategy 在 9 月 14–20 日支出约 7,570 万美元买入 950 BTC，均价约 79,670 美元，并支出约 1.74 亿美元回购 1,771,238 股 STRC；资金来自公司现金。"
-        ],
-        "interpretations": [
-          "若 ETF 流入在更多产品间延续，可能比单日反弹更能说明需求改善；当前数据仅来自一位账号的汇总，且观察窗口较短。",
-          "Strategy 的双向资本操作显示现金被用于多种用途，后续应看储备和融资能力，而非只看 BTC 增持。"
-        ],
-        "authors": [
-          "PhyrexNi"
-        ],
-        "sourceUrls": [
-          "https://x.com/PhyrexNi/status/2102453190998548689",
-          "https://x.com/PhyrexNi/status/2102453691211280404",
-          "https://x.com/PhyrexNi/status/2102315637058249114"
-        ],
-        "sourceCount": 3,
-        "confidence": "medium"
-      },
-      {
-        "title": "积分、预挖与收益池的回报需扣除磨损、锁定和退出成本",
-        "importance": "medium",
-        "summary": "0xStudy 对 Meridian 存款/转换玩法进一步拆解：五天存款后进入限额转换，存款费约 2%，转换后还涉及七天线性解锁；他判断单靠挖币收益有限，主要回报依赖之后的转换博弈。另有参与者记录 Fables 稳定币池的进出兑换与跨链成本，认为积分价值和奖励分配难以预估。空投账号继续强调热点项目与积分/交易赛参与。",
-        "whyItMatters": "高 APR、积分和低估值转换的表面回报容易掩盖费用、容量竞争、锁定期与退出流动性；评估净收益应按完整参与周期核算，而不是把宣传 APR 当成收益。",
-        "facts": [
-          "0xStudy 转述 Meridian 的五天存款、限额 conversion、约 2% deposit fee 和七天线性赎回设计；帖子将机制解释为需承担风险的博弈，而非无风险理财。",
-          "0xStudy 估算金库 TVL 已达约 10M、转换容量约 1.5M，并对实际可分配代币数量作推测；这些均为参与者估计。",
-          "参与者分享 Fables 稳定币池的兑换、跨链磨损和区间调整经历，表示积分收益是否能覆盖成本尚不确定。",
-          "空投账号推广 Predict 足球 Alpha 交易赛和多项小项目积分参与；内容带有邀请码/推广属性。"
-        ],
-        "interpretations": [
-          "热度上升和存款增加不等于风险调整后回报改善；转换容量、最终流通、代币需求与退出深度才决定实际结果。",
-          "信息流对具体项目参与方式的讨论具有较强操作性，但来源多为个人参与经验，应视为风险信号而非独立项目审计。"
-        ],
-        "authors": [
-          "0xStudy",
-          "0xYond",
-          "BlockBloomer",
-          "Benjieming1Q84",
-          "marktowin8",
-          "0xXIAOc"
-        ],
-        "sourceUrls": [
-          "https://x.com/0xStudy/status/2102633101273031143",
-          "https://x.com/0xStudy/status/2102367789587759106",
-          "https://x.com/0xStudy/status/2102419267639808492",
-          "https://x.com/0xStudy/status/2102331356143649001",
-          "https://x.com/BlockBloomer/status/2102309486493110711",
-          "https://x.com/marktowin8/status/2102619053827449264",
-          "https://x.com/0xXIAOc/status/2102598096576520625"
+          "https://x.com/ArtofSpecuycky/status/2102636172430500135",
+          "https://x.com/brucexu_eth/status/2102667234044969395"
         ],
         "sourceCount": 7,
         "confidence": "medium"
       },
       {
-        "title": "RH/FOMO 与 ZEC NFT 参与热度出现退潮及退出摩擦",
+        "title": "BTC/ETH ETF 流量改善，但风险偏好与资产广度仍有分歧",
         "importance": "medium",
-        "summary": "TechFlowPost 汇总的 RH 链数据称 FOMO 活跃钱包由月初峰值十万以上降至约 4.7 万、交易量由近 4 亿降至约 4,200 万，并引用 KOL 对社交跟单真实性的质疑。ZEC NFT 参与者则集中反映链与钱包体验、流动性、项目质量和退款/出售耗时问题，0xStudy 表示退出。",
-        "whyItMatters": "当参与者从寻找热点转向担忧卖出和项目可信度时，注意力退潮可能先于价格数据显现；同时这些反馈以单个参与者和媒体汇总为主，不能直接外推成整个生态已失去价值。",
+        "summary": "PhyrexNi 称 BTC 现货 ETF 连续四日净增持、ETH ETF 连续三日净增持；与之并存的是 TechFlowPost 转述前 500 山寨币盈利供应中位数不足 25%，以及 James Check 对山寨币保持零配置、接近 10 万美元后停止加仓的谨慎框架。另有 David Hoffman 的 ZEC/NEAR 轮动论受到传播。",
+        "whyItMatters": "BTC/ETH 资金流回暖不等于全市场风险偏好同步扩散。应区分核心资产流入、山寨币持仓盈利广度和个别叙事轮动，而不是把局部强势直接外推为全面牛市。",
         "facts": [
-          "TechFlowPost 转述链上面板数据，称 FOMO 活跃钱包和交易量相对月初峰值大幅下降，并记录对部分交易员/跟单内容可信度的质疑。",
-          "0xStudy 表示停止参与 ZEC NFT，列出链/钱包不便、流动性不足、项目服务费与退款风险、耗时和卖出压力。",
-          "Benjieming1Q84 称 Zaddr NFT 曾快速跌至约 0.007 美元后反弹，并强调 NFT 变现必须有真实买家。"
+          "PhyrexNi 汇总 9 月 22 日 BTC ETF 净增持约 8,254 枚、ETH ETF 约 6.84 万枚，并称前者六只产品均增持；这些数字来自单一账号汇总。",
+          "TechFlowPost 转述 Glassnode 数据称前 500 山寨币盈利供应量中位数低于 25%。",
+          "TechFlowPost 对 James Check 访谈的摘要称其已部署约 90% 计划资金、接近 10 万美元停止加仓且不持有山寨币；另文转述其对 ZEC/NEAR 轮动的看多框架。"
         ],
         "interpretations": [
-          "这些是市场注意力、体验与退出流动性的反向信号，适合降低追逐热度的信心；并非对 RH 或 ZEC 全生态的基本面结论。"
+          "ETF 流入连续性是正向边际信号，但单一汇总与短观察窗不足以确认趋势。",
+          "“核心资产更稳”与“新叙事轮动更有赔率”是两种投资框架；packet 不能判断哪种已被资金广泛验证。"
         ],
         "authors": [
+          "PhyrexNi",
           "TechFlowPost",
-          "0xStudy",
-          "Benjieming1Q84",
-          "spark888"
+          "TrustlessState"
         ],
         "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2102623492843901027",
-          "https://x.com/0xStudy/status/2102322617344770365",
-          "https://x.com/Benjieming1Q84/status/2102310335164334319",
-          "https://x.com/spark888/status/2102345992888795428",
-          "https://x.com/0xStudy/status/2102346316529741865"
+          "https://x.com/PhyrexNi/status/2102835270269931778",
+          "https://x.com/PhyrexNi/status/2102835584981139675",
+          "https://x.com/TechFlowPost/status/2102650573614924131",
+          "https://x.com/TechFlowPost/status/2102605599217172973",
+          "https://x.com/TechFlowPost/status/2102807386700632410"
+        ],
+        "sourceCount": 7,
+        "confidence": "medium"
+      },
+      {
+        "title": "链上金融开始包装原生 BTC 抵押与传统资产永续市场，仍处早期",
+        "importance": "medium",
+        "summary": "Zest 宣布 Bitcoin Collateral Vaults 主网 demo，主张原生 BTC 留在 Bitcoin L1、以其为抵押在 Ethereum 借 USDC；Trade.xyz 宣布 OURA pre-IPO 永续市场上线；PageMarkets 也称 RH 主网开放。",
+        "whyItMatters": "产品尝试把原生资产信用、未上市股权价格发现及链上交易入口接起来；但目前多为项目公告或参与者转述，资金托管/清算、资产映射、真实深度与安全审查范围尚需进一步核实。",
+        "facts": [
+          "Zest 官方帖称其限额主网 demo 支持在 Bitcoin L1 自托管金库存入原生 BTC，并在 Ethereum 借 USDC。",
+          "Trade.xyz 帖子宣布 OURA pre-IPO perpetual 市场上线，并警示高波动、mark price discovery bounds。",
+          "notawebsite_rh 称 PageMarkets 完成最后安全 clearance 后上线 RH 主网；packet 未给出独立审计细节。"
+        ],
+        "interpretations": [
+          "这些是不同产品方向，不代表已经形成统一的链上金融标准；应看实际资金规模、可退出性及连续运行记录。"
+        ],
+        "authors": [
+          "ZestProtocol",
+          "tradexyz",
+          "notawebsite_rh",
+          "Arron_finance"
+        ],
+        "sourceUrls": [
+          "https://x.com/0xSleepinRain/status/2102711913889358275",
+          "https://x.com/tradexyz/status/2102798220816494603",
+          "https://x.com/Arron_finance/status/2102625284092805499",
+          "https://x.com/variational_io/status/2102771440147931511"
+        ],
+        "sourceCount": 5,
+        "confidence": "medium"
+      },
+      {
+        "title": "积分、挖矿与奖励活动的净回报越来越需要计入费用和退出摩擦",
+        "importance": "medium",
+        "summary": "参与者对 Meridian 的五天存款、限额 conversion、约 2% 费用和七天线性解锁进行拆解；对 STANDARD 则记录代币价格下行、拍卖和排放压力。Predict 足球任务也出现约 1.5 美元磨损的参与指南，提示积分并非免费收益。",
+        "whyItMatters": "活动名义 APR、积分或空投比例容易忽略稀释、成交滑点、锁定和提现成本。对参与者而言，完整周期净收益和退出深度比宣传回报更重要。",
+        "facts": [
+          "0xStudy 估算 Meridian 存款/转换涉及约 2% fee、最多约 150 万资金转换容量与七天解锁；这些是参与者对机制和规模的估算。",
+          "0xYond 的 STANDARD 日志称价格回撤、拍卖需求及排放需要持续观察。",
+          "marktowin8 分享 Predict 足球积分任务指南，估算快速买卖约 1.5 美元磨损，并含其邀请返佣信息。"
+        ],
+        "interpretations": [
+          "参与热度可能是对预期空投的需求，不等于项目收入或可持续产品使用。",
+          "单个参与者日志适合提供摩擦线索，不足以评价整个协议的经济状态。"
+        ],
+        "authors": [
+          "0xStudy",
+          "0xYond",
+          "marktowin8"
+        ],
+        "sourceUrls": [
+          "https://x.com/0xStudy/status/2102633101273031143",
+          "https://x.com/0xYond/status/2102658174763561110",
+          "https://x.com/ArtofSpecuycky/status/2102718042102800799",
+          "https://x.com/marktowin8/status/2102619053827449264"
         ],
         "sourceCount": 5,
         "confidence": "medium"
@@ -295,92 +275,144 @@
     ],
     "watchlist": [
       {
-        "signal": "OKX 将于 10 月 6 日举行 OKX Now 新加坡产品发布会",
-        "reason": "官方帖子确认发布会与产品展示，但链上金融、RWA、支付或 AI 交易等具体方向目前仍是参与者猜测。",
+        "signal": "Variational Q4 TGE 的正式 tokenomics、空投资格与快照规则",
+        "reason": "32% 积分空投、首日解锁等细节目前主要靠转述传播；应等官方规则并观察积分继续累积后的稀释。",
         "authors": [
-          "Jiajia_OKX",
-          "Mercy_okx",
-          "qinbafrank",
+          "variational_io",
+          "0xStudy",
+          "Benjieming1Q84"
+        ],
+        "sourceUrls": [
+          "https://x.com/variational_io/status/2102929439063765192",
+          "https://x.com/0xStudy/status/2102933386474209488"
+        ]
+      },
+      {
+        "signal": "xStocks 持有人增长能否转化为持续成交深度与借贷需求",
+        "reason": "40 万持有人和高成交额为项目方/生态账号披露，下一步要看活跃钱包、价差、vault 利用率及地区可用性。",
+        "authors": [
+          "xStocksFi",
+          "Kamino"
+        ],
+        "sourceUrls": [
+          "https://x.com/xStocksFi/status/2102760539818758564",
+          "https://x.com/xStocksFi/status/2102785582955176083",
+          "https://x.com/xStocksFi/status/2102706513441853671"
+        ]
+      },
+      {
+        "signal": "15 分钟股票预测市场的价格源、结算规则与流动性",
+        "reason": "产品已上线，但超短周期市场对价格采样、异常行情处理和裁决标准更敏感。",
+        "authors": [
+          "predictdotfun",
+          "BinanceWallet",
           "octopusycc"
         ],
         "sourceUrls": [
-          "https://x.com/Jiajia_OKX/status/2102275874624295022",
-          "https://x.com/Mercy_okx/status/2102301240961171595",
-          "https://x.com/qinbafrank/status/2102320182639419783"
+          "https://x.com/predictdotfun/status/2102760235429765532",
+          "https://x.com/octopusycc/status/2102819512773173639"
         ]
       },
       {
-        "signal": "predict.fun 多个类别的 Maker rebate 提高至最高 30%",
-        "reason": "官方帖子称金融、政治、科技、经济、文化与天气类别提升返佣；应观察激励是否带来持续做市深度，而非短期补贴流量。",
+        "signal": "BTC ETF 连续净流入能否延续并扩展到更广风险资产",
+        "reason": "当前 ETF 数据来自单一账号汇总；同时山寨币盈利广度仍弱，需观察资金扩散而不是只看核心币。",
         "authors": [
-          "predictdotfun"
-        ],
-        "sourceUrls": [
-          "https://x.com/predictdotfun/status/2102407403564421615"
-        ]
-      },
-      {
-        "signal": "Variational Treasury 超过 850 万美元，单月增加逾 200 万美元",
-        "reason": "数字来自项目官方账号，后续可观察增长来源、资金用途及其与真实产品使用/收入的关系。",
-        "authors": [
-          "variational_io"
-        ],
-        "sourceUrls": [
-          "https://x.com/variational_io/status/2102401287686074699"
-        ]
-      },
-      {
-        "signal": "PageMarkets 在 RH 主网上线",
-        "reason": "信息流引用项目帖称完成安全审查后开放主网；值得跟踪实际用户、交易量与流动性，而非只看上线宣告。",
-        "authors": [
-          "notawebsite_rh",
-          "Arron_finance"
-        ],
-        "sourceUrls": [
-          "https://x.com/notawebsite_rh/status/2102595068989472933",
-          "https://x.com/Arron_finance/status/2102625284092805499"
-        ]
-      },
-      {
-        "signal": "X 时间线出现 ticker/hashtag 交易入口",
-        "reason": "X 的短帖称 timeline 可查看 ticker 并交易；社区据视频推断涉及 Coinbase、Kraken、Gemini、IBKR、Moomoo，覆盖范围与地区可用性仍需官方细节。",
-        "authors": [
-          "X",
-          "aLiiDeez"
-        ],
-        "sourceUrls": [
-          "https://x.com/X/status/2102147636702634195",
-          "https://x.com/aLiiDeez/status/2102339500903199025"
-        ]
-      },
-      {
-        "signal": "协议收入与代币价值捕获出现更直接的质疑",
-        "reason": "TechFlowPost 的单篇分析指出收入未必归代币持有人、国库分配和解锁供给会改变收入的价格含义；可用于后续筛选代币基本面，但本包未见交叉讨论。",
-        "authors": [
+          "PhyrexNi",
           "TechFlowPost"
         ],
         "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2102310982945239198"
+          "https://x.com/PhyrexNi/status/2102835270269931778",
+          "https://x.com/TechFlowPost/status/2102650573614924131"
         ]
       },
       {
-        "signal": "BNC 行权增发与持币稀释",
-        "reason": "nbblock 称低价权证行使后股本约增 18.5%、每股 BNB 对应下降；需核对正式公司披露与 mNAV 变化，目前为单一分析帖。",
+        "signal": "美债收益率、能源价格与美伊外交表态的边际变化",
+        "reason": "强 PMI/鹰派解释和油价回落/外交缓和交易相互冲突，后续数据与谈判兑现决定宏观方向。",
         "authors": [
-          "nbblock"
+          "qinbafrank",
+          "PhyrexNi",
+          "ArtofSpecuycky"
         ],
         "sourceUrls": [
-          "https://x.com/nbblock/status/2102406631015522712"
+          "https://x.com/qinbafrank/status/2102929311103864959",
+          "https://x.com/PhyrexNi/status/2102628336753316027",
+          "https://x.com/ArtofSpecuycky/status/2102718042102800799"
+        ]
+      },
+      {
+        "signal": "Zest 原生 BTC 抵押 demo 的额度、托管模型与风险边界",
+        "reason": "“资产不跨链”的结构有差异化，但 packet 只显示限额 demo 上线，尚无运行规模或安全验证。",
+        "authors": [
+          "ZestProtocol",
+          "0xSleepinRain"
+        ],
+        "sourceUrls": [
+          "https://x.com/0xSleepinRain/status/2102711913889358275"
+        ]
+      },
+      {
+        "signal": "OKX Now 10 月 6 日产品发布的实际范围",
+        "reason": "官方已公布新加坡发布会，社群对产品方向存在猜测；只跟踪具体功能、可用地区与上线时间。",
+        "authors": [
+          "okxchinese",
+          "Mercy_okx",
+          "PhyrexNi"
+        ],
+        "sourceUrls": [
+          "https://x.com/0xStudy/status/2102706232465469754",
+          "https://x.com/PhyrexNi/status/2102690796596253149"
+        ]
+      },
+      {
+        "signal": "积分/收益活动的净回报与退出条件",
+        "reason": "Meridian 的费用和转换容量、STANDARD 的排放/需求及 Predict 的磨损都提示名义积分不等于净收益。",
+        "authors": [
+          "0xStudy",
+          "0xYond",
+          "marktowin8"
+        ],
+        "sourceUrls": [
+          "https://x.com/0xStudy/status/2102633101273031143",
+          "https://x.com/0xYond/status/2102658174763561110",
+          "https://x.com/marktowin8/status/2102619053827449264"
         ]
       }
     ],
-    "disagreements": [],
+    "disagreements": [
+      {
+        "topic": "美债上行与油价/外交缓和，哪条宏观力量主导风险资产？",
+        "positions": [
+          "qinbafrank 等把强 PMI、成本压力和鹰派政策定价视为收益率上行的主要驱动，认为风险资产承压。",
+          "ArtofSpecuycky 等把回调视作中美会晤后的短期 sell-the-news，并认为结构性趋势仍偏多；油价看空派则押注美伊缓和。"
+        ],
+        "sourceUrls": [
+          "https://x.com/qinbafrank/status/2102929311103864959",
+          "https://x.com/qinbafrank/status/2102768906247233932",
+          "https://x.com/ArtofSpecuycky/status/2102718042102800799",
+          "https://x.com/PhyrexNi/status/2102628336753316027"
+        ]
+      },
+      {
+        "topic": "市场反弹是否已扩散到山寨币，还是仍是核心资产/个别叙事行情？",
+        "positions": [
+          "PhyrexNi 汇总的 BTC/ETH ETF 连续净流入提供边际需求改善信号；David Hoffman 的转述强调 ZEC/NEAR 等新叙事轮动。",
+          "James Check 的访谈摘要强调 BTC 筹码结构、接近 10 万美元停止加仓且零山寨币配置；另一份山寨币盈利广度摘要称中位数仍低于 25%。"
+        ],
+        "sourceUrls": [
+          "https://x.com/PhyrexNi/status/2102835270269931778",
+          "https://x.com/PhyrexNi/status/2102835584981139675",
+          "https://x.com/TechFlowPost/status/2102605599217172973",
+          "https://x.com/TechFlowPost/status/2102807386700632410",
+          "https://x.com/TechFlowPost/status/2102650573614924131"
+        ]
+      }
+    ],
     "noiseSummary": [
-      "短线喊单、价格目标和个人盈亏晒单未当作已验证市场事实。",
-      "同一话题的重复转发与引用按一个底层事件聚类；转发只作为传播信号。",
-      "推广邀请码、交易赛和返佣内容仅在揭示激励结构或参与成本时保留。",
-      "缺少足够文本的图片、视频和单链接内容不作具体推断。",
-      "宏观会谈、资金流及 TVL/AUM 数字均按帖文转述归属表述，未用外部来源补证。"
+      "重复转发与同一事件的多条引用已聚类处理，不把转发当作独立事实来源。",
+      "常规价格晒单、喊单、节日/活动宣传与邀请码内容未作为主要主题，除非揭示具体参与成本或产品机制。",
+      "项目方披露的持有人、成交额、费率与产品上线信息均按来源归属陈述，未作外部核验。",
+      "关于个人纠纷、离世时间线的高互动转述缺少足够可核实材料，未纳入事实性结论。",
+      "图像、视频或链接缺乏充分文字上下文的内容不作推断。"
     ]
   }
 }
