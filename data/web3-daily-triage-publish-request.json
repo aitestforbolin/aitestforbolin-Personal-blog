@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "luna-web3-20260923-064620Z",
-  "triggerSha": "c558fbf5379bf672ac9292dd8c1671b0a9cec01d",
-  "publicationDate": "2026-09-23",
-  "publishedAt": "2026-09-23T14:49:41+08:00",
+  "requestId": "luna-web3-20260924-021435Z",
+  "triggerSha": "42744db86459d6dc56ccf71cd4d17fd99af97d84",
+  "publicationDate": "2026-09-24",
+  "publishedAt": "2026-09-24T10:20:30+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-09-23",
-    "publishedAt": "2026-09-23T14:49:41+08:00",
-    "windowStart": "2026-09-21T05:30:24.203755+00:00",
-    "windowEnd": "2026-09-23T06:48:28.387559+00:00",
-    "sourceUpdatedAt": "2026-09-23T03:00:05+00:00",
-    "status": "unchanged",
+    "runDate": "2026-09-24",
+    "publishedAt": "2026-09-24T10:20:30+08:00",
+    "windowStart": "2026-09-23T06:48:28.387559+00:00",
+    "windowEnd": "2026-09-24T02:15:42.475641+00:00",
+    "sourceUpdatedAt": "2026-09-24T02:15:42+00:00",
+    "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:luna-web3-20260923-064620Z",
-      "requestId": "luna-web3-20260923-064620Z",
-      "triggerSha": "c558fbf5379bf672ac9292dd8c1671b0a9cec01d",
-      "githubRunId": 35828439792,
-      "scheduledAt": "2026-09-23T06:46:20Z",
-      "startedAt": "2026-09-23T06:48:27.152112+00:00",
-      "sourceCheckedAt": "2026-09-23T06:48:28.387223+00:00",
-      "sourceUpdatedAt": "2026-09-23T03:00:05+00:00",
-      "completedAt": "2026-09-23T06:48:28.387559+00:00",
-      "publishedAt": "2026-09-23T14:49:41+08:00"
+      "runId": "web3-daily-triage:luna-web3-20260924-021435Z",
+      "requestId": "luna-web3-20260924-021435Z",
+      "triggerSha": "42744db86459d6dc56ccf71cd4d17fd99af97d84",
+      "githubRunId": 35946485411,
+      "scheduledAt": "2026-09-24T02:14:35Z",
+      "startedAt": "2026-09-24T02:15:40.170082+00:00",
+      "sourceCheckedAt": "2026-09-24T02:15:42.475361+00:00",
+      "sourceUpdatedAt": "2026-09-24T02:15:42+00:00",
+      "completedAt": "2026-09-24T02:15:42.475641+00:00",
+      "publishedAt": "2026-09-24T10:20:30+08:00"
     },
     "executionStatus": {
-      "collection": "unchanged",
+      "collection": "success",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "以上一期成功发布的 windowEnd 作为 windowStart，以本次 schemaVersion 2 receipt.timestamps.completedAt 作为 windowEnd；使用上一成功 publication 的累计 reportedEventIds 去重，先排除 M&A / acquisition / merger。本次 source collection=unchanged，但窗口中发现 5 个尚未报告的非 M&A 融资事件，逐项完成研究。",
+    "deduplicationNote": "以上一期已验证发布的 windowEnd 作为 windowStart，以本次 schemaVersion 2 receipt.timestamps.completedAt 作为 windowEnd；沿用累计 reportedEventIds 去重。窗口内新增 2 个事件，先排除 North Capital 的 M&A，剩余 1 个融资项目完成研究。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -45,314 +45,83 @@
       "crypto-fundraising-circle--2026-09--round-unknown",
       "crypto-fundraising-xstable--2026-09--round-unknown",
       "crypto-fundraising-travix--2026-09--seed",
-      "crypto-fundraising-catchback--2026-09--seed"
+      "crypto-fundraising-catchback--2026-09--seed",
+      "crypto-fundraising-infinifi--2026-09--seed"
     ],
     "counts": {
-      "new": 5,
-      "action": 0,
-      "watch": 3,
-      "stop": 2
+      "new": 1,
+      "action": 1,
+      "watch": 0,
+      "stop": 0
     },
     "projects": [
       {
-        "event_id": "crypto-fundraising-infini--2026-09--seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/infini/",
-        "project_name": "Infini",
-        "decision": "WATCH",
+        "event_id": "crypto-fundraising-infinifi--2026-09--seed",
+        "source_detail_url": "https://crypto-fundraising.info/projects/infinifi/",
+        "project_name": "infiniFi",
+        "decision": "ACTION",
         "financing": {
-          "amount_usd": 6000000,
+          "amount_usd": 3000000,
           "round": "Seed",
-          "lead_investors": [],
-          "announcement_date": "2026-09-22",
+          "lead_investors": [
+            "Electric Capital"
+          ],
+          "announcement_date": "2026-09-23",
           "confidence": "high"
         },
-        "plain_explanation": "Infini 是面向个人和企业的全球数字金融平台，把稳定币收付款、卡、收益产品和企业资金管理放在一个应用里。",
-        "mechanism_simple": "用户把稳定币充入账户后，可以用于支付、卡消费、转账或收益产品；企业侧还提供法币入出金和薪资/收款能力。",
+        "plain_explanation": "infiniFi 是一个链上稳定币收益协议，让用户在随时可退出和锁定更久换取更高收益之间自行选择。",
+        "mechanism_simple": "用户存入稳定币铸造 iUSD；可质押获得流动收益，或锁定一段时间获得更高收益。协议把资金分配到 DeFi、代币化信贷及机构信用策略，并用不同期限匹配流动性。",
         "project_status": {
           "category": "existing_no_token",
-          "token_status": "no_token_found",
-          "note": "产品和移动 App 已上线；本轮未找到官方原生代币已发行或明确代币计划。"
+          "token_status": "token_announced",
+          "note": "协议已运行；iUSD 是存款凭证型稳定币，不是项目治理代币。官方已确认计划在 2026 年第四季度进行 TGE，原生代币尚未上线。"
         },
         "participation": {
           "available_now": true,
-          "what_user_can_do": "注册并体验个人/企业账户与基础支付流程；若使用 Earn 或卡等金融功能，需要按产品规则入金。",
-          "requires_real_funds": false,
-          "friction_or_risk": "部分功能需要 KYC/KYB，地区可用性不同；收益类产品需要承担策略、平台与数字资产风险。"
+          "what_user_can_do": "现在可查看官方 Points 页面，并存入稳定币获得 iUSD 后质押或锁定；实际赚取收益/积分通常需要真实资金。",
+          "requires_real_funds": true,
+          "friction_or_risk": "存在智能合约、底层收益策略、机构对手方、稳定币和流动性/锁仓风险；官网展示的收益率不是保证回报。"
         },
         "incentives": {
           "status": "confirmed",
           "types": [
-            "campaign",
-            "other"
+            "points",
+            "token"
           ],
-          "details": "官方存在新手任务与推荐奖励，但当前可确认的新手 10+10 USDT 任务要求 KYB，不能把它当成普通个人用户空投；未找到官方 token/airdrop 计划。"
+          "details": "官方 App 已有 Points Program；官方 2026 年 9 月 23 日公告确认 TGE 计划在 2026 年第四季度进行，但未把积分兑换比例或空投资格写成确定承诺。"
         },
         "why": [
-          "600 万美元 Seed 已由官方博客确认，且新移动 App 同期上线。",
-          "产品有真实支付、稳定币和资金管理用途，不只是融资叙事。",
-          "但当前普通个人用户的低成本激励不强，官方 token/airdrop 也未确认。"
+          "新一轮超过 300 万美元融资由 Electric Capital 领投，项目不是只停留在概念阶段。",
+          "官方 Points 已运行，且 TGE 已明确到 2026 年第四季度，时间窗口比普通“潜在空投”更具体。",
+          "产品有真实稳定币收益用途，但必须严格控制资金和锁仓期限，不能只为积分追高风险收益。"
         ],
-        "next_step": null,
-        "recheck_trigger": "若官方推出面向个人用户的 points/season/token/airdrop，或出现无需较大资金即可验证的个人用户新活动，再重新评估 ACTION。",
-        "website_url": "https://www.infini.money/",
-        "x_url": null,
-        "evidence": [
-          {
-            "claim": "Infini 官方宣布完成 600 万美元 Seed，投资方包括 Reforge、Fortwest、Enlight、NextGen、SNZ 和 Vernal，并同步上线移动 App。",
-            "url": "https://www.infini.money/blog/raises",
-            "source_type": "official_blog",
-            "confidence": "high"
-          },
-          {
-            "claim": "官方帮助中心确认存在新手任务奖励，但相关 10 USDT 阶段任务要求 KYB。",
-            "url": "https://help.infini.money/zh-CN/articles/14517781-%E6%96%B0%E6%89%8B%E4%BB%BB%E5%8A%A1%E5%A5%96%E5%8A%B1%E6%B4%BB%E5%8A%A8%E7%BB%86%E5%88%99",
-            "source_type": "docs",
-            "confidence": "high"
-          },
-          {
-            "claim": "官方帮助中心说明 Infini Earn 支持稳定币/BTC 申购赎回，收益来自市场中性策略并不保证。",
-            "url": "https://help.infini.money/en/articles/13140327-how-to-subscribe-to-a-funds-management-product",
-            "source_type": "docs",
-            "confidence": "high"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-circle--2026-09--round-unknown",
-        "source_detail_url": "https://crypto-fundraising.info/projects/circle/",
-        "project_name": "Circle",
-        "decision": "STOP",
-        "financing": {
-          "amount_usd": 100000000,
-          "round": null,
-          "lead_investors": [
-            "Binance"
-          ],
-          "announcement_date": "2026-09-22",
-          "confidence": "high"
-        },
-        "plain_explanation": "Circle 是 USDC 发行方和上市公司，这次不是早期项目融资，而是 Binance 对 Circle 的 1 亿美元战略股权投资并续签五年商业合作。",
-        "mechanism_simple": "Circle 提供 USDC、支付网络和 Arc 等基础设施；Binance 负责在其全球平台上扩大 USDC 的分发和使用。",
-        "project_status": {
-          "category": "existing_no_token",
-          "token_status": "no_token_found",
-          "note": "Circle 已是成熟上市公司；USDC 是稳定币产品，不是本流程要寻找的早期项目原生代币。"
-        },
-        "participation": {
-          "available_now": false,
-          "what_user_can_do": null,
-          "requires_real_funds": false,
-          "friction_or_risk": "这笔交易不提供面向普通用户的早期参与入口。"
-        },
-        "incentives": {
-          "status": "none_found",
-          "types": [],
-          "details": "本轮未发现与这笔战略投资直接相关的 points、testnet、airdrop 或早期用户计划。"
-        },
-        "why": [
-          "这是成熟上市公司的战略股权交易，不属于有明显早期参与不对称性的项目。",
-          "普通用户没有因本轮融资新增的可验证早期行动路径。"
-        ],
-        "next_step": null,
+        "next_step": "先用隔离钱包查看 Points 规则和当前加成；若规则清晰且可接受，再以不超过 50–100 USDC 做一次短周期、优先不锁仓的小额完整流程测试，不追加资金直到确认退出和积分记录正常。",
         "recheck_trigger": null,
-        "website_url": "https://www.circle.com/",
-        "x_url": "https://x.com/circle",
+        "website_url": "https://infinifi.xyz/",
+        "x_url": "https://x.com/infiniFi",
         "evidence": [
           {
-            "claim": "Circle 官方确认 Binance 投资 1 亿美元，并续签五年商业协议以扩大 USDC 在新兴市场的分发。",
-            "url": "https://www.circle.com/es/pressroom/binance-invests-100-million-in-circle-expands-strategic-partnership-and-renews-commercial-agreement-for-five-years",
-            "source_type": "official_blog",
+            "claim": "infiniFi 官方公告确认新一轮融资超过 300 万美元，由 Electric Capital 领投，并确认 2026 年第四季度 TGE。",
+            "url": "https://x.com/infiniFi/status/2102761878216749511",
+            "source_type": "official_x",
             "confidence": "high"
           },
           {
-            "claim": "Binance 官方确认 1 亿美元 Circle 股权投资及五年合作。",
-            "url": "https://www.binance.com/en/blog/ecosystem/167890448134073062",
-            "source_type": "official_blog",
+            "claim": "由 infiniFi 提供的融资公告列出 Electric Capital 领投及 New Form Capital、Generative Ventures、Fasanara Capital 等参投方。",
+            "url": "https://www.prnewswire.com/news-releases/infinifi-raises-3m-ahead-of-q4-tge-302887464.html",
+            "source_type": "other",
             "confidence": "high"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-xstable--2026-09--round-unknown",
-        "source_detail_url": "https://crypto-fundraising.info/projects/xstable/",
-        "project_name": "XStable",
-        "decision": "WATCH",
-        "financing": {
-          "amount_usd": null,
-          "round": null,
-          "lead_investors": [],
-          "announcement_date": "2026-09-22",
-          "confidence": "medium"
-        },
-        "plain_explanation": "XStable 是面向链上黄金、白银和外汇市场的非托管交易基础设施，重点把传统贵金属/FX 交易与链上结算和 AI 工具结合。",
-        "mechanism_simple": "用户通过钱包与协议交互，交易黄金、外汇等链上市场；平台称自身提供交易界面、协议访问、分析和 API。",
-        "project_status": {
-          "category": "existing_no_token",
-          "token_status": "no_token_found",
-          "note": "平台已可使用；本轮未找到可靠证据证明其原生代币已经上线交易。"
-        },
-        "participation": {
-          "available_now": true,
-          "what_user_can_do": "可以访问平台并了解/测试交易界面；真实交易会涉及钱包和实际资金。",
-          "requires_real_funds": true,
-          "friction_or_risk": "属于高风险链上交易场景，存在价格、智能合约、预言机、平台与杠杆风险；当前没有足够强的无资金参与理由。"
-        },
-        "incentives": {
-          "status": "unconfirmed",
-          "types": [],
-          "details": "条款提到平台可能存在 promotional campaigns/airdrops，但本轮没有找到当前正在进行的官方 points、season、testnet 或 airdrop 规则。"
-        },
-        "why": [
-          "新一轮资金来自 YZi Labs、Sui Foundation、Taisu Ventures、Catcher VC 等，项目继续获得生态资源。",
-          "产品已上线且定位清晰，但参与需要真实资金和交易风险。",
-          "当前没有确认的早期激励，因此不值得为了融资消息立即投入资金。"
-        ],
-        "next_step": null,
-        "recheck_trigger": "若官方公布明确的 points/season/token/airdrop，或提供不需要真实资金的测试/任务型参与，再重新评估。",
-        "website_url": "https://www.xstable.ai/",
-        "x_url": "https://x.com/XStableAI",
-        "evidence": [
-          {
-            "claim": "CryptoRank 报道 XStable 新增 YZi Labs、Sui Foundation、Taisu Ventures、Catcher VC 等投资，金额未披露。",
-            "url": "https://cryptorank.io/insights/deals/x-stable-undisclosed-2026-09-22",
-            "source_type": "database",
-            "confidence": "medium"
           },
           {
-            "claim": "XStable 官方条款说明其为非托管区块链交易技术平台，提供交易界面、协议访问、分析和 API，并明确数字资产及智能合约风险。",
-            "url": "https://www.xstable.ai/terms-of-service",
+            "claim": "官方产品页说明存入稳定币可铸造 iUSD，并可选择随时退出的质押或更长期锁定以获取更高收益。",
+            "url": "https://infinifi.xyz/",
             "source_type": "official_site",
             "confidence": "high"
           },
           {
-            "claim": "DropsTab 收录了 9 月 22 日融资及 XStable 官方 X 公告入口，未显示融资金额或代币发行数据。",
-            "url": "https://dropstab.com/coins/xstable/fundraising",
-            "source_type": "database",
-            "confidence": "medium"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-travix--2026-09--seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/travix/",
-        "project_name": "Travix",
-        "decision": "WATCH",
-        "financing": {
-          "amount_usd": null,
-          "round": "Seed",
-          "lead_investors": [
-            "Amber Group"
-          ],
-          "announcement_date": "2026-09-21",
-          "confidence": "medium"
-        },
-        "plain_explanation": "Travix 是一个链上永续合约和 AI 交易终端，想把加密、股票、外汇、商品以及算力类 RWA 放进同一个 24/7 交易账户。",
-        "mechanism_simple": "前端提供多资产永续合约和 Agent 策略工具，执行层结合订单簿与链上结算；用户可以申请 beta 访问并配置交易 Agent。",
-        "project_status": {
-          "category": "new_live_no_token",
-          "token_status": "no_token_found",
-          "note": "Beta 交易界面已存在；本轮没有找到可靠证据证明原生代币已上线。"
-        },
-        "participation": {
-          "available_now": true,
-          "what_user_can_do": "可以申请 early/beta access、查看产品和 Agent 工作流；真正交易和部分 vault/agent 操作需要钱包与实际资金。",
-          "requires_real_funds": false,
-          "friction_or_risk": "产品包含最高 100x 杠杆和代理执行，真实交易风险高；beta 还存在产品成熟度与权限安全风险。"
-        },
-        "incentives": {
-          "status": "unconfirmed",
-          "types": [
-            "campaign"
-          ],
-          "details": "外部融资报道提到未来会启动交易推广激励，但本轮未找到官方已上线的 points/token/airdrop 规则。"
-        },
-        "why": [
-          "产品与 AI Agent + RWA/多资产永续的方向具有差异化，官网已经提供 beta/early access。",
-          "融资由 Amber Group 参与/数据库列为 lead，但金额未披露。",
-          "当前没有确认的低成本激励，真实交易又涉及较高杠杆风险，因此先观察。"
-        ],
-        "next_step": null,
-        "recheck_trigger": "当 Travix 公布正式 public beta、明确的 points/season/token/airdrop，或推出无需真实资金的测试任务时重新检查。",
-        "website_url": "https://www.travix.finance/",
-        "x_url": null,
-        "evidence": [
-          {
-            "claim": "Travix 官网显示其为 on-chain agentic omnibroker，支持多资产 24/7 永续、Agentic Quant，并提供 early access。",
-            "url": "https://www.travix.finance/",
-            "source_type": "official_site",
-            "confidence": "high"
-          },
-          {
-            "claim": "DefiLlama 收录 Travix 9 月 21 日 Seed，金额未披露，并列 Amber Group 为 lead investor。",
-            "url": "https://investors.defillama.com/raises/amber-group",
-            "source_type": "database",
-            "confidence": "medium"
-          },
-          {
-            "claim": "Beta 界面显示需要邀请访问和钱包签名，真实交易界面包含杠杆、保证金、充值/提现等功能。",
-            "url": "https://beta.perp.travix.finance/",
-            "source_type": "official_site",
-            "confidence": "high"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-catchback--2026-09--seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/catchback/",
-        "project_name": "CatchBack",
-        "decision": "STOP",
-        "financing": {
-          "amount_usd": 8000000,
-          "round": "Seed",
-          "lead_investors": [
-            "Foundation Capital"
-          ],
-          "announcement_date": "2026-09-21",
-          "confidence": "high"
-        },
-        "plain_explanation": "CatchBack 是实体收藏卡支持的数字开包与交易平台：用户在线开 mystery pack，抽到的实体卡由平台保管，可交易、回售或寄回。",
-        "mechanism_simple": "数字开包使用可验证随机机制，背后对应实际收藏卡；平台通过自建 marketplace 和即时回购提供流动性。",
-        "project_status": {
-          "category": "existing_no_token",
-          "token_status": "no_token_found",
-          "note": "产品和 App 已上线，但当前更像收藏品交易平台，而不是存在明确原生代币/早期链上参与路径的 Web3 项目。"
-        },
-        "participation": {
-          "available_now": true,
-          "what_user_can_do": "可以购买/创建卡包、交易收藏卡或使用平台回购。",
-          "requires_real_funds": true,
-          "friction_or_risk": "需要真实资金，核心风险是收藏品定价、流动性和平台履约；与本流程寻找的低成本 pre-token 机会关联较弱。"
-        },
-        "incentives": {
-          "status": "none_found",
-          "types": [],
-          "details": "本轮未找到官方 points、season、testnet、token 或 airdrop 计划。"
-        },
-        "why": [
-          "800 万美元 Seed 与投资方质量较强，但融资本身不是普通用户行动理由。",
-          "产品已是成熟消费型收藏品交易体验，当前没有明确 token/airdrop 或低成本早期参与优势。"
-        ],
-        "next_step": null,
-        "recheck_trigger": null,
-        "website_url": "https://catchbackcards.com/",
-        "x_url": "https://x.com/catchback_cards",
-        "evidence": [
-          {
-            "claim": "DefiLlama 收录 CatchBack 800 万美元 Seed，由 Foundation Capital 领投，Y Combinator、Robinhood Ventures、Coinbase Ventures、Solana Foundation 参与。",
-            "url": "https://investors.defillama.com/raises",
-            "source_type": "database",
-            "confidence": "high"
-          },
-          {
-            "claim": "CatchBack 官网显示平台提供自定义 mystery packs、收藏卡交易和实体卡保管/寄送。",
-            "url": "https://catchbackcards.com/",
-            "source_type": "official_site",
-            "confidence": "high"
-          },
-          {
-            "claim": "App Store 描述确认其数字卡包对应实体卡，并提供即时回购和可验证随机机制。",
-            "url": "https://apps.apple.com/us/app/catchback-cards/id6757721002",
-            "source_type": "official_site",
+            "claim": "官方文档列出 Points Program，并区分 iUSD、siUSD 与锁定仓位代币。",
+            "url": "https://docs.infinifi.xyz/",
+            "source_type": "docs",
             "confidence": "high"
           }
         ]
