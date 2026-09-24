@@ -84,6 +84,50 @@ def build_query(
     return " ".join(parts)
 
 
+def parse_request_payload(payload: dict) -> dict:
+    if not isinstance(payload, dict):
+        raise ValueError("Request JSON must be an object")
+
+    username = normalize_username(str(payload.get("username") or ""))
+    raw_keywords = payload.get("keywords") or []
+    if isinstance(raw_keywords, str):
+        keywords = parse_keywords([], raw_keywords)
+    elif isinstance(raw_keywords, list):
+        keywords = parse_keywords([str(item) for item in raw_keywords], "")
+    else:
+        raise ValueError("request keywords must be a string or array")
+
+    days = int(payload.get("days", 30))
+    match = str(payload.get("match") or "any")
+    include_replies = bool(payload.get("includeReplies", False))
+    max_results = int(payload.get("maxResults", 100))
+    max_pages = int(payload.get("maxPages", 10))
+    search_type = str(payload.get("searchType") or "Latest")
+    request_id = str(payload.get("requestId") or "").strip() or None
+
+    if match not in {"any", "all"}:
+        raise ValueError("request match must be 'any' or 'all'")
+    if search_type not in {"Latest", "Top"}:
+        raise ValueError("request searchType must be 'Latest' or 'Top'")
+
+    return {
+        "username": username,
+        "keywords": keywords,
+        "days": days,
+        "match": match,
+        "include_replies": include_replies,
+        "max_results": max_results,
+        "max_pages": max_pages,
+        "search_type": search_type,
+        "request_id": request_id,
+    }
+
+
+def load_request(path: Path) -> dict:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return parse_request_payload(payload)
+
+
 def request_json(api_key: str, query: str, *, search_type: str, cursor: str | None) -> dict:
     params = {"query": query, "type": search_type}
     if cursor:
@@ -225,6 +269,7 @@ def collect(
     max_results: int,
     max_pages: int,
     search_type: str,
+    request_id: str | None = None,
 ) -> dict:
     if days < 1:
         raise ValueError("days must be >= 1")
@@ -286,6 +331,7 @@ def collect(
         "schemaVersion": 1,
         "source": "SocialData Twitter Search",
         "generatedAt": now.isoformat(),
+        "requestId": request_id,
         "username": username,
         "keywords": keywords,
         "match": match,
@@ -304,7 +350,9 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Search one X author's posts by keyword using the existing SocialData API key."
     )
-    parser.add_argument("--username", required=True, help="X username, with or without @")
+    source = parser.add_mutually_exclusive_group(required=True)
+    source.add_argument("--username", help="X username, with or without @")
+    source.add_argument("--request-file", help="JSON request file used by the GitHub trigger workflow")
     parser.add_argument(
         "--keywords",
         nargs="*",
@@ -350,27 +398,31 @@ def main(argv: list[str] | None = None) -> int:
     if not api_key:
         raise RuntimeError("Missing SOCIALDATA_API_KEY")
 
-    username = normalize_username(args.username)
-    keywords = parse_keywords(args.keywords, args.keywords_csv)
-    payload = collect(
-        api_key=api_key,
-        username=username,
-        keywords=keywords,
-        days=args.days,
-        match=args.match,
-        include_replies=args.include_replies,
-        max_results=args.max_results,
-        max_pages=args.max_pages,
-        search_type=args.search_type,
-    )
+    if args.request_file:
+        config = load_request(Path(args.request_file))
+    else:
+        config = {
+            "username": normalize_username(args.username),
+            "keywords": parse_keywords(args.keywords, args.keywords_csv),
+            "days": args.days,
+            "match": args.match,
+            "include_replies": args.include_replies,
+            "max_results": args.max_results,
+            "max_pages": args.max_pages,
+            "search_type": args.search_type,
+            "request_id": None,
+        }
+
+    payload = collect(api_key=api_key, **config)
 
     output = Path(args.output)
     write_json_atomic(output, payload)
     print(
         json.dumps(
             {
-                "username": username,
-                "keywords": keywords,
+                "requestId": payload.get("requestId"),
+                "username": payload["username"],
+                "keywords": payload["keywords"],
                 "resultCount": payload["resultCount"],
                 "pagesFetched": payload["pagesFetched"],
                 "output": str(output),
