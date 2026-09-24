@@ -87,6 +87,14 @@ class SearchXAuthorTests(unittest.TestCase):
                         }
                     ]
                 },
+                "is_quote_status": True,
+                "quoted_status_id_str": "456",
+                "quoted_status": {
+                    "id_str": "456",
+                    "tweet_created_at": "2026-09-23T00:00:00Z",
+                    "full_text": "Quoted Agent context",
+                    "user": {"screen_name": "bob", "name": "Bob"},
+                },
             }
         )
         self.assertEqual(row["tweet_id"], "123")
@@ -95,6 +103,10 @@ class SearchXAuthorTests(unittest.TestCase):
         self.assertEqual(row["url"], "https://x.com/alice/status/123")
         self.assertEqual(row["engagement"]["views"], 100)
         self.assertEqual(row["external_urls"], ["https://example.com/research"])
+        self.assertEqual(row["quote"]["tweet_id"], "456")
+        self.assertEqual(row["quote"]["author"]["username"], "bob")
+        self.assertEqual(row["quote"]["text"], "Quoted Agent context")
+        self.assertFalse(row["quote_context_missing"])
 
 
 if __name__ == "__main__":
