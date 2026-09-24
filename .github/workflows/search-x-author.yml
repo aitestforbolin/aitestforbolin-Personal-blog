@@ -1,0 +1,123 @@
+name: Search X author
+
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        description: "X username, with or without @"
+        required: true
+        type: string
+      keywords:
+        description: "Comma-separated keywords or phrases; leave blank for all posts"
+        required: false
+        default: ""
+        type: string
+      days:
+        description: "Lookback days"
+        required: true
+        default: "30"
+        type: string
+      match:
+        description: "Keyword match mode"
+        required: true
+        default: "any"
+        type: choice
+        options:
+          - any
+          - all
+      include_replies:
+        description: "Include replies"
+        required: true
+        default: false
+        type: boolean
+      max_results:
+        description: "Maximum posts to save"
+        required: true
+        default: "100"
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: x-author-search
+  cancel-in-progress: true
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SEARCH_USERNAME: ${{ inputs.username }}
+      SEARCH_KEYWORDS: ${{ inputs.keywords }}
+      SEARCH_DAYS: ${{ inputs.days }}
+      SEARCH_MATCH: ${{ inputs.match }}
+      SEARCH_INCLUDE_REPLIES: ${{ inputs.include_replies }}
+      SEARCH_MAX_RESULTS: ${{ inputs.max_results }}
+      SOCIALDATA_API_KEY: ${{ secrets.SOCIALDATA_API_KEY }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate search script
+        run: |
+          python -m py_compile scripts/search_x_author.py
+          python tests/test_search_x_author.py
+
+      - name: Search author posts
+        run: |
+          args=(
+            --username "$SEARCH_USERNAME"
+            --keywords-csv "$SEARCH_KEYWORDS"
+            --days "$SEARCH_DAYS"
+            --match "$SEARCH_MATCH"
+            --max-results "$SEARCH_MAX_RESULTS"
+          )
+          if [ "$SEARCH_INCLUDE_REPLIES" = "true" ]; then
+            args+=(--include-replies)
+          fi
+          python scripts/search_x_author.py "${args[@]}"
+
+      - name: Validate output
+        run: |
+          python -m json.tool data/x-author-search.json >/dev/null
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          payload = json.loads(Path("data/x-author-search.json").read_text(encoding="utf-8"))
+          assert payload["schemaVersion"] == 1
+          assert isinstance(payload["posts"], list)
+          assert payload["resultCount"] == len(payload["posts"])
+          assert payload["username"]
+          print("validated", payload["resultCount"], "posts")
+          PY
+
+      - name: Commit latest search result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/x-author-search.json
+          if git diff --cached --quiet; then
+            echo "Search result is already current."
+            exit 0
+          fi
+          git commit -m "Update X author search result"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if git rebase origin/main && git push origin HEAD:main; then
+              exit 0
+            fi
+            git rebase --abort || true
+            sleep $((attempt * 5))
+          done
+          echo "::error::Could not push X author search result after 3 attempts."
+          exit 1
