@@ -6,7 +6,6 @@ description: Read the canonical 24h X List packet, cluster it into a concise res
 # X Intelligence Publisher
 
 ## Goal
-
 Generate the daily X Intelligence briefing from data/x-intelligence-input.json in aitestforbolin/aitestforbolin-Personal-blog main.
 Publish the finalized structured briefing to data/x-intelligence.json on main.
 GitHub Actions collects and atomically publishes the data; the independently scheduled ChatGPT task validates the fresh input, writes the publication request, and produces the research briefing. Do not re-scrape X or call SocialData from the Chat task.
@@ -21,7 +20,7 @@ All GitHub reads and writes must use the connected GitHub Connector. Do not use 
 
 ## Time contract
 
-Run automatically at 13:00 Asia/Shanghai under the enabled X Intelligence Scheduled Task. X and Web3 are independent runs; neither waits for the user or for the other task. If a valid archive for today already exists, verify it and stop without starting another collection.
+Run automatically at 09:00 Asia/Shanghai under the enabled X Intelligence Scheduled Task. X and Web3 are independent runs; neither waits for the user or for the other task. If a valid archive for today already exists, verify it and stop without starting another collection.
 Interpret reportDate in Asia/Shanghai.
 
 ## Input hard gates
@@ -38,6 +37,7 @@ For every newly collected input, `executionLineage` and the schemaVersion 2 refr
 
 Use requestId + triggerSha as the authoritative freshness proof. `generatedAt` is only a secondary sanity check. Never accept a packet merely because a model- or collector-supplied time appears recent. A legacy input or archive without executionLineage must remain readable for backward compatibility, but it must not prove a new scheduled run and must not be republished as today's result.
 If any gate fails, do not overwrite data/x-intelligence.json. Report the failure in ChatGPT. If Gmail is connected and available, send a short failure email with subject "X Intelligence 未更新" and the specific reason. Never substitute stale data.
+
 An empty posts array is valid only if every other hard gate passes; publish an empty-day briefing rather than inventing topics.
 
 ## Evidence contract
