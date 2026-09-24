@@ -69,7 +69,7 @@ jobs:
       - name: Validate search script
         run: |
           python -m py_compile scripts/search_x_author.py
-          python tests/test_search_x_author.py
+          PYTHONPATH=. python tests/test_search_x_author.py
 
       - name: Search author posts from manual inputs
         if: github.event_name == 'workflow_dispatch'
