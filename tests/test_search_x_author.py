@@ -2,7 +2,13 @@ from __future__ import annotations
 
 import unittest
 
-from scripts.search_x_author import build_query, normalize, normalize_username, parse_keywords
+from scripts.search_x_author import (
+    build_query,
+    normalize,
+    normalize_username,
+    parse_keywords,
+    parse_request_payload,
+)
 
 
 class SearchXAuthorTests(unittest.TestCase):
@@ -41,6 +47,25 @@ class SearchXAuthorTests(unittest.TestCase):
             include_replies=True,
         )
         self.assertEqual(query, "from:alice airdrop points since_time:123456")
+
+    def test_request_payload_supports_chat_trigger_shape(self):
+        config = parse_request_payload(
+            {
+                "requestId": "study-agent-001",
+                "username": "@alice",
+                "keywords": ["agent", "profit"],
+                "days": 90,
+                "match": "any",
+                "includeReplies": True,
+                "maxResults": 50,
+            }
+        )
+        self.assertEqual(config["username"], "alice")
+        self.assertEqual(config["keywords"], ["agent", "profit"])
+        self.assertEqual(config["days"], 90)
+        self.assertTrue(config["include_replies"])
+        self.assertEqual(config["max_results"], 50)
+        self.assertEqual(config["request_id"], "study-agent-001")
 
     def test_normalize_extracts_core_fields(self):
         row = normalize(
