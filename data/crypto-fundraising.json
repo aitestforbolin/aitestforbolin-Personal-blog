@@ -1,12 +1,32 @@
 {
-  "updated_at": "2026-09-23T03:00:05+00:00",
+  "updated_at": "2026-09-24T02:15:42+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-xstable",
+      "id": "crypto-fundraising-north-capital",
       "source_rank": 1,
+      "name": "North Capital",
+      "round": "M&A",
+      "announced_month": "2026-09",
+      "amount_usd": 60000000,
+      "detail_url": "https://crypto-fundraising.info/projects/north-capital/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-infinifi",
+      "source_rank": 2,
+      "name": "InfiniFi",
+      "round": "Seed",
+      "announced_month": "2026-09",
+      "amount_usd": 3000000,
+      "detail_url": "https://crypto-fundraising.info/projects/infinifi/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-xstable",
+      "source_rank": 3,
       "name": "XStable",
       "round": null,
       "announced_month": "2026-09",
@@ -16,56 +36,36 @@
     },
     {
       "id": "crypto-fundraising-circle",
-      "source_rank": 2,
+      "source_rank": 4,
       "name": "Circle",
       "round": null,
       "announced_month": "2026-09",
       "amount_usd": 100000000,
       "detail_url": "https://crypto-fundraising.info/projects/circle/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-infini",
-      "source_rank": 3,
+      "source_rank": 5,
       "name": "Infini",
       "round": "Seed",
       "announced_month": "2026-09",
       "amount_usd": 6000000,
       "detail_url": "https://crypto-fundraising.info/projects/infini/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-travix",
-      "source_rank": 4,
-      "name": "Travix",
-      "round": "Seed",
-      "announced_month": "2026-09",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/travix/",
-      "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-catchback",
-      "source_rank": 5,
-      "name": "CatchBack",
-      "round": "Seed",
-      "announced_month": "2026-09",
-      "amount_usd": 8000000,
-      "detail_url": "https://crypto-fundraising.info/projects/catchback/",
       "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:luna-web3-20260923-064620Z",
-    "requestId": "luna-web3-20260923-064620Z",
-    "triggerSha": "c558fbf5379bf672ac9292dd8c1671b0a9cec01d",
-    "githubRunId": 35828439792,
-    "scheduledAt": "2026-09-23T06:46:20Z",
-    "startedAt": "2026-09-23T06:48:27.152112+00:00",
-    "sourceCheckedAt": "2026-09-23T06:48:28.387223+00:00",
-    "sourceUpdatedAt": "2026-09-23T03:00:05+00:00",
-    "completedAt": "2026-09-23T06:48:28.387559+00:00",
+    "runId": "web3-daily-triage:luna-web3-20260924-021435Z",
+    "requestId": "luna-web3-20260924-021435Z",
+    "triggerSha": "42744db86459d6dc56ccf71cd4d17fd99af97d84",
+    "githubRunId": 35946485411,
+    "scheduledAt": "2026-09-24T02:14:35Z",
+    "startedAt": "2026-09-24T02:15:40.170082+00:00",
+    "sourceCheckedAt": "2026-09-24T02:15:42.475361+00:00",
+    "sourceUpdatedAt": "2026-09-24T02:15:42+00:00",
+    "completedAt": "2026-09-24T02:15:42.475641+00:00",
     "publishedAt": null
   }
 }
