@@ -113,6 +113,14 @@ jobs:
           print("validated", payload["resultCount"], "posts")
           PY
 
+      - name: Upload search result artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: x-author-search-${{ github.run_id }}
+          path: data/x-author-search.json
+          if-no-files-found: error
+          retention-days: 7
+
       - name: Commit latest search result
         run: |
           git config user.name "github-actions[bot]"
