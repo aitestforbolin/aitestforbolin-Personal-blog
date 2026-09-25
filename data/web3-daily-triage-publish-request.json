@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "luna-web3-20260924-021435Z",
-  "triggerSha": "42744db86459d6dc56ccf71cd4d17fd99af97d84",
-  "publicationDate": "2026-09-24",
-  "publishedAt": "2026-09-24T10:20:30+08:00",
+  "requestId": "luna-web3-20260925-010236Z",
+  "triggerSha": "065ed69e05e4e00f2147cb354b3e4189a6416844",
+  "publicationDate": "2026-09-25",
+  "publishedAt": "2026-09-25T09:04:48+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-09-24",
-    "publishedAt": "2026-09-24T10:20:30+08:00",
-    "windowStart": "2026-09-23T06:48:28.387559+00:00",
-    "windowEnd": "2026-09-24T02:15:42.475641+00:00",
-    "sourceUpdatedAt": "2026-09-24T02:15:42+00:00",
+    "runDate": "2026-09-25",
+    "publishedAt": "2026-09-25T09:04:48+08:00",
+    "windowStart": "2026-09-24T02:15:42.475641+00:00",
+    "windowEnd": "2026-09-25T01:03:25.195600+00:00",
+    "sourceUpdatedAt": "2026-09-25T01:03:25+00:00",
     "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:luna-web3-20260924-021435Z",
-      "requestId": "luna-web3-20260924-021435Z",
-      "triggerSha": "42744db86459d6dc56ccf71cd4d17fd99af97d84",
-      "githubRunId": 35946485411,
-      "scheduledAt": "2026-09-24T02:14:35Z",
-      "startedAt": "2026-09-24T02:15:40.170082+00:00",
-      "sourceCheckedAt": "2026-09-24T02:15:42.475361+00:00",
-      "sourceUpdatedAt": "2026-09-24T02:15:42+00:00",
-      "completedAt": "2026-09-24T02:15:42.475641+00:00",
-      "publishedAt": "2026-09-24T10:20:30+08:00"
+      "runId": "web3-daily-triage:luna-web3-20260925-010236Z",
+      "requestId": "luna-web3-20260925-010236Z",
+      "triggerSha": "065ed69e05e4e00f2147cb354b3e4189a6416844",
+      "githubRunId": 36080313675,
+      "scheduledAt": "2026-09-25T01:00:00Z",
+      "startedAt": "2026-09-25T01:03:23.535982+00:00",
+      "sourceCheckedAt": "2026-09-25T01:03:25.195314+00:00",
+      "sourceUpdatedAt": "2026-09-25T01:03:25+00:00",
+      "completedAt": "2026-09-25T01:03:25.195600+00:00",
+      "publishedAt": "2026-09-25T09:04:48+08:00"
     },
     "executionStatus": {
       "collection": "success",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "以上一期已验证发布的 windowEnd 作为 windowStart，以本次 schemaVersion 2 receipt.timestamps.completedAt 作为 windowEnd；沿用累计 reportedEventIds 去重。窗口内新增 2 个事件，先排除 North Capital 的 M&A，剩余 1 个融资项目完成研究。",
+    "deduplicationNote": "以最近一期已验证发布的 windowEnd 为 windowStart，以本次匹配 schemaVersion 2 receipt.timestamps.completedAt 为 windowEnd；沿用累计 reportedEventIds 去重。窗口中观察到 HIFI 融资事件 1 个；排除 Crest 的 M&A 事件。数据仅为来源首页五条项目快照的累计观测，不代表来源全量融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -46,83 +46,74 @@
       "crypto-fundraising-xstable--2026-09--round-unknown",
       "crypto-fundraising-travix--2026-09--seed",
       "crypto-fundraising-catchback--2026-09--seed",
-      "crypto-fundraising-infinifi--2026-09--seed"
+      "crypto-fundraising-infinifi--2026-09--seed",
+      "crypto-fundraising-hifi--2026-09--series-a"
     ],
     "counts": {
       "new": 1,
-      "action": 1,
+      "action": 0,
       "watch": 0,
-      "stop": 0
+      "stop": 1
     },
     "projects": [
       {
-        "event_id": "crypto-fundraising-infinifi--2026-09--seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/infinifi/",
-        "project_name": "infiniFi",
-        "decision": "ACTION",
+        "event_id": "crypto-fundraising-hifi--2026-09--series-a",
+        "source_detail_url": "https://crypto-fundraising.info/projects/hifi/",
+        "project_name": "HIFI",
+        "decision": "STOP",
         "financing": {
-          "amount_usd": 3000000,
-          "round": "Seed",
+          "amount_usd": 37000000,
+          "round": "Series A",
           "lead_investors": [
-            "Electric Capital"
+            "Left Lane Capital"
           ],
-          "announcement_date": "2026-09-23",
-          "confidence": "high"
+          "announcement_date": "2026-09-24",
+          "confidence": "medium"
         },
-        "plain_explanation": "infiniFi 是一个链上稳定币收益协议，让用户在随时可退出和锁定更久换取更高收益之间自行选择。",
-        "mechanism_simple": "用户存入稳定币铸造 iUSD；可质押获得流动收益，或锁定一段时间获得更高收益。协议把资金分配到 DeFi、代币化信贷及机构信用策略，并用不同期限匹配流动性。",
+        "plain_explanation": "HIFI 为企业、金融科技公司和机构提供稳定币与银行支付网络之间的资金流转基础设施。",
+        "mechanism_simple": "客户通过单一 API 接入银行转账、稳定币、跨链结算和合规检查，让资金能在传统银行轨道与区块链之间流动；官网定位是金融基础设施，而非面向个人用户的链上应用。",
         "project_status": {
           "category": "existing_no_token",
-          "token_status": "token_announced",
-          "note": "协议已运行；iUSD 是存款凭证型稳定币，不是项目治理代币。官方已确认计划在 2026 年第四季度进行 TGE，原生代币尚未上线。"
+          "token_status": "no_token_found",
+          "note": "这是已经运营的金融基础设施公司。官网未显示其发行自有可交易代币；不要与名称相近的旧 Hifi Finance 协议及其 HIFI 代币混为一谈。"
         },
         "participation": {
-          "available_now": true,
-          "what_user_can_do": "现在可查看官方 Points 页面，并存入稳定币获得 iUSD 后质押或锁定；实际赚取收益/积分通常需要真实资金。",
-          "requires_real_funds": true,
-          "friction_or_risk": "存在智能合约、底层收益策略、机构对手方、稳定币和流动性/锁仓风险；官网展示的收益率不是保证回报。"
+          "available_now": false,
+          "what_user_can_do": null,
+          "requires_real_funds": false,
+          "friction_or_risk": "产品主要通过企业/机构 API 集成及预约演示提供，未发现普通个人可直接参与的链上产品、积分或测试网入口。"
         },
         "incentives": {
-          "status": "confirmed",
-          "types": [
-            "points",
-            "token"
-          ],
-          "details": "官方 App 已有 Points Program；官方 2026 年 9 月 23 日公告确认 TGE 计划在 2026 年第四季度进行，但未把积分兑换比例或空投资格写成确定承诺。"
+          "status": "none_found",
+          "types": [],
+          "details": "在官网产品、文档入口及融资报道中未发现面向普通用户的 Points、Season、Testnet、空投或代币激励。"
         },
         "why": [
-          "新一轮超过 300 万美元融资由 Electric Capital 领投，项目不是只停留在概念阶段。",
-          "官方 Points 已运行，且 TGE 已明确到 2026 年第四季度，时间窗口比普通“潜在空投”更具体。",
-          "产品有真实稳定币收益用途，但必须严格控制资金和锁仓期限，不能只为积分追高风险收益。"
+          "产品定位明确面向企业、金融科技和机构客户，不存在可验证的普通用户参与路径。",
+          "本轮融资和稳定币支付/资产代币化赛道有行业意义，但融资规模本身不构成个人参与理由。"
         ],
-        "next_step": "先用隔离钱包查看 Points 规则和当前加成；若规则清晰且可接受，再以不超过 50–100 USDC 做一次短周期、优先不锁仓的小额完整流程测试，不追加资金直到确认退出和积分记录正常。",
+        "next_step": null,
         "recheck_trigger": null,
-        "website_url": "https://infinifi.xyz/",
-        "x_url": "https://x.com/infiniFi",
+        "website_url": "https://www.hifi.com/",
+        "x_url": "https://x.com/hifiHQ",
         "evidence": [
           {
-            "claim": "infiniFi 官方公告确认新一轮融资超过 300 万美元，由 Electric Capital 领投，并确认 2026 年第四季度 TGE。",
-            "url": "https://x.com/infiniFi/status/2102761878216749511",
-            "source_type": "official_x",
-            "confidence": "high"
-          },
-          {
-            "claim": "由 infiniFi 提供的融资公告列出 Electric Capital 领投及 New Form Capital、Generative Ventures、Fasanara Capital 等参投方。",
-            "url": "https://www.prnewswire.com/news-releases/infinifi-raises-3m-ahead-of-q4-tge-302887464.html",
-            "source_type": "other",
-            "confidence": "high"
-          },
-          {
-            "claim": "官方产品页说明存入稳定币可铸造 iUSD，并可选择随时退出的质押或更长期锁定以获取更高收益。",
-            "url": "https://infinifi.xyz/",
+            "claim": "HIFI 官网将自身定位为银行轨道与稳定币之间的金融基础设施，并展示面向公司和机构的 API 产品。",
+            "url": "https://www.hifi.com/",
             "source_type": "official_site",
             "confidence": "high"
           },
           {
-            "claim": "官方文档列出 Points Program，并区分 iUSD、siUSD 与锁定仓位代币。",
-            "url": "https://docs.infinifi.xyz/",
-            "source_type": "docs",
+            "claim": "HIFI 于 2026-09-24 宣布 3700 万美元 Series A，由 Left Lane Capital 领投；公司销售支付、合规和结算 API，报道未披露零售参与机会。",
+            "url": "https://www.theblock.co/news/business/2026-09-24-hifi-raises-37-million-series-a-to-expand-tokenized-capital-markets-infrastructure-416242",
+            "source_type": "other",
             "confidence": "high"
+          },
+          {
+            "claim": "Crypto-Fundraising 项目页将该融资事件列为 HIFI、3700 万美元 Series A，并链接至 HIFI 官网。",
+            "url": "https://crypto-fundraising.info/projects/hifi/",
+            "source_type": "other",
+            "confidence": "medium"
           }
         ]
       }
