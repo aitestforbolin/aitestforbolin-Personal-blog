@@ -143,33 +143,40 @@
     "stars": 3,
     "source": "Forex Factory",
     "url": "https://www.forexfactory.com/calendar",
-    "result_source": "Forex Factory 市场日历",
-    "result_url": "https://www.forexfactory.com/calendar",
+    "result_source": "Forex Factory 网页日历",
+    "result_url": "https://www.forexfactory.com/calendar?day=sep25.2026",
     "consensus_source": "Forex Factory 市场日历",
     "consensus_url": "https://www.forexfactory.com/calendar",
     "metric_values": [
       {
         "label": "消费者信心终值",
         "source_title": "Revised UoM Consumer Sentiment",
-        "actual": null,
+        "actual": "48.1",
         "forecast": "47.4",
         "previous": "47.8",
         "consensus_source": "Forex Factory 市场日历",
-        "consensus_url": "https://www.forexfactory.com/calendar"
+        "consensus_url": "https://www.forexfactory.com/calendar",
+        "actual_source": "Forex Factory 网页日历",
+        "actual_url": "https://www.forexfactory.com/calendar?day=sep25.2026"
       },
       {
         "label": "通胀预期终值",
         "source_title": "Revised UoM Inflation Expectations",
-        "actual": null,
+        "actual": "4.6%",
         "forecast": null,
         "previous": "4.6%",
         "consensus_source": "Forex Factory 市场日历",
-        "consensus_url": "https://www.forexfactory.com/calendar"
+        "consensus_url": "https://www.forexfactory.com/calendar",
+        "actual_source": "Forex Factory 网页日历",
+        "actual_url": "https://www.forexfactory.com/calendar?day=sep25.2026"
       }
     ],
-    "release_status": "scheduled",
+    "release_status": "released",
     "forecast": "消费者信心终值 47.4",
     "previous": "消费者信心终值 47.8 · 通胀预期终值 4.6%",
+    "released_at": "2026-09-25T15:53:35.200Z",
+    "actual_updated_at": "2026-09-25T15:53:35.200Z",
+    "actual": "消费者信心终值 48.1 · 通胀预期终值 4.6%",
     "calendar_status": "healthy"
   }
 ]
