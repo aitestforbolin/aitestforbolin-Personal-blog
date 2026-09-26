@@ -1,28 +1,29 @@
 {
   "schemaVersion": 1,
-  "requestId": "luna-x-20260925-010016Z",
-  "triggerSha": "29c28861b704234c24b08797ee26c66d07ea31d7",
-  "publicationDate": "2026-09-25",
-  "publishedAt": "2026-09-25T09:02:21+08:00",
+  "requestId": "luna-x-20260926-010000Z",
+  "triggerSha": "43b7aab0e8d4fbbcdc4f70ca2694e6741ba092ec",
+  "publicationDate": "2026-09-26",
+  "publishedAt": "2026-09-26T09:03:27+08:00",
   "payload": {
     "schemaVersion": 1,
     "status": "success",
-    "reportDate": "2026-09-25",
-    "generatedAt": "2026-09-25T09:02:21+08:00",
-    "sourceGeneratedAt": "2026-09-25T01:00:35.728976+00:00",
-    "sourcePostCount": 155,
+    "reportDate": "2026-09-26",
+    "generatedAt": "2026-09-26T09:03:27+08:00",
+    "sourceGeneratedAt": "2026-09-26T01:00:34.050923+00:00",
+    "sourcePostCount": 129,
     "sourceListCount": 4,
     "executionLineage": {
-      "runId": "x-intelligence:luna-x-20260925-010016Z",
-      "requestId": "luna-x-20260925-010016Z",
-      "triggerSha": "29c28861b704234c24b08797ee26c66d07ea31d7",
-      "githubRunId": 36080095401,
-      "scheduledAt": "2026-09-25T01:00:00Z",
-      "startedAt": "2026-09-25T01:00:35.728344+00:00",
-      "sourceCheckedAt": "2026-09-25T01:00:46.284904+00:00",
-      "sourceUpdatedAt": "2026-09-25T00:45:54+00:00",
-      "completedAt": "2026-09-25T01:00:46.284952+00:00",
-      "publishedAt": "2026-09-25T09:02:21+08:00"
+      "schemaVersion": 2,
+      "runId": "x-intelligence:luna-x-20260926-010000Z",
+      "requestId": "luna-x-20260926-010000Z",
+      "triggerSha": "43b7aab0e8d4fbbcdc4f70ca2694e6741ba092ec",
+      "githubRunId": 36206906080,
+      "scheduledAt": "2026-09-26T01:00:00Z",
+      "startedAt": "2026-09-26T01:00:34.050464+00:00",
+      "sourceCheckedAt": "2026-09-26T01:00:47.254426+00:00",
+      "sourceUpdatedAt": "2026-09-26T00:56:31+00:00",
+      "completedAt": "2026-09-26T01:00:47.254478+00:00",
+      "publishedAt": "2026-09-26T09:03:27+08:00"
     },
     "executionStatus": {
       "collection": "success",
@@ -31,371 +32,372 @@
         "status": "not_run"
       }
     },
-    "overview": "9 月 25 日扫描 4 个列表、155 条 Posts。信息流被 Bitget 热钱包安全事件主导；其余重点是中美/美伊外交与利率、油价的交叉叙事，代币化股票扩大钱包分发，Binance 上线 HYPE，以及 Variational 的 Q4 TGE 预期。多项金额、价格和产品指标来自官方声明或社群转述，仍需等待事故报告、独立数据和正式规则验证。",
+    "overview": "过去24小时的核心线索是风险管理与市场管道同时前移：Bitget 热钱包事件进入提现方案与损失口径确认阶段，美伊谈判消息反复牵动油价和高利率交易；与此同时，代币化股票开始被用于借贷抵押、IPO 分发与多链扩张，美国监管讨论也深入客户资金、抵押品和链上记账。AI 侧的注意力从单个模型转向统一 Agent 工作台、模型路由和真实故障恢复。",
     "homeHighlights": [
-      "Bitget 声称热钱包事件涉及约 3.516 亿美元、提币暂停，保护基金规模高于损失估值；攻击根因和用户资金安排仍待完整事故报告。",
-      "中美会晤与美伊接触被市场解读为可能缓和能源风险，但强 PMI、成本压力与高收益率叙事仍在牵制风险资产。",
-      "xStocks 与 Payward/Ledger 推进代币化股票进入钱包交易入口；持有人增长和成交量主要是生态方披露，实际活跃、流动性与地区适用性仍待观察。",
-      "Binance 上线 HYPE 现货是重要分发与流动性节点，但不等同于 CEX 与 Hyperliquid 的产品竞争格局已经改变。",
-      "Variational 的 Q4 TGE、32% 积分分配说法引发热度；点数持续发放与延期稀释担忧并存，精确资格和时间仍应以正式规则为准。"
+      "Bitget 披露被转移资产口径升至约3.875亿美元，9月26日将公布提现方案，安全事件进入兑付与恢复验证期。",
+      "伊朗“七天方案”、海峡继续关闭等相互矛盾的消息并存，油价、10年期美债收益率和风险资产仍受谈判进展牵动。",
+      "Coinbase 代币化股票已可在 Base 上通过 Aave V4 抵押借出 USDC，xStocks 同时扩展 IPO 分发与多链覆盖。",
+      "美国监管讨论从资产是否可上链，进一步进入客户资金、抵押品、资本计量和合规记账等市场管道。",
+      "微软把 Chat、Code、Cowork 与长时 Agent 收入统一 Copilot 工作台，但个人助理的入口护城河与服务可靠性仍有争议。"
     ],
     "topics": [
       {
-        "title": "Bitget 热钱包异常转账与暂停提币成为全日核心风险事件",
+        "title": "Bitget 安全事件进入提现与兑付验证期",
         "importance": "high",
-        "summary": "Bitget 官方声明被多个账号引用：称 9 月 24 日发现热钱包异常转账，初估约 3.516 亿美元，冷钱包未受影响、保护基金超过 4.64 亿美元，并暂时暂停提币、承诺后续发布事故报告。早期链上新闻转述则先称潜在损失超过 1 亿美元；关于攻击者或攻击方式的猜测未获确认。",
-        "whyItMatters": "这是一宗影响交易所信任、兑付能力和短期流动性的重大安全事件。现有 packet 展示的是交易所声明及传播，不构成对损失规模、保护基金可用性或用户资产安全的独立验证；后续根因分析、链上资金追踪和提币恢复比社群猜测更关键。",
+        "summary": "Bitget 相关更新称，链上追踪后攻击者控制地址涉及资产约3.875亿美元，高于最初约3.516亿美元口径，并计划在9月26日04:00 UTC前公布提现方案。多帖称攻击更接近关键钱包后台被入侵、伪造转账信息并触发授权签名，而非私钥泄露；官方保护基金公开地址约有4.6亿美元BTC，但目前尚未看到实际动用。",
+        "whyItMatters": "真正需要验证的是提现恢复方式、损失最终口径、保护基金如何使用、根因报告与是否仍有系统性漏洞。保护基金余额和交易所利润推算不能自动证明流动性充足；同样，情绪稳定也不能替代真实兑付。",
         "facts": [
-          "Bitget CEO 账号的声明（被帖子引用）称初估受影响金额约 3.516 亿美元、冷钱包完整，保护基金超过 4.64 亿美元；这些数字是公司声明。",
-          "声明称异常转账地址已标记、执法与链上安全机构已介入，提币因安全核查暂时关闭；一条后续媒体转述称钱包已恢复控制。",
-          "较早新闻转述链上消息称潜在损失超过 1 亿美元，金额口径与之后公司初步估值不同；事件根因仍未公布。"
+          "多名作者引用Bitget更新称，攻击者控制地址涉及资产约3.875亿美元，提现方案将在9月26日04:00 UTC前公布。",
+          "TechFlowPost转述Bitget称关键钱包后台被入侵并伪造转账信息、调用授权签名流程，私钥泄露被排除；完整技术报告尚未在packet中出现。",
+          "TechFlowPost列出三个公开保护基金BTC地址，按帖中时价合计约4.6亿美元，并称近六个月未见大额净流出。"
         ],
         "interpretations": [
-          "社群主要关注储备/保障是否足额、提币何时恢复和披露是否及时；“朝鲜黑客”等归因在 packet 中只是猜测，不作为事实。"
+          "部分持币者认为大型交易所可凭保护基金和盈利能力渡过事件；另一些帖子担心提现方案可能不是立即全面开放，若限制过强会重新引发挤兑情绪。",
+          "关于Lazarus的归因和“损失仅相当于八个月利润”均为模式类比或个人估算，不作为已确认事实。"
         ],
         "authors": [
-          "GracyBitget",
-          "xiejiayinBitget",
-          "qinbafrank",
-          "bwenews",
-          "0xStudy",
-          "brucexu_eth"
-        ],
-        "sourceUrls": [
-          "https://x.com/GracyBitget/status/2103235655879074084",
-          "https://x.com/xiejiayinBitget/status/2103236175528104073",
-          "https://x.com/qinbafrank/status/2103282960682344479",
-          "https://x.com/bwenews/status/2103234024881930713",
-          "https://x.com/bwenews/status/2103216087173304358",
-          "https://x.com/0xStudy/status/2103224565241651357"
-        ],
-        "sourceCount": 8,
-        "confidence": "high"
-      },
-      {
-        "title": "中美会晤、美伊接触与美债/油价对冲，宏观交易进入验证期",
-        "importance": "high",
-        "summary": "多帖围绕中美会晤、贸易休战延长以及美伊围绕霍尔木兹的接触展开；看缓和的一方押注能源风险溢价回落。另一组分析把强 PMI、企业投入成本上升和鹰派政策表态视为长端收益率上行的主要驱动，并指出股指内部表现分化。",
-        "whyItMatters": "油价回落有助于缓解通胀与收益率压力，但增长韧性和成本压力可能令高利率维持更久。当前帖子同时包含媒体/官员转述和作者的地缘推演，应把已报道会谈与对谈判结果的推测分开。",
-        "facts": [
-          "帖子转述美国与伊朗讨论分阶段协议及霍尔木兹通航条件；另一帖转述伊朗获得重返《伊斯兰堡谅解备忘录》的支持。",
-          "qinbafrank 转述中美贸易休战延长至 2027 年 1 月，并将其解读为短期延时而非结构性协议；条款细节在 packet 中未独立核验。",
-          "多名作者转述 9 月 PMI 综合指数 58.4、美国 10 年期收益率一度约 5.1%，并关注成本通胀及股指分化；这些宏观数字均为帖子转述。"
-        ],
-        "interpretations": [
-          "乐观框架认为中国斡旋或外交进展能压低油价、支持风险资产；谨慎框架认为强数据与通胀粘性会抵消这一利好。",
-          "另有交易员把回调看作获利回吐/技术性买点；这与利率上行压制估值的结构性解读并存。"
-        ],
-        "authors": [
-          "qinbafrank",
+          "Bitget",
+          "TechFlowPost",
           "PhyrexNi",
-          "ArtofSpecuycky",
-          "_FORAB",
+          "spark888",
+          "YSI_crypto",
           "octopusycc"
         ],
         "sourceUrls": [
-          "https://x.com/PhyrexNi/status/2103168980794175896",
-          "https://x.com/PhyrexNi/status/2103167813934600492",
-          "https://x.com/PhyrexNi/status/2103072599249133893",
-          "https://x.com/qinbafrank/status/2103031394696142878",
-          "https://x.com/qinbafrank/status/2102948893109682588",
-          "https://x.com/qinbafrank/status/2103003437302480928"
+          "https://x.com/spark888/status/2103497658564554934",
+          "https://x.com/TechFlowPost/status/2103386056641204314",
+          "https://x.com/TechFlowPost/status/2103303791408042284",
+          "https://x.com/PhyrexNi/status/2103406319059567067",
+          "https://x.com/YSI_crypto/status/2103527932472000863"
         ],
-        "sourceCount": 17,
-        "confidence": "medium"
-      },
-      {
-        "title": "代币化股票继续扩展钱包分发，但采用数据仍主要来自生态方",
-        "importance": "high",
-        "summary": "Payward 与 Ledger 推进交易基础设施合作，xStocks 宣布上线 Ledger Wallet，帖子称可触达数百万用户及数百种代币化股票；相关账户还转发持有人增长和 RFQ 新标的消息。Base/Coinbase 也宣传代币化股票上线一个月成交超过 10 亿美元。Base 另提醒仅在美国以外合资格司法辖区开放。",
-        "whyItMatters": "分发渠道、托管/自托管钱包和交易基础设施开始连接，可能降低 RWA 产品触达门槛；但持有人数、成交额不等于持续活跃和可退出流动性，地区限制、底层权益安排与平台对手方结构仍重要。",
-        "facts": [
-          "xStocks 与 Payward/Ledger 帖称 Ledger Wallet 已接入 xStocks 与买卖/兑换流程；8M+ 用户和 700+ 标的数字来自合作方传播。",
-          "RWA Foundation 转发的 Token Terminal 数据称 xStocks 过去 7 日新增 7.3 万持有人，过去 24 小时新增 9,500；属于转引数据。",
-          "Base 帖称 Coinbase Tokenized Stocks 上线一个月成交量超过 10 亿美元；其回复说明产品只在美国境外合资格司法辖区提供。"
-        ],
-        "interpretations": [
-          "渠道整合较确定地成为竞争方向，但 packet 没有独立口径验证成交、留存或底层法律权益。",
-          "关于 Ondo 与 BlackRock 的一条新闻聚合帖同时提示自动匹配可能错误，不足以当作已确认合作。"
-        ],
-        "authors": [
-          "xStocksFi",
-          "Payward",
-          "PaywardServices",
-          "Ledger",
-          "RWAFoundation_",
-          "base",
-          "CoinbaseWallet"
-        ],
-        "sourceUrls": [
-          "https://x.com/xStocksFi/status/2103123534449082426",
-          "https://x.com/xStocksFi/status/2103125029315862822",
-          "https://x.com/xStocksFi/status/2103075099721310542",
-          "https://x.com/xStocksFi/status/2103041529254478251",
-          "https://x.com/base/status/2103194299022143703",
-          "https://x.com/base/status/2103210538260176918"
-        ],
-        "sourceCount": 13,
-        "confidence": "medium"
-      },
-      {
-        "title": "Binance 上线 HYPE 现货，成为 Hyperliquid 的分发与流动性节点",
-        "importance": "high",
-        "summary": "Binance 宣布上线 Hyperliquid 原生代币 HYPE 并加 Seed Tag。社群将其解读为主流交易所对重要链上资产的接纳，也有人把它外推为牛市信号；另有分析提示上币可能带来获利了结，且现货上币本身并不改变 CEX 托管与链上自托管永续产品的区别。",
-        "whyItMatters": "上币改善代币可交易性与触达，但需观察真实新增流动性、交易深度和持仓变化，不能把单次上币等同于竞争关系逆转或广泛风险偏好确认。",
-        "facts": [
-          "Binance 公告被多帖转述为 HYPE 现货上线并附 Seed Tag。",
-          "一条交易监控摘要声称机构相关钱包在消息前向 Coinbase Prime 存入约 130,331 枚 HYPE、另有约 120,000 枚解除质押；应视为链上观察者的转述。",
-          "TechFlowPost 将交易所上线与 HYPE 的规模/交易活跃度联系起来，同时指出交易所托管产品与自托管 DEX 面向的用户并不相同。"
-        ],
-        "interpretations": [
-          "看多者视为交易渠道扩张与市场认可；谨慎者强调 sell-the-news、做市和套利流可能抵消短期利好。"
-        ],
-        "authors": [
-          "Binance",
-          "bwenews",
-          "_FORAB",
-          "TechFlowPost",
-          "spark888"
-        ],
-        "sourceUrls": [
-          "https://x.com/bwenews/status/2103024307916185647",
-          "https://x.com/_FORAB/status/2103029720225075426",
-          "https://x.com/TechFlowPost/status/2103028334997504417",
-          "https://x.com/TechFlowPost/status/2103033649583284569",
-          "https://x.com/spark888/status/2103027021945471268"
-        ],
-        "sourceCount": 7,
+        "sourceCount": 14,
         "confidence": "high"
       },
       {
-        "title": "Variational 的 Q4 TGE 与积分空投放大关注，也带来稀释争议",
+        "title": "美伊谈判消息互相冲突，霍尔木兹与油价仍是宏观开关",
         "importance": "high",
-        "summary": "Variational 官方相关链接引发大量传播，社群普遍称计划 Q4 TGE、32% 代币按积分分配并在 TGE 解锁；项目账号另称每周继续发积分、链上交易者奖励持续到 TGE。点数估值、空投估值和 FDV 多由参与者或预测市场转述，积分继续累积则引发稀释担忧。",
-        "whyItMatters": "高比例解锁可能成为 Perp DEX 激励与用户分发的重要案例，但公告时间、积分结束日、资格、供应总量及经济细节需以可读的官方规则为准。不能将社区估值或积分成本当成可兑现收益。",
+        "summary": "信息流称伊朗通过卡塔尔提出“七天方案”，涉及美方先行动、随后重开霍尔木兹海峡并启动谈判；同时又有消息称伊朗会继续关闭海峡直至条件满足。卡塔尔和巴基斯坦领导人的相关表态强化了保障国际航道的呼声，但谈判是否真正进入技术阶段仍不清晰。",
+        "whyItMatters": "海峡重开将影响能源风险溢价、通胀与长端利率，进而影响美股和加密风险偏好。当前最大问题不是缺少叙事，而是美国、伊朗官员和媒体渠道给出的说法互相矛盾。",
         "facts": [
-          "variational_io 发出 TGE/积分相关官方链接，并称第 41 周向 30,358 个账户分发 150,000 点；另帖称链上交易者奖励将持续至 TGE。",
-          "多名作者据此称 Q4 TGE、32% 面向积分持有人、完全解锁；目前 packet 所示官方源帖正文主要是链接，细节大多来自转述。",
-          "TechFlowPost 分享积分摩擦成本、场外成交及 FDV 预测估算；这些不是已实现市场价格。"
+          "PhyrexNi转述伊朗提出七天安排，并称美国接受方案后开始计时；同一信息流也转述美国条件未改变。",
+          "octopusycc同时转述“海峡继续关闭”和“谈判气氛趋于积极、技术专家加入”两种相反消息。",
+          "卡塔尔和巴基斯坦领导人的相关转述强调霍尔木兹与曼德海峡应保持开放。"
         ],
         "interpretations": [
-          "参与者将其视为积分兑现窗口；反方担忧 Q3 延至 Q4 后每周仍增发积分会稀释单分价值。"
+          "乐观观点把中国斡旋和七天方案视为油价回落的潜在催化；谨慎观点认为反复否认显示谈判基础不稳。",
+          "部分作者认为若封锁延续，高油价和高利率最终会压过AI盈利对风险资产的支撑。"
         ],
         "authors": [
-          "variational_io",
-          "0xStudy",
-          "0xYond",
-          "Benjieming1Q84",
-          "TechFlowPost",
-          "predictdotfun",
-          "aspecta_ai"
+          "PhyrexNi",
+          "octopusycc"
         ],
         "sourceUrls": [
-          "https://x.com/variational_io/status/2103276001744839157",
-          "https://x.com/variational_io/status/2103127970701517193",
-          "https://x.com/TechFlowPost/status/2103055338799018335",
-          "https://x.com/predictdotfun/status/2103029191512064118",
-          "https://x.com/0xStudy/status/2102933386474209488",
-          "https://x.com/aspecta_ai/status/2103015704329166857"
+          "https://x.com/PhyrexNi/status/2103595078665298376",
+          "https://x.com/PhyrexNi/status/2103539651462263205",
+          "https://x.com/PhyrexNi/status/2103557637002715633",
+          "https://x.com/octopusycc/status/2103526976493617224"
         ],
-        "sourceCount": 15,
+        "sourceCount": 12,
         "confidence": "medium"
       },
       {
-        "title": "Agent 叙事从模型能力转向异步工作流、钱包操作与可用性",
-        "importance": "medium",
-        "summary": "brucexu_eth 主张把人机协作从持续同步交互改为一次定义任务、异步执行并阶段验收；他同时提到 Telegram 自动化仍需 GUI 排查，以及 MetaMask CLI/agentic wallet 跨链时遇到资产卡住。另有用户分享低成本模型处理简单任务和交易平台 GetAgent 2.0 的跨资产助手体验。",
-        "whyItMatters": "真实落地更依赖稳定的工具调用、权限边界、失败恢复和人工验收，而非只看模型输出速度。钱包 Agent 若能执行链上操作，卡住交易与资产恢复是必须解决的安全/可运维问题。",
+        "title": "10年期美债约5.2%，财政部回购未用满额度加剧政策有效性争论",
+        "importance": "high",
+        "summary": "帖子称美国10年期收益率收于约5.2%，与美股和BTC回落同步；强PMI、投入成本上升、偏弱的5年期拍卖与供给压力被视为驱动。美国财政部两次长债回购均未用满60亿美元上限，引发究竟是价格纪律还是支持力度不足的争论。",
+        "whyItMatters": "高长端利率正通过估值和融资成本筛选资产。信息流认为AI半导体凭盈利上修抵消部分折现压力，而等权指数、传统行业和利率敏感资产更弱；若收益率只短暂回落，风险资产反弹仍可能偏结构性。",
         "facts": [
-          "brucexu_eth 把任务定义、异步执行、阶段验收视为效率提升路径，这是作者的方法观点。",
-          "其帖子报告测试 MetaMask CLI/agentic wallet 时 Base 到 BNB Chain 的桥接卡住，并向 MetaMask 寻求支持；packet 未提供后续解决结果。",
-          "qinbafrank 介绍 GetAgent 2.0 可在单轮对话查询加密、美股、商品与链上指标，属于个人产品体验；没有独立使用规模数据。"
+          "PhyrexNi称10年期收益率收于约5.2%，并把强PMI、成本指标和较弱债券拍卖列为压力来源。",
+          "qinbafrank称本周长期国债回购实际约40.78亿美元、9月10日约51.87亿美元，均未用满60亿美元上限。",
+          "帖子转述一项研究估算2025至2032年美国AI基础设施投资约10.3万亿美元；该数字为作者引用，packet未提供原始研究全文。"
         ],
         "interpretations": [
-          "开发者讨论显示关注点已由“更强模型”转到流程编排与持续运行；但目前样本仍以个人经验和产品推广为主，缺少成功率/留存数据。"
+          "一种观点认为财政部不应因报价分歧而少买，否则稳定市场的信号被削弱；另一种解释是回购只处理流动性失序，不应改变自然均衡价格。",
+          "交易员分歧在于收益率接近历史高位后会否回落并带动半导体创新高，还是通胀和供给令高利率继续压制市场广度。"
         ],
         "authors": [
-          "brucexu_eth",
+          "PhyrexNi",
           "qinbafrank",
+          "ArtofSpecuycky"
+        ],
+        "sourceUrls": [
+          "https://x.com/PhyrexNi/status/2103422474163794383",
+          "https://x.com/qinbafrank/status/2103295767071039654",
+          "https://x.com/qinbafrank/status/2103418754676006977",
+          "https://x.com/qinbafrank/status/2103379192146735169",
+          "https://x.com/ArtofSpecuycky/status/2103532482780115236"
+        ],
+        "sourceCount": 7,
+        "confidence": "medium"
+      },
+      {
+        "title": "代币化股票从交易扩展到抵押借贷、IPO分发与多链覆盖",
+        "importance": "high",
+        "summary": "Base称Coinbase Tokenized Stocks已上线Aave V4，合资格的美国境外用户可抵押代币化股票借入USDC。xStocks称xLayer三个月达到约1.8亿美元规模，并宣布OURAx将作为第四个IPO项目开放意向登记；TradeXYZ也展示了股票拆分时永续合约的强制结算流程。",
+        "whyItMatters": "产品已经不只是钱包里展示和现货交易，而是进入抵押品、发行分配和公司行动处理。下一步要验证流动性深度、清算风险、地区限制、IPO分配规则以及链上衍生品如何处理拆股等现实事件。",
+        "facts": [
+          "Base与Aave相关帖子称，Coinbase代币化股票可在Base上的Aave V4作为抵押品借出USDC，仅面向美国境外合资格司法辖区。",
+          "xStocks称xLayer三个月规模从零增至约1.8亿美元，并称覆盖约2亿钱包用户；数字来自生态方。",
+          "xStocks称OURAx意向登记将向合资格投资者开放，分配由承销商按需求决定，可能全额、部分或零分配。",
+          "TradeXYZ称因Kioxia 3拆1，将暂停并结算全部相关永续头寸，重开后需重新建仓。"
+        ],
+        "interpretations": [
+          "生态方把更多集成与资产规模视为采用增长；但这些指标并不等于持续活跃、低价差或底层法律权益得到验证。",
+          "股票拆分事件表明链上股票衍生品必须建立可预期的公司行动和结算规则。"
+        ],
+        "authors": [
+          "base",
+          "aave",
+          "xStocksFi",
+          "tradexyz"
+        ],
+        "sourceUrls": [
+          "https://x.com/base/status/2103491753613595049",
+          "https://x.com/base/status/2103491758340653403",
+          "https://x.com/xStocksFi/status/2103443139004653862",
+          "https://x.com/xStocksFi/status/2103370263010390383",
+          "https://x.com/xStocksFi/status/2103370266600685708",
+          "https://x.com/tradexyz/status/2103523736078987490"
+        ],
+        "sourceCount": 11,
+        "confidence": "high"
+      },
+      {
+        "title": "美国链上资产监管开始深入“市场管道”",
+        "importance": "high",
+        "summary": "qinbafrank梳理SEC、CFTC和美联储近期动作，认为监管重点已从是否允许资产上链，推进到客户资金、抵押品、交易组织、记录保存、储备与资本要求等后台环节。帖子还提到代币化NMS股票的特定豁免、CFTC客户资金FAQ和美联储支付稳定币提案。",
+        "whyItMatters": "真正决定机构规模化采用的，不只是代币能否发行，而是清算机构、期货经纪商和银行能否把链上资产计入合规系统。行政路径能打开业务空间，但不能完全替代国会层面的联邦现货市场结构。",
+        "facts": [
+          "帖子称SEC 9月17日为符合条件的代币化证券场所使用AMM/流动性池交易代币化NMS股票提供特定路径。",
+          "帖子称CFTC 9月24日FAQ涉及客户资金投资于获准品种的代币化形式及区块链记录保存。",
+          "帖子称美联储9月24日公布支付稳定币发行人的储备、资本和风险管理相关提案。"
+        ],
+        "interpretations": [
+          "作者认为这代表监管讨论进入Market Plumbing，但具体适用范围、豁免条件和最终规则仍需原始文本核对。",
+          "行政规则可推动部分市场结构先行，却缺少国会立法提供的长期确定性。"
+        ],
+        "authors": [
+          "qinbafrank"
+        ],
+        "sourceUrls": [
+          "https://x.com/qinbafrank/status/2103346184647794736"
+        ],
+        "sourceCount": 1,
+        "confidence": "low"
+      },
+      {
+        "title": "AI入口竞争转向统一Agent工作台、路由与可靠性",
+        "importance": "medium",
+        "summary": "qinbafrank把微软最新Copilot方向解读为将Chat、Code、Cowork和常驻Autopilot收进统一工作台，并从席位费延伸到按量Credits。brucexu_eth强调用模型别名与Composite路由降低升级和额度切换成本；与此同时，Codex短暂中断后恢复并为付费用户重置额度，可靠性成为真实运营问题。",
+        "whyItMatters": "企业Agent的护城河越来越像身份、权限、记忆、工具接入、计费和持续运行的系统层，而不是单一聊天能力。个人助理Agent则面临Muse以及Apple/Google系统级入口的竞争，独立产品的权限和分发优势仍待证明。",
+        "facts": [
+          "qinbafrank称微软把分散的Copilot能力收束为统一的聊天、造工具和长时运行Agent入口；属于作者对产品方向的整理。",
+          "brucexu_eth建议用抽象模型Alias和路由层减少前端随模型升级而改动，并分享了不同模型/推理设置的有限样本测试。",
+          "thsottiaux先报告Codex服务中断，后称服务恢复并将为付费用户重置使用额度。"
+        ],
+        "interpretations": [
+          "支持者认为统一Agent运行时会成为工作的操作系统；反方认为个人助理赛道容易被系统平台凭默认权限和现有硬件入口压制。",
+          "个别模型速度与质量测试说明路由价值，但样本很小，不能外推成普遍排名。"
+        ],
+        "authors": [
+          "qinbafrank",
+          "brucexu_eth",
+          "thsottiaux",
           "leto_bao"
         ],
         "sourceUrls": [
-          "https://x.com/brucexu_eth/status/2103282018289357035",
-          "https://x.com/brucexu_eth/status/2103124065406050522",
-          "https://x.com/brucexu_eth/status/2103116995583787375",
-          "https://x.com/brucexu_eth/status/2103272742669992032",
-          "https://x.com/qinbafrank/status/2102986741707915413"
+          "https://x.com/qinbafrank/status/2103632905499259058",
+          "https://x.com/brucexu_eth/status/2103631988745973975",
+          "https://x.com/brucexu_eth/status/2103291116393275868",
+          "https://x.com/thsottiaux/status/2103637477760311522",
+          "https://x.com/leto_bao/status/2103377269146497396"
         ],
         "sourceCount": 10,
         "confidence": "medium"
       },
       {
-        "title": "美国稳定币监管框架进入提案征求意见阶段，预测市场面对诉讼信号",
+        "title": "代币销售与积分活动继续活跃，但净回报和规则比名义奖励更重要",
         "importance": "medium",
-        "summary": "信息流出现美联储就 GENIUS Act 下受监管支付稳定币发行人框架征求意见的新闻摘要；qinbafrank 进一步转述华盛顿考虑公私合作推动合规美元稳定币海外使用，但后者的扩张规模是分析与推测。另有新闻聚合账号称纽约州宣布对 Polymarket 提起诉讼。",
-        "whyItMatters": "稳定币规则可能影响发行人、储备资产和跨境分发；而州级执法新闻可能影响预测市场的可用范围与结算业务。当前 packet 仅含二手标题与作者解读，具体提案文本、被诉事项和管辖范围都需要原始材料确认。",
+        "summary": "Jumper宣布9月29日在Legion进行JUMP代币销售；Variational向首届swaps交易赛参与者额外发放2万积分；Fables积分活动被传播为10月5日结束并可能衔接TGE，但参与者反馈部分稳定币池奖励不计平台积分且存在进出磨损。Hyperliquid生态还出现把复杂策略包装为可交易vault token的实验。",
+        "whyItMatters": "打新、积分和结构化策略正在形成不同的资本分发入口，但KYC、分配规则、交易磨损、积分计分口径和合约风险会决定真实收益。名义APR、积分和发币预期都不能直接等同于可兑现回报。",
         "facts": [
-          "bwenews 转述美联储理事会就两项 GENIUS Act 相关支付稳定币监管提案征求公众意见。",
-          "bwenews 转述 Bloomberg 称纽约州就 Polymarket 提起诉讼；packet 未列出诉状或州方原文。",
-          "qinbafrank 根据 Bloomberg 报道推演合规美元稳定币海外推广可能扩大国债需求，但 5,000 亿至 1 万亿美元规模属情景预测。"
+          "Jumper官方引用帖称JUMP代币销售定于9月29日在Legion举行。",
+          "Variational称向首届swaps交易赛参与者按交易量额外发放2万积分。",
+          "参与者称Fables一项稳定币池通过Merkl发奖励但不计平台积分，并提示兑换与跨链磨损；这是个人体验。",
+          "Ensemble相关帖子描述在Hyperliquid上把多空或波动率策略包装为vault token，目前产品仍较少。"
         ],
         "interpretations": [
-          "若规则落实，合规发行与储备配置可能更加重要；对稳定币增发规模的宏观影响仍属推演。",
-          "诉讼标题提示监管风险而非最终裁决，也不能据此断定产品已被禁止。"
+          "部分参与者期待短周期打新和积分兑现；谨慎者认为复杂计分和摩擦成本可能让活动舍本逐末。",
+          "策略token可组合性有吸引力，但杠杆、强平和底层策略风险不会因包装成vault而消失。"
         ],
         "authors": [
-          "bwenews",
-          "qinbafrank"
+          "jumperapp",
+          "brucexu_eth",
+          "variational_io",
+          "Benjieming1Q84",
+          "0xStudy",
+          "0xYond"
         ],
         "sourceUrls": [
-          "https://x.com/bwenews/status/2103190408956416215",
-          "https://x.com/bwenews/status/2103127186349899967",
-          "https://x.com/qinbafrank/status/2103063439317094840"
+          "https://x.com/brucexu_eth/status/2103623477471461844",
+          "https://x.com/variational_io/status/2103585025824563510",
+          "https://x.com/Benjieming1Q84/status/2103390072414536067",
+          "https://x.com/0xStudy/status/2103395055314915346",
+          "https://x.com/0xYond/status/2103394281528684742"
         ],
-        "sourceCount": 3,
-        "confidence": "low"
+        "sourceCount": 9,
+        "confidence": "medium"
       }
     ],
     "watchlist": [
       {
-        "signal": "Bitget 事故报告、提币恢复与链上资金处置",
-        "reason": "公司声明的损失约 3.516 亿美元、保护基金覆盖等尚待完整报告和独立链上/储备证据验证；关注是否给出根因及用户资产处理细节。",
+        "signal": "Bitget提现方案、最终损失口径与完整事故报告",
+        "reason": "9月26日公布的方案将直接检验是否全面恢复、是否限额及保护基金如何使用。",
         "authors": [
-          "GracyBitget",
-          "bwenews",
-          "qinbafrank"
+          "Bitget",
+          "TechFlowPost",
+          "spark888"
         ],
         "sourceUrls": [
-          "https://x.com/GracyBitget/status/2103235655879074084",
-          "https://x.com/qinbafrank/status/2103282960682344479"
+          "https://x.com/spark888/status/2103497658564554934",
+          "https://x.com/TechFlowPost/status/2103303791408042284"
         ]
       },
       {
-        "signal": "美伊接触是否改变霍尔木兹通航与油价风险溢价",
-        "reason": "该路径影响能源通胀和长端利率预期，但现有帖子夹杂外交报道与推演。",
+        "signal": "美伊七天方案是否获接受、霍尔木兹何时重开",
+        "reason": "相互矛盾的谈判消息仍是油价、长端收益率和风险资产的关键开关。",
+        "authors": [
+          "PhyrexNi",
+          "octopusycc"
+        ],
+        "sourceUrls": [
+          "https://x.com/PhyrexNi/status/2103595078665298376",
+          "https://x.com/octopusycc/status/2103526976493617224"
+        ]
+      },
+      {
+        "signal": "10年期收益率能否从5.2%附近回落及财政部后续回购执行",
+        "reason": "决定高利率压力是暂时缓解还是继续压制市场广度。",
         "authors": [
           "PhyrexNi",
           "qinbafrank"
         ],
         "sourceUrls": [
-          "https://x.com/PhyrexNi/status/2103168980794175896",
-          "https://x.com/qinbafrank/status/2103003437302480928"
+          "https://x.com/PhyrexNi/status/2103422474163794383",
+          "https://x.com/qinbafrank/status/2103295767071039654"
         ]
       },
       {
-        "signal": "Ledger 接入后的 xStocks 实际用户活跃、深度和地区可用性",
-        "reason": "生态方披露的持有人增量与成交额需验证是否转成持续成交、低价差和可退出流动性。",
+        "signal": "代币化股票抵押借贷的利用率、清算与地区限制",
+        "reason": "Aave V4接入把股票代币带入信贷层，真实需求与风险参数比上线本身更重要。",
         "authors": [
-          "xStocksFi",
-          "base"
+          "base",
+          "aave"
         ],
         "sourceUrls": [
-          "https://x.com/xStocksFi/status/2103123534449082426",
-          "https://x.com/xStocksFi/status/2103075099721310542",
-          "https://x.com/base/status/2103210538260176918"
+          "https://x.com/base/status/2103491753613595049",
+          "https://x.com/base/status/2103491758340653403"
         ]
       },
       {
-        "signal": "HYPE 上币后新增深度、资金流及是否出现 sell-the-news",
-        "reason": "现货上线扩展了代币分发，但不直接改变 DEX/CEX 的产品差异。",
+        "signal": "OURAx IPO分配、xLayer规模与退出流动性",
+        "reason": "生态方披露的覆盖和规模需要用实际分配、成交深度与赎回能力验证。",
         "authors": [
-          "Binance",
-          "TechFlowPost"
+          "xStocksFi"
         ],
         "sourceUrls": [
-          "https://x.com/bwenews/status/2103024307916185647",
-          "https://x.com/TechFlowPost/status/2103033649583284569"
+          "https://x.com/xStocksFi/status/2103370263010390383",
+          "https://x.com/xStocksFi/status/2103443139004653862"
         ]
       },
       {
-        "signal": "Variational 官方 TGE 日程、积分终止/快照与完整 tokenomics",
-        "reason": "社群广泛传播的 32% 分配和全额解锁需与正式条款核对，积分继续发放可能影响单分预期。",
+        "signal": "SEC/CFTC/Fed原始规则文本与适用边界",
+        "reason": "二手梳理显示市场管道正在变化，但合规义务和豁免条件必须看原文。",
         "authors": [
-          "variational_io",
+          "qinbafrank"
+        ],
+        "sourceUrls": [
+          "https://x.com/qinbafrank/status/2103346184647794736"
+        ]
+      },
+      {
+        "signal": "Copilot统一Agent工作台的实际产品、计费与企业采用",
+        "reason": "需要验证统一入口能否真正减少工具碎片，并观察按量Credits对使用成本的影响。",
+        "authors": [
+          "qinbafrank"
+        ],
+        "sourceUrls": [
+          "https://x.com/qinbafrank/status/2103632905499259058"
+        ]
+      },
+      {
+        "signal": "JUMP销售、Fables TGE与积分活动净回报",
+        "reason": "关注资格、分配、快照、磨损和最终可兑现价值。",
+        "authors": [
+          "jumperapp",
+          "Benjieming1Q84",
           "0xStudy"
         ],
         "sourceUrls": [
-          "https://x.com/variational_io/status/2103276001744839157",
-          "https://x.com/0xStudy/status/2102933386474209488"
-        ]
-      },
-      {
-        "signal": "MetaMask agentic wallet 跨链卡住问题的恢复流程和权限设计",
-        "reason": "Agent 钱包能触发真实链上动作，失败后的资产恢复与用户可审计性比演示效果更关键。",
-        "authors": [
-          "brucexu_eth"
-        ],
-        "sourceUrls": [
-          "https://x.com/brucexu_eth/status/2103116995583787375"
-        ]
-      },
-      {
-        "signal": "美联储 GENIUS Act 提案文本与纽约州对 Polymarket 诉讼范围",
-        "reason": "当前均来自新闻摘要，规则义务、司法管辖和对产品的实际影响未在 packet 中展开。",
-        "authors": [
-          "bwenews"
-        ],
-        "sourceUrls": [
-          "https://x.com/bwenews/status/2103190408956416215",
-          "https://x.com/bwenews/status/2103127186349899967"
-        ]
-      },
-      {
-        "signal": "预测市场积分任务的实际摩擦与司法辖区边界",
-        "reason": "活动积分可能被交易费用和价差抵消，且州级法律风险或改变产品开放范围。",
-        "authors": [
-          "0xXIAOc",
-          "predictdotfun"
-        ],
-        "sourceUrls": [
-          "https://x.com/0xXIAOc/status/2102991189381353547",
-          "https://x.com/predictdotfun/status/2103132718360068419"
+          "https://x.com/brucexu_eth/status/2103623477471461844",
+          "https://x.com/Benjieming1Q84/status/2103390072414536067",
+          "https://x.com/0xStudy/status/2103395055314915346"
         ]
       }
     ],
     "disagreements": [
       {
-        "topic": "油价回落预期能否压过强数据与高收益率压力？",
+        "topic": "Bitget是否已具备平稳兑付条件？",
         "positions": [
-          "乐观观点认为美伊/中美沟通可降低能源溢价、带动债券收益率和风险资产回落压力缓解。",
-          "谨慎观点认为 PMI、投入成本和鹰派预期令高利率持续；部分交易员仍将市场回调视为买入机会。"
+          "乐观观点认为公开保护基金和交易所盈利能力足以覆盖，安全修复后可恢复。",
+          "谨慎观点认为损失口径上调且提现方案可能受限，必须以真实提币、资金来源和事故报告验证。"
         ],
         "sourceUrls": [
-          "https://x.com/PhyrexNi/status/2103168980794175896",
-          "https://x.com/qinbafrank/status/2103031394696142878",
-          "https://x.com/ArtofSpecuycky/status/2103094976850899392"
+          "https://x.com/TechFlowPost/status/2103386056641204314",
+          "https://x.com/spark888/status/2103497658564554934",
+          "https://x.com/YSI_crypto/status/2103527932472000863"
         ]
       },
       {
-        "topic": "HYPE 上线 Binance 现货是生态确认，还是仅为代币流动性扩展？",
+        "topic": "美伊谈判是在实质推进，还是稳定油价的反复叙事？",
         "positions": [
-          "乐观传播将上币视为主流渠道认可并联想到更广泛的行情启动。",
-          "分析者认为上币可能引发获利了结，且现货上币并未消除托管 CEX 与自托管 DEX 的产品分层。"
+          "乐观信息称七天方案和技术层谈判已出现。",
+          "相反消息称海峡继续关闭、核问题不让步，作者也质疑不同伊朗消息源互相冲突。"
         ],
         "sourceUrls": [
-          "https://x.com/spark888/status/2103027021945471268",
-          "https://x.com/TechFlowPost/status/2103028334997504417"
+          "https://x.com/PhyrexNi/status/2103595078665298376",
+          "https://x.com/octopusycc/status/2103526976493617224"
         ]
       },
       {
-        "topic": "Variational 积分空投的高比例解锁是否足以抵消点数稀释？",
+        "topic": "财政部未买满长债回购额度是纪律还是力度不足？",
         "positions": [
-          "乐观帖子强调 32% 份额、TGE 解锁带来的潜在兑现。",
-          "谨慎参与者指出延期至 Q4 且继续发分，个人积分对应价值可能被稀释；公开估值并非可兑现价格。"
+          "一种解释是报价不理想时保持价格纪律，回购只解决流动性。",
+          "另一观点认为当前应尽量买满以展示稳定市场的决心。"
         ],
         "sourceUrls": [
-          "https://x.com/variational_io/status/2103276001744839157",
-          "https://x.com/0xStudy/status/2102933386474209488",
-          "https://x.com/TechFlowPost/status/2103055338799018335"
+          "https://x.com/qinbafrank/status/2103295767071039654",
+          "https://x.com/qinbafrank/status/2103418754676006977"
+        ]
+      },
+      {
+        "topic": "个人助理Agent是否还有独立创业空间？",
+        "positions": [
+          "统一工作台和工具路由被视为Agent入口的新机会。",
+          "反方认为Apple、Google等系统平台可凭默认权限和既有设备入口挤压独立个人助理。"
+        ],
+        "sourceUrls": [
+          "https://x.com/qinbafrank/status/2103632905499259058",
+          "https://x.com/leto_bao/status/2103377269146497396"
         ]
       }
     ],
     "noiseSummary": [
-      "Bitget 事件的重复转发和引用已按同一安全事件合并；攻击者归因不作为事实。",
-      "中美访问的礼宾细节、节日问候及现场趣闻未扩展成地缘结论。",
-      "代币促销、空投邀请码、榜单刷分和周边展示不作为独立趋势，除非涉及具体机制或成本。",
-      "股价/币价短线喊单、迷因及低信息回复不作逐条摘要。",
-      "图片、视频或只含外链而缺少上下文的 Posts 不作推断。"
+      "Bitget事件的重复转发、情绪安抚和未证实攻击者归因已合并处理。",
+      "中美国宴菜单、宾客照片和礼宾细节未扩展为市场结论。",
+      "中秋祝福、周边展示、直播邀请和日常生活内容不作趋势判断。",
+      "短线喊单、收益截图、邀请返佣和无验证估值未作为独立事实。",
+      "只含图片、短链接或缺少文本上下文的帖子不作推断。",
+      "项目积分、APR和空投预期均与已实现收益分开。"
     ]
   }
 }
