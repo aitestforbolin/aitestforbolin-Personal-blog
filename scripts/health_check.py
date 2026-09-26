@@ -36,13 +36,13 @@ def check(root: Path, now: dt.datetime):
     stamp = day.isoformat()
     issues = []
     checked = []
-    # Tuesday–Saturday, after the 07:00 scheduled briefing and 07:30 watchdog.
-    if day.weekday() in (1, 2, 3, 4, 5) and now.astimezone(SH).hour >= 8:
+    # Tuesday–Saturday, after the 09:00 scheduled briefing and 09:30 watchdog.
+    if day.weekday() in (1, 2, 3, 4, 5) and now.astimezone(SH).hour >= 9:
         checked.append("market briefing")
         status = read(root, "data/run-status.json") or {}
         snapshot = read(root, "data/daily-market-status.json") or {}
         if status.get("runDate") != stamp:
-            issues.append(("briefing.missing", "No terminal briefing status for today; check the 07:00 task and 07:30 watchdog."))
+            issues.append(("briefing.missing", "No terminal briefing status for today; check the 09:00 task and 09:30 watchdog."))
         elif status.get("status") == "failed":
             issues.append(("briefing.failed", f"{status.get('stage')}: {status.get('reasonCode')}"))
         elif status.get("status") == "success":
