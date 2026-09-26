@@ -48,7 +48,7 @@ When an atomic commit is required, use the GitHub Connector's Git Data operation
 
 Use `Asia/Shanghai` for the scheduled run and run-date interpretation.
 
-The scheduled production run is Tuesday through Saturday at 07:00 Asia/Shanghai.
+The scheduled production run is Tuesday through Saturday at 09:00 Asia/Shanghai.
 
 Determine the latest complete U.S. trading session. Compare it with the currently published `data/daily-market-status.json`.
 
@@ -66,7 +66,7 @@ If the existing status has the same `runDate` as the current Asia/Shanghai calen
 
 then treat this as a repeated execution of an already-started or completed daily run. Do not modify `data/run-status.json`, do not alter the briefing or archive, and stop. Preserve the existing downstream/final status exactly as-is.
 
-This idempotency guard exists only to prevent a repeated/manual rerun from overwriting a real downstream result such as `x_publish_failed`. It does not change the normal first-run behavior at 07:00.
+This idempotency guard exists only to prevent a repeated/manual rerun from overwriting a real downstream result such as `x_publish_failed`. It does not change the normal first-run behavior at 09:00.
 
 When there is no unpublished new complete trading session and the idempotency guard above does not apply, update only `main:data/run-status.json`:
 
@@ -267,7 +267,7 @@ The commit message must start with:
 
 Do not replace an existing `success` or `no_new_session` terminal status for the same run date with `failed`.
 
-If even the status file cannot be safely committed, do not attempt an alternate GitHub write path. Report the failure in ChatGPT; the existing 07:30 watchdog handles missing terminal status.
+If even the status file cannot be safely committed, do not attempt an alternate GitHub write path. Report the failure in ChatGPT; the existing 09:30 watchdog handles missing terminal status.
 
 ## Final ChatGPT response
 
