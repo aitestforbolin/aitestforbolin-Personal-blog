@@ -1,71 +1,71 @@
 {
-  "updated_at": "2026-09-25T01:03:25+00:00",
+  "updated_at": "2026-09-26T01:00:08+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-hifi",
+      "id": "crypto-fundraising-coinglass",
       "source_rank": 1,
+      "name": "CoinGlass",
+      "round": "M&A",
+      "announced_month": "2026-09",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/coinglass/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-hifi",
+      "source_rank": 2,
       "name": "HIFI",
       "round": "Series A",
       "announced_month": "2026-09",
       "amount_usd": 37000000,
       "detail_url": "https://crypto-fundraising.info/projects/hifi/",
+      "is_new": false
+    },
+    {
+      "id": "crypto-fundraising-functionspace",
+      "source_rank": 3,
+      "name": "functionSPACE",
+      "round": "Pre-seed",
+      "announced_month": "2026-09",
+      "amount_usd": 1700000,
+      "detail_url": "https://crypto-fundraising.info/projects/functionspace/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-limited",
+      "source_rank": 4,
+      "name": "Limited",
+      "round": "Seed",
+      "announced_month": "2026-09",
+      "amount_usd": 18500000,
+      "detail_url": "https://crypto-fundraising.info/projects/limited/",
       "is_new": true
     },
     {
       "id": "crypto-fundraising-north-capital",
-      "source_rank": 2,
+      "source_rank": 5,
       "name": "North Capital",
       "round": "M&A",
       "announced_month": "2026-09",
       "amount_usd": 60000000,
       "detail_url": "https://crypto-fundraising.info/projects/north-capital/",
       "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-infinifi",
-      "source_rank": 3,
-      "name": "InfiniFi",
-      "round": "Seed",
-      "announced_month": "2026-09",
-      "amount_usd": 3000000,
-      "detail_url": "https://crypto-fundraising.info/projects/infinifi/",
-      "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-crest",
-      "source_rank": 4,
-      "name": "Crest",
-      "round": "M&A",
-      "announced_month": "2026-09",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/crest/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-xstable",
-      "source_rank": 5,
-      "name": "XStable",
-      "round": null,
-      "announced_month": "2026-09",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/xstable/",
-      "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:luna-web3-20260925-010236Z",
-    "requestId": "luna-web3-20260925-010236Z",
-    "triggerSha": "065ed69e05e4e00f2147cb354b3e4189a6416844",
-    "githubRunId": 36080313675,
-    "scheduledAt": "2026-09-25T01:00:00Z",
-    "startedAt": "2026-09-25T01:03:23.535982+00:00",
-    "sourceCheckedAt": "2026-09-25T01:03:25.195314+00:00",
-    "sourceUpdatedAt": "2026-09-25T01:03:25+00:00",
-    "completedAt": "2026-09-25T01:03:25.195600+00:00",
+    "runId": "web3-daily-triage:luna-web3-20260926-005924Z",
+    "requestId": "luna-web3-20260926-005924Z",
+    "triggerSha": "5efb14033b8655388a8c70c8938bd2768cdd4452",
+    "githubRunId": 36206874047,
+    "scheduledAt": "2026-09-26T01:00:00Z",
+    "startedAt": "2026-09-26T01:00:04.041834+00:00",
+    "sourceCheckedAt": "2026-09-26T01:00:08.518668+00:00",
+    "sourceUpdatedAt": "2026-09-26T01:00:08+00:00",
+    "completedAt": "2026-09-26T01:00:08.518972+00:00",
     "publishedAt": null
   }
 }
