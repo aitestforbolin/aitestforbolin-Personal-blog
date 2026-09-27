@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "luna-web3-20260926-005924Z",
-  "triggerSha": "5efb14033b8655388a8c70c8938bd2768cdd4452",
-  "publicationDate": "2026-09-26",
-  "publishedAt": "2026-09-26T09:01:57+08:00",
+  "requestId": "luna-web3-20260927-005932Z",
+  "triggerSha": "b30689decc82c792582cd56b0cdfc3f7c8bc3f7a",
+  "publicationDate": "2026-09-27",
+  "publishedAt": "2026-09-27T09:00:54+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-09-26",
-    "publishedAt": "2026-09-26T09:01:57+08:00",
-    "windowStart": "2026-09-25T01:03:25.195600+00:00",
-    "windowEnd": "2026-09-26T01:00:08.518972+00:00",
+    "runDate": "2026-09-27",
+    "publishedAt": "2026-09-27T09:00:54+08:00",
+    "windowStart": "2026-09-26T01:00:08.518972+00:00",
+    "windowEnd": "2026-09-27T01:00:27.057025+00:00",
     "sourceUpdatedAt": "2026-09-26T01:00:08+00:00",
-    "status": "success",
+    "status": "unchanged",
     "executionLineage": {
-      "runId": "web3-daily-triage:luna-web3-20260926-005924Z",
-      "requestId": "luna-web3-20260926-005924Z",
-      "triggerSha": "5efb14033b8655388a8c70c8938bd2768cdd4452",
-      "githubRunId": 36206874047,
-      "scheduledAt": "2026-09-26T01:00:00Z",
-      "startedAt": "2026-09-26T01:00:04.041834+00:00",
-      "sourceCheckedAt": "2026-09-26T01:00:08.518668+00:00",
+      "runId": "web3-daily-triage:luna-web3-20260927-005932Z",
+      "requestId": "luna-web3-20260927-005932Z",
+      "triggerSha": "b30689decc82c792582cd56b0cdfc3f7c8bc3f7a",
+      "githubRunId": 36284201580,
+      "scheduledAt": "2026-09-27T01:00:00Z",
+      "startedAt": "2026-09-27T01:00:25.374657+00:00",
+      "sourceCheckedAt": "2026-09-27T01:00:27.056728+00:00",
       "sourceUpdatedAt": "2026-09-26T01:00:08+00:00",
-      "completedAt": "2026-09-26T01:00:08.518972+00:00",
-      "publishedAt": "2026-09-26T09:01:57+08:00"
+      "completedAt": "2026-09-27T01:00:27.057025+00:00",
+      "publishedAt": "2026-09-27T09:00:54+08:00"
     },
     "executionStatus": {
-      "collection": "success",
+      "collection": "unchanged",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "以最近一期已验证发布的 windowEnd 为 windowStart，以本次匹配 schemaVersion 2 receipt.timestamps.completedAt 为 windowEnd，并沿用累计 reportedEventIds 去重。窗口内新观察到 3 个事件，排除 CoinGlass 的 M&A，剩余 functionSPACE 与 Limited 两个融资项目完成初筛。数据仅为来源首页最近五条的累计观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "以最近一期已验证发布的 windowEnd 为 windowStart，以本次匹配 schemaVersion 2 receipt.timestamps.completedAt 为 windowEnd，并沿用累计 reportedEventIds 去重。本次采集与历史均未变化，窗口内没有新增融资项目。数据仅为来源首页最近五条的累计观测快照，不代表来源全量融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -52,133 +52,11 @@
       "crypto-fundraising-limited--2026-09--seed"
     ],
     "counts": {
-      "new": 2,
+      "new": 0,
       "action": 0,
-      "watch": 1,
-      "stop": 1
+      "watch": 0,
+      "stop": 0
     },
-    "projects": [
-      {
-        "event_id": "crypto-fundraising-functionspace--2026-09--pre-seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/functionspace/",
-        "project_name": "functionSPACE",
-        "decision": "WATCH",
-        "financing": {
-          "amount_usd": 1700000,
-          "round": "Pre-seed",
-          "lead_investors": [
-            "Maven 11 Capital",
-            "Blockwall"
-          ],
-          "announcement_date": "2026-09-25",
-          "confidence": "high"
-        },
-        "plain_explanation": "functionSPACE 是一套连续结果预测市场基础设施，让人不只押“是或否”，而是对价格、收入、天气等数值最终落在哪个区间表达判断。",
-        "mechanism_simple": "不同应用共享同一个流动性池；用户可以设计区间、方向或自定义收益曲线，系统把所有观点汇总成一个连续概率分布并按最终数值结算。",
-        "project_status": {
-          "category": "new_unlaunched",
-          "token_status": "no_token_found",
-          "note": "官网显示目前市场仍以链下玩具资金运行，链上合约只是概念验证；未发现原生代币已发行或正式宣布。"
-        },
-        "participation": {
-          "available_now": true,
-          "what_user_can_do": "可加入 cultureSPACE 等待名单、查看开发者 SDK，或体验已有的免费模拟应用；目前没有经确认的真实资金主网交易入口。",
-          "requires_real_funds": false,
-          "friction_or_risk": "产品与链上机制仍处早期，真实流动性、结算安全性和监管边界尚未得到实际验证。"
-        },
-        "incentives": {
-          "status": "none_found",
-          "types": [],
-          "details": "官方网页与融资公告中未发现 Points、Season、测试网奖励、Token 或 Airdrop 承诺。"
-        },
-        "why": [
-          "连续数值预测与共享流动性机制有差异化，且面向交易、研究工具和 AI Agent 的应用空间值得保留观察。",
-          "目前只有玩具资金产品和链上概念验证，缺少可验证的真实用户价值与官方激励，尚不足以投入资金或持续任务成本。"
-        ],
-        "next_step": null,
-        "recheck_trigger": "当 cultureSPACE 正式开放、链上合约进入公开主网且能查看真实流动性与审计，或官方推出明确的测试网/积分计划时重新评估。",
-        "website_url": "https://functionspace.dev/",
-        "x_url": "https://x.com/functionspaceHQ",
-        "evidence": [
-          {
-            "claim": "官方融资公告确认 functionSPACE 完成 170 万美元 pre-seed，Maven 11 Capital 与 Blockwall 领投。",
-            "url": "https://x.com/functionspaceHQ/status/2103122285964001737",
-            "source_type": "official_x",
-            "confidence": "high"
-          },
-          {
-            "claim": "官网解释连续数值结果、可自定义收益曲线和共享流动性机制，并说明当前市场使用玩具资金、链上合约仍是概念验证。",
-            "url": "https://functionspace.dev/",
-            "source_type": "official_site",
-            "confidence": "high"
-          },
-          {
-            "claim": "Crypto-Fundraising 项目页记录融资金额、轮次并指向官方站点。",
-            "url": "https://crypto-fundraising.info/projects/functionspace/",
-            "source_type": "database",
-            "confidence": "medium"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-limited--2026-09--seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/limited/",
-        "project_name": "Limited",
-        "decision": "STOP",
-        "financing": {
-          "amount_usd": 18500000,
-          "round": "Seed",
-          "lead_investors": [],
-          "announcement_date": "2026-09-25",
-          "confidence": "medium"
-        },
-        "plain_explanation": "Limited 是面向跨国企业的金融账户平台，把多币种本地账户、公司卡、付款、费用管理和加密资产收付放在同一套产品里。",
-        "mechanism_simple": "企业可用 ACH、SEPA、SPEI、Pix、SWIFT 等本地银行轨道收付款，也能接收和转移 BTC、ETH、USDC，并统一管理多个公司实体和员工支出。",
-        "project_status": {
-          "category": "existing_no_token",
-          "token_status": "no_token_found",
-          "note": "产品已上线运营；官网和官方融资公告未显示其发行原生可交易代币。"
-        },
-        "participation": {
-          "available_now": true,
-          "what_user_can_do": "符合地区与合规条件的企业可以申请账户；官网也展示个人卡入口，但本轮融资和核心产品主要服务跨国公司。",
-          "requires_real_funds": true,
-          "friction_or_risk": "需要 KYC/KYB、资金托管或自托管操作，并受地区可用性、费率、合规与账户服务稳定性影响。"
-        },
-        "incentives": {
-          "status": "none_found",
-          "types": [],
-          "details": "未发现官方 Points、Season、测试网、Token 或 Airdrop 激励。"
-        },
-        "why": [
-          "核心价值面向有跨国账户、公司卡和财务管理需求的企业，与你当前个人 Web3 早期机会筛选目标不匹配。",
-          "融资规模和投资人阵容不能替代明确的个人参与收益；当前没有可验证的代币或低成本早期激励。"
-        ],
-        "next_step": null,
-        "recheck_trigger": null,
-        "website_url": "https://www.limitedapp.com/en",
-        "x_url": "https://x.com/limitedgrouphq",
-        "evidence": [
-          {
-            "claim": "Limited 官方公告确认完成 1850 万美元 Series Seed 融资。",
-            "url": "https://x.com/limitedgrouphq/status/2103182827898675625",
-            "source_type": "official_x",
-            "confidence": "high"
-          },
-          {
-            "claim": "官网说明产品面向跨国企业，提供本地账户、公司卡、跨境支付、费用管理以及 BTC、ETH、USDC 收付。",
-            "url": "https://www.limitedapp.com/en",
-            "source_type": "official_site",
-            "confidence": "high"
-          },
-          {
-            "claim": "Crypto-Fundraising 项目页记录 1850 万美元 Seed 轮，并列出 Third Prime、North Island Ventures、ParaFi、DCG 等参投方；未明确标注领投方。",
-            "url": "https://crypto-fundraising.info/projects/limited/",
-            "source_type": "database",
-            "confidence": "medium"
-          }
-        ]
-      }
-    ]
+    "projects": []
   }
 }
