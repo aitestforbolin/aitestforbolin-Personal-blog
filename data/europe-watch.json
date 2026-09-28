@@ -1,23 +1,23 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-09-26T23:41:14+00:00",
-  "as_of": "2026-09-27T07:30:00+08:00",
-  "window_start": "2026-09-26T07:30:00+08:00",
-  "window_end": "2026-09-27T07:30:00+08:00",
+  "generated_at": "2026-09-28T01:56:10+00:00",
+  "as_of": "2026-09-28T07:30:00+08:00",
+  "window_start": "2026-09-27T07:30:00+08:00",
+  "window_end": "2026-09-28T07:30:00+08:00",
   "source_health": [
     {
       "source": "ECB",
       "region": "eu",
       "status": "ok",
       "count": 6,
-      "checked_at": "2026-09-26T23:41:14+00:00"
+      "checked_at": "2026-09-28T01:56:10+00:00"
     },
     {
       "source": "European Commission",
       "region": "eu",
       "status": "ok",
       "count": 7,
-      "checked_at": "2026-09-26T23:41:14+00:00"
+      "checked_at": "2026-09-28T01:56:10+00:00"
     },
     {
       "source": "European Council",
@@ -25,7 +25,7 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-09-26T23:41:14+00:00"
+      "checked_at": "2026-09-28T01:56:10+00:00"
     },
     {
       "source": "European Parliament",
@@ -33,28 +33,28 @@
       "status": "error",
       "error": "ParseError",
       "count": 0,
-      "checked_at": "2026-09-26T23:41:14+00:00"
+      "checked_at": "2026-09-28T01:56:10+00:00"
     },
     {
       "source": "Eurostat",
       "region": "eu",
       "status": "ok",
-      "count": 57,
-      "checked_at": "2026-09-26T23:41:14+00:00"
+      "count": 56,
+      "checked_at": "2026-09-28T01:56:10+00:00"
     },
     {
       "source": "Politico Europe",
       "region": "eu",
       "status": "ok",
-      "count": 5,
-      "checked_at": "2026-09-26T23:41:14+00:00"
+      "count": 8,
+      "checked_at": "2026-09-28T01:56:10+00:00"
     },
     {
       "source": "Reuters Europe",
       "region": "eu",
       "status": "ok",
-      "count": 52,
-      "checked_at": "2026-09-26T23:41:14+00:00"
+      "count": 49,
+      "checked_at": "2026-09-28T01:56:10+00:00"
     },
     {
       "source": "Bundesbank",
@@ -62,7 +62,7 @@
       "status": "error",
       "error": "ParseError",
       "count": 0,
-      "checked_at": "2026-09-26T23:41:14+00:00"
+      "checked_at": "2026-09-28T01:56:10+00:00"
     },
     {
       "source": "Destatis",
@@ -70,14 +70,14 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-09-26T23:41:14+00:00"
+      "checked_at": "2026-09-28T01:56:10+00:00"
     },
     {
       "source": "Deutsche Welle",
       "region": "germany",
       "status": "empty",
       "count": 0,
-      "checked_at": "2026-09-26T23:41:14+00:00"
+      "checked_at": "2026-09-28T01:56:10+00:00"
     },
     {
       "source": "Federal Employment Agency",
@@ -85,7 +85,7 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-09-26T23:41:14+00:00"
+      "checked_at": "2026-09-28T01:56:10+00:00"
     },
     {
       "source": "German Federal Government",
@@ -93,135 +93,200 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-09-26T23:41:14+00:00"
+      "checked_at": "2026-09-28T01:56:10+00:00"
     },
     {
       "source": "Reuters Germany",
       "region": "germany",
       "status": "ok",
-      "count": 52,
-      "checked_at": "2026-09-26T23:41:14+00:00"
+      "count": 45,
+      "checked_at": "2026-09-28T01:56:10+00:00"
     },
     {
       "source": "The Local Germany",
       "region": "germany",
-      "status": "ok",
-      "count": 9,
-      "checked_at": "2026-09-26T23:41:14+00:00"
+      "status": "error",
+      "error": "HTTPError",
+      "count": 0,
+      "checked_at": "2026-09-28T01:56:10+00:00"
     }
   ],
   "items": [
     {
-      "id": "c89eb00b8b126f97",
+      "id": "7c71597139ccdec9",
       "region": "eu",
-      "title": "VIDEO: Europe’s seas are breaking heat records. Its fisheries are paying the price - Reuters",
-      "title_cn": "VIDEO: Europe’s seas are breaking heat records. Its fisheries are paying the price - Reuters",
-      "summary": "VIDEO: Europe’s seas are breaking heat records. Its fisheries are paying the price Reuters",
+      "title": "Britain to keep tariffs on Chinese EVs ‘under review,’ UK business chief says",
+      "title_cn": "Britain to keep tariffs on Chinese EVs ‘under review,’ UK business chief says",
+      "summary": "Business Secretary Jonathan Reynolds said the U.K.’s position on the issue was \"finely balanced\" as officials pursue talks with Brussels.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/uk-tariffs-china-ev-review-jonathan-reynolds/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-09-27T19:29:51+00:00",
+      "fetched_at": "2026-09-28T01:56:10+00:00",
+      "category": "trade",
+      "importance": "critical",
+      "official_source": false,
+      "first_seen_at": "2026-09-28T01:56:10+00:00",
+      "last_seen_at": "2026-09-28T01:56:10+00:00"
+    },
+    {
+      "id": "0f7ab09cd9af4ba4",
+      "region": "eu",
+      "title": "UK business minister warns potential US diesel export ban ‘significant concern’",
+      "title_cn": "UK business minister warns potential US diesel export ban ‘significant concern’",
+      "summary": "The U.K. receives around one-sixth of its diesel from the U.S. and would be one of the countries most exposed to an export ban.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/uk-business-minister-jonathan-reynolds-us-diesel-export-ban-significant-concern/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-09-27T18:11:29+00:00",
+      "fetched_at": "2026-09-28T01:56:10+00:00",
+      "category": "trade",
+      "importance": "critical",
+      "official_source": false,
+      "first_seen_at": "2026-09-28T01:56:10+00:00",
+      "last_seen_at": "2026-09-28T01:56:10+00:00"
+    },
+    {
+      "id": "1820002bb6ebf6c2",
+      "region": "eu",
+      "title": "EU is drawing up membership action plans for most promising candidates",
+      "title_cn": "EU is drawing up membership action plans for most promising candidates",
+      "summary": "For the first time, Brussels is considering setting target dates for Montenegro, Ukraine, Moldova and Albania to complete key stages of accession talks.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/eu-membership-action-plans-montenegro-ukraine-moldova-albania/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-09-27T20:33:01+00:00",
+      "fetched_at": "2026-09-28T01:56:10+00:00",
+      "category": "defense_security",
+      "importance": "important",
+      "official_source": false,
+      "first_seen_at": "2026-09-28T01:56:10+00:00",
+      "last_seen_at": "2026-09-28T01:56:10+00:00"
+    },
+    {
+      "id": "538e023f0de8b0bb",
+      "region": "eu",
+      "title": "Bill Gates says an AI ‘kill switch’ isn’t enough",
+      "title_cn": "Bill Gates says an AI ‘kill switch’ isn’t enough",
+      "summary": "The Microsoft co-founder called for mandatory monitoring of powerful artificial intelligence systems in an NBC interview that aired Sunday.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.com/news/2026/09/27/bill-gates-ai-kill-switch-01094236?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-09-27T18:02:33+00:00",
+      "fetched_at": "2026-09-28T01:56:10+00:00",
+      "category": "technology",
+      "importance": "important",
+      "official_source": false,
+      "first_seen_at": "2026-09-28T01:56:10+00:00",
+      "last_seen_at": "2026-09-28T01:56:10+00:00"
+    },
+    {
+      "id": "a1f1fe6e0257343f",
+      "region": "eu",
+      "title": "EU Commission calls on countries to cut energy demands as costs surge",
+      "title_cn": "EU Commission calls on countries to cut energy demands as costs surge",
+      "summary": "In a letter seen by POLITICO, Energy Commissioner Dan Jørgensen asked ministers to introduce new measures \"in the context of constrained global supply.\"",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/eu-commission-calls-for-gas-electricity-demand-cuts/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-09-27T14:59:40+00:00",
+      "fetched_at": "2026-09-28T01:56:10+00:00",
+      "category": "energy",
+      "importance": "important",
+      "official_source": false,
+      "first_seen_at": "2026-09-28T01:56:10+00:00",
+      "last_seen_at": "2026-09-28T01:56:10+00:00"
+    },
+    {
+      "id": "30b06cc439c9a133",
+      "region": "germany",
+      "title": "German foreign minister says Lavrov meeting driven by Russia security concerns - Reuters",
+      "title_cn": "German foreign minister says Lavrov meeting driven by Russia security concerns - Reuters",
+      "summary": "German foreign minister says Lavrov meeting driven by Russia security concerns Reuters",
+      "source": "Reuters Germany",
+      "source_url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNdUo5TU5IYWlBcFY4U0NfZVZrTlNQYmZ3M0ZiNDdxMmtFSFBaRjZfUy15V0ZwUG42aUhjUUNQUlNnQzA3dTBhUnhnVEZraF9vSWJqeFJOeXJ5Sm5paC1YU1JLcnI4YnpwMHhoTGszcmxRVFpEWkVlWWJkX1pEN3Z5MVRLLUhrOXNXWURNYS1UZXV3ejRmMjVaWkxoODhfeWdnTFd6SXpJN1hubjNMdk5lckF3OGI2N1hQbFItcw?oc=5",
+      "published_at": "2026-09-27T22:31:38+00:00",
+      "fetched_at": "2026-09-28T01:56:10+00:00",
+      "category": "politics_society",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-09-28T01:56:10+00:00",
+      "last_seen_at": "2026-09-28T01:56:10+00:00"
+    },
+    {
+      "id": "5b63dc664efd41ef",
+      "region": "eu",
+      "title": "Serbia's President Vucic resigns ahead of October parliamentary elections - Reuters",
+      "title_cn": "Serbia's President Vucic resigns ahead of October parliamentary elections - Reuters",
+      "summary": "Serbia's President Vucic resigns ahead of October parliamentary elections Reuters",
       "source": "Reuters Europe",
-      "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQMko5UlZNdWRxNkN2eDJ4VlJIUkQtbmFjenI1SkhRQXpZSjF6cHgyWS1FcWlBZDRCM2lGbmpCYkVJdkhpdTBBTXlMUW9nX0ttcjV0WGdBUmotMGZpa2oyQzJITER0b1N0S3dFTkpla3BzQ3BITW1IcWlMYlh2UFE1eFVja3lOMlRlU1ZISDc5RVMxbnEtb3Z0MC1KNEJ5UUczSWc0NGh4b1g0aWZrYWo5dGpVN0xRRjlsdHc?oc=5",
-      "published_at": "2026-09-26T17:11:04+00:00",
-      "fetched_at": "2026-09-26T23:41:14+00:00",
-      "category": "technology",
+      "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQTmcySFNmNWFxcDFQOEl6OU1UYy1MZ2RmcE9TU2V5N1FUYVhidncyRVRHZEtxbl9yU2Rpbi1yc0pVcmtyajlhaHFkakFqZFBPTlY3UFFObnl5aDZOcmVOajRKQzNYb2FCd2JmZnJ6clNjV0d5T0tmN1o1a0hGUDFQeHFRWi1Ba01KZDdXOG1YamVNT3RBUTRnX1RDRmNaQXhscnRYcXlON3RpdjQ?oc=5",
+      "published_at": "2026-09-27T21:18:33+00:00",
+      "fetched_at": "2026-09-28T01:56:10+00:00",
+      "category": "politics_society",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-09-26T23:41:14+00:00",
-      "last_seen_at": "2026-09-26T23:41:14+00:00"
+      "first_seen_at": "2026-09-28T01:56:10+00:00",
+      "last_seen_at": "2026-09-28T01:56:10+00:00"
     },
     {
-      "id": "39d570127e083a2e",
+      "id": "fd3d7714d723da57",
       "region": "eu",
-      "title": "Germany’s Wadephul meets Russia’s Lavrov amid tensions over ‘escalation’",
-      "title_cn": "Germany’s Wadephul meets Russia’s Lavrov amid tensions over ‘escalation’",
-      "summary": "The German foreign minister blames Moscow for the Leipzig drone attack but welcomes the G20 invite to Vladimir Putin",
+      "title": "Independent wins Kraków mayorship first round, as far right sees setback for Tusk",
+      "title_cn": "Independent wins Kraków mayorship first round, as far right sees setback for Tusk",
+      "summary": "Łukasz Gibała and a candidate backed by PM Donald Tusk move on to a runoff as parties jostle ahead of a fall 2027 general election.",
       "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/germany-russia-johann-wadephul-sergey-lavrov-meeting-un/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-09-26T16:50:27+00:00",
-      "fetched_at": "2026-09-26T23:41:14+00:00",
+      "source_url": "https://www.politico.eu/article/independent-lukasz-gibala-win-krakow-mayor-election-poland-donald-tusk/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-09-27T20:32:21+00:00",
+      "fetched_at": "2026-09-28T01:56:10+00:00",
       "category": "politics_society",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-09-26T23:41:14+00:00",
-      "last_seen_at": "2026-09-26T23:41:14+00:00"
+      "first_seen_at": "2026-09-28T01:56:10+00:00",
+      "last_seen_at": "2026-09-28T01:56:10+00:00"
     },
     {
-      "id": "f1518ee00a1fd2be",
-      "region": "germany",
-      "title": "German minister calls for expedited deportation in mass border crossings - Reuters",
-      "title_cn": "German minister calls for expedited deportation in mass border crossings - Reuters",
-      "summary": "German minister calls for expedited deportation in mass border crossings Reuters",
-      "source": "Reuters Germany",
-      "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPM01kZk8tZzUzQ3dtVlBYQUxsaG8yQnNhR3AwX3pSMjMtZHVvbENaVERiWWh5U1hDd29TendaOGxlVUlNRzNzODVJazZESzBCNWpwUGQ4RVZJMHJkQjBURDlERlE2TEN3TnBhRXl4VDRnV09JekZaTUY5VGlVTmIyZFM1ekdPVGRoZ2VVU25VbHEyMmhjMlJMTm1JZGVXNUFXQ1NuVEVCaGxNclQ3aFZWQ2E0emc?oc=5",
-      "published_at": "2026-09-26T14:07:43+00:00",
-      "fetched_at": "2026-09-26T23:41:14+00:00",
-      "category": "immigration",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-09-26T23:41:14+00:00",
-      "last_seen_at": "2026-09-26T23:41:14+00:00"
-    },
-    {
-      "id": "dea7874557060c8a",
-      "region": "germany",
-      "title": "Breakthroughs for the radical and far-right in Europe",
-      "title_cn": "Breakthroughs for the radical and far-right in Europe",
-      "summary": "After recent regional election breakthroughs by the Alternative for Germany (AfD), here is an overview of radical, nationalist and far- and hard-right parties' positions across Europe in recent years.",
-      "source": "The Local Germany",
-      "source_url": "https://www.thelocal.de/20260926/breakthroughs-for-the-radical-and-far-right-in-europe",
-      "published_at": "2026-09-26T13:11:29+00:00",
-      "fetched_at": "2026-09-26T23:41:14+00:00",
-      "category": "politics_society",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-09-26T23:41:14+00:00",
-      "last_seen_at": "2026-09-26T23:41:14+00:00"
-    },
-    {
-      "id": "bde0d38cd59f007c",
+      "id": "0a1abc85402c4b99",
       "region": "eu",
-      "title": "Wystąpienie komisarza Piotra Serafina podczas XXVI Międzynarodowej Konferencji „Rola chrześcijan w procesie integracji europejskiej” pt. „Europa skazana na podział czy zjednoczenie?”",
-      "title_cn": "Wystąpienie komisarza Piotra Serafina podczas XXVI Międzynarodowej Konferencji „Rola chrześcijan w procesie integracji europejskiej” pt. „Europa skazana na podział czy zjednoczenie?”",
-      "summary": "European Commission Speech Krakow, 26 Sep 2026 Szanowni Państwo, Pytacie Państwo czy „Europa jest skazana na podział czy na jedność?”. Chce udzielić na to pytanie optymistycznej i prawdziwej odpowiedzi: przy...",
-      "source": "European Commission",
-      "source_url": "https://ec.europa.eu/commission/presscorner/detail/en/speech_26_1989",
-      "published_at": "2026-09-26T11:51:24+00:00",
-      "fetched_at": "2026-09-26T23:41:14+00:00",
-      "category": "technology",
-      "importance": "normal",
-      "official_source": true,
-      "first_seen_at": "2026-09-26T23:41:14+00:00",
-      "last_seen_at": "2026-09-26T23:41:14+00:00"
-    },
-    {
-      "id": "bf40af9f7d3069d3",
-      "region": "eu",
-      "title": "Trump’s G20 invite to Putin is an ‘opportunity,’ German foreign minister says",
-      "title_cn": "Trump’s G20 invite to Putin is an ‘opportunity,’ German foreign minister says",
-      "summary": "Johann Wadephul’s remarks diverged from the German government’s official line.",
+      "title": "Swiss say no to hardening neutrality principle, safeguarding sanctions on Russia",
+      "title_cn": "Swiss say no to hardening neutrality principle, safeguarding sanctions on Russia",
+      "summary": "The Kremlin backed the referendum proposal, which was opposed by the Swiss government.",
       "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/valdimir-putin-g20-opportunity-says-germany-johann-wadephul/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-09-26T09:08:55+00:00",
-      "fetched_at": "2026-09-26T23:41:14+00:00",
+      "source_url": "https://www.politico.eu/article/swiss-reject-stricter-neutrality-principle-safeguarding-santions-against-russia/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-09-27T13:03:29+00:00",
+      "fetched_at": "2026-09-28T01:56:10+00:00",
       "category": "politics_society",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-09-26T23:41:14+00:00",
-      "last_seen_at": "2026-09-26T23:41:14+00:00"
+      "first_seen_at": "2026-09-28T01:56:10+00:00",
+      "last_seen_at": "2026-09-28T01:56:10+00:00"
     },
     {
-      "id": "a87986a8150969bd",
-      "region": "germany",
-      "title": "South Africa open to more talks with US after visa dispute, minister says - Reuters",
-      "title_cn": "South Africa open to more talks with US after visa dispute, minister says - Reuters",
-      "summary": "South Africa open to more talks with US after visa dispute, minister says Reuters",
-      "source": "Reuters Germany",
-      "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPNldaT09QM19MclA5M012M0o3NmwtNHQzSzRHcGp4OE9jRFZ2Tl96S0xpemNfX3JZTUtsR2xnV1FoR240ZUpwUldjZC1pd29nN2VRWGV2bUVKQk9NTHNmTHJSbG1MWVZSUlpzWTlRVGZROTBVc3hFRERFM0ZwOHZpeUJIYnpEUkRRVlAycGN3Tm1xVUUzWmhFSl9DeXBRVEZrZkg5bWRFX0FybUxaWEhIbnY2endtUVh6ZUE?oc=5",
-      "published_at": "2026-09-26T00:31:00+00:00",
-      "fetched_at": "2026-09-26T23:41:14+00:00",
-      "category": "immigration",
+      "id": "9b6c6a59862ee6ae",
+      "region": "eu",
+      "title": "Northern Ireland standoff puts peace and power-sharing at risk",
+      "title_cn": "Northern Ireland standoff puts peace and power-sharing at risk",
+      "summary": "A sudden revival of the 1990s confrontations between Orange Order marchers and Catholic demonstrators puts the police back in the middle — and leaders of Northern Ireland’s supposed unity government on opposite sides.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/northern-ireland-orange-order-garvaghy-road-parade-standoff/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-09-27T10:47:58+00:00",
+      "fetched_at": "2026-09-28T01:56:10+00:00",
+      "category": "politics_society",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-09-26T23:41:14+00:00",
-      "last_seen_at": "2026-09-26T23:41:14+00:00"
+      "first_seen_at": "2026-09-28T01:56:10+00:00",
+      "last_seen_at": "2026-09-28T01:56:10+00:00"
+    },
+    {
+      "id": "225a7a4e2b503d25",
+      "region": "germany",
+      "title": "East German espionage raised GDP by 7.4% in late 1980s, study finds - Reuters",
+      "title_cn": "East German espionage raised GDP by 7.4% in late 1980s, study finds - Reuters",
+      "summary": "East German espionage raised GDP by 7.4% in late 1980s, study finds Reuters",
+      "source": "Reuters Germany",
+      "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNT3RiR0VIbnB1eGJVdTR2bU5hdDM5X21GLTNQYTVURnIyeVNrTjhGaVM4bmxiWDBJS0FtckJEMy1CZUo5OWlwZTVSQ25HbURPY0hMaldBY2hEVE9iYTc5dUNqTE1FaE9Zd3NGaEZ0QTZnTndJNE5kT1JMdTZiWkNwNkthZFhZN3IzWmZfQ3R0SjZoX3M0by1vV1NMUlF0UlZsbWJ3YW5RenE5QQ?oc=5",
+      "published_at": "2026-09-27T06:34:00+00:00",
+      "fetched_at": "2026-09-28T01:56:10+00:00",
+      "category": "economy",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-09-28T01:56:10+00:00",
+      "last_seen_at": "2026-09-28T01:56:10+00:00"
     }
   ]
 }
