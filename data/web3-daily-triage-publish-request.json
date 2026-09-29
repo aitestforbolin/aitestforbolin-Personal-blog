@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "luna-web3-20260928-010041Z",
-  "triggerSha": "b033bf346d1c5e7b940dfd30c4a596ec7af34810",
-  "publicationDate": "2026-09-28",
-  "publishedAt": "2026-09-28T09:01:30+08:00",
+  "requestId": "luna-web3-20260929-010222Z",
+  "triggerSha": "835947b4be0cfe3538056edc6021de7866e71053",
+  "publicationDate": "2026-09-29",
+  "publishedAt": "2026-09-29T09:04:02+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-09-28",
-    "publishedAt": "2026-09-28T09:01:30+08:00",
-    "windowStart": "2026-09-27T01:00:27.057025+00:00",
-    "windowEnd": "2026-09-28T01:01:05.184735+00:00",
-    "sourceUpdatedAt": "2026-09-26T01:00:08+00:00",
-    "status": "unchanged",
+    "runDate": "2026-09-29",
+    "publishedAt": "2026-09-29T09:04:02+08:00",
+    "windowStart": "2026-09-28T01:01:05.184735+00:00",
+    "windowEnd": "2026-09-29T01:02:41.611090+00:00",
+    "sourceUpdatedAt": "2026-09-29T01:02:41+00:00",
+    "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:luna-web3-20260928-010041Z",
-      "requestId": "luna-web3-20260928-010041Z",
-      "triggerSha": "b033bf346d1c5e7b940dfd30c4a596ec7af34810",
-      "githubRunId": 36364333980,
-      "scheduledAt": "2026-09-28T01:00:00Z",
-      "startedAt": "2026-09-28T01:01:01.797475+00:00",
-      "sourceCheckedAt": "2026-09-28T01:01:05.184447+00:00",
-      "sourceUpdatedAt": "2026-09-26T01:00:08+00:00",
-      "completedAt": "2026-09-28T01:01:05.184735+00:00",
-      "publishedAt": "2026-09-28T09:01:30+08:00"
+      "runId": "web3-daily-triage:luna-web3-20260929-010222Z",
+      "requestId": "luna-web3-20260929-010222Z",
+      "triggerSha": "835947b4be0cfe3538056edc6021de7866e71053",
+      "githubRunId": 36505987777,
+      "scheduledAt": "2026-09-29T01:00:00Z",
+      "startedAt": "2026-09-29T01:02:39.818082+00:00",
+      "sourceCheckedAt": "2026-09-29T01:02:41.610727+00:00",
+      "sourceUpdatedAt": "2026-09-29T01:02:41+00:00",
+      "completedAt": "2026-09-29T01:02:41.611090+00:00",
+      "publishedAt": "2026-09-29T09:04:02+08:00"
     },
     "executionStatus": {
-      "collection": "unchanged",
+      "collection": "success",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "以最近一期已验证发布的 windowEnd 为 windowStart，以本次匹配 schemaVersion 2 receipt.timestamps.completedAt 为 windowEnd，并沿用累计 reportedEventIds 去重。本次采集与历史均未变化，窗口内没有新增融资项目。数据仅为来源首页最近五条的累计观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "以最近一期已验证发布的 windowEnd 为 windowStart，以本次匹配 schemaVersion 2 receipt.timestamps.completedAt 为 windowEnd，并沿用累计 reportedEventIds 去重。窗口内新增 Axis Robotics 一个 Public sale 事件并完成初筛。数据仅为来源首页最近五条的累计观测快照，不代表来源全量融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -49,14 +49,92 @@
       "crypto-fundraising-infinifi--2026-09--seed",
       "crypto-fundraising-hifi--2026-09--series-a",
       "crypto-fundraising-functionspace--2026-09--pre-seed",
-      "crypto-fundraising-limited--2026-09--seed"
+      "crypto-fundraising-limited--2026-09--seed",
+      "crypto-fundraising-axis-robotics--2026-09--public-sale"
     ],
     "counts": {
-      "new": 0,
-      "action": 0,
+      "new": 1,
+      "action": 1,
       "watch": 0,
       "stop": 0
     },
-    "projects": []
+    "projects": [
+      {
+        "event_id": "crypto-fundraising-axis-robotics--2026-09--public-sale",
+        "source_detail_url": "https://crypto-fundraising.info/projects/axis-robotics/",
+        "project_name": "Axis Robotics",
+        "decision": "ACTION",
+        "financing": {
+          "amount_usd": 1000000,
+          "round": "Public sale",
+          "lead_investors": [],
+          "announcement_date": "2026-09-28",
+          "confidence": "high"
+        },
+        "plain_explanation": "Axis Robotics 是一个机器人训练数据平台，普通用户可以在浏览器里远程操控模拟机器人完成任务，把操作轨迹变成训练机器人模型的数据。",
+        "mechanism_simple": "用户完成抓取、摆放等模拟任务后，系统会回放并自动评估轨迹质量；通过验证的贡献可签名记录到链上并累计 Points，数据随后用于训练和纠正机器人策略。",
+        "project_status": {
+          "category": "existing_no_token",
+          "token_status": "token_announced",
+          "note": "项目与产品已经运行，AXIS 代币及社区公售已正式公布且公售已结束；本轮未找到官方 AXIS 已进入可交易状态的可靠证据。"
+        },
+        "participation": {
+          "available_now": true,
+          "what_user_can_do": "进入 Axis Hub，选择一个初级浏览器模拟任务，完成并查看质量评分；若认可链上记录，再用 Base 钱包签名一次合格提交以累计 Points。",
+          "requires_real_funds": true,
+          "friction_or_risk": "任务本身无需购买代币，但合格提交要链上签名，通常需极少量 Base Gas；Points 不可转让、不能兑现金，未来空投资格和分配均不保证。"
+        },
+        "incentives": {
+          "status": "confirmed",
+          "types": [
+            "points",
+            "airdrop",
+            "other"
+          ],
+          "details": "官方 Points 系统正在运行，按两周 Epoch 持续结算；官方计划把 Points 作为未来 Community Contributor Airdrop 的一个输入，但明确不保证资格、额度或发放。Alliance 任务还可同时获得 Axis Points 与合作方奖励。"
+        },
+        "why": [
+          "存在可以立即验证的真实产品路径：浏览器完成机器人模拟任务，而不是只做社交互动。",
+          "Points 与贡献质量、难度和多样性挂钩，且合格轨迹需回放验证和链上签名，激励与实际数据价值有一定绑定。",
+          "公售已经结束且未来空投不保证，因此不建议买币或批量刷任务；先用一次初级任务验证体验和时间成本。"
+        ],
+        "next_step": "只做一次初级任务：注册 Axis Hub，完成一个 Beginner/Easy 任务并查看质量评分；仅在确认流程可靠后，用小额 Base Gas 签名一次合格提交，随后再决定是否持续。",
+        "recheck_trigger": null,
+        "website_url": "https://axisrobotics.ai/",
+        "x_url": "https://x.com/axisrobotics",
+        "evidence": [
+          {
+            "claim": "官方社区公售以 1 亿美元 FDV 出售 1% 供应量、目标募集 100 万美元，公售窗口已于 2026-09-28 结束。",
+            "url": "https://x.com/axisrobotics/status/2104466168287518780",
+            "source_type": "official_x",
+            "confidence": "high"
+          },
+          {
+            "claim": "官网确认 Axis Robotics 提供面向全球贡献者的机器人数据收集平台，并可直接进入 Axis Hub。",
+            "url": "https://axisrobotics.ai/",
+            "source_type": "official_site",
+            "confidence": "high"
+          },
+          {
+            "claim": "官方文档说明浏览器模拟任务、轨迹验证、链上签名和 Points 结算流程。",
+            "url": "https://docs.axisrobotics.ai/contributor-guide/how-tasks-work",
+            "source_type": "docs",
+            "confidence": "high"
+          },
+          {
+            "claim": "官方文档确认 Points 系统已上线并持续按 Epoch 结算，Points 将作为未来社区贡献者空投的一个输入，但不保证资格或分配。",
+            "url": "https://docs.axisrobotics.ai/contributor-guide/points",
+            "source_type": "docs",
+            "confidence": "high"
+          },
+          {
+            "claim": "Crypto-Fundraising 项目页记录本轮 100 万美元 Public sale，并保留此前 1200 万美元 Seed 轮信息。",
+            "url": "https://crypto-fundraising.info/projects/axis-robotics/",
+            "source_type": "database",
+            "confidence": "medium"
+          }
+        ]
+      }
+    ]
   }
 }
