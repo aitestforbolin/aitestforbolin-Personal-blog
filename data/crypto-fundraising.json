@@ -1,71 +1,71 @@
 {
-  "updated_at": "2026-09-29T01:02:41+00:00",
+  "updated_at": "2026-09-30T00:58:37+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-axis-robotics",
+      "id": "crypto-fundraising-raven",
       "source_rank": 1,
+      "name": "Raven",
+      "round": "Strategic",
+      "announced_month": "2026-09",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/raven/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-jeeves",
+      "source_rank": 2,
+      "name": "Jeeves",
+      "round": "Series C",
+      "announced_month": "2026-09",
+      "amount_usd": 110000000,
+      "detail_url": "https://crypto-fundraising.info/projects/jeeves/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-axis-robotics",
+      "source_rank": 3,
       "name": "Axis Robotics",
       "round": "Public sale",
       "announced_month": "2026-09",
       "amount_usd": 1000000,
       "detail_url": "https://crypto-fundraising.info/projects/axis-robotics/",
+      "is_new": false
+    },
+    {
+      "id": "crypto-fundraising-worldcoin",
+      "source_rank": 4,
+      "name": "World (ex Worldcoin)",
+      "round": "Private",
+      "announced_month": "2026-09",
+      "amount_usd": 49000000,
+      "detail_url": "https://crypto-fundraising.info/projects/worldcoin/",
       "is_new": true
     },
     {
       "id": "crypto-fundraising-coinglass",
-      "source_rank": 2,
+      "source_rank": 5,
       "name": "CoinGlass",
       "round": "M&A",
       "announced_month": "2026-09",
       "amount_usd": null,
       "detail_url": "https://crypto-fundraising.info/projects/coinglass/",
       "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-hifi",
-      "source_rank": 3,
-      "name": "HIFI",
-      "round": "Series A",
-      "announced_month": "2026-09",
-      "amount_usd": 37000000,
-      "detail_url": "https://crypto-fundraising.info/projects/hifi/",
-      "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-functionspace",
-      "source_rank": 4,
-      "name": "functionSPACE",
-      "round": "Pre-seed",
-      "announced_month": "2026-09",
-      "amount_usd": 1700000,
-      "detail_url": "https://crypto-fundraising.info/projects/functionspace/",
-      "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-limited",
-      "source_rank": 5,
-      "name": "Limited",
-      "round": "Seed",
-      "announced_month": "2026-09",
-      "amount_usd": 18500000,
-      "detail_url": "https://crypto-fundraising.info/projects/limited/",
-      "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:luna-web3-20260929-010222Z",
-    "requestId": "luna-web3-20260929-010222Z",
-    "triggerSha": "835947b4be0cfe3538056edc6021de7866e71053",
-    "githubRunId": 36505987777,
-    "scheduledAt": "2026-09-29T01:00:00Z",
-    "startedAt": "2026-09-29T01:02:39.818082+00:00",
-    "sourceCheckedAt": "2026-09-29T01:02:41.610727+00:00",
-    "sourceUpdatedAt": "2026-09-29T01:02:41+00:00",
-    "completedAt": "2026-09-29T01:02:41.611090+00:00",
+    "runId": "web3-daily-triage:luna-web3-20260930-005822Z",
+    "requestId": "luna-web3-20260930-005822Z",
+    "triggerSha": "3de71373cb0ea5ccf365842cd5d3cccb2b81f8c3",
+    "githubRunId": 36652870425,
+    "scheduledAt": "2026-09-30T01:00:00Z",
+    "startedAt": "2026-09-30T00:58:36.309789+00:00",
+    "sourceCheckedAt": "2026-09-30T00:58:37.626004+00:00",
+    "sourceUpdatedAt": "2026-09-30T00:58:37+00:00",
+    "completedAt": "2026-09-30T00:58:37.626302+00:00",
     "publishedAt": null
   }
 }
