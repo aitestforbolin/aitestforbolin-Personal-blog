@@ -1,48 +1,44 @@
 {
   "schemaVersion": 2,
   "automation": "x-intelligence",
-  "runId": "x-intelligence:luna-x-20260929-005857Z",
-  "requestId": "luna-x-20260929-005857Z",
-  "result": "success",
+  "runId": "x-intelligence:luna-x-20260930-005542Z",
+  "requestId": "luna-x-20260930-005542Z",
+  "result": "in_progress",
   "lineage": {
     "triggerType": "push",
-    "triggerSha": "1cee2758d67604ffc50abf81b009c3ef5f0b73d9",
-    "githubRunId": 36505742133,
+    "triggerSha": "a6851582d30bb88bcd712c1e91b1a2e362991cea",
+    "githubRunId": 36652799050,
     "githubRunAttempt": 1
   },
   "timestamps": {
-    "scheduledAt": "2026-09-29T01:00:00Z",
-    "startedAt": "2026-09-29T00:59:41.072764+00:00",
-    "sourceCheckedAt": "2026-09-29T00:59:54.364838+00:00",
-    "sourceUpdatedAt": "2026-09-29T00:59:40+00:00",
-    "completedAt": "2026-09-29T00:59:54.364951+00:00",
-    "publishedAt": "2026-09-29T09:02:49.710+08:00"
+    "scheduledAt": "2026-09-30T01:00:00Z",
+    "startedAt": "2026-09-30T00:57:46.002751+00:00",
+    "sourceCheckedAt": "2026-09-30T00:57:56.146706+00:00",
+    "sourceUpdatedAt": "2026-09-30T00:55:23+00:00",
+    "completedAt": "2026-09-30T00:57:56.146766+00:00",
+    "publishedAt": null
   },
   "legacyRequestedAt": null,
   "stages": {
     "collection": {
       "status": "success",
-      "completedAt": "2026-09-29T00:59:54.364951+00:00",
+      "completedAt": "2026-09-30T00:57:56.146766+00:00",
       "details": {
         "listsRequested": 4,
         "listsCompleted": 4,
         "postCount": 162,
-        "estimatedCostUsd": 0.0752
+        "estimatedCostUsd": 0.0758
       }
     },
     "validation": {
       "status": "success",
-      "completedAt": "2026-09-29T00:59:54.364951+00:00"
+      "completedAt": "2026-09-30T00:57:56.146766+00:00"
     },
     "publication": {
-      "status": "success",
-      "commitSha": "0d4ca62a7f75961107cbb64dc1bb3a119868f96c"
+      "status": "not_run"
     },
     "notification": {
-      "status": "success",
-      "provider": "Gmail",
-      "messageId": "1a0eab073356acec",
-      "completedAt": "2026-09-29T01:04:00.452Z"
+      "status": "not_run"
     }
   }
 }
