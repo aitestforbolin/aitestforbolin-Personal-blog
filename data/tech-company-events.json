@@ -2,8 +2,8 @@
   "schema_version": 1,
   "timezone": "Asia/Shanghai",
   "horizon_days": 35,
-  "checked_at": "2026-09-30T08:47:04+08:00",
-  "updated_at": "2026-09-30T08:47:04+08:00",
+  "checked_at": "2026-10-01T08:51:30+08:00",
+  "updated_at": "2026-10-01T08:51:30+08:00",
   "companies": [
     {
       "id": "meta",
@@ -288,6 +288,33 @@
       "company_group_zh": "平台与云",
       "date_changed": false,
       "updated_at": "2026-09-30T08:47:04+08:00"
+    },
+    {
+      "event_id": "sandisk-earnings-2026-q4",
+      "company_id": "sandisk",
+      "event_category": "earnings",
+      "event_name": "SanDisk 2026 Q4财报",
+      "reported_period": "2026 Q4",
+      "importance": "core",
+      "status": "scheduled",
+      "confirmation": "inferred",
+      "date_type": "exact",
+      "date_bjt": "2026-11-05",
+      "time_bjt": null,
+      "market_timing": "time_tbd",
+      "original_time": "2026-11-05 time-not-supplied America/New_York",
+      "original_timezone": "America/New_York",
+      "eps_estimate": "$45.22",
+      "revenue_estimate": null,
+      "source_label": "Nasdaq Earnings Calendar",
+      "source_url": "https://api.nasdaq.com/api/calendar/earnings?date=2026-11-05",
+      "source_published_at": null,
+      "company": "SanDisk",
+      "ticker": "SNDK",
+      "company_group": "ai_semiconductor",
+      "company_group_zh": "AI 与半导体",
+      "date_changed": false,
+      "updated_at": "2026-10-01T08:51:30+08:00"
     }
   ]
 }
