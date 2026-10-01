@@ -282,24 +282,29 @@
     "stars": 3,
     "source": "Forex Factory",
     "url": "https://www.forexfactory.com/calendar",
-    "result_source": "Forex Factory 市场日历",
-    "result_url": "https://www.forexfactory.com/calendar",
+    "result_source": "Forex Factory 网页日历",
+    "result_url": "https://www.forexfactory.com/calendar?day=oct1.2026",
     "consensus_source": "Forex Factory 市场日历",
     "consensus_url": "https://www.forexfactory.com/calendar",
     "metric_values": [
       {
         "label": "初请失业金人数",
         "source_title": "Unemployment Claims",
-        "actual": null,
+        "actual": "197K",
         "forecast": "201K",
-        "previous": "197K",
+        "previous": "198K",
         "consensus_source": "Forex Factory 市场日历",
-        "consensus_url": "https://www.forexfactory.com/calendar"
+        "consensus_url": "https://www.forexfactory.com/calendar",
+        "actual_source": "Forex Factory 网页日历",
+        "actual_url": "https://www.forexfactory.com/calendar?day=oct1.2026"
       }
     ],
-    "release_status": "scheduled",
+    "release_status": "released",
     "forecast": "初请失业金人数 201K",
-    "previous": "初请失业金人数 197K",
+    "previous": "初请失业金人数 198K",
+    "released_at": "2026-10-01T17:27:17.613Z",
+    "actual_updated_at": "2026-10-01T17:27:17.613Z",
+    "actual": "初请失业金人数 197K",
     "calendar_status": "healthy"
   },
   {
@@ -346,24 +351,29 @@
     "stars": 3,
     "source": "Forex Factory",
     "url": "https://www.forexfactory.com/calendar",
-    "result_source": "Forex Factory 市场日历",
-    "result_url": "https://www.forexfactory.com/calendar",
+    "result_source": "Forex Factory 网页日历",
+    "result_url": "https://www.forexfactory.com/calendar?day=oct1.2026",
     "consensus_source": "Forex Factory 市场日历",
     "consensus_url": "https://www.forexfactory.com/calendar",
     "metric_values": [
       {
         "label": "ISM制造业PMI",
         "source_title": "ISM Manufacturing PMI",
-        "actual": null,
+        "actual": "54.5",
         "forecast": "54.8",
         "previous": "54.6",
         "consensus_source": "Forex Factory 市场日历",
-        "consensus_url": "https://www.forexfactory.com/calendar"
+        "consensus_url": "https://www.forexfactory.com/calendar",
+        "actual_source": "Forex Factory 网页日历",
+        "actual_url": "https://www.forexfactory.com/calendar?day=oct1.2026"
       }
     ],
-    "release_status": "scheduled",
+    "release_status": "released",
     "forecast": "ISM制造业PMI 54.8",
     "previous": "ISM制造业PMI 54.6",
+    "released_at": "2026-10-01T17:27:17.613Z",
+    "actual_updated_at": "2026-10-01T17:27:17.613Z",
+    "actual": "ISM制造业PMI 54.5",
     "calendar_status": "healthy"
   },
   {
@@ -397,7 +407,7 @@
         "label": "非农",
         "source_title": "Non-Farm Employment Change",
         "actual": null,
-        "forecast": "90K",
+        "forecast": "89K",
         "previous": "162K",
         "consensus_source": "Forex Factory 市场日历",
         "consensus_url": "https://www.forexfactory.com/calendar"
@@ -413,7 +423,7 @@
       }
     ],
     "release_status": "scheduled",
-    "forecast": "时薪环比 0.3% · 非农 90K · 失业率 4.1%",
+    "forecast": "时薪环比 0.3% · 非农 89K · 失业率 4.1%",
     "previous": "时薪环比 0.3% · 非农 162K · 失业率 4.1%",
     "calendar_status": "healthy"
   }

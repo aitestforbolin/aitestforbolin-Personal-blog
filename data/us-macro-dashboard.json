@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-09-18T10:19:01+08:00",
-  "asOf": "2026-09-16",
+  "generatedAt": "2026-10-02T01:27:17+08:00",
+  "asOf": "2026-10-01",
   "title": "美国宏观核心数据",
   "summary": [
     {
@@ -30,7 +30,7 @@
       "label": "经济活动",
       "state": "保持扩张",
       "tone": "expanding",
-      "detail": "制造业ISM+54.6，服务业ISM+55.4，工业产出环比+0.2%。"
+      "detail": "制造业ISM+54.5，服务业ISM+55.4，工业产出环比+0.2%。"
     }
   ],
   "groups": [
@@ -319,17 +319,17 @@
         {
           "id": "ism-manufacturing",
           "title": "ISM Manufacturing PMI",
-          "period": "August 2026",
-          "releaseDate": "2026-09-01",
-          "updatedAt": "2026-09-18T00:00:00+08:00",
+          "period": null,
+          "releaseDate": "2026-10-01",
+          "updatedAt": "2026-10-02T01:27:17+08:00",
           "source": "Forex Factory",
-          "sourceUrl": "https://www.forexfactory.com/calendar?week=aug30.2026",
+          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct1.2026",
           "rows": [
             {
               "label": "ISM Manufacturing PMI",
-              "actual": "54.6",
-              "forecast": "55.2",
-              "previous": "55.6"
+              "actual": "54.5",
+              "forecast": "54.8",
+              "previous": "54.6"
             }
           ],
           "trend": "已写入最新一期；积累满3期后显示中期趋势。"
@@ -380,12 +380,13 @@
     "美国PCE / 核心PCE": "2026-08-26",
     "美国非农 / 失业率 / 平均时薪": "2026-09-04",
     "美国GDP": "2026-08-26",
-    "美国ISM制造业PMI": "2026-09-01",
+    "美国ISM制造业PMI": "2026-10-01",
     "美国ISM服务业PMI": "2026-09-03",
     "美国工业产出": "2026-08-18"
   },
   "sourceEventFingerprints": {
-    "美国零售销售": "c263c09e08c68a3547ddd6398692f9838585c9a3b525ff5d6568c73c982b427b"
+    "美国零售销售": "c263c09e08c68a3547ddd6398692f9838585c9a3b525ff5d6568c73c982b427b",
+    "美国ISM制造业PMI": "4fbd87ce4a3e237dcd0c2d43fcfe37630c334fa5c43530927aece02a9f66a053"
   },
   "dataQuality": {
     "status": "forex_factory_only",
@@ -393,7 +394,7 @@
       "只写入 release_status=released 且 actual 非空的 Forex Factory 数据。",
       "没有当前已发布值的字段会等待下一次对应数据发布。"
     ],
-    "fetchedAt": "2026-09-18T10:19:01+08:00",
+    "fetchedAt": "2026-10-02T01:27:17+08:00",
     "source": "Forex Factory"
   }
 }
