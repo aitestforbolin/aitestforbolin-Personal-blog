@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "luna-web3-20260930-005822Z",
-  "triggerSha": "3de71373cb0ea5ccf365842cd5d3cccb2b81f8c3",
-  "publicationDate": "2026-09-30",
-  "publishedAt": "2026-09-30T09:01:20+08:00",
+  "requestId": "luna-web3-20261001-010120Z",
+  "triggerSha": "ddd06530d841292543d8e4c665ded6fcf69f511a",
+  "publicationDate": "2026-10-01",
+  "publishedAt": "2026-10-01T09:02:43+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-09-30",
-    "publishedAt": "2026-09-30T09:01:20+08:00",
-    "windowStart": "2026-09-29T01:02:41.611090+00:00",
-    "windowEnd": "2026-09-30T00:58:37.626302+00:00",
-    "sourceUpdatedAt": "2026-09-30T00:58:37+00:00",
+    "runDate": "2026-10-01",
+    "publishedAt": "2026-10-01T09:02:43+08:00",
+    "windowStart": "2026-09-30T00:58:37.626302+00:00",
+    "windowEnd": "2026-10-01T01:01:34.213635+00:00",
+    "sourceUpdatedAt": "2026-10-01T01:01:34+00:00",
     "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:luna-web3-20260930-005822Z",
-      "requestId": "luna-web3-20260930-005822Z",
-      "triggerSha": "3de71373cb0ea5ccf365842cd5d3cccb2b81f8c3",
-      "githubRunId": 36652870425,
-      "scheduledAt": "2026-09-30T01:00:00Z",
-      "startedAt": "2026-09-30T00:58:36.309789+00:00",
-      "sourceCheckedAt": "2026-09-30T00:58:37.626004+00:00",
-      "sourceUpdatedAt": "2026-09-30T00:58:37+00:00",
-      "completedAt": "2026-09-30T00:58:37.626302+00:00",
-      "publishedAt": "2026-09-30T09:01:20+08:00"
+      "runId": "web3-daily-triage:luna-web3-20261001-010120Z",
+      "requestId": "luna-web3-20261001-010120Z",
+      "triggerSha": "ddd06530d841292543d8e4c665ded6fcf69f511a",
+      "githubRunId": 36799063654,
+      "scheduledAt": "2026-10-01T01:00:00Z",
+      "startedAt": "2026-10-01T01:01:31.645062+00:00",
+      "sourceCheckedAt": "2026-10-01T01:01:34.213305+00:00",
+      "sourceUpdatedAt": "2026-10-01T01:01:34+00:00",
+      "completedAt": "2026-10-01T01:01:34.213635+00:00",
+      "publishedAt": "2026-10-01T09:02:43+08:00"
     },
     "executionStatus": {
       "collection": "success",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "以最近一期已验证发布的 windowEnd 为 windowStart，以本次匹配 schemaVersion 2 receipt.timestamps.completedAt 为 windowEnd，并沿用累计 reportedEventIds 去重。窗口内新增 Raven、Jeeves、World 三个非 M&A 事件并完成初筛。数据仅为来源首页最近五条的累计观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "以最近一期已验证发布的 windowEnd 为 windowStart，以本次匹配 schemaVersion 2 receipt.timestamps.completedAt 为 windowEnd，并沿用累计 reportedEventIds 去重。窗口内新观测到 Grass 与 Riva Labs；Riva Labs 为 M&A，按规则排除，仅对 Grass 完成初筛。数据仅为来源首页最近五条的累计观测快照，不代表来源全量融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -53,197 +53,77 @@
       "crypto-fundraising-axis-robotics--2026-09--public-sale",
       "crypto-fundraising-raven--2026-09--strategic",
       "crypto-fundraising-jeeves--2026-09--series-c",
-      "crypto-fundraising-worldcoin--2026-09--private"
+      "crypto-fundraising-worldcoin--2026-09--private",
+      "crypto-fundraising-grass--2026-09--round-unknown"
     ],
     "counts": {
-      "new": 3,
+      "new": 1,
       "action": 0,
       "watch": 0,
-      "stop": 3
+      "stop": 1
     },
     "projects": [
       {
-        "event_id": "crypto-fundraising-raven--2026-09--strategic",
-        "source_detail_url": "https://crypto-fundraising.info/projects/raven/",
-        "project_name": "Raven",
+        "event_id": "crypto-fundraising-grass--2026-09--round-unknown",
+        "source_detail_url": "https://crypto-fundraising.info/projects/grass/",
+        "project_name": "Grass",
         "decision": "STOP",
         "financing": {
           "amount_usd": null,
-          "round": "Strategic",
-          "lead_investors": [
-            "Coinbase Ventures",
-            "CMCC Global"
-          ],
-          "announcement_date": "2026-09-29",
-          "confidence": "high"
-        },
-        "plain_explanation": "Raven 是一家为加密交易所和预测市场持续提供买卖报价的高频交易与做市机构，主要客户是交易平台和机构。",
-        "mechanism_simple": "团队用自动化交易系统在中心化、去中心化及预测市场维持双边流动性，并为新市场提供技术接入、市场设计和启动流动性。",
-        "project_status": {
-          "category": "existing_no_token",
-          "token_status": "no_token_found",
-          "note": "项目自 2023 年运营，本轮战略融资金额未披露、投前估值 9000 万美元；未找到面向普通用户的官方代币或公开贡献计划。"
-        },
-        "participation": {
-          "available_now": false,
-          "what_user_can_do": "没有发现面向普通用户开放、可验证且与本轮融资相关的参与任务。",
-          "requires_real_funds": false,
-          "friction_or_risk": "其核心业务是机构做市；把普通交易或预测市场下注当作参与路径会暴露本金风险，且没有官方奖励承诺。"
-        },
-        "incentives": {
-          "status": "none_found",
-          "types": [],
-          "details": "未发现积分、空投、测试网或其他面向普通用户的官方激励。"
-        },
-        "why": [
-          "战略轮与 9000 万美元投前估值有多方报道，融资事件可信。",
-          "产品面向交易平台和机构，普通用户没有可执行的产品贡献路径。",
-          "无官方用户激励或代币安排，不应把高风险交易行为误作参与机会。"
-        ],
-        "next_step": "不参与；仅在官方推出无需本金、可验证的公开贡献计划或测试任务时重新评估。",
-        "recheck_trigger": "官方发布面向普通用户的测试网、积分或贡献计划。",
-        "website_url": "https://www.ravendao.net/",
-        "x_url": "https://x.com/defi_raven",
-        "evidence": [
-          {
-            "claim": "Crypto-Fundraising 记录 Raven 于 2026 年 9 月完成 Strategic 轮，金额未披露、估值 9000 万美元。",
-            "url": "https://crypto-fundraising.info/projects/raven/",
-            "source_type": "database",
-            "confidence": "high"
-          },
-          {
-            "claim": "本轮投资方包括 Coinbase Ventures 与 CMCC Global，CMCC 联合创始人加入董事会。",
-            "url": "https://cryptorank.io/insights/deals/ravendao-strategic-2026-09-29",
-            "source_type": "media",
-            "confidence": "high"
-          },
-          {
-            "claim": "Raven 的官方融资公告链接指向其 X 帖文。",
-            "url": "https://x.com/defi_raven/status/2104949454625272099",
-            "source_type": "official_x",
-            "confidence": "medium"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-jeeves--2026-09--series-c",
-        "source_detail_url": "https://crypto-fundraising.info/projects/jeeves/",
-        "project_name": "Jeeves",
-        "decision": "STOP",
-        "financing": {
-          "amount_usd": 110000000,
-          "round": "Series C",
-          "lead_investors": [
-            "CoinFund"
-          ],
-          "announcement_date": "2026-09-29",
-          "confidence": "high"
-        },
-        "plain_explanation": "Jeeves 是面向跨国企业的财务操作平台，用稳定币结算支撑企业卡、应付账款、资金管理和跨境付款。",
-        "mechanism_simple": "企业通过 Jeeves 的稳定币底层在不同国家间快速结算，再由平台把卡、付款、报销和对账集中到同一套系统中。",
-        "project_status": {
-          "category": "existing_no_token",
-          "token_status": "no_token_found",
-          "note": "成熟企业级金融产品，本轮为 1.1 亿美元股权融资；未发现发行用户代币或开放式 Web3 贡献计划。"
-        },
-        "participation": {
-          "available_now": false,
-          "what_user_can_do": "普通个人没有与本轮融资直接相关的公开任务；产品主要面向企业客户。",
-          "requires_real_funds": false,
-          "friction_or_risk": "注册与使用取决于企业资质和支持地区；不存在经确认的积分或空投回报。"
-        },
-        "incentives": {
-          "status": "none_found",
-          "types": [],
-          "details": "官方融资公告未提供面向普通用户的积分、空投或测试激励。"
-        },
-        "why": [
-          "公司官方公告确认 1.1 亿美元股权融资，由 CoinFund 领投。",
-          "平台已有超过 50 亿美元年化交易量，属于成熟企业金融基础设施。",
-          "缺少普通用户可执行的开放任务和奖励机制，不符合当前参与筛选目标。"
-        ],
-        "next_step": "不参与；将其作为稳定币企业采用案例观察，不为潜在奖励开户或入金。",
-        "recheck_trigger": "官方开放个人用户产品并明确发布无本金贡献激励。",
-        "website_url": "https://www.tryjeeves.com/",
-        "x_url": null,
-        "evidence": [
-          {
-            "claim": "Jeeves 官方新闻稿确认 2026-09-29 宣布 1.1 亿美元股权融资，CoinFund 领投。",
-            "url": "https://www.prnewswire.com/news-releases/jeeves-raises-110-million-equity-round-to-scale-its-stablecoin-native-banking-platform-for-global-enterprises-across-35-countries-302892811.html",
-            "source_type": "official_release",
-            "confidence": "high"
-          },
-          {
-            "claim": "官方披露平台年化总交易量超过 50 亿美元，稳定币部分达到 15 亿美元，并推出覆盖 190 个国家的稳定币钱包付款。",
-            "url": "https://www.prnewswire.com/news-releases/jeeves-raises-110-million-equity-round-to-scale-its-stablecoin-native-banking-platform-for-global-enterprises-across-35-countries-302892811.html",
-            "source_type": "official_release",
-            "confidence": "high"
-          },
-          {
-            "claim": "Crypto-Fundraising 首页快照将本轮标记为 1.1 亿美元 Series C。",
-            "url": "https://crypto-fundraising.info/projects/jeeves/",
-            "source_type": "database",
-            "confidence": "medium"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-worldcoin--2026-09--private",
-        "source_detail_url": "https://crypto-fundraising.info/projects/worldcoin/",
-        "project_name": "World (ex Worldcoin)",
-        "decision": "STOP",
-        "financing": {
-          "amount_usd": 49000000,
-          "round": "Private",
+          "round": null,
           "lead_investors": [],
-          "announcement_date": "2026-09-29",
-          "confidence": "medium"
+          "announcement_date": null,
+          "confidence": "low"
         },
-        "plain_explanation": "World 是一个以 World ID 证明真人身份、并结合 World App、World Chain 和 WLD 代币的身份与金融网络。",
-        "mechanism_simple": "用户通过 Orb 完成人类唯一性验证，World ID 用零知识方式证明真人身份；World App 管理身份和资产，WLD 用于生态应用、治理与网络活动。",
+        "plain_explanation": "Grass 是一个去中心化网络，让用户共享闲置互联网带宽，供经验证的机构获取公开网页数据并用于 AI 数据服务。",
+        "mechanism_simple": "用户安装应用并保持联网，网络通过其闲置带宽处理公开网络流量；贡献会被记录为 Points，并可能获得 GRASS 或 USDC 奖励。",
         "project_status": {
-          "category": "existing_live_token",
-          "token_status": "live",
-          "note": "WLD 已于 2023-07-24 上线，官方确认代币合约部署在以太坊并桥接至 World Chain；按规则触发已上线原生代币硬性 STOP。"
+          "category": "existing_token",
+          "token_status": "token_live",
+          "note": "Grass 已有正式运行的原生 GRASS 代币；官方资料确认首次代币空投于 2024-10-28 完成，因此按规则触发硬性 STOP。"
         },
         "participation": {
-          "available_now": false,
-          "what_user_can_do": "虽可下载 World App 或申请 World ID，但本筛选不把成熟已发币项目的常规使用或领币视作新融资参与机会。",
+          "available_now": true,
+          "what_user_can_do": "用户仍可安装 Grass 应用、共享闲置带宽并积累 Points。",
           "requires_real_funds": false,
-          "friction_or_risk": "生物识别与地区资格限制显著；WLD 属高风险加密资产，且本轮融资不构成新的用户奖励承诺。"
+          "friction_or_risk": "会持续占用网络带宽并把出口连接用于第三方公开网页访问；奖励受地区、流量使用和分配规则影响，且本轮融资信息未形成新的早期机会。"
         },
         "incentives": {
-          "status": "not_applicable",
-          "types": [],
-          "details": "项目存在 WLD 相关领取机制，但原生代币已经正式上线，因此按硬规则停止，不继续评估参与收益。"
+          "status": "confirmed",
+          "types": [
+            "points",
+            "token",
+            "other"
+          ],
+          "details": "官网确认 Uptime Points、Network Points 仍用于衡量贡献，并可能决定未来获得 GRASS 或 USDC；但原生代币早已上线，故不继续按空投机会评估。"
         },
         "why": [
-          "来源首页观测到 4900 万美元 Private 轮，但独立融资细节暂不充分，金额置信度为中等。",
-          "官方明确 WLD 是 World 的原生代币，且代币已于 2023 年上线并存在主网合约。",
-          "已上线原生代币触发硬性 STOP，无需以空投或代币增值为目的参与。"
+          "官方明确 GRASS 是网络原生代币，并且首次代币空投已于 2024-10-28 完成。",
+          "已上线原生代币按本工作流规则自动 STOP，即使当前仍有 Points 或奖励。",
+          "来源本次将融资轮次与金额均标为未知，项目页也未提供可独立确认的新融资详情。"
         ],
-        "next_step": "停止评估；不要因本轮融资消息购买 WLD、提交生物识别或追逐所谓空投。",
+        "next_step": null,
         "recheck_trigger": null,
-        "website_url": "https://world.org/",
-        "x_url": "https://x.com/worldcoin",
+        "website_url": "https://www.grass.io/",
+        "x_url": "https://x.com/grass",
         "evidence": [
           {
-            "claim": "World 官方页面确认 WLD 是网络原生代币，合约部署在以太坊并桥接至 World Chain。",
-            "url": "https://world.org/worldcoin-token",
+            "claim": "Grass 官网确认 GRASS 是网络原生代币，也是共享闲置带宽可获得的奖励之一。",
+            "url": "https://www.grass.io/",
             "source_type": "official_site",
             "confidence": "high"
           },
           {
-            "claim": "World 官网注明代币已于 2023-07-24 上线。",
-            "url": "https://world.org/",
+            "claim": "Grass 官方页面确认首次 GRASS 代币空投于 2024-10-28 发生，覆盖超过 200 万用户。",
+            "url": "https://sf.grass.io/",
             "source_type": "official_site",
             "confidence": "high"
           },
           {
-            "claim": "Crypto-Fundraising 项目页确认 World/Worldcoin 是已有 WLD 代币的身份与金融网络。",
-            "url": "https://crypto-fundraising.info/projects/worldcoin/",
+            "claim": "Crypto-Fundraising 本次首页快照将 Grass 标记为 2026 年 9 月、轮次和金额未知的新观测事件；项目页保留其既有融资记录。",
+            "url": "https://crypto-fundraising.info/projects/grass/",
             "source_type": "database",
-            "confidence": "high"
+            "confidence": "medium"
           }
         ]
       }
