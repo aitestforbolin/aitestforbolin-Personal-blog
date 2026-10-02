@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "luna-web3-20261001-010120Z",
-  "triggerSha": "ddd06530d841292543d8e4c665ded6fcf69f511a",
-  "publicationDate": "2026-10-01",
-  "publishedAt": "2026-10-01T09:02:43+08:00",
+  "requestId": "luna-web3-20261002-005953Z",
+  "triggerSha": "e60670461acd3fbb2e1a963487f06865f807d3ba",
+  "publicationDate": "2026-10-02",
+  "publishedAt": "2026-10-02T09:00:25+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-10-01",
-    "publishedAt": "2026-10-01T09:02:43+08:00",
-    "windowStart": "2026-09-30T00:58:37.626302+00:00",
-    "windowEnd": "2026-10-01T01:01:34.213635+00:00",
+    "runDate": "2026-10-02",
+    "publishedAt": "2026-10-02T09:00:25+08:00",
+    "windowStart": "2026-10-01T01:01:34.213635+00:00",
+    "windowEnd": "2026-10-02T01:00:04.485372+00:00",
     "sourceUpdatedAt": "2026-10-01T01:01:34+00:00",
-    "status": "success",
+    "status": "unchanged",
     "executionLineage": {
-      "runId": "web3-daily-triage:luna-web3-20261001-010120Z",
-      "requestId": "luna-web3-20261001-010120Z",
-      "triggerSha": "ddd06530d841292543d8e4c665ded6fcf69f511a",
-      "githubRunId": 36799063654,
-      "scheduledAt": "2026-10-01T01:00:00Z",
-      "startedAt": "2026-10-01T01:01:31.645062+00:00",
-      "sourceCheckedAt": "2026-10-01T01:01:34.213305+00:00",
+      "runId": "web3-daily-triage:luna-web3-20261002-005953Z",
+      "requestId": "luna-web3-20261002-005953Z",
+      "triggerSha": "e60670461acd3fbb2e1a963487f06865f807d3ba",
+      "githubRunId": 36948772592,
+      "scheduledAt": "2026-10-02T01:00:00Z",
+      "startedAt": "2026-10-02T01:00:02.649590+00:00",
+      "sourceCheckedAt": "2026-10-02T01:00:04.485066+00:00",
       "sourceUpdatedAt": "2026-10-01T01:01:34+00:00",
-      "completedAt": "2026-10-01T01:01:34.213635+00:00",
-      "publishedAt": "2026-10-01T09:02:43+08:00"
+      "completedAt": "2026-10-02T01:00:04.485372+00:00",
+      "publishedAt": "2026-10-02T09:00:25+08:00"
     },
     "executionStatus": {
-      "collection": "success",
+      "collection": "unchanged",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "以最近一期已验证发布的 windowEnd 为 windowStart，以本次匹配 schemaVersion 2 receipt.timestamps.completedAt 为 windowEnd，并沿用累计 reportedEventIds 去重。窗口内新观测到 Grass 与 Riva Labs；Riva Labs 为 M&A，按规则排除，仅对 Grass 完成初筛。数据仅为来源首页最近五条的累计观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "候选窗口从上一份已验证发布的 windowEnd 延续至本次回执 completedAt；累计 reportedEventIds 保持不变。本次采集结果为 unchanged，历史仅代表来源首页最近五条的观测快照，不声称完整覆盖全部融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -57,76 +57,11 @@
       "crypto-fundraising-grass--2026-09--round-unknown"
     ],
     "counts": {
-      "new": 1,
+      "new": 0,
       "action": 0,
       "watch": 0,
-      "stop": 1
+      "stop": 0
     },
-    "projects": [
-      {
-        "event_id": "crypto-fundraising-grass--2026-09--round-unknown",
-        "source_detail_url": "https://crypto-fundraising.info/projects/grass/",
-        "project_name": "Grass",
-        "decision": "STOP",
-        "financing": {
-          "amount_usd": null,
-          "round": null,
-          "lead_investors": [],
-          "announcement_date": null,
-          "confidence": "low"
-        },
-        "plain_explanation": "Grass 是一个去中心化网络，让用户共享闲置互联网带宽，供经验证的机构获取公开网页数据并用于 AI 数据服务。",
-        "mechanism_simple": "用户安装应用并保持联网，网络通过其闲置带宽处理公开网络流量；贡献会被记录为 Points，并可能获得 GRASS 或 USDC 奖励。",
-        "project_status": {
-          "category": "existing_token",
-          "token_status": "token_live",
-          "note": "Grass 已有正式运行的原生 GRASS 代币；官方资料确认首次代币空投于 2024-10-28 完成，因此按规则触发硬性 STOP。"
-        },
-        "participation": {
-          "available_now": true,
-          "what_user_can_do": "用户仍可安装 Grass 应用、共享闲置带宽并积累 Points。",
-          "requires_real_funds": false,
-          "friction_or_risk": "会持续占用网络带宽并把出口连接用于第三方公开网页访问；奖励受地区、流量使用和分配规则影响，且本轮融资信息未形成新的早期机会。"
-        },
-        "incentives": {
-          "status": "confirmed",
-          "types": [
-            "points",
-            "token",
-            "other"
-          ],
-          "details": "官网确认 Uptime Points、Network Points 仍用于衡量贡献，并可能决定未来获得 GRASS 或 USDC；但原生代币早已上线，故不继续按空投机会评估。"
-        },
-        "why": [
-          "官方明确 GRASS 是网络原生代币，并且首次代币空投已于 2024-10-28 完成。",
-          "已上线原生代币按本工作流规则自动 STOP，即使当前仍有 Points 或奖励。",
-          "来源本次将融资轮次与金额均标为未知，项目页也未提供可独立确认的新融资详情。"
-        ],
-        "next_step": null,
-        "recheck_trigger": null,
-        "website_url": "https://www.grass.io/",
-        "x_url": "https://x.com/grass",
-        "evidence": [
-          {
-            "claim": "Grass 官网确认 GRASS 是网络原生代币，也是共享闲置带宽可获得的奖励之一。",
-            "url": "https://www.grass.io/",
-            "source_type": "official_site",
-            "confidence": "high"
-          },
-          {
-            "claim": "Grass 官方页面确认首次 GRASS 代币空投于 2024-10-28 发生，覆盖超过 200 万用户。",
-            "url": "https://sf.grass.io/",
-            "source_type": "official_site",
-            "confidence": "high"
-          },
-          {
-            "claim": "Crypto-Fundraising 本次首页快照将 Grass 标记为 2026 年 9 月、轮次和金额未知的新观测事件；项目页保留其既有融资记录。",
-            "url": "https://crypto-fundraising.info/projects/grass/",
-            "source_type": "database",
-            "confidence": "medium"
-          }
-        ]
-      }
-    ]
+    "projects": []
   }
 }
