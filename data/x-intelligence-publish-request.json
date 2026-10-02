@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "requestId": "codex-x-20261001-010435Z",
-  "triggerSha": "c33154079822df1bc1195cb06e9f67c8cb4db8a5",
-  "publicationDate": "2026-10-01",
-  "publishedAt": "2026-10-01T09:08:38+08:00",
+  "requestId": "codex-x-20261002-005516Z",
+  "triggerSha": "b8bc23bcda7fc0fdbc9a6e67cd6187b79fd9782a",
+  "publicationDate": "2026-10-02",
+  "publishedAt": "2026-10-02T08:59:53.716+08:00",
   "payload": {
     "schemaVersion": 1,
     "status": "success",
-    "reportDate": "2026-10-01",
-    "generatedAt": "2026-10-01T09:08:38+08:00",
-    "sourceGeneratedAt": "2026-10-01T01:05:31.305792+00:00",
-    "sourcePostCount": 149,
+    "reportDate": "2026-10-02",
+    "generatedAt": "2026-10-02T08:59:53.716+08:00",
+    "sourceGeneratedAt": "2026-10-02T00:56:29.560163+00:00",
+    "sourcePostCount": 115,
     "sourceListCount": 4,
     "executionLineage": {
       "schemaVersion": 2,
-      "runId": "x-intelligence:codex-x-20261001-010435Z",
-      "requestId": "codex-x-20261001-010435Z",
-      "triggerSha": "c33154079822df1bc1195cb06e9f67c8cb4db8a5",
-      "githubRunId": 36799397088,
-      "scheduledAt": "2026-10-01T01:00:00Z",
-      "startedAt": "2026-10-01T01:05:31.305135+00:00",
-      "sourceCheckedAt": "2026-10-01T01:05:44.291128+00:00",
-      "sourceUpdatedAt": "2026-10-01T00:44:02+00:00",
-      "completedAt": "2026-10-01T01:05:44.291204+00:00",
-      "publishedAt": "2026-10-01T09:08:38+08:00"
+      "runId": "x-intelligence:codex-x-20261002-005516Z",
+      "requestId": "codex-x-20261002-005516Z",
+      "triggerSha": "b8bc23bcda7fc0fdbc9a6e67cd6187b79fd9782a",
+      "githubRunId": 36948486508,
+      "scheduledAt": "2026-10-02T01:00:00Z",
+      "startedAt": "2026-10-02T00:56:29.559519+00:00",
+      "sourceCheckedAt": "2026-10-02T00:56:39.361814+00:00",
+      "sourceUpdatedAt": "2026-10-02T00:48:50+00:00",
+      "completedAt": "2026-10-02T00:56:39.361877+00:00",
+      "publishedAt": "2026-10-02T08:59:53.716+08:00"
     },
     "executionStatus": {
       "collection": "success",
@@ -32,29 +32,30 @@
         "status": "not_run"
       }
     },
-    "overview": "过去24小时的信息流由四条主线主导：宏观上，核心PCE低于旧口径预期主要来自统计方法修订，威廉姆斯为10月立即加息降温，但10年期美债收益率一度超过5.3%、美伊谈判仍僵持；AI侧，Dots开始讨论数百万实例、基础额度与硬件密钥，Google也以Gemini 4 Argon加入复杂工作流竞争；链上基础设施方面，Base Cobalt升级和OUSD上线、代币化股票持有人增长与盘前定价机制受到关注；执行层面，MetaMask验证者事件、Fables规则稀释与Concrete低流动性再次提醒，安全、退出和净回报比名义叙事更重要。",
+    "overview": "过去24小时的信息流由五条主线主导：宏观上，美联储副主席杰斐逊与纽约联储主席威廉姆斯均淡化10月立即加息的必要性，但10年期美债仍围绕5.3%高位，债券ETF资金回流与海湾原油出口恢复成为新的反向信号；安全侧，NEAR Intents因Omni存取款交互漏洞损失约380万美元，项目方称漏洞已修复并将全额赔付；市场基础设施方面，代币化股票、传统市场永续与链上Swap继续扩张；Agent生态则从模型发布转向云端执行、MCP部署和按次付费；Arcus积分、代币化股票LP等活动再次显示，热度与名义APR不能代替净回报判断。",
     "homeHighlights": [
-      "核心PCE读数因统计方法修订而下调，10月加息预期回落，但10年期美债收益率一度突破5.3%。",
-      "Dots进入规模化试用与分层安全阶段，官方称将有数百万实例上线，网络安全能力开始要求硬件密钥。",
-      "Base Cobalt在主网上线Validity Transactions与B20增强，OUSD同步进入Base流动性生态。",
-      "币安支持以USDT扫码支付日本PayPay商户，稳定币进一步进入线下零售结算。",
-      "MetaMask称钱包本身未受影响，但正退出受安全事件影响的验证者。"
+      "杰斐逊与威廉姆斯均为10月立即加息降温，但10年期美债仍处约5.3%的高压区间。",
+      "NEAR Intents因Omni存取款交互漏洞损失约380万美元，项目方称已修复并将全额赔付。",
+      "代币化股票单日成交量被Base称为突破1亿美元，Variational链上Swap累计成交量突破300亿美元。",
+      "Cloudflare按次付费网关、ChatGPT托管MCP与Codex云环境共同推动Agent进入可持续执行阶段。",
+      "Arcus固定周积分与代币化股票LP案例提示，活动热度和展示APR不等于可兑现净收益。"
     ],
     "topics": [
       {
-        "title": "PCE修订降低10月加息紧迫性，但长债与油价仍构成反向压力",
+        "title": "美联储官员为10月加息降温，长债高位开始吸引资金但油价仍是关键变量",
         "importance": "high",
-        "summary": "多名作者指出，8月核心PCE年率公布为3.0%，但前值也因BEA方法调整从3.3%下修至3.0%；按可比口径，月率从修订后的0.1%回升至0.2%。威廉姆斯称9月行动后不必急于再加息，信息流中的10月加息概率因此继续下降；与此同时，10年期美债收益率一度超过5.3%，美伊关键条件仍未谈拢。",
-        "whyItMatters": "风险资产得到的是短期政策紧迫性下降，而不是高利率环境解除。PCE方法变化、强就业、收入增长慢于消费以及霍尔木兹风险必须合并判断。",
+        "summary": "信息流称，美联储副主席杰斐逊继纽约联储主席威廉姆斯后表示需要更多时间评估通胀，除非非农和CPI明显超预期，10月加息门槛较高；卡什卡利仍倾向年内再加一次。10年期美债收益率一度突破5.3%，但过去五天债券ETF据称净流入约230亿美元，海湾产油国原油出口也被称已恢复至战前水平。",
+        "whyItMatters": "市场得到的是近端加息概率下降，而不是高利率周期结束。债券资金回流和原油供应恢复可能限制收益率继续上冲，但强消费、通胀与保险运输成本仍可能让利率长期维持高位。",
         "facts": [
-          "BEA方法调整涉及软件、法律服务与投资组合管理等分项，并追溯修订历史数据。",
-          "信息流称核心PCE年率与修订后前值均为3.0%，月率则由0.1%回升至0.2%。",
-          "威廉姆斯保留年底前再加息一次的可能，但不支持10月立即行动。",
-          "卡塔尔斡旋被转述为缺少实质进展，美伊仍在先开放海峡还是先解除封锁与制裁上僵持。"
+          "杰斐逊与威廉姆斯均强调需要等待更多数据，不支持立即行动。",
+          "卡什卡利仍倾向2026年再加息一次，但保留根据增长、就业与通胀数据调整的空间。",
+          "信息流称10年期美债收益率盘中一度达到约5.306%。",
+          "一名作者援引终端与ETF监测数据称，债券ETF五天净流入约230亿美元。",
+          "Kpler相关转述称，不含伊朗的海湾产油国9月原油出口至少约1650万桶/日，约40%绕开霍尔木兹海峡。"
         ],
         "interpretations": [
-          "乐观解读认为低于旧口径预期的数据和威廉姆斯讲话足以缓和短期宏观压制。",
-          "谨慎解读认为统计修订不等于通胀突然改善，5.3%以上长债、强就业和油价仍可能重新推高加息定价。"
+          "偏多观点认为5.3%附近已吸引长债配置资金，收益率可能进入高位稳定或回落阶段。",
+          "谨慎观点认为通胀和消费仍有韧性，近端暂停不排除12月或之后再加息。"
         ],
         "authors": [
           "qinbafrank",
@@ -62,390 +63,352 @@
           "ArtofSpecuycky"
         ],
         "sourceUrls": [
-          "https://x.com/qinbafrank/status/2105282663703806246",
-          "https://x.com/PhyrexNi/status/2105281708195258771",
-          "https://x.com/PhyrexNi/status/2105165972198011191",
-          "https://x.com/PhyrexNi/status/2105355578675757349",
-          "https://x.com/qinbafrank/status/2105169431827771632",
-          "https://x.com/PhyrexNi/status/2105287953534845225"
-        ],
-        "sourceCount": 6,
-        "confidence": "high"
-      },
-      {
-        "title": "Dots进入规模化试用、基础额度与硬件密钥阶段，Google释放新的工作流模型信号",
-        "importance": "high",
-        "summary": "OpenAI相关帖子称数百万个Dots将在数日内上线，团队先观察主Dot的使用方式，再开放多Agent团队；基础Dot持续在线且不消耗计划内用量，但调用Codex任务仍计费，未来更高速度与带宽可能成为付费层。面向网络安全能力的个人用户从10月1日起需使用合资格硬件密钥。信息流同时传播Google DeepMind推出Gemini 4 Argon、面向可信测试者覆盖复杂工作流与网络安全防御。",
-        "whyItMatters": "竞争已从单次问答转向常驻执行、个性化学习、算力定价和敏感能力身份验证。真正的产品门槛是长期可靠性、权限边界与成本，而不只是模型基准。",
-        "facts": [
-          "Dots官方相关帖子称主Dot可全天运行，并计划在数日内部署至数百万规模。",
-          "主Dot直接工作不消耗原套餐用量，但其创建的Codex任务按通常方式计费。",
-          "更高速度和带宽计划作为未来付费能力，基础功能继续包含在套餐内。",
-          "Daybreak Blue个人用户使用网络安全前沿能力开始要求硬件密钥，企业用户不受该规则影响。",
-          "Gemini 4 Argon信息目前主要来自一条被转发的Google DeepMind帖子。"
-        ],
-        "interpretations": [
-          "平台在免费基础常驻Agent与付费并行算力之间建立新的商业模式。",
-          "硬件密钥要求显示敏感Agent能力正在从统一登录转向分级授权。",
-          "Gemini信号说明常驻工作流与网络安全正在成为大模型厂商共同竞争面。"
-        ],
-        "authors": [
-          "thsottiaux",
-          "GoogleDeepMind",
-          "ArtofSpecuycky"
-        ],
-        "sourceUrls": [
-          "https://x.com/thsottiaux/status/2105105086506840421",
-          "https://x.com/thsottiaux/status/2105102312167575701",
-          "https://x.com/thsottiaux/status/2105344469923221941",
-          "https://x.com/thsottiaux/status/2105395200248156556",
-          "https://x.com/GoogleDeepMind/status/2105388084154056939"
+          "https://x.com/qinbafrank/status/2105814572376703272",
+          "https://x.com/qinbafrank/status/2105822278592397596",
+          "https://x.com/PhyrexNi/status/2105622821397520505",
+          "https://x.com/PhyrexNi/status/2105549331160080696",
+          "https://x.com/PhyrexNi/status/2105558947268849899"
         ],
         "sourceCount": 5,
         "confidence": "high"
       },
       {
-        "title": "AI交易产品从研究辅助延伸到策略部署和自动执行",
+        "title": "NEAR Intents遭约380万美元攻击，漏洞修复与全额赔付进入执行验证",
         "importance": "high",
-        "summary": "Robinhood被多名作者解读为把OpenAI或Anthropic模型、周末与全天候交易、预测市场和自动执行整合进面向零售用户的平台；QSG则宣布MetisAI公测，允许用自然语言生成策略、回测、设定风险条件、部署执行与持续监控。另有作者尝试用AI搭建除息日套利模型，但承认完整实现仍困难。",
-        "whyItMatters": "Agentic Finance的边界正从信息整理进入真实交易执行。价值取决于回测可信度、风险门槛、资产权限与失败恢复，而不是能否从一句话生成策略。",
+        "summary": "NEAR Intents官方内容经多条信息流转述称，Omni存取款基础设施与Intents合约交互中的漏洞导致约380万美元损失；SHIELD检测到异常后暂停服务。项目方称漏洞已经修复、受影响用户将获全额赔付，服务计划在一小时内恢复。",
+        "whyItMatters": "事件影响的是NEAR Intents及其Omni交互层，而非NEAR L1共识本身。下一步关键不是口头赔付承诺，而是完整事故报告、实际恢复范围、赔付资金来源和后续审计。",
         "facts": [
-          "Robinhood相关帖子将AI Agent Trading与24/7交易、预测市场和更高交易活跃度联系起来。",
-          "MetisAI声称采用非托管模式，资产保留在用户自己的交易账户中。",
-          "一名作者称其AI除息套利模型在消耗大量Token后仍只完成初步版本。"
+          "官方内容被转述为损失约380万美元。",
+          "漏洞被描述为Omni存取款基础设施与NEAR Intents智能合约交互中的逻辑问题。",
+          "SHIELD检测到异常行为后，Intents服务被临时暂停。",
+          "项目方称漏洞已修复，并计划对受影响用户全额赔付。"
         ],
         "interpretations": [
-          "支持者认为AI可把零售券商升级为主动交易操作层并提高单用户价值。",
-          "谨慎观点认为自然语言到实盘之间仍隔着数据质量、过拟合、权限和风控问题。"
+          "快速检测、暂停和赔付有助于控制用户损失。",
+          "攻击同时说明AI检测层不能替代跨系统存取款接缝的合约与集成审计。"
+        ],
+        "authors": [
+          "NEARProtocol",
+          "TechFlowPost",
+          "bwenews",
+          "EleveResearch"
+        ],
+        "sourceUrls": [
+          "https://x.com/TechFlowPost/status/2105692575617491408",
+          "https://x.com/bwenews/status/2105647414132818090",
+          "https://x.com/EleveResearch/status/2105647893365604578"
+        ],
+        "sourceCount": 3,
+        "confidence": "high"
+      },
+      {
+        "title": "代币化股票与传统市场永续扩张，链上产品开始覆盖更广资产类别",
+        "importance": "high",
+        "summary": "Base称代币化股票24小时成交量创下1亿美元新高，仅向美国以外合资格地区开放；Variational称链上Swap累计成交量突破300亿美元、未平仓量超过4亿美元，并从同一USDC账户覆盖加密、股票、商品及OpenAI、Anthropic等盘前市场。trade.xyz则上线以纽约港超低硫柴油价格为参考的24/7杠杆产品。",
+        "whyItMatters": "链上交易正从加密永续延伸至股票、商品和盘前股权，但成交量、真实用户、市场深度、地区资格、价格来源和极端行情结算仍需分别验证。",
+        "facts": [
+          "Base官方账号称代币化股票24小时成交量达到1亿美元新高。",
+          "Base明确提示相关代币化股票仅在美国以外合资格地区提供。",
+          "Variational官方称Swap累计成交量超过300亿美元、未平仓量超过4亿美元。",
+          "Variational新增Bloom Energy、可口可乐和可可等永续或Swap市场。",
+          "trade.xyz上线以一加仑纽约港超低硫柴油美元价格为参考的10倍杠杆产品。"
+        ],
+        "interpretations": [
+          "多资产覆盖正在把链上市场推向统一保证金与全天候交易。",
+          "项目方公布的成交量属于采用信号，但不能单独证明自然需求、可持续深度或低风险退出。"
+        ],
+        "authors": [
+          "base",
+          "variational_io",
+          "tradexyz"
+        ],
+        "sourceUrls": [
+          "https://x.com/base/status/2105750827788881927",
+          "https://x.com/base/status/2105750830205071369",
+          "https://x.com/variational_io/status/2105772266848227421",
+          "https://x.com/variational_io/status/2105700701754315151",
+          "https://x.com/variational_io/status/2105677507043446984",
+          "https://x.com/tradexyz/status/2105472079214883310",
+          "https://x.com/tradexyz/status/2105472081991434565"
+        ],
+        "sourceCount": 7,
+        "confidence": "high"
+      },
+      {
+        "title": "Agent基础设施转向云端常驻、MCP部署与按次结算",
+        "importance": "high",
+        "summary": "Base宣布Cloudflare Monetization Gateway进入封闭测试，可让API按请求向Agent收费并用Base上的USDC结算；信息流同时出现用于私密API支付与AI推理的ZKAPI。OpenAI相关帖子则称Codex云环境可在关闭电脑后继续执行，并可直接在ChatGPT Sites构建、部署和限制访问MCP服务器。",
+        "whyItMatters": "Agent经济开始补齐持续运行、服务发现、权限控制和机器支付四个基础环节。实际价值将取决于生产使用量、失败恢复、访问控制与按次结算成本，而不是演示数量。",
+        "facts": [
+          "Cloudflare Monetization Gateway被Base称为支持API按请求向Agent收费，并以USDC在Base结算。",
+          "Cloudflare相关内容称已有四个生产用例参与封闭测试。",
+          "信息流转述ZKAPI面向私密API支付与AI推理。",
+          "Codex云环境被描述为可复用且在用户关闭电脑后继续运行。",
+          "ChatGPT Sites被描述为可托管MCP服务器并限制访问范围。"
+        ],
+        "interpretations": [
+          "Agent正在从聊天界面转向可持续调用外部服务的经济主体。",
+          "支付与部署能力成熟后，最难的问题仍是权限边界、服务可信度和异常费用控制。"
+        ],
+        "authors": [
+          "base",
+          "Cloudflare",
+          "bwenews",
+          "thsottiaux",
+          "OpenAIDevs"
+        ],
+        "sourceUrls": [
+          "https://x.com/base/status/2105592497661522003",
+          "https://x.com/base/status/2105592499741905311",
+          "https://x.com/bwenews/status/2105738739716964396",
+          "https://x.com/thsottiaux/status/2105666481564618937",
+          "https://x.com/thsottiaux/status/2105519215092584786"
+        ],
+        "sourceCount": 5,
+        "confidence": "high"
+      },
+      {
+        "title": "模型性能继续上行，但AI竞争焦点转向容量、成本与需求判断",
+        "importance": "high",
+        "summary": "信息流传播Gemini 4 Argon在复杂工作流、软件工程、知识工作和网络安全上的新能力；另一条OpenAI相关帖子称GPT-6.1 Sol需求极高、已扩充容量，速度预计改善。与此同时，重度用户反馈大量Token用于反复推倒重来，开发成果约九成未形成最终产出；开发者讨论也指出，AI既会放大伪需求，也能降低原本无法启动项目的试错成本。",
+        "whyItMatters": "模型基准提升已不再自动转化为生产价值。对个人工作流更重要的是任务选择、上下文复用、停止条件、成本归因和可验收产出。",
+        "facts": [
+          "Gemini 4 Argon的能力主张主要来自官方内容的转述和评测平台截图。",
+          "OpenAI相关帖子称GPT-6.1 Sol在API与订阅端需求很高，扩容后速度预计接近前一日的两倍。",
+          "Dots主实例当前被描述为近乎无限使用，团队尚需设计新的额度或重置机制。",
+          "一名重度用户称大量开发尝试被推倒重来，约九成投入未形成最终产出。"
+        ],
+        "interpretations": [
+          "支持者认为更低试错成本会提高少数真正有价值项目的成功概率。",
+          "反方强调AI不会自动判断需求是否正确，错误方向只会更快消耗Token与时间。"
         ],
         "authors": [
           "qinbafrank",
-          "ArtofSpecuycky",
-          "TechFlowPost",
+          "_FORAB",
+          "thsottiaux",
+          "PhyrexNi",
+          "brucexu_eth"
+        ],
+        "sourceUrls": [
+          "https://x.com/qinbafrank/status/2105530283973886316",
+          "https://x.com/_FORAB/status/2105509208104026613",
+          "https://x.com/thsottiaux/status/2105464274747527543",
+          "https://x.com/thsottiaux/status/2105672058269212820",
+          "https://x.com/PhyrexNi/status/2105706810812596517",
+          "https://x.com/brucexu_eth/status/2105466229469360493"
+        ],
+        "sourceCount": 6,
+        "confidence": "medium"
+      },
+      {
+        "title": "ESMA提出MiCA修订方向，监管可能进一步覆盖稳定币、DeFi与推广",
+        "importance": "high",
+        "summary": "一名作者整理称，ESMA在9月30日提交MiCA修订建议，涉及不合规稳定币服务、DeFi是否真正去中心化、前端或平台的尽调责任、质押与借贷、平台收费以及KOL推广。当前仍是建议阶段，尚需后续立法程序。",
+        "whyItMatters": "若建议进入法律文本，影响将不只限于代币上市，还会进入托管、转账、协议入口、借贷、质押和营销披露等运营环节。",
+        "facts": [
+          "转述称持牌平台可能被限制为不符合MiCA要求的稳定币提供交易、托管或转账服务。",
+          "建议试图区分完全去中心化协议与仍由主体管理或提供前端入口的服务。",
+          "平台若替用户选择或接入DeFi协议，可能需要解释风险与利益关系。",
+          "相关内容目前是监管建议而非已经生效的最终法律。"
+        ],
+        "interpretations": [
+          "监管正在从资产分类转向平台责任和市场管道。",
+          "由于packet未包含ESMA原文全文，具体适用范围与过渡安排仍需核对正式材料。"
+        ],
+        "authors": [
           "PhyrexNi"
         ],
         "sourceUrls": [
-          "https://x.com/qinbafrank/status/2105211411286905302",
-          "https://x.com/ArtofSpecuycky/status/2105118445478302106",
-          "https://x.com/TechFlowPost/status/2105145769992876065",
-          "https://x.com/PhyrexNi/status/2105247802603491645"
+          "https://x.com/PhyrexNi/status/2105577156428374325"
         ],
-        "sourceCount": 4,
+        "sourceCount": 1,
         "confidence": "medium"
       },
       {
-        "title": "Base Cobalt升级上线，主网能力与稳定币流动性同步扩展",
-        "importance": "high",
-        "summary": "Base官方宣布2026年第三次网络升级Cobalt已在主网上线，包含Validity Transactions和B20增强；同一信息流还宣布OUSD在Base上线并具备流动性。Base另强调自己只提供中立协议基础设施，B20代币由各发行方部署和管理。",
-        "whyItMatters": "Base正在同时扩展交易有效性、代币标准和稳定币资产供给，但官方免责声明也把发行与资产风险明确留给应用和发行方。",
+        "title": "Arcus积分上线，固定周池与未知总量同时放大早期参与的不确定性",
+        "importance": "medium",
+        "summary": "社区信息称Arcus积分每周三更新，现货与合约交易均计分，且强调交易质量而非单纯交易量；每周积分总量固定，但S0发放总量、全部积分规模和活动结束时间尚未公布。另一条帖子显示，小额交易账号已排到约5961名，实际交易者可能明显少于社交热度。",
+        "whyItMatters": "固定周积分池会让参与人数直接影响单位成本，但未知总量与结束日期使积分估值缺乏分母。对交易型撸毛，应先限定手续费、滑点和资金风险，而不是因为白名单与热度追量。",
         "facts": [
-          "Cobalt被Base称为2026年第三次网络升级。",
-          "Validity Transactions与B20增强已上线主网。",
-          "OUSD官方帖子称已在Base上线并具备流动性。",
-          "Base声明不控制使用协议的个人、应用或资产。"
+          "社区帖子称积分每周三更新，现货与合约交易均可获得积分。",
+          "积分规则被描述为更关注交易质量，而非只看交易量。",
+          "每周积分总数被称固定不变。",
+          "S0积分总量、总积分规模和活动截止时间仍未公布。",
+          "一名用户称其小号交易22美元后排名约5961。"
         ],
         "interpretations": [
-          "协议升级可为更复杂的资产发行与交易路径铺路。",
-          "B20增强不等于Base为相关代币背书，发行人控制和资产风险仍需单独评估。"
+          "持续参与者可能在热度下降时以更低成本分配固定周积分。",
+          "未知总量、活动周期和分配公式也可能让早期交易成本无法兑现。"
         ],
         "authors": [
-          "base"
-        ],
-        "sourceUrls": [
-          "https://x.com/base/status/2105380890310492415",
-          "https://x.com/base/status/2105380908429984070",
-          "https://x.com/base/status/2105366796265984442"
-        ],
-        "sourceCount": 3,
-        "confidence": "high"
-      },
-      {
-        "title": "代币化股票持有人增长，但盘前资产与永续合约不能机械套利",
-        "importance": "high",
-        "summary": "xStocks转发的数据称其持有人在24小时内增加约5.07万，明显高于PreStocks和Backpack；另一条项目宣传称发行方连续一年实现月度增长。与此同时，0xStudy拆解pPOLY与不同平台POLY永续价差：pPOLY是经SPV取得私募股权形成的间接经济敞口，永续价格则由各自市场、资金费率、流动性和结算规则决定，两者没有必然收敛或互换承诺。",
-        "whyItMatters": "代币化传统资产的采用正在增长，但产品名称相近不代表同一资产。退出安排、SPV履约、锁定期、交割规则与流动性决定真实风险。",
-        "facts": [
-          "xStocks传播的Token Terminal口径称其24小时持有人增加约5.07万。",
-          "pPOLY按作者整理约对应0.1股间接经济敞口，取得成本约15.50美元。",
-          "pPOLY与不同平台永续合约不承诺同价、互换或交割同一资产。",
-          "作者称预计锁定期后才可能开放按固定比例转换为代币化上市股票的窗口，仍以最终条款为准。"
-        ],
-        "interpretations": [
-          "持有人快速增长是分发信号，但Retweet本身不是独立采用验证。",
-          "表面价差可能被资金费率、手续费、滑点、保证金和长期退出不确定性吞噬。"
-        ],
-        "authors": [
-          "xStocksFi",
-          "RWAFoundation_",
-          "0xStudy"
-        ],
-        "sourceUrls": [
-          "https://x.com/xStocksFi/status/2105287711506788489",
-          "https://x.com/xStocksFi/status/2105289998149009899",
-          "https://x.com/0xStudy/status/2105288390497493097"
-        ],
-        "sourceCount": 3,
-        "confidence": "medium"
-      },
-      {
-        "title": "币安将USDT接入日本PayPay商户扫码，稳定币进入线下零售结算",
-        "importance": "high",
-        "summary": "一名在日本的作者展示，币安App已可使用USDT扫描PayPay商户码，也可展示个人PayPay付款码供便利店扫码；其称结算在币安与PayPay体系内完成，无需等待链上确认，并按实时稳定币兑日元汇率执行。",
-        "whyItMatters": "这比单纯链上支付更接近日常消费入口，关键价值是借用既有商户网络和熟悉的扫码体验；但费用、汇率、地区资格、限额和持续性仍需官方规则验证。",
-        "facts": [
-          "作者称在日本餐饮店从扫码到支付完成约15秒。",
-          "711、罗森等支持PayPay付款码的场景被作者列为可用案例。",
-          "作者称流程不等待链上确认，并提到币安日本与PayPay的股权关系。"
-        ],
-        "interpretations": [
-          "稳定币采用可能优先通过交易所与本地支付网络的后台结算扩张，而非要求商户直接处理链上资产。",
-          "当前证据主要是单一用户实测和转述，不能据此推断已覆盖全部日本用户与商户。"
-        ],
-        "authors": [
-          "_FORAB"
-        ],
-        "sourceUrls": [
-          "https://x.com/_FORAB/status/2105128084127285523",
-          "https://x.com/_FORAB/status/2105184758494052751"
-        ],
-        "sourceCount": 2,
-        "confidence": "medium"
-      },
-      {
-        "title": "MetaMask验证者安全事件与代币预期同时出现，但钱包影响被官方转述否认",
-        "importance": "high",
-        "summary": "BWE转述MetaMask博客称，团队正在处理安全事件、钱包本身没有受到威胁，并正退出受影响的验证者。另有社区帖子转述ConsenSys首席执行官称仍在评估MetaMask原生代币路径，但没有立即推出MASK的计划。",
-        "whyItMatters": "安全事件需要区分钱包客户端与验证者基础设施，避免把影响范围扩大成未经证实的钱包失陷；代币预期也不应掩盖事故披露和退出进度。",
-        "facts": [
-          "转述称MetaMask钱包未受威胁。",
-          "转述称MetaMask正在退出受影响的验证者。",
-          "ConsenSys高管相关帖子称MetaMask仍在评估原生代币路径，但没有立即发布计划。"
-        ],
-        "interpretations": [
-          "验证者事件的真实损失、根因和完成退出时间仍需正式事故报告。",
-          "短期MASK预期缺少明确时间表，不构成立即可执行的TGE信号。"
-        ],
-        "authors": [
-          "bwenews",
           "Benjieming1Q84"
         ],
         "sourceUrls": [
-          "https://x.com/bwenews/status/2105442841464111311",
-          "https://x.com/Benjieming1Q84/status/2105228948192026995"
+          "https://x.com/Benjieming1Q84/status/2105501822689669263",
+          "https://x.com/Benjieming1Q84/status/2105596963450393008",
+          "https://x.com/Benjieming1Q84/status/2105524538264158506",
+          "https://x.com/Benjieming1Q84/status/2105479685673284003"
         ],
-        "sourceCount": 2,
+        "sourceCount": 4,
         "confidence": "medium"
-      },
-      {
-        "title": "Fables规则恶化与Concrete低流动性强化“小项目按净回报退出”逻辑",
-        "importance": "medium",
-        "summary": "Fables新版规则被整理为TGE推迟、积分总量从10亿增至15亿、TGE当日可由积分领取的流通代币从6000万降至4500万，社区额度也被转述下调；Concrete上线前后则出现盘前与链上价格显著分离、狙击账户亏损和项目方频繁调整流动性区间的讨论。",
-        "whyItMatters": "参与成本不只是手续费，还包括积分稀释、延期、锁仓、池子深度和规则变更风险。对于用户当前的打新与撸毛策略，最有价值的信号是项目是否持续削弱既有参与者权益。",
-        "facts": [
-          "Fables的TGE与积分结束日期均被转述后移约半个月。",
-          "Fables积分总量增至原来的1.5倍，而TGE当日可领取流通代币减少。",
-          "Concrete相关帖子称盘前估值与链上初始价格差距较大，池子区间被多次修改。",
-          "一名作者称Concrete币安存款活动约3000 USDT参与数日后只收到约3 USDT代币。"
-        ],
-        "interpretations": [
-          "延期本身不是问题，但延期同时伴随积分膨胀和首日流通减少，会明显降低老参与者单位积分价值。",
-          "低流动性既可能形成错杀，也可能让交易者无法按预期价格退出。"
-        ],
-        "authors": [
-          "Benjieming1Q84",
-          "0xStudy",
-          "aLiiDeez",
-          "EleveResearch",
-          "marktowin8"
-        ],
-        "sourceUrls": [
-          "https://x.com/Benjieming1Q84/status/2105307165116535227",
-          "https://x.com/0xStudy/status/2105359291209412788",
-          "https://x.com/aLiiDeez/status/2105212548002037760",
-          "https://x.com/EleveResearch/status/2105212412777615823",
-          "https://x.com/marktowin8/status/2105231372000669726"
-        ],
-        "sourceCount": 5,
-        "confidence": "medium"
-      },
-      {
-        "title": "NEAR现货ETF打开传统账户通道，但市场开始讨论利好兑现",
-        "importance": "medium",
-        "summary": "TechFlowPost称Bitwise在纽交所Arca推出美国首只NEAR现货ETF NRR，结构包含现货持仓与质押；文章同时指出，NEAR此前已大幅上涨，ETF通道不等于机构资金已入场，且基金费率、质押收益分成、通胀和Intents交易持续性都会影响真实价值。",
-        "whyItMatters": "这是通道建设与实际资金流之间的典型差别。需要等待净申购、持仓变化和Intents收入，而不是仅凭ETF挂牌或AI结算层叙事追价。",
-        "facts": [
-          "帖子称NRR管理费为0.75%，底层代币计划参与质押。",
-          "帖子称Bitwise抽取33%的质押收益覆盖节点和托管成本，其余67%计入ETF净值。",
-          "作者称NEAR Intents历史累计交易量超过320亿美元，并将NEAR定位为AI代理结算层。",
-          "作者估算当前协议收入仍不足以覆盖2.5%通胀带来的新增发行压力。"
-        ],
-        "interpretations": [
-          "短期观点认为此前涨幅已透支ETF预期，存在Sell the News风险。",
-          "中长期观点认为Intents与AI代理结算仍可能支撑老币叙事重估。"
-        ],
-        "authors": [
-          "TechFlowPost"
-        ],
-        "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2105143513931550789"
-        ],
-        "sourceCount": 1,
-        "confidence": "low"
       }
     ],
     "watchlist": [
       {
-        "signal": "10年期美债在5.3%上方能否回落，以及10月加息概率",
-        "reason": "检验PCE修订和威廉姆斯讲话带来的宽松重定价能否持续。",
-        "authors": [
-          "PhyrexNi",
-          "qinbafrank"
-        ],
-        "sourceUrls": [
-          "https://x.com/PhyrexNi/status/2105355578675757349",
-          "https://x.com/PhyrexNi/status/2105281708195258771"
-        ]
-      },
-      {
-        "signal": "美伊提案内容与霍尔木兹实际通航",
-        "reason": "谈判僵持会通过油价和通胀重新影响长债与风险资产。",
+        "signal": "非农、后续CPI与10年期美债能否稳定在5.3%附近",
+        "reason": "决定10月暂停预期能否延续，以及12月再加息概率。",
         "authors": [
           "qinbafrank",
           "PhyrexNi"
         ],
         "sourceUrls": [
-          "https://x.com/qinbafrank/status/2105169431827771632",
-          "https://x.com/PhyrexNi/status/2105220583336427882"
+          "https://x.com/qinbafrank/status/2105814572376703272",
+          "https://x.com/PhyrexNi/status/2105549331160080696"
         ]
       },
       {
-        "signal": "Dots数百万实例的可靠性、成本与硬件密钥执行",
-        "reason": "规模化运行和分级授权将决定常驻Agent能否安全进入日常工作。",
+        "signal": "海湾原油实际到货、库存、保险费和运输成本",
+        "reason": "出口恢复只有转化为油价回落，才会真正减轻通胀与长债压力。",
         "authors": [
-          "thsottiaux"
+          "PhyrexNi"
         ],
         "sourceUrls": [
-          "https://x.com/thsottiaux/status/2105105086506840421",
-          "https://x.com/thsottiaux/status/2105344469923221941"
+          "https://x.com/PhyrexNi/status/2105622821397520505"
         ]
       },
       {
-        "signal": "MetaMask受影响验证者的退出完成度与事故报告",
-        "reason": "目前只有影响范围声明，根因、损失和恢复状态仍缺完整材料。",
+        "signal": "NEAR Intents服务恢复、完整事故报告与赔付到账",
+        "reason": "验证修复和全额赔付承诺是否完成。",
         "authors": [
+          "TechFlowPost",
           "bwenews"
         ],
         "sourceUrls": [
-          "https://x.com/bwenews/status/2105442841464111311"
+          "https://x.com/TechFlowPost/status/2105692575617491408",
+          "https://x.com/bwenews/status/2105647414132818090"
         ]
       },
       {
-        "signal": "Base Cobalt升级后的Validity Transactions和B20实际采用",
-        "reason": "主网上线之后的交易量、应用接入和故障率比发布本身更关键。",
+        "signal": "代币化股票1亿美元日成交量能否持续",
+        "reason": "需区分一次性活动量与稳定的用户、深度和跨市场结算需求。",
         "authors": [
           "base"
         ],
         "sourceUrls": [
-          "https://x.com/base/status/2105380890310492415"
+          "https://x.com/base/status/2105750827788881927"
         ]
       },
       {
-        "signal": "币安PayPay支付的地区资格、费用、汇率和限额",
-        "reason": "决定单一用户实测能否转化为可规模化的稳定币零售入口。",
+        "signal": "Cloudflare Monetization Gateway的生产用量与收费模型",
+        "reason": "检验Agent按次调用和USDC结算是否形成真实市场。",
         "authors": [
-          "_FORAB"
+          "base",
+          "Cloudflare"
         ],
         "sourceUrls": [
-          "https://x.com/_FORAB/status/2105128084127285523"
+          "https://x.com/base/status/2105592497661522003",
+          "https://x.com/base/status/2105592499741905311"
         ]
       },
       {
-        "signal": "Fables最终锁仓与社区分配，Concrete池深和结算",
-        "reason": "验证规则稀释与低流动性是否继续侵蚀参与者净回报。",
+        "signal": "ESMA MiCA修订的原文、立法进度与过渡期",
+        "reason": "当前只是二手整理的建议，尚不能直接当作已生效规则。",
         "authors": [
-          "Benjieming1Q84",
-          "aLiiDeez"
+          "PhyrexNi"
         ],
         "sourceUrls": [
-          "https://x.com/Benjieming1Q84/status/2105307165116535227",
-          "https://x.com/aLiiDeez/status/2105212548002037760"
+          "https://x.com/PhyrexNi/status/2105577156428374325"
         ]
       },
       {
-        "signal": "NRR净申购、NEAR持仓与Intents收入",
-        "reason": "区分ETF通道、AI结算叙事与真实新增买盘。",
+        "signal": "Arcus公布S0总量、积分上限与结束时间",
+        "reason": "缺少这些分母就无法可靠估算积分单位价值。",
+        "authors": [
+          "Benjieming1Q84"
+        ],
+        "sourceUrls": [
+          "https://x.com/Benjieming1Q84/status/2105596963450393008"
+        ]
+      },
+      {
+        "signal": "Blockstream与Liquid事件的正式说明和资金核验",
+        "reason": "信息流出现严重指控，但目前packet只有单一媒体转述，不宜写成已证实事实。",
         "authors": [
           "TechFlowPost"
         ],
         "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2105143513931550789"
+          "https://x.com/TechFlowPost/status/2105554305428107775"
         ]
       }
     ],
     "disagreements": [
       {
-        "topic": "PCE低于预期是否代表通胀真正改善？",
+        "topic": "5.3%左右的10年期美债收益率是阶段顶部还是新常态？",
         "positions": [
-          "低于旧预期并配合威廉姆斯讲话，足以降低10月加息紧迫性。",
-          "主要变化来自统计方法和历史修订，可比口径月率仍回升，不能视为基本面突然转好。"
+          "债券ETF巨额流入、TLT放量与技术背离意味着收益率可能见顶回落。",
+          "通胀、强消费、财政赤字和AI融资需求意味着高收益率可能长期维持。"
         ],
         "sourceUrls": [
-          "https://x.com/PhyrexNi/status/2105276505983254903",
-          "https://x.com/qinbafrank/status/2105282663703806246"
+          "https://x.com/qinbafrank/status/2105822278592397596",
+          "https://x.com/ArtofSpecuycky/status/2105552275062358175",
+          "https://x.com/PhyrexNi/status/2105549331160080696"
         ]
       },
       {
-        "topic": "AI常驻Agent的护城河来自模型还是运行系统？",
+        "topic": "AI降低试错成本是在提高成功率，还是放大伪需求？",
         "positions": [
-          "数百万常驻实例、应用连接和套餐分发将强化平台原生优势。",
-          "真正差异仍在权限、可靠性、自定义和数据主权，规模并不能自动解决这些问题。"
+          "更多低成本尝试会增加反馈与迭代，从而提高少数项目的成功概率。",
+          "AI无法替代需求判断，错误方向只会更快消耗Token和时间。"
         ],
         "sourceUrls": [
-          "https://x.com/thsottiaux/status/2105105086506840421",
-          "https://x.com/brucexu_eth/status/2105125525425656098"
+          "https://x.com/brucexu_eth/status/2105466229469360493",
+          "https://x.com/PhyrexNi/status/2105706810812596517"
         ]
       },
       {
-        "topic": "盘前股权代币与永续合约价差能否套利？",
+        "topic": "链上传统资产成交量代表真实采用，还是激励与推广造成的表面繁荣？",
         "positions": [
-          "不同平台报价收敛可能带来交易机会。",
-          "底层资产、交割、锁定和结算规则不同，价差并非已经锁定的利润。"
+          "代币化股票日成交创新高、Swap累计量与多资产上线说明需求扩展。",
+          "项目方口径不能单独证明自然用户、持续深度和可靠退出。"
         ],
         "sourceUrls": [
-          "https://x.com/0xStudy/status/2105288390497493097"
+          "https://x.com/base/status/2105750827788881927",
+          "https://x.com/variational_io/status/2105772266848227421",
+          "https://x.com/spark888/status/2105638064085520805"
         ]
       },
       {
-        "topic": "Fables与Concrete的低价或低流动性是机会还是结构性风险？",
+        "topic": "Arcus固定周积分是否值得尽早持续参与？",
         "positions": [
-          "低流动性和抛售可能制造被错杀的买点。",
-          "延期、稀释、规则调整和浅池可能让参与者无法按理论价格兑现。"
+          "固定周池让热度下降后的持续参与者可能获得更低积分成本。",
+          "总量、期限和分配公式未知，早期手续费与滑点可能无法回收。"
         ],
         "sourceUrls": [
-          "https://x.com/EleveResearch/status/2105212412777615823",
-          "https://x.com/0xStudy/status/2105359291209412788"
+          "https://x.com/Benjieming1Q84/status/2105596963450393008",
+          "https://x.com/Benjieming1Q84/status/2105524538264158506"
         ]
       },
       {
-        "topic": "NEAR ETF是新增需求还是利好兑现？",
+        "topic": "协议安全应优先冻结风险交易，还是坚持抗审查与自托管？",
         "positions": [
-          "ETF与AI代理结算层叙事为NEAR打开新的传统资金入口。",
-          "此前涨幅、基金费用和收入不足覆盖通胀，使短期更像Sell the News。"
+          "NEAR Intents暂停和风险检测有助于限制攻击损失并保护用户。",
+          "Solv BTC+个案引发的批评认为，托管式风险审查削弱了抗审查和自托管价值。"
         ],
         "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2105143513931550789"
+          "https://x.com/TechFlowPost/status/2105692575617491408",
+          "https://x.com/brucexu_eth/status/2105468819296936041"
         ]
       }
     ],
     "noiseSummary": [
-      "美光财报点位预测、BTC短线喊单和黄金减仓未作为研究结论。",
-      "单纯节日问候、活动报名、赠品和生活方式内容未纳入主线。",
-      "重复的PCE前瞻与事后复盘已合并，保留口径变化和分歧。",
-      "Retweet只作为传播信号，不计为独立事实确认。",
-      "缺少文字上下文的图片、视频和裸链接未作额外推断。",
-      "白名单查询、Alpha交易赛和短周期拉新仅保留为低优先级执行信息。",
-      "关于.SI域名、内幕注册与相关Meme开发者的指控证据不足，未写成确定事实。",
-      "个别项目软跑路、账号限流和平台投诉未获多源支持，未扩写为主题。"
+      "节日问候、线下活动、抽奖和生活方式内容未纳入主线。",
+      "短线喊单、单币技术图和未验证的盘前点位预测未作为研究结论。",
+      "同一宏观观点的多次Quote Post已合并，未重复计为独立来源。",
+      "Retweet仅作为传播信号，不视为事实确认。",
+      "项目上线公告中的免责声明、地区限制和价格来源已与推广口径分开。",
+      "Arcus邀请码、返佣与社群链接未作为价值判断依据。",
+      "缺少文字上下文的图片、裸链接和验证码未作推断。",
+      "Blockstream、军工采购等单一二手调查只列入观察，不写成已证实结论。"
     ]
   }
 }
