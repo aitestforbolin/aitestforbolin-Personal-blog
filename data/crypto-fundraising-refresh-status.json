@@ -1,49 +1,45 @@
 {
   "schemaVersion": 2,
   "automation": "web3-daily-triage",
-  "runId": "web3-daily-triage:luna-web3-20261002-005953Z",
-  "requestId": "luna-web3-20261002-005953Z",
-  "result": "unchanged",
+  "runId": "web3-daily-triage:luna-web3-20261003-010145Z",
+  "requestId": "luna-web3-20261003-010145Z",
+  "result": "in_progress",
   "lineage": {
     "triggerType": "push",
-    "triggerSha": "e60670461acd3fbb2e1a963487f06865f807d3ba",
-    "githubRunId": 36948772592,
+    "triggerSha": "06da1feadb9898a461e038508e94d03b5386d878",
+    "githubRunId": 37084495840,
     "githubRunAttempt": 1
   },
   "timestamps": {
-    "scheduledAt": "2026-10-02T01:00:00Z",
-    "startedAt": "2026-10-02T01:00:02.649590+00:00",
-    "sourceCheckedAt": "2026-10-02T01:00:04.485066+00:00",
-    "sourceUpdatedAt": "2026-10-01T01:01:34+00:00",
-    "completedAt": "2026-10-02T01:00:04.485372+00:00",
-    "publishedAt": "2026-10-02T09:00:25+08:00"
+    "scheduledAt": "2026-10-03T01:00:00Z",
+    "startedAt": "2026-10-03T01:02:04.086004+00:00",
+    "sourceCheckedAt": "2026-10-03T01:02:05.831232+00:00",
+    "sourceUpdatedAt": "2026-10-03T01:02:05+00:00",
+    "completedAt": "2026-10-03T01:02:05.831567+00:00",
+    "publishedAt": null
   },
   "legacyRequestedAt": null,
   "stages": {
     "collection": {
-      "status": "unchanged",
-      "completedAt": "2026-10-02T01:00:04.485372+00:00",
+      "status": "success",
+      "completedAt": "2026-10-03T01:02:05.831567+00:00",
       "details": {
-        "feedChanged": false,
-        "historyChanged": false,
+        "feedChanged": true,
+        "historyChanged": true,
         "projectCount": 5,
-        "eventCount": 29,
+        "eventCount": 34,
         "coverage": "observed snapshots of the five-item homepage feed; not a complete source-wide archive"
       }
     },
     "validation": {
       "status": "success",
-      "completedAt": "2026-10-02T01:00:04.485372+00:00"
+      "completedAt": "2026-10-03T01:02:05.831567+00:00"
     },
     "publication": {
-      "status": "success",
-      "commitSha": "adec4fc5932efa99ebc03434df1b0684d9357ce1"
+      "status": "not_run"
     },
     "notification": {
-      "status": "success",
-      "completedAt": "2026-10-02T01:02:39Z",
-      "provider": "Gmail",
-      "messageId": "1a0fa2271194d212"
+      "status": "not_run"
     }
   }
 }
