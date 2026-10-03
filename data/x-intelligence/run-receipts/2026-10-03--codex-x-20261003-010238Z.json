@@ -3,7 +3,7 @@
   "automation": "x-intelligence",
   "runId": "x-intelligence:codex-x-20261003-010238Z",
   "requestId": "codex-x-20261003-010238Z",
-  "result": "in_progress",
+  "result": "success",
   "lineage": {
     "triggerType": "push",
     "triggerSha": "f172d1f6d7c6d379318bb52ee9620e6836e38ec8",
@@ -39,7 +39,10 @@
       "commitSha": "253570c8e5e1311d6e252b16ebee45f5d87ddcab"
     },
     "notification": {
-      "status": "not_run"
+      "status": "success",
+      "provider": "Gmail",
+      "messageId": "1a0ff4d8a076de18",
+      "completedAt": "2026-10-03T01:08:07.701Z"
     }
   }
 }
