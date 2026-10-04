@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "luna-web3-20261003-010145Z",
-  "triggerSha": "06da1feadb9898a461e038508e94d03b5386d878",
-  "publicationDate": "2026-10-03",
-  "publishedAt": "2026-10-03T09:05:29+08:00",
+  "requestId": "luna-web3-20261004-005905Z",
+  "triggerSha": "f97185ed0ee3adf24b0bd978f8b4d2595992e12e",
+  "publicationDate": "2026-10-04",
+  "publishedAt": "2026-10-04T08:59:48+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-10-03",
-    "publishedAt": "2026-10-03T09:05:29+08:00",
-    "windowStart": "2026-10-02T01:00:04.485372+00:00",
-    "windowEnd": "2026-10-03T01:02:05.831567+00:00",
+    "runDate": "2026-10-04",
+    "publishedAt": "2026-10-04T08:59:48+08:00",
+    "windowStart": "2026-10-03T01:02:05.831567+00:00",
+    "windowEnd": "2026-10-04T00:59:26.685260+00:00",
     "sourceUpdatedAt": "2026-10-03T01:02:05+00:00",
-    "status": "success",
+    "status": "unchanged",
     "executionLineage": {
-      "runId": "web3-daily-triage:luna-web3-20261003-010145Z",
-      "requestId": "luna-web3-20261003-010145Z",
-      "triggerSha": "06da1feadb9898a461e038508e94d03b5386d878",
-      "githubRunId": 37084495840,
-      "scheduledAt": "2026-10-03T01:00:00Z",
-      "startedAt": "2026-10-03T01:02:04.086004+00:00",
-      "sourceCheckedAt": "2026-10-03T01:02:05.831232+00:00",
+      "runId": "web3-daily-triage:luna-web3-20261004-005905Z",
+      "requestId": "luna-web3-20261004-005905Z",
+      "triggerSha": "f97185ed0ee3adf24b0bd978f8b4d2595992e12e",
+      "githubRunId": 37166615675,
+      "scheduledAt": "2026-10-04T01:00:00Z",
+      "startedAt": "2026-10-04T00:59:24.281807+00:00",
+      "sourceCheckedAt": "2026-10-04T00:59:26.684934+00:00",
       "sourceUpdatedAt": "2026-10-03T01:02:05+00:00",
-      "completedAt": "2026-10-03T01:02:05.831567+00:00",
-      "publishedAt": "2026-10-03T09:05:29+08:00"
+      "completedAt": "2026-10-04T00:59:26.685260+00:00",
+      "publishedAt": "2026-10-04T08:59:48+08:00"
     },
     "executionStatus": {
-      "collection": "success",
+      "collection": "unchanged",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "以 2026-10-02 已验证发布的 windowEnd 为 windowStart，以本次匹配 schemaVersion 2 receipt.timestamps.completedAt 为 windowEnd，并沿用累计 reportedEventIds 去重。窗口内新观测 5 个非 M&A 项目并完成初筛。历史仅是来源首页最近五条的累计观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "候选窗口从 2026-10-03 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；累计 reportedEventIds 保持不变。本次采集为 unchanged，历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -62,329 +62,11 @@
       "crypto-fundraising-rip-cars--2026-09--private"
     ],
     "counts": {
-      "new": 5,
-      "action": 1,
-      "watch": 1,
-      "stop": 3
+      "new": 0,
+      "action": 0,
+      "watch": 0,
+      "stop": 0
     },
-    "projects": [
-      {
-        "event_id": "crypto-fundraising-jumper--2026-10--public-sale",
-        "source_detail_url": "https://crypto-fundraising.info/projects/jumper/",
-        "project_name": "Jumper",
-        "decision": "ACTION",
-        "financing": {
-          "amount_usd": 3000000,
-          "round": "Public sale",
-          "lead_investors": [],
-          "announcement_date": null,
-          "confidence": "high"
-        },
-        "plain_explanation": "Jumper 是 LI.FI 支持的多链资产入口，把跨链、兑换和收益产品集中在一个界面中，适合需要在不同链之间移动小额资产的普通用户。",
-        "mechanism_simple": "用户选择起点链、目标链和资产后，Jumper 会比较多个桥和交易渠道并给出一条可执行路线；资金仍由用户钱包签名控制。",
-        "project_status": {
-          "category": "existing_no_token",
-          "token_status": "token_announced",
-          "note": "产品已长期运行，JUMP 公售已于 2026-10-02 13:00 UTC 结束；TGE 日期尚未公布，尚未确认原生代币可交易。"
-        },
-        "participation": {
-          "available_now": true,
-          "what_user_can_do": "使用低余额钱包完成一笔小额跨链或兑换，验证报价、费用、到账速度与体验；也可查看 Jumper Pass、XP 和当前任务。",
-          "requires_real_funds": true,
-          "friction_or_risk": "跨链需承担 Gas、桥接和智能合约风险；公售已经结束，不应追逐非官方认购或领取链接。"
-        },
-        "incentives": {
-          "status": "confirmed",
-          "types": [
-            "points",
-            "campaign",
-            "token",
-            "other"
-          ],
-          "details": "官方产品长期提供 Jumper Pass、XP、任务与合作方权益；JUMP 已公布但 TGE 未定，公售窗口已结束。"
-        },
-        "why": [
-          "跨链聚合解决真实且高频的多链资产移动问题，对已有多链钱包的用户具有直接工具价值。",
-          "可用很小金额完成端到端验证，验证成本可控。",
-          "JUMP 公售已经结束，当前 ACTION 仅指产品试用，不代表追买代币或追加投资。"
-        ],
-        "next_step": "使用专门的低余额钱包，以约 5–10 USDC 做一次低费用链间转移，记录总费用、耗时和实际到账数量；不要通过私信链接参与任何 JUMP 认购或领取。",
-        "recheck_trigger": null,
-        "website_url": "https://jumper.xyz/",
-        "x_url": "https://x.com/jumperapp",
-        "evidence": [
-          {
-            "claim": "Jumper 官方资料显示其提供跨链、兑换、收益等产品，并持续运行 XP、任务和用户权益。",
-            "url": "https://jumper.xyz/learn/jumper-monthly-update-february-2026",
-            "source_type": "official_blog",
-            "confidence": "high"
-          },
-          {
-            "claim": "Legion 公售说明确认 JUMP 公售上限为 300 万美元、2026-10-02 13:00 UTC 结束，TGE 尚未公布。",
-            "url": "https://help.legion.cc/en/articles/17139928-jumper-jump-public-sale-on-legion-everything-you-need-to-know",
-            "source_type": "other",
-            "confidence": "high"
-          },
-          {
-            "claim": "融资数据库记录本次 300 万美元 Public sale 事件并给出项目官方链接。",
-            "url": "https://crypto-fundraising.info/projects/jumper/",
-            "source_type": "database",
-            "confidence": "medium"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-uorm--2026-10--pre-seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/uorm/",
-        "project_name": "Uorm",
-        "decision": "STOP",
-        "financing": {
-          "amount_usd": 7500000,
-          "round": "Pre-seed",
-          "lead_investors": [
-            "Marqel Capital"
-          ],
-          "announcement_date": null,
-          "confidence": "medium"
-        },
-        "plain_explanation": "Uorm 是一款把签到、邀请、小游戏和“虚拟挖矿”包装成成长体系的社交奖励应用。",
-        "mechanism_simple": "用户通过每日任务、幸运盒子、邀请和在线活动累积 UORM Points 与 XP；现有资料明确这些行为不是真实加密挖矿，积分目前不能提取或兑换。",
-        "project_status": {
-          "category": "new_live_no_token",
-          "token_status": "token_announced",
-          "note": "官方账号使用 $UORM 名称并宣传融资，但未找到可验证的 TGE、链上合约或可交易代币；应用积分目前无货币价值。"
-        },
-        "participation": {
-          "available_now": true,
-          "what_user_can_do": "下载应用、签到、完成任务、打开幸运盒子并邀请用户累积积分。",
-          "requires_real_funds": false,
-          "friction_or_risk": "主要成本是时间、隐私和邀请关系；奖励兑现路径、融资细节和代币安排缺少可独立核验的官方文件。"
-        },
-        "incentives": {
-          "status": "unconfirmed",
-          "types": [
-            "points",
-            "token"
-          ],
-          "details": "积分与 XP 机制可见，但其未来是否转换为代币、分配比例和 TGE 均未由可核验的官方规则确认。"
-        },
-        "why": [
-          "当前核心体验是签到、邀请和虚拟挖矿，未体现独立的真实用户需求。",
-          "积分不可提现且没有清晰的官方兑换或代币分配规则。",
-          "融资信息主要来自数据库与项目自身账号，尚缺少投资方或正式公告交叉确认。"
-        ],
-        "next_step": null,
-        "recheck_trigger": null,
-        "website_url": "https://uorm.app/",
-        "x_url": "https://x.com/uormapp",
-        "evidence": [
-          {
-            "claim": "项目官方 X 账号宣称完成 750 万美元 pre-seed 融资。",
-            "url": "https://x.com/uormapp/status/2105918483079090462",
-            "source_type": "official_x",
-            "confidence": "medium"
-          },
-          {
-            "claim": "融资数据库描述其虚拟挖矿、任务、积分和 XP 机制，并指出积分目前无货币价值或提现功能。",
-            "url": "https://crypto-fundraising.info/projects/uorm/",
-            "source_type": "database",
-            "confidence": "medium"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-walapay--2026-10--seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/walapay/",
-        "project_name": "Walapay",
-        "decision": "STOP",
-        "financing": {
-          "amount_usd": 4600000,
-          "round": "Seed",
-          "lead_investors": [
-            "Generative Ventures"
-          ],
-          "announcement_date": "2026-10-01",
-          "confidence": "high"
-        },
-        "plain_explanation": "Walapay 为企业、金融科技公司和支付机构提供跨境收款、换汇、稳定币出入金及全球付款的一体化 API。",
-        "mechanism_simple": "企业通过一次 API 接入多地银行和支付轨道，在不同法币与稳定币之间收款、转换并向全球账户付款；合规、账户和清算由平台整合。",
-        "project_status": {
-          "category": "existing_no_token",
-          "token_status": "no_token_found",
-          "note": "已有真实企业客户和支付量，但未发现原生代币；本轮融资用于牌照、银行合作和团队扩张。"
-        },
-        "participation": {
-          "available_now": false,
-          "what_user_can_do": null,
-          "requires_real_funds": false,
-          "friction_or_risk": "服务对象主要是企业、PSP 和金融机构，通常需要商务接洽、合规审查和 API 集成，普通用户没有有意义的直接参与入口。"
-        },
-        "incentives": {
-          "status": "none_found",
-          "types": [],
-          "details": "未发现面向普通用户的官方 Points、测试网、Campaign、Token 或 Airdrop 计划。"
-        },
-        "why": [
-          "产品主要面向企业和金融机构，不存在低门槛的普通用户参与路径。",
-          "融资规模与知名投资方不能替代可执行的用户机会。",
-          "未发现代币或近期用户激励。"
-        ],
-        "next_step": null,
-        "recheck_trigger": null,
-        "website_url": "https://walapay.io/",
-        "x_url": null,
-        "evidence": [
-          {
-            "claim": "Walapay 公告确认 460 万美元种子轮由 Generative Ventures 领投，并列出参与机构。",
-            "url": "https://www.businesswire.com/news/home/20261001479192/en/",
-            "source_type": "official_blog",
-            "confidence": "high"
-          },
-          {
-            "claim": "融资数据库说明 Walapay 的企业 API、稳定币与跨境支付能力。",
-            "url": "https://crypto-fundraising.info/projects/walapay/",
-            "source_type": "database",
-            "confidence": "medium"
-          },
-          {
-            "claim": "项目官网是其企业支付基础设施入口。",
-            "url": "https://walapay.io/",
-            "source_type": "official_site",
-            "confidence": "high"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-perptools--2026-10--seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/perptools/",
-        "project_name": "PERPTools",
-        "decision": "WATCH",
-        "financing": {
-          "amount_usd": 5000000,
-          "round": "Seed",
-          "lead_investors": [],
-          "announcement_date": "2026-09-30",
-          "confidence": "medium"
-        },
-        "plain_explanation": "PERPTools 是面向加密永续合约交易者的平台，提供跨场所的永续交易、Points 体系，以及可创建或观察自动交易代理的 AI Arena。",
-        "mechanism_simple": "平台把多个交易场所的流动性汇总到统一保证金账户，并让用户或代理根据策略开仓、管理风险和退出；官方 Points 可通过交易和任务获得，也能用于模拟预测玩法。",
-        "project_status": {
-          "category": "new_live_no_token",
-          "token_status": "unconfirmed",
-          "note": "产品与 Points 已上线；第三方资料称计划在 2026 年第四季度进行 TGE，但官方站点尚未给出可核验的代币时间和 Points 转换规则。"
-        },
-        "participation": {
-          "available_now": true,
-          "what_user_can_do": "可在官网无钱包体验 Points 预测界面，或连接钱包进行永续交易、完成任务并积累 Points。",
-          "requires_real_funds": true,
-          "friction_or_risk": "实际永续交易涉及杠杆、清算和智能合约风险；高交易量任务会诱导过度交易，Points 页面明确不保证未来价值。"
-        },
-        "incentives": {
-          "status": "confirmed",
-          "types": [
-            "points",
-            "campaign"
-          ],
-          "details": "官网确认交易、盈利平仓、持仓和周任务可获得 Points，并设奖励池；但 Points 页面明确示例并非未来价值保证。"
-        },
-        "why": [
-          "官方 Points 和产品已上线，存在可观察的用户路径与后续 TGE 催化剂。",
-          "真正积累较多 Points 往往需要交易量或持仓，风险与成本不适合作为立即行动。",
-          "融资轮次与总融资的公开数字存在口径差异，代币与积分转换也尚未由官方明确。"
-        ],
-        "next_step": null,
-        "recheck_trigger": "仅在官方公布 TGE、Points 转换/快照规则，或提供不需要真实资金的完整 AI Agent 模拟流程时重新评估。",
-        "website_url": "https://perptools.ai/",
-        "x_url": "https://x.com/perptools",
-        "evidence": [
-          {
-            "claim": "PERPTools 官网确认永续交易、Points、任务、预测玩法和无需钱包的模拟界面，并提示 Points 不保证未来价值。",
-            "url": "https://perptools.ai/",
-            "source_type": "official_site",
-            "confidence": "high"
-          },
-          {
-            "claim": "PERPTools 官方 X 展示 100+ AI agents 正在运行。",
-            "url": "https://x.com/perptools/status/2106059639800676420",
-            "source_type": "official_x",
-            "confidence": "medium"
-          },
-          {
-            "claim": "融资数据库记录本次 500 万美元 Seed 事件、8000 万美元轮次估值及投资方。",
-            "url": "https://crypto-fundraising.info/deal-flow/",
-            "source_type": "database",
-            "confidence": "medium"
-          },
-          {
-            "claim": "Dealroom 报道产品已上线，并称计划于 2026 年第四季度 TGE；其融资拆分口径与 feed 不完全一致。",
-            "url": "https://dealroom.co/news/157899-perptools-raises-5m-seed-to-build-ai-agents-for-perpetual-futures-tradin/",
-            "source_type": "database",
-            "confidence": "medium"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-rip-cars--2026-09--private",
-        "source_detail_url": "https://crypto-fundraising.info/projects/rip-cars/",
-        "project_name": "Rip Cars",
-        "decision": "STOP",
-        "financing": {
-          "amount_usd": 475000,
-          "round": "Private",
-          "lead_investors": [],
-          "announcement_date": "2026-09-30",
-          "confidence": "medium"
-        },
-        "plain_explanation": "Rip Cars 是把随机开包、数字所有权和可兑换实体 Hot Wheels 收藏车结合起来的链上收藏品平台。",
-        "mechanism_simple": "用户购买随机卡包并揭晓具体车型，随后可保留数字所有权、转售，或按平台规则兑换和寄送实体收藏车；CARS 用于平台权益与治理。",
-        "project_status": {
-          "category": "existing_token",
-          "token_status": "token_live",
-          "note": "融资数据库将 CARS 明确标记为 Tradable，因此按本工作流的原生代币已上线规则直接 STOP。"
-        },
-        "participation": {
-          "available_now": true,
-          "what_user_can_do": "可购买随机车包、交易收藏权益并申请实体兑换。",
-          "requires_real_funds": true,
-          "friction_or_risk": "随机开包具有较强投机和类抽奖属性，还涉及代币波动、流动性、实体履约与运输风险。"
-        },
-        "incentives": {
-          "status": "none_found",
-          "types": [
-            "token"
-          ],
-          "details": "未发现独立于已上线 CARS 代币和购买行为之外、值得追踪的低成本官方激励。"
-        },
-        "why": [
-          "结构化融资来源将原生 CARS 标记为已经可交易，触发硬性 STOP。",
-          "普通用户参与需要真实资金并承担随机开包、代币和实体履约风险。",
-          "本轮私募没有形成新的早期无币机会。"
-        ],
-        "next_step": null,
-        "recheck_trigger": null,
-        "website_url": "https://ripcars.io/",
-        "x_url": "https://x.com/ripcarsio",
-        "evidence": [
-          {
-            "claim": "Crypto-Fundraising 将 Rip Cars 的 CARS 标记为 Tradable=Yes，并记录 47.5 万美元私募。",
-            "url": "https://crypto-fundraising.info/deal-flow/",
-            "source_type": "database",
-            "confidence": "medium"
-          },
-          {
-            "claim": "DefiLlama 描述 Rip Cars 的随机包、实体 Hot Wheels 兑换及 CARS 权益/治理用途。",
-            "url": "https://defillama.com/raises",
-            "source_type": "database",
-            "confidence": "medium"
-          },
-          {
-            "claim": "项目官网展示其开包和实体收藏车产品。",
-            "url": "https://ripcars.io/",
-            "source_type": "official_site",
-            "confidence": "medium"
-          }
-        ]
-      }
-    ]
+    "projects": []
   }
 }
