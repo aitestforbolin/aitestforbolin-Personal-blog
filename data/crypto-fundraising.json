@@ -1,71 +1,71 @@
 {
-  "updated_at": "2026-10-03T01:02:05+00:00",
+  "updated_at": "2026-10-05T00:57:20+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-jumper",
+      "id": "crypto-fundraising-pheasant-network",
       "source_rank": 1,
+      "name": "Pheasant Network",
+      "round": "Public sale",
+      "announced_month": "2026-10",
+      "amount_usd": 150000,
+      "detail_url": "https://crypto-fundraising.info/projects/pheasant-network/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-jumper",
+      "source_rank": 2,
       "name": "Jumper",
       "round": "Public sale",
       "announced_month": "2026-10",
       "amount_usd": 3000000,
       "detail_url": "https://crypto-fundraising.info/projects/jumper/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-uorm",
-      "source_rank": 2,
+      "source_rank": 3,
       "name": "Uorm",
       "round": "Pre-seed",
       "announced_month": "2026-10",
       "amount_usd": 7500000,
       "detail_url": "https://crypto-fundraising.info/projects/uorm/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-walapay",
-      "source_rank": 3,
+      "source_rank": 4,
       "name": "Walapay",
       "round": "Seed",
       "announced_month": "2026-10",
       "amount_usd": 4600000,
       "detail_url": "https://crypto-fundraising.info/projects/walapay/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-perptools",
-      "source_rank": 4,
+      "source_rank": 5,
       "name": "PERPTools",
       "round": "Seed",
       "announced_month": "2026-10",
       "amount_usd": 5000000,
       "detail_url": "https://crypto-fundraising.info/projects/perptools/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-rip-cars",
-      "source_rank": 5,
-      "name": "Rip Cars",
-      "round": "Private",
-      "announced_month": "2026-09",
-      "amount_usd": 475000,
-      "detail_url": "https://crypto-fundraising.info/projects/rip-cars/",
-      "is_new": true
+      "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:luna-web3-20261004-005905Z",
-    "requestId": "luna-web3-20261004-005905Z",
-    "triggerSha": "f97185ed0ee3adf24b0bd978f8b4d2595992e12e",
-    "githubRunId": 37166615675,
-    "scheduledAt": "2026-10-04T01:00:00Z",
-    "startedAt": "2026-10-04T00:59:24.281807+00:00",
-    "sourceCheckedAt": "2026-10-04T00:59:26.684934+00:00",
-    "sourceUpdatedAt": "2026-10-03T01:02:05+00:00",
-    "completedAt": "2026-10-04T00:59:26.685260+00:00",
+    "runId": "web3-daily-triage:luna-web3-20261005-005621Z",
+    "requestId": "luna-web3-20261005-005621Z",
+    "triggerSha": "3fe3d8827566891e33dbca0c25084c9cf04f96e4",
+    "githubRunId": 37249481308,
+    "scheduledAt": "2026-10-05T01:00:00Z",
+    "startedAt": "2026-10-05T00:57:19.082369+00:00",
+    "sourceCheckedAt": "2026-10-05T00:57:20.813057+00:00",
+    "sourceUpdatedAt": "2026-10-05T00:57:20+00:00",
+    "completedAt": "2026-10-05T00:57:20.813366+00:00",
     "publishedAt": null
   }
 }
