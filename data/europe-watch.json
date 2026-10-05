@@ -1,23 +1,23 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-10-03T23:55:48+00:00",
-  "as_of": "2026-10-04T07:30:00+08:00",
-  "window_start": "2026-10-03T07:30:00+08:00",
-  "window_end": "2026-10-04T07:30:00+08:00",
+  "generated_at": "2026-10-05T02:19:03+00:00",
+  "as_of": "2026-10-05T07:30:00+08:00",
+  "window_start": "2026-10-04T07:30:00+08:00",
+  "window_end": "2026-10-05T07:30:00+08:00",
   "source_health": [
     {
       "source": "ECB",
       "region": "eu",
       "status": "ok",
       "count": 9,
-      "checked_at": "2026-10-03T23:55:48+00:00"
+      "checked_at": "2026-10-05T02:19:03+00:00"
     },
     {
       "source": "European Commission",
       "region": "eu",
       "status": "ok",
       "count": 8,
-      "checked_at": "2026-10-03T23:55:48+00:00"
+      "checked_at": "2026-10-05T02:19:03+00:00"
     },
     {
       "source": "European Council",
@@ -25,7 +25,7 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-10-03T23:55:48+00:00"
+      "checked_at": "2026-10-05T02:19:03+00:00"
     },
     {
       "source": "European Parliament",
@@ -33,28 +33,28 @@
       "status": "error",
       "error": "ParseError",
       "count": 0,
-      "checked_at": "2026-10-03T23:55:48+00:00"
+      "checked_at": "2026-10-05T02:19:03+00:00"
     },
     {
       "source": "Eurostat",
       "region": "eu",
       "status": "ok",
-      "count": 61,
-      "checked_at": "2026-10-03T23:55:48+00:00"
+      "count": 60,
+      "checked_at": "2026-10-05T02:19:03+00:00"
     },
     {
       "source": "Politico Europe",
       "region": "eu",
       "status": "ok",
-      "count": 5,
-      "checked_at": "2026-10-03T23:55:48+00:00"
+      "count": 8,
+      "checked_at": "2026-10-05T02:19:03+00:00"
     },
     {
       "source": "Reuters Europe",
       "region": "eu",
       "status": "ok",
       "count": 57,
-      "checked_at": "2026-10-03T23:55:48+00:00"
+      "checked_at": "2026-10-05T02:19:03+00:00"
     },
     {
       "source": "Bundesbank",
@@ -62,7 +62,7 @@
       "status": "error",
       "error": "ParseError",
       "count": 0,
-      "checked_at": "2026-10-03T23:55:48+00:00"
+      "checked_at": "2026-10-05T02:19:03+00:00"
     },
     {
       "source": "Destatis",
@@ -70,14 +70,14 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-10-03T23:55:48+00:00"
+      "checked_at": "2026-10-05T02:19:03+00:00"
     },
     {
       "source": "Deutsche Welle",
       "region": "germany",
       "status": "empty",
       "count": 0,
-      "checked_at": "2026-10-03T23:55:48+00:00"
+      "checked_at": "2026-10-05T02:19:03+00:00"
     },
     {
       "source": "Federal Employment Agency",
@@ -85,7 +85,7 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-10-03T23:55:48+00:00"
+      "checked_at": "2026-10-05T02:19:03+00:00"
     },
     {
       "source": "German Federal Government",
@@ -93,151 +93,231 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-10-03T23:55:48+00:00"
+      "checked_at": "2026-10-05T02:19:03+00:00"
     },
     {
       "source": "Reuters Germany",
       "region": "germany",
       "status": "ok",
-      "count": 55,
-      "checked_at": "2026-10-03T23:55:48+00:00"
+      "count": 53,
+      "checked_at": "2026-10-05T02:19:03+00:00"
     },
     {
       "source": "The Local Germany",
       "region": "germany",
       "status": "ok",
-      "count": 13,
-      "checked_at": "2026-10-03T23:55:48+00:00"
+      "count": 14,
+      "checked_at": "2026-10-05T02:19:03+00:00"
     }
   ],
   "items": [
     {
-      "id": "50053333adcc1dd1",
+      "id": "8f57d80f195072b1",
       "region": "eu",
-      "title": "Spaniards protest housing crisis as Sánchez weighs snap vote",
-      "title_cn": "桑切斯考虑提前投票，西班牙人抗议住房危机",
-      "summary": "With a potential early election looming, the demonstrations highlight growing frustration with the country's political establishment.",
+      "title": "$38M from federal government to KPMG during ban",
+      "title_cn": "禁令期间联邦政府向毕马威支付 3800 万美元",
+      "summary": "Happy Labour Day and welcome to the newsletter that makes you think harder. If you’ve been forwarded this Playbook, you can sign up free to get it each weekday morning. ESSENTIALS — KPMG raking it in, despite ban on new work — Surprise compliments for Chris Bowen — One Nation and Liberal paths to power […]",
       "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/spaniards-protest-housing-crisis-as-pedro-sanchez-weighs-snap-vote/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-03T15:17:04+00:00",
-      "fetched_at": "2026-10-03T23:55:48+00:00",
-      "category": "housing",
+      "source_url": "https://www.politico.com/newsletters/canberra-playbook?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-04T22:30:32+00:00",
+      "fetched_at": "2026-10-05T02:19:03+00:00",
+      "category": "work_income",
       "importance": "critical",
       "official_source": false,
-      "first_seen_at": "2026-10-03T23:55:48+00:00",
-      "last_seen_at": "2026-10-03T23:55:48+00:00"
+      "first_seen_at": "2026-10-05T02:19:03+00:00",
+      "last_seen_at": "2026-10-05T02:19:03+00:00"
     },
     {
-      "id": "b9c29e01123175d2",
-      "region": "eu",
-      "title": "Russia hits major Kyiv bridge, logistics hub in latest attack",
-      "title_cn": "俄罗斯在最新的袭击中袭击了基辅主要桥梁和物流枢纽",
-      "summary": "Russia struck a key bridge in Kyiv connecting the left and right bank of the Dnipro river overnight Saturday, as Moscow steps up its aerial campaign against Ukraine. Traffic was suspended on the capital’s Northern Bridge and emergency services were deployed to the scene amid damage to the road and trolleybus cables on the crossing, […]",
-      "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/russia-hits-major-kyiv-bridge-logistics-hub-in-latest-attack/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-03T10:04:32+00:00",
-      "fetched_at": "2026-10-03T23:55:48+00:00",
+      "id": "1a35539ddd649904",
+      "region": "germany",
+      "title": "Germany's Merz in Kyiv for talks with Zelensky",
+      "title_cn": "德国总理默茨在基辅与泽伦斯基举行会谈",
+      "summary": "German Chancellor Friedrich Merz arrived in Ukraine's capital Kyiv on Sunday on an unannounced visit in a show of support for the country in its war with Russia.",
+      "source": "The Local Germany",
+      "source_url": "https://www.thelocal.de/20261004/germanys-merz-in-kyiv-for-talks-with-zelensky",
+      "published_at": "2026-10-04T08:12:19+00:00",
+      "fetched_at": "2026-10-05T02:19:03+00:00",
       "category": "defense_security",
       "importance": "critical",
       "official_source": false,
-      "first_seen_at": "2026-10-03T23:55:48+00:00",
-      "last_seen_at": "2026-10-03T23:55:48+00:00"
+      "first_seen_at": "2026-10-05T02:19:03+00:00",
+      "last_seen_at": "2026-10-05T02:19:03+00:00"
     },
     {
-      "id": "c5bd470347f248d1",
+      "id": "6e4c3faff0f946c9",
       "region": "eu",
-      "title": "Latvia PM's United List ahead in election, exit poll shows - Reuters",
-      "title_cn": "出口民调显示拉脱维亚总理联合名单在选举中领先 - 路透中文网",
-      "summary": "Latvia PM's United List ahead in election, exit poll shows Reuters",
-      "source": "Reuters Europe",
-      "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQTEJqb2xVc0JNb3BpTEJ1UjNNNm91MnJ0N0dWUUtraTRkUExEc1JwSlQybVdzLVY2TW5JODJ5elBTc3poVGJQUTdNek9QdUVEQjJyVkZlcUJOWXpneF9ZTmtacmg0dGpoVmhaV05iMEJza3ZaMW5BSzItbmF4TkItZDAyWi1BcmplczNzZXBvVDZKa252aThla3BmOEpyUFYwOEVqRw?oc=5",
-      "published_at": "2026-10-03T17:05:47+00:00",
-      "fetched_at": "2026-10-03T23:55:48+00:00",
+      "title": "Germany’s Merz visits Kyiv amid fears of ‘hardest’ winter in war",
+      "title_cn": "德国总理梅尔茨因担心战争中“最艰难”的冬天而访问基辅",
+      "summary": "The visit has been overshadowed by heavy Russian attacks on Kyiv as well as tensions over Ukraine's EU membership prospects",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/germany-friedrich-merz-visits-kyiv-amid-fears-of-hardest-winter-in-war/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-04T05:22:13+00:00",
+      "fetched_at": "2026-10-05T02:19:03+00:00",
+      "category": "defense_security",
+      "importance": "critical",
+      "official_source": false,
+      "first_seen_at": "2026-10-05T02:19:03+00:00",
+      "last_seen_at": "2026-10-05T02:19:03+00:00"
+    },
+    {
+      "id": "80137d0210c069ae",
+      "region": "eu",
+      "title": "Former Belgian PM Verhofstadt investigated in EU Parliament intern probe",
+      "title_cn": "比利时前首相维尔霍夫施塔特在欧盟议会实习生调查中接受调查",
+      "summary": "The probe focuses on the period from 2009 to 2019, when Verhofstadt chaired the ALDE group in the European Parliament.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/former-belgium-prime-minister-guy-verhofstadt-european-parliament-intern-probe/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-04T17:46:27+00:00",
+      "fetched_at": "2026-10-05T02:19:03+00:00",
       "category": "politics_society",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-10-03T23:55:48+00:00",
-      "last_seen_at": "2026-10-03T23:55:48+00:00"
+      "first_seen_at": "2026-10-05T02:19:03+00:00",
+      "last_seen_at": "2026-10-05T02:19:03+00:00"
     },
     {
-      "id": "806a919aaf2dcb5c",
-      "region": "germany",
-      "title": "Inside Germany: Why I travelled half way around the world to be married",
-      "title_cn": "德国境内：为什么我跨越半个地球去结婚",
-      "summary": "Whether it's just over the border in Denmark or the other side of the world in your home country, for non-Germans getting married is often easier literally anywhere but Germany, writes The Local editor Paul Krantz.",
-      "source": "The Local Germany",
-      "source_url": "https://www.thelocal.de/20261003/inside-germany-why-i-travelled-half-way-around-the-world-to-be-married",
-      "published_at": "2026-10-03T09:39:37+00:00",
-      "fetched_at": "2026-10-03T23:55:48+00:00",
-      "category": "immigration",
+      "id": "571cdd85d350a2b9",
+      "region": "eu",
+      "title": "Latvian PM on track to lead pro-Ukraine coalition after election win - Reuters",
+      "title_cn": "拉脱维亚总理有望在选举获胜后领导亲乌克兰联盟 - 路透中文网",
+      "summary": "Latvian PM on track to lead pro-Ukraine coalition after election win Reuters",
+      "source": "Reuters Europe",
+      "source_url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOVFNoVUJwWFRHa2hyMjdWTnQwNWJzeEsxN004aTEwczk5Y2tDeW0wdW9od2FjUlJNVVBLTUEtRTJ3YWlQaHgyTlZxV2RBVEdsMERUdnZzU1BQeVhrTXRnR0RuSXJlUUFhWkNRanY5akk5aEE5aTdMUGxBaFFSRjlZbzd3N00yWjRIRjMyZlIyUGNCOTNaNjc1QUcwSWlUWGtOaEhyU2F2WVB4NXA1WnY2Tw?oc=5",
+      "published_at": "2026-10-04T16:52:43+00:00",
+      "fetched_at": "2026-10-05T02:19:03+00:00",
+      "category": "politics_society",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-10-03T23:55:48+00:00",
-      "last_seen_at": "2026-10-03T23:55:48+00:00"
+      "first_seen_at": "2026-10-05T02:19:03+00:00",
+      "last_seen_at": "2026-10-05T02:19:03+00:00"
     },
     {
-      "id": "c81255c25d310820",
+      "id": "496fe0fc50eddb89",
       "region": "eu",
-      "title": "Harmonised index of consumer prices (HICP) - ECOICOP ver.2 - indices and rates of change, monthly data - European Commission",
-      "title_cn": "消费者价格协调指数 (HICP) - ECICOCOP ver.2 - 指数和变化率、月度数据 - 欧盟委员会",
-      "summary": "Harmonised index of consumer prices (HICP) - ECOICOP ver.2 - indices and rates of change, monthly data European Commission",
-      "source": "Eurostat",
-      "source_url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOSUE5X0lKVUdkMVdLSzQ4NlBNU3BaaEJBMFluRXFvVWw5LTBRbXZwdW9aSERNX0xnTTFqcHFaVnR6eWZjemRDc3pHbW5FWWxHUmh3ZDE2TF95dENwc2swbGVfc05qellFLVpwdmhMRmlpOG8tMGxWcmNMZlF3THFadXg4aTgxc3lqOUE?oc=5",
-      "published_at": "2026-10-03T05:37:21+00:00",
-      "fetched_at": "2026-10-03T23:55:48+00:00",
-      "category": "economy",
-      "importance": "normal",
-      "official_source": true,
-      "first_seen_at": "2026-10-03T23:55:48+00:00",
-      "last_seen_at": "2026-10-03T23:55:48+00:00"
-    },
-    {
-      "id": "273f2c3a02ccaaca",
-      "region": "eu",
-      "title": "Wie Russland die NATO provoziert. Mit Carlo Masala",
-      "title_cn": "俄罗斯如何挑衅北约。与卡洛·马萨拉",
-      "summary": "Eine Drohne mit Sprengstoff an einer ukrainischen Frachtmaschine in Leipzig, Explosionen in Munitionsfabriken und Sabotage auf See. Russland intensiviert seine hybride Kriegsführung mitten in Europa und testet gezielt die roten Linien der NATO. Doch was passiert, wenn ein solcher Anschlag auf deutschem Boden tatsächlich gelingt und den Bündnisfall auslöst? Darüber spricht Gordon Repinski in dieser […]",
+      "title": "Moscow says it will step up strikes on Ukraine after Kyiv vows to hit Russian oil refineries",
+      "title_cn": "基辅誓言打击俄罗斯炼油厂后，莫斯科表示将加大对乌克兰的打击力度",
+      "summary": "Russia's announcement came as Ukrainian President Volodymyr Zelenskyy said his country would “have to respond in any way we can” to Russian attacks.",
       "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/podcast/berlin-playbook-podcast/wie-russland-die-nato-provoziert-mit-carlo-masala/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-03T04:00:00+00:00",
-      "fetched_at": "2026-10-03T23:55:48+00:00",
+      "source_url": "https://www.politico.eu/article/moscow-says-it-will-step-up-strikes-on-ukraine-after-kyiv-vows-to-hit-russian-oil-refineries/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-04T13:10:23+00:00",
+      "fetched_at": "2026-10-05T02:19:03+00:00",
+      "category": "defense_security",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-05T02:19:03+00:00",
+      "last_seen_at": "2026-10-05T02:19:03+00:00"
+    },
+    {
+      "id": "2fbff6f20040cd56",
+      "region": "eu",
+      "title": "Russia to intensify strikes on Ukraine after Zelenskiy interview - Reuters",
+      "title_cn": "泽连斯基接受采访后俄罗斯将加强对乌克兰的打击 - 路透中文网",
+      "summary": "Russia to intensify strikes on Ukraine after Zelenskiy interview Reuters",
+      "source": "Reuters Europe",
+      "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQd05oYU1XSThHUHE4WjZ1QVRwNkFXMXNzRzBfRGFnWDhZS3lNblYzbDRWd216QzlacDBwakNZakFFRk1xUVo4amZlXzlpZEJxLUhrSEp6M1dVOTBEOFFyTmc2emthMVprYnNOa2pIZUpOTVNPcnJ3NmlNY0czUmYyR3FkeWxpOVZzeXJUS1VUTExCeDh1M25vWHpGejc2cTVpdGdZSV9hbkhXa1k?oc=5",
+      "published_at": "2026-10-04T11:16:12+00:00",
+      "fetched_at": "2026-10-05T02:19:03+00:00",
+      "category": "technology",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-05T02:19:03+00:00",
+      "last_seen_at": "2026-10-05T02:19:03+00:00"
+    },
+    {
+      "id": "5f0fb1288aaab031",
+      "region": "eu",
+      "title": "Latvian PM’s election win boosts chances for pro-Ukraine coalition",
+      "title_cn": "拉脱维亚总理的选举胜利增加了亲乌克兰联盟的机会",
+      "summary": "Andris Kulbergs’ party finished more than 20 percentage points ahead of far-right Latvia First.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/latvian-pm-andris-kulbergs-election-win-boosts-chances-for-pro-ukraine-coalition/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-04T09:26:05+00:00",
+      "fetched_at": "2026-10-05T02:19:03+00:00",
+      "category": "politics_society",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-05T02:19:03+00:00",
+      "last_seen_at": "2026-10-05T02:19:03+00:00"
+    },
+    {
+      "id": "6a12b9093efe5725",
+      "region": "eu",
+      "title": "Security-Update: Krieg bei Social Media – mit Marcel Bohnert",
+      "title_cn": "安全更新：社交媒体之战 - 与 Marcel Bohnert",
+      "summary": "Mehr als die Hälfte der jungen Wähler entscheidet sich bei jüngsten Landtagswahlen für Parteien, die der Ukraine-Unterstützung kritisch gegenüberstehen. Der Grund dafür liegt nicht nur in klassischen Debatten, sondern auf Plattformen wie TikTok, Instagram und X. Dort tobt längst ein massiver Informationskrieg, in dem ausländische Akteure und Algorithmen um die Deutungshoheit kämpfen. Marcel Bohnert, Oberstleutnant […]",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/podcast/berlin-playbook-podcast/security-update-krieg-bei-social-media-mit-marcel-bohnert/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-04T08:00:00+00:00",
+      "fetched_at": "2026-10-05T02:19:03+00:00",
+      "category": "defense_security",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-05T02:19:03+00:00",
+      "last_seen_at": "2026-10-05T02:19:03+00:00"
+    },
+    {
+      "id": "a16f44b86f24c0ee",
+      "region": "germany",
+      "title": "Leftist and nationalists lead in election for Bosnia's tripartite presidency - Reuters",
+      "title_cn": "左派和民族主义者在波斯尼亚三方总统选举中领先 - 路透中文网",
+      "summary": "Leftist and nationalists lead in election for Bosnia's tripartite presidency Reuters",
+      "source": "Reuters Germany",
+      "source_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNdnB0bzdlVUpKdEdIZkhBZU1wLVhPTF8zLW5YMy1NRF9hSlJsM0ZmMS1DNG5JbVIwQkk4QTQwMmdSU0JCUHd5blNMdzhnME1ycHBCdm5IcVhLUTRVU1d6dENmYXgwYlV4dU5HOWVyR0oxLVNYYTVTeWVNNEVaSTFaMVhZRkk5aFlUTnE1ZHo2bVZrdHZWZG93UTd5Yw?oc=5",
+      "published_at": "2026-10-04T05:01:00+00:00",
+      "fetched_at": "2026-10-05T02:19:03+00:00",
+      "category": "politics_society",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-05T02:19:03+00:00",
+      "last_seen_at": "2026-10-05T02:19:03+00:00"
+    },
+    {
+      "id": "533b1811fad3b345",
+      "region": "eu",
+      "title": "EU neighbors shun Kyiv’s plea to free trapped grain",
+      "title_cn": "欧盟邻国拒绝基辅释放被困谷物的请求",
+      "summary": "Poland and Romania said there’s nothing more they can do to help Ukraine export its grain through Europe, as the blockade in the Black Sea continues.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/eu-neighbors-shun-kyivs-plea-to-free-trapped-grain/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-04T05:00:00+00:00",
+      "fetched_at": "2026-10-05T02:19:03+00:00",
+      "category": "trade",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-05T02:19:03+00:00",
+      "last_seen_at": "2026-10-05T02:19:03+00:00"
+    },
+    {
+      "id": "f1487f1abcbd8f43",
+      "region": "germany",
+      "title": "Merz unveils fresh military aid in Kyiv, says Germany won't be intimidated - Reuters",
+      "title_cn": "默茨在基辅公布新的军事援助称德国不会被吓倒 - 路透中文网",
+      "summary": "Merz unveils fresh military aid in Kyiv, says Germany won't be intimidated Reuters",
+      "source": "Reuters Germany",
+      "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQZE5uMWs0WVBmQnlBRXQ4Wk9IdU1jOEthZ0pQU1p4bUVTZzNOUi15YnBUMTVyZUNRaW9wVE5PQjhCbkRzSUZneHVPODY2STRpNV94c3dpNmUyckh3WU1WS1d0Z2lPX2xDOTBHVERPcU5KMElxanNCVDQ0cTFjS3FYZFU0UnAwUmdxSS1ad1d4QjBmQ0IwdHNFMk5aSm83MWFKM2lfZl9RWW5wY1k?oc=5",
+      "published_at": "2026-10-04T04:53:00+00:00",
+      "fetched_at": "2026-10-05T02:19:03+00:00",
+      "category": "defense_security",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-05T02:19:03+00:00",
+      "last_seen_at": "2026-10-05T02:19:03+00:00"
+    },
+    {
+      "id": "bb81d95f04cf6163",
+      "region": "eu",
+      "title": "Tory conference 2026: What POLITICO reporters are watching for",
+      "title_cn": "2026 年保守党会议：POLITICO 记者在关注什么",
+      "summary": "From AI to bank taxes, there are plenty of spaces for Kemi Badenoch's Conservatives to carve out a niche, POLITICO reporters write in from Birmingham.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/tory-conference-2026-what-politico-reporters-are-watching-for/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-04T02:00:00+00:00",
+      "fetched_at": "2026-10-05T02:19:03+00:00",
       "category": "industry",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-10-03T23:55:48+00:00",
-      "last_seen_at": "2026-10-03T23:55:48+00:00"
-    },
-    {
-      "id": "e09367e2f969d1a8",
-      "region": "eu",
-      "title": "Latvian PM faces bittersweet victory in election backdropped by Russia",
-      "title_cn": "拉脱维亚总理在俄罗斯背景下的选举中面临苦乐参半的胜利",
-      "summary": "An EU sanctions showdown could strengthen the position of Andris Kulbergs, but a coalition puzzle awaits.",
-      "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/latvia-prime-minister-andris-kulbergs-faces-bittersweet-victory-election-2026/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-03T02:00:00+00:00",
-      "fetched_at": "2026-10-03T23:55:48+00:00",
-      "category": "politics_society",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-10-03T23:55:48+00:00",
-      "last_seen_at": "2026-10-03T23:55:48+00:00"
-    },
-    {
-      "id": "dd9fa28f4f43831b",
-      "region": "germany",
-      "title": "Japan shifts messaging to counter view its policies are reflationary, Katayama says in TV interview - Reuters",
-      "title_cn": "片山在电视采访中表示，日本转变信息来反驳其政策通货再膨胀的观点 - 路透中文网",
-      "summary": "Japan shifts messaging to counter view its policies are reflationary, Katayama says in TV interview Reuters",
-      "source": "Reuters Germany",
-      "source_url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQdGwtb2Z4WXlrZ0Z0WTBfd2JnWkN1UnNBVW15TUM3a3RyQWlONkN6ZG1ob01nQzhBUTBSM1dQTnJLajAxVHBKOV84dUNURi1GeUpReTFiY1Y3SWRsNVExbWZKRm1qNFdWaEdKYnI4R2lkRWVkalJBSWV5bkpJV3Vfd3VmRjVUSGc5MlhmeTRMellSZVM3b2NYZ2g1cDFPMjdXSlFhSWN3UGdTVFk3b2NMb1dkWkZIQzh1Qm1iQzFuRVp2QU1HMkpPSnBCWU1rZ3M?oc=5",
-      "published_at": "2026-10-03T01:50:00+00:00",
-      "fetched_at": "2026-10-03T23:55:48+00:00",
-      "category": "population",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-10-03T23:55:48+00:00",
-      "last_seen_at": "2026-10-03T23:55:48+00:00"
+      "first_seen_at": "2026-10-05T02:19:03+00:00",
+      "last_seen_at": "2026-10-05T02:19:03+00:00"
     }
   ]
 }
