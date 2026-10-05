@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "luna-web3-20261004-005905Z",
-  "triggerSha": "f97185ed0ee3adf24b0bd978f8b4d2595992e12e",
-  "publicationDate": "2026-10-04",
-  "publishedAt": "2026-10-04T08:59:48+08:00",
+  "requestId": "luna-web3-20261005-005621Z",
+  "triggerSha": "3fe3d8827566891e33dbca0c25084c9cf04f96e4",
+  "publicationDate": "2026-10-05",
+  "publishedAt": "2026-10-05T08:58:20+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-10-04",
-    "publishedAt": "2026-10-04T08:59:48+08:00",
-    "windowStart": "2026-10-03T01:02:05.831567+00:00",
-    "windowEnd": "2026-10-04T00:59:26.685260+00:00",
-    "sourceUpdatedAt": "2026-10-03T01:02:05+00:00",
-    "status": "unchanged",
+    "runDate": "2026-10-05",
+    "publishedAt": "2026-10-05T08:58:20+08:00",
+    "windowStart": "2026-10-04T00:59:26.685260+00:00",
+    "windowEnd": "2026-10-05T00:57:20.813366+00:00",
+    "sourceUpdatedAt": "2026-10-05T00:57:20+00:00",
+    "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:luna-web3-20261004-005905Z",
-      "requestId": "luna-web3-20261004-005905Z",
-      "triggerSha": "f97185ed0ee3adf24b0bd978f8b4d2595992e12e",
-      "githubRunId": 37166615675,
-      "scheduledAt": "2026-10-04T01:00:00Z",
-      "startedAt": "2026-10-04T00:59:24.281807+00:00",
-      "sourceCheckedAt": "2026-10-04T00:59:26.684934+00:00",
-      "sourceUpdatedAt": "2026-10-03T01:02:05+00:00",
-      "completedAt": "2026-10-04T00:59:26.685260+00:00",
-      "publishedAt": "2026-10-04T08:59:48+08:00"
+      "runId": "web3-daily-triage:luna-web3-20261005-005621Z",
+      "requestId": "luna-web3-20261005-005621Z",
+      "triggerSha": "3fe3d8827566891e33dbca0c25084c9cf04f96e4",
+      "githubRunId": 37249481308,
+      "scheduledAt": "2026-10-05T01:00:00Z",
+      "startedAt": "2026-10-05T00:57:19.082369+00:00",
+      "sourceCheckedAt": "2026-10-05T00:57:20.813057+00:00",
+      "sourceUpdatedAt": "2026-10-05T00:57:20+00:00",
+      "completedAt": "2026-10-05T00:57:20.813366+00:00",
+      "publishedAt": "2026-10-05T08:58:20+08:00"
     },
     "executionStatus": {
-      "collection": "unchanged",
+      "collection": "success",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "候选窗口从 2026-10-03 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；累计 reportedEventIds 保持不变。本次采集为 unchanged，历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "候选窗口从 2026-10-04 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后新增 Pheasant Network。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -59,14 +59,91 @@
       "crypto-fundraising-uorm--2026-10--pre-seed",
       "crypto-fundraising-walapay--2026-10--seed",
       "crypto-fundraising-perptools--2026-10--seed",
-      "crypto-fundraising-rip-cars--2026-09--private"
+      "crypto-fundraising-rip-cars--2026-09--private",
+      "crypto-fundraising-pheasant-network--2026-10--public-sale"
     ],
     "counts": {
-      "new": 0,
+      "new": 1,
       "action": 0,
-      "watch": 0,
+      "watch": 1,
       "stop": 0
     },
-    "projects": []
+    "projects": [
+      {
+        "event_id": "crypto-fundraising-pheasant-network--2026-10--public-sale",
+        "source_detail_url": "https://crypto-fundraising.info/projects/pheasant-network/",
+        "project_name": "Pheasant Network",
+        "decision": "WATCH",
+        "financing": {
+          "amount_usd": 150000,
+          "round": "Public sale",
+          "lead_investors": [],
+          "announcement_date": null,
+          "confidence": "medium"
+        },
+        "plain_explanation": "Pheasant Network 是一个面向多链 DeFi 的跨链执行平台，用户可用较简单的意图或提示完成桥接、兑换等链上操作。",
+        "mechanism_simple": "它把用户想完成的跨链操作交给路由与执行系统，在不同链之间寻找路径并完成资产移动；同时向开发者提供可嵌入的桥接组件和 SDK。",
+        "project_status": {
+          "category": "existing_no_token",
+          "token_status": "token_announced",
+          "note": "项目至少自 2022 年起运营；PNT 公售已结束，但截至本次核验未找到其已正式可交易的可靠证据。"
+        },
+        "participation": {
+          "available_now": true,
+          "what_user_can_do": "可体验其跨链应用或桥接功能；PNT 公售已于 2026-10-04 结束，当前不再是可参与动作。",
+          "requires_real_funds": true,
+          "friction_or_risk": "跨链操作需要真实资金并承担合约、路由、桥接及网络费用风险；不建议为未确认奖励而额外增加资金暴露。"
+        },
+        "incentives": {
+          "status": "confirmed",
+          "types": [
+            "token",
+            "campaign"
+          ],
+          "details": "官方账号确认 PNT 公售曾在 ChainGPT Pad 开放，第三方结构化页面显示该 IDO 已于 2026-10-04 结束；未确认当前仍有新的官方奖励窗口。"
+        },
+        "why": [
+          "PNT 公售窗口已结束，今天没有明确且低成本的新增参与机会。",
+          "项目已有可用的跨链产品，但使用需要真实资金并承受桥接与智能合约风险。",
+          "PNT 已宣布但尚未可靠确认可交易；TGE 或首次正式上市会直接改变本工作流判断。"
+        ],
+        "next_step": null,
+        "recheck_trigger": "PNT 正式 TGE 或首个可验证交易所上线时立即复查；若确认代币可交易，按本工作流转为 STOP。",
+        "website_url": "https://home.pheasant.network/",
+        "x_url": "https://x.com/PheasantNetwork",
+        "evidence": [
+          {
+            "claim": "项目定位为意图驱动的跨链桥接与 DeFi 执行平台，并提供 BaaS、组件和 SDK。",
+            "url": "https://crypto-fundraising.info/projects/pheasant-network/",
+            "source_type": "database",
+            "confidence": "medium"
+          },
+          {
+            "claim": "官方项目网站确认其为 AI 驱动的多链 DeFi/跨链意图产品。",
+            "url": "https://home.pheasant.network/",
+            "source_type": "official_site",
+            "confidence": "high"
+          },
+          {
+            "claim": "官方账号确认 PNT 公售已在 ChainGPT Pad 开放且位于 TGE 之前。",
+            "url": "https://x.com/PheasantNetwork",
+            "source_type": "official_x",
+            "confidence": "high"
+          },
+          {
+            "claim": "PNT 的 IDO 状态为已结束，结束日期为 2026-10-04。",
+            "url": "https://cryptorank.io/ico/pheasant-network",
+            "source_type": "database",
+            "confidence": "medium"
+          },
+          {
+            "claim": "该项目曾宣布 200 万美元种子轮，但本次 15 万美元公售金额未由可读官方页面独立确认。",
+            "url": "https://home.pheasant.network/library/seed-funding",
+            "source_type": "official_blog",
+            "confidence": "high"
+          }
+        ]
+      }
+    ]
   }
 }
