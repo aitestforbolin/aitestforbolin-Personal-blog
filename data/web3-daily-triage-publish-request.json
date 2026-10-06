@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "luna-web3-20261005-005621Z",
-  "triggerSha": "3fe3d8827566891e33dbca0c25084c9cf04f96e4",
-  "publicationDate": "2026-10-05",
-  "publishedAt": "2026-10-05T08:58:20+08:00",
+  "requestId": "luna-web3-20261006-005815Z",
+  "triggerSha": "3af2d6cbf5d6aec2ef183de256d6b6dc7f41150d",
+  "publicationDate": "2026-10-06",
+  "publishedAt": "2026-10-06T09:00:05+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-10-05",
-    "publishedAt": "2026-10-05T08:58:20+08:00",
-    "windowStart": "2026-10-04T00:59:26.685260+00:00",
-    "windowEnd": "2026-10-05T00:57:20.813366+00:00",
-    "sourceUpdatedAt": "2026-10-05T00:57:20+00:00",
+    "runDate": "2026-10-06",
+    "publishedAt": "2026-10-06T09:00:05+08:00",
+    "windowStart": "2026-10-05T00:57:20.813366+00:00",
+    "windowEnd": "2026-10-06T00:58:53.421485+00:00",
+    "sourceUpdatedAt": "2026-10-06T00:58:53+00:00",
     "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:luna-web3-20261005-005621Z",
-      "requestId": "luna-web3-20261005-005621Z",
-      "triggerSha": "3fe3d8827566891e33dbca0c25084c9cf04f96e4",
-      "githubRunId": 37249481308,
-      "scheduledAt": "2026-10-05T01:00:00Z",
-      "startedAt": "2026-10-05T00:57:19.082369+00:00",
-      "sourceCheckedAt": "2026-10-05T00:57:20.813057+00:00",
-      "sourceUpdatedAt": "2026-10-05T00:57:20+00:00",
-      "completedAt": "2026-10-05T00:57:20.813366+00:00",
-      "publishedAt": "2026-10-05T08:58:20+08:00"
+      "runId": "web3-daily-triage:luna-web3-20261006-005815Z",
+      "requestId": "luna-web3-20261006-005815Z",
+      "triggerSha": "3af2d6cbf5d6aec2ef183de256d6b6dc7f41150d",
+      "githubRunId": 37396797308,
+      "scheduledAt": "2026-10-06T01:00:00Z",
+      "startedAt": "2026-10-06T00:58:51.353345+00:00",
+      "sourceCheckedAt": "2026-10-06T00:58:53.421187+00:00",
+      "sourceUpdatedAt": "2026-10-06T00:58:53+00:00",
+      "completedAt": "2026-10-06T00:58:53.421485+00:00",
+      "publishedAt": "2026-10-06T09:00:05+08:00"
     },
     "executionStatus": {
       "collection": "success",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "候选窗口从 2026-10-04 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后新增 Pheasant Network。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "候选窗口从 2026-10-05 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后新增 iPiD、Xverse App、HyperLink。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -60,85 +60,212 @@
       "crypto-fundraising-walapay--2026-10--seed",
       "crypto-fundraising-perptools--2026-10--seed",
       "crypto-fundraising-rip-cars--2026-09--private",
-      "crypto-fundraising-pheasant-network--2026-10--public-sale"
+      "crypto-fundraising-pheasant-network--2026-10--public-sale",
+      "crypto-fundraising-ipid--2026-10--series-a",
+      "crypto-fundraising-xverse-app--2026-10--strategic",
+      "crypto-fundraising-hyperlink--2026-10--round-unknown"
     ],
     "counts": {
-      "new": 1,
-      "action": 0,
+      "new": 3,
+      "action": 1,
       "watch": 1,
-      "stop": 0
+      "stop": 1
     },
     "projects": [
       {
-        "event_id": "crypto-fundraising-pheasant-network--2026-10--public-sale",
-        "source_detail_url": "https://crypto-fundraising.info/projects/pheasant-network/",
-        "project_name": "Pheasant Network",
-        "decision": "WATCH",
+        "event_id": "crypto-fundraising-xverse-app--2026-10--strategic",
+        "source_detail_url": "https://crypto-fundraising.info/projects/xverse-app/",
+        "project_name": "Xverse App",
+        "decision": "ACTION",
         "financing": {
-          "amount_usd": 150000,
-          "round": "Public sale",
-          "lead_investors": [],
-          "announcement_date": null,
-          "confidence": "medium"
+          "amount_usd": null,
+          "round": "Strategic",
+          "lead_investors": [
+            "Draper Associates"
+          ],
+          "announcement_date": "2026-10-05",
+          "confidence": "high"
         },
-        "plain_explanation": "Pheasant Network 是一个面向多链 DeFi 的跨链执行平台，用户可用较简单的意图或提示完成桥接、兑换等链上操作。",
-        "mechanism_simple": "它把用户想完成的跨链操作交给路由与执行系统，在不同链之间寻找路径并完成资产移动；同时向开发者提供可嵌入的桥接组件和 SDK。",
+        "plain_explanation": "Xverse 是一款自托管比特币钱包，把 BTC、Stacks、Ordinals、Runes 及部分比特币 DeFi 功能集中在一个移动端和浏览器应用中。",
+        "mechanism_simple": "用户自己保管私钥，并通过钱包直接签署比特币及相关网络上的支付、交易、收益和借贷操作；Xverse 不能替用户冻结或移动资产。",
         "project_status": {
           "category": "existing_no_token",
-          "token_status": "token_announced",
-          "note": "项目至少自 2022 年起运营；PNT 公售已结束，但截至本次核验未找到其已正式可交易的可靠证据。"
+          "token_status": "no_token_found",
+          "note": "项目已有成熟产品和大量用户；本次为战略融资，未发现 Xverse 原生代币已发行或已宣布。"
         },
         "participation": {
           "available_now": true,
-          "what_user_can_do": "可体验其跨链应用或桥接功能；PNT 公售已于 2026-10-04 结束，当前不再是可参与动作。",
-          "requires_real_funds": true,
-          "friction_or_risk": "跨链操作需要真实资金并承担合约、路由、桥接及网络费用风险；不建议为未确认奖励而额外增加资金暴露。"
+          "what_user_can_do": "可免费下载钱包，用一个全新空钱包检查界面、备份流程、硬件钱包支持及 Bitcoin Web3 连接体验；初步体验无需入金。",
+          "requires_real_funds": false,
+          "friction_or_risk": "创建空钱包风险较低；导入主钱包或进行收益、借贷、跨链操作会增加私钥、合约及第三方协议风险。"
         },
         "incentives": {
-          "status": "confirmed",
-          "types": [
-            "token",
-            "campaign"
-          ],
-          "details": "官方账号确认 PNT 公售曾在 ChainGPT Pad 开放，第三方结构化页面显示该 IDO 已于 2026-10-04 结束；未确认当前仍有新的官方奖励窗口。"
+          "status": "none_found",
+          "types": [],
+          "details": "未发现与本轮融资直接相关的官方 Points、空投或代币活动；官方提供 BTC/STX 收益功能，但属于真实资金产品而非免费激励。"
         },
         "why": [
-          "PNT 公售窗口已结束，今天没有明确且低成本的新增参与机会。",
-          "项目已有可用的跨链产品，但使用需要真实资金并承受桥接与智能合约风险。",
-          "PNT 已宣布但尚未可靠确认可交易；TGE 或首次正式上市会直接改变本工作流判断。"
+          "产品解决比特币生态多资产管理与应用连接的真实需求，且可零资金完成第一轮体验。",
+          "自托管、硬件钱包支持和无需 KYC 的钱包层对普通加密用户有直接实用价值。",
+          "战略轮由 Draper Associates 领投，但 ACTION 来自产品可用性，而非投资方声望。"
         ],
-        "next_step": null,
-        "recheck_trigger": "PNT 正式 TGE 或首个可验证交易所上线时立即复查；若确认代币可交易，按本工作流转为 STOP。",
-        "website_url": "https://home.pheasant.network/",
-        "x_url": "https://x.com/PheasantNetwork",
+        "next_step": "使用全新空钱包安装并完成一次不入金的备份、地址查看和应用连接测试；确认体验与安全边界后，再决定是否小额转入。",
+        "recheck_trigger": null,
+        "website_url": "https://www.xverse.app/",
+        "x_url": "https://x.com/xverse",
         "evidence": [
           {
-            "claim": "项目定位为意图驱动的跨链桥接与 DeFi 执行平台，并提供 BaaS、组件和 SDK。",
-            "url": "https://crypto-fundraising.info/projects/pheasant-network/",
-            "source_type": "database",
-            "confidence": "medium"
+            "claim": "Xverse 于 2026-10-05 宣布完成战略轮，由 Draper Associates 领投，Trust Machines 与 Draper Dragon 参投，金额未披露。",
+            "url": "https://www.xverse.app/blog/xverse-draper-associates-strategic-round",
+            "source_type": "official_blog",
+            "confidence": "high"
           },
           {
-            "claim": "官方项目网站确认其为 AI 驱动的多链 DeFi/跨链意图产品。",
-            "url": "https://home.pheasant.network/",
+            "claim": "Xverse 是自托管比特币钱包，可用于支付、收益、借贷及多类 Bitcoin L1/L2 资产管理。",
+            "url": "https://www.xverse.app/",
             "source_type": "official_site",
             "confidence": "high"
           },
           {
-            "claim": "官方账号确认 PNT 公售已在 ChainGPT Pad 开放且位于 TGE 之前。",
-            "url": "https://x.com/PheasantNetwork",
-            "source_type": "official_x",
+            "claim": "开发者文档称产品覆盖 Bitcoin、Lightning、Spark、Starknet 与 Stacks，并提供钱包连接和数据基础设施。",
+            "url": "https://docs.xverse.app/",
+            "source_type": "docs",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "event_id": "crypto-fundraising-hyperlink--2026-10--round-unknown",
+        "source_detail_url": "https://crypto-fundraising.info/projects/hyperlink/",
+        "project_name": "HyperLink",
+        "decision": "WATCH",
+        "financing": {
+          "amount_usd": 2500000,
+          "round": null,
+          "lead_investors": [
+            "Alliance",
+            "North Island Ventures",
+            "Reverie",
+            "Node Capital",
+            "Breed"
+          ],
+          "announcement_date": "2026-10-04",
+          "confidence": "medium"
+        },
+        "plain_explanation": "HyperLink 是建立在 Hyperliquid 之上的交易执行与主经纪层，目标是让活跃交易者获得更低费用、更私密的头寸与更统一的交易基础设施。",
+        "mechanism_simple": "用户仍在 Hyperliquid 的市场中交易，但订单经由 HyperLink 的共享基础设施路由，以汇集手续费等级并减少钱包级交易暴露。",
+        "project_status": {
+          "category": "new_live_no_token",
+          "token_status": "no_token_found",
+          "note": "项目成立于 2025 年且产品已经上线；本次核验未发现 HyperLink 原生代币已发行或正式宣布。"
+        },
+        "participation": {
+          "available_now": true,
+          "what_user_can_do": "可连接钱包、存入资金并在 Hyperliquid 上通过 HyperLink 交易；也可参与推荐，但实际价值主要面向高频或较大交易量用户。",
+          "requires_real_funds": true,
+          "friction_or_risk": "需要承担永续合约、杠杆、智能合约、执行层及托管设计相关风险，不适合仅为潜在奖励而试用。"
+        },
+        "incentives": {
+          "status": "confirmed",
+          "types": [
+            "campaign",
+            "other"
+          ],
+          "details": "官方渠道显示推荐奖励已上线，并宣传早期质押者可能获得未来奖励；未发现正式代币或空投承诺。"
+        },
+        "why": [
+          "产品已上线且融资方、Hyperliquid 官方生态信息可交叉确认，但核心价值集中在活跃交易者。",
+          "普通用户要获得实际体验必须存入资金并承担永续合约及协议风险。",
+          "推荐与早期奖励存在，但没有明确代币链接，当前风险收益比不足以立刻行动。"
+        ],
+        "next_step": null,
+        "recheck_trigger": "当官方公布明确的 Points/代币奖励规则，或用户开始稳定使用 Hyperliquid且可量化手续费节省时复查。",
+        "website_url": "https://hyperlink.xyz/",
+        "x_url": "https://x.com/hyperlink_xyz",
+        "evidence": [
+          {
+            "claim": "HyperLink 是面向 Hyperliquid 的主经纪和执行层，提供共享费率经济与更私密的交易执行。",
+            "url": "https://hyperlink.xyz/",
+            "source_type": "official_site",
             "confidence": "high"
           },
           {
-            "claim": "PNT 的 IDO 状态为已结束，结束日期为 2026-10-04。",
-            "url": "https://cryptorank.io/ico/pheasant-network",
+            "claim": "Hyperliquid 官方公告确认 HyperLink 主经纪产品已上线并由 Hyperliquid 提供底层支持。",
+            "url": "https://t.me/s/hyperliquid_announcements/581",
+            "source_type": "other",
+            "confidence": "high"
+          },
+          {
+            "claim": "公开融资资料显示本轮规模为 250 万美元，投资方包括 Alliance、North Island Ventures、Reverie、Node Capital 与 Breed。",
+            "url": "https://dropstab.com/coins/hyperlink/fundraising",
             "source_type": "database",
             "confidence": "medium"
           },
           {
-            "claim": "该项目曾宣布 200 万美元种子轮，但本次 15 万美元公售金额未由可读官方页面独立确认。",
-            "url": "https://home.pheasant.network/library/seed-funding",
+            "claim": "项目官方 X 提供推荐奖励与早期参与信息，但未形成明确代币承诺。",
+            "url": "https://x.com/hyperlink_xyz",
+            "source_type": "official_x",
+            "confidence": "medium"
+          }
+        ]
+      },
+      {
+        "event_id": "crypto-fundraising-ipid--2026-10--series-a",
+        "source_detail_url": "https://crypto-fundraising.info/projects/ipid/",
+        "project_name": "iPiD",
+        "decision": "STOP",
+        "financing": {
+          "amount_usd": 16000000,
+          "round": "Series A",
+          "lead_investors": [
+            "Foundation Capital"
+          ],
+          "announcement_date": "2026-09-24",
+          "confidence": "high"
+        },
+        "plain_explanation": "iPiD 为银行、金融科技公司和企业提供跨境收款人身份与银行账户验证，帮助付款前识别错误账户和欺诈风险。",
+        "mechanism_simple": "机构通过一个 API 查询收款账户是否真实、账户名是否匹配以及付款是否存在风险，再决定是否放款。",
+        "project_status": {
+          "category": "existing_no_token",
+          "token_status": "no_token_found",
+          "note": "这是 2021 年成立的机构支付安全公司，并非面向普通用户的早期加密项目；未发现原生代币。"
+        },
+        "participation": {
+          "available_now": false,
+          "what_user_can_do": null,
+          "requires_real_funds": false,
+          "friction_or_risk": "产品通过银行、金融科技公司和企业集成，普通用户没有可直接验证的使用或贡献入口。"
+        },
+        "incentives": {
+          "status": "none_found",
+          "types": [],
+          "details": "未发现面向普通用户的 Points、测试网、Campaign、Token 或 Airdrop 活动。"
+        },
+        "why": [
+          "核心产品是机构级收款人验证 API，目标客户为银行和企业。",
+          "融资将用于支付情报网络、美国与欧洲扩张及数字资产能力，不构成普通用户参与机会。",
+          "没有代币或低成本早期参与路径，继续投入研究注意力的边际价值较低。"
+        ],
+        "next_step": null,
+        "recheck_trigger": null,
+        "website_url": "https://ipid.tech/",
+        "x_url": null,
+        "evidence": [
+          {
+            "claim": "iPiD 于 2026-09-24 宣布 1600 万美元 A 轮，由 Foundation Capital 领投，Citi、HSBC 及原有投资者参投。",
+            "url": "https://ipid.tech/news/ipid-raises-16m-series-a-foundation-capital-citi-hsbc",
+            "source_type": "official_blog",
+            "confidence": "high"
+          },
+          {
+            "claim": "产品通过单一 API 为银行、金融科技公司和企业提供全球收款人验证，覆盖机构支付场景。",
+            "url": "https://ipid.tech/about",
+            "source_type": "official_site",
+            "confidence": "high"
+          },
+          {
+            "claim": "融资用途包括全球支付情报网络、美国与欧洲扩张以及稳定币和数字资产付款前决策能力。",
+            "url": "https://ipid.tech/news/ipid-raises-16m-series-a-foundation-capital-citi-hsbc",
             "source_type": "official_blog",
             "confidence": "high"
           }
