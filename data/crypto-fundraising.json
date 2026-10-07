@@ -1,71 +1,71 @@
 {
-  "updated_at": "2026-10-06T00:58:53+00:00",
+  "updated_at": "2026-10-07T01:02:18+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-ipid",
+      "id": "crypto-fundraising-spiko",
       "source_rank": 1,
+      "name": "Spiko",
+      "round": "Series B",
+      "announced_month": "2026-10",
+      "amount_usd": 90000000,
+      "detail_url": "https://crypto-fundraising.info/projects/spiko/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-okx",
+      "source_rank": 2,
+      "name": "OKX",
+      "round": null,
+      "announced_month": "2026-10",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/okx/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-imperial",
+      "source_rank": 3,
+      "name": "Imperial",
+      "round": "Seed",
+      "announced_month": "2026-10",
+      "amount_usd": 1500000,
+      "detail_url": "https://crypto-fundraising.info/projects/imperial/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-ipid",
+      "source_rank": 4,
       "name": "Ipid",
       "round": "Series A",
       "announced_month": "2026-10",
       "amount_usd": 16000000,
       "detail_url": "https://crypto-fundraising.info/projects/ipid/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-xverse-app",
-      "source_rank": 2,
+      "source_rank": 5,
       "name": "Xverse App",
       "round": "Strategic",
       "announced_month": "2026-10",
       "amount_usd": null,
       "detail_url": "https://crypto-fundraising.info/projects/xverse-app/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-pheasant-network",
-      "source_rank": 3,
-      "name": "Pheasant Network",
-      "round": "Public sale",
-      "announced_month": "2026-10",
-      "amount_usd": 150000,
-      "detail_url": "https://crypto-fundraising.info/projects/pheasant-network/",
-      "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-hyperlink",
-      "source_rank": 4,
-      "name": "HyperLink",
-      "round": null,
-      "announced_month": "2026-10",
-      "amount_usd": 2500000,
-      "detail_url": "https://crypto-fundraising.info/projects/hyperlink/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-jumper",
-      "source_rank": 5,
-      "name": "Jumper",
-      "round": "Public sale",
-      "announced_month": "2026-10",
-      "amount_usd": 3000000,
-      "detail_url": "https://crypto-fundraising.info/projects/jumper/",
       "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:luna-web3-20261006-005815Z",
-    "requestId": "luna-web3-20261006-005815Z",
-    "triggerSha": "3af2d6cbf5d6aec2ef183de256d6b6dc7f41150d",
-    "githubRunId": 37396797308,
-    "scheduledAt": "2026-10-06T01:00:00Z",
-    "startedAt": "2026-10-06T00:58:51.353345+00:00",
-    "sourceCheckedAt": "2026-10-06T00:58:53.421187+00:00",
-    "sourceUpdatedAt": "2026-10-06T00:58:53+00:00",
-    "completedAt": "2026-10-06T00:58:53.421485+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261007-010056Z",
+    "requestId": "codex-web3-20261007-010056Z",
+    "triggerSha": "9c69e9d555d1e87aeb2a908bf389a68b25e4df12",
+    "githubRunId": 37555054125,
+    "scheduledAt": "2026-10-07T01:00:00Z",
+    "startedAt": "2026-10-07T01:02:15.347633+00:00",
+    "sourceCheckedAt": "2026-10-07T01:02:18.429658+00:00",
+    "sourceUpdatedAt": "2026-10-07T01:02:18+00:00",
+    "completedAt": "2026-10-07T01:02:18.429917+00:00",
     "publishedAt": null
   }
 }
