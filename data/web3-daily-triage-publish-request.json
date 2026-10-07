@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "luna-web3-20261006-005815Z",
-  "triggerSha": "3af2d6cbf5d6aec2ef183de256d6b6dc7f41150d",
-  "publicationDate": "2026-10-06",
-  "publishedAt": "2026-10-06T09:00:05+08:00",
+  "requestId": "codex-web3-20261007-010056Z",
+  "triggerSha": "9c69e9d555d1e87aeb2a908bf389a68b25e4df12",
+  "publicationDate": "2026-10-07",
+  "publishedAt": "2026-10-07T09:05:00+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-10-06",
-    "publishedAt": "2026-10-06T09:00:05+08:00",
-    "windowStart": "2026-10-05T00:57:20.813366+00:00",
-    "windowEnd": "2026-10-06T00:58:53.421485+00:00",
-    "sourceUpdatedAt": "2026-10-06T00:58:53+00:00",
+    "runDate": "2026-10-07",
+    "publishedAt": "2026-10-07T09:05:00+08:00",
+    "windowStart": "2026-10-06T00:58:53.421485+00:00",
+    "windowEnd": "2026-10-07T01:02:18.429917+00:00",
+    "sourceUpdatedAt": "2026-10-07T01:02:18+00:00",
     "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:luna-web3-20261006-005815Z",
-      "requestId": "luna-web3-20261006-005815Z",
-      "triggerSha": "3af2d6cbf5d6aec2ef183de256d6b6dc7f41150d",
-      "githubRunId": 37396797308,
-      "scheduledAt": "2026-10-06T01:00:00Z",
-      "startedAt": "2026-10-06T00:58:51.353345+00:00",
-      "sourceCheckedAt": "2026-10-06T00:58:53.421187+00:00",
-      "sourceUpdatedAt": "2026-10-06T00:58:53+00:00",
-      "completedAt": "2026-10-06T00:58:53.421485+00:00",
-      "publishedAt": "2026-10-06T09:00:05+08:00"
+      "runId": "web3-daily-triage:codex-web3-20261007-010056Z",
+      "requestId": "codex-web3-20261007-010056Z",
+      "triggerSha": "9c69e9d555d1e87aeb2a908bf389a68b25e4df12",
+      "githubRunId": 37555054125,
+      "scheduledAt": "2026-10-07T01:00:00Z",
+      "startedAt": "2026-10-07T01:02:15.347633+00:00",
+      "sourceCheckedAt": "2026-10-07T01:02:18.429658+00:00",
+      "sourceUpdatedAt": "2026-10-07T01:02:18+00:00",
+      "completedAt": "2026-10-07T01:02:18.429917+00:00",
+      "publishedAt": "2026-10-07T09:05:00+08:00"
     },
     "executionStatus": {
       "collection": "success",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "候选窗口从 2026-10-05 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后新增 iPiD、Xverse App、HyperLink。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "候选窗口从 2026-10-06 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后新增 Spiko、OKX、Imperial。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -63,211 +63,208 @@
       "crypto-fundraising-pheasant-network--2026-10--public-sale",
       "crypto-fundraising-ipid--2026-10--series-a",
       "crypto-fundraising-xverse-app--2026-10--strategic",
-      "crypto-fundraising-hyperlink--2026-10--round-unknown"
+      "crypto-fundraising-hyperlink--2026-10--round-unknown",
+      "crypto-fundraising-spiko--2026-10--series-b",
+      "crypto-fundraising-okx--2026-10--round-unknown",
+      "crypto-fundraising-imperial--2026-10--seed"
     ],
     "counts": {
       "new": 3,
-      "action": 1,
+      "action": 0,
       "watch": 1,
-      "stop": 1
+      "stop": 2
     },
     "projects": [
       {
-        "event_id": "crypto-fundraising-xverse-app--2026-10--strategic",
-        "source_detail_url": "https://crypto-fundraising.info/projects/xverse-app/",
-        "project_name": "Xverse App",
-        "decision": "ACTION",
+        "event_id": "crypto-fundraising-spiko--2026-10--series-b",
+        "source_detail_url": "https://crypto-fundraising.info/projects/spiko/",
+        "project_name": "Spiko",
+        "decision": "STOP",
         "financing": {
-          "amount_usd": null,
-          "round": "Strategic",
+          "amount_usd": 90000000,
+          "round": "Series B",
           "lead_investors": [
-            "Draper Associates"
+            "New Enterprise Associates (NEA)"
           ],
-          "announcement_date": "2026-10-05",
+          "announcement_date": "2026-10-06",
           "confidence": "high"
         },
-        "plain_explanation": "Xverse 是一款自托管比特币钱包，把 BTC、Stacks、Ordinals、Runes 及部分比特币 DeFi 功能集中在一个移动端和浏览器应用中。",
-        "mechanism_simple": "用户自己保管私钥，并通过钱包直接签署比特币及相关网络上的支付、交易、收益和借贷操作；Xverse 不能替用户冻结或移动资产。",
+        "plain_explanation": "Spiko 是一家受监管的现金管理与代币化平台，把货币市场基金发行在公链上，让企业和个人以欧元、美元、英镑和瑞郎持有短期国债等低风险资产并获取收益。",
+        "mechanism_simple": "客户通过 Spiko 账户或合作平台申购受监管基金份额；区块链用于份额发行、流转和可编程结算，底层资金由银行与基金结构托管，并非无抵押的链上收益协议。",
         "project_status": {
           "category": "existing_no_token",
           "token_status": "no_token_found",
-          "note": "项目已有成熟产品和大量用户；本次为战略融资，未发现 Xverse 原生代币已发行或已宣布。"
+          "note": "产品已成熟运营，官方称管理资产 27 亿美元、覆盖 25 个以上司法辖区；未发现面向用户的 Spiko 原生代币。"
         },
         "participation": {
           "available_now": true,
-          "what_user_can_do": "可免费下载钱包，用一个全新空钱包检查界面、备份流程、硬件钱包支持及 Bitcoin Web3 连接体验；初步体验无需入金。",
-          "requires_real_funds": false,
-          "friction_or_risk": "创建空钱包风险较低；导入主钱包或进行收益、借贷、跨链操作会增加私钥、合约及第三方协议风险。"
+          "what_user_can_do": "符合地区与资格要求的个人或企业可开户并完成身份核验后申购其现金基金，开发者和金融平台也可申请 API 集成。",
+          "requires_real_funds": true,
+          "friction_or_risk": "需要 KYC、地区与投资者资格审查，并投入真实资金；仍存在利率、基金、托管、监管和链上基础设施风险。"
         },
         "incentives": {
           "status": "none_found",
           "types": [],
-          "details": "未发现与本轮融资直接相关的官方 Points、空投或代币活动；官方提供 BTC/STX 收益功能，但属于真实资金产品而非免费激励。"
+          "details": "未发现与本轮融资相关的 Points、测试网、空投或原生代币活动；收益来自受监管基金资产，不是免费激励。"
         },
         "why": [
-          "产品解决比特币生态多资产管理与应用连接的真实需求，且可零资金完成第一轮体验。",
-          "自托管、硬件钱包支持和无需 KYC 的钱包层对普通加密用户有直接实用价值。",
-          "战略轮由 Draper Associates 领投，但 ACTION 来自产品可用性，而非投资方声望。"
+          "公司已是规模化的受监管金融产品，而不是需要早期用户验证的新协议。",
+          "普通用户要获得体验必须完成合规开户并投入真实资金，缺少低成本任务或贡献入口。",
+          "没有原生代币或明确激励，融资消息本身不足以形成值得追踪的早期机会。"
         ],
-        "next_step": "使用全新空钱包安装并完成一次不入金的备份、地址查看和应用连接测试；确认体验与安全边界后，再决定是否小额转入。",
+        "next_step": null,
         "recheck_trigger": null,
-        "website_url": "https://www.xverse.app/",
-        "x_url": "https://x.com/xverse",
+        "website_url": "https://www.spiko.io/",
+        "x_url": "https://x.com/Spiko_finance",
         "evidence": [
           {
-            "claim": "Xverse 于 2026-10-05 宣布完成战略轮，由 Draper Associates 领投，Trust Machines 与 Draper Dragon 参投，金额未披露。",
-            "url": "https://www.xverse.app/blog/xverse-draper-associates-strategic-round",
-            "source_type": "official_blog",
+            "claim": "Spiko 于 2026-10-06 宣布完成 9000 万美元 B 轮，由 NEA 领投，累计融资 1.2 亿美元。",
+            "url": "https://www.businesswire.com/news/home/20261006901425/en/Spiko-Raises-%2490M-Series-B-Led-by-NEA-to-Make-Yield-Universal",
+            "source_type": "official_press_release",
             "confidence": "high"
           },
           {
-            "claim": "Xverse 是自托管比特币钱包，可用于支付、收益、借贷及多类 Bitcoin L1/L2 资产管理。",
-            "url": "https://www.xverse.app/",
+            "claim": "官方称 Spiko 管理 27 亿美元资产、服务逾 1 万名企业和个人，并在四种货币和多条公链上发行受监管现金基金。",
+            "url": "https://www.businesswire.com/news/home/20261006901425/en/Spiko-Raises-%2490M-Series-B-Led-by-NEA-to-Make-Yield-Universal",
+            "source_type": "official_press_release",
+            "confidence": "high"
+          },
+          {
+            "claim": "Spiko 官网说明开户、每日收益与流动性、欧盟监管资质以及银行和基金托管安排。",
+            "url": "https://www.spiko.io/",
             "source_type": "official_site",
-            "confidence": "high"
-          },
-          {
-            "claim": "开发者文档称产品覆盖 Bitcoin、Lightning、Spark、Starknet 与 Stacks，并提供钱包连接和数据基础设施。",
-            "url": "https://docs.xverse.app/",
-            "source_type": "docs",
             "confidence": "high"
           }
         ]
       },
       {
-        "event_id": "crypto-fundraising-hyperlink--2026-10--round-unknown",
-        "source_detail_url": "https://crypto-fundraising.info/projects/hyperlink/",
-        "project_name": "HyperLink",
-        "decision": "WATCH",
+        "event_id": "crypto-fundraising-okx--2026-10--round-unknown",
+        "source_detail_url": "https://crypto-fundraising.info/projects/okx/",
+        "project_name": "OKX",
+        "decision": "STOP",
         "financing": {
-          "amount_usd": 2500000,
+          "amount_usd": null,
           "round": null,
           "lead_investors": [
-            "Alliance",
-            "North Island Ventures",
-            "Reverie",
-            "Node Capital",
-            "Breed"
+            "Circle",
+            "Qube Research & Technologies (QRT)",
+            "Ripple",
+            "SC Ventures by Standard Chartered"
           ],
-          "announcement_date": "2026-10-04",
-          "confidence": "medium"
+          "announcement_date": "2026-10-06",
+          "confidence": "high"
         },
-        "plain_explanation": "HyperLink 是建立在 Hyperliquid 之上的交易执行与主经纪层，目标是让活跃交易者获得更低费用、更私密的头寸与更统一的交易基础设施。",
-        "mechanism_simple": "用户仍在 Hyperliquid 的市场中交易，但订单经由 HyperLink 的共享基础设施路由，以汇集手续费等级并减少钱包级交易暴露。",
+        "plain_explanation": "OKX 是全球大型加密资产交易与金融科技平台，提供现货、合约、钱包、支付及机构级数字资产服务。",
+        "mechanism_simple": "用户将法币或加密资产存入平台后进行现货与衍生品交易，或使用其钱包和链上产品；平台通过交易撮合、托管、流动性和合规基础设施连接个人与机构市场。",
         "project_status": {
-          "category": "new_live_no_token",
-          "token_status": "no_token_found",
-          "note": "项目成立于 2025 年且产品已经上线；本次核验未发现 HyperLink 原生代币已发行或正式宣布。"
+          "category": "existing_token_live",
+          "token_status": "live_tradable",
+          "note": "OKX 已有长期运营的交易平台，原生生态代币 OKB 已公开流通并可交易；按规则自动归类为 STOP。"
         },
         "participation": {
           "available_now": true,
-          "what_user_can_do": "可连接钱包、存入资金并在 Hyperliquid 上通过 HyperLink 交易；也可参与推荐，但实际价值主要面向高频或较大交易量用户。",
+          "what_user_can_do": "可在合规可用地区注册交易平台或使用 OKX Wallet，但这些均是成熟产品使用，不是本轮融资带来的新早期参与入口。",
           "requires_real_funds": true,
-          "friction_or_risk": "需要承担永续合约、杠杆、智能合约、执行层及托管设计相关风险，不适合仅为潜在奖励而试用。"
+          "friction_or_risk": "交易、托管及合约产品涉及资产波动、杠杆、平台、监管与地区可用性风险。"
+        },
+        "incentives": {
+          "status": "not_applicable",
+          "types": [],
+          "details": "平台存在常规奖励、推荐与交易活动，但 OKB 已公开流通；本轮融资不构成新的未发币参与机会。"
+        },
+        "why": [
+          "OKX 原生生态代币 OKB 已公开流通并可交易，触发 Skill 的自动 STOP 规则。",
+          "公司与产品均已成熟，本轮是既有 250 亿美元估值融资的延伸，不是早期协议发现。",
+          "可参与路径主要是存入资金并交易，风险和资金要求较高。"
+        ],
+        "next_step": null,
+        "recheck_trigger": null,
+        "website_url": "https://www.okx.com/",
+        "x_url": "https://x.com/okx",
+        "evidence": [
+          {
+            "claim": "OKX 于 2026-10-06 宣布 Circle、QRT、Ripple 和渣打旗下 SC Ventures 在 250 亿美元投前估值下完成战略投资。",
+            "url": "https://www.okx.com/en-eu/learn/strategic-investment-oct-2026",
+            "source_type": "official_blog",
+            "confidence": "high"
+          },
+          {
+            "claim": "官方说明该交易是 2026 年 3 月 ICE 战略投资轮的延伸，资金用于增长与现实世界资产代币化。",
+            "url": "https://www.okx.com/en-eu/learn/strategic-investment-oct-2026",
+            "source_type": "official_blog",
+            "confidence": "high"
+          },
+          {
+            "claim": "公开市场数据持续列示 OKX Token（OKB）的实时价格与可交易状态。",
+            "url": "https://www.okx.com/price/okb-okb",
+            "source_type": "official_market",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "event_id": "crypto-fundraising-imperial--2026-10--seed",
+        "source_detail_url": "https://crypto-fundraising.info/projects/imperial/",
+        "project_name": "Imperial",
+        "decision": "WATCH",
+        "financing": {
+          "amount_usd": 1500000,
+          "round": "Seed",
+          "lead_investors": [
+            "Foundation Capital"
+          ],
+          "announcement_date": "2026-10-06",
+          "confidence": "medium"
+        },
+        "plain_explanation": "Imperial 是建立在 Solana 上的永续合约交易平台与聚合器，主打更深的流动性、更低手续费和跨协议执行。",
+        "mechanism_simple": "用户以 USDC 等资产作为保证金，在 Solana 上开立带杠杆的永续合约；Imperial 将订单路由到外部流动性并通过其 Armada 设计改善深度和执行。",
+        "project_status": {
+          "category": "new_live_no_token",
+          "token_status": "announced_or_teased",
+          "note": "产品已上线且有积分活动；项目方被报道预留 30% 代币分配给忠诚交易者，但未发现原生代币已公开流通。"
+        },
+        "participation": {
+          "available_now": true,
+          "what_user_can_do": "可连接 Solana 钱包参与平台交易和积分活动；积分会根据交易活动与阶段乘数累计。",
+          "requires_real_funds": true,
+          "friction_or_risk": "需要真实保证金并承担永续合约、杠杆清算、智能合约、外部流动性和代币激励不确定性风险。"
         },
         "incentives": {
           "status": "confirmed",
           "types": [
+            "points",
             "campaign",
-            "other"
+            "token"
           ],
-          "details": "官方渠道显示推荐奖励已上线，并宣传早期质押者可能获得未来奖励；未发现正式代币或空投承诺。"
+          "details": "Season 积分活动已运行，报道提到团队暗示 30% 代币分配给忠诚交易者；具体发行、快照和兑换规则仍未完全确认。"
         },
         "why": [
-          "产品已上线且融资方、Hyperliquid 官方生态信息可交叉确认，但核心价值集中在活跃交易者。",
-          "普通用户要获得实际体验必须存入资金并承担永续合约及协议风险。",
-          "推荐与早期奖励存在，但没有明确代币链接，当前风险收益比不足以立刻行动。"
+          "积分与潜在代币分配构成可观察的早期激励，但参与依赖真实交易量。",
+          "核心产品是高风险杠杆永续合约，仅为积分刷量可能导致损失远超潜在奖励。",
+          "应等待官方代币条款、快照规则和更低风险的参与方式明确后再评估。"
         ],
         "next_step": null,
-        "recheck_trigger": "当官方公布明确的 Points/代币奖励规则，或用户开始稳定使用 Hyperliquid且可量化手续费节省时复查。",
-        "website_url": "https://hyperlink.xyz/",
-        "x_url": "https://x.com/hyperlink_xyz",
+        "recheck_trigger": "当官方发布明确的代币经济、积分兑换或无需杠杆交易的低风险参与任务时复查。",
+        "website_url": "https://imperial.space/",
+        "x_url": "https://x.com/ImperialPerps",
         "evidence": [
           {
-            "claim": "HyperLink 是面向 Hyperliquid 的主经纪和执行层，提供共享费率经济与更私密的交易执行。",
-            "url": "https://hyperlink.xyz/",
-            "source_type": "official_site",
-            "confidence": "high"
-          },
-          {
-            "claim": "Hyperliquid 官方公告确认 HyperLink 主经纪产品已上线并由 Hyperliquid 提供底层支持。",
-            "url": "https://t.me/s/hyperliquid_announcements/581",
-            "source_type": "other",
-            "confidence": "high"
-          },
-          {
-            "claim": "公开融资资料显示本轮规模为 250 万美元，投资方包括 Alliance、North Island Ventures、Reverie、Node Capital 与 Breed。",
-            "url": "https://dropstab.com/coins/hyperlink/fundraising",
-            "source_type": "database",
+            "claim": "Imperial 于 2026-10-06 被报道完成 150 万美元种子轮，由 Foundation Capital 领投。",
+            "url": "https://solanafloor.com/news/imperial-raises-1-5m-seed-round-bringing-7x-deeper-liquidity-solana-perps-market",
+            "source_type": "ecosystem_media",
             "confidence": "medium"
           },
           {
-            "claim": "项目官方 X 提供推荐奖励与早期参与信息，但未形成明确代币承诺。",
-            "url": "https://x.com/hyperlink_xyz",
-            "source_type": "official_x",
+            "claim": "项目是 Solana 永续合约平台，融资用于聚合器、借贷产品与 Armada 永续 AMM。",
+            "url": "https://solanafloor.com/news/imperial-raises-1-5m-seed-round-bringing-7x-deeper-liquidity-solana-perps-market",
+            "source_type": "ecosystem_media",
             "confidence": "medium"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-ipid--2026-10--series-a",
-        "source_detail_url": "https://crypto-fundraising.info/projects/ipid/",
-        "project_name": "iPiD",
-        "decision": "STOP",
-        "financing": {
-          "amount_usd": 16000000,
-          "round": "Series A",
-          "lead_investors": [
-            "Foundation Capital"
-          ],
-          "announcement_date": "2026-09-24",
-          "confidence": "high"
-        },
-        "plain_explanation": "iPiD 为银行、金融科技公司和企业提供跨境收款人身份与银行账户验证，帮助付款前识别错误账户和欺诈风险。",
-        "mechanism_simple": "机构通过一个 API 查询收款账户是否真实、账户名是否匹配以及付款是否存在风险，再决定是否放款。",
-        "project_status": {
-          "category": "existing_no_token",
-          "token_status": "no_token_found",
-          "note": "这是 2021 年成立的机构支付安全公司，并非面向普通用户的早期加密项目；未发现原生代币。"
-        },
-        "participation": {
-          "available_now": false,
-          "what_user_can_do": null,
-          "requires_real_funds": false,
-          "friction_or_risk": "产品通过银行、金融科技公司和企业集成，普通用户没有可直接验证的使用或贡献入口。"
-        },
-        "incentives": {
-          "status": "none_found",
-          "types": [],
-          "details": "未发现面向普通用户的 Points、测试网、Campaign、Token 或 Airdrop 活动。"
-        },
-        "why": [
-          "核心产品是机构级收款人验证 API，目标客户为银行和企业。",
-          "融资将用于支付情报网络、美国与欧洲扩张及数字资产能力，不构成普通用户参与机会。",
-          "没有代币或低成本早期参与路径，继续投入研究注意力的边际价值较低。"
-        ],
-        "next_step": null,
-        "recheck_trigger": null,
-        "website_url": "https://ipid.tech/",
-        "x_url": null,
-        "evidence": [
-          {
-            "claim": "iPiD 于 2026-09-24 宣布 1600 万美元 A 轮，由 Foundation Capital 领投，Citi、HSBC 及原有投资者参投。",
-            "url": "https://ipid.tech/news/ipid-raises-16m-series-a-foundation-capital-citi-hsbc",
-            "source_type": "official_blog",
-            "confidence": "high"
           },
           {
-            "claim": "产品通过单一 API 为银行、金融科技公司和企业提供全球收款人验证，覆盖机构支付场景。",
-            "url": "https://ipid.tech/about",
-            "source_type": "official_site",
-            "confidence": "high"
-          },
-          {
-            "claim": "融资用途包括全球支付情报网络、美国与欧洲扩张以及稳定币和数字资产付款前决策能力。",
-            "url": "https://ipid.tech/news/ipid-raises-16m-series-a-foundation-capital-citi-hsbc",
-            "source_type": "official_blog",
-            "confidence": "high"
+            "claim": "积分活动已运行，报道指向面向忠诚交易者的 30% 潜在代币分配，但细则仍不完整。",
+            "url": "https://solanafloor.com/news/imperial-raises-1-5m-seed-round-bringing-7x-deeper-liquidity-solana-perps-market",
+            "source_type": "ecosystem_media",
+            "confidence": "medium"
           }
         ]
       }
