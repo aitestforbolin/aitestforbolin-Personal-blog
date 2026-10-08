@@ -1,71 +1,71 @@
 {
-  "updated_at": "2026-10-07T01:02:18+00:00",
+  "updated_at": "2026-10-08T01:04:43+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-spiko",
+      "id": "crypto-fundraising-vest-exchange",
       "source_rank": 1,
+      "name": "Vest Markets (ex Vest Exchange)",
+      "round": "Seed",
+      "announced_month": "2026-10",
+      "amount_usd": 13000000,
+      "detail_url": "https://crypto-fundraising.info/projects/vest-exchange/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-noah",
+      "source_rank": 2,
+      "name": "Noah",
+      "round": "Seed",
+      "announced_month": "2026-10",
+      "amount_usd": 16000000,
+      "detail_url": "https://crypto-fundraising.info/projects/noah/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-nous-research",
+      "source_rank": 3,
+      "name": "Nous Research",
+      "round": "Series B",
+      "announced_month": "2026-10",
+      "amount_usd": 90000000,
+      "detail_url": "https://crypto-fundraising.info/projects/nous-research/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-spiko",
+      "source_rank": 4,
       "name": "Spiko",
       "round": "Series B",
       "announced_month": "2026-10",
       "amount_usd": 90000000,
       "detail_url": "https://crypto-fundraising.info/projects/spiko/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-okx",
-      "source_rank": 2,
+      "source_rank": 5,
       "name": "OKX",
       "round": null,
       "announced_month": "2026-10",
       "amount_usd": null,
       "detail_url": "https://crypto-fundraising.info/projects/okx/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-imperial",
-      "source_rank": 3,
-      "name": "Imperial",
-      "round": "Seed",
-      "announced_month": "2026-10",
-      "amount_usd": 1500000,
-      "detail_url": "https://crypto-fundraising.info/projects/imperial/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-ipid",
-      "source_rank": 4,
-      "name": "Ipid",
-      "round": "Series A",
-      "announced_month": "2026-10",
-      "amount_usd": 16000000,
-      "detail_url": "https://crypto-fundraising.info/projects/ipid/",
-      "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-xverse-app",
-      "source_rank": 5,
-      "name": "Xverse App",
-      "round": "Strategic",
-      "announced_month": "2026-10",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/xverse-app/",
       "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261007-010056Z",
-    "requestId": "codex-web3-20261007-010056Z",
-    "triggerSha": "9c69e9d555d1e87aeb2a908bf389a68b25e4df12",
-    "githubRunId": 37555054125,
-    "scheduledAt": "2026-10-07T01:00:00Z",
-    "startedAt": "2026-10-07T01:02:15.347633+00:00",
-    "sourceCheckedAt": "2026-10-07T01:02:18.429658+00:00",
-    "sourceUpdatedAt": "2026-10-07T01:02:18+00:00",
-    "completedAt": "2026-10-07T01:02:18.429917+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261008-010409Z",
+    "requestId": "codex-web3-20261008-010409Z",
+    "triggerSha": "59a137172e3dde658a44ed4c30c93c467dcb8096",
+    "githubRunId": 37711074464,
+    "scheduledAt": "2026-10-08T01:00:00Z",
+    "startedAt": "2026-10-08T01:04:41.435942+00:00",
+    "sourceCheckedAt": "2026-10-08T01:04:43.334508+00:00",
+    "sourceUpdatedAt": "2026-10-08T01:04:43+00:00",
+    "completedAt": "2026-10-08T01:04:43.334752+00:00",
     "publishedAt": null
   }
 }
