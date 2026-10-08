@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "codex-web3-20261007-010056Z",
-  "triggerSha": "9c69e9d555d1e87aeb2a908bf389a68b25e4df12",
-  "publicationDate": "2026-10-07",
-  "publishedAt": "2026-10-07T09:05:00+08:00",
+  "requestId": "codex-web3-20261008-010409Z",
+  "triggerSha": "59a137172e3dde658a44ed4c30c93c467dcb8096",
+  "publicationDate": "2026-10-08",
+  "publishedAt": "2026-10-08T09:06:00+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-10-07",
-    "publishedAt": "2026-10-07T09:05:00+08:00",
-    "windowStart": "2026-10-06T00:58:53.421485+00:00",
-    "windowEnd": "2026-10-07T01:02:18.429917+00:00",
-    "sourceUpdatedAt": "2026-10-07T01:02:18+00:00",
+    "runDate": "2026-10-08",
+    "publishedAt": "2026-10-08T09:06:00+08:00",
+    "windowStart": "2026-10-07T01:02:18.429917+00:00",
+    "windowEnd": "2026-10-08T01:04:43.334752+00:00",
+    "sourceUpdatedAt": "2026-10-08T01:04:43+00:00",
     "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:codex-web3-20261007-010056Z",
-      "requestId": "codex-web3-20261007-010056Z",
-      "triggerSha": "9c69e9d555d1e87aeb2a908bf389a68b25e4df12",
-      "githubRunId": 37555054125,
-      "scheduledAt": "2026-10-07T01:00:00Z",
-      "startedAt": "2026-10-07T01:02:15.347633+00:00",
-      "sourceCheckedAt": "2026-10-07T01:02:18.429658+00:00",
-      "sourceUpdatedAt": "2026-10-07T01:02:18+00:00",
-      "completedAt": "2026-10-07T01:02:18.429917+00:00",
-      "publishedAt": "2026-10-07T09:05:00+08:00"
+      "runId": "web3-daily-triage:codex-web3-20261008-010409Z",
+      "requestId": "codex-web3-20261008-010409Z",
+      "triggerSha": "59a137172e3dde658a44ed4c30c93c467dcb8096",
+      "githubRunId": 37711074464,
+      "scheduledAt": "2026-10-08T01:00:00Z",
+      "startedAt": "2026-10-08T01:04:41.435942+00:00",
+      "sourceCheckedAt": "2026-10-08T01:04:43.334508+00:00",
+      "sourceUpdatedAt": "2026-10-08T01:04:43+00:00",
+      "completedAt": "2026-10-08T01:04:43.334752+00:00",
+      "publishedAt": "2026-10-08T09:06:00+08:00"
     },
     "executionStatus": {
       "collection": "success",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "候选窗口从 2026-10-06 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后新增 Spiko、OKX、Imperial。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "候选窗口从 2026-10-07 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后新增 Vest Markets、Noah、Nous Research。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -66,205 +66,207 @@
       "crypto-fundraising-hyperlink--2026-10--round-unknown",
       "crypto-fundraising-spiko--2026-10--series-b",
       "crypto-fundraising-okx--2026-10--round-unknown",
-      "crypto-fundraising-imperial--2026-10--seed"
+      "crypto-fundraising-imperial--2026-10--seed",
+      "crypto-fundraising-vest-exchange--2026-10--seed",
+      "crypto-fundraising-noah--2026-10--seed",
+      "crypto-fundraising-nous-research--2026-10--series-b"
     ],
     "counts": {
       "new": 3,
-      "action": 0,
+      "action": 1,
       "watch": 1,
-      "stop": 2
+      "stop": 1
     },
     "projects": [
       {
-        "event_id": "crypto-fundraising-spiko--2026-10--series-b",
-        "source_detail_url": "https://crypto-fundraising.info/projects/spiko/",
-        "project_name": "Spiko",
-        "decision": "STOP",
+        "event_id": "crypto-fundraising-nous-research--2026-10--series-b",
+        "source_detail_url": "https://crypto-fundraising.info/projects/nous-research/",
+        "project_name": "Nous Research",
+        "decision": "ACTION",
         "financing": {
           "amount_usd": 90000000,
           "round": "Series B",
           "lead_investors": [
-            "New Enterprise Associates (NEA)"
+            "Robot Ventures"
           ],
-          "announcement_date": "2026-10-06",
+          "announcement_date": "2026-10-07",
           "confidence": "high"
         },
-        "plain_explanation": "Spiko 是一家受监管的现金管理与代币化平台，把货币市场基金发行在公链上，让企业和个人以欧元、美元、英镑和瑞郎持有短期国债等低风险资产并获取收益。",
-        "mechanism_simple": "客户通过 Spiko 账户或合作平台申购受监管基金份额；区块链用于份额发行、流转和可编程结算，底层资金由银行与基金结构托管，并非无抵押的链上收益协议。",
+        "plain_explanation": "Nous Research 是一家开放式人工智能公司，开发可下载、可检查和自行修改的 Hermes Agent，并研究分布式训练基础设施 Psyche。",
+        "mechanism_simple": "Hermes 把模型、工具、文件操作和自动化流程组合成一个本地或云端 AI 助手；用户可以更换底层模型、控制数据和记忆，而不是被单一闭源平台锁定。",
         "project_status": {
           "category": "existing_no_token",
           "token_status": "no_token_found",
-          "note": "产品已成熟运营，官方称管理资产 27 亿美元、覆盖 25 个以上司法辖区；未发现面向用户的 Spiko 原生代币。"
+          "note": "Nous 成立于 2023 年，Hermes 已有广泛使用；官方未宣布可交易的 Nous 原生代币，Psyche 测试网代币明确无经济价值。"
         },
         "participation": {
           "available_now": true,
-          "what_user_can_do": "符合地区与资格要求的个人或企业可开户并完成身份核验后申购其现金基金，开发者和金融平台也可申请 API 集成。",
-          "requires_real_funds": true,
-          "friction_or_risk": "需要 KYC、地区与投资者资格审查，并投入真实资金；仍存在利率、基金、托管、监管和链上基础设施风险。"
+          "what_user_can_do": "可在 Mac、Windows 或 Linux 免费下载 Hermes Desktop，使用一个非敏感测试任务检查本地文件操作、模型切换、工具权限和数据控制体验；也可阅读或贡献开源代码。",
+          "requires_real_funds": false,
+          "friction_or_risk": "首次测试可不投入资金，但需谨慎控制文件、终端、浏览器与账户权限，避免让代理访问敏感目录或执行高风险操作。"
         },
         "incentives": {
           "status": "none_found",
-          "types": [],
-          "details": "未发现与本轮融资相关的 Points、测试网、空投或原生代币活动；收益来自受监管基金资产，不是免费激励。"
+          "types": [
+            "testnet"
+          ],
+          "details": "Psyche 存在官方测试网和分布式训练参与路径，但测试网条款明确相关代币没有经济价值；未发现官方空投承诺。"
         },
         "why": [
-          "公司已是规模化的受监管金融产品，而不是需要早期用户验证的新协议。",
-          "普通用户要获得体验必须完成合规开户并投入真实资金，缺少低成本任务或贡献入口。",
-          "没有原生代币或明确激励，融资消息本身不足以形成值得追踪的早期机会。"
+          "Hermes 已是可直接使用的开放式代理工具，能用很低成本验证真实生产力价值。",
+          "用户可以控制模型、数据、记忆和工具权限，真实效用不依赖代币预期。",
+          "融资将推动 Hermes 企业版与移动端，但当前桌面产品已足以进行受控体验。"
         ],
-        "next_step": null,
+        "next_step": "在全新测试目录中安装 Hermes Desktop，只授予该目录权限，完成一个不涉及账号和资金的资料整理任务；记录其准确性、权限边界和相对现有助手的优势。",
         "recheck_trigger": null,
-        "website_url": "https://www.spiko.io/",
-        "x_url": "https://x.com/Spiko_finance",
+        "website_url": "https://nousresearch.com/",
+        "x_url": "https://x.com/NousResearch",
         "evidence": [
           {
-            "claim": "Spiko 于 2026-10-06 宣布完成 9000 万美元 B 轮，由 NEA 领投，累计融资 1.2 亿美元。",
-            "url": "https://www.businesswire.com/news/home/20261006901425/en/Spiko-Raises-%2490M-Series-B-Led-by-NEA-to-Make-Yield-Universal",
-            "source_type": "official_press_release",
+            "claim": "Nous Research 官方确认完成 9000 万美元融资，用于推进 Hermes 并扩展到企业场景。",
+            "url": "https://nousresearch.com/a-note-on-our-fundraise",
+            "source_type": "official_blog",
             "confidence": "high"
           },
           {
-            "claim": "官方称 Spiko 管理 27 亿美元资产、服务逾 1 万名企业和个人，并在四种货币和多条公链上发行受监管现金基金。",
-            "url": "https://www.businesswire.com/news/home/20261006901425/en/Spiko-Raises-%2490M-Series-B-Led-by-NEA-to-Make-Yield-Universal",
-            "source_type": "official_press_release",
+            "claim": "公开报道显示本轮为 9000 万美元 B 轮、估值 15 亿美元，由 Robot Ventures 领投，NVIDIA、M12、Samsung 等参投。",
+            "url": "https://www.wsj.com/pro/venture-capital/maker-of-open-source-ai-assistant-hermes-secures-90-million-a061c1d7",
+            "source_type": "other",
             "confidence": "high"
           },
           {
-            "claim": "Spiko 官网说明开户、每日收益与流动性、欧盟监管资质以及银行和基金托管安排。",
-            "url": "https://www.spiko.io/",
+            "claim": "官方站点提供 Hermes Desktop 下载，并说明其开放源码、模型训练和代理产品方向。",
+            "url": "https://nousresearch.com/",
+            "source_type": "official_site",
+            "confidence": "high"
+          },
+          {
+            "claim": "Psyche 官方测试网条款明确测试代币没有经济或货币价值。",
+            "url": "https://psyche.network/legal",
             "source_type": "official_site",
             "confidence": "high"
           }
         ]
       },
       {
-        "event_id": "crypto-fundraising-okx--2026-10--round-unknown",
-        "source_detail_url": "https://crypto-fundraising.info/projects/okx/",
-        "project_name": "OKX",
-        "decision": "STOP",
+        "event_id": "crypto-fundraising-noah--2026-10--seed",
+        "source_detail_url": "https://crypto-fundraising.info/projects/noah/",
+        "project_name": "Noah",
+        "decision": "WATCH",
         "financing": {
-          "amount_usd": null,
-          "round": null,
-          "lead_investors": [
-            "Circle",
-            "Qube Research & Technologies (QRT)",
-            "Ripple",
-            "SC Ventures by Standard Chartered"
-          ],
-          "announcement_date": "2026-10-06",
+          "amount_usd": 16000000,
+          "round": "Seed extension",
+          "lead_investors": [],
+          "announcement_date": "2026-10-07",
           "confidence": "high"
         },
-        "plain_explanation": "OKX 是全球大型加密资产交易与金融科技平台，提供现货、合约、钱包、支付及机构级数字资产服务。",
-        "mechanism_simple": "用户将法币或加密资产存入平台后进行现货与衍生品交易，或使用其钱包和链上产品；平台通过交易撮合、托管、流动性和合规基础设施连接个人与机构市场。",
+        "plain_explanation": "Noah 是连接稳定币和本地银行支付网络的跨境支付基础设施，帮助企业把法币收款转换为稳定币，或把稳定币换成本地货币支付给收款人。",
+        "mechanism_simple": "企业通过一个 API 接入虚拟银行账户、KYC/AML、稳定币结算和各国本地出金网络；资金跨境时用稳定币加速结算，再在目的地转换为本地货币。",
         "project_status": {
-          "category": "existing_token_live",
-          "token_status": "live_tradable",
-          "note": "OKX 已有长期运营的交易平台，原生生态代币 OKB 已公开流通并可交易；按规则自动归类为 STOP。"
+          "category": "existing_no_token",
+          "token_status": "no_token_found",
+          "note": "Noah 已在 150 多个市场运营并服务企业客户；未发现 Noah 原生代币已发行或正式宣布。"
         },
         "participation": {
           "available_now": true,
-          "what_user_can_do": "可在合规可用地区注册交易平台或使用 OKX Wallet，但这些均是成熟产品使用，不是本轮融资带来的新早期参与入口。",
+          "what_user_can_do": "企业或开发者可申请接入 API、沙盒和托管结账页；普通用户主要通过 Noah 的合作钱包和平台间接使用，直接使用仍受地区、KYC 与产品开放范围限制。",
           "requires_real_funds": true,
-          "friction_or_risk": "交易、托管及合约产品涉及资产波动、杠杆、平台、监管与地区可用性风险。"
+          "friction_or_risk": "真实跨境支付需要 KYC/KYB、法币或稳定币资金，并承担地区可用性、合规、汇兑、稳定币和服务商风险。"
         },
         "incentives": {
-          "status": "not_applicable",
+          "status": "none_found",
           "types": [],
-          "details": "平台存在常规奖励、推荐与交易活动，但 OKB 已公开流通；本轮融资不构成新的未发币参与机会。"
+          "details": "未发现面向普通用户的 Points、Season、测试网奖励、空投或原生代币活动。"
         },
         "why": [
-          "OKX 原生生态代币 OKB 已公开流通并可交易，触发 Skill 的自动 STOP 规则。",
-          "公司与产品均已成熟，本轮是既有 250 亿美元估值融资的延伸，不是早期协议发现。",
-          "可参与路径主要是存入资金并交易，风险和资金要求较高。"
+          "产品解决跨境收付款成本和结算速度的真实问题，且已获得企业采用。",
+          "目前官网与文档主要面向企业集成，普通用户没有清晰、低成本的独立体验路径。",
+          "没有代币或官方激励，是否值得行动取决于其直接消费者产品和用户所在地区的可用性。"
         ],
         "next_step": null,
-        "recheck_trigger": null,
-        "website_url": "https://www.okx.com/",
-        "x_url": "https://x.com/okx",
+        "recheck_trigger": "当 Noah 面向个人开放无需企业申请的直接产品，并明确支持用户所在地区、费用和出入金路径时复查。",
+        "website_url": "https://noah.com/",
+        "x_url": "https://x.com/noah_hq",
         "evidence": [
           {
-            "claim": "OKX 于 2026-10-06 宣布 Circle、QRT、Ripple 和渣打旗下 SC Ventures 在 250 亿美元投前估值下完成战略投资。",
-            "url": "https://www.okx.com/en-eu/learn/strategic-investment-oct-2026",
-            "source_type": "official_blog",
+            "claim": "Noah 于 2026-10-07 宣布新增 1600 万美元融资，使种子轮累计达到 3800 万美元；投资者包括 Endeit Capital、FJ Labs、LocalGlobe 和 Felix Capital。",
+            "url": "https://rss.globenewswire.com/news-release/2026/10/07/3376327/0/en/noah-closes-38m-seed-funding-round-as-major-enterprises-move-cross-border-payments-onto-stablecoin.html",
+            "source_type": "other",
             "confidence": "high"
           },
           {
-            "claim": "官方说明该交易是 2026 年 3 月 ICE 战略投资轮的延伸，资金用于增长与现实世界资产代币化。",
-            "url": "https://www.okx.com/en-eu/learn/strategic-investment-oct-2026",
-            "source_type": "official_blog",
+            "claim": "官方称 Noah 覆盖 150 多个市场、60 多种货币，并通过稳定币和本地支付网络提供跨境收付款。",
+            "url": "https://noah.com/",
+            "source_type": "official_site",
             "confidence": "high"
           },
           {
-            "claim": "公开市场数据持续列示 OKX Token（OKB）的实时价格与可交易状态。",
-            "url": "https://www.okx.com/price/okb-okb",
-            "source_type": "official_market",
+            "claim": "开发者文档显示产品以企业 API、KYC/AML、虚拟账户、稳定币结算和托管结账页为核心。",
+            "url": "https://docs.noah.com/",
+            "source_type": "docs",
             "confidence": "high"
           }
         ]
       },
       {
-        "event_id": "crypto-fundraising-imperial--2026-10--seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/imperial/",
-        "project_name": "Imperial",
-        "decision": "WATCH",
+        "event_id": "crypto-fundraising-vest-exchange--2026-10--seed",
+        "source_detail_url": "https://crypto-fundraising.info/projects/vest-exchange/",
+        "project_name": "Vest Markets (ex Vest Exchange)",
+        "decision": "STOP",
         "financing": {
-          "amount_usd": 1500000,
+          "amount_usd": 13000000,
           "round": "Seed",
           "lead_investors": [
-            "Foundation Capital"
+            "Portal Ventures"
           ],
-          "announcement_date": "2026-10-06",
-          "confidence": "medium"
+          "announcement_date": "2026-10-07",
+          "confidence": "high"
         },
-        "plain_explanation": "Imperial 是建立在 Solana 上的永续合约交易平台与聚合器，主打更深的流动性、更低手续费和跨协议执行。",
-        "mechanism_simple": "用户以 USDC 等资产作为保证金，在 Solana 上开立带杠杆的永续合约；Imperial 将订单路由到外部流动性并通过其 Armada 设计改善深度和执行。",
+        "plain_explanation": "Vest Markets 是由 Vest Exchange 演变而来的跨资产衍生品与自营交易考核平台，让用户付费参加模拟考核，合格后按平台规则使用名义资金交易并分享收益。",
+        "mechanism_simple": "用户购买考核或即时账户，在模拟或平台控制的账户中提交交易想法；平台可自行决定是否在真实市场执行或对冲，用户按规则获得收益分成，但并不直接控制平台资本。",
         "project_status": {
-          "category": "new_live_no_token",
-          "token_status": "announced_or_teased",
-          "note": "产品已上线且有积分活动；项目方被报道预留 30% 代币分配给忠诚交易者，但未发现原生代币已公开流通。"
+          "category": "renamed_existing",
+          "token_status": "no_token_found",
+          "note": "这是已有 Vest Exchange 的品牌和产品扩展，已有数万交易者与成熟收入；未发现当前可交易的 Vest 原生代币。"
         },
         "participation": {
           "available_now": true,
-          "what_user_can_do": "可连接 Solana 钱包参与平台交易和积分活动；积分会根据交易活动与阶段乘数累计。",
+          "what_user_can_do": "可付费购买 2500 至 25000 美元名义规模的考核或即时账户，交易股票、商品、外汇和加密衍生品，并按规则申请收益支付。",
           "requires_real_funds": true,
-          "friction_or_risk": "需要真实保证金并承担永续合约、杠杆清算、智能合约、外部流动性和代币激励不确定性风险。"
+          "friction_or_risk": "需要支付不可忽略的账户费用，并面对最高 100 倍杠杆、严格回撤规则、收益资格、平台裁量和衍生品交易风险。"
         },
         "incentives": {
-          "status": "confirmed",
-          "types": [
-            "points",
-            "campaign",
-            "token"
-          ],
-          "details": "Season 积分活动已运行，报道提到团队暗示 30% 代币分配给忠诚交易者；具体发行、快照和兑换规则仍未完全确认。"
+          "status": "unconfirmed",
+          "types": [],
+          "details": "旧文档出现 Points 导航，但未找到可核实的当前官方 Points、Token 或 Airdrop 规则，因此不把其视为有效激励。"
         },
         "why": [
-          "积分与潜在代币分配构成可观察的早期激励，但参与依赖真实交易量。",
-          "核心产品是高风险杠杆永续合约，仅为积分刷量可能导致损失远超潜在奖励。",
-          "应等待官方代币条款、快照规则和更低风险的参与方式明确后再评估。"
+          "项目并非新协议，而是已有交易平台和自营交易业务的品牌扩展。",
+          "普通用户参与必须付费并承担高杠杆、回撤限制和平台规则风险，不符合低成本早期参与。",
+          "融资规模和知名支持者不能抵消产品风险；当前也没有确认的代币或低风险激励。"
         ],
         "next_step": null,
-        "recheck_trigger": "当官方发布明确的代币经济、积分兑换或无需杠杆交易的低风险参与任务时复查。",
-        "website_url": "https://imperial.space/",
-        "x_url": "https://x.com/ImperialPerps",
+        "recheck_trigger": null,
+        "website_url": "https://www.vestmarkets.com/",
+        "x_url": "https://x.com/VestExchange",
         "evidence": [
           {
-            "claim": "Imperial 于 2026-10-06 被报道完成 150 万美元种子轮，由 Foundation Capital 领投。",
-            "url": "https://solanafloor.com/news/imperial-raises-1-5m-seed-round-bringing-7x-deeper-liquidity-solana-perps-market",
-            "source_type": "ecosystem_media",
-            "confidence": "medium"
+            "claim": "Vest Labs 于 2026-10-07 宣布完成 1300 万美元种子轮，由 Portal Ventures 领投。",
+            "url": "https://www.fortune.com/2026/10/07/exclusive-portal-ventures-vest-13-million-proprietary-trading-firm-traders-profits/",
+            "source_type": "other",
+            "confidence": "high"
           },
           {
-            "claim": "项目是 Solana 永续合约平台，融资用于聚合器、借贷产品与 Armada 永续 AMM。",
-            "url": "https://solanafloor.com/news/imperial-raises-1-5m-seed-round-bringing-7x-deeper-liquidity-solana-perps-market",
-            "source_type": "ecosystem_media",
-            "confidence": "medium"
+            "claim": "Vest Markets 官网说明用户需付费参加考核或即时账户，最高展示 100 倍杠杆，并按规则取得收益支付。",
+            "url": "https://www.vestmarkets.com/",
+            "source_type": "official_site",
+            "confidence": "high"
           },
           {
-            "claim": "积分活动已运行，报道指向面向忠诚交易者的 30% 潜在代币分配，但细则仍不完整。",
-            "url": "https://solanafloor.com/news/imperial-raises-1-5m-seed-round-bringing-7x-deeper-liquidity-solana-perps-market",
-            "source_type": "ecosystem_media",
-            "confidence": "medium"
+            "claim": "官方披露指出账户余额和结果可能为虚拟记录，平台可自行决定是否执行真实交易，用户不能控制交易路由。",
+            "url": "https://www.vestmarkets.com/",
+            "source_type": "official_site",
+            "confidence": "high"
           }
         ]
       }
