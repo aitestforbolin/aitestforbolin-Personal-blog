@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "codex-web3-20261008-010409Z",
-  "triggerSha": "59a137172e3dde658a44ed4c30c93c467dcb8096",
-  "publicationDate": "2026-10-08",
-  "publishedAt": "2026-10-08T09:06:00+08:00",
+  "requestId": "codex-web3-20261009-005654Z",
+  "triggerSha": "64d45a0d1185a522fceefe2b66ab1b8d38515d28",
+  "publicationDate": "2026-10-09",
+  "publishedAt": "2026-10-09T09:00:00+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-10-08",
-    "publishedAt": "2026-10-08T09:06:00+08:00",
-    "windowStart": "2026-10-07T01:02:18.429917+00:00",
-    "windowEnd": "2026-10-08T01:04:43.334752+00:00",
-    "sourceUpdatedAt": "2026-10-08T01:04:43+00:00",
+    "runDate": "2026-10-09",
+    "publishedAt": "2026-10-09T09:00:00+08:00",
+    "windowStart": "2026-10-08T01:04:43.334752+00:00",
+    "windowEnd": "2026-10-09T00:57:33.872682+00:00",
+    "sourceUpdatedAt": "2026-10-09T00:57:33+00:00",
     "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:codex-web3-20261008-010409Z",
-      "requestId": "codex-web3-20261008-010409Z",
-      "triggerSha": "59a137172e3dde658a44ed4c30c93c467dcb8096",
-      "githubRunId": 37711074464,
-      "scheduledAt": "2026-10-08T01:00:00Z",
-      "startedAt": "2026-10-08T01:04:41.435942+00:00",
-      "sourceCheckedAt": "2026-10-08T01:04:43.334508+00:00",
-      "sourceUpdatedAt": "2026-10-08T01:04:43+00:00",
-      "completedAt": "2026-10-08T01:04:43.334752+00:00",
-      "publishedAt": "2026-10-08T09:06:00+08:00"
+      "runId": "web3-daily-triage:codex-web3-20261009-005654Z",
+      "requestId": "codex-web3-20261009-005654Z",
+      "triggerSha": "64d45a0d1185a522fceefe2b66ab1b8d38515d28",
+      "githubRunId": 37867372846,
+      "scheduledAt": "2026-10-09T01:00:00Z",
+      "startedAt": "2026-10-09T00:57:32.032422+00:00",
+      "sourceCheckedAt": "2026-10-09T00:57:33.872411+00:00",
+      "sourceUpdatedAt": "2026-10-09T00:57:33+00:00",
+      "completedAt": "2026-10-09T00:57:33.872682+00:00",
+      "publishedAt": "2026-10-09T09:00:00+08:00"
     },
     "executionStatus": {
       "collection": "success",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "候选窗口从 2026-10-07 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后新增 Vest Markets、Noah、Nous Research。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "候选窗口从 2026-10-08 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后新增 Catalyst Labs、Soda Labs。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -69,203 +69,137 @@
       "crypto-fundraising-imperial--2026-10--seed",
       "crypto-fundraising-vest-exchange--2026-10--seed",
       "crypto-fundraising-noah--2026-10--seed",
-      "crypto-fundraising-nous-research--2026-10--series-b"
+      "crypto-fundraising-nous-research--2026-10--series-b",
+      "crypto-fundraising-catalyst-labs--2026-10--seed",
+      "crypto-fundraising-soda-labs--2026-10--seed"
     ],
     "counts": {
-      "new": 3,
-      "action": 1,
+      "new": 2,
+      "action": 0,
       "watch": 1,
       "stop": 1
     },
     "projects": [
       {
-        "event_id": "crypto-fundraising-nous-research--2026-10--series-b",
-        "source_detail_url": "https://crypto-fundraising.info/projects/nous-research/",
-        "project_name": "Nous Research",
-        "decision": "ACTION",
-        "financing": {
-          "amount_usd": 90000000,
-          "round": "Series B",
-          "lead_investors": [
-            "Robot Ventures"
-          ],
-          "announcement_date": "2026-10-07",
-          "confidence": "high"
-        },
-        "plain_explanation": "Nous Research 是一家开放式人工智能公司，开发可下载、可检查和自行修改的 Hermes Agent，并研究分布式训练基础设施 Psyche。",
-        "mechanism_simple": "Hermes 把模型、工具、文件操作和自动化流程组合成一个本地或云端 AI 助手；用户可以更换底层模型、控制数据和记忆，而不是被单一闭源平台锁定。",
-        "project_status": {
-          "category": "existing_no_token",
-          "token_status": "no_token_found",
-          "note": "Nous 成立于 2023 年，Hermes 已有广泛使用；官方未宣布可交易的 Nous 原生代币，Psyche 测试网代币明确无经济价值。"
-        },
-        "participation": {
-          "available_now": true,
-          "what_user_can_do": "可在 Mac、Windows 或 Linux 免费下载 Hermes Desktop，使用一个非敏感测试任务检查本地文件操作、模型切换、工具权限和数据控制体验；也可阅读或贡献开源代码。",
-          "requires_real_funds": false,
-          "friction_or_risk": "首次测试可不投入资金，但需谨慎控制文件、终端、浏览器与账户权限，避免让代理访问敏感目录或执行高风险操作。"
-        },
-        "incentives": {
-          "status": "none_found",
-          "types": [
-            "testnet"
-          ],
-          "details": "Psyche 存在官方测试网和分布式训练参与路径，但测试网条款明确相关代币没有经济价值；未发现官方空投承诺。"
-        },
-        "why": [
-          "Hermes 已是可直接使用的开放式代理工具，能用很低成本验证真实生产力价值。",
-          "用户可以控制模型、数据、记忆和工具权限，真实效用不依赖代币预期。",
-          "融资将推动 Hermes 企业版与移动端，但当前桌面产品已足以进行受控体验。"
-        ],
-        "next_step": "在全新测试目录中安装 Hermes Desktop，只授予该目录权限，完成一个不涉及账号和资金的资料整理任务；记录其准确性、权限边界和相对现有助手的优势。",
-        "recheck_trigger": null,
-        "website_url": "https://nousresearch.com/",
-        "x_url": "https://x.com/NousResearch",
-        "evidence": [
-          {
-            "claim": "Nous Research 官方确认完成 9000 万美元融资，用于推进 Hermes 并扩展到企业场景。",
-            "url": "https://nousresearch.com/a-note-on-our-fundraise",
-            "source_type": "official_blog",
-            "confidence": "high"
-          },
-          {
-            "claim": "公开报道显示本轮为 9000 万美元 B 轮、估值 15 亿美元，由 Robot Ventures 领投，NVIDIA、M12、Samsung 等参投。",
-            "url": "https://www.wsj.com/pro/venture-capital/maker-of-open-source-ai-assistant-hermes-secures-90-million-a061c1d7",
-            "source_type": "other",
-            "confidence": "high"
-          },
-          {
-            "claim": "官方站点提供 Hermes Desktop 下载，并说明其开放源码、模型训练和代理产品方向。",
-            "url": "https://nousresearch.com/",
-            "source_type": "official_site",
-            "confidence": "high"
-          },
-          {
-            "claim": "Psyche 官方测试网条款明确测试代币没有经济或货币价值。",
-            "url": "https://psyche.network/legal",
-            "source_type": "official_site",
-            "confidence": "high"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-noah--2026-10--seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/noah/",
-        "project_name": "Noah",
+        "event_id": "crypto-fundraising-catalyst-labs--2026-10--seed",
+        "source_detail_url": "https://crypto-fundraising.info/projects/catalyst-labs/",
+        "project_name": "Catalyst Labs",
         "decision": "WATCH",
         "financing": {
-          "amount_usd": 16000000,
-          "round": "Seed extension",
-          "lead_investors": [],
-          "announcement_date": "2026-10-07",
+          "amount_usd": 30000000,
+          "round": "Seed",
+          "lead_investors": [
+            "Sequoia Capital"
+          ],
+          "announcement_date": "2026-10-08",
           "confidence": "high"
         },
-        "plain_explanation": "Noah 是连接稳定币和本地银行支付网络的跨境支付基础设施，帮助企业把法币收款转换为稳定币，或把稳定币换成本地货币支付给收款人。",
-        "mechanism_simple": "企业通过一个 API 接入虚拟银行账户、KYC/AML、稳定币结算和各国本地出金网络；资金跨境时用稳定币加速结算，再在目的地转换为本地货币。",
+        "plain_explanation": "Catalyst Labs 开发面向散户的 AI 交易代理，用户用自然语言描述投资想法，系统把它转换成监控、研究和执行工作流，覆盖现货代币、永续合约、代币化股票和预测市场。",
+        "mechanism_simple": "用户设定策略、预算和执行条件后，代理持续读取市场、新闻与情绪信号并按边界执行；平台称为非托管，但真实交易仍会承担市场、杠杆、模型判断和执行风险。",
         "project_status": {
           "category": "existing_no_token",
           "token_status": "no_token_found",
-          "note": "Noah 已在 150 多个市场运营并服务企业客户；未发现 Noah 原生代币已发行或正式宣布。"
+          "note": "Catalyst 正处于免费 research preview，已有受限试点和公开产品入口；未发现官方原生代币或空投计划。"
         },
         "participation": {
           "available_now": true,
-          "what_user_can_do": "企业或开发者可申请接入 API、沙盒和托管结账页；普通用户主要通过 Noah 的合作钱包和平台间接使用，直接使用仍受地区、KYC 与产品开放范围限制。",
+          "what_user_can_do": "可进入官网研究预览，先浏览支持市场、策略构建和风险控制；若要执行真实策略，需要存入法币或 USDC、SOL、ETH、BNB 等资产。",
           "requires_real_funds": true,
-          "friction_or_risk": "真实跨境支付需要 KYC/KYB、法币或稳定币资金，并承担地区可用性、合规、汇兑、稳定币和服务商风险。"
+          "friction_or_risk": "真实执行涉及资金与自动化交易风险；策略可能因数据、模型、流动性和市场跳变失效。当前未确认无资金的完整模拟交易模式。"
         },
         "incentives": {
           "status": "none_found",
           "types": [],
-          "details": "未发现面向普通用户的 Points、Season、测试网奖励、空投或原生代币活动。"
+          "details": "未发现官方 Points、Season、测试网奖励、空投或原生代币活动。"
         },
         "why": [
-          "产品解决跨境收付款成本和结算速度的真实问题，且已获得企业采用。",
-          "目前官网与文档主要面向企业集成，普通用户没有清晰、低成本的独立体验路径。",
-          "没有代币或官方激励，是否值得行动取决于其直接消费者产品和用户所在地区的可用性。"
+          "产品已开放 research preview，且融资和试点显示团队具备较强资源与早期市场验证。",
+          "真实价值在交易工作流和风控体验，而不是代币预期；但当前验证路径容易直接进入真实资金执行。",
+          "在缺少明确纸面交易或只读模式前，不建议为体验而入金。"
         ],
         "next_step": null,
-        "recheck_trigger": "当 Noah 面向个人开放无需企业申请的直接产品，并明确支持用户所在地区、费用和出入金路径时复查。",
-        "website_url": "https://noah.com/",
-        "x_url": "https://x.com/noah_hq",
+        "recheck_trigger": "当 Catalyst 明确开放无需入金的纸面交易、只读回测或沙盒，并公开可验证的策略限制、费用和风险控制时复查。",
+        "website_url": "https://catalyst.app/",
+        "x_url": "https://x.com/catalystlabsx",
         "evidence": [
           {
-            "claim": "Noah 于 2026-10-07 宣布新增 1600 万美元融资，使种子轮累计达到 3800 万美元；投资者包括 Endeit Capital、FJ Labs、LocalGlobe 和 Felix Capital。",
-            "url": "https://rss.globenewswire.com/news-release/2026/10/07/3376327/0/en/noah-closes-38m-seed-funding-round-as-major-enterprises-move-cross-border-payments-onto-stablecoin.html",
-            "source_type": "other",
-            "confidence": "high"
-          },
-          {
-            "claim": "官方称 Noah 覆盖 150 多个市场、60 多种货币，并通过稳定币和本地支付网络提供跨境收付款。",
-            "url": "https://noah.com/",
+            "claim": "Catalyst 官网显示产品处于免费 research preview，支持现货代币、永续合约、代币化股票与预测市场，并允许用户设定预算和执行条件。",
+            "url": "https://catalyst.app/faq",
             "source_type": "official_site",
             "confidence": "high"
           },
           {
-            "claim": "开发者文档显示产品以企业 API、KYC/AML、虚拟账户、稳定币结算和托管结账页为核心。",
-            "url": "https://docs.noah.com/",
-            "source_type": "docs",
+            "claim": "公开报道显示 Catalyst 完成 3000 万美元种子轮，由 Sequoia Capital 领投，试点两周产生数亿美元交易量。",
+            "url": "https://fortune.com/2026/10/08/catalyst-ai-agents-retail-investors-seed-round-sequoia/",
+            "source_type": "other",
+            "confidence": "high"
+          },
+          {
+            "claim": "Wilson Sonsini 确认 2026-10-08 的 3000 万美元种子轮及投资方，并称 Catalyst 计划从受邀试点扩大到散户。",
+            "url": "https://www.wsgr.com/en/insights/catalyst-raises-30-million-in-seed-financing.html",
+            "source_type": "other",
             "confidence": "high"
           }
         ]
       },
       {
-        "event_id": "crypto-fundraising-vest-exchange--2026-10--seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/vest-exchange/",
-        "project_name": "Vest Markets (ex Vest Exchange)",
+        "event_id": "crypto-fundraising-soda-labs--2026-10--seed",
+        "source_detail_url": "https://crypto-fundraising.info/projects/soda-labs/",
+        "project_name": "Soda Labs",
         "decision": "STOP",
         "financing": {
-          "amount_usd": 13000000,
+          "amount_usd": 3000000,
           "round": "Seed",
           "lead_investors": [
-            "Portal Ventures"
+            "NextBlock"
           ],
-          "announcement_date": "2026-10-07",
+          "announcement_date": "2026-10-08",
           "confidence": "high"
         },
-        "plain_explanation": "Vest Markets 是由 Vest Exchange 演变而来的跨资产衍生品与自营交易考核平台，让用户付费参加模拟考核，合格后按平台规则使用名义资金交易并分享收益。",
-        "mechanism_simple": "用户购买考核或即时账户，在模拟或平台控制的账户中提交交易想法；平台可自行决定是否在真实市场执行或对冲，用户按规则获得收益分成，但并不直接控制平台资本。",
+        "plain_explanation": "Soda Labs 为公链上的支付、RWA 和交易应用提供隐私计算基础设施，让业务在不公开敏感交易数据的情况下进行链上结算和合规审计。",
+        "mechanism_simple": "其 Bubble 隐私协处理器使用混淆电路与多方计算，把机密数据拆分给多个节点处理；应用可在主链上调用结果，而任何单一参与方都不掌握完整明文。",
         "project_status": {
-          "category": "renamed_existing",
+          "category": "existing_no_token",
           "token_status": "no_token_found",
-          "note": "这是已有 Vest Exchange 的品牌和产品扩展，已有数万交易者与成熟收入；未发现当前可交易的 Vest 原生代币。"
+          "note": "Soda 的 gcEVM 已在 COTI 上运行，并正扩展到跨链 Bubble 协处理器；未发现官方可交易原生代币。"
         },
         "participation": {
-          "available_now": true,
-          "what_user_can_do": "可付费购买 2500 至 25000 美元名义规模的考核或即时账户，交易股票、商品、外汇和加密衍生品，并按规则申请收益支付。",
-          "requires_real_funds": true,
-          "friction_or_risk": "需要支付不可忽略的账户费用，并面对最高 100 倍杠杆、严格回撤规则、收益资格、平台裁量和衍生品交易风险。"
+          "available_now": false,
+          "what_user_can_do": "当前公开入口主要面向需要集成隐私支付、RWA 或交易功能的机构与开发者；普通用户没有清晰的独立产品、开放测试网或节点参与流程。",
+          "requires_real_funds": false,
+          "friction_or_risk": "需要开发和机构集成能力，且隐私计算、合规与多链基础设施仍有技术和采用风险。"
         },
         "incentives": {
-          "status": "unconfirmed",
+          "status": "none_found",
           "types": [],
-          "details": "旧文档出现 Points 导航，但未找到可核实的当前官方 Points、Token 或 Airdrop 规则，因此不把其视为有效激励。"
+          "details": "未发现面向普通用户的 Points、Season、测试网奖励、空投或已公布的节点奖励。"
         },
         "why": [
-          "项目并非新协议，而是已有交易平台和自营交易业务的品牌扩展。",
-          "普通用户参与必须付费并承担高杠杆、回撤限制和平台规则风险，不符合低成本早期参与。",
-          "融资规模和知名支持者不能抵消产品风险；当前也没有确认的代币或低风险激励。"
+          "技术解决链上金融隐私和合规的真实基础设施问题，并已有 COTI、Zoniqx 与 PriveX 等部署或集成。",
+          "当前产品定位集中在机构和开发者，普通用户无法以低成本直接验证核心价值。",
+          "融资将用于商业扩张和验证者网络，但尚未公布面向公众的节点准入、奖励或代币路径。"
         ],
         "next_step": null,
         "recheck_trigger": null,
-        "website_url": "https://www.vestmarkets.com/",
-        "x_url": "https://x.com/VestExchange",
+        "website_url": "https://www.sodalabs.xyz/",
+        "x_url": "https://x.com/sodabubblelabs",
         "evidence": [
           {
-            "claim": "Vest Labs 于 2026-10-07 宣布完成 1300 万美元种子轮，由 Portal Ventures 领投。",
-            "url": "https://www.fortune.com/2026/10/07/exclusive-portal-ventures-vest-13-million-proprietary-trading-firm-traders-profits/",
+            "claim": "融资公告称 NextBlock 独家出资 300 万美元种子轮，Soda 的技术已在 COTI 处理超过 1 亿笔交易，并支持 Zoniqx 与 PriveX。",
+            "url": "https://yellow.com/press-releases/nextblock-leads-3m-seed-round-in-soda-labs-to-scale-privacy-infrastructure-for-public-blockchains",
             "source_type": "other",
             "confidence": "high"
           },
           {
-            "claim": "Vest Markets 官网说明用户需付费参加考核或即时账户，最高展示 100 倍杠杆，并按规则取得收益支付。",
-            "url": "https://www.vestmarkets.com/",
+            "claim": "Soda Labs 官方 GitHub 将 Bubble 描述为面向链上金融的机密计算基础设施，并公开 SDK、合约和 gcEVM 节点代码。",
+            "url": "https://github.com/soda-mpc",
             "source_type": "official_site",
             "confidence": "high"
           },
           {
-            "claim": "官方披露指出账户余额和结果可能为虚拟记录，平台可自行决定是否执行真实交易，用户不能控制交易路由。",
-            "url": "https://www.vestmarkets.com/",
-            "source_type": "official_site",
+            "claim": "Circle Alliance 将 Soda Labs 定位为机构稳定币支付、RWA、财资和交易策略的隐私与合规基础设施提供商。",
+            "url": "https://partners.circle.com/partner/soda-labs",
+            "source_type": "other",
             "confidence": "high"
           }
         ]
