@@ -1,71 +1,71 @@
 {
-  "updated_at": "2026-10-08T01:04:43+00:00",
+  "updated_at": "2026-10-09T00:57:33+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-vest-exchange",
+      "id": "crypto-fundraising-catalyst-labs",
       "source_rank": 1,
+      "name": "Catalyst Labs",
+      "round": "Seed",
+      "announced_month": "2026-10",
+      "amount_usd": 30000000,
+      "detail_url": "https://crypto-fundraising.info/projects/catalyst-labs/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-soda-labs",
+      "source_rank": 2,
+      "name": "Soda Labs",
+      "round": "Seed",
+      "announced_month": "2026-10",
+      "amount_usd": 3000000,
+      "detail_url": "https://crypto-fundraising.info/projects/soda-labs/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-vest-exchange",
+      "source_rank": 3,
       "name": "Vest Markets (ex Vest Exchange)",
       "round": "Seed",
       "announced_month": "2026-10",
       "amount_usd": 13000000,
       "detail_url": "https://crypto-fundraising.info/projects/vest-exchange/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-noah",
-      "source_rank": 2,
+      "source_rank": 4,
       "name": "Noah",
       "round": "Seed",
       "announced_month": "2026-10",
       "amount_usd": 16000000,
       "detail_url": "https://crypto-fundraising.info/projects/noah/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-nous-research",
-      "source_rank": 3,
+      "source_rank": 5,
       "name": "Nous Research",
       "round": "Series B",
       "announced_month": "2026-10",
       "amount_usd": 90000000,
       "detail_url": "https://crypto-fundraising.info/projects/nous-research/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-spiko",
-      "source_rank": 4,
-      "name": "Spiko",
-      "round": "Series B",
-      "announced_month": "2026-10",
-      "amount_usd": 90000000,
-      "detail_url": "https://crypto-fundraising.info/projects/spiko/",
-      "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-okx",
-      "source_rank": 5,
-      "name": "OKX",
-      "round": null,
-      "announced_month": "2026-10",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/okx/",
       "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261008-010409Z",
-    "requestId": "codex-web3-20261008-010409Z",
-    "triggerSha": "59a137172e3dde658a44ed4c30c93c467dcb8096",
-    "githubRunId": 37711074464,
-    "scheduledAt": "2026-10-08T01:00:00Z",
-    "startedAt": "2026-10-08T01:04:41.435942+00:00",
-    "sourceCheckedAt": "2026-10-08T01:04:43.334508+00:00",
-    "sourceUpdatedAt": "2026-10-08T01:04:43+00:00",
-    "completedAt": "2026-10-08T01:04:43.334752+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261009-005654Z",
+    "requestId": "codex-web3-20261009-005654Z",
+    "triggerSha": "64d45a0d1185a522fceefe2b66ab1b8d38515d28",
+    "githubRunId": 37867372846,
+    "scheduledAt": "2026-10-09T01:00:00Z",
+    "startedAt": "2026-10-09T00:57:32.032422+00:00",
+    "sourceCheckedAt": "2026-10-09T00:57:33.872411+00:00",
+    "sourceUpdatedAt": "2026-10-09T00:57:33+00:00",
+    "completedAt": "2026-10-09T00:57:33.872682+00:00",
     "publishedAt": null
   }
 }
