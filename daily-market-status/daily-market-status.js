@@ -232,6 +232,12 @@
       .join("");
   }
 
+  function breadthLabel(item) {
+    if (item?.id === "SP500") return item.universeBasis === "SPY_holdings_proxy"
+      ? "标普500（SPY持仓代理）" : "标普500";
+    return "Nasdaq交易所";
+  }
+
   function renderBreadth() {
     const target = root.querySelector("[data-breadth]");
     target.innerHTML = breadthData
@@ -239,7 +245,7 @@
       .map(
         (item) => `
           <div class="breadth-row">
-            <strong>${escapeHtml(item.id === "SP500" ? "标普500" : "纳斯达克交易所")}：</strong>
+            <strong>${escapeHtml(breadthLabel(item))}：</strong>
             <span>涨${formatNumber(item.advancers, 0)}支、跌${formatNumber(item.decliners, 0)}支、平${formatNumber(item.unchanged, 0)}支（${formatNumber(item.advancePercent, 1)}%上涨）</span>
           </div>`
       )
@@ -699,7 +705,7 @@
       );
       lines.push(
         "• " +
-          label +
+          breadthLabel(item) +
           "：涨" +
           formatNumber(item.advancers, 0) +
           "｜跌" +
@@ -936,7 +942,7 @@
       const item = breadthData.find((entry) => entry?.id === id);
       if (!item) return "";
       const percent = finiteNumber(item.advancePercent ?? item.advancingPercent);
-      return "• " + label + "：涨" + formatNumber(item.advancers, 0) +
+      return "• " + breadthLabel(item) + "：涨" + formatNumber(item.advancers, 0) +
         "｜跌" + formatNumber(item.decliners, 0) + "｜平" +
         formatNumber(item.unchanged, 0) + "｜" +
         (percent === null ? "上涨比例待核验" : formatNumber(percent, 1) + "%上涨");
@@ -1456,7 +1462,9 @@
         }));
       marketMap = merged;
       if (Array.isArray(breadthResponse.data) && breadthResponse.data.length) {
-        breadthData = breadthResponse.data;
+        const byId = new Map(breadthData.map((item) => [item.id, item]));
+        breadthResponse.data.forEach((item) => byId.set(item.id, item));
+        breadthData = [...byId.values()];
       }
       renderIndices();
       renderBreadth();

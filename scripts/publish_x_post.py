@@ -273,6 +273,8 @@ def build_x_post(snapshot: dict[str, Any], now: dt.datetime | None = None) -> st
         row = breadth_by_id.get(breadth_id)
         if not row:
             continue
+        if row.get("universeBasis") == "SPY_holdings_proxy":
+            label = "标普500（SPY持仓代理）"
         percent = row.get("advancePercent", row.get("advancingPercent"))
         counts = [
             f"涨{format_number(row.get('advancers'), 0)}",
