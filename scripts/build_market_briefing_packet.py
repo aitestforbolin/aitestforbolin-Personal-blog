@@ -930,6 +930,113 @@ def generated_after_close(generated: dt.datetime, trading_date: str | None) -> b
     return generated.astimezone(dt.timezone.utc) >= close.astimezone(dt.timezone.utc)
 
 
+
+SPY_HOLDINGS_URL = "https://www.ssga.com/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+TV_SCAN_URL = "https://scanner.tradingview.com/america/scan"
+
+
+def parse_spy_holdings(raw: bytes, trading_date: str) -> tuple[list[str], str]:
+    """Read official holdings without an XLSX dependency; exclude cash/rights."""
+    import io
+    import re
+    import zipfile
+    import xml.etree.ElementTree as ET
+    ns = {"m": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
+    with zipfile.ZipFile(io.BytesIO(raw)) as archive:
+        strings = [
+            "".join(node.itertext())
+            for node in ET.fromstring(archive.read("xl/sharedStrings.xml")).findall("m:si", ns)
+        ]
+        root = ET.fromstring(archive.read("xl/worksheets/sheet1.xml"))
+    rows = []
+    for row in root.findall(".//m:row", ns):
+        cells = {}
+        for cell in row:
+            value = cell.findtext("m:v", "", ns)
+            if cell.get("t") == "s" and value:
+                value = strings[int(value)]
+            cells[re.sub(r"\d", "", cell.get("r", ""))] = value
+        rows.append(cells)
+    as_of_text = next((r.get("B", "") for r in rows if r.get("A") == "Holdings:"), "")
+    holdings_date = dt.datetime.strptime(as_of_text.removeprefix("As of "), "%d-%b-%Y").date()
+    target = dt.date.fromisoformat(trading_date)
+    if not 0 <= (target - holdings_date).days <= 3:
+        raise ValueError("SPY holdings date is stale or later than the target session")
+    tickers = sorted({
+        r["B"] for r in rows
+        if r.get("C") and re.fullmatch(r"[A-Z][A-Z0-9.]{0,9}", r.get("B", ""))
+        and r.get("B") != "Ticker"
+    })
+    if not 480 <= len(tickers) <= 520:
+        raise ValueError("SPY holdings universe is incomplete")
+    return tickers, holdings_date.isoformat()
+
+
+def scan_spy_breadth(payload: dict, tickers: list[str], trading_date: str,
+                    holdings_date: str, now: dt.datetime) -> dict:
+    """Require exactly one valid quote for every holding; never shrink the denominator."""
+    by_ticker = {}
+    for row in payload.get("data", []):
+        symbol = str(row.get("s", "")).partition(":")[2]
+        if symbol not in tickers:
+            continue
+        values = row.get("d", [])
+        change = finite_number(values[0]) if values else None
+        if change is None or symbol in by_ticker:
+            raise ValueError("Missing or ambiguous SPY holding quote: " + symbol)
+        by_ticker[symbol] = change
+    missing = sorted(set(tickers) - set(by_ticker))
+    if missing:
+        raise ValueError("Missing SPY holding quotes: " + ",".join(missing))
+    changes = list(by_ticker.values())
+    advancers = sum(v > 0 for v in changes)
+    decliners = sum(v < 0 for v in changes)
+    if not advancers + decliners:
+        raise ValueError("SPY holdings have no directional breadth")
+    return {
+        "id": "SP500", "label": "标普 500（SPY持仓代理）",
+        "advancers": advancers, "decliners": decliners,
+        "unchanged": sum(v == 0 for v in changes),
+        "advancePercent": advancers / (advancers + decliners) * 100,
+        "observed": len(changes), "updatedAt": int(now.timestamp() * 1000),
+        "source": "TradingView Stock Screener; State Street SPY holdings proxy",
+        "status": "ok", "tradingDate": trading_date,
+        "universeBasis": "SPY_holdings_proxy", "holdingsDate": holdings_date,
+        "holdingsSourceUrl": SPY_HOLDINGS_URL,
+        "expectedCount": len(tickers), "missingCount": 0,
+    }
+
+
+def recover_sp500_breadth(trading_date: str, now: dt.datetime) -> dict:
+    """Scanner changes are usable only after target close and before next US open."""
+    eastern = now.astimezone(ZoneInfo("America/New_York"))
+    target = dt.date.fromisoformat(trading_date)
+    if (eastern.date() < target
+        or (eastern.date() == target and eastern.time() < dt.time(16))
+        or (eastern.date() > target and (
+            eastern.date() > target + dt.timedelta(days=1)
+            or eastern.time() >= dt.time(9, 30)))):
+        raise ValueError("Live breadth is outside the target-session recovery window")
+    request = Request(SPY_HOLDINGS_URL, headers={"User-Agent": "Mozilla/5.0"})
+    with urlopen(request, timeout=TIMEOUT) as response:
+        tickers, holdings_date = parse_spy_holdings(response.read(), trading_date)
+    request = Request(
+        TV_SCAN_URL,
+        data=json.dumps({
+            "symbols": {"tickers": [
+                exchange + ":" + ticker
+                for ticker in tickers for exchange in ("NYSE", "NASDAQ", "AMEX", "BATS", "CBOE")
+            ]},
+            "columns": ["change"], "range": [0, 3000],
+        }).encode(),
+        headers={"Content-Type": "application/json", "User-Agent": "Mozilla/5.0"},
+        method="POST",
+    )
+    with urlopen(request, timeout=TIMEOUT) as response:
+        payload = json.load(response)
+    return scan_spy_breadth(payload, tickers, trading_date, holdings_date, now)
+
+
 def build_packet(now: dt.datetime | None = None) -> dict:
     generated = now or dt.datetime.now(dt.timezone.utc)
     if generated.tzinfo is None:
@@ -1007,6 +1114,16 @@ def build_packet(now: dt.datetime | None = None) -> dict:
             missing_breadth, invalid_breadth = breadth_quality_issues(breadth)
             source_audit["breadthApi"]["fallback"] = "same_date_previous_packet"
             source_audit["breadthApi"]["count"] = len(breadth)
+    if "SP500" in missing_breadth or any(issue.startswith("SP500:") for issue in invalid_breadth):
+        try:
+            recovered = recover_sp500_breadth(trading_date, generated)
+            breadth = [row for row in breadth if row.get("id") != "SP500"] + [recovered]
+            missing_breadth, invalid_breadth = breadth_quality_issues(breadth)
+            source_audit["breadthApi"]["fallback"] = "official_spy_holdings_proxy"
+            source_audit["breadthApi"]["count"] = len(breadth)
+            source_audit["breadthApi"]["holdingsDate"] = recovered["holdingsDate"]
+        except Exception as exc:
+            source_audit["breadthApi"]["recoveryError"] = safe_error_details(exc)
     if missing_markets:
         critical_errors.append("missing_markets:" + ",".join(missing_markets))
     if missing_breadth:
@@ -1163,6 +1280,8 @@ def build_packet(now: dt.datetime | None = None) -> dict:
     critical_comparison_gaps, comparison_warnings = classify_comparison_gaps(
         macro_assets, trading_date, comparison_gaps
     )
+    if any(row.get("universeBasis") == "SPY_holdings_proxy" for row in breadth):
+        comparison_warnings.append("SP500:official_spy_holdings_proxy")
     if gold_proxy_used:
         comparison_warnings.append(
             "GOLD:yahoo_gc_f_proxy_for_xauusd"

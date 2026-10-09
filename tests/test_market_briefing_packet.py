@@ -548,5 +548,30 @@ class MarketBriefingPacketTests(unittest.TestCase):
         )
 
 
+
+class BreadthRecoveryTests(unittest.TestCase):
+    def test_missing_or_duplicate_holding_is_rejected(self):
+        now = dt.datetime(2026, 10, 9, 0, tzinfo=dt.timezone.utc)
+        for rows in ([{"s": "NYSE:A", "d": [1]}],
+                     [{"s": "NYSE:A", "d": [1]}, {"s": "NASDAQ:A", "d": [1]}]):
+            with self.assertRaises(ValueError):
+                MODULE.scan_spy_breadth({"data": rows}, ["A", "B"], "2026-10-08", "2026-10-07", now)
+
+    def test_complete_holdings_proxy_keeps_full_denominator_and_identity(self):
+        now = dt.datetime(2026, 10, 9, 0, tzinfo=dt.timezone.utc)
+        row = MODULE.scan_spy_breadth({"data": [
+            {"s": "NYSE:A", "d": [1]}, {"s": "NASDAQ:B", "d": [-1]},
+            {"s": "NYSE:C", "d": [0]}]}, ["A", "B", "C"], "2026-10-08", "2026-10-07", now)
+        self.assertEqual(row["observed"], 3)
+        self.assertEqual(row["advancePercent"], 50)
+        self.assertEqual(row["universeBasis"], "SPY_holdings_proxy")
+
+    def test_recovery_after_next_open_is_rejected_before_any_fetch(self):
+        with mock.patch.object(MODULE, "urlopen") as fetch:
+            with self.assertRaises(ValueError):
+                MODULE.recover_sp500_breadth("2026-10-08", dt.datetime(2026, 10, 9, 14, tzinfo=dt.timezone.utc))
+            fetch.assert_not_called()
+
+
 if __name__ == "__main__":
     unittest.main()
