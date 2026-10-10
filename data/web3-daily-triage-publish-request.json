@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "codex-web3-20261009-005654Z",
-  "triggerSha": "64d45a0d1185a522fceefe2b66ab1b8d38515d28",
-  "publicationDate": "2026-10-09",
-  "publishedAt": "2026-10-09T09:00:00+08:00",
+  "requestId": "codex-web3-20261010-010000Z",
+  "triggerSha": "3a18a6c334b11ded06844060427ca613ff895762",
+  "publicationDate": "2026-10-10",
+  "publishedAt": "2026-10-10T09:01:29+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-10-09",
-    "publishedAt": "2026-10-09T09:00:00+08:00",
-    "windowStart": "2026-10-08T01:04:43.334752+00:00",
-    "windowEnd": "2026-10-09T00:57:33.872682+00:00",
-    "sourceUpdatedAt": "2026-10-09T00:57:33+00:00",
+    "runDate": "2026-10-10",
+    "publishedAt": "2026-10-10T09:01:29+08:00",
+    "windowStart": "2026-10-09T00:57:33.872682+00:00",
+    "windowEnd": "2026-10-10T01:00:42.062358+00:00",
+    "sourceUpdatedAt": "2026-10-10T01:00:42+00:00",
     "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:codex-web3-20261009-005654Z",
-      "requestId": "codex-web3-20261009-005654Z",
-      "triggerSha": "64d45a0d1185a522fceefe2b66ab1b8d38515d28",
-      "githubRunId": 37867372846,
-      "scheduledAt": "2026-10-09T01:00:00Z",
-      "startedAt": "2026-10-09T00:57:32.032422+00:00",
-      "sourceCheckedAt": "2026-10-09T00:57:33.872411+00:00",
-      "sourceUpdatedAt": "2026-10-09T00:57:33+00:00",
-      "completedAt": "2026-10-09T00:57:33.872682+00:00",
-      "publishedAt": "2026-10-09T09:00:00+08:00"
+      "runId": "web3-daily-triage:codex-web3-20261010-010000Z",
+      "requestId": "codex-web3-20261010-010000Z",
+      "triggerSha": "3a18a6c334b11ded06844060427ca613ff895762",
+      "githubRunId": 38011440979,
+      "scheduledAt": "2026-10-10T01:00:00Z",
+      "startedAt": "2026-10-10T01:00:37.246306+00:00",
+      "sourceCheckedAt": "2026-10-10T01:00:42.062092+00:00",
+      "sourceUpdatedAt": "2026-10-10T01:00:42+00:00",
+      "completedAt": "2026-10-10T01:00:42.062358+00:00",
+      "publishedAt": "2026-10-10T09:01:29+08:00"
     },
     "executionStatus": {
       "collection": "success",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "候选窗口从 2026-10-08 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后新增 Catalyst Labs、Soda Labs。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "候选窗口从 2026-10-09 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后新增 Immix、Meanwhile，FastNEAR 因 M&A 排除。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -71,135 +71,135 @@
       "crypto-fundraising-noah--2026-10--seed",
       "crypto-fundraising-nous-research--2026-10--series-b",
       "crypto-fundraising-catalyst-labs--2026-10--seed",
-      "crypto-fundraising-soda-labs--2026-10--seed"
+      "crypto-fundraising-soda-labs--2026-10--seed",
+      "crypto-fundraising-immix--2026-10--round-unknown",
+      "crypto-fundraising-meanwhile--2026-10--round-unknown"
     ],
     "counts": {
       "new": 2,
       "action": 0,
-      "watch": 1,
-      "stop": 1
+      "watch": 0,
+      "stop": 2
     },
     "projects": [
       {
-        "event_id": "crypto-fundraising-catalyst-labs--2026-10--seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/catalyst-labs/",
-        "project_name": "Catalyst Labs",
-        "decision": "WATCH",
+        "event_id": "crypto-fundraising-immix--2026-10--round-unknown",
+        "source_detail_url": "https://crypto-fundraising.info/projects/immix/",
+        "project_name": "IMMIX",
+        "decision": "STOP",
         "financing": {
-          "amount_usd": 30000000,
-          "round": "Seed",
-          "lead_investors": [
-            "Sequoia Capital"
-          ],
+          "amount_usd": 3500000,
+          "round": null,
+          "lead_investors": [],
           "announcement_date": "2026-10-08",
           "confidence": "high"
         },
-        "plain_explanation": "Catalyst Labs 开发面向散户的 AI 交易代理，用户用自然语言描述投资想法，系统把它转换成监控、研究和执行工作流，覆盖现货代币、永续合约、代币化股票和预测市场。",
-        "mechanism_simple": "用户设定策略、预算和执行条件后，代理持续读取市场、新闻与情绪信号并按边界执行；平台称为非托管，但真实交易仍会承担市场、杠杆、模型判断和执行风险。",
+        "plain_explanation": "IMMIX 为支付公司、稳定币发行方和交易场所提供跨币种稳定币兑换基础设施，重点解决非美元货币流动性不足、报价复杂和多段换汇成本高的问题。",
+        "mechanism_simple": "系统把 AI 定价模型与机构级流动性连接起来，通过询价或 API 为企业提供连续报价并执行稳定币与法币币种之间的转换。",
         "project_status": {
           "category": "existing_no_token",
           "token_status": "no_token_found",
-          "note": "Catalyst 正处于免费 research preview，已有受限试点和公开产品入口；未发现官方原生代币或空投计划。"
+          "note": "IMMIX 已运营多年并处理超过 250 亿美元客户交易量；未发现官方原生代币或代币计划。"
         },
         "participation": {
-          "available_now": true,
-          "what_user_can_do": "可进入官网研究预览，先浏览支持市场、策略构建和风险控制；若要执行真实策略，需要存入法币或 USDC、SOL、ETH、BNB 等资产。",
-          "requires_real_funds": true,
-          "friction_or_risk": "真实执行涉及资金与自动化交易风险；策略可能因数据、模型、流动性和市场跳变失效。当前未确认无资金的完整模拟交易模式。"
+          "available_now": false,
+          "what_user_can_do": "公开接入主要面向支付服务商、汇款机构、稳定币发行方和交易平台；普通用户没有独立产品或开放的低门槛参与路径。",
+          "requires_real_funds": false,
+          "friction_or_risk": "接入需要企业身份、商业协商、API 集成及具体币种和结算条款，属于机构级基础设施。"
         },
         "incentives": {
           "status": "none_found",
           "types": [],
-          "details": "未发现官方 Points、Season、测试网奖励、空投或原生代币活动。"
+          "details": "未发现面向普通用户的 Points、Season、Testnet、Campaign、Token 或 Airdrop。"
         },
         "why": [
-          "产品已开放 research preview，且融资和试点显示团队具备较强资源与早期市场验证。",
-          "真实价值在交易工作流和风控体验，而不是代币预期；但当前验证路径容易直接进入真实资金执行。",
-          "在缺少明确纸面交易或只读模式前，不建议为体验而入金。"
+          "产品解决稳定币跨币种支付中的真实流动性问题，但目标客户明确是企业和机构。",
+          "当前没有普通用户能够低成本验证核心价值的独立流程。",
+          "融资与交易量不能自动转化为个人参与机会，且没有官方代币激励。"
         ],
         "next_step": null,
-        "recheck_trigger": "当 Catalyst 明确开放无需入金的纸面交易、只读回测或沙盒，并公开可验证的策略限制、费用和风险控制时复查。",
-        "website_url": "https://catalyst.app/",
-        "x_url": "https://x.com/catalystlabsx",
+        "recheck_trigger": null,
+        "website_url": "https://immix.xyz/",
+        "x_url": null,
         "evidence": [
           {
-            "claim": "Catalyst 官网显示产品处于免费 research preview，支持现货代币、永续合约、代币化股票与预测市场，并允许用户设定预算和执行条件。",
-            "url": "https://catalyst.app/faq",
-            "source_type": "official_site",
+            "claim": "IMMIX 于 2026-10-08 宣布获得 350 万美元融资，投资方为 Crane Venture Partners、BTSE 和 Portfolio Ventures，未披露轮次或领投方。",
+            "url": "https://www.globenewswire.com/news-release/2026/10/08/3376958/0/en/immix-raises-3-5-million-to-make-global-stablecoin-payments-easier-to-exchange-across-currencies.html",
+            "source_type": "official_blog",
             "confidence": "high"
           },
           {
-            "claim": "公开报道显示 Catalyst 完成 3000 万美元种子轮，由 Sequoia Capital 领投，试点两周产生数亿美元交易量。",
-            "url": "https://fortune.com/2026/10/08/catalyst-ai-agents-retail-investors-seed-round-sequoia/",
-            "source_type": "other",
+            "claim": "融资方 Crane Venture Partners 确认 IMMIX 面向稳定币跨币种转换基础设施，系统累计处理超过 250 亿美元客户交易量。",
+            "url": "https://crane.vc/ideas/immix-raises-3-5m-to-make-global-stablecoin-payments-work-across-currencies",
+            "source_type": "investor",
             "confidence": "high"
           },
           {
-            "claim": "Wilson Sonsini 确认 2026-10-08 的 3000 万美元种子轮及投资方，并称 Catalyst 计划从受邀试点扩大到散户。",
-            "url": "https://www.wsgr.com/en/insights/catalyst-raises-30-million-in-seed-financing.html",
-            "source_type": "other",
+            "claim": "融资公告明确公开合作对象为支付服务商、汇款机构、稳定币发行方、交易场所和平台，接入通过询价或 API 并逐家商定条款。",
+            "url": "https://www.globenewswire.com/news-release/2026/10/08/3376958/0/en/immix-raises-3-5-million-to-make-global-stablecoin-payments-easier-to-exchange-across-currencies.html",
+            "source_type": "official_blog",
             "confidence": "high"
           }
         ]
       },
       {
-        "event_id": "crypto-fundraising-soda-labs--2026-10--seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/soda-labs/",
-        "project_name": "Soda Labs",
+        "event_id": "crypto-fundraising-meanwhile--2026-10--round-unknown",
+        "source_detail_url": "https://crypto-fundraising.info/projects/meanwhile/",
+        "project_name": "Meanwhile",
         "decision": "STOP",
         "financing": {
-          "amount_usd": 3000000,
-          "round": "Seed",
+          "amount_usd": 37500000,
+          "round": null,
           "lead_investors": [
-            "NextBlock"
+            "Bain Capital Crypto"
           ],
           "announcement_date": "2026-10-08",
           "confidence": "high"
         },
-        "plain_explanation": "Soda Labs 为公链上的支付、RWA 和交易应用提供隐私计算基础设施，让业务在不公开敏感交易数据的情况下进行链上结算和合规审计。",
-        "mechanism_simple": "其 Bubble 隐私协处理器使用混淆电路与多方计算，把机密数据拆分给多个节点处理；应用可在主链上调用结果，而任何单一参与方都不掌握完整明文。",
+        "plain_explanation": "Meanwhile 是受百慕大金融监管的比特币计价寿险公司，保费、保单价值、贷款和身故赔付均以 BTC 计算，主要服务希望用比特币进行长期财富保障和传承的客户。",
+        "mechanism_simple": "投保人接受承保审核并支付 BTC 保费，保险公司把资产放入受监管的长期业务基金，以 BTC 计价管理准备金并在合同约定条件下提供赔付或保单贷款。",
         "project_status": {
           "category": "existing_no_token",
           "token_status": "no_token_found",
-          "note": "Soda 的 gcEVM 已在 COTI 上运行，并正扩展到跨链 Bubble 协处理器；未发现官方可交易原生代币。"
+          "note": "Meanwhile 自 2023 年已运营并多次融资，是成熟度较高的受监管保险业务；未发现官方原生代币。"
         },
         "participation": {
-          "available_now": false,
-          "what_user_can_do": "当前公开入口主要面向需要集成隐私支付、RWA 或交易功能的机构与开发者；普通用户没有清晰的独立产品、开放测试网或节点参与流程。",
-          "requires_real_funds": false,
-          "friction_or_risk": "需要开发和机构集成能力，且隐私计算、合规与多链基础设施仍有技术和采用风险。"
+          "available_now": true,
+          "what_user_can_do": "符合地区与承保条件的客户可预约咨询并申请 BTC 计价寿险，但需要提交保险申请、接受审核并支付实际 BTC 保费。",
+          "requires_real_funds": true,
+          "friction_or_risk": "这是长期保险和财富规划产品，涉及较高 BTC 资金、币价波动、承保资格、司法辖区、费用和长期流动性约束，不适合作为空投式早期参与。"
         },
         "incentives": {
           "status": "none_found",
           "types": [],
-          "details": "未发现面向普通用户的 Points、Season、测试网奖励、空投或已公布的节点奖励。"
+          "details": "未发现 Points、Season、Testnet、Campaign、Token 或 Airdrop；核心产品是受监管保险而非代币网络。"
         },
         "why": [
-          "技术解决链上金融隐私和合规的真实基础设施问题，并已有 COTI、Zoniqx 与 PriveX 等部署或集成。",
-          "当前产品定位集中在机构和开发者，普通用户无法以低成本直接验证核心价值。",
-          "融资将用于商业扩张和验证者网络，但尚未公布面向公众的节点准入、奖励或代币路径。"
+          "产品具有真实保险用途，但本轮融资服务于既有业务的国际扩张，不是新的低成本 Web3 参与窗口。",
+          "普通用户参与必须承担实际 BTC 保费、承保和长期资金约束。",
+          "没有代币或官方激励，融资知名度本身不足以形成值得继续跟踪的早期机会。"
         ],
         "next_step": null,
         "recheck_trigger": null,
-        "website_url": "https://www.sodalabs.xyz/",
-        "x_url": "https://x.com/sodabubblelabs",
+        "website_url": "https://meanwhile.bm/",
+        "x_url": null,
         "evidence": [
           {
-            "claim": "融资公告称 NextBlock 独家出资 300 万美元种子轮，Soda 的技术已在 COTI 处理超过 1 亿笔交易，并支持 Zoniqx 与 PriveX。",
-            "url": "https://yellow.com/press-releases/nextblock-leads-3m-seed-round-in-soda-labs-to-scale-privacy-infrastructure-for-public-blockchains",
-            "source_type": "other",
+            "claim": "Meanwhile 官方于 2026-10-08 宣布获得 3750 万美元新融资，由 Bain Capital Crypto 领投，Haun Ventures、Framework Ventures、Pantera Capital、Apollo 等参投。",
+            "url": "https://meanwhile.bm/press/releases/2026_10_08_funding/",
+            "source_type": "official_blog",
             "confidence": "high"
           },
           {
-            "claim": "Soda Labs 官方 GitHub 将 Bubble 描述为面向链上金融的机密计算基础设施，并公开 SDK、合约和 gcEVM 节点代码。",
-            "url": "https://github.com/soda-mpc",
+            "claim": "官网确认 Meanwhile 是受百慕大金融管理局监管的长期寿险公司，保费资产置于受限制的长期业务基金。",
+            "url": "https://meanwhile.bm/",
             "source_type": "official_site",
             "confidence": "high"
           },
           {
-            "claim": "Circle Alliance 将 Soda Labs 定位为机构稳定币支付、RWA、财资和交易策略的隐私与合规基础设施提供商。",
-            "url": "https://partners.circle.com/partner/soda-labs",
-            "source_type": "other",
+            "claim": "官方产品资料显示其寿险以 BTC 支付保费并计价，目标包括高净值国际客户，参与需要真实 BTC 和保险申请。",
+            "url": "https://meanwhile.bm/distribution-partners/",
+            "source_type": "official_site",
             "confidence": "high"
           }
         ]
