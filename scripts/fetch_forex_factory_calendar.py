@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import time
 from datetime import date, datetime, timedelta
 from html.parser import HTMLParser
 from pathlib import Path
@@ -27,6 +28,8 @@ FF_ACTUAL_BRIDGE_URL = "https://forex-factory-calendar-probe.laibocszd.chatgpt.s
 FED_URL = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
 ET, SHANGHAI = ZoneInfo("America/New_York"), ZoneInfo("Asia/Shanghai")
 FF_MONTHS = ("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec")
+ACTUAL_LOOKBACK_MINUTES = 7 * 24 * 60
+ACTUAL_GRACE_MINUTES = 30
 
 SERIES = {
     "CPI": ("美国CPI / 核心CPI", "inflation", 5, {"CPI m/m": "CPI环比", "CPI y/y": "CPI同比", "Core CPI m/m": "核心CPI环比", "Core CPI y/y": "核心CPI同比"}),
@@ -130,9 +133,12 @@ def carry_forward_actuals(events, existing):
             copied = True
         if copied:
             event["release_status"] = "released"
-            for field in ("released_at", "actual_updated_at", "result_source", "result_url"):
+            for field in ("released_at", "actual_updated_at", "actual_last_checked_at", "actual_check_status", "result_source", "result_url"):
                 if old.get(field) is not None:
                     event[field] = old[field]
+            moment = event_moment(event)
+            if moment:
+                event["released_at"] = moment.isoformat(timespec="seconds")
             rebuild_event_summaries(event)
 
 
@@ -152,7 +158,7 @@ def expects_actual(metric):
     return metric.get("forecast") is not None or metric.get("previous") is not None
 
 
-def actual_backfill_days(events, now, lookback_minutes=240):
+def actual_backfill_days(events, now, lookback_minutes=ACTUAL_LOOKBACK_MINUTES):
     earliest = now - timedelta(minutes=lookback_minutes)
     days = set()
     for event in events:
@@ -161,6 +167,36 @@ def actual_backfill_days(events, now, lookback_minutes=240):
         if moment and earliest <= moment <= now and missing:
             days.add(event["date_et"])
     return sorted(days)
+
+
+def retain_pending_actuals(events, now, lookback_minutes=ACTUAL_LOOKBACK_MINUTES):
+    """Carry unresolved releases across the weekly feed rollover."""
+    days = set(actual_backfill_days(events, now, lookback_minutes))
+    return [event for event in events if event.get("date_et") in days
+            and event_moment(event) and now - timedelta(minutes=lookback_minutes) <= event_moment(event) <= now
+            and any(expects_actual(m) and m.get("actual") is None for m in event.get("metric_values", []))]
+
+
+def annotate_actual_health(events, now):
+    overdue = []
+    for event in events:
+        moment = event_moment(event)
+        metrics = [m for m in event.get("metric_values", []) if expects_actual(m)]
+        missing = [m.get("label") or m.get("source_title") for m in metrics if m.get("actual") is None]
+        event["actual_missing"] = missing
+        if not metrics:
+            state = "not_expected"
+        elif not moment or moment > now:
+            state = "not_due"
+        elif not missing:
+            state = "complete"
+        elif now - moment <= timedelta(minutes=ACTUAL_GRACE_MINUTES):
+            state = "pending"
+        else:
+            state = "overdue"
+            overdue.append(event)
+        event["actual_status"] = state
+    return overdue
 
 
 def fetch_actual_bridge(day):
@@ -189,8 +225,9 @@ def merge_bridge_actuals(events, payloads):
                 continue
             row = candidates[position]
             positions[position_key] = position + 1
-            if not row.get("actual"):
+            if row.get("actual") in (None, ""):
                 continue
+            changed = metric.get("actual") != row["actual"] or (row.get("previous") not in (None, "") and metric.get("previous") != row["previous"])
             metric["actual"] = row["actual"]
             if row.get("previous"):
                 metric["previous"] = row["previous"]
@@ -198,13 +235,14 @@ def merge_bridge_actuals(events, payloads):
                 metric["forecast"] = row["forecast"]
             metric["actual_source"] = "Forex Factory 网页日历"
             metric["actual_url"] = payloads[event["date_et"]].get("source_url") or FF_PAGE_URL
-            updated += 1
-            event_updated = True
+            updated += int(changed)
+            event_updated = event_updated or changed
         if event_updated:
             payload = payloads[event["date_et"]]
             event["release_status"] = "released"
-            event["released_at"] = payload.get("checked_at") or datetime.now(ET).isoformat(timespec="seconds")
-            event["actual_updated_at"] = event["released_at"]
+            moment = event_moment(event)
+            event["released_at"] = moment.isoformat(timespec="seconds") if moment else payload.get("checked_at")
+            event["actual_updated_at"] = payload.get("checked_at") or datetime.now(ET).isoformat(timespec="seconds")
             event["result_source"] = "Forex Factory 网页日历"
             event["result_url"] = payload.get("source_url") or FF_PAGE_URL
             rebuild_event_summaries(event)
@@ -260,10 +298,21 @@ def main():
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--offline", action="store_true")
     parser.add_argument("--backfill-actual", action="store_true")
-    parser.add_argument("--actual-lookback-minutes", type=int, default=240)
+    parser.add_argument("--actual-lookback-minutes", type=int, default=ACTUAL_LOOKBACK_MINUTES)
+    parser.add_argument("--check-actual-health", action="store_true", help="Fail when published numeric releases remain overdue")
     args = parser.parse_args()
     now = datetime.now(ET)
     existing, today = read_existing(args.output), now.date()
+    if args.check_actual_health:
+        if not existing:
+            raise SystemExit("Calendar snapshot is missing or empty")
+        overdue = annotate_actual_health(existing, now)
+        for event in overdue:
+            print(f"overdue Actual: {event.get('date_et')} {event.get('title')}: {', '.join(event['actual_missing'])}")
+        if overdue:
+            raise SystemExit(1)
+        print("No overdue Actual values")
+        return
     try:
         if args.offline: raise URLError("offline requested")
         events = parse_forex_factory(fetch_text(FF_URL)); validate_fomc(events, fetch_text(FED_URL))
@@ -271,25 +320,41 @@ def main():
         carry_forward_actuals(events, existing)
         known = {(item.get("date_et"), item.get("title")) for item in events}
         events.extend(item for item in retain_released_window(existing, today) if (item.get("date_et"), item.get("title")) not in known)
+        known = {(item.get("date_et"), item.get("title")) for item in events}
+        events.extend(item for item in retain_pending_actuals(existing, now, args.actual_lookback_minutes) if (item.get("date_et"), item.get("title")) not in known)
         state = "healthy"
     except (URLError, TimeoutError, OSError, ValueError, json.JSONDecodeError) as exc:
         events, state = retain_window(existing, today), "stale_snapshot"
+        known = {(item.get("date_et"), item.get("title")) for item in events}
+        events.extend(item for item in retain_pending_actuals(existing, now, args.actual_lookback_minutes) if (item.get("date_et"), item.get("title")) not in known)
         if not events: raise SystemExit(f"Forex Factory unavailable and no valid snapshot exists: {exc}")
         print(f"warning: using previous Forex Factory snapshot: {exc}")
     if args.backfill_actual and not args.offline:
         payloads = {}
         for day in actual_backfill_days(events, now, args.actual_lookback_minutes):
-            try:
-                payloads[day] = fetch_actual_bridge(day)
-            except (URLError, TimeoutError, OSError, ValueError, json.JSONDecodeError) as exc:
-                print(f"warning: Actual bridge unavailable for {day}: {exc}")
+            for attempt in range(3):
+                try:
+                    payloads[day] = fetch_actual_bridge(day)
+                    break
+                except (URLError, TimeoutError, OSError, ValueError, json.JSONDecodeError) as exc:
+                    print(f"warning: Actual bridge unavailable for {day} (attempt {attempt + 1}/3): {exc}")
+                    if attempt < 2:
+                        time.sleep(5 * (attempt + 1))
+            for event in events:
+                if event.get("date_et") == day:
+                    event["actual_last_checked_at"] = now.isoformat(timespec="seconds")
+                    event["actual_check_status"] = "ok" if day in payloads else "source_unavailable"
         if payloads:
             print(f"backfilled {merge_bridge_actuals(events, payloads)} Actual values from Forex Factory webpage")
     for event in events:
         event["calendar_status"] = state
+    overdue = annotate_actual_health(events, now)
+    for event in overdue:
+        print(f"warning: overdue Actual: {event.get('date_et')} {event.get('title')}: {', '.join(event['actual_missing'])}")
     events.sort(key=lambda item: (item.get("date", ""), item.get("time_shanghai", ""), item.get("title", "")))
     args.output.parent.mkdir(parents=True, exist_ok=True); args.output.write_text(json.dumps(events, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {len(events)} Forex Factory U.S. calendar events ({state})")
 
 
 if __name__ == "__main__": main()
+

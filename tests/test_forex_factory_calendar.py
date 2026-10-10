@@ -3,6 +3,9 @@ import importlib.util, json, sys, unittest
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
+from tempfile import TemporaryDirectory
+from unittest.mock import patch
+from urllib.error import URLError
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location("ff_calendar", ROOT / "scripts" / "fetch_forex_factory_calendar.py")
 assert spec and spec.loader
@@ -88,4 +91,91 @@ class ForexFactoryCalendarTests(unittest.TestCase):
         self.assertEqual(ff.actual_backfill_days(events, now, 30), ["2026-09-17"])
         self.assertEqual(ff.actual_backfill_days(events, now.replace(hour=12), 30), [])
 
+    def numeric_event(self, day="2026-10-08"):
+        return ff.parse_forex_factory(json.dumps([{"title": "Unemployment Claims", "country": "USD", "impact": "Medium", "date": f"{day}T08:30:00-04:00", "forecast": "200K", "previous": "197K"}]))[0]
+
+    def test_default_backfill_includes_missed_releases_days_later(self):
+        event = self.numeric_event()
+        now = datetime(2026, 10, 10, 10, tzinfo=ff.ET)
+        self.assertEqual(ff.actual_backfill_days([event], now), ["2026-10-08"])
+        self.assertEqual(ff.actual_backfill_days([event], now.replace(day=16)), [])
+        self.assertEqual(ff.actual_backfill_days([event], now.replace(day=8, hour=8, minute=29)), [])
+
+    def test_rollover_keeps_unresolved_release_but_not_speech_or_future_plan(self):
+        event = self.numeric_event()
+        speech = dict(event, title="Speech", metric_values=[{"actual": None, "forecast": None, "previous": None}])
+        future = self.numeric_event("2026-10-13")
+        now = datetime(2026, 10, 12, 10, tzinfo=ff.ET)
+        self.assertEqual(ff.retain_pending_actuals([event, speech, future], now), [event])
+
+    def test_partial_release_remains_overdue_until_all_expected_metrics_filled(self):
+        event = self.numeric_event()
+        event["metric_values"].append({"label": "second", "actual": "1", "previous": "2"})
+        now = datetime(2026, 10, 8, 9, 1, tzinfo=ff.ET)
+        self.assertEqual(ff.annotate_actual_health([event], now), [event])
+        self.assertEqual(event["actual_status"], "overdue")
+        self.assertEqual(event["actual_missing"], ["初请失业金人数"])
+        event["metric_values"][0]["actual"] = "201K"
+        self.assertEqual(ff.annotate_actual_health([event], now), [])
+        self.assertEqual(event["actual_status"], "complete")
+
+    def test_grace_period_and_nonnumeric_events_are_not_overdue(self):
+        event = self.numeric_event()
+        now = datetime(2026, 10, 8, 8, 45, tzinfo=ff.ET)
+        self.assertEqual(ff.annotate_actual_health([event], now), [])
+        self.assertEqual(event["actual_status"], "pending")
+        event["metric_values"] = [{"actual": None, "forecast": None, "previous": None}]
+        ff.annotate_actual_health([event], now.replace(hour=10))
+        self.assertEqual(event["actual_status"], "not_expected")
+
+    def test_capture_time_does_not_replace_release_time_and_unchanged_result_is_stable(self):
+        event = self.numeric_event()
+        payload = {"checked_at": "2026-10-10T12:00:00Z", "events": [{"event": "Unemployment Claims", "actual": "201K", "previous": "198K"}]}
+        self.assertEqual(ff.merge_bridge_actuals([event], {"2026-10-08": payload}), 1)
+        self.assertEqual(event["released_at"], "2026-10-08T08:30:00-04:00")
+        self.assertEqual(event["actual_updated_at"], "2026-10-10T12:00:00Z")
+        payload["checked_at"] = "2026-10-10T13:00:00Z"
+        self.assertEqual(ff.merge_bridge_actuals([event], {"2026-10-08": payload}), 0)
+        self.assertEqual(event["actual_updated_at"], "2026-10-10T12:00:00Z")
+
+    def test_health_check_fails_overdue_without_changing_snapshot(self):
+        with TemporaryDirectory() as tmp:
+            output = Path(tmp) / "calendar.json"
+            original = json.dumps([self.numeric_event()])
+            output.write_text(original)
+            with patch.object(sys, "argv", ["ff", "--output", str(output), "--check-actual-health"]), patch.object(ff, "datetime", wraps=datetime) as clock:
+                clock.now.return_value = datetime(2026, 10, 10, 10, tzinfo=ff.ET)
+                with self.assertRaises(SystemExit) as exc:
+                    ff.main()
+                self.assertEqual(exc.exception.code, 1)
+            self.assertEqual(output.read_text(), original)
+
+    def test_main_recovers_prior_week_gap_and_retries_transient_bridge_failure(self):
+        with TemporaryDirectory() as tmp:
+            output = Path(tmp) / "calendar.json"
+            output.write_text(json.dumps([self.numeric_event()]))
+            feed = json.dumps([{"title": "CPI m/m", "country": "USD", "impact": "High", "date": "2026-10-13T08:30:00-04:00", "forecast": "0.3%", "previous": "0.2%"}])
+            payload = {"ok": True, "events": [{"event": "Unemployment Claims", "actual": "201K"}], "checked_at": "2026-10-12T14:00:00Z"}
+            with patch.object(sys, "argv", ["ff", "--output", str(output), "--backfill-actual"]), patch.object(ff, "datetime", wraps=datetime) as clock, patch.object(ff, "fetch_text", side_effect=[feed, ""]), patch.object(ff, "fetch_actual_bridge", side_effect=[URLError("temporary"), payload]) as bridge, patch.object(ff.time, "sleep"):
+                clock.now.return_value = datetime(2026, 10, 12, 10, tzinfo=ff.ET)
+                ff.main()
+            recovered = next(x for x in json.loads(output.read_text()) if x["title"] == "Jobless Claims")
+            self.assertEqual(bridge.call_count, 2)
+            self.assertEqual(recovered["metric_values"][0]["actual"], "201K")
+            self.assertEqual(recovered["actual_status"], "complete")
+
+    def test_main_preserves_gap_and_exposes_source_failure(self):
+        with TemporaryDirectory() as tmp:
+            output = Path(tmp) / "calendar.json"
+            output.write_text(json.dumps([self.numeric_event()]))
+            feed = json.dumps([{"title": "CPI m/m", "country": "USD", "impact": "High", "date": "2026-10-13T08:30:00-04:00", "forecast": "0.3%", "previous": "0.2%"}])
+            with patch.object(sys, "argv", ["ff", "--output", str(output), "--backfill-actual"]), patch.object(ff, "datetime", wraps=datetime) as clock, patch.object(ff, "fetch_text", side_effect=[feed, ""]), patch.object(ff, "fetch_actual_bridge", side_effect=URLError("blocked")) as bridge, patch.object(ff.time, "sleep"):
+                clock.now.return_value = datetime(2026, 10, 12, 10, tzinfo=ff.ET)
+                ff.main()
+            pending = next(x for x in json.loads(output.read_text()) if x["title"] == "Jobless Claims")
+            self.assertEqual(bridge.call_count, 3)
+            self.assertEqual(pending["actual_check_status"], "source_unavailable")
+            self.assertEqual(pending["actual_status"], "overdue")
+
 if __name__ == "__main__": unittest.main()
+

@@ -17,4 +17,14 @@ class MacroCalendarMergeTests(unittest.TestCase):
     def test_validator_rejects_non_us_event(self):
         with self.assertRaises(ValueError): merger.validate({"events": [{"country": "CN", "scheduledAt": "2026-09-16T20:30:00+08:00", "id": "cn"}]})
 
+    def test_overdue_actual_is_partial_and_survives_normalization(self):
+        event = {"date": "2026-10-08", "time_shanghai": "20:30", "title": "Jobless Claims", "calendar_status": "healthy", "actual_status": "overdue", "actual_missing": ["初请失业金人数"]}
+        payload = merger.build_payload([event])
+        self.assertEqual(payload["status"], "partial")
+        self.assertEqual(payload["health"]["US"]["status"], "partial")
+        self.assertEqual(payload["events"][0]["actualMissing"], ["初请失业金人数"])
+        event["calendar_status"] = "stale_snapshot"
+        self.assertEqual(merger.build_payload([event])["status"], "stale")
+
 if __name__ == "__main__": unittest.main()
+

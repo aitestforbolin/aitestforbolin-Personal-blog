@@ -25,13 +25,15 @@ def normalize_event(event):
     for index, metric in enumerate(event.get("metric_values", []), 1):
         if isinstance(metric, dict):
             metrics.append({"id": f"metric-{index}", "label": metric.get("label") or "综合值", "actual": metric.get("actual"), "forecast": metric.get("forecast"), "previous": metric.get("previous"), "unit": None, "sourceUrl": event.get("result_url") or event.get("url")})
-    return {"id": event.get("id") or stable_id(event), "eventType": "data", "country": "US", "period": event.get("period"), "scheduledAt": f"{event['date']}T{event['time_shanghai']}:00+08:00", "dateStatus": "confirmed", "title": event.get("title_cn") or event.get("title") or "美国宏观数据", "category": event.get("category") or "macro", "importance": event.get("importance") or "medium", "stars": int(event.get("stars") or 3), "source": event.get("source") or "Forex Factory", "sourceUrl": event.get("url"), "metrics": metrics, "releasedAt": event.get("released_at"), "retrievedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"), "revisionStatus": "not_revised", "releaseStatus": event.get("release_status") or "scheduled", "legacy": copy.deepcopy(event)}
+    return {"id": event.get("id") or stable_id(event), "eventType": "data", "country": "US", "period": event.get("period"), "scheduledAt": f"{event['date']}T{event['time_shanghai']}:00+08:00", "dateStatus": "confirmed", "title": event.get("title_cn") or event.get("title") or "美国宏观数据", "category": event.get("category") or "macro", "importance": event.get("importance") or "medium", "stars": int(event.get("stars") or 3), "source": event.get("source") or "Forex Factory", "sourceUrl": event.get("url"), "metrics": metrics, "releasedAt": event.get("released_at"), "actualStatus": event.get("actual_status"), "actualMissing": event.get("actual_missing", []), "actualLastCheckedAt": event.get("actual_last_checked_at"), "retrievedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"), "revisionStatus": "not_revised", "releaseStatus": event.get("release_status") or "scheduled", "legacy": copy.deepcopy(event)}
 
 
 def build_payload(events):
     normalized = sorted((normalize_event(event) for event in events if isinstance(event, dict)), key=lambda item: (item["scheduledAt"], item["id"]))
     if not normalized: raise ValueError("U.S. calendar is empty")
     status = "stale" if all(event.get("calendar_status") == "stale_snapshot" for event in events) else "healthy"
+    if status == "healthy" and any(event.get("actual_status") == "overdue" for event in events):
+        status = "partial"
     return {"schemaVersion": 2, "generatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"), "timezone": "Asia/Shanghai", "status": status, "failedSources": ["Forex Factory"] if status == "stale" else [], "health": {"US": {"status": status, "primarySource": "Forex Factory", "fomcValidation": "Federal Reserve"}}, "sourcePolicy": "U.S. calendar: all USD events rated Medium or High by Forex Factory; Federal Reserve validates FOMC dates. Briefing selection is handled separately.", "events": normalized}
 
 
@@ -62,3 +64,4 @@ def main():
 
 
 if __name__ == "__main__": main()
+

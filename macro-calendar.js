@@ -346,6 +346,9 @@
   }
 
   function eventStatusBadge(event) {
+    if (event.actualStatus === "overdue" || event.actualStatus === "pending") {
+      return '<small class="macro-upcoming-badge">实际值待补全</small>';
+    }
     const distance = MODEL.dayDistance(event, todayShanghai());
     const released = event.releaseStatus === "released" || Boolean(event.releasedAt);
     const policyEvent = event.eventType === "policy_event";
@@ -411,6 +414,12 @@
     }
     if (state.dataStatus === "stale") {
       status.textContent = "Forex Factory 暂时不可用，当前保留上一份仍在展示窗口内的有效日历。";
+      status.dataset.state = "warning";
+      return;
+    }
+    if (state.dataStatus === "partial") {
+      const count = state.events.filter((event) => event.actualStatus === "overdue").length;
+      status.textContent = `${count} 项已到公布时间的数据仍待补全实际值，正在持续追补。`;
       status.dataset.state = "warning";
       return;
     }
@@ -584,7 +593,8 @@
   });
 
   renderNextFomcDate();
-  fetch(DATA_URL)
+  function loadCalendar() {
+  return fetch(`${DATA_URL}&checked=${Math.floor(Date.now() / 60000)}`, { cache: "no-store" })
     .then((response) => {
       if (!response.ok) {
         throw new Error(`Calendar request failed: ${response.status}`);
@@ -604,4 +614,9 @@
       status.textContent = "日历数据暂时无法载入，请检查 data/macro-calendar.json。";
       status.dataset.state = "warning";
     });
+  }
+  loadCalendar();
+  setInterval(() => { if (!document.hidden) loadCalendar(); }, 5 * 60 * 1000);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) loadCalendar(); });
 })();
+

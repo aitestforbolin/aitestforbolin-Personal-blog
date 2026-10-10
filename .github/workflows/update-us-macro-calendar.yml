@@ -8,6 +8,9 @@ on:
       - "scripts/fetch_forex_factory_calendar.py"
       - "scripts/validate_us_calendar_shadow.py"
       - "scripts/merge_macro_calendars.py"
+      - "scripts/update_us_macro_dashboard.py"
+      - "tests/test_forex_factory_calendar.py"
+      - "tests/test_macro_calendar_merge.py"
       - ".github/workflows/update-us-macro-calendar.yml"
   schedule:
     # Normal calendar refreshes: 05:30, 19:30 and 21:00 Asia/Shanghai.
@@ -19,6 +22,10 @@ on:
     - cron: "33,38,45 12,13 * * 1-5"
     - cron: "3,8,15 14,15 * * 1-5"
     - cron: "3,8,15 18,19 * * 1-5"
+    # Recovery outside the release bursts, including the next morning/weekend.
+    # GitHub schedules may be delayed; unresolved releases stay eligible for 7 days.
+    - cron: "27 0-11,16-17,20-23 * * *"
+    - cron: "27 12-15,18-19 * * *"
   workflow_dispatch:
 
 permissions:
@@ -38,6 +45,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: main
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -100,3 +108,7 @@ jobs:
 
           echo "Unable to push US macro calendar after three attempts."
           exit 1
+
+      - name: Report overdue Actual values after publishing recoverable data
+        run: python scripts/fetch_forex_factory_calendar.py --check-actual-health
+
