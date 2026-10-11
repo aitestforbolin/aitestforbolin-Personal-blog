@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 2,
+  "automation": "web3-daily-triage",
+  "runId": "web3-daily-triage:codex-web3-20261011-010415Z",
+  "requestId": "codex-web3-20261011-010415Z",
+  "result": "unchanged",
+  "lineage": {
+    "triggerType": "push",
+    "triggerSha": "9846d3bdb6aa48d1b4576118f8a5af214cde900f",
+    "githubRunId": 38100602680,
+    "githubRunAttempt": 1
+  },
+  "timestamps": {
+    "scheduledAt": "2026-10-11T01:04:15Z",
+    "startedAt": "2026-10-11T01:04:50.712063+00:00",
+    "sourceCheckedAt": "2026-10-11T01:04:53.061044+00:00",
+    "sourceUpdatedAt": "2026-10-10T01:00:42+00:00",
+    "completedAt": "2026-10-11T01:04:53.061362+00:00",
+    "publishedAt": "2026-10-11T09:05:15+08:00"
+  },
+  "legacyRequestedAt": null,
+  "stages": {
+    "collection": {
+      "status": "unchanged",
+      "completedAt": "2026-10-11T01:04:53.061362+00:00",
+      "details": {
+        "feedChanged": false,
+        "historyChanged": false,
+        "projectCount": 5,
+        "eventCount": 49,
+        "coverage": "observed snapshots of the five-item homepage feed; not a complete source-wide archive"
+      }
+    },
+    "validation": {
+      "status": "success",
+      "completedAt": "2026-10-11T01:04:53.061362+00:00"
+    },
+    "publication": {
+      "status": "success",
+      "commitSha": "14ae8e07d1ca41e1687d2537d181f5df50af1f95"
+    },
+    "notification": {
+      "status": "not_run"
+    }
+  }
+}
