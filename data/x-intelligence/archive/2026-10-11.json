@@ -1,0 +1,454 @@
+{
+  "schemaVersion": 1,
+  "status": "success",
+  "reportDate": "2026-10-11",
+  "generatedAt": "2026-10-11T09:04:57.229+08:00",
+  "sourceGeneratedAt": "2026-10-11T01:01:53.831703+00:00",
+  "sourcePostCount": 92,
+  "sourceListCount": 4,
+  "executionLineage": {
+    "schemaVersion": 2,
+    "runId": "x-intelligence:codex-x-20261011T010139Z",
+    "requestId": "codex-x-20261011T010139Z",
+    "triggerSha": "7bb5ee95f4e176d826541c5418eee3272becbf5e",
+    "githubRunId": 38100429124,
+    "scheduledAt": "2026-10-11T01:00:00Z",
+    "startedAt": "2026-10-11T01:01:53.831192+00:00",
+    "sourceCheckedAt": "2026-10-11T01:02:04.484379+00:00",
+    "sourceUpdatedAt": "2026-10-11T00:53:44+00:00",
+    "completedAt": "2026-10-11T01:02:04.484422+00:00",
+    "publishedAt": "2026-10-11T09:04:57.229+08:00"
+  },
+  "executionStatus": {
+    "collection": "success",
+    "validation": "success",
+    "publication": {
+      "status": "success"
+    }
+  },
+  "overview": "过去24小时的92条信息流聚合为九条主线：美国寻求俄罗斯柴油后，特朗普被转述公开施压乌克兰更换能达成协议的领导人，能源价格、俄乌停火与中东安全开始形成新的政策联动；美国同时可能扣押约10亿美元伊朗相关加密资产，稳定币冻结能力进一步成为制裁工具；Ledger经销商事件出现疑似LTE/eSIM植入的新拆机说法，供应链攻击风险升级；AI基础设施继续受存储、HBM和光互连供给约束；美股指数高位掩盖市场广度恶化，比特币则表现为总体波动下降但极端交易日增多；xStocks、Variational与Long继续扩展代币化股票和链上传统市场；Papertrade以利润抽成、亏损铸币和LP对手盘构建新型永续机制，但上线拥堵和复杂激励迅速暴露执行风险；Derive的链上期权叙事获得机构组合催化，同时静态估值已偏高；ChatGPT dots、Codex、Devin与Hermes进一步打通个人Agent的委派和多设备协同。所有事实和数字均按本次X packet来源归属呈现，未使用旧数据或包外信息。",
+  "homeHighlights": [
+    "俄罗斯柴油交易被认为正改变美国对乌克兰能源设施攻击与停火谈判的立场，但沙特遇袭又可能抵消供应缓解。",
+    "美国或扣押约10亿美元伊朗相关加密资产，USDT的发行方冻结能力继续成为制裁执行工具。",
+    "Ledger经销商事件出现疑似LTE与eSIM植入的新拆机说法，硬件钱包风险从固件延伸到实体供应链。",
+    "存储、HBM和光芯片继续成为AI基础设施瓶颈，相关供需紧张被认为可能延续至2027年以后。",
+    "指数保持高位的同时，大量股票跌至52周新低；BTC也呈现低平均波动与更多极端日并存的结构。"
+  ],
+  "topics": [
+    {
+      "title": "俄罗斯柴油交易重塑俄乌与中东能源博弈",
+      "importance": "high",
+      "summary": "PhyrexNi称，特朗普在与普京达成柴油供应安排后，公开要求乌克兰更换一个愿意达成协议的总统，并可能进一步要求乌方停止打击俄罗斯能源设施。作者同时称利雅得机场再度遇袭、美国可能参与沙特对胡塞武装的行动，意味着俄罗斯新增供应带来的价格缓解仍可能被中东运输和设施风险抵消。",
+      "whyItMatters": "美国压低燃料价格的国内目标，可能同时影响对乌援助、停火条件和中东军事介入；能源供应成为多个外交议题的共同约束。",
+      "facts": [
+        "特朗普要求乌克兰更换领导人的说法来自PhyrexNi转述，packet没有官方讲话全文。",
+        "俄罗斯柴油供应安排被作者视为美国压低燃油价格的工具。",
+        "作者称利雅得机场遇袭并一度暂停运营。",
+        "相关政治动机和后续施压路径属于KOL解释。"
+      ],
+      "interpretations": [
+        "乌克兰继续打击俄罗斯炼厂可能与美国降低柴油价格的目标发生冲突。",
+        "中东新增袭击可能抵消俄罗斯供应承诺对油价的缓和作用。"
+      ],
+      "authors": [
+        "PhyrexNi"
+      ],
+      "sourceUrls": [
+        "https://x.com/PhyrexNi/status/2108999803065733266",
+        "https://x.com/PhyrexNi/status/2108990213473374252"
+      ],
+      "sourceCount": 2,
+      "confidence": "low"
+    },
+    {
+      "title": "美国拟扣押伊朗相关加密资产，稳定币冻结能力成为制裁工具",
+      "importance": "high",
+      "summary": "PhyrexNi转述美国财政部长贝森特称，美国本周可能扣押约10亿美元与伊朗有关的加密货币。作者援引此前检方指控与Elliptic分析，称部分资产可能来自石油销售收入或伊朗央行相关钱包购买的USDT，并指出Tether可对自托管地址实施黑名单冻结。",
+      "whyItMatters": "稳定币既能绕过传统银行体系进行跨境结算，也保留发行方冻结入口；制裁执行正把链上追踪、司法没收和中心化发行人协作连接起来。",
+      "facts": [
+        "约10亿美元潜在扣押规模来自作者对财政部长讲话的转述。",
+        "作者称此前案件涉及超过15亿美元伊朗石油销售收入，但仍属于检方指控。",
+        "Elliptic被引述称伊朗央行相关钱包累计购入至少5.07亿美元USDT。",
+        "作者称Tether在9月表示今年已协助冻结约5.5亿美元伊朗相关USDT。"
+      ],
+      "interpretations": [
+        "自托管并不等于资产不受发行方黑名单影响。",
+        "更强制裁执行可能推动受制裁主体寻找更难冻结的资产与结算路径。"
+      ],
+      "authors": [
+        "PhyrexNi"
+      ],
+      "sourceUrls": [
+        "https://x.com/PhyrexNi/status/2108914475499987321"
+      ],
+      "sourceCount": 1,
+      "confidence": "medium"
+    },
+    {
+      "title": "Ledger事件升级为疑似实体植入式供应链攻击",
+      "importance": "high",
+      "summary": "多位作者继续追踪CryptoBillis经销商事件。TechFlowPost与_FORAB转述拆机说法称，部分设备可能在屏幕下方植入带LTE、eSIM和天线的微型电路，用于截取设备显示的助记词并外传；lookonchain则传播一名用户向相关设备存入80枚BTC后损失全部资金的案例。Ledger官方调查结论尚未出现在本次packet中。",
+      "whyItMatters": "即使安全芯片和固件本身未被攻破，授权经销、公司易主、运输和硬件改装也可能绕过钱包的核心防护假设。",
+      "facts": [
+        "LTE/eSIM植入与屏幕截取机制来自第三方拆机和二手整理。",
+        "作者给出的累计损失口径约为8600万至9100万美元，尚无packet内官方确认。",
+        "lookonchain称一名用户损失80枚BTC。",
+        "事件关联CryptoBillis，但受影响批次和设备数量仍不明确。"
+      ],
+      "interpretations": [
+        "第三方渠道即使曾获官方授权，也需要持续验证经营主体和供应链。",
+        "物理拆机可以发现明显异常，但不能替代来源可信度、设备认证和安全初始化。"
+      ],
+      "authors": [
+        "TechFlowPost",
+        "_FORAB",
+        "lookonchain",
+        "brucexu_eth"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2108763275223871868",
+        "https://x.com/_FORAB/status/2108766368296493424",
+        "https://x.com/lookonchain/status/2108585005635301427",
+        "https://x.com/brucexu_eth/status/2108863983356907854"
+      ],
+      "sourceCount": 4,
+      "confidence": "medium"
+    },
+    {
+      "title": "AI基础设施供需继续向存储与光芯片集中",
+      "importance": "high",
+      "summary": "ArtofSpecuycky转述美银研报称，DRAM与NAND合约价格三季度环比上涨20%至30%，涨价趋势可能延续至2027年；即使Rubin GPU从12层HBM4降至8层，GPU出货扩大和SOCAMM、企业级SSD配套需求仍可能推高总体存储需求。另一则野村研报转述称，800G与1.6T光模块核心芯片占BOM成本66%至72%，美国元器件含量政策可能把价值进一步推向上游芯片厂商。",
+      "whyItMatters": "AI资本开支的核心约束正在从GPU单点扩展到HBM、NAND、企业SSD和光芯片；规格变化可能改变单机用量，却未必降低系统级需求。",
+      "facts": [
+        "存储价格、利润率和市场规模预测均来自作者对美银研报的转述。",
+        "8层HBM4替代12层属于研报情景，并非已确认产品规格。",
+        "光模块芯片BOM占比66%至72%来自野村研报转述。",
+        "美国元器件含量豁免门槛仍是假设性政策情景。"
+      ],
+      "interpretations": [
+        "HBM降规可能缓解单颗GPU瓶颈，却通过提高GPU出货扩大其他存储需求。",
+        "贸易规则若以美国元器件含量为门槛，可能提升上游芯片定价权并压缩模块厂利润。"
+      ],
+      "authors": [
+        "ArtofSpecuycky"
+      ],
+      "sourceUrls": [
+        "https://x.com/ArtofSpecuycky/status/2109050977156481243",
+        "https://x.com/ArtofSpecuycky/status/2109049731540512846"
+      ],
+      "sourceCount": 2,
+      "confidence": "low"
+    },
+    {
+      "title": "指数高位掩盖市场广度恶化，BTC进入低波动与极端日并存状态",
+      "importance": "high",
+      "summary": "PhyrexNi称10月8日纳指距历史收盘高点仅回撤约1.5%，但纳斯达克有319只股票跌至52周新低、仅33只创新高；纽约证交所也有416只创新低。TechFlowPost援引CoinDesk测算称，BTC年化波动率较2018年明显下降，但今年已出现10次超过三倍标准差的极端交易日，高于2018年全年。",
+      "whyItMatters": "市值加权指数可能掩盖中小股票承接不足；BTC的平均波动下降也不代表尾部风险消失，仓位管理应同时关注持续低波动和突发跳跃。",
+      "facts": [
+        "319只纳斯达克股票与416只纽交所股票创52周新低来自作者统计。",
+        "纳指当时距历史收盘高点约1.5%。",
+        "BTC年化波动率约46%、今年10次三倍标准差交易日来自二手整理。",
+        "packet未包含底层市场数据表。"
+      ],
+      "interpretations": [
+        "若权重股也转弱，已被指数掩盖的市场压力可能快速显性化。",
+        "BTC回报可能更集中于少数极端日，频繁择时面临错过关键行情的风险。"
+      ],
+      "authors": [
+        "PhyrexNi",
+        "TechFlowPost"
+      ],
+      "sourceUrls": [
+        "https://x.com/PhyrexNi/status/2108827791366164982",
+        "https://x.com/TechFlowPost/status/2108824840945996001"
+      ],
+      "sourceCount": 2,
+      "confidence": "medium"
+    },
+    {
+      "title": "代币化资产从发行扩展到全球分发、低ADL交易与主动管理",
+      "importance": "high",
+      "summary": "xStocks回顾称，将覆盖伦敦上市公司、受Nasdaq战略投资的母公司、欧洲30个市场的200多种资产、Kraken收益金库及Ledger中的700多种xStocks。Variational称平台已列出569个加密和传统市场，其经纪商式模式支持零交易费和直接TradFi流动性，并自Omni上线以来仅有167笔、27.3万美元交易触发ADL。Long则推出可把多空杠杆仓位包装为ERC20的社区主动管理篮子。",
+      "whyItMatters": "链上传统资产正在从代币发行进入分发、交易、收益与资产管理层；产品组合更完整，但发行权利、流动性来源、ADL口径和管理权限也更复杂。",
+      "facts": [
+        "xStocks集成数量和市场覆盖来自官方自报。",
+        "Variational的569个市场及ADL数据来自项目官方。",
+        "LongX Baskets允许组合多空仓位并包装为可交易ERC20。",
+        "官方交易和风险数据尚未在packet内获得独立验证。"
+      ],
+      "interpretations": [
+        "较少ADL可能反映经纪商模式优势，也可能受交易量、客户结构和风险参数影响。",
+        "主动管理篮子增强可组合性，同时引入策略管理、杠杆与流动性风险。"
+      ],
+      "authors": [
+        "xStocksFi",
+        "variational_io",
+        "longdotxyz",
+        "0xSleepinRain"
+      ],
+      "sourceUrls": [
+        "https://x.com/xStocksFi/status/2108832045250343380",
+        "https://x.com/variational_io/status/2108935664788217960",
+        "https://x.com/variational_io/status/2108924262484787350",
+        "https://x.com/longdotxyz/status/2108737303791141262",
+        "https://x.com/0xSleepinRain/status/2108806430610624894"
+      ],
+      "sourceCount": 5,
+      "confidence": "high"
+    },
+    {
+      "title": "Papertrade测试利润抽成与亏损铸币机制，复杂性迅速暴露",
+      "importance": "medium",
+      "summary": "EleveResearch介绍Papertrade为HyperEVM上的合成永续平台，用户直接与协议LP交易，无订单簿、资金费率或按名义本金收费，但盈利平仓会被公式抽成，亏损则铸造PAPER，约99%的平台收益被称分配给质押者。0xStudy测算短周期盈利可能被大幅扣减，跨平台对冲也需故意让Paper一侧亏损才能获得代币；上线时还出现排队和提现手续费摩擦。",
+      "whyItMatters": "该设计把交易亏损、协议收入与代币分配直接连接，可能吸引早期流动性，也容易鼓励高杠杆造亏和复杂套利。",
+      "facts": [
+        "Papertrade官方确认前端上线时间与存款暂停安排。",
+        "盈利抽成、亏损铸币和99%收益分配来自KOL对机制的整理。",
+        "作者称上线后资金约1.38亿美元，单市场OI上限10亿美元。",
+        "具体抽成比例和兑换率会随条件变化。"
+      ],
+      "interpretations": [
+        "零名义手续费不代表零成本，利润扣减可能成为主要隐性费用。",
+        "激励亏损换币可能制造早期交易量，却不必然形成可持续需求。"
+      ],
+      "authors": [
+        "papertrade_xyz",
+        "EleveResearch",
+        "0xStudy",
+        "spark888"
+      ],
+      "sourceUrls": [
+        "https://x.com/papertrade_xyz/status/2108852108766437759",
+        "https://x.com/EleveResearch/status/2108900439873995116",
+        "https://x.com/0xStudy/status/2108855633638195694",
+        "https://x.com/EleveResearch/status/2108919984659546462"
+      ],
+      "sourceCount": 4,
+      "confidence": "medium"
+    },
+    {
+      "title": "Derive获得机构组合催化，但期权增长预期已反映高估值",
+      "importance": "medium",
+      "summary": "TechFlowPost称Citrini Research首次公开加密组合后给Derive约10%权重，推动DRV关注度和价格上升。其整理的协议数据称，Derive过去30天净收入约57.5万美元，按流通市值计算的年化协议收入倍数约79倍；多头押注链上期权交易量、回购和机构产品扩张复制Hyperliquid式增长。",
+      "whyItMatters": "链上期权是仍未充分渗透的市场，但当前估值已经要求收入快速增长；叙事催化与实际期权流动性之间的差距需要持续验证。",
+      "facts": [
+        "Citrini组合权重和费用数据来自TechFlowPost整理。",
+        "作者称Derive过去一年名义交易量从6.6亿美元增至50亿美元。",
+        "流通市值/年化协议收入约79倍属于静态估值计算。",
+        "packet未包含Citrini原始组合文件和完整协议财务表。"
+      ],
+      "interpretations": [
+        "机构研究覆盖可以提高关注度，但不能替代长期收入和用户留存。",
+        "高增长若未兑现，当前估值缺乏明显安全边际。"
+      ],
+      "authors": [
+        "TechFlowPost"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2108945673949434026"
+      ],
+      "sourceCount": 1,
+      "confidence": "medium"
+    },
+    {
+      "title": "个人Agent进一步打通任务委派、订阅额度与多设备协同",
+      "importance": "medium",
+      "summary": "ChatGPT官方称dots现在可以把工作交给Codex、跟进既有线程，并查看或编辑ChatGPT Work中的Scheduled Tasks。Cognition称个人ChatGPT Go、Plus或Pro订阅可以连接Devin，由GPT模型使用消耗原订阅额度。另有开发者展示通过Telegram、Hermes和多台Codex协同，把本地设备变成持续运行的个人云工作环境。",
+      "whyItMatters": "Agent竞争正在从单个对话扩展到跨线程委派、订阅统一、任务调度和远程设备执行；工作流整合比单次模型能力更接近长期使用价值。",
+      "facts": [
+        "dot委派Codex及管理Scheduled Tasks来自ChatGPT官方帖子。",
+        "Devin接入个人ChatGPT订阅来自Cognition官方帖子。",
+        "Telegram、Hermes与多设备协同属于开发者个人工作流展示。",
+        "个人Agent稳定性仍有用户负面反馈。"
+      ],
+      "interpretations": [
+        "统一订阅和任务上下文可降低多Agent切换成本。",
+        "跨设备自动化扩大能力边界，也放大权限、错误执行和持续运行风险。"
+      ],
+      "authors": [
+        "ChatGPT",
+        "cognition",
+        "thsottiaux",
+        "brucexu_eth",
+        "turingou"
+      ],
+      "sourceUrls": [
+        "https://x.com/ChatGPT/status/2108636748217770180",
+        "https://x.com/cognition/status/2108692010056188048",
+        "https://x.com/turingou/status/2108875675792994703",
+        "https://x.com/brucexu_eth/status/2108890330754064522"
+      ],
+      "sourceCount": 4,
+      "confidence": "high"
+    }
+  ],
+  "watchlist": [
+    {
+      "signal": "俄罗斯柴油实际交付与美国对乌克兰能源设施攻击的政策变化",
+      "reason": "判断燃料价格目标是否开始实质改变俄乌谈判和援助条件。",
+      "authors": [
+        "PhyrexNi"
+      ],
+      "sourceUrls": [
+        "https://x.com/PhyrexNi/status/2108999803065733266",
+        "https://x.com/PhyrexNi/status/2108990213473374252"
+      ]
+    },
+    {
+      "signal": "美国对伊朗相关加密资产的实际扣押、地址与法律程序",
+      "reason": "验证约10亿美元规模以及Tether冻结在制裁执行中的作用。",
+      "authors": [
+        "PhyrexNi"
+      ],
+      "sourceUrls": [
+        "https://x.com/PhyrexNi/status/2108914475499987321"
+      ]
+    },
+    {
+      "signal": "Ledger调查结论、受影响设备批次与LTE植入证据",
+      "reason": "区分已验证硬件攻击、个案拆机与未经确认的累计损失。",
+      "authors": [
+        "TechFlowPost",
+        "_FORAB"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2108763275223871868",
+        "https://x.com/_FORAB/status/2108766368296493424"
+      ]
+    },
+    {
+      "signal": "DRAM、NAND、HBM4与光芯片订单和价格",
+      "reason": "验证AI基础设施瓶颈是否延续至2027年并转化为企业盈利。",
+      "authors": [
+        "ArtofSpecuycky"
+      ],
+      "sourceUrls": [
+        "https://x.com/ArtofSpecuycky/status/2109050977156481243",
+        "https://x.com/ArtofSpecuycky/status/2109049731540512846"
+      ]
+    },
+    {
+      "signal": "纳斯达克市场广度与BTC极端交易日频率",
+      "reason": "判断权重股和低平均波动是否继续掩盖尾部风险。",
+      "authors": [
+        "PhyrexNi",
+        "TechFlowPost"
+      ],
+      "sourceUrls": [
+        "https://x.com/PhyrexNi/status/2108827791366164982",
+        "https://x.com/TechFlowPost/status/2108824840945996001"
+      ]
+    },
+    {
+      "signal": "xStocks净资产流入、Variational实际交易量与LongX篮子清算表现",
+      "reason": "验证链上传统资产扩张是渠道堆叠还是持续采用。",
+      "authors": [
+        "xStocksFi",
+        "variational_io",
+        "longdotxyz"
+      ],
+      "sourceUrls": [
+        "https://x.com/xStocksFi/status/2108832045250343380",
+        "https://x.com/variational_io/status/2108924262484787350",
+        "https://x.com/longdotxyz/status/2108737303791141262"
+      ]
+    },
+    {
+      "signal": "Papertrade LP规模、利润扣减、PAPER兑换率和提现体验",
+      "reason": "判断亏损铸币机制能否形成可持续市场，而非短期激励博弈。",
+      "authors": [
+        "EleveResearch",
+        "0xStudy"
+      ],
+      "sourceUrls": [
+        "https://x.com/EleveResearch/status/2108900439873995116",
+        "https://x.com/0xStudy/status/2108855633638195694"
+      ]
+    },
+    {
+      "signal": "Derive期权交易量、净收入和回购相对估值",
+      "reason": "验证机构组合催化后增长能否支撑约79倍静态收入倍数。",
+      "authors": [
+        "TechFlowPost"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2108945673949434026"
+      ]
+    }
+  ],
+  "disagreements": [
+    {
+      "topic": "俄罗斯柴油交易是能源稳定器还是更大地缘政治交换？",
+      "positions": [
+        "新增供应可能缓解美国燃料价格和伊朗的能源施压。",
+        "美国对乌克兰与中东政策的潜在让步可能带来新的安全与供应风险。"
+      ],
+      "sourceUrls": [
+        "https://x.com/PhyrexNi/status/2108999803065733266",
+        "https://x.com/PhyrexNi/status/2108990213473374252"
+      ]
+    },
+    {
+      "topic": "Ledger事件证明硬件钱包失效，还是渠道安全失效？",
+      "positions": [
+        "疑似植入攻击绕过了用户遵循硬件钱包最佳实践后的安全预期。",
+        "现有信息更指向经销与实体供应链，尚不能证明Ledger安全芯片被攻破。"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2108763275223871868",
+        "https://x.com/lookonchain/status/2108585005635301427"
+      ]
+    },
+    {
+      "topic": "市场风险是指数层面的普通回调，还是已被权重股掩盖的广泛走弱？",
+      "positions": [
+        "纳指距高点仅约1.5%，表面仍属温和调整。",
+        "大量股票创52周新低，说明内部承接显著弱于指数。"
+      ],
+      "sourceUrls": [
+        "https://x.com/PhyrexNi/status/2108827791366164982"
+      ]
+    },
+    {
+      "topic": "BTC波动是否因机构化而结构性下降？",
+      "positions": [
+        "年化波动率较2018年明显下降，市场日常走势更稳定。",
+        "三倍标准差极端日反而增加，尾部风险并未消失。"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2108824840945996001"
+      ]
+    },
+    {
+      "topic": "Papertrade的亏损铸币是创新价值捕获还是激励扭曲？",
+      "positions": [
+        "亏损转化为代币、收益返还质押者可形成协议所有权循环。",
+        "利润抽成和高杠杆造亏可能鼓励非经济交易并隐藏真实成本。"
+      ],
+      "sourceUrls": [
+        "https://x.com/EleveResearch/status/2108900439873995116",
+        "https://x.com/0xStudy/status/2108855633638195694"
+      ]
+    },
+    {
+      "topic": "Derive是链上期权早期增长机会还是估值透支？",
+      "positions": [
+        "期权市场扩张、机构关注和回购可能支持高增长。",
+        "约79倍静态年化协议收入倍数缺少明显安全边际。"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2108945673949434026"
+      ]
+    }
+  ],
+  "noiseSummary": [
+    "Meme币喊单、AI角色代币与发射台仓位观点未作为基本面证据。",
+    "邀请码、空投积分、交易赛和开盘价预测视为短期操作噪音。",
+    "生活感想、人物故事、招聘与周末问候未纳入研究主线。",
+    "纯链接及缺少文本上下文的帖子不作事实推断。",
+    "Retweet只作为传播信号，不重复计为独立事实来源。",
+    "网红访谈、流量话术与健康讨论未提升为核心情报。",
+    "Axis分配、Ethos退款与单一项目情绪仅保留为局部风险样本。",
+    "Ripple旧漏洞和IDCF勒索事件因本次只有单一二手来源，列入观察而未单独成题。"
+  ]
+}
