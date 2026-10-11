@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-10T13:54:40+00:00",
+  "generatedAt": "2026-10-11T06:07:25+00:00",
   "timezone": "Asia/Shanghai",
   "status": "healthy",
   "failedSources": [],
@@ -13,349 +13,6 @@
   },
   "sourcePolicy": "U.S. calendar: all USD events rated Medium or High by Forex Factory; Federal Reserve validates FOMC dates. Briefing selection is handled separately.",
   "events": [
-    {
-      "id": "us-991c477b7f9f",
-      "eventType": "data",
-      "country": "US",
-      "period": null,
-      "scheduledAt": "2026-10-05T22:00:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "美国ISM服务业PMI",
-      "category": "growth",
-      "importance": "medium",
-      "stars": 3,
-      "source": "Forex Factory",
-      "sourceUrl": "https://www.forexfactory.com/calendar",
-      "metrics": [
-        {
-          "id": "metric-1",
-          "label": "ISM服务业PMI",
-          "actual": "54.9",
-          "forecast": "55.1",
-          "previous": "55.4",
-          "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct5.2026"
-        }
-      ],
-      "releasedAt": "2026-10-05T10:00:00-04:00",
-      "actualStatus": "complete",
-      "actualMissing": [],
-      "actualLastCheckedAt": "2026-10-10T03:03:23-04:00",
-      "retrievedAt": "2026-10-10T13:54:40+00:00",
-      "revisionStatus": "not_revised",
-      "releaseStatus": "released",
-      "legacy": {
-        "date": "2026-10-05",
-        "date_et": "2026-10-05",
-        "time_et": "10:00",
-        "time_shanghai": "22:00",
-        "title": "ISM Services",
-        "title_cn": "美国ISM服务业PMI",
-        "period": null,
-        "category": "growth",
-        "importance": "medium",
-        "stars": 3,
-        "source": "Forex Factory",
-        "url": "https://www.forexfactory.com/calendar",
-        "result_source": "Forex Factory 网页日历",
-        "result_url": "https://www.forexfactory.com/calendar?day=oct5.2026",
-        "consensus_source": "Forex Factory 市场日历",
-        "consensus_url": "https://www.forexfactory.com/calendar",
-        "metric_values": [
-          {
-            "label": "ISM服务业PMI",
-            "source_title": "ISM Services PMI",
-            "actual": "54.9",
-            "forecast": "55.1",
-            "previous": "55.4",
-            "consensus_source": "Forex Factory 市场日历",
-            "consensus_url": "https://www.forexfactory.com/calendar",
-            "actual_source": "Forex Factory 网页日历",
-            "actual_url": "https://www.forexfactory.com/calendar?day=oct5.2026"
-          }
-        ],
-        "release_status": "released",
-        "forecast": "ISM服务业PMI 55.1",
-        "previous": "ISM服务业PMI 55.4",
-        "released_at": "2026-10-05T10:00:00-04:00",
-        "actual_updated_at": "2026-10-10T07:03:25.765Z",
-        "actual_last_checked_at": "2026-10-10T03:03:23-04:00",
-        "actual_check_status": "ok",
-        "actual": "ISM服务业PMI 54.9",
-        "calendar_status": "healthy",
-        "actual_missing": [],
-        "actual_status": "complete"
-      }
-    },
-    {
-      "id": "us-6ca278fa6484",
-      "eventType": "data",
-      "country": "US",
-      "period": null,
-      "scheduledAt": "2026-10-08T01:00:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "President Trump Speaks",
-      "category": "macro",
-      "importance": "medium",
-      "stars": 3,
-      "source": "Forex Factory",
-      "sourceUrl": "https://www.forexfactory.com/calendar",
-      "metrics": [
-        {
-          "id": "metric-1",
-          "label": "公布值",
-          "actual": null,
-          "forecast": null,
-          "previous": null,
-          "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
-        }
-      ],
-      "releasedAt": null,
-      "actualStatus": "not_expected",
-      "actualMissing": [],
-      "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-10T13:54:40+00:00",
-      "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "legacy": {
-        "date": "2026-10-08",
-        "date_et": "2026-10-07",
-        "time_et": "13:00",
-        "time_shanghai": "01:00",
-        "title": "FF::President Trump Speaks",
-        "title_cn": "President Trump Speaks",
-        "period": null,
-        "category": "macro",
-        "importance": "medium",
-        "stars": 3,
-        "source": "Forex Factory",
-        "url": "https://www.forexfactory.com/calendar",
-        "result_source": "Forex Factory 市场日历",
-        "result_url": "https://www.forexfactory.com/calendar",
-        "consensus_source": "Forex Factory 市场日历",
-        "consensus_url": "https://www.forexfactory.com/calendar",
-        "metric_values": [
-          {
-            "label": "公布值",
-            "source_title": "President Trump Speaks",
-            "actual": null,
-            "forecast": null,
-            "previous": null,
-            "consensus_source": "Forex Factory 市场日历",
-            "consensus_url": "https://www.forexfactory.com/calendar"
-          }
-        ],
-        "release_status": "scheduled",
-        "calendar_status": "healthy",
-        "actual_missing": [],
-        "actual_status": "not_expected"
-      }
-    },
-    {
-      "id": "us-fb9477e0f362",
-      "eventType": "data",
-      "country": "US",
-      "period": null,
-      "scheduledAt": "2026-10-08T02:00:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "FOMC 会议纪要",
-      "category": "fed",
-      "importance": "high",
-      "stars": 5,
-      "source": "Forex Factory",
-      "sourceUrl": "https://www.forexfactory.com/calendar",
-      "metrics": [
-        {
-          "id": "metric-1",
-          "label": "会议纪要",
-          "actual": null,
-          "forecast": null,
-          "previous": null,
-          "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
-        }
-      ],
-      "releasedAt": null,
-      "actualStatus": "not_expected",
-      "actualMissing": [],
-      "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-10T13:54:40+00:00",
-      "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "legacy": {
-        "date": "2026-10-08",
-        "date_et": "2026-10-07",
-        "time_et": "14:00",
-        "time_shanghai": "02:00",
-        "title": "FOMC Minutes",
-        "title_cn": "FOMC 会议纪要",
-        "period": null,
-        "category": "fed",
-        "importance": "high",
-        "stars": 5,
-        "source": "Forex Factory",
-        "url": "https://www.forexfactory.com/calendar",
-        "result_source": "Forex Factory 市场日历",
-        "result_url": "https://www.forexfactory.com/calendar",
-        "consensus_source": "Forex Factory 市场日历",
-        "consensus_url": "https://www.forexfactory.com/calendar",
-        "metric_values": [
-          {
-            "label": "会议纪要",
-            "source_title": "FOMC Meeting Minutes",
-            "actual": null,
-            "forecast": null,
-            "previous": null,
-            "consensus_source": "Forex Factory 市场日历",
-            "consensus_url": "https://www.forexfactory.com/calendar"
-          }
-        ],
-        "release_status": "scheduled",
-        "calendar_status": "healthy",
-        "actual_missing": [],
-        "actual_status": "not_expected"
-      }
-    },
-    {
-      "id": "us-49b19977022e",
-      "eventType": "data",
-      "country": "US",
-      "period": null,
-      "scheduledAt": "2026-10-08T16:30:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "FOMC Member Waller Speaks",
-      "category": "macro",
-      "importance": "medium",
-      "stars": 3,
-      "source": "Forex Factory",
-      "sourceUrl": "https://www.forexfactory.com/calendar",
-      "metrics": [
-        {
-          "id": "metric-1",
-          "label": "公布值",
-          "actual": null,
-          "forecast": null,
-          "previous": null,
-          "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
-        }
-      ],
-      "releasedAt": null,
-      "actualStatus": "not_expected",
-      "actualMissing": [],
-      "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-10T13:54:40+00:00",
-      "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "legacy": {
-        "date": "2026-10-08",
-        "date_et": "2026-10-08",
-        "time_et": "04:30",
-        "time_shanghai": "16:30",
-        "title": "FF::FOMC Member Waller Speaks",
-        "title_cn": "FOMC Member Waller Speaks",
-        "period": null,
-        "category": "macro",
-        "importance": "medium",
-        "stars": 3,
-        "source": "Forex Factory",
-        "url": "https://www.forexfactory.com/calendar",
-        "result_source": "Forex Factory 市场日历",
-        "result_url": "https://www.forexfactory.com/calendar",
-        "consensus_source": "Forex Factory 市场日历",
-        "consensus_url": "https://www.forexfactory.com/calendar",
-        "metric_values": [
-          {
-            "label": "公布值",
-            "source_title": "FOMC Member Waller Speaks",
-            "actual": null,
-            "forecast": null,
-            "previous": null,
-            "consensus_source": "Forex Factory 市场日历",
-            "consensus_url": "https://www.forexfactory.com/calendar"
-          }
-        ],
-        "release_status": "scheduled",
-        "calendar_status": "healthy",
-        "actual_missing": [],
-        "actual_status": "not_expected"
-      }
-    },
-    {
-      "id": "us-3c443d54e236",
-      "eventType": "data",
-      "country": "US",
-      "period": null,
-      "scheduledAt": "2026-10-08T20:30:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "美国初请失业金人数",
-      "category": "jobs",
-      "importance": "medium",
-      "stars": 3,
-      "source": "Forex Factory",
-      "sourceUrl": "https://www.forexfactory.com/calendar",
-      "metrics": [
-        {
-          "id": "metric-1",
-          "label": "初请失业金人数",
-          "actual": "197K",
-          "forecast": "200K",
-          "previous": "199K",
-          "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct8.2026"
-        }
-      ],
-      "releasedAt": "2026-10-08T08:30:00-04:00",
-      "actualStatus": "complete",
-      "actualMissing": [],
-      "actualLastCheckedAt": "2026-10-10T03:03:23-04:00",
-      "retrievedAt": "2026-10-10T13:54:40+00:00",
-      "revisionStatus": "not_revised",
-      "releaseStatus": "released",
-      "legacy": {
-        "date": "2026-10-08",
-        "date_et": "2026-10-08",
-        "time_et": "08:30",
-        "time_shanghai": "20:30",
-        "title": "Jobless Claims",
-        "title_cn": "美国初请失业金人数",
-        "period": null,
-        "category": "jobs",
-        "importance": "medium",
-        "stars": 3,
-        "source": "Forex Factory",
-        "url": "https://www.forexfactory.com/calendar",
-        "result_source": "Forex Factory 网页日历",
-        "result_url": "https://www.forexfactory.com/calendar?day=oct8.2026",
-        "consensus_source": "Forex Factory 市场日历",
-        "consensus_url": "https://www.forexfactory.com/calendar",
-        "metric_values": [
-          {
-            "label": "初请失业金人数",
-            "source_title": "Unemployment Claims",
-            "actual": "197K",
-            "forecast": "200K",
-            "previous": "199K",
-            "consensus_source": "Forex Factory 市场日历",
-            "consensus_url": "https://www.forexfactory.com/calendar",
-            "actual_source": "Forex Factory 网页日历",
-            "actual_url": "https://www.forexfactory.com/calendar?day=oct8.2026"
-          }
-        ],
-        "release_status": "released",
-        "forecast": "初请失业金人数 200K",
-        "previous": "初请失业金人数 199K",
-        "released_at": "2026-10-08T08:30:00-04:00",
-        "actual_updated_at": "2026-10-10T07:03:26.880Z",
-        "actual_last_checked_at": "2026-10-10T03:03:23-04:00",
-        "actual_check_status": "ok",
-        "actual": "初请失业金人数 197K",
-        "calendar_status": "healthy",
-        "actual_missing": [],
-        "actual_status": "complete"
-      }
-    },
     {
       "id": "us-9e61484b14d7",
       "eventType": "data",
@@ -393,7 +50,7 @@
       "actualStatus": "complete",
       "actualMissing": [],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-10T13:54:40+00:00",
+      "retrievedAt": "2026-10-11T06:07:25+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "legacy": {
@@ -446,6 +103,526 @@
         "calendar_status": "healthy",
         "actual_missing": [],
         "actual_status": "complete"
+      }
+    },
+    {
+      "id": "us-1254157481e2",
+      "eventType": "data",
+      "country": "US",
+      "period": null,
+      "scheduledAt": "2026-10-14T20:30:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "美国CPI / 核心CPI",
+      "category": "inflation",
+      "importance": "high",
+      "stars": 5,
+      "source": "Forex Factory",
+      "sourceUrl": "https://www.forexfactory.com/calendar",
+      "metrics": [
+        {
+          "id": "metric-1",
+          "label": "核心CPI环比",
+          "actual": null,
+          "forecast": "0.2%",
+          "previous": "0.3%",
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        },
+        {
+          "id": "metric-2",
+          "label": "核心CPI同比",
+          "actual": null,
+          "forecast": "2.5%",
+          "previous": "2.4%",
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        },
+        {
+          "id": "metric-3",
+          "label": "CPI环比",
+          "actual": null,
+          "forecast": "0.6%",
+          "previous": "0.4%",
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        },
+        {
+          "id": "metric-4",
+          "label": "CPI同比",
+          "actual": null,
+          "forecast": "3.6%",
+          "previous": "3.4%",
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        }
+      ],
+      "releasedAt": null,
+      "actualStatus": "not_due",
+      "actualMissing": [
+        "核心CPI环比",
+        "核心CPI同比",
+        "CPI环比",
+        "CPI同比"
+      ],
+      "actualLastCheckedAt": null,
+      "retrievedAt": "2026-10-11T06:07:25+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "scheduled",
+      "legacy": {
+        "date": "2026-10-14",
+        "date_et": "2026-10-14",
+        "time_et": "08:30",
+        "time_shanghai": "20:30",
+        "title": "CPI",
+        "title_cn": "美国CPI / 核心CPI",
+        "period": null,
+        "category": "inflation",
+        "importance": "high",
+        "stars": 5,
+        "source": "Forex Factory",
+        "url": "https://www.forexfactory.com/calendar",
+        "result_source": "Forex Factory 市场日历",
+        "result_url": "https://www.forexfactory.com/calendar",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar",
+        "metric_values": [
+          {
+            "label": "核心CPI环比",
+            "source_title": "Core CPI m/m",
+            "actual": null,
+            "forecast": "0.2%",
+            "previous": "0.3%",
+            "consensus_source": "Forex Factory 市场日历",
+            "consensus_url": "https://www.forexfactory.com/calendar"
+          },
+          {
+            "label": "核心CPI同比",
+            "source_title": "Core CPI y/y",
+            "actual": null,
+            "forecast": "2.5%",
+            "previous": "2.4%",
+            "consensus_source": "Forex Factory 市场日历",
+            "consensus_url": "https://www.forexfactory.com/calendar"
+          },
+          {
+            "label": "CPI环比",
+            "source_title": "CPI m/m",
+            "actual": null,
+            "forecast": "0.6%",
+            "previous": "0.4%",
+            "consensus_source": "Forex Factory 市场日历",
+            "consensus_url": "https://www.forexfactory.com/calendar"
+          },
+          {
+            "label": "CPI同比",
+            "source_title": "CPI y/y",
+            "actual": null,
+            "forecast": "3.6%",
+            "previous": "3.4%",
+            "consensus_source": "Forex Factory 市场日历",
+            "consensus_url": "https://www.forexfactory.com/calendar"
+          }
+        ],
+        "release_status": "scheduled",
+        "forecast": "核心CPI环比 0.2% · 核心CPI同比 2.5% · CPI环比 0.6% · CPI同比 3.6%",
+        "previous": "核心CPI环比 0.3% · 核心CPI同比 2.4% · CPI环比 0.4% · CPI同比 3.4%",
+        "calendar_status": "healthy",
+        "actual_missing": [
+          "核心CPI环比",
+          "核心CPI同比",
+          "CPI环比",
+          "CPI同比"
+        ],
+        "actual_status": "not_due"
+      }
+    },
+    {
+      "id": "us-5cf977763aa5",
+      "eventType": "data",
+      "country": "US",
+      "period": null,
+      "scheduledAt": "2026-10-15T20:30:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "美国PPI",
+      "category": "inflation",
+      "importance": "high",
+      "stars": 5,
+      "source": "Forex Factory",
+      "sourceUrl": "https://www.forexfactory.com/calendar",
+      "metrics": [
+        {
+          "id": "metric-1",
+          "label": "核心PPI环比",
+          "actual": null,
+          "forecast": "0.3%",
+          "previous": "0.2%",
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        },
+        {
+          "id": "metric-2",
+          "label": "PPI环比",
+          "actual": null,
+          "forecast": "0.5%",
+          "previous": "0.4%",
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        }
+      ],
+      "releasedAt": null,
+      "actualStatus": "not_due",
+      "actualMissing": [
+        "核心PPI环比",
+        "PPI环比"
+      ],
+      "actualLastCheckedAt": null,
+      "retrievedAt": "2026-10-11T06:07:25+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "scheduled",
+      "legacy": {
+        "date": "2026-10-15",
+        "date_et": "2026-10-15",
+        "time_et": "08:30",
+        "time_shanghai": "20:30",
+        "title": "PPI",
+        "title_cn": "美国PPI",
+        "period": null,
+        "category": "inflation",
+        "importance": "high",
+        "stars": 5,
+        "source": "Forex Factory",
+        "url": "https://www.forexfactory.com/calendar",
+        "result_source": "Forex Factory 市场日历",
+        "result_url": "https://www.forexfactory.com/calendar",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar",
+        "metric_values": [
+          {
+            "label": "核心PPI环比",
+            "source_title": "Core PPI m/m",
+            "actual": null,
+            "forecast": "0.3%",
+            "previous": "0.2%",
+            "consensus_source": "Forex Factory 市场日历",
+            "consensus_url": "https://www.forexfactory.com/calendar"
+          },
+          {
+            "label": "PPI环比",
+            "source_title": "PPI m/m",
+            "actual": null,
+            "forecast": "0.5%",
+            "previous": "0.4%",
+            "consensus_source": "Forex Factory 市场日历",
+            "consensus_url": "https://www.forexfactory.com/calendar"
+          }
+        ],
+        "release_status": "scheduled",
+        "forecast": "核心PPI环比 0.3% · PPI环比 0.5%",
+        "previous": "核心PPI环比 0.2% · PPI环比 0.4%",
+        "calendar_status": "healthy",
+        "actual_missing": [
+          "核心PPI环比",
+          "PPI环比"
+        ],
+        "actual_status": "not_due"
+      }
+    },
+    {
+      "id": "us-a0011f7f1cb8",
+      "eventType": "data",
+      "country": "US",
+      "period": null,
+      "scheduledAt": "2026-10-15T20:30:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "美国初请失业金人数",
+      "category": "jobs",
+      "importance": "medium",
+      "stars": 3,
+      "source": "Forex Factory",
+      "sourceUrl": "https://www.forexfactory.com/calendar",
+      "metrics": [
+        {
+          "id": "metric-1",
+          "label": "初请失业金人数",
+          "actual": null,
+          "forecast": "195K",
+          "previous": "197K",
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        }
+      ],
+      "releasedAt": null,
+      "actualStatus": "not_due",
+      "actualMissing": [
+        "初请失业金人数"
+      ],
+      "actualLastCheckedAt": null,
+      "retrievedAt": "2026-10-11T06:07:25+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "scheduled",
+      "legacy": {
+        "date": "2026-10-15",
+        "date_et": "2026-10-15",
+        "time_et": "08:30",
+        "time_shanghai": "20:30",
+        "title": "Jobless Claims",
+        "title_cn": "美国初请失业金人数",
+        "period": null,
+        "category": "jobs",
+        "importance": "medium",
+        "stars": 3,
+        "source": "Forex Factory",
+        "url": "https://www.forexfactory.com/calendar",
+        "result_source": "Forex Factory 市场日历",
+        "result_url": "https://www.forexfactory.com/calendar",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar",
+        "metric_values": [
+          {
+            "label": "初请失业金人数",
+            "source_title": "Unemployment Claims",
+            "actual": null,
+            "forecast": "195K",
+            "previous": "197K",
+            "consensus_source": "Forex Factory 市场日历",
+            "consensus_url": "https://www.forexfactory.com/calendar"
+          }
+        ],
+        "release_status": "scheduled",
+        "forecast": "初请失业金人数 195K",
+        "previous": "初请失业金人数 197K",
+        "calendar_status": "healthy",
+        "actual_missing": [
+          "初请失业金人数"
+        ],
+        "actual_status": "not_due"
+      }
+    },
+    {
+      "id": "us-ad90adef1ada",
+      "eventType": "data",
+      "country": "US",
+      "period": null,
+      "scheduledAt": "2026-10-15T20:30:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "美国费城联储制造业指数",
+      "category": "growth",
+      "importance": "medium",
+      "stars": 3,
+      "source": "Forex Factory",
+      "sourceUrl": "https://www.forexfactory.com/calendar",
+      "metrics": [
+        {
+          "id": "metric-1",
+          "label": "费城联储制造业指数",
+          "actual": null,
+          "forecast": "26.5",
+          "previous": "37.8",
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        }
+      ],
+      "releasedAt": null,
+      "actualStatus": "not_due",
+      "actualMissing": [
+        "费城联储制造业指数"
+      ],
+      "actualLastCheckedAt": null,
+      "retrievedAt": "2026-10-11T06:07:25+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "scheduled",
+      "legacy": {
+        "date": "2026-10-15",
+        "date_et": "2026-10-15",
+        "time_et": "08:30",
+        "time_shanghai": "20:30",
+        "title": "Philly Fed",
+        "title_cn": "美国费城联储制造业指数",
+        "period": null,
+        "category": "growth",
+        "importance": "medium",
+        "stars": 3,
+        "source": "Forex Factory",
+        "url": "https://www.forexfactory.com/calendar",
+        "result_source": "Forex Factory 市场日历",
+        "result_url": "https://www.forexfactory.com/calendar",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar",
+        "metric_values": [
+          {
+            "label": "费城联储制造业指数",
+            "source_title": "Philly Fed Manufacturing Index",
+            "actual": null,
+            "forecast": "26.5",
+            "previous": "37.8",
+            "consensus_source": "Forex Factory 市场日历",
+            "consensus_url": "https://www.forexfactory.com/calendar"
+          }
+        ],
+        "release_status": "scheduled",
+        "forecast": "费城联储制造业指数 26.5",
+        "previous": "费城联储制造业指数 37.8",
+        "calendar_status": "healthy",
+        "actual_missing": [
+          "费城联储制造业指数"
+        ],
+        "actual_status": "not_due"
+      }
+    },
+    {
+      "id": "us-b563169f9837",
+      "eventType": "data",
+      "country": "US",
+      "period": null,
+      "scheduledAt": "2026-10-15T20:30:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "美国零售销售",
+      "category": "growth",
+      "importance": "high",
+      "stars": 5,
+      "source": "Forex Factory",
+      "sourceUrl": "https://www.forexfactory.com/calendar",
+      "metrics": [
+        {
+          "id": "metric-1",
+          "label": "核心零售环比",
+          "actual": null,
+          "forecast": "0.5%",
+          "previous": "1.4%",
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        },
+        {
+          "id": "metric-2",
+          "label": "零售环比",
+          "actual": null,
+          "forecast": "0.3%",
+          "previous": "1.2%",
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        }
+      ],
+      "releasedAt": null,
+      "actualStatus": "not_due",
+      "actualMissing": [
+        "核心零售环比",
+        "零售环比"
+      ],
+      "actualLastCheckedAt": null,
+      "retrievedAt": "2026-10-11T06:07:25+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "scheduled",
+      "legacy": {
+        "date": "2026-10-15",
+        "date_et": "2026-10-15",
+        "time_et": "08:30",
+        "time_shanghai": "20:30",
+        "title": "Retail",
+        "title_cn": "美国零售销售",
+        "period": null,
+        "category": "growth",
+        "importance": "high",
+        "stars": 5,
+        "source": "Forex Factory",
+        "url": "https://www.forexfactory.com/calendar",
+        "result_source": "Forex Factory 市场日历",
+        "result_url": "https://www.forexfactory.com/calendar",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar",
+        "metric_values": [
+          {
+            "label": "核心零售环比",
+            "source_title": "Core Retail Sales m/m",
+            "actual": null,
+            "forecast": "0.5%",
+            "previous": "1.4%",
+            "consensus_source": "Forex Factory 市场日历",
+            "consensus_url": "https://www.forexfactory.com/calendar"
+          },
+          {
+            "label": "零售环比",
+            "source_title": "Retail Sales m/m",
+            "actual": null,
+            "forecast": "0.3%",
+            "previous": "1.2%",
+            "consensus_source": "Forex Factory 市场日历",
+            "consensus_url": "https://www.forexfactory.com/calendar"
+          }
+        ],
+        "release_status": "scheduled",
+        "forecast": "核心零售环比 0.5% · 零售环比 0.3%",
+        "previous": "核心零售环比 1.4% · 零售环比 1.2%",
+        "calendar_status": "healthy",
+        "actual_missing": [
+          "核心零售环比",
+          "零售环比"
+        ],
+        "actual_status": "not_due"
+      }
+    },
+    {
+      "id": "us-ea2268d56af8",
+      "eventType": "data",
+      "country": "US",
+      "period": null,
+      "scheduledAt": "2026-10-16T11:30:00+08:00",
+      "dateStatus": "confirmed",
+      "title": "Fed Chairman Warsh Speaks",
+      "category": "macro",
+      "importance": "high",
+      "stars": 5,
+      "source": "Forex Factory",
+      "sourceUrl": "https://www.forexfactory.com/calendar",
+      "metrics": [
+        {
+          "id": "metric-1",
+          "label": "公布值",
+          "actual": null,
+          "forecast": null,
+          "previous": null,
+          "unit": null,
+          "sourceUrl": "https://www.forexfactory.com/calendar"
+        }
+      ],
+      "releasedAt": null,
+      "actualStatus": "not_expected",
+      "actualMissing": [],
+      "actualLastCheckedAt": null,
+      "retrievedAt": "2026-10-11T06:07:25+00:00",
+      "revisionStatus": "not_revised",
+      "releaseStatus": "scheduled",
+      "legacy": {
+        "date": "2026-10-16",
+        "date_et": "2026-10-15",
+        "time_et": "23:30",
+        "time_shanghai": "11:30",
+        "title": "FF::Fed Chairman Warsh Speaks",
+        "title_cn": "Fed Chairman Warsh Speaks",
+        "period": null,
+        "category": "macro",
+        "importance": "high",
+        "stars": 5,
+        "source": "Forex Factory",
+        "url": "https://www.forexfactory.com/calendar",
+        "result_source": "Forex Factory 市场日历",
+        "result_url": "https://www.forexfactory.com/calendar",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar",
+        "metric_values": [
+          {
+            "label": "公布值",
+            "source_title": "Fed Chairman Warsh Speaks",
+            "actual": null,
+            "forecast": null,
+            "previous": null,
+            "consensus_source": "Forex Factory 市场日历",
+            "consensus_url": "https://www.forexfactory.com/calendar"
+          }
+        ],
+        "release_status": "scheduled",
+        "calendar_status": "healthy",
+        "actual_missing": [],
+        "actual_status": "not_expected"
       }
     }
   ]
