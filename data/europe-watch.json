@@ -1,23 +1,23 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-10-11T02:06:25+00:00",
-  "as_of": "2026-10-11T07:30:00+08:00",
-  "window_start": "2026-10-10T07:30:00+08:00",
-  "window_end": "2026-10-11T07:30:00+08:00",
+  "generated_at": "2026-10-12T00:38:48+00:00",
+  "as_of": "2026-10-12T07:30:00+08:00",
+  "window_start": "2026-10-11T07:30:00+08:00",
+  "window_end": "2026-10-12T07:30:00+08:00",
   "source_health": [
     {
       "source": "ECB",
       "region": "eu",
       "status": "ok",
       "count": 7,
-      "checked_at": "2026-10-11T02:06:25+00:00"
+      "checked_at": "2026-10-12T00:38:48+00:00"
     },
     {
       "source": "European Commission",
       "region": "eu",
       "status": "ok",
       "count": 8,
-      "checked_at": "2026-10-11T02:06:25+00:00"
+      "checked_at": "2026-10-12T00:38:48+00:00"
     },
     {
       "source": "European Council",
@@ -25,7 +25,7 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-10-11T02:06:25+00:00"
+      "checked_at": "2026-10-12T00:38:48+00:00"
     },
     {
       "source": "European Parliament",
@@ -33,28 +33,28 @@
       "status": "error",
       "error": "ParseError",
       "count": 0,
-      "checked_at": "2026-10-11T02:06:25+00:00"
+      "checked_at": "2026-10-12T00:38:48+00:00"
     },
     {
       "source": "Eurostat",
       "region": "eu",
       "status": "ok",
       "count": 57,
-      "checked_at": "2026-10-11T02:06:25+00:00"
+      "checked_at": "2026-10-12T00:38:48+00:00"
     },
     {
       "source": "Politico Europe",
       "region": "eu",
       "status": "ok",
-      "count": 5,
-      "checked_at": "2026-10-11T02:06:25+00:00"
+      "count": 6,
+      "checked_at": "2026-10-12T00:38:48+00:00"
     },
     {
       "source": "Reuters Europe",
       "region": "eu",
       "status": "ok",
-      "count": 64,
-      "checked_at": "2026-10-11T02:06:25+00:00"
+      "count": 65,
+      "checked_at": "2026-10-12T00:38:48+00:00"
     },
     {
       "source": "Bundesbank",
@@ -62,7 +62,7 @@
       "status": "error",
       "error": "ParseError",
       "count": 0,
-      "checked_at": "2026-10-11T02:06:25+00:00"
+      "checked_at": "2026-10-12T00:38:48+00:00"
     },
     {
       "source": "Destatis",
@@ -70,14 +70,14 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-10-11T02:06:25+00:00"
+      "checked_at": "2026-10-12T00:38:48+00:00"
     },
     {
       "source": "Deutsche Welle",
       "region": "germany",
       "status": "empty",
       "count": 0,
-      "checked_at": "2026-10-11T02:06:25+00:00"
+      "checked_at": "2026-10-12T00:38:48+00:00"
     },
     {
       "source": "Federal Employment Agency",
@@ -85,7 +85,7 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-10-11T02:06:25+00:00"
+      "checked_at": "2026-10-12T00:38:48+00:00"
     },
     {
       "source": "German Federal Government",
@@ -93,135 +93,263 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-10-11T02:06:25+00:00"
+      "checked_at": "2026-10-12T00:38:48+00:00"
     },
     {
       "source": "Reuters Germany",
       "region": "germany",
       "status": "ok",
-      "count": 52,
-      "checked_at": "2026-10-11T02:06:25+00:00"
+      "count": 50,
+      "checked_at": "2026-10-12T00:38:48+00:00"
     },
     {
       "source": "The Local Germany",
       "region": "germany",
       "status": "ok",
       "count": 9,
-      "checked_at": "2026-10-11T02:06:25+00:00"
+      "checked_at": "2026-10-12T00:38:48+00:00"
     }
   ],
   "items": [
     {
-      "id": "7e8e1a2c7eebe48b",
-      "region": "eu",
-      "title": "Turkey bans social media for kids under 15",
-      "title_cn": "Turkey bans social media for kids under 15",
-      "summary": "The law comes amid a global push for tougher age restrictions on social media platforms.",
-      "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/turkey-bans-social-media-for-kids-under-15/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-10T10:37:22+00:00",
-      "fetched_at": "2026-10-11T02:06:25+00:00",
-      "category": "technology",
+      "id": "55eea944d2e0bec9",
+      "region": "germany",
+      "title": "Deutsche Bank chief warns German election results worrying foreign investors - Reuters",
+      "title_cn": "德意志银行行长警告德国大选结果令外国投资者担忧 - 路透中文网",
+      "summary": "Deutsche Bank chief warns German election results worrying foreign investors Reuters",
+      "source": "Reuters Germany",
+      "source_url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQOEkyUXVpdmtTaTgzSDN5R253RzhiNHByZXNDYXZjMFh0bWJaRmZpbVBIVjlCVnFBTktCX2ZvM0stMUtRbTByT0stdk5OdGpJQmVKYXhSMm5wbmlTYXdDdG1ENjBPNlp1emhDSjk4Tkc2Qm8zUnp2RzlpSGxJQmVYbUpJYzUwZHJJLXZrbE9ZLXB5clNxN1VHcHZsc20ydkVOS0VLeUQwUG9GRHFDVGx0SFU0bllCRE4wX2otNVhR?oc=5",
+      "published_at": "2026-10-11T12:53:43+00:00",
+      "fetched_at": "2026-10-12T00:38:48+00:00",
+      "category": "politics_society",
       "importance": "critical",
       "official_source": false,
-      "first_seen_at": "2026-10-11T02:06:25+00:00",
-      "last_seen_at": "2026-10-11T02:06:25+00:00"
+      "first_seen_at": "2026-10-12T00:38:48+00:00",
+      "last_seen_at": "2026-10-12T00:38:48+00:00"
     },
     {
-      "id": "a570f59f1cd0ecf4",
-      "region": "germany",
-      "title": "German green power workers protest planned subsidy cuts",
-      "title_cn": "German green power workers protest planned subsidy cuts",
-      "summary": "Thousands of workers from Germany's renewable energy sector and environmental activists demonstrated outside parliament in Berlin on Friday against the conservative-led government's plans to cut subsidies for the industry.",
-      "source": "The Local Germany",
-      "source_url": "https://www.thelocal.de/20261010/german-green-power-workers-protest-planned-subsidy-cuts",
-      "published_at": "2026-10-10T14:07:52+00:00",
-      "fetched_at": "2026-10-11T02:06:25+00:00",
-      "category": "energy",
-      "importance": "important",
-      "official_source": false,
-      "first_seen_at": "2026-10-11T02:06:25+00:00",
-      "last_seen_at": "2026-10-11T02:06:25+00:00"
-    },
-    {
-      "id": "0092b9a09492c415",
+      "id": "00e67f0c0ca03064",
       "region": "eu",
-      "title": "Strikes killing 17 are Russia’s ‘thanks’ for US diesel sanctions lift, Zelenskyy says",
-      "title_cn": "Strikes killing 17 are Russia’s ‘thanks’ for US diesel sanctions lift, Zelenskyy says",
-      "summary": "Overnight strikes on Zaporizhzhia killed at least three children, authorities say.",
+      "title": "‘Putin will drag you into the war,’ former Ukrainian foreign minister tells Europeans",
+      "title_cn": "乌克兰前外长告诉欧洲人：“普京会把你们拖入战争”",
+      "summary": "Dmytro Kuleba also said Ukraine will endure its worst winter yet as Russia targets the country's infrastructure in bid to break its resistance.",
       "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/russia-strike-eastern-ukraine-kills-11-regional-authorities-state/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-10T11:56:36+00:00",
-      "fetched_at": "2026-10-11T02:06:25+00:00",
+      "source_url": "https://www.politico.eu/article/ukraine-former-fm-europe-vladimir-putin-will-drag-you-into-war/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-11T12:16:13+00:00",
+      "fetched_at": "2026-10-12T00:38:48+00:00",
+      "category": "politics_society",
+      "importance": "critical",
+      "official_source": false,
+      "first_seen_at": "2026-10-12T00:38:48+00:00",
+      "last_seen_at": "2026-10-12T00:38:48+00:00"
+    },
+    {
+      "id": "5c6813880e8b9a69",
+      "region": "eu",
+      "title": "Trump announces Ukraine energy ceasefire with Russia, surprising Zelenskiy - Reuters",
+      "title_cn": "特朗普宣布乌克兰与俄罗斯能源停火，令泽连斯基惊讶 - 路透中文网",
+      "summary": "Trump announces Ukraine energy ceasefire with Russia, surprising Zelenskiy Reuters",
+      "source": "Reuters Europe",
+      "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPTEo5WEZxUk5OcWNWU1Z1Z0g4SGlFQmxKckFxbS05WFd6UUxDNE0xa0NZRzZoR004Tms3azQ3aTVfUVIwNXlTU1ljcW9HLTREUGZBVVFiWlpVWXI3V1c3Zmt2UEJ2ME43azRMb0Vlei1iQUNPbzk4bV94bkRGTzBmREMydnBCRzVSclBoVkhrWkx4TFJ2YWdsRS1COGVOWU9pRDJqSUFNRk1pUnpQM2dlQ3o0eGpYSHYzbWdDX3dtQWtYT2Zz?oc=5",
+      "published_at": "2026-10-11T21:10:20+00:00",
+      "fetched_at": "2026-10-12T00:38:48+00:00",
+      "category": "energy",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-12T00:38:48+00:00",
+      "last_seen_at": "2026-10-12T00:38:48+00:00"
+    },
+    {
+      "id": "b6fc68b6ee0fe341",
+      "region": "germany",
+      "title": "At least 72 Sudanese artisanal miners killed in strike, rights monitor says - Reuters",
+      "title_cn": "人权监察员称至少 72 名苏丹手工采矿者在罢工中丧生 - 路透中文网",
+      "summary": "At least 72 Sudanese artisanal miners killed in strike, rights monitor says Reuters",
+      "source": "Reuters Germany",
+      "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQX3AyZ09uYTc2bWo2anlka18tNTY5eXB4MmRfeVhQR0R2MUtScC1DcUI3M0hmcFo0dTlTWXFtQmNuNzZ1OHg5cDVoUlBlSm1XaWRVbnpLNmU1VmFRUVFiaEtmVXJhdFhiNWF1YXl0MGptc0hJd1hyaFlNRVpkWFhUY1NaeW5zbVh4Mzktb0lyYXN3Q1lIQWdydkR5TURYYUlzcVI2NmFLYWgzS2hrUHlLR3ZHS3NvcEdnSHd2b1RuSE96aXRk?oc=5",
+      "published_at": "2026-10-11T19:44:16+00:00",
+      "fetched_at": "2026-10-12T00:38:48+00:00",
       "category": "technology",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-10-11T02:06:25+00:00",
-      "last_seen_at": "2026-10-11T02:06:25+00:00"
+      "first_seen_at": "2026-10-12T00:38:48+00:00",
+      "last_seen_at": "2026-10-12T00:38:48+00:00"
     },
     {
-      "id": "da77a2623a7a7233",
+      "id": "113541bc4fda1ecb",
       "region": "eu",
-      "title": "Kann VW gerettet werden? Ein Gespräch mit Olaf Lies",
-      "title_cn": "Kann VW gerettet werden? Ein Gespräch mit Olaf Lies",
-      "summary": "50.000 bedrohte Stellen bei Volkswagen stehen als Symbol für eine tiefe Wirtschaftskrise in Niedersachsen und der gesamten Republik. Wie lässt sich der industrielle Kern des Landes retten, bevor die internationale Wettbewerbsfähigkeit endgültig wegbricht? Der niedersächsische SPD-Ministerpräsident Olaf Lies liefert in der Talk-Reihe „Let’s find common ground“ von POLITICO die Bestandsaufnahme einer Industrie am Scheideweg. Im […]",
-      "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/podcast/berlin-playbook-podcast/kann-vw-gerettet-werden-ein-gesprach-mit-olaf-lies/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-10T08:00:00+00:00",
-      "fetched_at": "2026-10-11T02:06:25+00:00",
-      "category": "economy",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-10-11T02:06:25+00:00",
-      "last_seen_at": "2026-10-11T02:06:25+00:00"
-    },
-    {
-      "id": "84e04b5fc52074c5",
-      "region": "germany",
-      "title": "French policing under scrutiny as student protest injuries mount - Reuters",
-      "title_cn": "French policing under scrutiny as student protest injuries mount - Reuters",
-      "summary": "French policing under scrutiny as student protest injuries mount Reuters",
-      "source": "Reuters Germany",
-      "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQNHl6SHlJTVNheFJ6OFJldVVpYWxNRXJoVzRBX2hzN004MDc2YkpWelhPLUsxSkJRUmQtcm96Q19lVDNqZFViMzl0aVoxdU5SZDBSZDc2UTVydnVRMDBURzFBbFMwRmEwLS1HRk53M0ZoY2tpNU5NUGpSTUx4blUtWWI5R1ZIZVJoZlFaYS1RRGpmbHFnVHlUVFhrYTM2ektFM3BDN2V3?oc=5",
-      "published_at": "2026-10-10T06:05:00+00:00",
-      "fetched_at": "2026-10-11T02:06:25+00:00",
-      "category": "education",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-10-11T02:06:25+00:00",
-      "last_seen_at": "2026-10-11T02:06:25+00:00"
-    },
-    {
-      "id": "1559f75ba4a1582c",
-      "region": "germany",
-      "title": "Libya's military seizes narcotics after firefight with smugglers - Reuters",
-      "title_cn": "Libya's military seizes narcotics after firefight with smugglers - Reuters",
-      "summary": "Libya's military seizes narcotics after firefight with smugglers Reuters",
-      "source": "Reuters Germany",
-      "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQLTBKaEJtRmtfOXNMRTE4YVk0bk55TFRTcHhadnhaeTNsN3dEd0ZFMkt4R01UU3ByUEFhYWd2SEtrMF8zS1hyTjRmcm9iN0pwMFdXRHRyczFZQm5VYW1jdk5WNGRyTmIxU2gwV2Rmb3pkTWxwWExEMlNhTWRISWstR24xem52dG9JN0hxOEoxZ0N0cmlrM0diYVRrcFYwLTBWekZzcnJMMVhSRnN5Z1FINWtn?oc=5",
-      "published_at": "2026-10-10T00:09:00+00:00",
-      "fetched_at": "2026-10-11T02:06:25+00:00",
-      "category": "defense_security",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-10-11T02:06:25+00:00",
-      "last_seen_at": "2026-10-11T02:06:25+00:00"
-    },
-    {
-      "id": "9167e80655bb3779",
-      "region": "eu",
-      "title": "US-Ukraine-European negotiators meet in Miami as Trump announces diesel deal with Russia - Reuters",
-      "title_cn": "US-Ukraine-European negotiators meet in Miami as Trump announces diesel deal with Russia - Reuters",
-      "summary": "US-Ukraine-European negotiators meet in Miami as Trump announces diesel deal with Russia Reuters",
+      "title": "Polish police detain man over threat to PM and defence minister - Reuters",
+      "title_cn": "波兰警方拘留一名威胁总理和国防部长的男子 - 路透中文网",
+      "summary": "Polish police detain man over threat to PM and defence minister Reuters",
       "source": "Reuters Europe",
-      "source_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOSWVqVnNJdVl6QnI3QmppeUxKWlJXZXF0UHFjUDFrYVdJMTdOQnQ1ZTRreldUSl8tQ3llajdPaDVUT2dSWUFFdnhiZFJBVk5NeGZ6aXR1VGt1YUU1MzA3VEFVODBWOGVHSnoweFQxLWFPcC1lZEphNFZzdklJQUZVd2x6WXJhQmtxbEVZUUZSN3NCTkNyTHFfVkY2bFVoTWhncnFianJ5ZS1HVTZ0enNiNUtidHR6X1BqZlVkZWxxZjd3UQ?oc=5",
-      "published_at": "2026-10-10T00:03:00+00:00",
-      "fetched_at": "2026-10-11T02:06:25+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQM3Zhb3YxM0h0Nm9Cd1E0Q3NNempnci1DZG9CMXNxdUx4TFJvSkwxRnAtZEdJT3BTTnZrMlROOE1JdjdlbXI2OGtGRlhlQXNLY0hKNnVIUHpQal9zcXF0cjd6TUFLUklFM0g5cUs5T3hWNHhPWlQ2Ni1fVkZJc1VBZ0JGX251MkV0Ty1SOTBRcl9ZeE5qOU5vbDhUUHhTMHVBVkJRZGNSMkZlVXNtSkJYMVpYX3JwRHpVRnp4VXBjanVlWFk?oc=5",
+      "published_at": "2026-10-11T18:43:25+00:00",
+      "fetched_at": "2026-10-12T00:38:48+00:00",
+      "category": "politics_society",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-12T00:38:48+00:00",
+      "last_seen_at": "2026-10-12T00:38:48+00:00"
+    },
+    {
+      "id": "4f668ce653a95953",
+      "region": "eu",
+      "title": "US threatens to block arms for Ukraine over refinery attacks, FT reports - Reuters",
+      "title_cn": "英国《金融时报》报道，美国威胁因炼油厂袭击而阻止向乌克兰提供武器 ​​- 路透中文网",
+      "summary": "US threatens to block arms for Ukraine over refinery attacks, FT reports Reuters",
+      "source": "Reuters Europe",
+      "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPaUx0a0pvZmw1VkxoRkUyc1VTemRoQV9zWEFZMmpFd3ozM0Ytdy1QMnM1Rjg1Z0FnaklEZlktUWI3Z05mMlVYQmx0c3h3X29aMUIwN01ETml6cDVhNi1TUmVWMHZicnlHdHhHc0xXZ0Z6M0QwUEJEeE1ld3BWWHI2VlpRY2Z1QW44U0xnNTVXYVJBdkxGbThsWkVqVHdXbUxmNTI5NjZKaEpteDBYTlNkbmRSMA?oc=5",
+      "published_at": "2026-10-11T18:23:43+00:00",
+      "fetched_at": "2026-10-12T00:38:48+00:00",
       "category": "defense_security",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-10-11T02:06:25+00:00",
-      "last_seen_at": "2026-10-11T02:06:25+00:00"
+      "first_seen_at": "2026-10-12T00:38:48+00:00",
+      "last_seen_at": "2026-10-12T00:38:48+00:00"
+    },
+    {
+      "id": "1d7ac826a65b3bf3",
+      "region": "eu",
+      "title": "Ukraine awaits details of ceasefire proposals from US, Russia maintains attacks, Zelenskiy says - Reuters",
+      "title_cn": "泽连斯基称乌克兰正在等待美国停火建议的细节，俄罗斯仍继续发动袭击 - 路透中文网",
+      "summary": "Ukraine awaits details of ceasefire proposals from US, Russia maintains attacks, Zelenskiy says Reuters",
+      "source": "Reuters Europe",
+      "source_url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNZTR1Z25uRUdFdldVQ2h6clhMSlEyZVB4cHJ6QTlsNlpIM0Qzbi0zOXlFZFk5MjFCcVV6RnFrV0JmY2RfRlQ0bzhwQ1ZkMUxaTDl4SGR0VWtFZWQtQ2FxdjZocnNDMEMyTjZtTnNWdmhGc0o0ZlJCYmRaSzF1LVg2NUNOMlc2ZDVidWlxS0VYZ1NZMzVLdG9ZNlBVZU9mT2REdzM0SmR6ZlBXdzdTVTRsYjlhb1ZqSW80bjhEc24xRWNaNjZUbUlrQw?oc=5",
+      "published_at": "2026-10-11T18:22:07+00:00",
+      "fetched_at": "2026-10-12T00:38:48+00:00",
+      "category": "technology",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-12T00:38:48+00:00",
+      "last_seen_at": "2026-10-12T00:38:48+00:00"
+    },
+    {
+      "id": "123349025b8a3c55",
+      "region": "eu",
+      "title": "Ukraine's Zelenskiy tells ABC he will organize elections if Russia agrees to 60-day ceasefire - Reuters",
+      "title_cn": "乌克兰泽伦斯基告诉美国广播公司，如果俄罗斯同意60天停火，他将组织选举 - 路透中文网",
+      "summary": "Ukraine's Zelenskiy tells ABC he will organize elections if Russia agrees to 60-day ceasefire Reuters",
+      "source": "Reuters Europe",
+      "source_url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNbHBvR1Y0bmdYLTV0NHhWQXE1MFFTMHlvYmZRYnRILVMxM3JiSnJaSVBmbUkzVmN6VXptNnBsNDhXRXZEX2hBS1FOZGhyc3Zid3poMksyLUVLNHZkTGNUekxjWUlyejF6N3hpVDdQcFE4OG92REpjamxKSzV0YURObE9xV1FwYlJ5TVUwZjB5N3hSYzJLTUJuV0c0VG1TZ29jMlN0dDQyOTNDR2tBR1dRRS1jWmloaGVTbU9LOEN2ZnBFZFlmdHJn?oc=5",
+      "published_at": "2026-10-11T15:27:56+00:00",
+      "fetched_at": "2026-10-12T00:38:48+00:00",
+      "category": "technology",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-12T00:38:48+00:00",
+      "last_seen_at": "2026-10-12T00:38:48+00:00"
+    },
+    {
+      "id": "46f12e2f2868267b",
+      "region": "eu",
+      "title": "Read-out by President von der Leyen following her call with President Zelenskyy",
+      "title_cn": "冯德莱恩总统在与泽伦斯基总统通话后宣读的内容",
+      "summary": "European Commission Read-out Brussels, 11 Oct 2026 Good call with President Zelenskyy. Fully supported the call of President Zelenskyy for a ceasefire that would protect global food supplies and energy infrastru...",
+      "source": "European Commission",
+      "source_url": "https://ec.europa.eu/commission/presscorner/detail/en/read_26_2131",
+      "published_at": "2026-10-11T15:26:32+00:00",
+      "fetched_at": "2026-10-12T00:38:48+00:00",
+      "category": "energy",
+      "importance": "normal",
+      "official_source": true,
+      "first_seen_at": "2026-10-12T00:38:48+00:00",
+      "last_seen_at": "2026-10-12T00:38:48+00:00"
+    },
+    {
+      "id": "19f2ec8f967a8116",
+      "region": "eu",
+      "title": "Europeans back Zelenskyy after Trump calls for new Ukrainian leader",
+      "title_cn": "特朗普呼吁乌克兰新领导人后欧洲人支持泽伦斯基",
+      "summary": "Several European countries reiterated their support for Ukraine's president following a spat between Washington and Kyiv.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/europe-back-volodymyr-zelenskyy-after-donald-trump-calls-for-new-ukrainian-leader/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-11T15:26:18+00:00",
+      "fetched_at": "2026-10-12T00:38:48+00:00",
+      "category": "defense_security",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-12T00:38:48+00:00",
+      "last_seen_at": "2026-10-12T00:38:48+00:00"
+    },
+    {
+      "id": "3739e46309d6a640",
+      "region": "eu",
+      "title": "Trump says Russia and Ukraine reached 'energy ceasefire' - Reuters",
+      "title_cn": "特朗普称俄罗斯和乌克兰达成“能源停火” - 路透中文网",
+      "summary": "Trump says Russia and Ukraine reached 'energy ceasefire' Reuters",
+      "source": "Reuters Europe",
+      "source_url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxObGthQXk1OHFPRzlYcjNKVnk4R1pDQXIyTExXMk02TUU3Qy1WbkFxTFhjRXc2MlpmM0s0bDdwQ1Y5V0JDWHpCdGpfRGxzWFlrU3F0d3FBSjY0X25udzkwVkxBamdoS2xLUE0wWHdVTy1RY0N6dnRmd0dnMnJtU2FQNGpaazRqSU1zcWhPV201ajliQmJPcmZ3ZWZUaXNEWTVx?oc=5",
+      "published_at": "2026-10-11T14:31:48+00:00",
+      "fetched_at": "2026-10-12T00:38:48+00:00",
+      "category": "energy",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-12T00:38:48+00:00",
+      "last_seen_at": "2026-10-12T00:38:48+00:00"
+    },
+    {
+      "id": "ed7f4716ff12a937",
+      "region": "eu",
+      "title": "Man arrested in connection with alleged assassination plot against Donald Tusk",
+      "title_cn": "男子因涉嫌暗杀唐纳德·图斯克而被捕",
+      "summary": "\"We are treating this matter very seriously,\" said a government spokesperson.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/poland-donald-tusk-police-warn-of-possible-plot-against-pm/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-11T13:27:16+00:00",
+      "fetched_at": "2026-10-12T00:38:48+00:00",
+      "category": "politics_society",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-12T00:38:48+00:00",
+      "last_seen_at": "2026-10-12T00:38:48+00:00"
+    },
+    {
+      "id": "282d3a6573262d6e",
+      "region": "germany",
+      "title": "Germany backs Ukraine's Zelenskiy after Trump's call for his removal - Reuters",
+      "title_cn": "特朗普呼吁乌克兰总统泽连斯基下台后，德国支持他 - 路透中文网",
+      "summary": "Germany backs Ukraine's Zelenskiy after Trump's call for his removal Reuters",
+      "source": "Reuters Germany",
+      "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPbHctY0FCSGlIZVRCbWoyZWVocUlPbEZ1c3hSWEFNbDVnYjBvMWVEUjRzU2UtTVhvTHR1ekNhR0x5VUhTTFM1U1Z0SzJ3YWZXSFZxQ1FnVHhIWWFkLWl4SGQ2NkpXYVBZbWVIX0hJVDF3WW5nOFNSYWFKdDdHOUNuanoyRHotUVhVdW05WmphYVg1WDVYeW9idUJnLTcyT0FWcHM5X01lSQ?oc=5",
+      "published_at": "2026-10-11T12:55:43+00:00",
+      "fetched_at": "2026-10-12T00:38:48+00:00",
+      "category": "technology",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-12T00:38:48+00:00",
+      "last_seen_at": "2026-10-12T00:38:48+00:00"
+    },
+    {
+      "id": "eba82509b63deeda",
+      "region": "eu",
+      "title": "Security Sunday: Europas Krieg der Zukunft — mit Nico Lange",
+      "title_cn": "周日安全：欧洲未来的战争——与尼科·兰格",
+      "summary": "Fast jede Nacht überzieht Russland die Ukraine mit Drohnen- und Raketenangriffen, um die Zivilbevölkerung zu zermürben. Doch abseits des Terrors aus der Luft kommt Moskau militärisch kaum voran. Die wahre Strategie des Kremls zielt längst auf ein anderes Schlachtfeld: die politische Erschöpfung Europas und der USA. Im Gespräch mit POLITICO-Reporterin Rixa Fürsen teilt Nico Lange, […]",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/podcast/berlin-playbook-podcast/security-sunday-europas-krieg-der-zukunft-mit-nico-lange/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-11T03:30:00+00:00",
+      "fetched_at": "2026-10-12T00:38:48+00:00",
+      "category": "defense_security",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-12T00:38:48+00:00",
+      "last_seen_at": "2026-10-12T00:38:48+00:00"
+    },
+    {
+      "id": "822a92008270534d",
+      "region": "eu",
+      "title": "Russians face EU travel curbs to prevent hybrid attacks",
+      "title_cn": "俄罗斯人面临欧盟旅行限制以防止混合攻击",
+      "summary": "Tighter visa rules are expected to be proposed in January to bolster EU defenses against Russian threats.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/russia-visa-passport-control-face-eu-travel-curbs-to-prevent-hybrid-attacks/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-11T02:01:00+00:00",
+      "fetched_at": "2026-10-12T00:38:48+00:00",
+      "category": "immigration",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-12T00:38:48+00:00",
+      "last_seen_at": "2026-10-12T00:38:48+00:00"
     }
   ]
 }
