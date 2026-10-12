@@ -1,48 +1,44 @@
 {
   "schemaVersion": 2,
   "automation": "x-intelligence",
-  "runId": "x-intelligence:codex-x-20261011T010139Z",
-  "requestId": "codex-x-20261011T010139Z",
-  "result": "success",
+  "runId": "x-intelligence:codex-x-20261012T005753Z",
+  "requestId": "codex-x-20261012T005753Z",
+  "result": "in_progress",
   "lineage": {
     "triggerType": "push",
-    "triggerSha": "7bb5ee95f4e176d826541c5418eee3272becbf5e",
-    "githubRunId": 38100429124,
+    "triggerSha": "be611c15cf379729e35ed07554b4d92da432b00d",
+    "githubRunId": 38190027895,
     "githubRunAttempt": 1
   },
   "timestamps": {
-    "scheduledAt": "2026-10-11T01:00:00Z",
-    "startedAt": "2026-10-11T01:01:53.831192+00:00",
-    "sourceCheckedAt": "2026-10-11T01:02:04.484379+00:00",
-    "sourceUpdatedAt": "2026-10-11T00:53:44+00:00",
-    "completedAt": "2026-10-11T01:05:48.560Z",
-    "publishedAt": "2026-10-11T09:04:57.229+08:00"
+    "scheduledAt": "2026-10-12T01:00:00Z",
+    "startedAt": "2026-10-12T00:58:06.011301+00:00",
+    "sourceCheckedAt": "2026-10-12T00:58:16.504021+00:00",
+    "sourceUpdatedAt": "2026-10-12T00:50:08+00:00",
+    "completedAt": "2026-10-12T00:58:16.504069+00:00",
+    "publishedAt": null
   },
   "legacyRequestedAt": null,
   "stages": {
     "collection": {
       "status": "success",
-      "completedAt": "2026-10-11T01:02:04.484422+00:00",
+      "completedAt": "2026-10-12T00:58:16.504069+00:00",
       "details": {
         "listsRequested": 4,
         "listsCompleted": 4,
-        "postCount": 92,
+        "postCount": 78,
         "estimatedCostUsd": 0.069
       }
     },
     "validation": {
       "status": "success",
-      "completedAt": "2026-10-11T01:02:04.484422+00:00"
+      "completedAt": "2026-10-12T00:58:16.504069+00:00"
     },
     "publication": {
-      "status": "success",
-      "commitSha": "29697b0299a0691a41b0d004d7e5f30fcc0c7759"
+      "status": "not_run"
     },
     "notification": {
-      "status": "success",
-      "provider": "gmail",
-      "messageId": "1a1287e77368b766",
-      "completedAt": "2026-10-11T01:05:48.560Z"
+      "status": "not_run"
     }
   }
 }
