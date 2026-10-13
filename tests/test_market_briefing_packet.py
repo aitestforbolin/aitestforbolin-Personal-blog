@@ -26,6 +26,24 @@ def asset(source="Yahoo Finance"):
 
 
 class MarketBriefingPacketTests(unittest.TestCase):
+    def test_null_daily_close_uses_only_exact_completed_regular_quote(self):
+        payload = self.yahoo_daily_payload([("2026-10-09", 110.38), ("2026-10-12", None)])
+        end = int(dt.datetime.fromisoformat("2026-10-12T16:00:00-04:00").timestamp())
+        payload["chart"]["result"][0]["meta"] = {"regularMarketTime": end, "regularMarketPrice": 111.45, "chartPreviousClose": 999,
+                                                "currentTradingPeriod": {"regular": {"end": end}}}
+        row = {"id": "XLC"}
+        self.assertTrue(MODULE.normalize_session_market(row, "2026-10-12", payload))
+        self.assertEqual(row["previousClose"], 110.38)
+        self.assertEqual(row["price"], 111.45)
+        self.assertEqual(row["priceSourceBasis"], "completed_regular_session_quote")
+        self.assertEqual(MODULE.session_change_issues(row, "2026-10-12"), [])
+        for timestamp in [end - 60, end + 60, end - 3 * 86400]:
+            payload["chart"]["result"][0]["meta"]["regularMarketTime"] = timestamp
+            self.assertIsNone(MODULE.yahoo_daily_session_pair(payload, "2026-10-12"))
+        payload["chart"]["result"][0]["meta"]["regularMarketTime"] = end
+        payload["chart"]["result"][0]["timestamp"].pop()
+        self.assertIsNone(MODULE.yahoo_daily_session_pair(payload, "2026-10-12"))
+
     def test_bond_holiday_uses_latest_real_official_date_without_relabelling(self):
         points = [{"time": dt.datetime.fromisoformat(day + "T15:30:00-04:00").timestamp() * 1000, "value": value}
                   for day, value in [("2026-10-08", 5.22), ("2026-10-09", 5.24)]]

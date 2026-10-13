@@ -207,6 +207,24 @@ def yahoo_daily_session_pair(payload: object, trading_date: str) -> dict | None:
         by_date[day] = {"date": day, "value": close, "time": int(raw_time * 1000)}
 
     current = by_date.get(trading_date)
+    if current is None:
+        # Yahoo occasionally publishes a null latest daily close while its
+        # completed regular-session quote is already available. Accept that
+        # quote only at the exact regular-session end, for this target date,
+        # and only when the target daily bar itself exists. Never use a live,
+        # pre-close, after-hours, stale, or arbitrary metadata previous close.
+        meta = result.get("meta") or {}
+        quote_time = meta.get("regularMarketTime")
+        close_time = meta.get("currentTradingPeriod", {}).get("regular", {}).get("end")
+        price = finite_number(meta.get("regularMarketPrice"))
+        target_bars = [t for t, close in zip(timestamps, closes)
+                       if isinstance(t, (int, float)) and close is None
+                       and dt.datetime.fromtimestamp(t, tz=dt.timezone.utc).astimezone(eastern).date().isoformat() == trading_date]
+        if (target_bars and price is not None and price > 0
+                and isinstance(quote_time, (int, float)) and quote_time == close_time
+                and dt.datetime.fromtimestamp(quote_time, tz=dt.timezone.utc).astimezone(eastern).date().isoformat() == trading_date):
+            current = {"date": trading_date, "value": price, "time": int(quote_time * 1000),
+                       "valueSource": "completed_regular_session_quote"}
     previous_days = [day for day in sorted(by_date) if day < trading_date]
     if current is None or not previous_days:
         return None
@@ -274,6 +292,8 @@ def normalize_session_market(row: dict, trading_date: str, payload: object) -> b
         "sourceSymbol": SESSION_YAHOO_SYMBOLS[str(row.get("id"))],
         "status": "ok",
     })
+    if current.get("valueSource"):
+        row["priceSourceBasis"] = current["valueSource"]
     return True
 
 
@@ -431,7 +451,7 @@ def compact_market(row: dict, trading_date: str | None = None) -> dict:
         "id", "name", "price", "previousClose", "change", "changePercent",
         "currency", "updatedAt", "source", "sourceSymbol", "instrumentType",
         "proxyFor", "status", "seriesStatus", "priceDate", "previousCloseDate",
-        "comparisonBasis",
+        "comparisonBasis", "priceSourceBasis",
     )
     item = {key: row.get(key) for key in keys if key in row}
     observed_date = market_date(row)
@@ -1319,6 +1339,9 @@ def build_packet(now: dt.datetime | None = None) -> dict:
     )
     if any(row.get("universeBasis") == "SPY_holdings_proxy" for row in breadth):
         comparison_warnings.append("SP500:official_spy_holdings_proxy")
+    for row in markets:
+        if row.get("priceSourceBasis") == "completed_regular_session_quote":
+            comparison_warnings.append(f"{row['id']}:yahoo_null_daily_close_completed_regular_quote")
     if gold_proxy_used:
         comparison_warnings.append(
             "GOLD:yahoo_gc_f_proxy_for_xauusd"
