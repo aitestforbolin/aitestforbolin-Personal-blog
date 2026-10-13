@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "runDate": "2026-10-13",
+  "publishedAt": "2026-10-13T08:58:12+08:00",
+  "windowStart": "2026-10-12T00:59:02.663360+00:00",
+  "windowEnd": "2026-10-13T00:57:24.143899+00:00",
+  "sourceUpdatedAt": "2026-10-13T00:57:24+00:00",
+  "status": "success",
+  "executionLineage": {
+    "runId": "web3-daily-triage:codex-web3-20261013-005651Z",
+    "requestId": "codex-web3-20261013-005651Z",
+    "triggerSha": "db73df000250b7e647513d32a1098c5b6cafd534",
+    "githubRunId": 38329773059,
+    "scheduledAt": "2026-10-13T00:56:51Z",
+    "startedAt": "2026-10-13T00:57:22.392713+00:00",
+    "sourceCheckedAt": "2026-10-13T00:57:24.143548+00:00",
+    "sourceUpdatedAt": "2026-10-13T00:57:24+00:00",
+    "completedAt": "2026-10-13T00:57:24.143899+00:00",
+    "publishedAt": "2026-10-13T08:58:12+08:00"
+  },
+  "executionStatus": {
+    "collection": "success",
+    "validation": "success",
+    "publication": "success"
+  },
+  "deduplicationNote": "候选窗口从 2026-10-12 已验证 unchanged 发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后新增 DATA Network（原 Story Protocol）与 Orbio。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+  "reportedEventIds": [
+    "crypto-fundraising-ponygo--2026-09--round-unknown",
+    "crypto-fundraising-velocity--2026-09--series-a",
+    "crypto-fundraising-usd-ai-permian-labs--2026-09--round-unknown",
+    "crypto-fundraising-tare--2026-09--seed",
+    "crypto-fundraising-finloop--2026-09--series-a",
+    "crypto-fundraising-fin-com--2026-09--seed",
+    "crypto-fundraising-tenka--2026-09--pre-seed",
+    "crypto-fundraising-rep--2026-09--angel",
+    "crypto-fundraising-dtcpay--2026-09--series-a",
+    "crypto-fundraising-infini--2026-09--seed",
+    "crypto-fundraising-circle--2026-09--round-unknown",
+    "crypto-fundraising-xstable--2026-09--round-unknown",
+    "crypto-fundraising-travix--2026-09--seed",
+    "crypto-fundraising-catchback--2026-09--seed",
+    "crypto-fundraising-infinifi--2026-09--seed",
+    "crypto-fundraising-hifi--2026-09--series-a",
+    "crypto-fundraising-functionspace--2026-09--pre-seed",
+    "crypto-fundraising-limited--2026-09--seed",
+    "crypto-fundraising-axis-robotics--2026-09--public-sale",
+    "crypto-fundraising-raven--2026-09--strategic",
+    "crypto-fundraising-jeeves--2026-09--series-c",
+    "crypto-fundraising-worldcoin--2026-09--private",
+    "crypto-fundraising-grass--2026-09--round-unknown",
+    "crypto-fundraising-jumper--2026-10--public-sale",
+    "crypto-fundraising-uorm--2026-10--pre-seed",
+    "crypto-fundraising-walapay--2026-10--seed",
+    "crypto-fundraising-perptools--2026-10--seed",
+    "crypto-fundraising-rip-cars--2026-09--private",
+    "crypto-fundraising-pheasant-network--2026-10--public-sale",
+    "crypto-fundraising-ipid--2026-10--series-a",
+    "crypto-fundraising-xverse-app--2026-10--strategic",
+    "crypto-fundraising-hyperlink--2026-10--round-unknown",
+    "crypto-fundraising-spiko--2026-10--series-b",
+    "crypto-fundraising-okx--2026-10--round-unknown",
+    "crypto-fundraising-imperial--2026-10--seed",
+    "crypto-fundraising-vest-exchange--2026-10--seed",
+    "crypto-fundraising-noah--2026-10--seed",
+    "crypto-fundraising-nous-research--2026-10--series-b",
+    "crypto-fundraising-catalyst-labs--2026-10--seed",
+    "crypto-fundraising-soda-labs--2026-10--seed",
+    "crypto-fundraising-immix--2026-10--round-unknown",
+    "crypto-fundraising-meanwhile--2026-10--round-unknown",
+    "crypto-fundraising-story-protocol--2026-10--round-unknown",
+    "crypto-fundraising-orbio--2026-10--seed"
+  ],
+  "counts": {
+    "new": 2,
+    "action": 0,
+    "watch": 0,
+    "stop": 2
+  },
+  "projects": [
+    {
+      "event_id": "crypto-fundraising-story-protocol--2026-10--round-unknown",
+      "source_detail_url": "https://crypto-fundraising.info/projects/story-protocol/",
+      "project_name": "DATA Network（原 Story Protocol）",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": 30000000,
+        "round": null,
+        "lead_investors": [
+          "Sui Foundation"
+        ],
+        "announcement_date": "2026-10-12",
+        "confidence": "high"
+      },
+      "plain_explanation": "DATA Network 是 Story Protocol 更名后的 AI 训练数据权利与溯源网络，帮助数据提供方记录授权、许可和收益分配。",
+      "mechanism_simple": "项目计划关闭原有独立链，将 Trace 数据注册表和 DATA 代币迁移到 Sui 与 Walrus；Sui Foundation 为迁移和扩展投入 3000 万美元。",
+      "project_status": {
+        "category": "renamed_existing",
+        "token_status": "token_live",
+        "note": "Story Protocol 已更名为 DATA Foundation，原 IP 代币按 1:1 迁移为 DATA；DATA 是现有协议代币。"
+      },
+      "participation": {
+        "available_now": true,
+        "what_user_can_do": "用户可持有或交易现有 DATA 代币，并在迁移后继续使用协议生态。",
+        "requires_real_funds": true,
+        "friction_or_risk": "参与主要是现有代币与网络迁移，不是新的低成本早期项目入口；还存在迁移执行和代币市场风险。"
+      },
+      "incentives": {
+        "status": "confirmed",
+        "types": [
+          "token"
+        ],
+        "details": "现有 DATA 代币由原 IP 代币 1:1 迁移而来；这证明项目已发币，而不是潜在空投窗口。"
+      },
+      "why": [
+        "项目是 Story Protocol 的更名与战略迁移，不是新项目。",
+        "原生 DATA 代币已存在并延续原 IP 持仓，触发已发币硬性 STOP 规则。",
+        "3000 万美元投入主要支持迁移与扩展，不产生新的低成本普通用户机会。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://www.datafdn.org/",
+      "x_url": null,
+      "evidence": [
+        {
+          "claim": "Sui Foundation 与 DATA Foundation 宣布 DATA Network 和 Trace 注册表迁移至 Sui/Walrus，并由 Sui Foundation 投入 3000 万美元。",
+          "url": "https://www.sui.io/blog/data-network-joins-sui-walrus",
+          "source_type": "official_blog",
+          "confidence": "high"
+        },
+        {
+          "claim": "DATA Foundation 官方确认 Story、Story Network 与 IP 代币分别更名为 DATA Foundation、DATA Network 与 DATA，代币按 1:1 迁移。",
+          "url": "https://www.datafdn.org/blog/were-becoming-the-data-foundation",
+          "source_type": "official_blog",
+          "confidence": "high"
+        },
+        {
+          "claim": "官方 FAQ 说明迁移至 Sui 将保留现有代币余额，并维持总供应量。",
+          "url": "https://www.datafdn.org/faqs",
+          "source_type": "official_site",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-orbio--2026-10--seed",
+      "source_detail_url": "https://crypto-fundraising.info/projects/orbio/",
+      "project_name": "Orbio",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": 1200000,
+        "round": "Seed",
+        "lead_investors": [],
+        "announcement_date": "2026-10-10",
+        "confidence": "medium"
+      },
+      "plain_explanation": "Orbio 是 Robinhood Chain 上的 AI 推理额度市场，让用户和 AI agent 通过一个 API 购买、转让或消费多家模型的折扣额度。",
+      "mechanism_simple": "用户购买或激活链上 CREDIT 后，把它转成 Orbio API 余额调用模型；ORBIO 持有人可通过协议机制获得 CREDIT。",
+      "project_status": {
+        "category": "existing_token",
+        "token_status": "token_live",
+        "note": "ORBIO 已在 Robinhood Chain 的去中心化交易所交易，项目同时运行 CREDIT 与实际 API 服务。"
+      },
+      "participation": {
+        "available_now": true,
+        "what_user_can_do": "普通用户可最低购买 5 美元推理额度并调用 Orbio API，也可购买或质押 ORBIO 获取 CREDIT。",
+        "requires_real_funds": true,
+        "friction_or_risk": "API 试用需要真实资金；代币交易还承担流动性、价格波动、智能合约和新链生态风险。"
+      },
+      "incentives": {
+        "status": "confirmed",
+        "types": [
+          "token",
+          "other"
+        ],
+        "details": "官方机制为质押 ORBIO 获得 CREDIT；这属于已上线代币经济，而非潜在空投。"
+      },
+      "why": [
+        "产品已有可用的 AI 推理额度服务，但原生 ORBIO 已公开交易。",
+        "已发币项目按 Skill 自动 STOP，即使融资或积分机制近期有更新。",
+        "使用服务需付费，参与代币机制还增加市场和流动性风险。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://www.orbio.so/",
+      "x_url": "https://x.com/orbiodotso",
+      "evidence": [
+        {
+          "claim": "Orbio 官方网站说明其提供多模型折扣推理额度、统一 API key，最低购买额为 5 美元。",
+          "url": "https://www.orbio.so/",
+          "source_type": "official_site",
+          "confidence": "high"
+        },
+        {
+          "claim": "官方协议页面确认 ORBIO 可质押获得 CREDIT，CREDIT 可交易或激活为 AI 使用余额。",
+          "url": "https://api.orbio.so/protocol",
+          "source_type": "official_site",
+          "confidence": "high"
+        },
+        {
+          "claim": "CoinGecko 显示 ORBIO 已可在 Robinhood Chain 上的 Uniswap 与 Ramses 等 DEX 交易。",
+          "url": "https://www.coingecko.com/en/coins/orbio-so",
+          "source_type": "database",
+          "confidence": "high"
+        },
+        {
+          "claim": "CryptoRank 报道 Orbio 于 2026-10-10 完成 120 万美元融资，投资方未披露。",
+          "url": "https://cryptorank.io/insights/deals/orbio-so-seed-2026-10-10",
+          "source_type": "database",
+          "confidence": "medium"
+        }
+      ]
+    }
+  ]
+}
