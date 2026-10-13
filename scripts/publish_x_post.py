@@ -161,6 +161,12 @@ def macro_line(label: str, previous: Any, current: Any, decimals: int, suffix: s
     return f"{icon}{label}： {left} → {right}"
 
 
+def treasury_line(label: str, row: dict[str, Any]) -> str:
+    if "休市" in str(row.get("status") or ""):
+        return f"—{label}：最近官方 {format_number(row.get('anchor'), 3)}%（{row['status']}）"
+    return macro_line(label, row.get("previous"), row.get("anchor"), 3, "%")
+
+
 def gold_label(row: dict[str, Any]) -> str:
     """Name gold without presenting a futures proxy as XAU/USD spot."""
     symbol = str(row.get("symbol") or row.get("sourceSymbol") or "").strip().upper()
@@ -309,9 +315,9 @@ def build_x_post(snapshot: dict[str, Any], now: dt.datetime | None = None) -> st
     lines.extend(
         (
             macro_line("美元", dxy.get("previous"), dxy.get("anchor"), 3),
-            macro_line("美债2Y", us02y.get("previous"), us02y.get("anchor"), 3, "%"),
-            macro_line("美债10Y", us10y.get("previous"), us10y.get("anchor"), 3, "%"),
-            macro_line("美债30Y", us30y.get("previous"), us30y.get("anchor"), 3, "%"),
+            treasury_line("美债2Y", us02y),
+            treasury_line("美债10Y", us10y),
+            treasury_line("美债30Y", us30y),
             macro_line("加息概率", fed.get("previous"), fed.get("current"), 1, str(fed.get("unit") or "")),
             macro_line("Brent", brent.get("previous"), brent.get("anchor"), 2),
             gold_line(gold),
@@ -629,3 +635,4 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

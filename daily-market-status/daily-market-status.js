@@ -473,6 +473,9 @@
         referenceTime,
         targetTime: null,
         status:
+          String(stored?.status || "").includes("休市") && currentTime === finiteNumber(stored?.currentTime)
+            ? stored.status
+            :
           reference === null
             ? "美国财政部官方前一交易日数据不可用"
             : "美国财政部官方前一交易日",
@@ -635,6 +638,9 @@
   }
 
   function documentAssetLine(label, comparison, decimals, suffix) {
+    if (String(comparison.status || "").includes("休市")) {
+      return `— ${label}：最近官方 ${formatNumber(comparison.current, decimals)}${suffix}（${comparison.status}）`;
+    }
     const previous = comparison.reference;
     const current = comparison.current;
     return (
@@ -974,6 +980,9 @@
     // in the next post. The X-specific presentation is deliberately compact, while
     // the full "复制正文" version above remains unchanged.
     const compactXAssetLine = (label, comparison, decimals, suffix) =>
+      String(comparison.status || "").includes("休市")
+        ? `—${label} 官方${formatNumber(comparison.current, decimals)}${suffix}（${comparison.status}）`
+        :
       directionIcon(comparison.reference, comparison.current) + label + " " +
       formatNumber(comparison.reference, decimals) +
       (comparison.reference === null ? "" : suffix) + "→" +
@@ -1539,3 +1548,4 @@
       root.querySelector("[data-page-state]").textContent = "载入失败";
     });
 })();
+
