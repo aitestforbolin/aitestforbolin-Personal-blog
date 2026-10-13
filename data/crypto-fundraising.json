@@ -1,12 +1,32 @@
 {
-  "updated_at": "2026-10-10T01:00:42+00:00",
+  "updated_at": "2026-10-13T00:57:24+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-catalyst-labs",
+      "id": "crypto-fundraising-story-protocol",
       "source_rank": 1,
+      "name": "DATA Network (ex Story Protocol)",
+      "round": null,
+      "announced_month": "2026-10",
+      "amount_usd": 30000000,
+      "detail_url": "https://crypto-fundraising.info/projects/story-protocol/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-orbio",
+      "source_rank": 2,
+      "name": "Orbio",
+      "round": "Seed",
+      "announced_month": "2026-10",
+      "amount_usd": 1200000,
+      "detail_url": "https://crypto-fundraising.info/projects/orbio/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-catalyst-labs",
+      "source_rank": 3,
       "name": "Catalyst Labs",
       "round": "Seed",
       "announced_month": "2026-10",
@@ -16,7 +36,7 @@
     },
     {
       "id": "crypto-fundraising-soda-labs",
-      "source_rank": 2,
+      "source_rank": 4,
       "name": "Soda Labs",
       "round": "Seed",
       "announced_month": "2026-10",
@@ -26,46 +46,26 @@
     },
     {
       "id": "crypto-fundraising-immix",
-      "source_rank": 3,
+      "source_rank": 5,
       "name": "Immix",
       "round": null,
       "announced_month": "2026-10",
       "amount_usd": 3500000,
       "detail_url": "https://crypto-fundraising.info/projects/immix/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-fastnear",
-      "source_rank": 4,
-      "name": "FastNEAR",
-      "round": "M&A",
-      "announced_month": "2026-10",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/fastnear/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-meanwhile",
-      "source_rank": 5,
-      "name": "Meanwhile",
-      "round": null,
-      "announced_month": "2026-10",
-      "amount_usd": 37500000,
-      "detail_url": "https://crypto-fundraising.info/projects/meanwhile/",
-      "is_new": true
+      "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261012-005832Z",
-    "requestId": "codex-web3-20261012-005832Z",
-    "triggerSha": "1c5405b6cbedbaf0d90e98bb09d39c347336fa1f",
-    "githubRunId": 38190088682,
-    "scheduledAt": "2026-10-12T00:58:32Z",
-    "startedAt": "2026-10-12T00:59:00.821530+00:00",
-    "sourceCheckedAt": "2026-10-12T00:59:02.663033+00:00",
-    "sourceUpdatedAt": "2026-10-10T01:00:42+00:00",
-    "completedAt": "2026-10-12T00:59:02.663360+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261013-005651Z",
+    "requestId": "codex-web3-20261013-005651Z",
+    "triggerSha": "db73df000250b7e647513d32a1098c5b6cafd534",
+    "githubRunId": 38329773059,
+    "scheduledAt": "2026-10-13T00:56:51Z",
+    "startedAt": "2026-10-13T00:57:22.392713+00:00",
+    "sourceCheckedAt": "2026-10-13T00:57:24.143548+00:00",
+    "sourceUpdatedAt": "2026-10-13T00:57:24+00:00",
+    "completedAt": "2026-10-13T00:57:24.143899+00:00",
     "publishedAt": null
   }
 }
