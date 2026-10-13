@@ -26,6 +26,34 @@ def asset(source="Yahoo Finance"):
 
 
 class MarketBriefingPacketTests(unittest.TestCase):
+    def test_bond_holiday_uses_latest_real_official_date_without_relabelling(self):
+        points = [{"time": dt.datetime.fromisoformat(day + "T15:30:00-04:00").timestamp() * 1000, "value": value}
+                  for day, value in [("2026-10-08", 5.22), ("2026-10-09", 5.24)]]
+        item = MODULE.macro_asset({"id": "US10Y", "source": "U.S. Treasury", "points": points}, "2026-10-12")
+        self.assertEqual(item["comparison"]["current"]["date"], "2026-10-09")
+        self.assertEqual(item["comparison"]["previous"]["date"], "2026-10-08")
+        self.assertTrue(item["comparison"]["marketClosed"])
+        self.assertEqual(MODULE.treasury_comparison_issues([item], "2026-10-12"), ["US02Y", "US30Y"])
+        self.assertIn("US10Y", MODULE.treasury_comparison_issues([item], "2026-10-13"))
+        item["comparison"]["current"]["date"] = "2026-10-08"
+        self.assertIn("US10Y", MODULE.treasury_comparison_issues([item], "2026-10-12"))
+
+    def test_daily_history_cache_gap_uses_same_provider_explicit_window(self):
+        stale = self.yahoo_daily_payload([("2026-10-08", 110), ("2026-10-09", 111)])
+        fresh = self.yahoo_daily_payload([("2026-10-09", 111), ("2026-10-12", 112)])
+        row = {"id": "XLC"}
+        with mock.patch.object(MODULE, "fetch_json", side_effect=[stale, fresh]) as fetch:
+            self.assertEqual(MODULE.normalize_session_markets([row], "2026-10-12"), [])
+        self.assertEqual(row["priceDate"], "2026-10-12")
+        self.assertEqual(row["previousCloseDate"], "2026-10-09")
+        self.assertIn("query2.finance.yahoo.com", fetch.call_args_list[1].args[0])
+        self.assertIn("period1=", fetch.call_args_list[1].args[0])
+
+    def test_all_daily_history_requests_missing_target_still_fail(self):
+        stale = self.yahoo_daily_payload([("2026-10-08", 110), ("2026-10-09", 111)])
+        with mock.patch.object(MODULE, "fetch_json", return_value=stale):
+            self.assertEqual(MODULE.normalize_session_markets([{"id": "XLRE"}], "2026-10-12"), ["XLRE:daily_pair_missing"])
+
     @staticmethod
     def yahoo_daily_payload(rows, chart_previous_close=None):
         return {
@@ -575,3 +603,4 @@ class BreadthRecoveryTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

@@ -288,7 +288,21 @@ def normalize_session_markets(rows: list[dict], trading_date: str | None) -> lis
             "https://query1.finance.yahoo.com/v8/finance/chart/"
             f"{quote(symbol, safe='')}?range=10d&interval=1d&events=div%2Csplits"
         )
-        return fetch_json(url, attempts=2)
+        payload = fetch_json(url, attempts=2)
+        if yahoo_daily_session_pair(payload, trading_date) is not None:
+            return payload
+        # A successful cached response can omit the newest daily bar. Retry
+        # the same provider with an explicit date window and alternate host.
+        target = dt.date.fromisoformat(trading_date)
+        start = int(dt.datetime.combine(target - dt.timedelta(days=35), dt.time(), dt.timezone.utc).timestamp())
+        end = int(dt.datetime.combine(target + dt.timedelta(days=1), dt.time(), dt.timezone.utc).timestamp())
+        for host in ("query2", "query1"):
+            fallback = fetch_json(
+                f"https://{host}.finance.yahoo.com/v8/finance/chart/{quote(symbol, safe='')}"
+                f"?period1={start}&period2={end}&interval=1d&events=div%2Csplits", attempts=2)
+            if yahoo_daily_session_pair(fallback, trading_date) is not None:
+                return fallback
+        return payload
 
     requested = {
         market_id: symbol
@@ -437,6 +451,24 @@ def compact_market(row: dict, trading_date: str | None = None) -> dict:
     return item
 
 
+def treasury_market_holiday(day: str | None) -> bool:
+    """Bond-only federal holidays on which U.S. equities can still trade."""
+    if not day:
+        return False
+    value = dt.date.fromisoformat(day)
+    return ((value.month == 10 and value.weekday() == 0 and 8 <= value.day <= 14)
+            or (value.month == 11 and value.day == 11 and value.weekday() < 5))
+
+
+def treasury_observation_date(trading_date: str) -> str:
+    value = dt.date.fromisoformat(trading_date)
+    if treasury_market_holiday(trading_date):
+        value -= dt.timedelta(days=1)
+        while value.weekday() >= 5 or treasury_market_holiday(value.isoformat()):
+            value -= dt.timedelta(days=1)
+    return value.isoformat()
+
+
 def macro_asset(row: dict, trading_date: str | None) -> dict:
     item = compact_market(row)
     points = row.get("points") if isinstance(row.get("points"), list) else []
@@ -463,14 +495,19 @@ def macro_asset(row: dict, trading_date: str | None) -> dict:
                     "value": point["value"],
                 }
         days = sorted(by_date)
-        current = by_date.get(trading_date) if trading_date else None
-        previous_days = [day for day in days if not trading_date or day < trading_date]
+        observation_date = treasury_observation_date(trading_date) if trading_date else None
+        current = by_date.get(observation_date) if observation_date else None
+        previous_days = [day for day in days if not observation_date or day < observation_date]
         previous = by_date[previous_days[-1]] if previous_days else None
         item["comparison"] = {
             "kind": "official_daily",
             "previous": previous,
             "current": current,
         }
+        if treasury_market_holiday(trading_date):
+            item["comparison"].update({"marketClosed": True, "targetSession": trading_date,
+                                      "observationDate": observation_date,
+                                      "datePolicy": "latest_official_before_bond_holiday"})
         return item
 
     by_date: dict[str, dict] = {}
@@ -836,7 +873,7 @@ def inherit_macro_comparisons(
 def treasury_comparison_issues(
     assets: list[dict], trading_date: str | None
 ) -> list[str]:
-    """Require two dated official observations, including the target date."""
+    """Require the target official date, accounting for bond-only holidays."""
     by_id = {str(asset.get("id")): asset for asset in assets}
     issues: list[str] = []
     for asset_id in sorted(TREASURY_IDS):
@@ -852,9 +889,9 @@ def treasury_comparison_issues(
             or finite_number(previous.get("value")) is None
             or finite_number(current.get("value")) is None
             or not trading_date
-            or current.get("date") != trading_date
+            or current.get("date") != treasury_observation_date(trading_date)
             or not isinstance(previous.get("date"), str)
-            or previous["date"] >= trading_date
+            or previous["date"] >= current.get("date", "")
         ):
             issues.append(asset_id)
     return issues
@@ -1286,6 +1323,8 @@ def build_packet(now: dt.datetime | None = None) -> dict:
         comparison_warnings.append(
             "GOLD:yahoo_gc_f_proxy_for_xauusd"
         )
+    if treasury_market_holiday(trading_date):
+        comparison_warnings.append("TREASURY:bond_market_holiday_latest_official_observation")
     critical_comparison_gaps = sorted(set(
         critical_comparison_gaps
         + treasury_comparison_issues(macro_assets, trading_date)
@@ -1385,3 +1424,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
