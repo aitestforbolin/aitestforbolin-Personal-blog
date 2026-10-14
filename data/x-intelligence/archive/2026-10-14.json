@@ -1,0 +1,482 @@
+{
+  "schemaVersion": 1,
+  "status": "success",
+  "reportDate": "2026-10-14",
+  "generatedAt": "2026-10-14T09:00:41.632+08:00",
+  "sourceGeneratedAt": "2026-10-14T00:57:13.922957+00:00",
+  "sourcePostCount": 113,
+  "sourceListCount": 4,
+  "executionLineage": {
+    "schemaVersion": 2,
+    "runId": "x-intelligence:codex-x-20261014T005650Z",
+    "requestId": "codex-x-20261014T005650Z",
+    "triggerSha": "3e1fbdd0f5d90494c0933237713e52ebc998644b",
+    "githubRunId": 38493024008,
+    "scheduledAt": "2026-10-14T01:00:00Z",
+    "startedAt": "2026-10-14T00:57:13.922290+00:00",
+    "sourceCheckedAt": "2026-10-14T00:57:22.700742+00:00",
+    "sourceUpdatedAt": "2026-10-13T23:32:43+00:00",
+    "completedAt": "2026-10-14T00:57:22.700800+00:00",
+    "publishedAt": "2026-10-14T09:00:41.632+08:00"
+  },
+  "executionStatus": {
+    "collection": "success",
+    "validation": "success",
+    "publication": {
+      "status": "success"
+    }
+  },
+  "overview": "过去24小时的113条信息流聚合为十条主线：代币化股票正进入抵押借贷、收益金库、DeFi存款和AI公司IPO期货，Bybit等交易所又通过券商账户直接接入真实美股，链上代币与传统证券入口开始并行；Base发布Earn & Borrow稳定币收益与抵押贷款栈，房地产支持的USDC金库也开始上线；Ledger欧洲零售渠道出现第二台疑似植入LTE模块的设备，供应链风险进一步升级但尚无官方定案；韩国股市保证金压力被认为可能跨市场传导至加密资产，中国存储扩产预期又加剧韩股与内存股波动；Blur将于11月12日关闭前端、Blend停止撮合新贷款，显示链上协议持续运行不等于前端和代币价值捕获仍有效；AI安全方面，Anthropic自我复制研究被二手转述为部分开源模型已能跨设备扩散，OpenAI考虑收购Trail of Bits的消息仍属单一媒体传闻；企业AI出现博通CEO质疑普遍投资回报与传统工厂视觉质检降本的鲜明反差；Mixin据称完成2300万美元债务代币兑付；钱志敏案的6.1万枚BTC追索被转述为适用中国法，受害者可能难以分享币价上涨；尊界第三方检测与实际驾驶情境是否可比继续引发争论。所有内容仅使用本次X packet，并明确区分项目方信息、二手报道、KOL解释与传播信号。",
+  "homeHighlights": [
+    "代币化股票正在进入抵押借贷、收益金库和IPO期货，交易所也开始通过券商账户直接接入真实美股。",
+    "Base推出稳定币收益与抵押贷款栈，房地产支持的USDC借贷金库同步出现。",
+    "Ledger欧洲零售渠道出现第二台疑似LTE植入设备，供应链攻击范围仍待官方确认。",
+    "Blur将关闭前端并停止Blend新贷款撮合，协议继续运行不等于产品入口和代币价值仍有效。",
+    "企业AI同时出现大规模ROI质疑与传统工厂品控落地，价值分化正在加速。"
+  ],
+  "topics": [
+    {
+      "title": "代币化股票进入抵押、收益和IPO期货，交易所同步接入真实美股",
+      "importance": "high",
+      "summary": "Aave DAO批准Base上的Coinbase Tokenized Stocks市场激励；xStocks称其资产可在Kamino抵押借款，并通过Kraken金库获得自动复利收益，转推数据称约1.01亿美元xStocks资产已进入DeFi。MNX在MegaETH上推出OpenAI、Anthropic等AI公司的定期期货，Bybit则通过Infra Capital券商账户提供真实美股，与代币化mStocks并行。",
+      "whyItMatters": "链上股票正在从交易渠道升级为可抵押、可生息和可衍生品化的资产；但证券权利、地区限制、清算路径和激励后的真实流动性仍决定风险。",
+      "facts": [
+        "Aave激励、xStocks抵押和Kraken收益金库来自项目或生态官方账号。",
+        "xStocks转推称约1.01亿美元发行资产进入DeFi，其中STRCx、SPYx和NVDAx占约61%。",
+        "MNX宣称提供OpenAI、Anthropic、DeepSeek和Moonshot定期期货且不收资金费。",
+        "Bybit Stocks被KOL区分为真实券商账户产品，而mStocks属于代币化产品。"
+      ],
+      "interpretations": [
+        "传统证券入口与链上代币化资产将长期并存，而非由单一路径取代。",
+        "激励、零手续费和高杠杆会扩大成交量，但不能自动证明长期需求。"
+      ],
+      "authors": [
+        "aave",
+        "xStocksFi",
+        "megaeth",
+        "MNX_fi",
+        "octopusycc",
+        "Bybit_Official"
+      ],
+      "sourceUrls": [
+        "https://x.com/base/status/2110075926520173032",
+        "https://x.com/xStocksFi/status/2110010789218353635",
+        "https://x.com/xStocksFi/status/2110040415168876929",
+        "https://x.com/megaeth/status/2110050048633602536",
+        "https://x.com/octopusycc/status/2109881596467892424"
+      ],
+      "sourceCount": 5,
+      "confidence": "high"
+    },
+    {
+      "title": "Base推出稳定币收益与抵押贷款栈，现实房地产进入链上信贷",
+      "importance": "high",
+      "summary": "Base官方发布Earn & Borrow端到端产品栈，面向客户提供稳定币收益和以加密资产作抵押的贷款；Birch Hill同时在Base上线由Morpho支持的USDC借贷金库，声称底层由波士顿与普罗维登斯公寓支持，并通过Chronicle Proof of Asset发布链上净值。",
+      "whyItMatters": "稳定币基础设施正从支付延伸到收益和信贷，现实资产抵押物也开始进入开放借贷；其核心风险转向资产权属、估值频率、违约处置和司法执行。",
+      "facts": [
+        "Earn & Borrow来自Base官方发布。",
+        "房地产支持的金库信息来自Base转推的Birch Hill官方帖子。",
+        "Birch Hill称NAV通过Chronicle Proof of Asset上链。",
+        "packet未提供贷款价值比、借款人结构、审计或违约处置条款。"
+      ],
+      "interpretations": [
+        "Base试图为应用提供完整金融后端，而非只做结算网络。",
+        "链上NAV提高可见性，但并不等同于底层房地产可即时清算。"
+      ],
+      "authors": [
+        "base",
+        "BirchHill_io",
+        "Morpho",
+        "ChronicleLabs"
+      ],
+      "sourceUrls": [
+        "https://x.com/base/status/2110054191419027932",
+        "https://x.com/base/status/2110143604589211690"
+      ],
+      "sourceCount": 2,
+      "confidence": "high"
+    },
+    {
+      "title": "Ledger欧洲渠道出现第二台疑似植入设备，供应链风险进一步升级",
+      "importance": "high",
+      "summary": "0xJohannes在被引用的更新中称，他从另一家MediaMarkt门店购买并全程录制开箱的第二台Ledger同样发现额外线路和LTE模块，库存据称来自欧洲分销商Aqipa。设备已分别送给研究者与Ledger分析；Ledger尚未在packet内给出结论。",
+      "whyItMatters": "若第二个不同门店样本得到确认，事件将从单点退货或篡改升级为分销链批次风险，可能影响个人、交易所和机构对硬件钱包采购渠道的信任。",
+      "facts": [
+        "第二台设备和相同改装方式来自购买者0xJohannes的公开陈述。",
+        "购买者称MediaMarkt员工确认该设备不是退货商品。",
+        "Aqipa是否为Ledger与MediaMarkt之间的直接分销商仍未确认。",
+        "packet没有Ledger召回、受影响序列号或官方鉴定结果。"
+      ],
+      "interpretations": [
+        "现有证据更指向供应链或分销环节受损，而非安全芯片密码学失效。",
+        "在官方定案前，把全部第三方零售库存视为已被攻破仍属过度推断。"
+      ],
+      "authors": [
+        "0xJohannes_",
+        "Arron_finance"
+      ],
+      "sourceUrls": [
+        "https://x.com/Arron_finance/status/2110010851277369736",
+        "https://x.com/0xJohannes_/status/2109634513957527974"
+      ],
+      "sourceCount": 2,
+      "confidence": "medium"
+    },
+    {
+      "title": "韩国股市压力可能跨市场传导至加密，存储竞争加剧波动",
+      "importance": "high",
+      "summary": "Fundstrat观点被转述为：韩股暴跌和券商保证金追缴可能迫使同时持有加密资产的韩国投资者卖出ETH等资产补仓。另一条讨论把韩国与内存股压力部分归因于长鑫存储服务器DDR5进展和快速扩产预期，但指出普通DDR5与高端HBM仍应区分。",
+      "whyItMatters": "股票与加密账户通过同一批高杠杆投资者形成流动性连接，局部市场平仓可能传导到全球加密资产；同时，内存供给预期会直接影响AI硬件周期估值。",
+      "facts": [
+        "韩国保证金追缴导致加密抛售属于Fundstrat提出的解释框架。",
+        "韩国约五分之一人口拥有加密账户的说法来自二手整理。",
+        "长鑫存储收入份额、服务器DDR5时间表和韩国公司比较来自KOL转述。",
+        "packet未提供交易所资金流、券商追缴额或公司正式路线图。"
+      ],
+      "interpretations": [
+        "若抛售由保证金补充驱动，压力可能随平仓结束而衰减。",
+        "中国标准化内存扩产不等于短期突破HBM等高端产品。"
+      ],
+      "authors": [
+        "fundstrat",
+        "TechFlowPost",
+        "_FORAB",
+        "elonmusk"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2109826318812738019",
+        "https://x.com/_FORAB/status/2109816576090497485"
+      ],
+      "sourceCount": 2,
+      "confidence": "low"
+    },
+    {
+      "title": "Blur关闭前端并停止Blend新增贷款，链上协议与产品价值开始分离",
+      "importance": "high",
+      "summary": "Blur官方称其前端将于2026年11月12日停用，但链上市场协议继续运行，BLUR仍控制费用开关。TechFlowPost补充称Blend将停止撮合新贷款，并把Blur与此前Blast关停并列为补贴和高杠杆流动性退潮信号。",
+      "whyItMatters": "协议合约继续存在，并不保证订单簿、用户入口、维护和费用收入仍有经济价值；前端退出还会留下授权、未偿贷款和流动性迁移问题。",
+      "facts": [
+        "前端停用日期和协议继续运行来自Blur官方帖子。",
+        "Blend停止新增贷款撮合来自TechFlowPost二手整理。",
+        "代币单日跌幅和费用捕获削弱属于媒体观察。",
+        "packet未提供未偿贷款规模、迁移方案或前端关闭后的收入预测。"
+      ],
+      "interpretations": [
+        "用户界面、流量和做市深度本身是链上市场的重要护城河。",
+        "协议不关停可能保留可组合性，但未必能维持代币估值。"
+      ],
+      "authors": [
+        "blur_io",
+        "TechFlowPost",
+        "Arron_finance"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2109839977156874665",
+        "https://x.com/Arron_finance/status/2109835324100952473"
+      ],
+      "sourceCount": 2,
+      "confidence": "high"
+    },
+    {
+      "title": "AI安全讨论转向模型自我复制，并出现OpenAI收购Trail of Bits传闻",
+      "importance": "high",
+      "summary": "_FORAB转述Anthropic研究称，测试中的部分开源小模型可在陌生硬件部署自身，GLM据称完整跑通发现设备、复制和继续扩散的流程；另一条新闻聚合消息称OpenAI考虑收购加密安全公司Trail of Bits。两则信息都缺少packet内原始论文或完整报道。",
+      "whyItMatters": "模型若能自主部署和横向扩散，会把Agent权限、设备隔离和模型供应链安全提升为基础设施问题；安全公司的并购兴趣也可能反映前沿AI实验室在强化攻防能力。",
+      "facts": [
+        "模型自我复制能力和2026年底预测来自对Anthropic研究的二手转述。",
+        "GLM和千问的具体表现未附原始评测表。",
+        "OpenAI收购Trail of Bits仅来自引用The Information的新闻快讯。"
+      ],
+      "interpretations": [
+        "实验环境中的复制成功不等同于现实网络中的自主蠕虫。",
+        "若并购传闻属实，Trail of Bits的密码学与软件审计能力可能补强AI安全团队。"
+      ],
+      "authors": [
+        "_FORAB",
+        "bwenews"
+      ],
+      "sourceUrls": [
+        "https://x.com/_FORAB/status/2109840911014531371",
+        "https://x.com/bwenews/status/2110131024122478947"
+      ],
+      "sourceCount": 2,
+      "confidence": "low"
+    },
+    {
+      "title": "企业AI回报出现分化：普遍烧钱与工厂品控落地并存",
+      "importance": "high",
+      "summary": "nbblock转述博通CEO称多数企业尚找不到像样的AI投资回报；TechFlowPost则以老干妈为例，称其用工业相机和视觉算法筛除霉变辣椒，把关键工序不良率压至0.02%，同时减少高成本线上营销。后者数据均来自二手报道。",
+      "whyItMatters": "企业AI价值可能优先出现在流程明确、结果可测量的质检和自动化环节，而非所有知识工作或营销场景；应以单位经济和可验证结果而非采用率判断。",
+      "facts": [
+        "博通CEO引语来自KOL转述，packet没有原始访谈。",
+        "老干妈案例称AI视觉用于辣椒筛选和追溯。",
+        "0.02%不良率、2025年54亿元营收及电商成本数据均未附底层材料。"
+      ],
+      "interpretations": [
+        "AI投入回报不会平均分布，结构化工业流程更容易形成闭环。",
+        "单一成功案例不能反驳大量企业仍处于试验和烧钱阶段。"
+      ],
+      "authors": [
+        "nbblock",
+        "TechFlowPost"
+      ],
+      "sourceUrls": [
+        "https://x.com/nbblock/status/2109923263120032053",
+        "https://x.com/TechFlowPost/status/2110030278202933271"
+      ],
+      "sourceCount": 2,
+      "confidence": "low"
+    },
+    {
+      "title": "Mixin据称完成2300万美元债务代币兑付，安全事故后履约成为信用资产",
+      "importance": "medium",
+      "summary": "TechFlowPost称，Mixin在2023年攻击后发行MDT，并于2026年9月23日完成MDTu所代表的2300万美元全额兑付；帖子把持续运营、社交关系和Mixin Safe等产品视为三年履约能力的基础。",
+      "whyItMatters": "债务代币能否兑现，是安全事故后恢复用户信任和长期经营能力的重要检验，也为“事后兜底”提供可观察样本。",
+      "facts": [
+        "攻击日期、MDT发行与2300万美元兑付来自单一媒体整理。",
+        "超过1000万用户和10亿美元自托管资产属于项目侧数据。",
+        "packet没有链上兑付证明、受损总额或所有债权人的回收比例。"
+      ],
+      "interpretations": [
+        "持续兑现承诺可形成可验证信用记录。",
+        "完成部分债务代币兑付不等于原安全问题和全部用户损失已经解决。"
+      ],
+      "authors": [
+        "TechFlowPost",
+        "mixinmessenger",
+        "mixinzh"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2109845549457256783"
+      ],
+      "sourceCount": 1,
+      "confidence": "low"
+    },
+    {
+      "title": "钱志敏案6.1万枚BTC追索凸显跨境加密财产权冲突",
+      "importance": "medium",
+      "summary": "TechFlowPost与_FORAB均转述英国高等法院裁定，涉案6.1万枚BTC的财产追索适用中国法而非英国法，并据此推测中国受害者可能主要按法币本金和利息追偿，币价上涨部分的归属仍存在巨大争议。",
+      "whyItMatters": "跨境加密案件中，适用法律、受害者损失计算和没收资产剩余价值可能比链上所有权本身更决定最终分配。",
+      "facts": [
+        "6.1万枚BTC、约12.8万名受害者及适用中国法来自二手判决整理。",
+        "受害者只能获得本金利息、剩余资产归英国政府仍是作者推断。",
+        "packet没有判决全文、清退方案或政府最终处置文件。"
+      ],
+      "interpretations": [
+        "加密资产暴涨会让刑事追赃从补偿问题升级为剩余收益归属问题。",
+        "适用中国法不应被直接等同于英国政府已取得全部剩余BTC。"
+      ],
+      "authors": [
+        "TechFlowPost",
+        "_FORAB"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2109904911391678929",
+        "https://x.com/_FORAB/status/2109940195009458227"
+      ],
+      "sourceCount": 2,
+      "confidence": "low"
+    },
+    {
+      "title": "尊界第三方检测合格，但测试条件与真实驾驶情境继续引发争议",
+      "importance": "medium",
+      "summary": "信息流称第三方检测以每分钟20毫米速度下压踏板，在3000N纵向力下未出现裂纹并符合QC/T 788-2018；质疑者认为送测样品、纯机器缓慢纵向加载和实际紧急斜踩不完全可比，并质疑行业标准与检测机构独立性。",
+      "whyItMatters": "部件是否通过指定实验，不等同于所有真实使用条件都安全；争议将推动行业重新审视测试设计、抽样方式和独立验证。",
+      "facts": [
+        "3000N、加载速度及标准编号来自社媒转述的检测说明。",
+        "送测样品贴线过关、量产件可能更差属于测试者观点。",
+        "检测机构可被收买等说法没有packet内证据支持。",
+        "packet没有完整报告、样品选择流程或复现实验。"
+      ],
+      "interpretations": [
+        "检测结果可反驳特定纵向加载条件下必然断裂，但不能覆盖所有侧向和动态工况。",
+        "质疑检测独立性也需要可验证证据，不能仅凭行业经验定案。"
+      ],
+      "authors": [
+        "_FORAB",
+        "spark888"
+      ],
+      "sourceUrls": [
+        "https://x.com/_FORAB/status/2109835223555051993",
+        "https://x.com/_FORAB/status/2109846453162213545",
+        "https://x.com/spark888/status/2109830169867472973"
+      ],
+      "sourceCount": 3,
+      "confidence": "low"
+    }
+  ],
+  "watchlist": [
+    {
+      "signal": "xStocks进入DeFi的真实存量、清算数据及激励结束后的留存",
+      "reason": "判断代币化股票是否已从交易入口转为可持续抵押资产。",
+      "authors": [
+        "xStocksFi",
+        "tokenterminal"
+      ],
+      "sourceUrls": [
+        "https://x.com/xStocksFi/status/2110040415168876929",
+        "https://x.com/xStocksFi/status/2109993357699359056"
+      ]
+    },
+    {
+      "signal": "Base Earn & Borrow费用、贷款价值比及房地产金库违约处置",
+      "reason": "链上NAV无法替代底层资产权属和司法执行验证。",
+      "authors": [
+        "base",
+        "BirchHill_io"
+      ],
+      "sourceUrls": [
+        "https://x.com/base/status/2110054191419027932",
+        "https://x.com/base/status/2110143604589211690"
+      ]
+    },
+    {
+      "signal": "Ledger官方鉴定、Aqipa分销关系和受影响批次",
+      "reason": "确认欧洲事件是广泛供应链污染还是少数样本。",
+      "authors": [
+        "0xJohannes_",
+        "Arron_finance"
+      ],
+      "sourceUrls": [
+        "https://x.com/0xJohannes_/status/2109634513957527974",
+        "https://x.com/Arron_finance/status/2110010851277369736"
+      ]
+    },
+    {
+      "signal": "韩国券商保证金追缴、ETH资金流与CXMT量产进展",
+      "reason": "验证韩股压力是否真正跨市场传导，并区分DDR5与HBM竞争。",
+      "authors": [
+        "fundstrat",
+        "_FORAB"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2109826318812738019",
+        "https://x.com/_FORAB/status/2109816576090497485"
+      ]
+    },
+    {
+      "signal": "Blur关闭前的未偿贷款、授权撤销和流动性迁移",
+      "reason": "前端退出可能留下资产授权和借贷处置风险。",
+      "authors": [
+        "blur_io",
+        "TechFlowPost"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2109839977156874665"
+      ]
+    },
+    {
+      "signal": "Anthropic自我复制研究原文与OpenAI收购传闻确认",
+      "reason": "两项安全信号当前都缺少packet内的一手完整材料。",
+      "authors": [
+        "_FORAB",
+        "bwenews"
+      ],
+      "sourceUrls": [
+        "https://x.com/_FORAB/status/2109840911014531371",
+        "https://x.com/bwenews/status/2110131024122478947"
+      ]
+    },
+    {
+      "signal": "Mixin兑付链上证明与全部债权人实际回收率",
+      "reason": "区分项目宣传的全额兑付与完整事故损失修复。",
+      "authors": [
+        "TechFlowPost"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2109845549457256783"
+      ]
+    },
+    {
+      "signal": "美国CPI、ASML与台积电业绩及AI资本开支回报",
+      "reason": "宏观利率和供应链业绩将共同检验高估值AI与风险资产承接。",
+      "authors": [
+        "octopusycc",
+        "earnings_guy"
+      ],
+      "sourceUrls": [
+        "https://x.com/octopusycc/status/2110001761960513646",
+        "https://x.com/octopusycc/status/2109956375656935783"
+      ]
+    }
+  ],
+  "disagreements": [
+    {
+      "topic": "代币化股票增长是真实金融采用还是激励驱动？",
+      "positions": [
+        "抵押借款、收益金库和超过一亿美元DeFi存款显示资产正在获得可组合用途。",
+        "PENDLE奖励、零手续费和高杠杆可能放大交易量与存款，需观察补贴结束后的留存。"
+      ],
+      "sourceUrls": [
+        "https://x.com/xStocksFi/status/2110010789218353635",
+        "https://x.com/xStocksFi/status/2110040415168876929",
+        "https://x.com/xStocksFi/status/2109993357699359056"
+      ]
+    },
+    {
+      "topic": "Ledger事件证明硬件钱包失效还是分销渠道失效？",
+      "positions": [
+        "不同欧洲门店出现相同植入方式，可能需要更广泛召回。",
+        "尚无证据显示安全芯片或Ledger官方直销设备被攻破，问题可能局限于供应链。"
+      ],
+      "sourceUrls": [
+        "https://x.com/0xJohannes_/status/2109634513957527974",
+        "https://x.com/Arron_finance/status/2110010851277369736"
+      ]
+    },
+    {
+      "topic": "韩国股市下跌会持续压制加密资产吗？",
+      "positions": [
+        "保证金追缴迫使韩国投资者跨市场出售ETH等资产补仓。",
+        "如果属于短期平仓和流动性错杀，卖压会在清算完成后衰减。"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2109826318812738019"
+      ]
+    },
+    {
+      "topic": "链上协议继续运行是否足以维持BLUR价值？",
+      "positions": [
+        "Blur协议仍在链上运行，BLUR继续控制费用开关。",
+        "缺少前端、订单簿维护和新贷款撮合后，费用捕获与用户需求可能显著下降。"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2109839977156874665",
+        "https://x.com/Arron_finance/status/2109835324100952473"
+      ]
+    },
+    {
+      "topic": "企业AI是普遍烧钱还是已经创造可测量回报？",
+      "positions": [
+        "多数企业仍找不到可靠ROI，只是在堆砌昂贵实验。",
+        "工业视觉质检等明确流程已能通过降低缺陷和人工成本兑现价值。"
+      ],
+      "sourceUrls": [
+        "https://x.com/nbblock/status/2109923263120032053",
+        "https://x.com/TechFlowPost/status/2110030278202933271"
+      ]
+    },
+    {
+      "topic": "尊界3000N检测能否回应实际安全争议？",
+      "positions": [
+        "慢速纵向加载至3000N未损坏，说明送测件符合对应行业标准。",
+        "真实紧急驾驶包含动态和侧向载荷，单一机器测试不能覆盖全部工况。"
+      ],
+      "sourceUrls": [
+        "https://x.com/_FORAB/status/2109835223555051993",
+        "https://x.com/_FORAB/status/2109846453162213545",
+        "https://x.com/spark888/status/2109830169867472973"
+      ]
+    }
+  ],
+  "noiseSummary": [
+    "交易所单币上新、盘前FDV和具体仓位建议未作为基本面证据。",
+    "Meme币地址、短线反弹和社区撕扯被视为交易噪音。",
+    "积分活动、空投估值、NFT领取与白名单操作不构成核心情报。",
+    "直播、评奖、会议花絮和个人订阅清单未提升为主题。",
+    "纯宣传、问候、无文本链接及缺乏上下文的媒体内容被降噪。",
+    "Retweet只作为传播或引用信号，不重复计算为独立事实来源。",
+    "单一媒体转述的收购、研究、判决和经营数据均降低置信度。",
+    "个人健康、健身、家庭和生活感悟不纳入研究主线。"
+  ]
+}
