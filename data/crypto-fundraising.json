@@ -1,71 +1,71 @@
 {
-  "updated_at": "2026-10-13T00:57:24+00:00",
+  "updated_at": "2026-10-14T00:57:48+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-story-protocol",
+      "id": "crypto-fundraising-efy-finance",
       "source_rank": 1,
+      "name": "EFY Finance",
+      "round": "Seed",
+      "announced_month": "2026-10",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/efy-finance/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-story-protocol",
+      "source_rank": 2,
       "name": "DATA Network (ex Story Protocol)",
       "round": null,
       "announced_month": "2026-10",
       "amount_usd": 30000000,
       "detail_url": "https://crypto-fundraising.info/projects/story-protocol/",
+      "is_new": false
+    },
+    {
+      "id": "crypto-fundraising-efforce",
+      "source_rank": 3,
+      "name": "EFFORCE",
+      "round": "M&A",
+      "announced_month": "2026-10",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/efforce/",
       "is_new": true
     },
     {
       "id": "crypto-fundraising-orbio",
-      "source_rank": 2,
+      "source_rank": 4,
       "name": "Orbio",
       "round": "Seed",
       "announced_month": "2026-10",
       "amount_usd": 1200000,
       "detail_url": "https://crypto-fundraising.info/projects/orbio/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-catalyst-labs",
-      "source_rank": 3,
+      "source_rank": 5,
       "name": "Catalyst Labs",
       "round": "Seed",
       "announced_month": "2026-10",
       "amount_usd": 30000000,
       "detail_url": "https://crypto-fundraising.info/projects/catalyst-labs/",
       "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-soda-labs",
-      "source_rank": 4,
-      "name": "Soda Labs",
-      "round": "Seed",
-      "announced_month": "2026-10",
-      "amount_usd": 3000000,
-      "detail_url": "https://crypto-fundraising.info/projects/soda-labs/",
-      "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-immix",
-      "source_rank": 5,
-      "name": "Immix",
-      "round": null,
-      "announced_month": "2026-10",
-      "amount_usd": 3500000,
-      "detail_url": "https://crypto-fundraising.info/projects/immix/",
-      "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261013-005651Z",
-    "requestId": "codex-web3-20261013-005651Z",
-    "triggerSha": "db73df000250b7e647513d32a1098c5b6cafd534",
-    "githubRunId": 38329773059,
-    "scheduledAt": "2026-10-13T00:56:51Z",
-    "startedAt": "2026-10-13T00:57:22.392713+00:00",
-    "sourceCheckedAt": "2026-10-13T00:57:24.143548+00:00",
-    "sourceUpdatedAt": "2026-10-13T00:57:24+00:00",
-    "completedAt": "2026-10-13T00:57:24.143899+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261014-005736Z",
+    "requestId": "codex-web3-20261014-005736Z",
+    "triggerSha": "dc197db1c803c3c0c651e06f8e1d5efe86a34fb5",
+    "githubRunId": 38493079093,
+    "scheduledAt": "2026-10-14T00:57:36Z",
+    "startedAt": "2026-10-14T00:57:47.152432+00:00",
+    "sourceCheckedAt": "2026-10-14T00:57:48.781888+00:00",
+    "sourceUpdatedAt": "2026-10-14T00:57:48+00:00",
+    "completedAt": "2026-10-14T00:57:48.782232+00:00",
     "publishedAt": null
   }
 }
