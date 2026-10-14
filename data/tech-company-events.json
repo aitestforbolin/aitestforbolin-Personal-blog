@@ -2,8 +2,8 @@
   "schema_version": 1,
   "timezone": "Asia/Shanghai",
   "horizon_days": 35,
-  "checked_at": "2026-10-13T10:43:40+08:00",
-  "updated_at": "2026-10-10T09:18:34+08:00",
+  "checked_at": "2026-10-14T08:38:31+08:00",
+  "updated_at": "2026-10-14T08:38:31+08:00",
   "companies": [
     {
       "id": "meta",
@@ -77,32 +77,6 @@
     }
   ],
   "events": [
-    {
-      "event_id": "jpmorgan_chase-earnings-2026-q3",
-      "company_id": "jpmorgan_chase",
-      "event_category": "earnings",
-      "event_name": "JPMorgan Chase 2026 年第三季度财报与电话会",
-      "reported_period": "2026 Q3",
-      "importance": "core",
-      "status": "scheduled",
-      "confirmation": "confirmed",
-      "date_type": "exact",
-      "start_at": "2026-10-13T20:30:00+08:00",
-      "date_bjt": "2026-10-13",
-      "time_bjt": "20:30",
-      "market_timing": "before_open",
-      "original_time": "2026-10-13 08:30 Eastern Time",
-      "original_timezone": "America/New_York",
-      "source_label": "JPMorgan Chase Investor Relations",
-      "source_url": "https://www.jpmorganchase.com/ir/news/2025/jpmc-announces-conference-calls-to-review-first-quarter-second-quarter-third-quarter-and-fourth-quarter-2026-earnings",
-      "source_published_at": "2025-05-21",
-      "updated_at": "2025-05-21T00:00:00-04:00",
-      "company": "JPMorgan Chase",
-      "ticker": "JPM",
-      "company_group": "financials",
-      "company_group_zh": "金融",
-      "date_changed": false
-    },
     {
       "event_id": "nvidia-product-gtc-berlin-2026",
       "company_id": "nvidia",
@@ -325,6 +299,33 @@
       "company_group_zh": "平台与云",
       "date_changed": false,
       "updated_at": "2026-09-30T08:47:04+08:00"
+    },
+    {
+      "event_id": "nvidia-earnings-2026-q4",
+      "company_id": "nvidia",
+      "event_category": "earnings",
+      "event_name": "NVIDIA 2026 Q4财报",
+      "reported_period": "2026 Q4",
+      "importance": "core",
+      "status": "scheduled",
+      "confirmation": "inferred",
+      "date_type": "exact",
+      "date_bjt": "2026-11-18",
+      "time_bjt": null,
+      "market_timing": "time_tbd",
+      "original_time": "2026-11-18 time-not-supplied America/New_York",
+      "original_timezone": "America/New_York",
+      "eps_estimate": "$2.47",
+      "revenue_estimate": null,
+      "source_label": "Nasdaq Earnings Calendar",
+      "source_url": "https://api.nasdaq.com/api/calendar/earnings?date=2026-11-18",
+      "source_published_at": null,
+      "company": "NVIDIA",
+      "ticker": "NVDA",
+      "company_group": "ai_semiconductor",
+      "company_group_zh": "AI 与半导体",
+      "date_changed": false,
+      "updated_at": "2026-10-14T08:38:31+08:00"
     }
   ]
 }
