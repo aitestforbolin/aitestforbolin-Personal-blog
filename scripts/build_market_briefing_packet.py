@@ -729,17 +729,14 @@ def fetch_candidate(symbol: str) -> dict:
     payload = fetch_json(url, attempts=2)
     result = payload["chart"]["result"][0]
     meta = result.get("meta", {})
-    closes = result.get("indicators", {}).get("quote", [{}])[0].get("close") or []
-    valid = [float(value) for value in closes if value is not None]
-    current = valid[-1] if valid else meta.get("regularMarketPrice")
-    previous = valid[-2] if len(valid) > 1 else meta.get("chartPreviousClose")
-    change = None
-    if isinstance(current, (int, float)) and isinstance(previous, (int, float)) and previous:
-        change = (current - previous) / previous * 100
     timestamps = result.get("timestamp") or []
     trading_date = None
     if timestamps:
-        trading_date = dt.datetime.fromtimestamp(timestamps[-1], tz=dt.timezone.utc).date().isoformat()
+        trading_date = dt.datetime.fromtimestamp(timestamps[-1], tz=dt.timezone.utc).astimezone(ZoneInfo("America/New_York")).date().isoformat()
+    pair = yahoo_daily_session_pair(payload, trading_date) if trading_date else None
+    current = pair["current"]["value"] if pair else None
+    previous = pair["previous"]["value"] if pair else None
+    change = (current - previous) / previous * 100 if pair and previous else None
     return {
         "ticker": symbol,
         "tradingDate": trading_date,
@@ -749,6 +746,10 @@ def fetch_candidate(symbol: str) -> dict:
         "provider": "Yahoo Finance",
         "providerSymbol": symbol,
         "status": "ok" if change is not None else "incomplete",
+        "priceDate": pair["current"]["date"] if pair else None,
+        "previousCloseDate": pair["previous"]["date"] if pair else None,
+        "comparisonBasis": "yahoo_daily_history" if pair else None,
+        "priceSourceBasis": pair["current"].get("valueSource", "daily_bar_close") if pair else None,
     }
 
 
@@ -763,6 +764,17 @@ def candidate_validation_issues(candidate: object, trading_date: str | None) -> 
             issues.append(f"missing_{key}")
     if str(candidate.get("status") or "").casefold() != "ok":
         issues.append("status_not_ok")
+    if candidate.get("priceDate") != trading_date:
+        issues.append("price_date_mismatch")
+    previous_date = candidate.get("previousCloseDate")
+    if not isinstance(previous_date, str) or not trading_date or previous_date >= trading_date:
+        issues.append("previous_close_date_invalid")
+    if candidate.get("comparisonBasis") != "yahoo_daily_history":
+        issues.append("comparison_basis_unverified")
+    price, previous, percent = (finite_number(candidate.get(k)) for k in ("close", "previousClose", "changePercent"))
+    if price is not None and previous is not None and percent is not None:
+        if price <= 0 or previous <= 0 or abs((price - previous) / previous * 100 - percent) > 0.005:
+            issues.append("change_percent_mismatch")
     return issues
 
 
@@ -1094,6 +1106,24 @@ def recover_sp500_breadth(trading_date: str, now: dt.datetime) -> dict:
     return scan_spy_breadth(payload, tickers, trading_date, holdings_date, now)
 
 
+def closed_snapshot_target(payload: object, now: dt.datetime) -> str | None:
+    """Select a session only from three independently dated completed ETFs."""
+    rows = payload.get("symbols", []) if isinstance(payload, dict) else []
+    by_symbol = {r.get("symbol"): r for r in rows if isinstance(r, dict)}
+    days = set()
+    eastern = ZoneInfo("America/New_York")
+    for symbol in ("SPY.US", "QQQ.US", "DIA.US"):
+        times = [p.get("timestamp") for p in by_symbol.get(symbol, {}).get("points", [])
+                 if isinstance(p, dict) and isinstance(p.get("timestamp"), (int, float))]
+        if not times:
+            return None
+        moment = dt.datetime.fromtimestamp(max(times), tz=dt.timezone.utc).astimezone(eastern)
+        if moment.time() < dt.time(16) or moment > now.astimezone(eastern):
+            return None
+        days.add(moment.date().isoformat())
+    return next(iter(days)) if len(days) == 1 else None
+
+
 def build_packet(now: dt.datetime | None = None) -> dict:
     generated = now or dt.datetime.now(dt.timezone.utc)
     if generated.tzinfo is None:
@@ -1147,6 +1177,12 @@ def build_packet(now: dt.datetime | None = None) -> dict:
         ) if value
     }
     trading_date = next(iter(index_dates)) if len(index_dates) == 1 else None
+    snapshot_date = closed_snapshot_target(load_json(ROOT / "data" / "market-prices.json", {}), generated)
+    if snapshot_date and (not index_dates or snapshot_date >= max(index_dates)):
+        trading_date = snapshot_date
+    source_audit["targetSession"] = {"date": trading_date, "closeSnapshotDate": snapshot_date,
+                                   "upstreamIndexDates": sorted(index_dates),
+                                   "basis": "completed_etf_close_snapshot" if trading_date == snapshot_date else "upstream_index_dates"}
     session_normalization_errors = normalize_session_markets(markets, trading_date)
     session_date_issues = session_market_date_issues(markets, trading_date)
     session_change_validation_issues = [
@@ -1187,7 +1223,7 @@ def build_packet(now: dt.datetime | None = None) -> dict:
         critical_errors.append("missing_breadth:" + ",".join(missing_breadth))
     if invalid_breadth:
         critical_errors.append("invalid_breadth:" + ",".join(invalid_breadth))
-    if len(index_dates) > 1:
+    if len(index_dates) > 1 and (not trading_date or session_normalization_errors):
         critical_errors.append("index_date_mismatch:" + ",".join(sorted(index_dates)))
     if session_date_issues:
         critical_errors.append("session_market_issues:" + ",".join(session_date_issues))
@@ -1447,4 +1483,5 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
 

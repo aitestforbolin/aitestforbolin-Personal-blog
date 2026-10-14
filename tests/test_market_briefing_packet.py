@@ -519,6 +519,7 @@ class MarketBriefingPacketTests(unittest.TestCase):
                 "previousClose": 100,
                 "changePercent": 1,
                 "status": "incomplete" if ticker == "NVDA" else "ok",
+                "priceDate": "2026-08-25", "previousCloseDate": "2026-08-24", "comparisonBasis": "yahoo_daily_history",
             }
 
         def fake_load(path, default):
@@ -548,6 +549,7 @@ class MarketBriefingPacketTests(unittest.TestCase):
             return {
                 "ticker": ticker,
                 "tradingDate": day,
+                "priceDate": day, "previousCloseDate": "2026-09-01", "comparisonBasis": "yahoo_daily_history",
                 "close": 101,
                 "previousClose": 100,
                 "changePercent": 1,
@@ -574,6 +576,7 @@ class MarketBriefingPacketTests(unittest.TestCase):
         row = {
             "ticker": "NVDA",
             "tradingDate": "2026-09-02",
+            "priceDate": "2026-09-02", "previousCloseDate": "2026-09-01", "comparisonBasis": "yahoo_daily_history",
             "close": 101,
             "previousClose": 100,
             "changePercent": 1,
@@ -596,6 +599,36 @@ class MarketBriefingPacketTests(unittest.TestCase):
 
 
 class BreadthRecoveryTests(unittest.TestCase):
+    def test_candidate_null_latest_bar_never_relabels_prior_price(self):
+        payload = MarketBriefingPacketTests.yahoo_daily_payload([("2026-10-12", 100), ("2026-10-13", None)])
+        with mock.patch.object(MODULE, "fetch_json", return_value=payload):
+            row = MODULE.fetch_candidate("NVDA")
+        self.assertIsNone(row["close"])
+        self.assertEqual(row["status"], "incomplete")
+        end = int(dt.datetime.fromisoformat("2026-10-13T16:00:00-04:00").timestamp())
+        payload["chart"]["result"][0]["meta"] = {"regularMarketTime": end, "regularMarketPrice": 102,
+            "currentTradingPeriod": {"regular": {"end": end}}}
+        with mock.patch.object(MODULE, "fetch_json", return_value=payload):
+            row = MODULE.fetch_candidate("NVDA")
+        self.assertEqual(row["close"], 102)
+        self.assertEqual(row["previousClose"], 100)
+        self.assertEqual(row["changePercent"], 2)
+        self.assertEqual(MODULE.candidate_validation_issues(row, "2026-10-13"), [])
+
+    def test_legacy_candidate_cache_without_price_provenance_is_rejected(self):
+        row = {"ticker": "NVDA", "tradingDate": "2026-10-13", "close": 101, "previousClose": 100, "changePercent": 1, "status": "ok"}
+        packet = {"tradingDate": "2026-10-13", "candidateStocks": [row], "validation": {"complete": True}}
+        self.assertEqual(MODULE.same_date_cached_candidates(packet, "2026-10-13"), {})
+
+    def test_target_requires_three_synchronized_completed_etfs(self):
+        end = int(dt.datetime.fromisoformat("2026-10-13T16:00:00-04:00").timestamp())
+        payload = {"symbols": [{"symbol": s, "points": [{"timestamp": end}]} for s in ("SPY.US", "QQQ.US", "DIA.US")]}
+        now = dt.datetime.fromisoformat("2026-10-13T23:00:00+00:00")
+        self.assertEqual(MODULE.closed_snapshot_target(payload, now), "2026-10-13")
+        self.assertIsNone(MODULE.closed_snapshot_target(payload, now.replace(hour=19)))
+        payload["symbols"][0]["points"][0]["timestamp"] -= 86400
+        self.assertIsNone(MODULE.closed_snapshot_target(payload, now))
+
     def test_missing_or_duplicate_holding_is_rejected(self):
         now = dt.datetime(2026, 10, 9, 0, tzinfo=dt.timezone.utc)
         for rows in ([{"s": "NYSE:A", "d": [1]}],
@@ -621,4 +654,5 @@ class BreadthRecoveryTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
 

@@ -9,6 +9,8 @@ on:
   schedule:
     # 06:35 Asia/Shanghai fallback. The close-ready workflow_run is primary.
     - cron: "35 22 * * 1-5"
+    # 07:17 Beijing retry, leaving a buffer for GitHub scheduling delays.
+    - cron: "17 23 * * 1-5"
     # A later retry gives delayed Yahoo daily bars time to settle before 09:00.
     - cron: "13 0 * * 2-6"
   push:
@@ -49,7 +51,7 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
           PREVIOUS_PACKET_PATH: /tmp/previous-market-briefing-packet.json
         run: |
-          if [ "$EVENT_NAME" = "workflow_dispatch" ] \
+          if [ "$EVENT_NAME" = "workflow_dispatch" ] || [ "$EVENT_NAME" = "push" ] \
             || python scripts/market_packet_trigger.py; then
             echo "build=true" >> "$GITHUB_OUTPUT"
           else
@@ -118,3 +120,4 @@ jobs:
         run: |
           echo "The failed attempt was preserved as a diagnostic artifact; canonical packet was not changed."
           exit 1
+
