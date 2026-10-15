@@ -2,8 +2,8 @@
   "schema_version": 1,
   "timezone": "Asia/Shanghai",
   "horizon_days": 35,
-  "checked_at": "2026-10-14T08:38:31+08:00",
-  "updated_at": "2026-10-14T08:38:31+08:00",
+  "checked_at": "2026-10-15T08:08:01+08:00",
+  "updated_at": "2026-10-15T08:08:01+08:00",
   "companies": [
     {
       "id": "meta",
@@ -326,6 +326,33 @@
       "company_group_zh": "AI 与半导体",
       "date_changed": false,
       "updated_at": "2026-10-14T08:38:31+08:00"
+    },
+    {
+      "event_id": "walmart-earnings-2026-q4",
+      "company_id": "walmart",
+      "event_category": "earnings",
+      "event_name": "Walmart 2026 Q4财报",
+      "reported_period": "2026 Q4",
+      "importance": "core",
+      "status": "scheduled",
+      "confirmation": "inferred",
+      "date_type": "exact",
+      "date_bjt": "2026-11-19",
+      "time_bjt": null,
+      "market_timing": "time_tbd",
+      "original_time": "2026-11-19 time-pre-market America/New_York",
+      "original_timezone": "America/New_York",
+      "eps_estimate": "$0.63",
+      "revenue_estimate": null,
+      "source_label": "Nasdaq Earnings Calendar",
+      "source_url": "https://api.nasdaq.com/api/calendar/earnings?date=2026-11-19",
+      "source_published_at": null,
+      "company": "Walmart",
+      "ticker": "WMT",
+      "company_group": "consumer_retail",
+      "company_group_zh": "消费与零售",
+      "date_changed": false,
+      "updated_at": "2026-10-15T08:08:01+08:00"
     }
   ]
 }
