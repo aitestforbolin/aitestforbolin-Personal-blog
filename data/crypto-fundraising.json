@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14T00:57:48+00:00",
+  "updated_at": "2026-10-15T00:59:54+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
@@ -12,11 +12,21 @@
       "announced_month": "2026-10",
       "amount_usd": null,
       "detail_url": "https://crypto-fundraising.info/projects/efy-finance/",
+      "is_new": false
+    },
+    {
+      "id": "crypto-fundraising-bluvo",
+      "source_rank": 2,
+      "name": "Bluvo",
+      "round": "M&A",
+      "announced_month": "2026-10",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/bluvo/",
       "is_new": true
     },
     {
       "id": "crypto-fundraising-story-protocol",
-      "source_rank": 2,
+      "source_rank": 3,
       "name": "DATA Network (ex Story Protocol)",
       "round": null,
       "announced_month": "2026-10",
@@ -26,46 +36,36 @@
     },
     {
       "id": "crypto-fundraising-efforce",
-      "source_rank": 3,
+      "source_rank": 4,
       "name": "EFFORCE",
       "round": "M&A",
       "announced_month": "2026-10",
       "amount_usd": null,
       "detail_url": "https://crypto-fundraising.info/projects/efforce/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-orbio",
-      "source_rank": 4,
+      "source_rank": 5,
       "name": "Orbio",
       "round": "Seed",
       "announced_month": "2026-10",
       "amount_usd": 1200000,
       "detail_url": "https://crypto-fundraising.info/projects/orbio/",
       "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-catalyst-labs",
-      "source_rank": 5,
-      "name": "Catalyst Labs",
-      "round": "Seed",
-      "announced_month": "2026-10",
-      "amount_usd": 30000000,
-      "detail_url": "https://crypto-fundraising.info/projects/catalyst-labs/",
-      "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261014-005736Z",
-    "requestId": "codex-web3-20261014-005736Z",
-    "triggerSha": "dc197db1c803c3c0c651e06f8e1d5efe86a34fb5",
-    "githubRunId": 38493079093,
-    "scheduledAt": "2026-10-14T00:57:36Z",
-    "startedAt": "2026-10-14T00:57:47.152432+00:00",
-    "sourceCheckedAt": "2026-10-14T00:57:48.781888+00:00",
-    "sourceUpdatedAt": "2026-10-14T00:57:48+00:00",
-    "completedAt": "2026-10-14T00:57:48.782232+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261015-005935Z",
+    "requestId": "codex-web3-20261015-005935Z",
+    "triggerSha": "81769949d817cd52ddc750bd019effcd49c58620",
+    "githubRunId": 38663159359,
+    "scheduledAt": "2026-10-15T00:59:35Z",
+    "startedAt": "2026-10-15T00:59:52.077127+00:00",
+    "sourceCheckedAt": "2026-10-15T00:59:54.073325+00:00",
+    "sourceUpdatedAt": "2026-10-15T00:59:54+00:00",
+    "completedAt": "2026-10-15T00:59:54.073662+00:00",
     "publishedAt": null
   }
 }
