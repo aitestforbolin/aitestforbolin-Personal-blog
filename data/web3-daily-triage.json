@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "runDate": "2026-10-14",
-  "publishedAt": "2026-10-14T08:59:11+08:00",
-  "windowStart": "2026-10-13T00:57:24.143899+00:00",
-  "windowEnd": "2026-10-14T00:57:48.782232+00:00",
-  "sourceUpdatedAt": "2026-10-14T00:57:48+00:00",
+  "runDate": "2026-10-15",
+  "publishedAt": "2026-10-15T09:00:31+08:00",
+  "windowStart": "2026-10-14T00:57:48.782232+00:00",
+  "windowEnd": "2026-10-15T00:59:54.073662+00:00",
+  "sourceUpdatedAt": "2026-10-15T00:59:54+00:00",
   "status": "success",
   "executionLineage": {
-    "runId": "web3-daily-triage:codex-web3-20261014-005736Z",
-    "requestId": "codex-web3-20261014-005736Z",
-    "triggerSha": "dc197db1c803c3c0c651e06f8e1d5efe86a34fb5",
-    "githubRunId": 38493079093,
-    "scheduledAt": "2026-10-14T00:57:36Z",
-    "startedAt": "2026-10-14T00:57:47.152432+00:00",
-    "sourceCheckedAt": "2026-10-14T00:57:48.781888+00:00",
-    "sourceUpdatedAt": "2026-10-14T00:57:48+00:00",
-    "completedAt": "2026-10-14T00:57:48.782232+00:00",
-    "publishedAt": "2026-10-14T08:59:11+08:00"
+    "runId": "web3-daily-triage:codex-web3-20261015-005935Z",
+    "requestId": "codex-web3-20261015-005935Z",
+    "triggerSha": "81769949d817cd52ddc750bd019effcd49c58620",
+    "githubRunId": 38663159359,
+    "scheduledAt": "2026-10-15T00:59:35Z",
+    "startedAt": "2026-10-15T00:59:52.077127+00:00",
+    "sourceCheckedAt": "2026-10-15T00:59:54.073325+00:00",
+    "sourceUpdatedAt": "2026-10-15T00:59:54+00:00",
+    "completedAt": "2026-10-15T00:59:54.073662+00:00",
+    "publishedAt": "2026-10-15T09:00:31+08:00"
   },
   "executionStatus": {
     "collection": "success",
     "validation": "success",
     "publication": "success"
   },
-  "deduplicationNote": "候选窗口从 2026-10-13 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重，排除 M&A 事件 EFFORCE 后新增 EFY Finance。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+  "deduplicationNote": "候选窗口从 2026-10-14 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后，窗口内唯一新增事件 Bluvo 为 M&A，按规则排除，因此没有新增融资候选。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
   "reportedEventIds": [
     "crypto-fundraising-ponygo--2026-09--round-unknown",
     "crypto-fundraising-velocity--2026-09--series-a",
@@ -72,73 +72,10 @@
     "crypto-fundraising-efy-finance--2026-10--seed"
   ],
   "counts": {
-    "new": 1,
+    "new": 0,
     "action": 0,
     "watch": 0,
-    "stop": 1
+    "stop": 0
   },
-  "projects": [
-    {
-      "event_id": "crypto-fundraising-efy-finance--2026-10--seed",
-      "source_detail_url": "https://crypto-fundraising.info/projects/efy-finance/",
-      "project_name": "EFY Finance",
-      "decision": "STOP",
-      "financing": {
-        "amount_usd": null,
-        "round": "Seed",
-        "lead_investors": [
-          "Tether"
-        ],
-        "announcement_date": "2026-10-13",
-        "confidence": "high"
-      },
-      "plain_explanation": "EFY Finance 是面向拉丁美洲个人、企业和机构的跨境支付基础设施，把多币种账户、本地银行结算、稳定币钱包、托管和支付卡放在同一平台。",
-      "mechanism_simple": "用户通过受监管账户收款、换汇和跨境付款，平台在本地支付网络、银行账户与 USDT 等稳定币之间完成出入金和结算。",
-      "project_status": {
-        "category": "existing_no_token",
-        "token_status": "no_token_found",
-        "note": "项目自 2023 年开始运营，已有 2.5 万个活跃个人与企业账户；未发现 EFY 自有原生代币。"
-      },
-      "participation": {
-        "available_now": true,
-        "what_user_can_do": "EFY 覆盖市场内的个人或企业可注册账户，完成身份核验后使用多币种收付、稳定币钱包和跨境结算。",
-        "requires_real_funds": true,
-        "friction_or_risk": "需要 KYC、真实资金和受支持司法辖区；服务重点在拉丁美洲，对当前用户缺乏直接可用性，也需承担托管、合规与跨境结算风险。"
-      },
-      "incentives": {
-        "status": "none_found",
-        "types": [],
-        "details": "未发现官方 Points、Season、测试网、空投或 EFY 代币计划；本次融资用于扩大稳定币支付基础设施。"
-      },
-      "why": [
-        "项目已有成熟支付业务与真实交易量，不是新的低成本早期参与机会。",
-        "普通用户参与依赖拉美覆盖地区、KYC 和真实跨境资金需求，对当前用户相关性很低。",
-        "Tether 投资本身不能构成 ACTION；未发现可确认的早期激励或代币机会。"
-      ],
-      "next_step": null,
-      "recheck_trigger": null,
-      "website_url": "https://www.efyfinance.com/en/",
-      "x_url": "https://x.com/EFYFinance",
-      "evidence": [
-        {
-          "claim": "Tether 于 2026-10-13 宣布参与 EFY Finance 种子轮，以推动拉美 USDT 与 USA₮ 的机构使用；金额未披露。",
-          "url": "https://tether.io/news/tether-invests-in-efy-finance-to-accelerate-institutional-stablecoin-usage-in-latam/",
-          "source_type": "investor",
-          "confidence": "high"
-        },
-        {
-          "claim": "EFY 官网说明其提供多币种账户、跨境支付、稳定币钱包及支付卡，覆盖 19 条支付轨道和 12 种以上货币。",
-          "url": "https://www.efyfinance.com/en/",
-          "source_type": "official_site",
-          "confidence": "high"
-        },
-        {
-          "claim": "EFY 官方公司介绍确认项目自 2023 年运营，已有超过 2.5 万活跃账户，并在萨尔瓦多取得数字资产服务商许可。",
-          "url": "https://www.efyfinance.com/en/about-us/",
-          "source_type": "official_site",
-          "confidence": "high"
-        }
-      ]
-    }
-  ]
+  "projects": []
 }
