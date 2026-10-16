@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "runDate": "2026-10-15",
-  "publishedAt": "2026-10-15T09:00:31+08:00",
-  "windowStart": "2026-10-14T00:57:48.782232+00:00",
-  "windowEnd": "2026-10-15T00:59:54.073662+00:00",
-  "sourceUpdatedAt": "2026-10-15T00:59:54+00:00",
+  "runDate": "2026-10-16",
+  "publishedAt": "2026-10-16T08:57:35+08:00",
+  "windowStart": "2026-10-15T00:59:54.073662+00:00",
+  "windowEnd": "2026-10-16T00:55:58.349633+00:00",
+  "sourceUpdatedAt": "2026-10-16T00:55:58+00:00",
   "status": "success",
   "executionLineage": {
-    "runId": "web3-daily-triage:codex-web3-20261015-005935Z",
-    "requestId": "codex-web3-20261015-005935Z",
-    "triggerSha": "81769949d817cd52ddc750bd019effcd49c58620",
-    "githubRunId": 38663159359,
-    "scheduledAt": "2026-10-15T00:59:35Z",
-    "startedAt": "2026-10-15T00:59:52.077127+00:00",
-    "sourceCheckedAt": "2026-10-15T00:59:54.073325+00:00",
-    "sourceUpdatedAt": "2026-10-15T00:59:54+00:00",
-    "completedAt": "2026-10-15T00:59:54.073662+00:00",
-    "publishedAt": "2026-10-15T09:00:31+08:00"
+    "runId": "web3-daily-triage:codex-web3-20261016-005544Z",
+    "requestId": "codex-web3-20261016-005544Z",
+    "triggerSha": "b6b50bb39389f54198b4013648356bebe6bbc085",
+    "githubRunId": 38832281307,
+    "scheduledAt": "2026-10-16T00:55:44Z",
+    "startedAt": "2026-10-16T00:55:55.878919+00:00",
+    "sourceCheckedAt": "2026-10-16T00:55:58.349285+00:00",
+    "sourceUpdatedAt": "2026-10-16T00:55:58+00:00",
+    "completedAt": "2026-10-16T00:55:58.349633+00:00",
+    "publishedAt": "2026-10-16T08:57:35+08:00"
   },
   "executionStatus": {
     "collection": "success",
     "validation": "success",
     "publication": "success"
   },
-  "deduplicationNote": "候选窗口从 2026-10-14 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后，窗口内唯一新增事件 Bluvo 为 M&A，按规则排除，因此没有新增融资候选。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+  "deduplicationNote": "候选窗口从 2026-10-15 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重，窗口内新增 5 个非 M&A 事件并全部完成研究。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
   "reportedEventIds": [
     "crypto-fundraising-ponygo--2026-09--round-unknown",
     "crypto-fundraising-velocity--2026-09--series-a",
@@ -69,13 +69,306 @@
     "crypto-fundraising-meanwhile--2026-10--round-unknown",
     "crypto-fundraising-story-protocol--2026-10--round-unknown",
     "crypto-fundraising-orbio--2026-10--seed",
-    "crypto-fundraising-efy-finance--2026-10--seed"
+    "crypto-fundraising-efy-finance--2026-10--seed",
+    "crypto-fundraising-aisa--2026-10--round-unknown",
+    "crypto-fundraising-fission-labs--2026-10--series-a",
+    "crypto-fundraising-multiliquid--2026-10--seed",
+    "crypto-fundraising-spout-finance--2026-10--strategic",
+    "crypto-fundraising-zaria--2026-10--seed"
   ],
   "counts": {
-    "new": 0,
+    "new": 5,
     "action": 0,
-    "watch": 0,
-    "stop": 0
+    "watch": 1,
+    "stop": 4
   },
-  "projects": []
+  "projects": [
+    {
+      "event_id": "crypto-fundraising-aisa--2026-10--round-unknown",
+      "source_detail_url": "https://crypto-fundraising.info/projects/aisa/",
+      "project_name": "AIsa",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": 6500000,
+        "round": "Seed",
+        "lead_investors": [
+          "Alibaba",
+          "Tribe Capital"
+        ],
+        "announcement_date": "2026-07-03",
+        "confidence": "medium"
+      },
+      "plain_explanation": "AIsa 为 AI 智能体提供统一的模型、数据和 API 资源入口，并按调用付费；本次来源新出现的条目对应一个已运行项目，而非刚启动的新项目。",
+      "mechanism_simple": "开发者给智能体接入一个 API 密钥，智能体按需发现并调用外部数据或工具，再以小额支付结算每次调用。",
+      "project_status": {
+        "category": "existing_no_token",
+        "token_status": "no_token_found",
+        "note": "官网已有可用产品与账户系统；未发现 AIsa 原生代币或官方发币安排。"
+      },
+      "participation": {
+        "available_now": true,
+        "what_user_can_do": "开发者可注册账户、连接钱包并让自己的 AI 智能体调用付费 API。",
+        "requires_real_funds": true,
+        "friction_or_risk": "需要开发集成和持续按调用付费，普通用户没有直接参与路径。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "未发现官方 Points、Season、测试网、空投或代币激励。"
+      },
+      "why": [
+        "融资公告早于本次采集窗口，条目只是本次首次被首页快照观察到。",
+        "产品面向开发者和 AI 智能体，不构成普通用户的低成本早期机会。",
+        "没有可确认的近期激励或代币催化剂。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://www.aisa.one/",
+      "x_url": null,
+      "evidence": [
+        {
+          "claim": "AIsa 官网说明其用一个 API 密钥连接模型、数据与 API，并按调用付费。",
+          "url": "https://www.aisa.one/",
+          "source_type": "official_site",
+          "confidence": "high"
+        },
+        {
+          "claim": "2026-07-03 报道称 AIsa 完成 650 万美元种子轮，由 Alibaba 与 Tribe Capital 领投。",
+          "url": "https://www.forbes.com/sites/digital-assets/2026/07/03/aisa-raises-65-million-to-build-payment-layer-for-ai-agents/",
+          "source_type": "other",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-fission-labs--2026-10--series-a",
+      "source_detail_url": "https://crypto-fundraising.info/projects/fission-labs/",
+      "project_name": "Fission Labs",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": 10000000,
+        "round": "Series A",
+        "lead_investors": [
+          "Pantera Capital"
+        ],
+        "announcement_date": "2026-10-15",
+        "confidence": "high"
+      },
+      "plain_explanation": "Fission 为代币化私募基金提供流动性，让合格投资者不必等待传统赎回窗口即可获得资金。",
+      "mechanism_simple": "持有人把受支持的代币化基金份额用于受许可的赎回或融资，Fission 从链上与传统资本来源组织流动性并遵守转让限制。",
+      "project_status": {
+        "category": "existing_no_token",
+        "token_status": "no_token_found",
+        "note": "平台已处理数百万美元交易；未发现 Fission 原生代币。"
+      },
+      "participation": {
+        "available_now": true,
+        "what_user_can_do": "只有符合资格并持有受支持代币化基金产品的投资者可参与。",
+        "requires_real_funds": true,
+        "friction_or_risk": "面向机构和许可市场，受证券合规、投资者资格、流动性和对手方风险约束。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "未发现面向普通用户的官方积分、测试网、空投或代币计划。"
+      },
+      "why": [
+        "产品明确为机构及许可市场设计，普通用户没有可行参与路径。",
+        "参与需要持有受支持基金份额并满足合格投资者与转让限制。",
+        "融资规模和 Pantera 领投不足以构成早期参与机会。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://fission.xyz/",
+      "x_url": null,
+      "evidence": [
+        {
+          "claim": "Fission 于 2026-10-15 完成 1000 万美元 A 轮，Pantera Capital 领投。",
+          "url": "https://www.prnewswire.com/news-releases/fission-raises-10m-series-a-led-by-pantera-capital-to-bring-liquidity-to-digital-private-markets-302908670.html",
+          "source_type": "official_blog",
+          "confidence": "high"
+        },
+        {
+          "claim": "公司公告明确平台面向机构和许可市场，仅向合格投资者提供代币化基金流动性。",
+          "url": "https://www.prnewswire.com/news-releases/fission-raises-10m-series-a-led-by-pantera-capital-to-bring-liquidity-to-digital-private-markets-302908670.html",
+          "source_type": "official_blog",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-multiliquid--2026-10--seed",
+      "source_detail_url": "https://crypto-fundraising.info/projects/multiliquid/",
+      "project_name": "Multiliquid",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": 8000000,
+        "round": "Seed",
+        "lead_investors": [
+          "Polychain Capital"
+        ],
+        "announcement_date": "2026-10-15",
+        "confidence": "high"
+      },
+      "plain_explanation": "Multiliquid 是代币化现实资产的机构流动性与结算平台，让基金代币和稳定币可以全天候原子交换。",
+      "mechanism_simple": "系统在以太坊和 Solana 上连接资产发行方、企业资金与资本提供者，交易要同时完成两边资产转移，避免一方先交付。",
+      "project_status": {
+        "category": "new_live_no_token",
+        "token_status": "no_token_found",
+        "note": "官网已有应用与超过 2000 万美元实时流动性展示；未发现原生代币。"
+      },
+      "participation": {
+        "available_now": true,
+        "what_user_can_do": "受支持且通过白名单的机构可交换代币化基金与稳定币，或提供机构级流动性。",
+        "requires_real_funds": true,
+        "friction_or_risk": "需要真实稳定币或受监管代币化资产，并受白名单、合规、智能合约和流动性风险约束。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "未发现面向普通用户的官方 Points、Season、测试网、空投或代币活动。"
+      },
+      "why": [
+        "官网定位和用户路径均是机构资金、发行方与企业财资。",
+        "参与需要真实大额资产和白名单资格，成本与合规摩擦高。",
+        "没有普通用户早期激励，收益目标本身不构成 ACTION。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://www.multiliquid.xyz/",
+      "x_url": null,
+      "evidence": [
+        {
+          "claim": "Multiliquid 官网说明其提供代币化基金与稳定币的 24/7 原子交换，并连接受监管 RWA 与机构资本。",
+          "url": "https://www.multiliquid.xyz/",
+          "source_type": "official_site",
+          "confidence": "high"
+        },
+        {
+          "claim": "Uniform Labs 宣布由 Polychain 领投的种子轮，使总融资达到 800 万美元。",
+          "url": "https://www.prnewswire.com/news-releases/multiliquid-closes-seed-round-led-by-polychain-with-participation-from-strobe-ventures-cmt-digital-metalayer-ventures-generative-ventures-and-circle-ventures-bringing-total-funding-to-8-million-302908671.html",
+          "source_type": "official_blog",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-spout-finance--2026-10--strategic",
+      "source_detail_url": "https://crypto-fundraising.info/projects/spout-finance/",
+      "project_name": "Spout Finance",
+      "decision": "WATCH",
+      "financing": {
+        "amount_usd": 2000000,
+        "round": "Strategic",
+        "lead_investors": [],
+        "announcement_date": "2026-10-15",
+        "confidence": "high"
+      },
+      "plain_explanation": "Spout 是 Solana 上的股票抵押借贷协议，用户抵押代币化美股后借出 USDC，不按时间支付利息。",
+      "mechanism_simple": "协议以 50% 抵押率放贷，并定期对抵押股票卖出价外看涨期权；期权费替代借款利息并支付贷款人收益，但借款人会放弃执行价以上的部分上涨。",
+      "project_status": {
+        "category": "new_unlaunched",
+        "token_status": "no_token_found",
+        "note": "仅有 Solana Devnet 测试版，尚未上主网；未发现原生代币。"
+      },
+      "participation": {
+        "available_now": true,
+        "what_user_can_do": "可在 Devnet 测试版连接 Solana 钱包，或向官方申请即将推出的私测资格；不建议投入真实资金。",
+        "requires_real_funds": false,
+        "friction_or_risk": "测试网可低成本体验；未来主网将涉及代币化证券、USDC、期权策略、清算与监管风险。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [
+          "testnet"
+        ],
+        "details": "官方确认 Devnet beta 和即将推出的私测，但未发现积分、空投或代币奖励承诺。"
+      },
+      "why": [
+        "机制对持有代币化股票且不愿卖出的用户有明确效用。",
+        "当前尚未上主网，低成本测试可观察产品质量，但没有官方奖励，立即投入时间的回报有限。",
+        "主网上线、公开访问或正式激励可能显著改变判断。"
+      ],
+      "next_step": null,
+      "recheck_trigger": "官方宣布 Solana 主网上线并开放公开用户，或发布可验证的 Points/Season/Token 激励时复查。",
+      "website_url": "https://www.spout.finance/",
+      "x_url": "https://x.com/SpoutFi",
+      "evidence": [
+        {
+          "claim": "Spout 于 2026-10-15 宣布 200 万美元战略轮，参与方包括 Draper Dragon、Anchorage Digital、Flow Traders 等，并获 Solana Labs 战略支持。",
+          "url": "https://www.globenewswire.com/news-release/2026/10/15/3381988/0/en/spout-raises-2m-strategic-round-to-bring-0-interest-borrowing-to-tokenized-us-stocks.html",
+          "source_type": "official_blog",
+          "confidence": "high"
+        },
+        {
+          "claim": "官方公告确认协议尚未上主网，Devnet beta 已开放且私测即将启动。",
+          "url": "https://www.globenewswire.com/news-release/2026/10/15/3381988/0/en/spout-raises-2m-strategic-round-to-bring-0-interest-borrowing-to-tokenized-us-stocks.html",
+          "source_type": "official_blog",
+          "confidence": "high"
+        },
+        {
+          "claim": "官方文档说明用户可抵押代币化股票并最多借出抵押价值 50% 的稳定币。",
+          "url": "https://spout.finance/docs/getting-started/",
+          "source_type": "docs",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-zaria--2026-10--seed",
+      "source_detail_url": "https://crypto-fundraising.info/projects/zaria/",
+      "project_name": "Zaria",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": 5200000,
+        "round": "Seed",
+        "lead_investors": [
+          "Lightspeed Venture Partners"
+        ],
+        "announcement_date": "2026-10-14",
+        "confidence": "high"
+      },
+      "plain_explanation": "Zaria 为银行、贷款机构和资管公司提供结构化融资基础设施，处理贷款服务、抵押品监控、追保、清算与报告。",
+      "mechanism_simple": "平台持续按市价检查比特币、数字资产或证券抵押贷款；触发阈值时自动发出追保或清算指令，并为交易参与方维护服务与报告。",
+      "project_status": {
+        "category": "existing_no_token",
+        "token_status": "no_token_found",
+        "note": "已为 Ledn、Maple、Galaxy、Kraken 和 Figure 等机构提供服务；未发现原生代币。"
+      },
+      "participation": {
+        "available_now": false,
+        "what_user_can_do": null,
+        "requires_real_funds": false,
+        "friction_or_risk": "这是面向机构的受监管后台与受托服务，没有普通用户产品路径。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "未发现面向普通用户的积分、测试网、空投或代币计划。"
+      },
+      "why": [
+        "客户是银行、贷款人和资产管理机构，普通用户无法直接使用。",
+        "融资用于扩大受托与贷款后台基础设施，不形成早期参与窗口。",
+        "没有可确认的用户激励或相关未来催化剂。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://zaria.xyz/",
+      "x_url": null,
+      "evidence": [
+        {
+          "claim": "Zaria 于 2026-10-14 宣布 520 万美元种子轮，由 Lightspeed Venture Partners 领投。",
+          "url": "https://www.prnewswire.com/news-releases/zaria-raises-5-2m-led-by-lightspeed-venture-partners-to-scale-its-fiduciary-infrastructure-for-structured-finance-302908012.html",
+          "source_type": "official_blog",
+          "confidence": "high"
+        },
+        {
+          "claim": "官方公告说明平台服务结构化融资和数字资产抵押贷款机构，且已与 Ledn、Maple、Galaxy、Kraken、Figure 等合作。",
+          "url": "https://www.prnewswire.com/news-releases/zaria-raises-5-2m-led-by-lightspeed-venture-partners-to-scale-its-fiduciary-infrastructure-for-structured-finance-302908012.html",
+          "source_type": "official_blog",
+          "confidence": "high"
+        }
+      ]
+    }
+  ]
 }
