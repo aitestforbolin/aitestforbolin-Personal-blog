@@ -3,7 +3,7 @@
   "automation": "web3-daily-triage",
   "runId": "web3-daily-triage:codex-web3-20261017-010409Z",
   "requestId": "codex-web3-20261017-010409Z",
-  "result": "in_progress",
+  "result": "success",
   "lineage": {
     "triggerType": "push",
     "triggerSha": "3cca189c2bcb9b58a0134fa622ebae7f06fd7a9b",
@@ -40,7 +40,10 @@
       "commitSha": "6eb21caae125cfbc371d94434f29536aa9071aeb"
     },
     "notification": {
-      "status": "not_run"
+      "status": "success",
+      "completedAt": "2026-10-17T01:06:08+00:00",
+      "provider": "Gmail",
+      "messageId": "1a147650bf48ba0d"
     }
   }
 }
