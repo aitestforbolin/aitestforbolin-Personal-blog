@@ -1,48 +1,44 @@
 {
   "schemaVersion": 2,
   "automation": "x-intelligence",
-  "runId": "x-intelligence:codex-x-20261016T010015Z",
-  "requestId": "codex-x-20261016T010015Z",
-  "result": "success",
+  "runId": "x-intelligence:codex-x-20261017T005553Z",
+  "requestId": "codex-x-20261017T005553Z",
+  "result": "in_progress",
   "lineage": {
     "triggerType": "push",
-    "triggerSha": "34826cd681ccb562ddd2365d202a8754c75e16ce",
-    "githubRunId": 38832754651,
+    "triggerSha": "2fb6f82ba87ffeb2a5f2700d5f3c1af4416a7591",
+    "githubRunId": 38988711542,
     "githubRunAttempt": 1
   },
   "timestamps": {
-    "scheduledAt": "2026-10-16T01:00:00Z",
-    "startedAt": "2026-10-16T01:00:53.713093+00:00",
-    "sourceCheckedAt": "2026-10-16T01:01:02.230191+00:00",
-    "sourceUpdatedAt": "2026-10-16T00:10:16+00:00",
-    "completedAt": "2026-10-16T01:05:15.000Z",
-    "publishedAt": "2026-10-16T09:08:30+08:00"
+    "scheduledAt": "2026-10-17T01:00:00Z",
+    "startedAt": "2026-10-17T00:57:18.919857+00:00",
+    "sourceCheckedAt": "2026-10-17T00:57:28.572854+00:00",
+    "sourceUpdatedAt": "2026-10-17T00:43:52+00:00",
+    "completedAt": "2026-10-17T00:57:28.572921+00:00",
+    "publishedAt": null
   },
   "legacyRequestedAt": null,
   "stages": {
     "collection": {
       "status": "success",
-      "completedAt": "2026-10-16T01:01:02.230233+00:00",
+      "completedAt": "2026-10-17T00:57:28.572921+00:00",
       "details": {
         "listsRequested": 4,
         "listsCompleted": 4,
-        "postCount": 135,
-        "estimatedCostUsd": 0.065
+        "postCount": 125,
+        "estimatedCostUsd": 0.0704
       }
     },
     "validation": {
       "status": "success",
-      "completedAt": "2026-10-16T01:01:02.230233+00:00"
+      "completedAt": "2026-10-17T00:57:28.572921+00:00"
     },
     "publication": {
-      "status": "success",
-      "commitSha": "ec2cb4c25471018469b13be6066a6f25e2945007"
+      "status": "not_run"
     },
     "notification": {
-      "status": "success",
-      "provider": "gmail",
-      "messageId": "1a1423c331d0f84f",
-      "completedAt": "2026-10-16T01:05:15.000Z"
+      "status": "not_run"
     }
   }
 }
