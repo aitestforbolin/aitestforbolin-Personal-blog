@@ -1,23 +1,23 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-10-18T01:27:08+00:00",
-  "as_of": "2026-10-18T07:30:00+08:00",
-  "window_start": "2026-10-17T07:30:00+08:00",
-  "window_end": "2026-10-18T07:30:00+08:00",
+  "generated_at": "2026-10-19T01:34:05+00:00",
+  "as_of": "2026-10-19T07:30:00+08:00",
+  "window_start": "2026-10-18T07:30:00+08:00",
+  "window_end": "2026-10-19T07:30:00+08:00",
   "source_health": [
     {
       "source": "ECB",
       "region": "eu",
       "status": "ok",
       "count": 6,
-      "checked_at": "2026-10-18T01:27:08+00:00"
+      "checked_at": "2026-10-19T01:34:05+00:00"
     },
     {
       "source": "European Commission",
       "region": "eu",
       "status": "ok",
       "count": 8,
-      "checked_at": "2026-10-18T01:27:08+00:00"
+      "checked_at": "2026-10-19T01:34:05+00:00"
     },
     {
       "source": "European Council",
@@ -25,7 +25,7 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-10-18T01:27:08+00:00"
+      "checked_at": "2026-10-19T01:34:05+00:00"
     },
     {
       "source": "European Parliament",
@@ -33,28 +33,28 @@
       "status": "error",
       "error": "ParseError",
       "count": 0,
-      "checked_at": "2026-10-18T01:27:08+00:00"
+      "checked_at": "2026-10-19T01:34:05+00:00"
     },
     {
       "source": "Eurostat",
       "region": "eu",
       "status": "ok",
       "count": 58,
-      "checked_at": "2026-10-18T01:27:08+00:00"
+      "checked_at": "2026-10-19T01:34:05+00:00"
     },
     {
       "source": "Politico Europe",
       "region": "eu",
       "status": "ok",
-      "count": 8,
-      "checked_at": "2026-10-18T01:27:08+00:00"
+      "count": 6,
+      "checked_at": "2026-10-19T01:34:05+00:00"
     },
     {
       "source": "Reuters Europe",
       "region": "eu",
       "status": "ok",
-      "count": 62,
-      "checked_at": "2026-10-18T01:27:08+00:00"
+      "count": 61,
+      "checked_at": "2026-10-19T01:34:05+00:00"
     },
     {
       "source": "Bundesbank",
@@ -62,7 +62,7 @@
       "status": "error",
       "error": "ParseError",
       "count": 0,
-      "checked_at": "2026-10-18T01:27:08+00:00"
+      "checked_at": "2026-10-19T01:34:05+00:00"
     },
     {
       "source": "Destatis",
@@ -70,14 +70,14 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-10-18T01:27:08+00:00"
+      "checked_at": "2026-10-19T01:34:05+00:00"
     },
     {
       "source": "Deutsche Welle",
       "region": "germany",
       "status": "empty",
       "count": 0,
-      "checked_at": "2026-10-18T01:27:08+00:00"
+      "checked_at": "2026-10-19T01:34:05+00:00"
     },
     {
       "source": "Federal Employment Agency",
@@ -85,7 +85,7 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-10-18T01:27:08+00:00"
+      "checked_at": "2026-10-19T01:34:05+00:00"
     },
     {
       "source": "German Federal Government",
@@ -93,247 +93,119 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-10-18T01:27:08+00:00"
+      "checked_at": "2026-10-19T01:34:05+00:00"
     },
     {
       "source": "Reuters Germany",
       "region": "germany",
       "status": "ok",
-      "count": 59,
-      "checked_at": "2026-10-18T01:27:08+00:00"
+      "count": 61,
+      "checked_at": "2026-10-19T01:34:05+00:00"
     },
     {
       "source": "The Local Germany",
       "region": "germany",
       "status": "ok",
-      "count": 9,
-      "checked_at": "2026-10-18T01:27:08+00:00"
+      "count": 8,
+      "checked_at": "2026-10-19T01:34:05+00:00"
     }
   ],
   "items": [
     {
-      "id": "355a783bb6edf57d",
+      "id": "58d6cea1174b1a6e",
       "region": "eu",
-      "title": "Wer führt in Zukunft die SPD? Mit Rasmus Buchsteiner",
-      "title_cn": "社会民主党未来将由谁领导？拉斯穆斯·布赫施泰纳",
-      "summary": "Es war eine Chaoswoche für den Kanzler Friedrich Merz. Das Rentenpaket entwickelt sich zur weiteren Zerreißprobe für die Koalition. Der neue Arbeitsminister Alexander Schweitzer macht es für den Kanzler nicht einfacher. Warum der SPD-Pragmatiker plötzlich auf Konfrontation geht und wie diese Machtkämpfe die Regierungsarbeit lähmen, steht im Zentrum der Analyse. Gleichzeitig brodelt es an der […]",
+      "title": "Security Sunday: Russlands Angriffe im Schwarzen Meer – mit Moritz Brake",
+      "title_cn": "Security Sunday: Russlands Angriffe im Schwarzen Meer – mit Moritz Brake",
+      "summary": "Präsentiert von YouTube.",
       "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/podcast/berlin-playbook-podcast/wer-fuhrt-in-zukunft-die-spd-mit-rasmus-buchsteiner/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-17T08:00:00+00:00",
-      "fetched_at": "2026-10-18T01:27:08+00:00",
-      "category": "politics_society",
+      "source_url": "https://www.politico.eu/podcast/berlin-playbook-podcast/security-sunday-russlands-angriffe-im-schwarzen-meer-mit-moritz-brake/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-18T18:41:34+00:00",
+      "fetched_at": "2026-10-19T01:34:05+00:00",
+      "category": "defense_security",
       "importance": "critical",
       "official_source": false,
-      "first_seen_at": "2026-10-18T01:27:08+00:00",
-      "last_seen_at": "2026-10-18T01:27:08+00:00"
+      "first_seen_at": "2026-10-19T01:34:05+00:00",
+      "last_seen_at": "2026-10-19T01:34:05+00:00"
     },
     {
-      "id": "3588cab556e39e02",
+      "id": "37b12ab89a83d9e5",
       "region": "eu",
-      "title": "'Our land, our Albania': young lawmaker demands new future as protests rage - Reuters",
-      "title_cn": "“我们的土地，我们的阿尔巴尼亚”：抗议活动愈演愈烈之际，年轻议员要求新的未来 - 路透中文网",
-      "summary": "'Our land, our Albania': young lawmaker demands new future as protests rage Reuters",
+      "title": "One killed, 15 injured in Ukrainian drone attack on St Petersburg and Leningrad region - Reuters",
+      "title_cn": "One killed, 15 injured in Ukrainian drone attack on St Petersburg and Leningrad region - Reuters",
+      "summary": "One killed, 15 injured in Ukrainian drone attack on St Petersburg and Leningrad region Reuters",
       "source": "Reuters Europe",
-      "source_url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPbC1qYWlqcW1qUTM3TllqMnBDSmRaRFJiaW03WDZJOU5KNUx4U1U5US1iMktLZmVlMEctLWR2WC1NbkJTMHN3LWQ0RDRtY3FFZkV6aGFvWkNIRC1qLXQwQUtjYVk3aW9jZ3g2bHdNOFBPSk1TRTZ6RUJUbW5vTlBOWERCc0VEdmlSUnI5UXUwaEhTaGRvZ2hpMzJtdFpvMnlFMjIxR2pfTFQ3UEJLbzVKTi1ac1ZyNnFS?oc=5",
-      "published_at": "2026-10-17T14:48:05+00:00",
-      "fetched_at": "2026-10-18T01:27:08+00:00",
-      "category": "politics_society",
-      "importance": "important",
+      "source_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxORkdkNk9DVENGZU50OHVsbHF4Z3ZWbnBxcHVqaDJSa1JEWXZ5aFVqbTQwWmwzUGpvZUJsTUFzSnZHd2laVHpqd05XaF9KM2YxdUNUSVV0YUp1SFVKbTBRVHNzcVc0ek84cTY5TTVmZGhPbnhzMVJiejFXaDdXV3pBcTZYeEI3QkZrNDlOOWllWFk3ejFfMVdVd3lQUGJMeXBhNW5xTjZJQnBINTVSTjVDUnZKSm1laDdKaEE3eGdoSUtaQQ?oc=5",
+      "published_at": "2026-10-18T16:42:18+00:00",
+      "fetched_at": "2026-10-19T01:34:05+00:00",
+      "category": "technology",
+      "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-10-18T01:27:08+00:00",
-      "last_seen_at": "2026-10-18T01:27:08+00:00"
+      "first_seen_at": "2026-10-19T01:34:05+00:00",
+      "last_seen_at": "2026-10-19T01:34:05+00:00"
     },
     {
-      "id": "af0a83e47c72083b",
+      "id": "f3b6ee1ef9838a6d",
       "region": "eu",
-      "title": "Starlink restrictions in Ukraine a ‘planned operation’, Zelenskyy says",
-      "title_cn": "泽连斯基表示，乌克兰的星链限制是“有计划的行动”",
-      "summary": "The Ukrainian president said a \"test\" showed that speed restrictions on the satellite service were not in place in other European countries.",
+      "title": "Macron to address France after Trump describes country as ‘burning’",
+      "title_cn": "Macron to address France after Trump describes country as ‘burning’",
+      "summary": "Footage from French cities showed widespread looting, burned-out cars and smashed store windows.",
       "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/volodymyr-zelenskyy-says-vladimir-putin-looking-cause-ukraine-wide-blackout/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-17T12:23:48+00:00",
-      "fetched_at": "2026-10-18T01:27:08+00:00",
-      "category": "defense_security",
-      "importance": "important",
-      "official_source": false,
-      "first_seen_at": "2026-10-18T01:27:08+00:00",
-      "last_seen_at": "2026-10-18T01:27:08+00:00"
-    },
-    {
-      "id": "5344519ebb2546e2",
-      "region": "eu",
-      "title": "Trump-Zelenskiy rift threatens vital support for Kyiv - Reuters",
-      "title_cn": "特朗普与泽连斯基的分歧威胁到基辅的重要支持 - 路透中文网",
-      "summary": "Trump-Zelenskiy rift threatens vital support for Kyiv Reuters",
-      "source": "Reuters Europe",
-      "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQOS1zSXlGaS1sbWV1RHJiN2s1S1o5WWQxY01nZmh0ZVA2ZHo3cEZ0NUhERFZFT2kzT0FPQXgxVmFqNzhlNUNtNFB1WkFENHZEU2xKdWRuYmt5ZUhTcUJrY1ktbXEtSU1mOGUyZkxYOVF6Y1hqYkFZSGJuZ2s4MWZ1NmRZY09kQThIZXlndE1GRFlIVkNvTWFzbUxhaDJaNEE?oc=5",
-      "published_at": "2026-10-17T22:27:19+00:00",
-      "fetched_at": "2026-10-18T01:27:08+00:00",
-      "category": "technology",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-10-18T01:27:08+00:00",
-      "last_seen_at": "2026-10-18T01:27:08+00:00"
-    },
-    {
-      "id": "e79d886fb181ceca",
-      "region": "eu",
-      "title": "Albanian police fire rubber bullets as student protests rage - Reuters",
-      "title_cn": "学生抗议活动愈演愈烈，阿尔巴尼亚警方发射橡皮子弹 - 路透中文网",
-      "summary": "Albanian police fire rubber bullets as student protests rage Reuters",
-      "source": "Reuters Europe",
-      "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPVlJCekoweVlrYktkQmJZZ2V4aFFnRFpHdnRBMlYzZDlJS0xFS1JWQVMtOVNvbURNdUNHU09BTnBkNjBwdi0yaFVNR2Nqbm9sTUxHTFZQQk1PWkU2ZzdVeC04UVdLb2lJNFoxWHVsSWJJQTlrNXBYZ0NfNWJ4YTdENjlBYmwtdDlOMHhMOWtJY2NxUDJHRlJ1emtpa2h4UmFwZlBOQ0dEQlBORTREQ0E?oc=5",
-      "published_at": "2026-10-17T21:04:25+00:00",
-      "fetched_at": "2026-10-18T01:27:08+00:00",
-      "category": "education",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-10-18T01:27:08+00:00",
-      "last_seen_at": "2026-10-18T01:27:08+00:00"
-    },
-    {
-      "id": "aaf1396b0578c320",
-      "region": "germany",
-      "title": "Spain's hard left fails to unite before election, hurting chances of staying in power - Reuters",
-      "title_cn": "西班牙极左翼未能在选举前团结起来，损害了继续执政的机会 - 路透中文网",
-      "summary": "Spain's hard left fails to unite before election, hurting chances of staying in power Reuters",
-      "source": "Reuters Germany",
-      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNdGV4bzljREhuMV9qbWZaY2tNcUN6LWFCOFptMHRUc0JJRGNPYTlhVEVGZzYxVFFDRHJhUXhqSlRzb0I3UWlRLVE1Sk5WaV9PUmhiVW1yczRNWGJWVnVPNnNQaW1oUGt4OGN4ZUpjUHlvOUpJeHpGazFpOFR5aWg0N0NfUGNWNnVmMjAtUFM5ZHI1RG8xTWpNYVkxWURkNHhlZDN6VXp6d2cySGt0QUFxdXpHTF9UMGc?oc=5",
-      "published_at": "2026-10-17T15:51:44+00:00",
-      "fetched_at": "2026-10-18T01:27:08+00:00",
-      "category": "politics_society",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-10-18T01:27:08+00:00",
-      "last_seen_at": "2026-10-18T01:27:08+00:00"
-    },
-    {
-      "id": "f475719e6af28387",
-      "region": "germany",
-      "title": "Davidovich Fokina beats Zverev, sets up all-Spanish Shanghai final with Jodar - Reuters",
-      "title_cn": "大卫多维奇·福基纳击败兹维列夫，与乔达尔携手进入上海决赛 - 路透中文网",
-      "summary": "Davidovich Fokina beats Zverev, sets up all-Spanish Shanghai final with Jodar Reuters",
-      "source": "Reuters Germany",
-      "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPblllbEw3QVZFV2ZUblRnNElxLUhlNUZuSG05T2hIQUVyT0ZENlUwZnlUX0FMbktDcmhtb19EM0Vhc0FpUE5VNlJDUFM5dVR3YWJWRmh1cmZhVWJqOHRlLU9yNGFIcjViWW9GRG51TWV5ZG1aaEJ1Ylk0UUxBc0p6TWZhOU5mUWVzdHE4aWU0Qm9pb1ZDWXB0TG9WanMtaWxjMmJWRjVjSXdta2U0SGxKOFp4WDM4Ql9YRHc?oc=5",
-      "published_at": "2026-10-17T15:03:53+00:00",
-      "fetched_at": "2026-10-18T01:27:08+00:00",
-      "category": "technology",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-10-18T01:27:08+00:00",
-      "last_seen_at": "2026-10-18T01:27:08+00:00"
-    },
-    {
-      "id": "5c561038ebe9399b",
-      "region": "eu",
-      "title": "Zelenskiy asked neighbours to let grain cargoes through, Hungary PM Magyar says - Reuters",
-      "title_cn": "匈牙利总理马扎尔表示，泽连斯基要求邻国允许谷物货物通过 - 路透中文网",
-      "summary": "Zelenskiy asked neighbours to let grain cargoes through, Hungary PM Magyar says Reuters",
-      "source": "Reuters Europe",
-      "source_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNaWJaVEpSZWhMYmlHSWRXQzVMdzdYcTNhWHUyekU3djBGWFk1aEI4NTRqVnZTUURaZWFMZUhicERRQXFYQXRKNHRJUGhXaE5WVzl0WUg3UC1SS29UQ0I4YkRydFZzZjU0azhxd1VPa2p0UXRhLWJkRkJzdUJiMGNLenA5TmJoTVozMjVUa0ZHaWFpQ0xiVkZUdjQwRWptSW5lQ0Y3c1hWSEc3YmVoSTVJa0pTUHBTdkZXaVhUMFgwTk5UZw?oc=5",
-      "published_at": "2026-10-17T13:21:35+00:00",
-      "fetched_at": "2026-10-18T01:27:08+00:00",
+      "source_url": "https://www.politico.eu/article/emmanuel-macron-to-address-france-as-trump-says-the-country-burning/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-18T15:05:07+00:00",
+      "fetched_at": "2026-10-19T01:34:05+00:00",
       "category": "industry",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-10-18T01:27:08+00:00",
-      "last_seen_at": "2026-10-18T01:27:08+00:00"
+      "first_seen_at": "2026-10-19T01:34:05+00:00",
+      "last_seen_at": "2026-10-19T01:34:05+00:00"
     },
     {
-      "id": "40aace5594221a58",
+      "id": "98a0f2a44ccfd587",
       "region": "eu",
-      "title": "Zelenskiy hopes for meeting with US and Russia during G20 summit - Reuters",
-      "title_cn": "泽伦斯基希望在G20峰会期间与美国和俄罗斯会面 - 路透中文网",
-      "summary": "Zelenskiy hopes for meeting with US and Russia during G20 summit Reuters",
-      "source": "Reuters Europe",
-      "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPdDM2a0NkRFJYMExTcDFiNXZseFl3dXd3MHRMNU1ISjhoZDNieUZ2MTJaY1FvZFlqS190cEhpOTRsR2hqLUF5cFhadjF4MGptZlExUWJORDFHSlR1anN1ZmhBa2NXdXV2c0VDSHFpR0hMa09FS1BNT283X1VHLVJkN05GcHU1VlBYQlNJTVFQUVFCeVBDT09hYm90VWlyRlJaLXlKR2dlZnI?oc=5",
-      "published_at": "2026-10-17T13:07:09+00:00",
-      "fetched_at": "2026-10-18T01:27:08+00:00",
-      "category": "technology",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-10-18T01:27:08+00:00",
-      "last_seen_at": "2026-10-18T01:27:08+00:00"
-    },
-    {
-      "id": "ff2bce9ec6b66023",
-      "region": "eu",
-      "title": "Ukraine says Russia's claimed territorial advances are 'an illusion' - Reuters",
-      "title_cn": "乌克兰称俄罗斯声称的领土进步是“幻觉” - 路透中文网",
-      "summary": "Ukraine says Russia's claimed territorial advances are 'an illusion' Reuters",
-      "source": "Reuters Europe",
-      "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSnRmWGFHY2E5VUVuby10c1hDVllKMlRaWTlQWnViTGxiR3ZLYXYzeWQwTmRHMExGMzhUNXdxdE5sWnd0c3RPUUlUekpMd1haZ3V3bE9EbUxLY2MtWVpiN01pdGw5RkNHaGV4THNkYkRlYlE2UF8zRktxelNxeEx0bkIwM0Z6VW1QamhyMnNOUGlsRWw0X21OMUswNG1EcEdxZU1oNWFDMkUtTzdtZjNFVHFNMS0?oc=5",
-      "published_at": "2026-10-17T12:59:43+00:00",
-      "fetched_at": "2026-10-18T01:27:08+00:00",
+      "title": "Ukraine strikes oil facility in St. Petersburg as part of ‘massive’ drone attack",
+      "title_cn": "Ukraine strikes oil facility in St. Petersburg as part of ‘massive’ drone attack",
+      "summary": "Ukrainian President Volodymyr Zelenskyy said last week he had ordered the resumption of strikes on Russian oil refineries following a three-day pause.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/ukraine-strikes-oil-facility-st-petersburg-part-massive-drone-attack/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-18T10:40:31+00:00",
+      "fetched_at": "2026-10-19T01:34:05+00:00",
       "category": "defense_security",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-10-18T01:27:08+00:00",
-      "last_seen_at": "2026-10-18T01:27:08+00:00"
+      "first_seen_at": "2026-10-19T01:34:05+00:00",
+      "last_seen_at": "2026-10-19T01:34:05+00:00"
     },
     {
-      "id": "166e08805a97a1c7",
+      "id": "6982c4a12d2c39c3",
       "region": "eu",
-      "title": "Police, demonstrators clash on sidelines of mass French protests",
-      "title_cn": "法国大规模抗议活动期间警察与示威者发生冲突",
-      "summary": "Students, farmers and the Yellow Jacket movement are taking to the street, calling for a \"convergence of struggles.\"",
-      "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/police-protesters-clash-ahead-of-mass-demonstrations-in-france/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-17T11:33:31+00:00",
-      "fetched_at": "2026-10-18T01:27:08+00:00",
-      "category": "education",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-10-18T01:27:08+00:00",
-      "last_seen_at": "2026-10-18T01:27:08+00:00"
-    },
-    {
-      "id": "6e66c5ab300cf0ac",
-      "region": "germany",
-      "title": "IMFC chair says global economy resilient; delegates walk out on Russian official - Reuters",
-      "title_cn": "国际货币与金融委员会主席表示全球经济具有韧性；代表们罢免俄罗斯官员 - 路透中文网",
-      "summary": "IMFC chair says global economy resilient; delegates walk out on Russian official Reuters",
-      "source": "Reuters Germany",
-      "source_url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOa05jVFdUVTlxcG85OVFRMF94Wmo0TXlmSjRUWXhlb0xYYUVXdXd3ODJ6QWFMXzlSRW0ybkJ1MHgtbmt6ZjhXNzN1UkwwTEFURzJsRk8zSVBlQldrWXlHMGlhSTJoSDdYMjc5UWttN1dDX1VKZ2xTcGRHYVEyRW16TUdGbGpSMVVKck1ITUk5dkpyOHhrODd5bi1vLXJpUy1pR0tUd2V2T1hXOUNQcDJLMlNEMVZXUVl2RlgzVGZJaEV2VUNsSGc?oc=5",
-      "published_at": "2026-10-17T05:19:00+00:00",
-      "fetched_at": "2026-10-18T01:27:08+00:00",
-      "category": "economy",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-10-18T01:27:08+00:00",
-      "last_seen_at": "2026-10-18T01:27:08+00:00"
-    },
-    {
-      "id": "aeb366e9ff3089b5",
-      "region": "germany",
-      "title": "German minister seeks debt-brake exemption to sustain Ukraine aid - Reuters",
-      "title_cn": "德国部长寻求债务减免以维持乌克兰援助 - 路透中文网",
-      "summary": "German minister seeks debt-brake exemption to sustain Ukraine aid Reuters",
-      "source": "Reuters Germany",
-      "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNNzgyQjREYTJZX3VWNTU2MWE0Y1YzRFZHTi1hb2pxVWFRV1lqd05fZVdKZXZsT1pCckMtOWJKaGxEM2dDOVVBQnVhVEdtaDBEZXRpTWx1ZFhVbDZqYzh0X1hpbWI0LUNvMlk1WHJCbGFtbzZDZFhmUTJlUXFUblJIYzhXenJFTUlTelYzTFpfNVUxVkFocHRLWjlDelJnUWFIWEkzQkMtZw?oc=5",
-      "published_at": "2026-10-17T05:10:00+00:00",
-      "fetched_at": "2026-10-18T01:27:08+00:00",
-      "category": "politics_society",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-10-18T01:27:08+00:00",
-      "last_seen_at": "2026-10-18T01:27:08+00:00"
-    },
-    {
-      "id": "b697a16ac737d53b",
-      "region": "eu",
-      "title": "Zelenskiy criticizes Trump's waiver of sanctions on Russia as 'wrong' - Reuters",
-      "title_cn": "泽连斯基批评特朗普放弃对俄罗斯制裁是“错误的” - 路透中文网",
-      "summary": "Zelenskiy criticizes Trump's waiver of sanctions on Russia as 'wrong' Reuters",
+      "title": "Zelenskiy says Russia attacked Ukrainian energy sector 76 times in past week - Reuters",
+      "title_cn": "Zelenskiy says Russia attacked Ukrainian energy sector 76 times in past week - Reuters",
+      "summary": "Zelenskiy says Russia attacked Ukrainian energy sector 76 times in past week Reuters",
       "source": "Reuters Europe",
-      "source_url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQUWRsWXNvbUVMb01QdTFTbEhpSGhZLVZYVXZramJkQjg2RXUzbXRaZjZlcnY1QTNoeU1zQzhhOEhwOFZVSkRySFFZNWI3RjZtUHJLaDhybEhWVzFBTF9uVlZjWlNSQk5aX25iZ0EySjRQYjR5aVRiM1VERjVFWmpTOTR0Y1ZhNUtaTHpTaWdZZVRPUmppTUJtYl9IZlhGQnM3WkVSNmRreVBjaDF5anFfSHhqN1ZUc2p3cjRoU0pyUzRkZjlBM05B?oc=5",
-      "published_at": "2026-10-17T01:17:00+00:00",
-      "fetched_at": "2026-10-18T01:27:08+00:00",
-      "category": "technology",
+      "source_url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxONHpkelZ3dVpCdWF5d2JkVGE3TmZGUzJXLUtsQWUxQnZWVXBtNWJQY1dQOVZJakRiaWRrYlZBQVhsX0JJZ2FKM3AtTW0zRWN3TGNtY2NERnRNckJFU2s1LWNVUUVDb1d3XzVFSHJwT0VOMGVieVBiZHhTbk8ta3A0MkFQeUxUeGhtTnU0aHl0OG0taVh0VU45Y25HNkhwQ2RKWGEwa2w5d0o5RVJPNURXUXRoajdReG5ZbG1YbU1hVQ?oc=5",
+      "published_at": "2026-10-18T08:31:43+00:00",
+      "fetched_at": "2026-10-19T01:34:05+00:00",
+      "category": "energy",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-10-18T01:27:08+00:00",
-      "last_seen_at": "2026-10-18T01:27:08+00:00"
+      "first_seen_at": "2026-10-19T01:34:05+00:00",
+      "last_seen_at": "2026-10-19T01:34:05+00:00"
+    },
+    {
+      "id": "a64dd8e909a2ba0c",
+      "region": "germany",
+      "title": "China proposes export controls on solar-manufacturing technologies - Reuters",
+      "title_cn": "China proposes export controls on solar-manufacturing technologies - Reuters",
+      "summary": "China proposes export controls on solar-manufacturing technologies Reuters",
+      "source": "Reuters Germany",
+      "source_url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOaGtBN1ctcU1NbGFxLXVKb01UVVdDUklxa3Z6Tk1ac05vT2lkd0d2THJqR1Q4VDBDTjJFSUlJYXNCdF83Tko2S0hrbDZSX3NrWWRrWFljNFNHOWhVUnpib3JpdjY3TWZJUEpEQzJKdnFpckZhZTM4X3RXTnhuMzVJWXRxemxoUTdlcDcwckxSUlROQ1pqbHZWdFplOEZUTHh1dDVxb3pfTlN3X2dURk1ETnJzTXJmUFluU0dfck1OSFl4YVlqZHE1NA?oc=5",
+      "published_at": "2026-10-18T06:22:00+00:00",
+      "fetched_at": "2026-10-19T01:34:05+00:00",
+      "category": "trade",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-19T01:34:05+00:00",
+      "last_seen_at": "2026-10-19T01:34:05+00:00"
     }
   ]
 }
