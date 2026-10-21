@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "runDate": "2026-10-20",
-  "publishedAt": "2026-10-20T09:04:06+08:00",
-  "windowStart": "2026-10-19T01:00:03.717393+00:00",
-  "windowEnd": "2026-10-20T01:03:47.514651+00:00",
-  "sourceUpdatedAt": "2026-10-17T01:04:56+00:00",
-  "status": "unchanged",
+  "runDate": "2026-10-21",
+  "publishedAt": "2026-10-21T08:58:09+08:00",
+  "windowStart": "2026-10-20T01:03:47.514651+00:00",
+  "windowEnd": "2026-10-21T00:57:14.788956+00:00",
+  "sourceUpdatedAt": "2026-10-21T00:57:14+00:00",
+  "status": "success",
   "executionLineage": {
-    "runId": "web3-daily-triage:codex-web3-20261020-010316Z",
-    "requestId": "codex-web3-20261020-010316Z",
-    "triggerSha": "83859f6bba72519393a6618ffe0788425ea3dd3e",
-    "githubRunId": 39351291349,
-    "scheduledAt": "2026-10-20T01:03:16Z",
-    "startedAt": "2026-10-20T01:03:45.302872+00:00",
-    "sourceCheckedAt": "2026-10-20T01:03:47.514322+00:00",
-    "sourceUpdatedAt": "2026-10-17T01:04:56+00:00",
-    "completedAt": "2026-10-20T01:03:47.514651+00:00",
-    "publishedAt": "2026-10-20T09:04:06+08:00"
+    "runId": "web3-daily-triage:codex-web3-20261021-005641Z",
+    "requestId": "codex-web3-20261021-005641Z",
+    "triggerSha": "1cb360a10792931cfb9add7f3f9fea55288cd1bd",
+    "githubRunId": 39524392794,
+    "scheduledAt": "2026-10-21T00:56:41Z",
+    "startedAt": "2026-10-21T00:57:13.248777+00:00",
+    "sourceCheckedAt": "2026-10-21T00:57:14.788673+00:00",
+    "sourceUpdatedAt": "2026-10-21T00:57:14+00:00",
+    "completedAt": "2026-10-21T00:57:14.788956+00:00",
+    "publishedAt": "2026-10-21T08:58:09+08:00"
   },
   "executionStatus": {
-    "collection": "unchanged",
+    "collection": "success",
     "validation": "success",
     "publication": "success"
   },
-  "deduplicationNote": "候选窗口从 2026-10-19 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；本次采集结果 unchanged，历史快照未新增事件，按累计 reportedEventIds 去重后没有新增融资候选。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+  "deduplicationNote": "候选窗口从 2026-10-20 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；历史新增五个观测事件，其中 Z.com EX 与 AptPay 为 M&A，已在研究前排除；其余三个非 M&A 事件按累计 reportedEventIds 去重后完成初筛。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
   "reportedEventIds": [
     "crypto-fundraising-ponygo--2026-09--round-unknown",
     "crypto-fundraising-velocity--2026-09--series-a",
@@ -74,13 +74,192 @@
     "crypto-fundraising-fission-labs--2026-10--series-a",
     "crypto-fundraising-multiliquid--2026-10--seed",
     "crypto-fundraising-spout-finance--2026-10--strategic",
-    "crypto-fundraising-zaria--2026-10--seed"
+    "crypto-fundraising-zaria--2026-10--seed",
+    "crypto-fundraising-mural--2026-10--series-a",
+    "crypto-fundraising-honeyb--2026-10--seed",
+    "crypto-fundraising-lighthouse-storage--2026-10--round-unknown"
   ],
   "counts": {
-    "new": 0,
+    "new": 3,
     "action": 0,
     "watch": 0,
-    "stop": 0
+    "stop": 3
   },
-  "projects": []
+  "projects": [
+    {
+      "event_id": "crypto-fundraising-mural--2026-10--series-a",
+      "source_detail_url": "https://crypto-fundraising.info/projects/mural/",
+      "project_name": "Mural",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": 15000000,
+        "round": "Series A",
+        "lead_investors": [
+          "Tether"
+        ],
+        "announcement_date": "2026-10-20",
+        "confidence": "medium"
+      },
+      "plain_explanation": "Mural 为企业、金融科技平台和软件代理提供合规的法币与稳定币账户、收款、付款和兑换基础设施。",
+      "mechanism_simple": "客户通过 Mural 的账户和 API 管理美元、欧元及拉美货币，并由 Mural 处理牌照、合规和本地支付通道。",
+      "project_status": {
+        "category": "existing_no_token",
+        "token_status": "no_token_found",
+        "note": "2022 年已开始融资并已有企业客户；未发现原生代币。"
+      },
+      "participation": {
+        "available_now": false,
+        "what_user_can_do": null,
+        "requires_real_funds": false,
+        "friction_or_risk": "产品主要供企业和开发者集成，普通个人没有相关参与路径。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "未发现面向普通用户的官方 Points、测试网、代币或空投计划。"
+      },
+      "why": [
+        "核心产品面向企业支付与开发集成，并非普通用户产品。",
+        "融资和知名投资方本身不构成早期参与机会。",
+        "当前没有可验证的低成本用户激励。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://muralpay.com/",
+      "x_url": null,
+      "evidence": [
+        {
+          "claim": "官方产品面向企业与代理，提供账户、收付款、兑换及合规基础设施。",
+          "url": "https://muralpay.com/",
+          "source_type": "official_site",
+          "confidence": "high"
+        },
+        {
+          "claim": "1500 万美元 Series A 由 Tether 领投，North Island Ventures 参与。",
+          "url": "https://cryptorank.io/insights/deals/mural-series-a-2026-10-20",
+          "source_type": "database",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-honeyb--2026-10--seed",
+      "source_detail_url": "https://crypto-fundraising.info/projects/honeyb/",
+      "project_name": "HoneyB",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": 5000000,
+        "round": "Seed",
+        "lead_investors": [
+          "Portal Ventures"
+        ],
+        "announcement_date": "2026-10-20",
+        "confidence": "high"
+      },
+      "plain_explanation": "HoneyB 试图让机构用原生 BTC 作抵押，借出稳定币后投入美国国债、固定收益和其他现实资产策略来赚取收益。",
+      "mechanism_simple": "BTC 保留在钱包或合格托管机构中作为抵押，借入的稳定币进入专业管理策略；扣除融资成本和费用后，剩余收益返还给客户。",
+      "project_status": {
+        "category": "new_unlaunched",
+        "token_status": "unconfirmed",
+        "note": "产品仍标注 Coming soon；融资包含代币权证，但未确认面向公众的代币计划。"
+      },
+      "participation": {
+        "available_now": false,
+        "what_user_can_do": null,
+        "requires_real_funds": true,
+        "friction_or_risk": "当前主要面向非美国机构，策略涉及 BTC 抵押、借贷、托管和现实资产投资风险。"
+      },
+      "incentives": {
+        "status": "unconfirmed",
+        "types": [
+          "token"
+        ],
+        "details": "种子轮包含代币权证，但未发现官方面向普通用户的积分、测试网或空投活动。"
+      },
+      "why": [
+        "当前产品尚未上线，且首批目标用户是机构。",
+        "普通用户没有可执行的低成本参与路径。",
+        "未来收益需承担抵押、借贷、托管与底层投资策略风险。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://www.honeybtc.com/",
+      "x_url": null,
+      "evidence": [
+        {
+          "claim": "官方页面说明产品面向机构、仍为 Coming soon，并披露 BTC 抵押借贷与资金部署机制。",
+          "url": "https://www.honeybtc.com/",
+          "source_type": "official_site",
+          "confidence": "high"
+        },
+        {
+          "claim": "Nectar Group 完成 500 万美元种子轮，由 Portal Ventures 领投，融资采用 SAFE 加代币权证。",
+          "url": "https://www.theblock.co/news/deals/2026-10-20-bitcoin-yield-platform-honeyb-funding-valuation-421430",
+          "source_type": "other",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-lighthouse-storage--2026-10--round-unknown",
+      "source_detail_url": "https://crypto-fundraising.info/projects/lighthouse-storage/",
+      "project_name": "Lighthouse.storage",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": 1580000,
+        "round": null,
+        "lead_investors": [],
+        "announcement_date": null,
+        "confidence": "medium"
+      },
+      "plain_explanation": "Lighthouse.storage 为应用和 AI 代理提供去中心化存储、可持久记忆、加密和访问控制工具。",
+      "mechanism_simple": "开发者通过 SDK、MCP 与兼容 API 把数据写入 IPFS、Filecoin 或 Walrus，并用内容标识验证和检索数据。",
+      "project_status": {
+        "category": "existing_token",
+        "token_status": "token_live",
+        "note": "官方代币页记录原生代币于 2026-10-14 上线，并公布合约地址。"
+      },
+      "participation": {
+        "available_now": true,
+        "what_user_can_do": "开发者可使用存储和 AI 记忆服务；代币可用于锁定服务额度或支付服务。",
+        "requires_real_funds": true,
+        "friction_or_risk": "使用涉及代币价格、智能合约及去中心化存储服务风险。"
+      },
+      "incentives": {
+        "status": "confirmed",
+        "types": [
+          "token"
+        ],
+        "details": "原生代币已上线；本流程对已发币项目执行硬性 STOP。"
+      },
+      "why": [
+        "原生代币已明确上线并可通过官方链接查看。",
+        "根据 Daily Triage 硬规则，已发币项目不再进入 ACTION 或 WATCH。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://www.lighthouse.storage/",
+      "x_url": "https://x.com/LighthouseWeb3",
+      "evidence": [
+        {
+          "claim": "官方代币页公布 2026-10-14 上线日期、10 亿总量和合约地址。",
+          "url": "https://www.lighthouse.storage/token",
+          "source_type": "official_site",
+          "confidence": "high"
+        },
+        {
+          "claim": "来源详情记录本次 158 万美元融资，但未披露轮次和投资方。",
+          "url": "https://crypto-fundraising.info/projects/lighthouse-storage/",
+          "source_type": "database",
+          "confidence": "medium"
+        },
+        {
+          "claim": "官方文档说明产品覆盖 IPFS/Filecoin、Walrus、AI 记忆和 S3 兼容存储。",
+          "url": "https://docs.lighthouse.storage/",
+          "source_type": "docs",
+          "confidence": "high"
+        }
+      ]
+    }
+  ]
 }
