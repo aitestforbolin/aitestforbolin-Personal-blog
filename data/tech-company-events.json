@@ -2,8 +2,8 @@
   "schema_version": 1,
   "timezone": "Asia/Shanghai",
   "horizon_days": 35,
-  "checked_at": "2026-10-20T08:43:04+08:00",
-  "updated_at": "2026-10-16T07:54:19+08:00",
+  "checked_at": "2026-10-21T08:09:54+08:00",
+  "updated_at": "2026-10-21T08:09:54+08:00",
   "companies": [
     {
       "id": "meta",
@@ -77,31 +77,6 @@
     }
   ],
   "events": [
-    {
-      "event_id": "nvidia-product-gtc-berlin-2026",
-      "company_id": "nvidia",
-      "event_category": "product_event",
-      "event_name": "NVIDIA GTC Berlin 2026（10 月 20–22 日）",
-      "reported_period": "",
-      "importance": "core",
-      "status": "scheduled",
-      "confirmation": "confirmed",
-      "date_type": "exact",
-      "date_bjt": "2026-10-20",
-      "time_bjt": null,
-      "market_timing": "time_tbd",
-      "original_time": "2026-10-20 至 2026-10-22",
-      "original_timezone": "Europe/Berlin",
-      "source_label": "NVIDIA",
-      "source_url": "https://www.nvidia.com/",
-      "source_published_at": null,
-      "updated_at": "2026-09-17T00:00:00+08:00",
-      "company": "NVIDIA",
-      "ticker": "NVDA",
-      "company_group": "ai_semiconductor",
-      "company_group_zh": "AI 与半导体",
-      "date_changed": false
-    },
     {
       "event_id": "meta-earnings-2026-q4",
       "company_id": "meta",
