@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-20T11:55:00+00:00",
+  "updated_at": "2026-10-22T12:12:41+00:00",
   "source": "Farside Investors",
   "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
   "unit": "US$m",
@@ -18,12 +18,50 @@
     "BTC"
   ],
   "latest": {
-    "date": "2026-10-19",
-    "total": 526.7,
-    "seven_day_total": 319.4,
-    "thirty_day_total": 1789.7
+    "date": "2026-10-21",
+    "total": 524.8,
+    "seven_day_total": 911.7,
+    "thirty_day_total": 2504.5
   },
   "rows": [
+    {
+      "date": "2026-10-21",
+      "funds": {
+        "IBIT": 235,
+        "FBTC": 212.7,
+        "BITB": 19.2,
+        "ARKB": 9.8,
+        "BTCO": 0,
+        "EZBC": 7.3,
+        "BRRR": 0,
+        "HODL": 0,
+        "BTCW": 0,
+        "MSBT": 0,
+        "GBTC": 32.6,
+        "BTC": 8.2
+      },
+      "total": 524.8,
+      "btc_price": 84093.42
+    },
+    {
+      "date": "2026-10-20",
+      "funds": {
+        "IBIT": 29.9,
+        "FBTC": 3.6,
+        "BITB": -10.3,
+        "ARKB": 0,
+        "BTCO": 0,
+        "EZBC": 0,
+        "BRRR": 0,
+        "HODL": 0,
+        "BTCW": 0,
+        "MSBT": 0,
+        "GBTC": 0,
+        "BTC": 0
+      },
+      "total": 23.2,
+      "btc_price": 83028.15
+    },
     {
       "date": "2026-10-19",
       "funds": {
@@ -840,44 +878,6 @@
       },
       "total": 517.2,
       "btc_price": 69334.79
-    },
-    {
-      "date": "2026-08-18",
-      "funds": {
-        "IBIT": 143.6,
-        "FBTC": 23.9,
-        "BITB": 16.1,
-        "ARKB": 19.7,
-        "BTCO": 0,
-        "EZBC": 0,
-        "BRRR": 0,
-        "HODL": -16.9,
-        "BTCW": 0,
-        "MSBT": 0,
-        "GBTC": 0,
-        "BTC": 2.9
-      },
-      "total": 189.3,
-      "btc_price": 64725.42
-    },
-    {
-      "date": "2026-08-17",
-      "funds": {
-        "IBIT": 160.2,
-        "FBTC": 111.9,
-        "BITB": 0,
-        "ARKB": 14.2,
-        "BTCO": 0,
-        "EZBC": 0,
-        "BRRR": 0,
-        "HODL": 0,
-        "BTCW": 0,
-        "MSBT": 11.2,
-        "GBTC": 0,
-        "BTC": 0
-      },
-      "total": 297.5,
-      "btc_price": 64532.1
     }
   ]
 }
