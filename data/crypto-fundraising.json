@@ -1,71 +1,71 @@
 {
-  "updated_at": "2026-10-21T00:57:14+00:00",
+  "updated_at": "2026-10-22T00:59:32+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-z-com-ex",
+      "id": "crypto-fundraising-zodia-custody",
       "source_rank": 1,
+      "name": "Zodia Custody",
+      "round": "M&A",
+      "announced_month": "2026-10",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/zodia-custody/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-peso",
+      "source_rank": 2,
+      "name": "Peso",
+      "round": "Pre-seed",
+      "announced_month": "2026-10",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/peso/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-erebor",
+      "source_rank": 3,
+      "name": "Erebor",
+      "round": null,
+      "announced_month": "2026-10",
+      "amount_usd": 30000000,
+      "detail_url": "https://crypto-fundraising.info/projects/erebor/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-z-com-ex",
+      "source_rank": 4,
       "name": "Z.com EX",
       "round": "M&A",
       "announced_month": "2026-10",
       "amount_usd": null,
       "detail_url": "https://crypto-fundraising.info/projects/z-com-ex/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-mural",
-      "source_rank": 2,
+      "source_rank": 5,
       "name": "Mural",
       "round": "Series A",
       "announced_month": "2026-10",
       "amount_usd": 15000000,
       "detail_url": "https://crypto-fundraising.info/projects/mural/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-honeyb",
-      "source_rank": 3,
-      "name": "HoneyB",
-      "round": "Seed",
-      "announced_month": "2026-10",
-      "amount_usd": 5000000,
-      "detail_url": "https://crypto-fundraising.info/projects/honeyb/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-lighthouse-storage",
-      "source_rank": 4,
-      "name": "Lighthouse.storage",
-      "round": null,
-      "announced_month": "2026-10",
-      "amount_usd": 1580000,
-      "detail_url": "https://crypto-fundraising.info/projects/lighthouse-storage/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-aptpay",
-      "source_rank": 5,
-      "name": "AptPay",
-      "round": "M&A",
-      "announced_month": "2026-10",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/aptpay/",
-      "is_new": true
+      "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261021-005641Z",
-    "requestId": "codex-web3-20261021-005641Z",
-    "triggerSha": "1cb360a10792931cfb9add7f3f9fea55288cd1bd",
-    "githubRunId": 39524392794,
-    "scheduledAt": "2026-10-21T00:56:41Z",
-    "startedAt": "2026-10-21T00:57:13.248777+00:00",
-    "sourceCheckedAt": "2026-10-21T00:57:14.788673+00:00",
-    "sourceUpdatedAt": "2026-10-21T00:57:14+00:00",
-    "completedAt": "2026-10-21T00:57:14.788956+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261022-005816Z",
+    "requestId": "codex-web3-20261022-005816Z",
+    "triggerSha": "3dec98be4ccca80fc3577b15d5d63bdda61b98ed",
+    "githubRunId": 39703006492,
+    "scheduledAt": "2026-10-22T00:58:16Z",
+    "startedAt": "2026-10-22T00:59:30.091793+00:00",
+    "sourceCheckedAt": "2026-10-22T00:59:32.684746+00:00",
+    "sourceUpdatedAt": "2026-10-22T00:59:32+00:00",
+    "completedAt": "2026-10-22T00:59:32.685009+00:00",
     "publishedAt": null
   }
 }
