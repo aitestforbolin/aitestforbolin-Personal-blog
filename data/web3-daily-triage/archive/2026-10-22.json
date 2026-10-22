@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "runDate": "2026-10-22",
+  "publishedAt": "2026-10-22T09:01:15+08:00",
+  "windowStart": "2026-10-21T00:57:14.788956+00:00",
+  "windowEnd": "2026-10-22T00:59:32.685009+00:00",
+  "sourceUpdatedAt": "2026-10-22T00:59:32+00:00",
+  "status": "success",
+  "executionLineage": {
+    "runId": "web3-daily-triage:codex-web3-20261022-005816Z",
+    "requestId": "codex-web3-20261022-005816Z",
+    "triggerSha": "3dec98be4ccca80fc3577b15d5d63bdda61b98ed",
+    "githubRunId": 39703006492,
+    "scheduledAt": "2026-10-22T00:58:16Z",
+    "startedAt": "2026-10-22T00:59:30.091793+00:00",
+    "sourceCheckedAt": "2026-10-22T00:59:32.684746+00:00",
+    "sourceUpdatedAt": "2026-10-22T00:59:32+00:00",
+    "completedAt": "2026-10-22T00:59:32.685009+00:00",
+    "publishedAt": "2026-10-22T09:01:15+08:00"
+  },
+  "executionStatus": {
+    "collection": "success",
+    "validation": "success",
+    "publication": "success"
+  },
+  "deduplicationNote": "候选窗口从 2026-10-21 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；历史新增三个观测事件，其中 Zodia Custody 为 M&A，已在研究前排除；Peso 与 Erebor 按累计 reportedEventIds 去重后完成初筛。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+  "reportedEventIds": [
+    "crypto-fundraising-ponygo--2026-09--round-unknown",
+    "crypto-fundraising-velocity--2026-09--series-a",
+    "crypto-fundraising-usd-ai-permian-labs--2026-09--round-unknown",
+    "crypto-fundraising-tare--2026-09--seed",
+    "crypto-fundraising-finloop--2026-09--series-a",
+    "crypto-fundraising-fin-com--2026-09--seed",
+    "crypto-fundraising-tenka--2026-09--pre-seed",
+    "crypto-fundraising-rep--2026-09--angel",
+    "crypto-fundraising-dtcpay--2026-09--series-a",
+    "crypto-fundraising-infini--2026-09--seed",
+    "crypto-fundraising-circle--2026-09--round-unknown",
+    "crypto-fundraising-xstable--2026-09--round-unknown",
+    "crypto-fundraising-travix--2026-09--seed",
+    "crypto-fundraising-catchback--2026-09--seed",
+    "crypto-fundraising-infinifi--2026-09--seed",
+    "crypto-fundraising-hifi--2026-09--series-a",
+    "crypto-fundraising-functionspace--2026-09--pre-seed",
+    "crypto-fundraising-limited--2026-09--seed",
+    "crypto-fundraising-axis-robotics--2026-09--public-sale",
+    "crypto-fundraising-raven--2026-09--strategic",
+    "crypto-fundraising-jeeves--2026-09--series-c",
+    "crypto-fundraising-worldcoin--2026-09--private",
+    "crypto-fundraising-grass--2026-09--round-unknown",
+    "crypto-fundraising-jumper--2026-10--public-sale",
+    "crypto-fundraising-uorm--2026-10--pre-seed",
+    "crypto-fundraising-walapay--2026-10--seed",
+    "crypto-fundraising-perptools--2026-10--seed",
+    "crypto-fundraising-rip-cars--2026-09--private",
+    "crypto-fundraising-pheasant-network--2026-10--public-sale",
+    "crypto-fundraising-ipid--2026-10--series-a",
+    "crypto-fundraising-xverse-app--2026-10--strategic",
+    "crypto-fundraising-hyperlink--2026-10--round-unknown",
+    "crypto-fundraising-spiko--2026-10--series-b",
+    "crypto-fundraising-okx--2026-10--round-unknown",
+    "crypto-fundraising-imperial--2026-10--seed",
+    "crypto-fundraising-vest-exchange--2026-10--seed",
+    "crypto-fundraising-noah--2026-10--seed",
+    "crypto-fundraising-nous-research--2026-10--series-b",
+    "crypto-fundraising-catalyst-labs--2026-10--seed",
+    "crypto-fundraising-soda-labs--2026-10--seed",
+    "crypto-fundraising-immix--2026-10--round-unknown",
+    "crypto-fundraising-meanwhile--2026-10--round-unknown",
+    "crypto-fundraising-story-protocol--2026-10--round-unknown",
+    "crypto-fundraising-orbio--2026-10--seed",
+    "crypto-fundraising-efy-finance--2026-10--seed",
+    "crypto-fundraising-aisa--2026-10--round-unknown",
+    "crypto-fundraising-fission-labs--2026-10--series-a",
+    "crypto-fundraising-multiliquid--2026-10--seed",
+    "crypto-fundraising-spout-finance--2026-10--strategic",
+    "crypto-fundraising-zaria--2026-10--seed",
+    "crypto-fundraising-mural--2026-10--series-a",
+    "crypto-fundraising-honeyb--2026-10--seed",
+    "crypto-fundraising-lighthouse-storage--2026-10--round-unknown",
+    "crypto-fundraising-peso--2026-10--pre-seed",
+    "crypto-fundraising-erebor--2026-10--round-unknown"
+  ],
+  "counts": {
+    "new": 2,
+    "action": 0,
+    "watch": 1,
+    "stop": 1
+  },
+  "projects": [
+    {
+      "event_id": "crypto-fundraising-peso--2026-10--pre-seed",
+      "source_detail_url": "https://crypto-fundraising.info/projects/peso/",
+      "project_name": "Peso",
+      "decision": "WATCH",
+      "financing": {
+        "amount_usd": null,
+        "round": "Pre-seed",
+        "lead_investors": [
+          "Tether"
+        ],
+        "announcement_date": "2026-10-21",
+        "confidence": "high"
+      },
+      "plain_explanation": "Peso 是面向拉美用户的美元与稳定币账户应用，可把本地货币和 USD₮ 用于储蓄、跨境转账、银行卡及日常支付。",
+      "mechanism_simple": "用户完成身份验证后获得美元账户，通过本地 QR、ACH 和多条区块链在法币与 USD₮ 间进出；应用把稳定币连接到商户和本地银行支付通道。",
+      "project_status": {
+        "category": "existing_no_token",
+        "token_status": "no_token_found",
+        "note": "产品已上线并持续运营；未发现 Peso 原生代币或已公布代币计划。"
+      },
+      "participation": {
+        "available_now": true,
+        "what_user_can_do": "拉美居民可用本地身份证开户，收发 USD/USDT、跨境转账，并在部分市场通过 QR 或银行卡消费。",
+        "requires_real_funds": true,
+        "friction_or_risk": "需要 KYC 和真实资金；功能受所在国家限制，并存在稳定币、汇率、合作机构和出入金渠道风险。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "未发现官方 Points、测试网、代币或空投活动；当前价值主要来自实际支付和美元账户功能。"
+      },
+      "why": [
+        "产品已可用，解决拉美美元获取、跨境收付和稳定币日常消费的真实需求。",
+        "Tether 领投有助于扩展本地出入金，但融资本身不是行动理由。",
+        "地域限制明显，且没有低成本早期激励，对非拉美用户暂不值得投入真实资金。"
+      ],
+      "next_step": null,
+      "recheck_trigger": "若官方开放非拉美居民的合规使用路径，或推出可验证的无资金测试、积分或代币计划时再复核。",
+      "website_url": "https://www.peso-latam.com/",
+      "x_url": null,
+      "evidence": [
+        {
+          "claim": "官网确认拉美用户可用身份证开户，并提供 USD/USDT 收付、QR 支付、跨境转账和部分市场银行卡功能。",
+          "url": "https://www.peso-latam.com/",
+          "source_type": "official_site",
+          "confidence": "high"
+        },
+        {
+          "claim": "Tether 于 2026-10-21 宣布领投未披露金额的 pre-seed，并说明资金用于扩展玻利维亚、巴西、哥伦比亚和阿根廷的出入金及商户网络。",
+          "url": "https://tether.io/news/tether-invests-in-peso-to-expand-usdt-payment-infrastructure-across-latin-america/",
+          "source_type": "investor",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-erebor--2026-10--round-unknown",
+      "source_detail_url": "https://crypto-fundraising.info/projects/erebor/",
+      "project_name": "Erebor",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": 30000000,
+        "round": "Preferred Stock",
+        "lead_investors": [
+          "Robinhood Ventures Fund I (RVI)"
+        ],
+        "announcement_date": "2026-10-21",
+        "confidence": "high"
+      },
+      "plain_explanation": "Erebor 是一家受监管的美国数字银行，重点服务 AI、国防、加密和先进制造等创新型企业。",
+      "mechanism_simple": "银行直接持有受监管资产负债表，为企业提供存款、支付和信贷等银行服务，而不是提供面向个人的早期加密协议参与。",
+      "project_status": {
+        "category": "existing_no_token",
+        "token_status": "no_token_found",
+        "note": "Erebor Bank 已获银行许可并为 FDIC 成员；未发现原生代币。"
+      },
+      "participation": {
+        "available_now": false,
+        "what_user_can_do": null,
+        "requires_real_funds": true,
+        "friction_or_risk": "本次事件是 RVI 购买银行优先股，普通用户没有项目级低成本参与路径；银行服务也主要面向企业客户。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "未发现官方 Points、测试网、代币或空投计划。"
+      },
+      "why": [
+        "核心业务是受监管的企业银行服务，不是面向普通用户的早期 Web3 产品。",
+        "3000 万美元事件是优先股投资，不创造可执行的低成本参与机会。",
+        "没有原生代币、官方激励或值得持续跟踪的用户侧催化剂。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://erebor.bank/",
+      "x_url": null,
+      "evidence": [
+        {
+          "claim": "Erebor 官网确认其为 Erebor Bank, N.A.，且为 FDIC 成员。",
+          "url": "https://erebor.bank/",
+          "source_type": "official_site",
+          "confidence": "high"
+        },
+        {
+          "claim": "Robinhood Ventures Fund I 于 2026-10-21 宣布以 3000 万美元购买 Erebor Bank 优先股，交易已于 2026-09-17 完成。",
+          "url": "https://robinhood.com/newsroom/",
+          "source_type": "investor",
+          "confidence": "high"
+        },
+        {
+          "claim": "OCC 曾公告对 Erebor Bank, N.A. 的银行牌照申请作出有条件批准。",
+          "url": "https://www.occ.gov/news-issuances/news-releases/2025/nr-occ-2025-101.html",
+          "source_type": "other",
+          "confidence": "high"
+        }
+      ]
+    }
+  ]
+}
