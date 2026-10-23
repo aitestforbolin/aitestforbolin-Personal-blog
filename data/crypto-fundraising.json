@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T00:59:32+00:00",
+  "updated_at": "2026-10-23T01:01:43+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
@@ -12,7 +12,7 @@
       "announced_month": "2026-10",
       "amount_usd": null,
       "detail_url": "https://crypto-fundraising.info/projects/zodia-custody/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-peso",
@@ -22,7 +22,7 @@
       "announced_month": "2026-10",
       "amount_usd": null,
       "detail_url": "https://crypto-fundraising.info/projects/peso/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-erebor",
@@ -32,40 +32,40 @@
       "announced_month": "2026-10",
       "amount_usd": 30000000,
       "detail_url": "https://crypto-fundraising.info/projects/erebor/",
+      "is_new": false
+    },
+    {
+      "id": "crypto-fundraising-dataline-ex-tearline",
+      "source_rank": 4,
+      "name": "Dataline (ex Tearline)",
+      "round": "Seed",
+      "announced_month": "2026-10",
+      "amount_usd": 10600000,
+      "detail_url": "https://crypto-fundraising.info/projects/dataline-ex-tearline/",
       "is_new": true
     },
     {
-      "id": "crypto-fundraising-z-com-ex",
-      "source_rank": 4,
-      "name": "Z.com EX",
-      "round": "M&A",
-      "announced_month": "2026-10",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/z-com-ex/",
-      "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-mural",
+      "id": "crypto-fundraising-whop",
       "source_rank": 5,
-      "name": "Mural",
-      "round": "Series A",
+      "name": "Whop",
+      "round": "Series D",
       "announced_month": "2026-10",
-      "amount_usd": 15000000,
-      "detail_url": "https://crypto-fundraising.info/projects/mural/",
-      "is_new": false
+      "amount_usd": 200000000,
+      "detail_url": "https://crypto-fundraising.info/projects/whop/",
+      "is_new": true
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261022-005816Z",
-    "requestId": "codex-web3-20261022-005816Z",
-    "triggerSha": "3dec98be4ccca80fc3577b15d5d63bdda61b98ed",
-    "githubRunId": 39703006492,
-    "scheduledAt": "2026-10-22T00:58:16Z",
-    "startedAt": "2026-10-22T00:59:30.091793+00:00",
-    "sourceCheckedAt": "2026-10-22T00:59:32.684746+00:00",
-    "sourceUpdatedAt": "2026-10-22T00:59:32+00:00",
-    "completedAt": "2026-10-22T00:59:32.685009+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261023-010040Z",
+    "requestId": "codex-web3-20261023-010040Z",
+    "triggerSha": "a45c54883fb756623c1a7838fb53637149a5b4da",
+    "githubRunId": 39881595402,
+    "scheduledAt": "2026-10-23T01:00:40Z",
+    "startedAt": "2026-10-23T01:01:36.194931+00:00",
+    "sourceCheckedAt": "2026-10-23T01:01:43.539217+00:00",
+    "sourceUpdatedAt": "2026-10-23T01:01:43+00:00",
+    "completedAt": "2026-10-23T01:01:43.539567+00:00",
     "publishedAt": null
   }
 }
