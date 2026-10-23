@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "codex-web3-20261022-005816Z",
-  "triggerSha": "3dec98be4ccca80fc3577b15d5d63bdda61b98ed",
-  "publicationDate": "2026-10-22",
-  "publishedAt": "2026-10-22T09:01:15+08:00",
+  "requestId": "codex-web3-20261023-010040Z",
+  "triggerSha": "a45c54883fb756623c1a7838fb53637149a5b4da",
+  "publicationDate": "2026-10-23",
+  "publishedAt": "2026-10-23T09:02:45+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-10-22",
-    "publishedAt": "2026-10-22T09:01:15+08:00",
-    "windowStart": "2026-10-21T00:57:14.788956+00:00",
-    "windowEnd": "2026-10-22T00:59:32.685009+00:00",
-    "sourceUpdatedAt": "2026-10-22T00:59:32+00:00",
+    "runDate": "2026-10-23",
+    "publishedAt": "2026-10-23T09:02:45+08:00",
+    "windowStart": "2026-10-22T00:59:32.685009+00:00",
+    "windowEnd": "2026-10-23T01:01:43.539567+00:00",
+    "sourceUpdatedAt": "2026-10-23T01:01:43+00:00",
     "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:codex-web3-20261022-005816Z",
-      "requestId": "codex-web3-20261022-005816Z",
-      "triggerSha": "3dec98be4ccca80fc3577b15d5d63bdda61b98ed",
-      "githubRunId": 39703006492,
-      "scheduledAt": "2026-10-22T00:58:16Z",
-      "startedAt": "2026-10-22T00:59:30.091793+00:00",
-      "sourceCheckedAt": "2026-10-22T00:59:32.684746+00:00",
-      "sourceUpdatedAt": "2026-10-22T00:59:32+00:00",
-      "completedAt": "2026-10-22T00:59:32.685009+00:00",
-      "publishedAt": "2026-10-22T09:01:15+08:00"
+      "runId": "web3-daily-triage:codex-web3-20261023-010040Z",
+      "requestId": "codex-web3-20261023-010040Z",
+      "triggerSha": "a45c54883fb756623c1a7838fb53637149a5b4da",
+      "githubRunId": 39881595402,
+      "scheduledAt": "2026-10-23T01:00:40Z",
+      "startedAt": "2026-10-23T01:01:36.194931+00:00",
+      "sourceCheckedAt": "2026-10-23T01:01:43.539217+00:00",
+      "sourceUpdatedAt": "2026-10-23T01:01:43+00:00",
+      "completedAt": "2026-10-23T01:01:43.539567+00:00",
+      "publishedAt": "2026-10-23T09:02:45+08:00"
     },
     "executionStatus": {
       "collection": "success",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "候选窗口从 2026-10-21 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；历史新增三个观测事件，其中 Zodia Custody 为 M&A，已在研究前排除；Peso 与 Erebor 按累计 reportedEventIds 去重后完成初筛。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "候选窗口从 2026-10-22 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；历史新增两个观测事件，均非 M&A，并按累计 reportedEventIds 去重后完成初筛。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -86,130 +86,142 @@
       "crypto-fundraising-honeyb--2026-10--seed",
       "crypto-fundraising-lighthouse-storage--2026-10--round-unknown",
       "crypto-fundraising-peso--2026-10--pre-seed",
-      "crypto-fundraising-erebor--2026-10--round-unknown"
+      "crypto-fundraising-erebor--2026-10--round-unknown",
+      "crypto-fundraising-dataline-ex-tearline--2026-10--seed",
+      "crypto-fundraising-whop--2026-10--series-d"
     ],
     "counts": {
       "new": 2,
-      "action": 0,
+      "action": 1,
       "watch": 1,
-      "stop": 1
+      "stop": 0
     },
     "projects": [
       {
-        "event_id": "crypto-fundraising-peso--2026-10--pre-seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/peso/",
-        "project_name": "Peso",
-        "decision": "WATCH",
+        "event_id": "crypto-fundraising-whop--2026-10--series-d",
+        "source_detail_url": "https://crypto-fundraising.info/projects/whop/",
+        "project_name": "Whop",
+        "decision": "ACTION",
         "financing": {
-          "amount_usd": null,
-          "round": "Pre-seed",
+          "amount_usd": 200000000,
+          "round": "Series D",
           "lead_investors": [
-            "Tether"
+            "Sequoia Capital",
+            "Shopify Ventures"
           ],
           "announcement_date": "2026-10-21",
           "confidence": "high"
         },
-        "plain_explanation": "Peso 是面向拉美用户的美元与稳定币账户应用，可把本地货币和 USD₮ 用于储蓄、跨境转账、银行卡及日常支付。",
-        "mechanism_simple": "用户完成身份验证后获得美元账户，通过本地 QR、ACH 和多条区块链在法币与 USD₮ 间进出；应用把稳定币连接到商户和本地银行支付通道。",
+        "plain_explanation": "Whop 是面向创作者和网络业务经营者的平台，可搭建数字商品、课程、会员社区或软件服务的商店，并处理获客、收款与分账。",
+        "mechanism_simple": "经营者可免费创建商品页或嵌入结账组件，客户购买后由 Whop 处理支付、KYC、退款和多种提现方式；平台按实际交易收费。",
         "project_status": {
           "category": "existing_no_token",
           "token_status": "no_token_found",
-          "note": "产品已上线并持续运营；未发现 Peso 原生代币或已公布代币计划。"
+          "note": "Whop 自 2021 年起运营，已是成熟平台；未发现原生代币。"
         },
         "participation": {
           "available_now": true,
-          "what_user_can_do": "拉美居民可用本地身份证开户，收发 USD/USDT、跨境转账，并在部分市场通过 QR 或银行卡消费。",
-          "requires_real_funds": true,
-          "friction_or_risk": "需要 KYC 和真实资金；功能受所在国家限制，并存在稳定币、汇率、合作机构和出入金渠道风险。"
+          "what_user_can_do": "可免费注册并搭建一个不公开收费的测试商店，验证课程、研究资料、会员社区或数字产品的发布流程。",
+          "requires_real_funds": false,
+          "friction_or_risk": "创建与上架可免费测试；真正收款前需要完成 KYC，并应先确认中国大陆或香港身份、银行账户及税务条件是否支持提现。"
         },
         "incentives": {
           "status": "none_found",
           "types": [],
-          "details": "未发现官方 Points、测试网、代币或空投活动；当前价值主要来自实际支付和美元账户功能。"
+          "details": "未发现官方 Points、测试网、代币或空投活动；本次 ACTION 来自实际内容变现工具价值，而非加密激励。"
         },
         "why": [
-          "产品已可用，解决拉美美元获取、跨境收付和稳定币日常消费的真实需求。",
-          "Tether 领投有助于扩展本地出入金，但融资本身不是行动理由。",
-          "地域限制明显，且没有低成本早期激励，对非拉美用户暂不值得投入真实资金。"
+          "产品已成熟可用，且直接对应创作者销售数字内容和会员服务的真实需求。",
+          "可以零成本完成端到端产品搭建测试，不必先投入资金或公开销售。",
+          "支持全球支付与多种提现方式，但正式使用前需要核验 KYC 和所在地可用性。"
         ],
-        "next_step": null,
-        "recheck_trigger": "若官方开放非拉美居民的合规使用路径，或推出可验证的无资金测试、积分或代币计划时再复核。",
-        "website_url": "https://www.peso-latam.com/",
-        "x_url": null,
+        "next_step": "注册免费账户，先建立一个仅自己可见的测试商品页；不要收款，先检查 KYC、香港或中国大陆身份和提现路径是否可用。",
+        "recheck_trigger": null,
+        "website_url": "https://whop.com/",
+        "x_url": "https://x.com/whop",
         "evidence": [
           {
-            "claim": "官网确认拉美用户可用身份证开户，并提供 USD/USDT 收付、QR 支付、跨境转账和部分市场银行卡功能。",
-            "url": "https://www.peso-latam.com/",
+            "claim": "官方融资公告确认 2 亿美元 Series D、51 亿美元估值，并由 Sequoia 与 Shopify Ventures 领投。",
+            "url": "https://newsroom.whop.com/series-d/",
+            "source_type": "official_blog",
+            "confidence": "high"
+          },
+          {
+            "claim": "官方平台说明可免费开始、免费上架商品，并提供商店、支付、市场分发与全球提现工具。",
+            "url": "https://whop.com/network/",
             "source_type": "official_site",
             "confidence": "high"
           },
           {
-            "claim": "Tether 于 2026-10-21 宣布领投未披露金额的 pre-seed，并说明资金用于扩展玻利维亚、巴西、哥伦比亚和阿根廷的出入金及商户网络。",
-            "url": "https://tether.io/news/tether-invests-in-peso-to-expand-usdt-payment-infrastructure-across-latin-america/",
-            "source_type": "investor",
+            "claim": "官方帮助中心说明提现前必须完成身份和业务 KYC。",
+            "url": "https://help.whop.com/en/articles/10336709-how-to-setup-payouts-withdrawal",
+            "source_type": "docs",
             "confidence": "high"
           }
         ]
       },
       {
-        "event_id": "crypto-fundraising-erebor--2026-10--round-unknown",
-        "source_detail_url": "https://crypto-fundraising.info/projects/erebor/",
-        "project_name": "Erebor",
-        "decision": "STOP",
+        "event_id": "crypto-fundraising-dataline-ex-tearline--2026-10--seed",
+        "source_detail_url": "https://crypto-fundraising.info/projects/dataline-ex-tearline/",
+        "project_name": "Dataline（原 Tearline）",
+        "decision": "WATCH",
         "financing": {
-          "amount_usd": 30000000,
-          "round": "Preferred Stock",
+          "amount_usd": 10600000,
+          "round": "Seed",
           "lead_investors": [
-            "Robinhood Ventures Fund I (RVI)"
+            "Lattice",
+            "Dispersion Capital"
           ],
           "announcement_date": "2026-10-21",
           "confidence": "high"
         },
-        "plain_explanation": "Erebor 是一家受监管的美国数字银行，重点服务 AI、国防、加密和先进制造等创新型企业。",
-        "mechanism_simple": "银行直接持有受监管资产负债表，为企业提供存款、支付和信贷等银行服务，而不是提供面向个人的早期加密协议参与。",
+        "plain_explanation": "Dataline 为 AI 代理提供统一的 Web3 市场数据接口，把多个交易所、链上市场和预测市场的数据整理成带来源与可信度评分的结果。",
+        "mechanism_simple": "开发者用自然语言或 API 请求数据，系统从多个来源聚合、标准化并评分；执行层返回由用户钱包自行广播的交易，资金不由平台托管。",
         "project_status": {
-          "category": "existing_no_token",
-          "token_status": "no_token_found",
-          "note": "Erebor Bank 已获银行许可并为 FDIC 成员；未发现原生代币。"
+          "category": "renamed_existing",
+          "token_status": "token_announced",
+          "note": "项目由 Tearline 改名而来；联合创始人向媒体确认计划年内推出 DLINE，但代币尚未上线。"
         },
         "participation": {
-          "available_now": false,
-          "what_user_can_do": null,
-          "requires_real_funds": true,
-          "friction_or_risk": "本次事件是 RVI 购买银行优先股，普通用户没有项目级低成本参与路径；银行服务也主要面向企业客户。"
+          "available_now": true,
+          "what_user_can_do": "开发者可使用无需信用卡的 500 次免费 API 调用测试数据接口；普通非开发者目前没有直接使用路径。",
+          "requires_real_funds": false,
+          "friction_or_risk": "免费层无需资金，但产品偏开发者；未来代币公开销售涉及定价、解锁、智能合约和市场波动风险。"
         },
         "incentives": {
-          "status": "none_found",
-          "types": [],
-          "details": "未发现官方 Points、测试网、代币或空投计划。"
+          "status": "unconfirmed",
+          "types": [
+            "token"
+          ],
+          "details": "可信报道援引联合创始人称将通过 Uniswap CCA 进行公开销售并在年内上线；官方销售页面、价格、分配和解锁条款尚未发布。"
         },
         "why": [
-          "核心业务是受监管的企业银行服务，不是面向普通用户的早期 Web3 产品。",
-          "3000 万美元事件是优先股投资，不创造可执行的低成本参与机会。",
-          "没有原生代币、官方激励或值得持续跟踪的用户侧催化剂。"
+          "产品机制和免费测试入口真实存在，但主要服务 AI 与开发者，普通用户价值有限。",
+          "项目是 Tearline 改名，不应因新 feed 误判为全新项目。",
+          "公开销售条款预计近期公布，价格、流通量和投资人解锁将直接改变风险收益。"
         ],
         "next_step": null,
-        "recheck_trigger": null,
-        "website_url": "https://erebor.bank/",
-        "x_url": null,
+        "recheck_trigger": "仅在 Dataline 官网或官方 X 发布 DLINE 销售价格、总量分配、首日流通量和团队/投资人解锁表后复核。",
+        "website_url": "https://www.dataline.xyz/",
+        "x_url": "https://x.com/DatalineAI",
         "evidence": [
           {
-            "claim": "Erebor 官网确认其为 Erebor Bank, N.A.，且为 FDIC 成员。",
-            "url": "https://erebor.bank/",
+            "claim": "官网确认产品提供多源 Web3 数据、可信度评分、非托管执行，并有无需信用卡的 500 次免费调用。",
+            "url": "https://www.dataline.xyz/",
             "source_type": "official_site",
             "confidence": "high"
           },
           {
-            "claim": "Robinhood Ventures Fund I 于 2026-10-21 宣布以 3000 万美元购买 Erebor Bank 优先股，交易已于 2026-09-17 完成。",
-            "url": "https://robinhood.com/newsroom/",
-            "source_type": "investor",
+            "claim": "融资报道确认 1060 万美元种子轮由 Lattice 与 Dispersion Capital 共同领投，并披露拟通过 Uniswap CCA 公开销售及年内代币上线计划。",
+            "url": "https://www.theblock.co/news/deals/2026-10-21-dataline-decentralized-data-network-ai-agents-funding-ico-421596",
+            "source_type": "other",
             "confidence": "high"
           },
           {
-            "claim": "OCC 曾公告对 Erebor Bank, N.A. 的银行牌照申请作出有条件批准。",
-            "url": "https://www.occ.gov/news-issuances/news-releases/2025/nr-occ-2025-101.html",
+            "claim": "项目于 2026-05 从 Tearline 改名为 Dataline。",
+            "url": "https://www.financialcontent.com/article/accwirecq-2026-5-10-tearline-rebrands-to-dataline-the-data-lifeline-for-autonomous-ai-agents",
             "source_type": "other",
-            "confidence": "high"
+            "confidence": "medium"
           }
         ]
       }
