@@ -1,49 +1,45 @@
 {
   "schemaVersion": 2,
   "automation": "web3-daily-triage",
-  "runId": "web3-daily-triage:codex-web3-20261023-010040Z",
-  "requestId": "codex-web3-20261023-010040Z",
-  "result": "success",
+  "runId": "web3-daily-triage:codex-web3-20261024-010303Z",
+  "requestId": "codex-web3-20261024-010303Z",
+  "result": "in_progress",
   "lineage": {
     "triggerType": "push",
-    "triggerSha": "a45c54883fb756623c1a7838fb53637149a5b4da",
-    "githubRunId": 39881595402,
+    "triggerSha": "bd822482a73d6d148c0ede2657ce16e80d5137cb",
+    "githubRunId": 40048027031,
     "githubRunAttempt": 1
   },
   "timestamps": {
-    "scheduledAt": "2026-10-23T01:00:40Z",
-    "startedAt": "2026-10-23T01:01:36.194931+00:00",
-    "sourceCheckedAt": "2026-10-23T01:01:43.539217+00:00",
-    "sourceUpdatedAt": "2026-10-23T01:01:43+00:00",
-    "completedAt": "2026-10-23T01:01:43.539567+00:00",
-    "publishedAt": "2026-10-23T09:02:45+08:00"
+    "scheduledAt": "2026-10-24T01:03:03Z",
+    "startedAt": "2026-10-24T01:03:41.420021+00:00",
+    "sourceCheckedAt": "2026-10-24T01:03:43.233714+00:00",
+    "sourceUpdatedAt": "2026-10-24T01:03:43+00:00",
+    "completedAt": "2026-10-24T01:03:43.234056+00:00",
+    "publishedAt": null
   },
   "legacyRequestedAt": null,
   "stages": {
     "collection": {
       "status": "success",
-      "completedAt": "2026-10-23T01:01:43.539567+00:00",
+      "completedAt": "2026-10-24T01:03:43.234056+00:00",
       "details": {
         "feedChanged": true,
         "historyChanged": true,
         "projectCount": 5,
-        "eventCount": 70,
+        "eventCount": 71,
         "coverage": "observed snapshots of the five-item homepage feed; not a complete source-wide archive"
       }
     },
     "validation": {
       "status": "success",
-      "completedAt": "2026-10-23T01:01:43.539567+00:00"
+      "completedAt": "2026-10-24T01:03:43.234056+00:00"
     },
     "publication": {
-      "status": "success",
-      "commitSha": "8105b4f5c0d198733804b10091917699f3e6c574"
+      "status": "not_run"
     },
     "notification": {
-      "status": "success",
-      "completedAt": "2026-10-23T01:03:53+00:00",
-      "provider": "Gmail",
-      "messageId": "1a166491e48bd3b4"
+      "status": "not_run"
     }
   }
 }

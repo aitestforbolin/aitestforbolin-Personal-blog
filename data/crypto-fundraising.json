@@ -1,12 +1,22 @@
 {
-  "updated_at": "2026-10-23T01:01:43+00:00",
+  "updated_at": "2026-10-24T01:03:43+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-zodia-custody",
+      "id": "crypto-fundraising-zeal",
       "source_rank": 1,
+      "name": "Zeal",
+      "round": "M&A",
+      "announced_month": "2026-10",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/zeal/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-zodia-custody",
+      "source_rank": 2,
       "name": "Zodia Custody",
       "round": "M&A",
       "announced_month": "2026-10",
@@ -16,7 +26,7 @@
     },
     {
       "id": "crypto-fundraising-peso",
-      "source_rank": 2,
+      "source_rank": 3,
       "name": "Peso",
       "round": "Pre-seed",
       "announced_month": "2026-10",
@@ -26,7 +36,7 @@
     },
     {
       "id": "crypto-fundraising-erebor",
-      "source_rank": 3,
+      "source_rank": 4,
       "name": "Erebor",
       "round": null,
       "announced_month": "2026-10",
@@ -36,36 +46,26 @@
     },
     {
       "id": "crypto-fundraising-dataline-ex-tearline",
-      "source_rank": 4,
+      "source_rank": 5,
       "name": "Dataline (ex Tearline)",
       "round": "Seed",
       "announced_month": "2026-10",
       "amount_usd": 10600000,
       "detail_url": "https://crypto-fundraising.info/projects/dataline-ex-tearline/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-whop",
-      "source_rank": 5,
-      "name": "Whop",
-      "round": "Series D",
-      "announced_month": "2026-10",
-      "amount_usd": 200000000,
-      "detail_url": "https://crypto-fundraising.info/projects/whop/",
-      "is_new": true
+      "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261023-010040Z",
-    "requestId": "codex-web3-20261023-010040Z",
-    "triggerSha": "a45c54883fb756623c1a7838fb53637149a5b4da",
-    "githubRunId": 39881595402,
-    "scheduledAt": "2026-10-23T01:00:40Z",
-    "startedAt": "2026-10-23T01:01:36.194931+00:00",
-    "sourceCheckedAt": "2026-10-23T01:01:43.539217+00:00",
-    "sourceUpdatedAt": "2026-10-23T01:01:43+00:00",
-    "completedAt": "2026-10-23T01:01:43.539567+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261024-010303Z",
+    "requestId": "codex-web3-20261024-010303Z",
+    "triggerSha": "bd822482a73d6d148c0ede2657ce16e80d5137cb",
+    "githubRunId": 40048027031,
+    "scheduledAt": "2026-10-24T01:03:03Z",
+    "startedAt": "2026-10-24T01:03:41.420021+00:00",
+    "sourceCheckedAt": "2026-10-24T01:03:43.233714+00:00",
+    "sourceUpdatedAt": "2026-10-24T01:03:43+00:00",
+    "completedAt": "2026-10-24T01:03:43.234056+00:00",
     "publishedAt": null
   }
 }
