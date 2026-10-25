@@ -1,47 +1,5 @@
 [
   {
-    "date": "2026-10-22",
-    "date_et": "2026-10-22",
-    "time_et": "08:30",
-    "time_shanghai": "20:30",
-    "title": "Jobless Claims",
-    "title_cn": "美国初请失业金人数",
-    "period": null,
-    "category": "jobs",
-    "importance": "medium",
-    "stars": 3,
-    "source": "Forex Factory",
-    "url": "https://www.forexfactory.com/calendar",
-    "result_source": "Forex Factory 网页日历",
-    "result_url": "https://www.forexfactory.com/calendar?day=oct22.2026",
-    "consensus_source": "Forex Factory 市场日历",
-    "consensus_url": "https://www.forexfactory.com/calendar",
-    "metric_values": [
-      {
-        "label": "初请失业金人数",
-        "source_title": "Unemployment Claims",
-        "actual": "194K",
-        "forecast": "200K",
-        "previous": "200K",
-        "consensus_source": "Forex Factory 市场日历",
-        "consensus_url": "https://www.forexfactory.com/calendar",
-        "actual_source": "Forex Factory 网页日历",
-        "actual_url": "https://www.forexfactory.com/calendar?day=oct22.2026"
-      }
-    ],
-    "release_status": "released",
-    "forecast": "初请失业金人数 200K",
-    "previous": "初请失业金人数 200K",
-    "released_at": "2026-10-22T08:30:00-04:00",
-    "actual_updated_at": "2026-10-22T15:29:19.256Z",
-    "actual_last_checked_at": "2026-10-22T11:29:17-04:00",
-    "actual_check_status": "ok",
-    "actual": "初请失业金人数 194K",
-    "calendar_status": "healthy",
-    "actual_missing": [],
-    "actual_status": "complete"
-  },
-  {
     "date": "2026-10-23",
     "date_et": "2026-10-23",
     "time_et": "09:45",
@@ -177,5 +135,307 @@
     "calendar_status": "healthy",
     "actual_missing": [],
     "actual_status": "complete"
+  },
+  {
+    "date": "2026-10-27",
+    "date_et": "2026-10-27",
+    "time_et": "10:00",
+    "time_shanghai": "22:00",
+    "title": "FF::CB Consumer Confidence",
+    "title_cn": "CB Consumer Confidence",
+    "period": null,
+    "category": "macro",
+    "importance": "medium",
+    "stars": 3,
+    "source": "Forex Factory",
+    "url": "https://www.forexfactory.com/calendar",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar",
+    "consensus_source": "Forex Factory 市场日历",
+    "consensus_url": "https://www.forexfactory.com/calendar",
+    "metric_values": [
+      {
+        "label": "公布值",
+        "source_title": "CB Consumer Confidence",
+        "actual": null,
+        "forecast": "80.5",
+        "previous": "81.9",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar"
+      }
+    ],
+    "release_status": "scheduled",
+    "forecast": "公布值 80.5",
+    "previous": "公布值 81.9",
+    "calendar_status": "healthy",
+    "actual_missing": [
+      "公布值"
+    ],
+    "actual_status": "not_due"
+  },
+  {
+    "date": "2026-10-29",
+    "date_et": "2026-10-28",
+    "time_et": "14:00",
+    "time_shanghai": "02:00",
+    "title": "FOMC",
+    "title_cn": "FOMC 利率决议 / 经济预测",
+    "period": null,
+    "category": "fed",
+    "importance": "high",
+    "stars": 5,
+    "source": "Federal Reserve（FOMC 日期已校验）",
+    "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar",
+    "consensus_source": "Forex Factory 市场日历",
+    "consensus_url": "https://www.forexfactory.com/calendar",
+    "metric_values": [
+      {
+        "label": "联邦基金利率",
+        "source_title": "Federal Funds Rate",
+        "actual": null,
+        "forecast": "4.00%",
+        "previous": "4.00%",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar"
+      },
+      {
+        "label": "FOMC声明",
+        "source_title": "FOMC Statement",
+        "actual": null,
+        "forecast": null,
+        "previous": null,
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar"
+      }
+    ],
+    "release_status": "scheduled",
+    "forecast": "联邦基金利率 4.00%",
+    "previous": "联邦基金利率 4.00%",
+    "fomc_validation": "confirmed",
+    "calendar_status": "healthy",
+    "actual_missing": [
+      "联邦基金利率"
+    ],
+    "actual_status": "not_due"
+  },
+  {
+    "date": "2026-10-29",
+    "date_et": "2026-10-28",
+    "time_et": "14:30",
+    "time_shanghai": "02:30",
+    "title": "FOMC Press Conference",
+    "title_cn": "FOMC 主席新闻发布会",
+    "period": null,
+    "category": "fed",
+    "importance": "high",
+    "stars": 5,
+    "source": "Forex Factory",
+    "url": "https://www.forexfactory.com/calendar",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar",
+    "consensus_source": "Forex Factory 市场日历",
+    "consensus_url": "https://www.forexfactory.com/calendar",
+    "metric_values": [
+      {
+        "label": "新闻发布会",
+        "source_title": "FOMC Press Conference",
+        "actual": null,
+        "forecast": null,
+        "previous": null,
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar"
+      }
+    ],
+    "release_status": "scheduled",
+    "calendar_status": "healthy",
+    "actual_missing": [],
+    "actual_status": "not_expected"
+  },
+  {
+    "date": "2026-10-29",
+    "date_et": "2026-10-29",
+    "time_et": "08:30",
+    "time_shanghai": "20:30",
+    "title": "FF::Advance GDP Price Index q/q",
+    "title_cn": "Advance GDP Price Index q/q",
+    "period": null,
+    "category": "macro",
+    "importance": "medium",
+    "stars": 3,
+    "source": "Forex Factory",
+    "url": "https://www.forexfactory.com/calendar",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar",
+    "consensus_source": "Forex Factory 市场日历",
+    "consensus_url": "https://www.forexfactory.com/calendar",
+    "metric_values": [
+      {
+        "label": "公布值",
+        "source_title": "Advance GDP Price Index q/q",
+        "actual": null,
+        "forecast": "3.5%",
+        "previous": "6.2%",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar"
+      }
+    ],
+    "release_status": "scheduled",
+    "forecast": "公布值 3.5%",
+    "previous": "公布值 6.2%",
+    "calendar_status": "healthy",
+    "actual_missing": [
+      "公布值"
+    ],
+    "actual_status": "not_due"
+  },
+  {
+    "date": "2026-10-29",
+    "date_et": "2026-10-29",
+    "time_et": "08:30",
+    "time_shanghai": "20:30",
+    "title": "GDP",
+    "title_cn": "美国GDP",
+    "period": null,
+    "category": "growth",
+    "importance": "high",
+    "stars": 5,
+    "source": "Forex Factory",
+    "url": "https://www.forexfactory.com/calendar",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar",
+    "consensus_source": "Forex Factory 市场日历",
+    "consensus_url": "https://www.forexfactory.com/calendar",
+    "metric_values": [
+      {
+        "label": "GDP年化环比",
+        "source_title": "Advance GDP q/q",
+        "actual": null,
+        "forecast": "3.2%",
+        "previous": "1.5%",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar"
+      }
+    ],
+    "release_status": "scheduled",
+    "forecast": "GDP年化环比 3.2%",
+    "previous": "GDP年化环比 1.5%",
+    "calendar_status": "healthy",
+    "actual_missing": [
+      "GDP年化环比"
+    ],
+    "actual_status": "not_due"
+  },
+  {
+    "date": "2026-10-29",
+    "date_et": "2026-10-29",
+    "time_et": "08:30",
+    "time_shanghai": "20:30",
+    "title": "Jobless Claims",
+    "title_cn": "美国初请失业金人数",
+    "period": null,
+    "category": "jobs",
+    "importance": "medium",
+    "stars": 3,
+    "source": "Forex Factory",
+    "url": "https://www.forexfactory.com/calendar",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar",
+    "consensus_source": "Forex Factory 市场日历",
+    "consensus_url": "https://www.forexfactory.com/calendar",
+    "metric_values": [
+      {
+        "label": "初请失业金人数",
+        "source_title": "Unemployment Claims",
+        "actual": null,
+        "forecast": "198K",
+        "previous": "194K",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar"
+      }
+    ],
+    "release_status": "scheduled",
+    "forecast": "初请失业金人数 198K",
+    "previous": "初请失业金人数 194K",
+    "calendar_status": "healthy",
+    "actual_missing": [
+      "初请失业金人数"
+    ],
+    "actual_status": "not_due"
+  },
+  {
+    "date": "2026-10-29",
+    "date_et": "2026-10-29",
+    "time_et": "08:30",
+    "time_shanghai": "20:30",
+    "title": "PCE",
+    "title_cn": "美国PCE / 核心PCE",
+    "period": null,
+    "category": "inflation",
+    "importance": "high",
+    "stars": 5,
+    "source": "Forex Factory",
+    "url": "https://www.forexfactory.com/calendar",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar",
+    "consensus_source": "Forex Factory 市场日历",
+    "consensus_url": "https://www.forexfactory.com/calendar",
+    "metric_values": [
+      {
+        "label": "核心PCE环比",
+        "source_title": "Core PCE Price Index m/m",
+        "actual": null,
+        "forecast": "0.3%",
+        "previous": "0.2%",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar"
+      }
+    ],
+    "release_status": "scheduled",
+    "forecast": "核心PCE环比 0.3%",
+    "previous": "核心PCE环比 0.2%",
+    "calendar_status": "healthy",
+    "actual_missing": [
+      "核心PCE环比"
+    ],
+    "actual_status": "not_due"
+  },
+  {
+    "date": "2026-10-30",
+    "date_et": "2026-10-30",
+    "time_et": "08:30",
+    "time_shanghai": "20:30",
+    "title": "FF::Employment Cost Index q/q",
+    "title_cn": "Employment Cost Index q/q",
+    "period": null,
+    "category": "macro",
+    "importance": "medium",
+    "stars": 3,
+    "source": "Forex Factory",
+    "url": "https://www.forexfactory.com/calendar",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar",
+    "consensus_source": "Forex Factory 市场日历",
+    "consensus_url": "https://www.forexfactory.com/calendar",
+    "metric_values": [
+      {
+        "label": "公布值",
+        "source_title": "Employment Cost Index q/q",
+        "actual": null,
+        "forecast": "0.8%",
+        "previous": "0.9%",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar"
+      }
+    ],
+    "release_status": "scheduled",
+    "forecast": "公布值 0.8%",
+    "previous": "公布值 0.9%",
+    "calendar_status": "healthy",
+    "actual_missing": [
+      "公布值"
+    ],
+    "actual_status": "not_due"
   }
 ]
