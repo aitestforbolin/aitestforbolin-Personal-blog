@@ -1,23 +1,23 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-10-25T01:30:28+00:00",
-  "as_of": "2026-10-25T07:30:00+08:00",
-  "window_start": "2026-10-24T07:30:00+08:00",
-  "window_end": "2026-10-25T07:30:00+08:00",
+  "generated_at": "2026-10-26T01:33:33+00:00",
+  "as_of": "2026-10-26T07:30:00+08:00",
+  "window_start": "2026-10-25T07:30:00+08:00",
+  "window_end": "2026-10-26T07:30:00+08:00",
   "source_health": [
     {
       "source": "ECB",
       "region": "eu",
       "status": "ok",
       "count": 5,
-      "checked_at": "2026-10-25T01:30:28+00:00"
+      "checked_at": "2026-10-26T01:33:33+00:00"
     },
     {
       "source": "European Commission",
       "region": "eu",
       "status": "ok",
       "count": 4,
-      "checked_at": "2026-10-25T01:30:28+00:00"
+      "checked_at": "2026-10-26T01:33:33+00:00"
     },
     {
       "source": "European Council",
@@ -25,7 +25,7 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-10-25T01:30:28+00:00"
+      "checked_at": "2026-10-26T01:33:33+00:00"
     },
     {
       "source": "European Parliament",
@@ -33,28 +33,28 @@
       "status": "error",
       "error": "ParseError",
       "count": 0,
-      "checked_at": "2026-10-25T01:30:28+00:00"
+      "checked_at": "2026-10-26T01:33:33+00:00"
     },
     {
       "source": "Eurostat",
       "region": "eu",
       "status": "ok",
-      "count": 60,
-      "checked_at": "2026-10-25T01:30:28+00:00"
+      "count": 61,
+      "checked_at": "2026-10-26T01:33:33+00:00"
     },
     {
       "source": "Politico Europe",
       "region": "eu",
       "status": "ok",
-      "count": 10,
-      "checked_at": "2026-10-25T01:30:28+00:00"
+      "count": 8,
+      "checked_at": "2026-10-26T01:33:33+00:00"
     },
     {
       "source": "Reuters Europe",
       "region": "eu",
       "status": "ok",
-      "count": 67,
-      "checked_at": "2026-10-25T01:30:28+00:00"
+      "count": 66,
+      "checked_at": "2026-10-26T01:33:33+00:00"
     },
     {
       "source": "Bundesbank",
@@ -62,7 +62,7 @@
       "status": "error",
       "error": "ParseError",
       "count": 0,
-      "checked_at": "2026-10-25T01:30:28+00:00"
+      "checked_at": "2026-10-26T01:33:33+00:00"
     },
     {
       "source": "Destatis",
@@ -70,14 +70,14 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-10-25T01:30:28+00:00"
+      "checked_at": "2026-10-26T01:33:33+00:00"
     },
     {
       "source": "Deutsche Welle",
       "region": "germany",
       "status": "empty",
       "count": 0,
-      "checked_at": "2026-10-25T01:30:28+00:00"
+      "checked_at": "2026-10-26T01:33:33+00:00"
     },
     {
       "source": "Federal Employment Agency",
@@ -85,7 +85,7 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-10-25T01:30:28+00:00"
+      "checked_at": "2026-10-26T01:33:33+00:00"
     },
     {
       "source": "German Federal Government",
@@ -93,167 +93,151 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-10-25T01:30:28+00:00"
+      "checked_at": "2026-10-26T01:33:33+00:00"
     },
     {
       "source": "Reuters Germany",
       "region": "germany",
       "status": "ok",
-      "count": 58,
-      "checked_at": "2026-10-25T01:30:28+00:00"
+      "count": 50,
+      "checked_at": "2026-10-26T01:33:33+00:00"
     },
     {
       "source": "The Local Germany",
       "region": "germany",
       "status": "ok",
-      "count": 11,
-      "checked_at": "2026-10-25T01:30:28+00:00"
+      "count": 12,
+      "checked_at": "2026-10-26T01:33:33+00:00"
     }
   ],
   "items": [
     {
-      "id": "0b80088a87161574",
+      "id": "bdec44ebaf6bead7",
       "region": "eu",
-      "title": "Inside the cyber flaw scramble that brought the AI threat to life",
-      "title_cn": "Inside the cyber flaw scramble that brought the AI threat to life",
-      "summary": "Vulnerabilities in a programming language underpinning much of the web set off a hectic 72-hour rush among virtually every cybersecurity agency in the world.",
-      "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/the-cyber-flaw-scramble-that-brought-the-ai-threat-to-life/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-24T02:00:00+00:00",
-      "fetched_at": "2026-10-25T01:30:28+00:00",
-      "category": "technology",
-      "importance": "important",
-      "official_source": false,
-      "first_seen_at": "2026-10-25T01:30:28+00:00",
-      "last_seen_at": "2026-10-25T01:30:28+00:00"
-    },
-    {
-      "id": "332d147a59f9bfd9",
-      "region": "eu",
-      "title": "Ukraine says Starshield back to normal, Musk says Kyiv violated terms - Reuters",
-      "title_cn": "Ukraine says Starshield back to normal, Musk says Kyiv violated terms - Reuters",
-      "summary": "Ukraine says Starshield back to normal, Musk says Kyiv violated terms Reuters",
+      "title": "Serbia's Vucic concedes defeat in historic election win for student protest movement - Reuters",
+      "title_cn": "塞尔维亚总统武契奇承认学生抗议运动在历史性选举中失败 - 路透中文网",
+      "summary": "Serbia's Vucic concedes defeat in historic election win for student protest movement Reuters",
       "source": "Reuters Europe",
-      "source_url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPVklsWE9QVlFHcHRES2xGTXNTVEtudENYZTR6aFRMZmVuaENzXzBCb0twTjdadFhWY3V3Nkw4aWZTLVJmYjF4OTVmR0haOERYVGlFSFB0a1lsQUUyVDM2UF9lZ3QyeTJ3QzVGN0J0eEF5UEsyanhKaUNHZmpaZnA1eVFsWkVKdHhkdVJjTWZrSGtHOHN0aC1JN0JkbTByTE1vaG5vc2dPWUswNkZxYTN3aFV2WkJZbVlwNlJtZU1R?oc=5",
-      "published_at": "2026-10-24T21:39:57+00:00",
-      "fetched_at": "2026-10-25T01:30:28+00:00",
-      "category": "defense_security",
-      "importance": "normal",
+      "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOZjJPNVlseUpvOWt6LUd1UlBrYnBhY3dDUks3Z2VEZHZFcExyQzBfWHZSdUxrLWVSY09DWHc4bEoybF9jVjBxaDFuR2ZuVW9LcDVhYkNHSGZIaUh5cTFGTlB2ajhva1dWM1ZSTUl4WDdFQjhXdjdOZFJ2LTYtMFRHR2w5ZHVIakxEVVRidDQ2bHRZQ2ZkaXBoRXdEQlUtdHozMTZpNA?oc=5",
+      "published_at": "2026-10-25T01:03:00+00:00",
+      "fetched_at": "2026-10-26T01:33:33+00:00",
+      "category": "education",
+      "importance": "critical",
       "official_source": false,
-      "first_seen_at": "2026-10-25T01:30:28+00:00",
-      "last_seen_at": "2026-10-25T01:30:28+00:00"
+      "first_seen_at": "2026-10-26T01:33:33+00:00",
+      "last_seen_at": "2026-10-26T01:33:33+00:00"
     },
     {
-      "id": "7c202d4ebda751f3",
-      "region": "germany",
-      "title": "Infantino laughs off resignation talk, touts global support as he seeks reelection - Reuters",
-      "title_cn": "Infantino laughs off resignation talk, touts global support as he seeks reelection - Reuters",
-      "summary": "Infantino laughs off resignation talk, touts global support as he seeks reelection Reuters",
-      "source": "Reuters Germany",
-      "source_url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQUDJEcUNzdW85Z1BRTHU4RFFUMVd2UnZ0dFU5dW9lYnFoYXNDT3lsSUwtTkVlbEN0YTY5MmVIek1rNk54c2NMT1NNeGltcVViVzREZnhJNmFxYzd3MlZzeThIR1ktWUdDdUY0Zl9XUTBkUHNTb1hkY244RmkxaUlFNXhPeDZ1ZDgtSTJHdktaVVZIZVN2MTdHZW55VWVvNElRVk1fY3NRRjRuNWlYV3VQVExFN3RGX1piREUxb3E4VTNHT3ZnOV9z?oc=5",
-      "published_at": "2026-10-24T17:30:16+00:00",
-      "fetched_at": "2026-10-25T01:30:28+00:00",
-      "category": "politics_society",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-10-25T01:30:28+00:00",
-      "last_seen_at": "2026-10-25T01:30:28+00:00"
-    },
-    {
-      "id": "21824a16c8854ed6",
-      "region": "germany",
-      "title": "PODCAST: US Starlink requests, Alaska's Senate race and Serbia's elections - Reuters",
-      "title_cn": "PODCAST: US Starlink requests, Alaska's Senate race and Serbia's elections - Reuters",
-      "summary": "PODCAST: US Starlink requests, Alaska's Senate race and Serbia's elections Reuters",
-      "source": "Reuters Germany",
-      "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQZEFSNmhNaDJoSEZhVkpmMzVQcERoUjVTZjhlSEhkdG1YSElrMS1ZRWRSVGZWQmg2d1VVcWZWMXJHRDE1OFdWUE1DeFZPVE9HS0NVeTNKWTRYLXJYWjFzUnZoMXJBTEE2QURQbHdQZ3B6X29WYVIzd3ltWlRMT0NJOFQ0T3ZReFBYc20xS1JKR0d3d2xfME1IcTZrYmc3REFYMWhiX1dR?oc=5",
-      "published_at": "2026-10-24T13:02:08+00:00",
-      "fetched_at": "2026-10-25T01:30:28+00:00",
-      "category": "politics_society",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-10-25T01:30:28+00:00",
-      "last_seen_at": "2026-10-25T01:30:28+00:00"
-    },
-    {
-      "id": "883abf95a99731b3",
+      "id": "ec65fa9651aed4f0",
       "region": "eu",
-      "title": "Tensions flare up across France as marches come to an end",
-      "title_cn": "Tensions flare up across France as marches come to an end",
-      "summary": "Interior Minister Laurent Nuñez told police forces to be \"uncompromising\" with potential rioters.",
+      "title": "Serbia’s Vučić concedes defeat after tense parliamentary elections",
+      "title_cn": "塞尔维亚的武契奇在紧张的议会选举后承认失败",
+      "summary": "The Serbian leader lost in a landslide to a protest-backed student movement.",
       "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/france-police-deploy-protests/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-24T11:41:22+00:00",
-      "fetched_at": "2026-10-25T01:30:28+00:00",
-      "category": "housing",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-10-25T01:30:28+00:00",
-      "last_seen_at": "2026-10-25T01:30:28+00:00"
-    },
-    {
-      "id": "077d076450457315",
-      "region": "eu",
-      "title": "Starlink connection restored at high speed in Ukraine, defense minister says",
-      "title_cn": "Starlink connection restored at high speed in Ukraine, defense minister says",
-      "summary": "SpaceX's satellite internet service had been restricted since last week.",
-      "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/starlink-connection-high-speed-ukraine-defense-minister-yevhenii-khmara/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-24T10:09:36+00:00",
-      "fetched_at": "2026-10-25T01:30:28+00:00",
-      "category": "defense_security",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-10-25T01:30:28+00:00",
-      "last_seen_at": "2026-10-25T01:30:28+00:00"
-    },
-    {
-      "id": "2c29d3335c41324a",
-      "region": "germany",
-      "title": "Inside Germany: Why do children have to go to school so early here?",
-      "title_cn": "Inside Germany: Why do children have to go to school so early here?",
-      "summary": "German schools start far too early, argues journalist Tom Pugh in this week's Inside Germany column. Do you know the history behind the start-early, end-early schedule in place in Kindergartens and grade schools across the country?",
-      "source": "The Local Germany",
-      "source_url": "https://www.thelocal.de/20261024/inside-germany-why-do-children-have-to-go-to-school-so-early-here",
-      "published_at": "2026-10-24T09:55:18+00:00",
-      "fetched_at": "2026-10-25T01:30:28+00:00",
+      "source_url": "https://www.politico.eu/article/serbia-aleksandar-vucic-concedes-defeat-after-tense-parliamentary-elections/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-25T21:18:11+00:00",
+      "fetched_at": "2026-10-26T01:33:33+00:00",
       "category": "education",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-10-25T01:30:28+00:00",
-      "last_seen_at": "2026-10-25T01:30:28+00:00"
+      "first_seen_at": "2026-10-26T01:33:33+00:00",
+      "last_seen_at": "2026-10-26T01:33:33+00:00"
     },
     {
-      "id": "e8b8a310c7781c05",
+      "id": "cd828baae6ddf9eb",
       "region": "eu",
-      "title": "Ein Spaziergang mit Martin Blessing",
-      "title_cn": "Ein Spaziergang mit Martin Blessing",
-      "summary": "Ist Deutschland wirklich der kranke Mann Europas oder steht ein wirtschaftliches Comeback bevor? Nach einem milliardenschweren Investitionsgipfel „Invest in Germany“ mit Tech-Größen wie Nvidia-Chef Jensen Huang zieht Martin Blessing, der persönliche Beauftragte des Bundeskanzlers für Investitionen, eine optimistische Bilanz. Es bleibt die entscheidende Frage, wie viel von den zugesagten Milliarden tatsächlich frisches Geld ist und […]",
-      "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/podcast/berlin-playbook-podcast/ein-spaziergang-mit-martin-blessing/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-24T03:00:00+00:00",
-      "fetched_at": "2026-10-25T01:30:28+00:00",
-      "category": "economy",
+      "title": "Serbia's Vucic concedes defeat to student led movement in parliamentary election - Reuters",
+      "title_cn": "塞尔维亚武契奇承认学生领导的运动在议会选举中失败 - 路透中文网",
+      "summary": "Serbia's Vucic concedes defeat to student led movement in parliamentary election Reuters",
+      "source": "Reuters Europe",
+      "source_url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPTUU3TDlMRjZDVkdXVmplZVo5NHhmeGM5NUd5bkx3R2dJVTVBNjVaMmtkYkpJNHZDT1VNMzJTdjVWRG1VUFVMMW83ZmtnU2pOd2RsNlBlcEw5RldCZWNvT3hya3cyVGdacXg3cWd0cUlKYmdrM0JPZzFwSmJISUh0TWhZbVRzMFdfdS1ZZ1R2a2hKdERiQnZXX2pqY2RmV2NnYnZ1UE91eGFQT1pkLUk5eHRHbFVMWDRpWVl3QXA1dw?oc=5",
+      "published_at": "2026-10-25T20:52:12+00:00",
+      "fetched_at": "2026-10-26T01:33:33+00:00",
+      "category": "education",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-10-25T01:30:28+00:00",
-      "last_seen_at": "2026-10-25T01:30:28+00:00"
+      "first_seen_at": "2026-10-26T01:33:33+00:00",
+      "last_seen_at": "2026-10-26T01:33:33+00:00"
     },
     {
-      "id": "63043befb58b3b47",
+      "id": "40ccbef6b7b11638",
       "region": "eu",
-      "title": "What’s not on the ballot in Israel: Peace",
-      "title_cn": "What’s not on the ballot in Israel: Peace",
-      "summary": "At some point, Israelis will have to have conversations about peace and how to reach a settlement with Palestinians. But in this election, the critical issue has just been avoided.",
+      "title": "Le Pen casts herself as protector of France as troubles swirl",
+      "title_cn": "勒庞将自己定位为法国的保护者，因为麻烦不断",
+      "summary": "The front-runner ahead of the 2027 presidential election is under pressure to reassure voters as turmoil grips France.",
       "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/peace-is-not-on-the-ballot-in-israeli-elections/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-24T02:00:00+00:00",
-      "fetched_at": "2026-10-25T01:30:28+00:00",
+      "source_url": "https://www.politico.eu/article/marine-le-pen-casts-herself-as-frances-protector-as-country-faces-mounting-troubles/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-25T18:57:05+00:00",
+      "fetched_at": "2026-10-26T01:33:33+00:00",
       "category": "politics_society",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-10-25T01:30:28+00:00",
-      "last_seen_at": "2026-10-25T01:30:28+00:00"
+      "first_seen_at": "2026-10-26T01:33:33+00:00",
+      "last_seen_at": "2026-10-26T01:33:33+00:00"
+    },
+    {
+      "id": "a5401c3f77390c85",
+      "region": "eu",
+      "title": "Canada and Europe want to reshape the global order. But whose vision will prevail?",
+      "title_cn": "加拿大和欧洲希望重塑全球秩序。但谁的愿景会占上风呢？",
+      "summary": "Mark Carney’s push for a middle-powers alliance meets Ursula von der Leyen’s bid for influence.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/canada-and-europe-want-to-reshape-the-global-order-but-whose-vision-will-prevail/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-25T17:00:00+00:00",
+      "fetched_at": "2026-10-26T01:33:33+00:00",
+      "category": "industry",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-26T01:33:33+00:00",
+      "last_seen_at": "2026-10-26T01:33:33+00:00"
+    },
+    {
+      "id": "6fdc652b09e538e6",
+      "region": "eu",
+      "title": "Burnham open to return of free movement between UK and EU",
+      "title_cn": "伯纳姆对英国和欧盟之间恢复自由流动持开放态度",
+      "summary": "The U.K. prime minister said he wants an \"honest discussion\" about migration within Europe.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/andy-burnham-free-movement-uk-eu/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-25T10:33:55+00:00",
+      "fetched_at": "2026-10-26T01:33:33+00:00",
+      "category": "immigration",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-26T01:33:33+00:00",
+      "last_seen_at": "2026-10-26T01:33:33+00:00"
+    },
+    {
+      "id": "e481fac5d778db63",
+      "region": "eu",
+      "title": "Security Sunday: Bringen Frankreichs Proteste Marine Le Pen an die Macht? – mit Martina Meister",
+      "title_cn": "周日安全：法国的抗议会让玛丽娜·勒庞上台吗？ – 与玛蒂娜·梅斯特",
+      "summary": "Brennende Mülltonnen, verbarrikadierte Schaufenster und eine unübersichtliche Mischung aus Gelbwesten, Anarchisten und Banlieue-Jugendlichen auf den Straßen. Was als Schülerprotest in Frankreich begann, hat sich an steigenden Energiepreisen zu einer radikalen Bewegung entzündet. Präsident Emmanuel Macron verliert zunehmend die Kontrolle und wirkt in der Krise wie ein Pilot ohne Cockpit. Inmitten der Eskalation positioniert sich Marine […]",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/podcast/berlin-playbook-podcast/security-sunday-bringen-frankreichs-proteste-marine-le-pen-an-die-macht-mit-martina-meister/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-10-25T05:48:50+00:00",
+      "fetched_at": "2026-10-26T01:33:33+00:00",
+      "category": "energy",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-26T01:33:33+00:00",
+      "last_seen_at": "2026-10-26T01:33:33+00:00"
+    },
+    {
+      "id": "7f8e64c146eed051",
+      "region": "eu",
+      "title": "Portuguese police clear Lisbon housing protest camp, arresting 25 - Reuters",
+      "title_cn": "葡萄牙警方清理里斯本住房抗议营地，逮捕25人 - 路透",
+      "summary": "Portuguese police clear Lisbon housing protest camp, arresting 25 Reuters",
+      "source": "Reuters Europe",
+      "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNUl8tRDdjZWRsQkljV3FheHEtN2dyWUtJb2dhY1JmNmhGSU5ZaVZRYnF6SDhIaDN4eVZVd19JSFRlWW9MSm1jQ1NYTEtWOU5Eb2RrVE9Ua2lZLUJCSC1Ya1BEYVFkX0tNVkh1d2RFZzZfX19ZQTEyQ0pYSEs5eEJfcXF6ODk1Y293SUMwWW5TZVhRNWZTaTlxQXdHcGNuX2ZXbjU3ckNfMXNkTDNfWTQ0Zm5INA?oc=5",
+      "published_at": "2026-10-25T03:31:00+00:00",
+      "fetched_at": "2026-10-26T01:33:33+00:00",
+      "category": "housing",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-10-26T01:33:33+00:00",
+      "last_seen_at": "2026-10-26T01:33:33+00:00"
     }
   ]
 }
