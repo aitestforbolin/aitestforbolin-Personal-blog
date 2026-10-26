@@ -1,28 +1,28 @@
 {
   "schemaVersion": 2,
   "automation": "web3-daily-triage",
-  "runId": "web3-daily-triage:codex-web3-20261025-010329Z",
-  "requestId": "codex-web3-20261025-010329Z",
+  "runId": "web3-daily-triage:codex-web3-20261026-005913Z",
+  "requestId": "codex-web3-20261026-005913Z",
   "result": "unchanged",
   "lineage": {
     "triggerType": "push",
-    "triggerSha": "188d1dbb7d9bc11d9d56951cf842f011a71992ac",
-    "githubRunId": 40149170174,
+    "triggerSha": "751a3b54d1b77ea22f39e661711141e165df488d",
+    "githubRunId": 40252019037,
     "githubRunAttempt": 1
   },
   "timestamps": {
-    "scheduledAt": "2026-10-25T01:03:29Z",
-    "startedAt": "2026-10-25T01:04:21.051904+00:00",
-    "sourceCheckedAt": "2026-10-25T01:04:22.799954+00:00",
+    "scheduledAt": "2026-10-26T00:59:13Z",
+    "startedAt": "2026-10-26T01:00:01.359180+00:00",
+    "sourceCheckedAt": "2026-10-26T01:00:06.863036+00:00",
     "sourceUpdatedAt": "2026-10-24T01:03:43+00:00",
-    "completedAt": "2026-10-25T01:04:22.800291+00:00",
-    "publishedAt": "2026-10-25T09:04:50+08:00"
+    "completedAt": "2026-10-26T01:00:06.863323+00:00",
+    "publishedAt": null
   },
   "legacyRequestedAt": null,
   "stages": {
     "collection": {
       "status": "unchanged",
-      "completedAt": "2026-10-25T01:04:22.800291+00:00",
+      "completedAt": "2026-10-26T01:00:06.863323+00:00",
       "details": {
         "feedChanged": false,
         "historyChanged": false,
@@ -33,17 +33,13 @@
     },
     "validation": {
       "status": "success",
-      "completedAt": "2026-10-25T01:04:22.800291+00:00"
+      "completedAt": "2026-10-26T01:00:06.863323+00:00"
     },
     "publication": {
-      "status": "success",
-      "commitSha": "65765966f2fbb19ca904a06eb1fc39fcfe76b32d"
+      "status": "not_run"
     },
     "notification": {
-      "status": "success",
-      "completedAt": "2026-10-25T01:05:50+00:00",
-      "provider": "Gmail",
-      "messageId": "1a170979d3846704"
+      "status": "not_run"
     }
   }
 }
