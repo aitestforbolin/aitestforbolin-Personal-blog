@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-25T06:32:32+00:00",
+  "generatedAt": "2026-10-26T07:59:33+00:00",
   "timezone": "Asia/Shanghai",
   "status": "healthy",
   "failedSources": [],
@@ -13,248 +13,6 @@
   },
   "sourcePolicy": "U.S. calendar: all USD events rated Medium or High by Forex Factory; Federal Reserve validates FOMC dates. Briefing selection is handled separately.",
   "events": [
-    {
-      "id": "us-34ec13344548",
-      "eventType": "data",
-      "country": "US",
-      "period": null,
-      "scheduledAt": "2026-10-23T21:45:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "Flash Manufacturing PMI",
-      "category": "macro",
-      "importance": "medium",
-      "stars": 3,
-      "source": "Forex Factory",
-      "sourceUrl": "https://www.forexfactory.com/calendar",
-      "metrics": [
-        {
-          "id": "metric-1",
-          "label": "公布值",
-          "actual": "56.0",
-          "forecast": "55.4",
-          "previous": "55.9",
-          "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct23.2026"
-        }
-      ],
-      "releasedAt": "2026-10-23T09:45:00-04:00",
-      "actualStatus": "complete",
-      "actualMissing": [],
-      "actualLastCheckedAt": "2026-10-23T11:19:38-04:00",
-      "retrievedAt": "2026-10-25T06:32:32+00:00",
-      "revisionStatus": "not_revised",
-      "releaseStatus": "released",
-      "legacy": {
-        "date": "2026-10-23",
-        "date_et": "2026-10-23",
-        "time_et": "09:45",
-        "time_shanghai": "21:45",
-        "title": "FF::Flash Manufacturing PMI",
-        "title_cn": "Flash Manufacturing PMI",
-        "period": null,
-        "category": "macro",
-        "importance": "medium",
-        "stars": 3,
-        "source": "Forex Factory",
-        "url": "https://www.forexfactory.com/calendar",
-        "result_source": "Forex Factory 网页日历",
-        "result_url": "https://www.forexfactory.com/calendar?day=oct23.2026",
-        "consensus_source": "Forex Factory 市场日历",
-        "consensus_url": "https://www.forexfactory.com/calendar",
-        "metric_values": [
-          {
-            "label": "公布值",
-            "source_title": "Flash Manufacturing PMI",
-            "actual": "56.0",
-            "forecast": "55.4",
-            "previous": "55.9",
-            "consensus_source": "Forex Factory 市场日历",
-            "consensus_url": "https://www.forexfactory.com/calendar",
-            "actual_source": "Forex Factory 网页日历",
-            "actual_url": "https://www.forexfactory.com/calendar?day=oct23.2026"
-          }
-        ],
-        "release_status": "released",
-        "forecast": "公布值 55.4",
-        "previous": "公布值 55.9",
-        "released_at": "2026-10-23T09:45:00-04:00",
-        "actual_updated_at": "2026-10-23T15:19:40.825Z",
-        "actual_last_checked_at": "2026-10-23T11:19:38-04:00",
-        "actual_check_status": "ok",
-        "actual": "公布值 56.0",
-        "calendar_status": "healthy",
-        "actual_missing": [],
-        "actual_status": "complete"
-      }
-    },
-    {
-      "id": "us-64c4011eab0f",
-      "eventType": "data",
-      "country": "US",
-      "period": null,
-      "scheduledAt": "2026-10-23T21:45:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "Flash Services PMI",
-      "category": "macro",
-      "importance": "medium",
-      "stars": 3,
-      "source": "Forex Factory",
-      "sourceUrl": "https://www.forexfactory.com/calendar",
-      "metrics": [
-        {
-          "id": "metric-1",
-          "label": "公布值",
-          "actual": "57.9",
-          "forecast": "57.9",
-          "previous": "58.8",
-          "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct23.2026"
-        }
-      ],
-      "releasedAt": "2026-10-23T09:45:00-04:00",
-      "actualStatus": "complete",
-      "actualMissing": [],
-      "actualLastCheckedAt": "2026-10-23T11:19:38-04:00",
-      "retrievedAt": "2026-10-25T06:32:32+00:00",
-      "revisionStatus": "not_revised",
-      "releaseStatus": "released",
-      "legacy": {
-        "date": "2026-10-23",
-        "date_et": "2026-10-23",
-        "time_et": "09:45",
-        "time_shanghai": "21:45",
-        "title": "FF::Flash Services PMI",
-        "title_cn": "Flash Services PMI",
-        "period": null,
-        "category": "macro",
-        "importance": "medium",
-        "stars": 3,
-        "source": "Forex Factory",
-        "url": "https://www.forexfactory.com/calendar",
-        "result_source": "Forex Factory 网页日历",
-        "result_url": "https://www.forexfactory.com/calendar?day=oct23.2026",
-        "consensus_source": "Forex Factory 市场日历",
-        "consensus_url": "https://www.forexfactory.com/calendar",
-        "metric_values": [
-          {
-            "label": "公布值",
-            "source_title": "Flash Services PMI",
-            "actual": "57.9",
-            "forecast": "57.9",
-            "previous": "58.8",
-            "consensus_source": "Forex Factory 市场日历",
-            "consensus_url": "https://www.forexfactory.com/calendar",
-            "actual_source": "Forex Factory 网页日历",
-            "actual_url": "https://www.forexfactory.com/calendar?day=oct23.2026"
-          }
-        ],
-        "release_status": "released",
-        "forecast": "公布值 57.9",
-        "previous": "公布值 58.8",
-        "released_at": "2026-10-23T09:45:00-04:00",
-        "actual_updated_at": "2026-10-23T15:19:40.825Z",
-        "actual_last_checked_at": "2026-10-23T11:19:38-04:00",
-        "actual_check_status": "ok",
-        "actual": "公布值 57.9",
-        "calendar_status": "healthy",
-        "actual_missing": [],
-        "actual_status": "complete"
-      }
-    },
-    {
-      "id": "us-6be29cb0ed11",
-      "eventType": "data",
-      "country": "US",
-      "period": null,
-      "scheduledAt": "2026-10-23T22:00:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "密歇根大学消费者信心 / 通胀预期",
-      "category": "consumption",
-      "importance": "medium",
-      "stars": 3,
-      "source": "Forex Factory",
-      "sourceUrl": "https://www.forexfactory.com/calendar",
-      "metrics": [
-        {
-          "id": "metric-1",
-          "label": "消费者信心终值",
-          "actual": "48.0",
-          "forecast": "46.3",
-          "previous": "46.3",
-          "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct23.2026"
-        },
-        {
-          "id": "metric-2",
-          "label": "通胀预期终值",
-          "actual": "4.7%",
-          "forecast": null,
-          "previous": "4.7%",
-          "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct23.2026"
-        }
-      ],
-      "releasedAt": "2026-10-23T10:00:00-04:00",
-      "actualStatus": "complete",
-      "actualMissing": [],
-      "actualLastCheckedAt": "2026-10-23T11:19:38-04:00",
-      "retrievedAt": "2026-10-25T06:32:32+00:00",
-      "revisionStatus": "not_revised",
-      "releaseStatus": "released",
-      "legacy": {
-        "date": "2026-10-23",
-        "date_et": "2026-10-23",
-        "time_et": "10:00",
-        "time_shanghai": "22:00",
-        "title": "Michigan",
-        "title_cn": "密歇根大学消费者信心 / 通胀预期",
-        "period": null,
-        "category": "consumption",
-        "importance": "medium",
-        "stars": 3,
-        "source": "Forex Factory",
-        "url": "https://www.forexfactory.com/calendar",
-        "result_source": "Forex Factory 网页日历",
-        "result_url": "https://www.forexfactory.com/calendar?day=oct23.2026",
-        "consensus_source": "Forex Factory 市场日历",
-        "consensus_url": "https://www.forexfactory.com/calendar",
-        "metric_values": [
-          {
-            "label": "消费者信心终值",
-            "source_title": "Revised UoM Consumer Sentiment",
-            "actual": "48.0",
-            "forecast": "46.3",
-            "previous": "46.3",
-            "consensus_source": "Forex Factory 市场日历",
-            "consensus_url": "https://www.forexfactory.com/calendar",
-            "actual_source": "Forex Factory 网页日历",
-            "actual_url": "https://www.forexfactory.com/calendar?day=oct23.2026"
-          },
-          {
-            "label": "通胀预期终值",
-            "source_title": "Revised UoM Inflation Expectations",
-            "actual": "4.7%",
-            "forecast": null,
-            "previous": "4.7%",
-            "consensus_source": "Forex Factory 市场日历",
-            "consensus_url": "https://www.forexfactory.com/calendar",
-            "actual_source": "Forex Factory 网页日历",
-            "actual_url": "https://www.forexfactory.com/calendar?day=oct23.2026"
-          }
-        ],
-        "release_status": "released",
-        "forecast": "消费者信心终值 46.3",
-        "previous": "消费者信心终值 46.3 · 通胀预期终值 4.7%",
-        "released_at": "2026-10-23T10:00:00-04:00",
-        "actual_updated_at": "2026-10-23T15:19:40.825Z",
-        "actual_last_checked_at": "2026-10-23T11:19:38-04:00",
-        "actual_check_status": "ok",
-        "actual": "消费者信心终值 48.0 · 通胀预期终值 4.7%",
-        "calendar_status": "healthy",
-        "actual_missing": [],
-        "actual_status": "complete"
-      }
-    },
     {
       "id": "us-19d56364212f",
       "eventType": "data",
@@ -285,7 +43,7 @@
         "公布值"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-25T06:32:32+00:00",
+      "retrievedAt": "2026-10-26T07:59:33+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -365,7 +123,7 @@
         "联邦基金利率"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-25T06:32:32+00:00",
+      "retrievedAt": "2026-10-26T07:59:33+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -444,7 +202,7 @@
       "actualStatus": "not_expected",
       "actualMissing": [],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-25T06:32:32+00:00",
+      "retrievedAt": "2026-10-26T07:59:33+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -511,7 +269,7 @@
         "初请失业金人数"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-25T06:32:32+00:00",
+      "retrievedAt": "2026-10-26T07:59:33+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -582,7 +340,7 @@
         "核心PCE环比"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-25T06:32:32+00:00",
+      "retrievedAt": "2026-10-26T07:59:33+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -653,7 +411,7 @@
         "公布值"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-25T06:32:32+00:00",
+      "retrievedAt": "2026-10-26T07:59:33+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -724,7 +482,7 @@
         "GDP年化环比"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-25T06:32:32+00:00",
+      "retrievedAt": "2026-10-26T07:59:33+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -795,7 +553,7 @@
         "公布值"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-25T06:32:32+00:00",
+      "retrievedAt": "2026-10-26T07:59:33+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
