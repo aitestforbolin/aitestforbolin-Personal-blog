@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "runDate": "2026-10-26",
-  "publishedAt": "2026-10-26T09:00:22+08:00",
-  "windowStart": "2026-10-25T01:04:22.800291+00:00",
-  "windowEnd": "2026-10-26T01:00:06.863323+00:00",
-  "sourceUpdatedAt": "2026-10-24T01:03:43+00:00",
-  "status": "unchanged",
+  "runDate": "2026-10-27",
+  "publishedAt": "2026-10-27T09:05:01+08:00",
+  "windowStart": "2026-10-26T01:00:06.863323+00:00",
+  "windowEnd": "2026-10-27T01:03:47.372362+00:00",
+  "sourceUpdatedAt": "2026-10-27T01:03:47+00:00",
+  "status": "success",
   "executionLineage": {
-    "runId": "web3-daily-triage:codex-web3-20261026-005913Z",
-    "requestId": "codex-web3-20261026-005913Z",
-    "triggerSha": "751a3b54d1b77ea22f39e661711141e165df488d",
-    "githubRunId": 40252019037,
-    "scheduledAt": "2026-10-26T00:59:13Z",
-    "startedAt": "2026-10-26T01:00:01.359180+00:00",
-    "sourceCheckedAt": "2026-10-26T01:00:06.863036+00:00",
-    "sourceUpdatedAt": "2026-10-24T01:03:43+00:00",
-    "completedAt": "2026-10-26T01:00:06.863323+00:00",
-    "publishedAt": "2026-10-26T09:00:22+08:00"
+    "runId": "web3-daily-triage:codex-web3-20261027-010239Z",
+    "requestId": "codex-web3-20261027-010239Z",
+    "triggerSha": "8f39c84e918a4a2fe30d950e060656f71bc80e38",
+    "githubRunId": 40430282006,
+    "scheduledAt": "2026-10-27T01:02:39Z",
+    "startedAt": "2026-10-27T01:03:43.181196+00:00",
+    "sourceCheckedAt": "2026-10-27T01:03:47.372086+00:00",
+    "sourceUpdatedAt": "2026-10-27T01:03:47+00:00",
+    "completedAt": "2026-10-27T01:03:47.372362+00:00",
+    "publishedAt": "2026-10-27T09:05:01+08:00"
   },
   "executionStatus": {
-    "collection": "unchanged",
+    "collection": "success",
     "validation": "success",
     "publication": "success"
   },
-  "deduplicationNote": "候选窗口从 2026-10-25 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；来源首页五条快照与历史均未变化，没有新增事件，累计 reportedEventIds 保持不变。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+  "deduplicationNote": "候选窗口从 2026-10-26 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；历史新增两个非 M&A 观测事件，按累计 reportedEventIds 去重后完成初筛。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
   "reportedEventIds": [
     "crypto-fundraising-ponygo--2026-09--round-unknown",
     "crypto-fundraising-velocity--2026-09--series-a",
@@ -81,13 +81,130 @@
     "crypto-fundraising-peso--2026-10--pre-seed",
     "crypto-fundraising-erebor--2026-10--round-unknown",
     "crypto-fundraising-dataline-ex-tearline--2026-10--seed",
-    "crypto-fundraising-whop--2026-10--series-d"
+    "crypto-fundraising-whop--2026-10--series-d",
+    "crypto-fundraising-fun--2026-10--round-unknown",
+    "crypto-fundraising-swapglobal--2026-10--round-unknown"
   ],
   "counts": {
-    "new": 0,
+    "new": 2,
     "action": 0,
     "watch": 0,
-    "stop": 0
+    "stop": 2
   },
-  "projects": []
+  "projects": [
+    {
+      "event_id": "crypto-fundraising-fun--2026-10--round-unknown",
+      "source_detail_url": "https://crypto-fundraising.info/projects/fun/",
+      "project_name": "Fun",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": null,
+        "round": null,
+        "lead_investors": [],
+        "announcement_date": "2026-10-26",
+        "confidence": "high"
+      },
+      "plain_explanation": "Fun 是面向大型金融与互联网平台的支付基础设施，把银行卡、银行账户、稳定币和不同区块链之间的入金、出金与结算整合成一套白标系统。",
+      "mechanism_simple": "平台替客户选择资金路由并管理流动性，让终端用户把任意地区或资产的资金转换成应用所需形式；核心客户是 Polymarket、Lighter、Aave 等平台，而不是个人用户。",
+      "project_status": {
+        "category": "existing_no_token",
+        "token_status": "no_token_found",
+        "note": "Fun 成立于 2022 年，2026 年 5 月已完成 7200 万美元 Series A；本次是 IOSG 新增投资，金额和轮次未披露，未发现原生代币。"
+      },
+      "participation": {
+        "available_now": false,
+        "what_user_can_do": null,
+        "requires_real_funds": false,
+        "friction_or_risk": "产品采用企业销售和集成模式，普通用户没有独立注册、测试或早期参与路径。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "未发现官方 Points、Season、测试网、代币或空投活动。"
+      },
+      "why": [
+        "本次融资金额与轮次未披露，且项目已是成熟的企业支付基础设施。",
+        "产品面向大型平台集成，普通用户没有可验证的直接参与路径。",
+        "未发现原生代币或官方激励，本轮融资没有形成值得继续投入注意力的早期机会。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://fun.xyz/",
+      "x_url": "https://x.com/fun",
+      "evidence": [
+        {
+          "claim": "IOSG 于 2026-10-26 宣布投资 Fun，并说明其为 Polymarket 等互联网市场提供全球入金、资金路由和出金基础设施。",
+          "url": "https://www.rootdata.com/news/802421",
+          "source_type": "investor",
+          "confidence": "high"
+        },
+        {
+          "claim": "Fun 官网确认产品服务于金融平台的入金、出金、路由与结账，客户包括 Polymarket、Lighter 等。",
+          "url": "https://fun.xyz/",
+          "source_type": "official_site",
+          "confidence": "high"
+        },
+        {
+          "claim": "Fun 官方公告确认 2026-05 完成 7200 万美元 Series A，由 Multicoin Capital 与 SignalFire 共同领投。",
+          "url": "https://fun.xyz/news/series-a",
+          "source_type": "official_blog",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-swapglobal--2026-10--round-unknown",
+      "source_detail_url": "https://crypto-fundraising.info/projects/swapglobal/",
+      "project_name": "SwapGlobal",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": null,
+        "round": null,
+        "lead_investors": [],
+        "announcement_date": "2026-10-23",
+        "confidence": "high"
+      },
+      "plain_explanation": "SwapGlobal 是面向美国机构客户的场外衍生品平台，让对冲基金、资管机构等通过掉期和期权获得加密资产、未上市公司股票、海外股票与算力敞口。",
+      "mechanism_simple": "客户不直接持有底层资产，SwapGlobal 与客户签订场外衍生品合约，再自行在交易场所对冲风险；抵押品由合格托管机构保管。",
+      "project_status": {
+        "category": "existing_no_token",
+        "token_status": "no_token_found",
+        "note": "公司成立于 2022 年，本次获 Marcel Boekhoorn、W Group 与 Kenzoll Capital 投资，金额与轮次未披露；未发现原生代币。"
+      },
+      "participation": {
+        "available_now": false,
+        "what_user_can_do": null,
+        "requires_real_funds": true,
+        "friction_or_risk": "仅面向符合条件的机构合约参与者，普通用户无法使用；场外衍生品涉及交易对手、杠杆、流动性与监管风险。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "未发现官方 Points、Season、测试网、代币或空投活动。"
+      },
+      "why": [
+        "服务对象明确限定为对冲基金、家族办公室、私募基金等合格机构。",
+        "普通用户没有产品入口或低成本参与方式，且衍生品风险与准入门槛较高。",
+        "本次资金主要用于交易资本和机构业务扩张，不构成个人用户的早期参与机会。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://swapglobal.com/",
+      "x_url": null,
+      "evidence": [
+        {
+          "claim": "公司融资公告确认本轮金额未披露，投资方为 Marcel Boekhoorn、W Group 与 Kenzoll Capital，资金用于扩展机构衍生品业务。",
+          "url": "https://www.globenewswire.com/news-release/2026/10/23/3387527/0/en/swapglobal-secures-funding-backed-by-marcel-boekhoorn-w-group-and-kenzoll-capital.html",
+          "source_type": "official_blog",
+          "confidence": "high"
+        },
+        {
+          "claim": "SwapGlobal 官网确认产品仅面向合格机构参与者，并披露其尚未在 CFTC、SEC 或其他监管机构注册。",
+          "url": "https://swapglobal.com/_about",
+          "source_type": "official_site",
+          "confidence": "high"
+        }
+      ]
+    }
+  ]
 }
