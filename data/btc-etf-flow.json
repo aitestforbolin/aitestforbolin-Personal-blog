@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-24T11:22:12+00:00",
+  "updated_at": "2026-10-27T12:30:54+00:00",
   "source": "Farside Investors",
   "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
   "unit": "US$m",
@@ -18,12 +18,31 @@
     "BTC"
   ],
   "latest": {
-    "date": "2026-10-23",
-    "total": -137.9,
-    "seven_day_total": 223.9,
-    "thirty_day_total": 2026.9
+    "date": "2026-10-26",
+    "total": 110.3,
+    "seven_day_total": 329.1,
+    "thirty_day_total": 1977.3
   },
   "rows": [
+    {
+      "date": "2026-10-26",
+      "funds": {
+        "IBIT": 110.3,
+        "FBTC": 0,
+        "BITB": 0,
+        "ARKB": 0,
+        "BTCO": 0,
+        "EZBC": 0,
+        "BRRR": 0,
+        "HODL": 0,
+        "BTCW": 0,
+        "MSBT": 0,
+        "GBTC": 0,
+        "BTC": 0
+      },
+      "total": 110.3,
+      "btc_price": 80150.56
+    },
     {
       "date": "2026-10-23",
       "funds": {
@@ -34,7 +53,7 @@
         "BTCO": 0,
         "EZBC": 0,
         "BRRR": 0,
-        "HODL": null,
+        "HODL": 0,
         "BTCW": 0,
         "MSBT": 4.2,
         "GBTC": 0,
@@ -859,25 +878,6 @@
       },
       "total": 337.6,
       "btc_price": 78992.75
-    },
-    {
-      "date": "2026-08-21",
-      "funds": {
-        "IBIT": 239.3,
-        "FBTC": 30.2,
-        "BITB": 9.2,
-        "ARKB": 3.1,
-        "BTCO": 0,
-        "EZBC": 0,
-        "BRRR": 0,
-        "HODL": 4.4,
-        "BTCW": 0,
-        "MSBT": 7.7,
-        "GBTC": 0,
-        "BTC": 13.6
-      },
-      "total": 307.5,
-      "btc_price": 78338.03
     }
   ]
 }
