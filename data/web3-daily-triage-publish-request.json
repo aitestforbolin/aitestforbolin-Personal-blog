@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "codex-web3-20261027-010239Z",
-  "triggerSha": "8f39c84e918a4a2fe30d950e060656f71bc80e38",
-  "publicationDate": "2026-10-27",
-  "publishedAt": "2026-10-27T09:05:01+08:00",
+  "requestId": "codex-web3-20261028-010226Z",
+  "triggerSha": "2e13be31b4e234873396019322118fdb33e868ff",
+  "publicationDate": "2026-10-28",
+  "publishedAt": "2026-10-28T09:04:49+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-10-27",
-    "publishedAt": "2026-10-27T09:05:01+08:00",
-    "windowStart": "2026-10-26T01:00:06.863323+00:00",
-    "windowEnd": "2026-10-27T01:03:47.372362+00:00",
-    "sourceUpdatedAt": "2026-10-27T01:03:47+00:00",
+    "runDate": "2026-10-28",
+    "publishedAt": "2026-10-28T09:04:49+08:00",
+    "windowStart": "2026-10-27T01:03:47.372362+00:00",
+    "windowEnd": "2026-10-28T01:03:41.813910+00:00",
+    "sourceUpdatedAt": "2026-10-28T01:03:41+00:00",
     "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:codex-web3-20261027-010239Z",
-      "requestId": "codex-web3-20261027-010239Z",
-      "triggerSha": "8f39c84e918a4a2fe30d950e060656f71bc80e38",
-      "githubRunId": 40430282006,
-      "scheduledAt": "2026-10-27T01:02:39Z",
-      "startedAt": "2026-10-27T01:03:43.181196+00:00",
-      "sourceCheckedAt": "2026-10-27T01:03:47.372086+00:00",
-      "sourceUpdatedAt": "2026-10-27T01:03:47+00:00",
-      "completedAt": "2026-10-27T01:03:47.372362+00:00",
-      "publishedAt": "2026-10-27T09:05:01+08:00"
+      "runId": "web3-daily-triage:codex-web3-20261028-010226Z",
+      "requestId": "codex-web3-20261028-010226Z",
+      "triggerSha": "2e13be31b4e234873396019322118fdb33e868ff",
+      "githubRunId": 40612700332,
+      "scheduledAt": "2026-10-28T01:02:26Z",
+      "startedAt": "2026-10-28T01:03:39.680366+00:00",
+      "sourceCheckedAt": "2026-10-28T01:03:41.813629+00:00",
+      "sourceUpdatedAt": "2026-10-28T01:03:41+00:00",
+      "completedAt": "2026-10-28T01:03:41.813910+00:00",
+      "publishedAt": "2026-10-28T09:04:49+08:00"
     },
     "executionStatus": {
       "collection": "success",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "候选窗口从 2026-10-26 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；历史新增两个非 M&A 观测事件，按累计 reportedEventIds 去重后完成初筛。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "候选窗口从 2026-10-27 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；历史新增五个非 M&A 观测事件，按累计 reportedEventIds 去重后完成初筛。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -90,125 +90,292 @@
       "crypto-fundraising-dataline-ex-tearline--2026-10--seed",
       "crypto-fundraising-whop--2026-10--series-d",
       "crypto-fundraising-fun--2026-10--round-unknown",
-      "crypto-fundraising-swapglobal--2026-10--round-unknown"
+      "crypto-fundraising-swapglobal--2026-10--round-unknown",
+      "crypto-fundraising-mochatrade--2026-10--seed",
+      "crypto-fundraising-predicate--2026-10--series-a",
+      "crypto-fundraising-luxor--2026-10--strategic",
+      "crypto-fundraising-spicenet--2026-10--series-a",
+      "crypto-fundraising-cancore--2026-10--seed"
     ],
     "counts": {
-      "new": 2,
+      "new": 5,
       "action": 0,
-      "watch": 0,
-      "stop": 2
+      "watch": 2,
+      "stop": 3
     },
     "projects": [
       {
-        "event_id": "crypto-fundraising-fun--2026-10--round-unknown",
-        "source_detail_url": "https://crypto-fundraising.info/projects/fun/",
-        "project_name": "Fun",
+        "event_id": "crypto-fundraising-mochatrade--2026-10--seed",
+        "source_detail_url": "https://crypto-fundraising.info/projects/mochatrade/",
+        "project_name": "Mochatrade",
         "decision": "STOP",
         "financing": {
-          "amount_usd": null,
-          "round": null,
-          "lead_investors": [],
+          "amount_usd": 4870000,
+          "round": "Seed",
+          "lead_investors": [
+            "CoinFund"
+          ],
           "announcement_date": "2026-10-26",
           "confidence": "high"
         },
-        "plain_explanation": "Fun 是面向大型金融与互联网平台的支付基础设施，把银行卡、银行账户、稳定币和不同区块链之间的入金、出金与结算整合成一套白标系统。",
-        "mechanism_simple": "平台替客户选择资金路由并管理流动性，让终端用户把任意地区或资产的资金转换成应用所需形式；核心客户是 Polymarket、Lighter、Aave 等平台，而不是个人用户。",
+        "plain_explanation": "Mochatrade 面向印度用户提供追踪美国股票价格的永续合约交易，可用卢比和 UPI 入金，但用户并不持有真实美股。",
+        "mechanism_simple": "用户以卢比作为保证金做多或做空美股价格，并可使用杠杆；平台负责合约撮合与结算，盈利或亏损仍以卢比体现。",
+        "project_status": {
+          "category": "new_unlaunched",
+          "token_status": "no_token_found",
+          "note": "产品仍处于邀请制测试阶段，团队表示近期暂无发币计划。"
+        },
+        "participation": {
+          "available_now": false,
+          "what_user_can_do": "印度成年居民可申请候补名单，获批后需完成 KYC 并投入真实资金交易。",
+          "requires_real_funds": true,
+          "friction_or_risk": "仅面向印度居民，尚未全面开放；杠杆永续合约存在清算、市场与监管风险。"
+        },
+        "incentives": {
+          "status": "none_found",
+          "types": [],
+          "details": "未发现官方 Points、Season、测试网奖励、代币或空投活动。"
+        },
+        "why": [
+          "当前只有候补申请，尚无普通用户可立即验证的公开产品路径。",
+          "产品依赖真实资金和杠杆交易，风险明显高于潜在早期收益。",
+          "团队明确表示目前没有发币计划，也未发现官方激励。"
+        ],
+        "next_step": null,
+        "recheck_trigger": null,
+        "website_url": "https://mochatrade.com/",
+        "x_url": null,
+        "evidence": [
+          {
+            "claim": "Mochatrade 官网确认其面向印度用户，以 UPI/卢比提供美股价格永续合约，并要求 KYC。",
+            "url": "https://mochatrade.com/waitlist",
+            "source_type": "official_site",
+            "confidence": "high"
+          },
+          {
+            "claim": "融资报道确认本轮由 CoinFund 领投、Coinbase Ventures 等参投；种子轮约 487 万美元，平台仍在测试且暂无发币计划。",
+            "url": "https://www.theblock.co/news/deals/2026-10-26-y-combinator-mochatrade-funding-crypto-431775",
+            "source_type": "other",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "event_id": "crypto-fundraising-predicate--2026-10--series-a",
+        "source_detail_url": "https://crypto-fundraising.info/projects/predicate/",
+        "project_name": "Predicate",
+        "decision": "STOP",
+        "financing": {
+          "amount_usd": 8000000,
+          "round": "Series A",
+          "lead_investors": [
+            "Blockchain Capital"
+          ],
+          "announcement_date": "2026-10-27",
+          "confidence": "high"
+        },
+        "plain_explanation": "Predicate 为稳定币、代币化资产和链上金融产品提供合规控制，让发行方把 KYC、制裁名单和转账限制直接嵌入资产与应用。",
+        "mechanism_simple": "企业先配置哪些地址和用户可以交易，Predicate 再在每次链上转账前执行身份、反洗钱和风险规则，并自动阻止不合规操作。",
         "project_status": {
           "category": "existing_no_token",
           "token_status": "no_token_found",
-          "note": "Fun 成立于 2022 年，2026 年 5 月已完成 7200 万美元 Series A；本次是 IOSG 新增投资，金额和轮次未披露，未发现原生代币。"
+          "note": "产品已服务资产发行方和金融机构，未发现 Predicate 原生代币。"
         },
         "participation": {
           "available_now": false,
           "what_user_can_do": null,
           "requires_real_funds": false,
-          "friction_or_risk": "产品采用企业销售和集成模式，普通用户没有独立注册、测试或早期参与路径。"
+          "friction_or_risk": "官网采用企业演示和销售模式，普通用户没有独立注册、测试或早期参与入口。"
         },
         "incentives": {
           "status": "none_found",
           "types": [],
-          "details": "未发现官方 Points、Season、测试网、代币或空投活动。"
+          "details": "未发现面向普通用户的 Points、Season、测试网、代币或空投活动。"
         },
         "why": [
-          "本次融资金额与轮次未披露，且项目已是成熟的企业支付基础设施。",
-          "产品面向大型平台集成，普通用户没有可验证的直接参与路径。",
-          "未发现原生代币或官方激励，本轮融资没有形成值得继续投入注意力的早期机会。"
+          "产品核心客户是稳定币和代币化资产发行方，而非普通用户。",
+          "现有入口为企业演示与集成，缺少可验证的个人参与路径。",
+          "融资规模与知名投资方并未带来新的早期用户机会。"
         ],
         "next_step": null,
         "recheck_trigger": null,
-        "website_url": "https://fun.xyz/",
-        "x_url": "https://x.com/fun",
+        "website_url": "https://predicate.io/",
+        "x_url": null,
         "evidence": [
           {
-            "claim": "IOSG 于 2026-10-26 宣布投资 Fun，并说明其为 Polymarket 等互联网市场提供全球入金、资金路由和出金基础设施。",
-            "url": "https://www.rootdata.com/news/802421",
-            "source_type": "investor",
-            "confidence": "high"
-          },
-          {
-            "claim": "Fun 官网确认产品服务于金融平台的入金、出金、路由与结账，客户包括 Polymarket、Lighter 等。",
-            "url": "https://fun.xyz/",
+            "claim": "Predicate 官网确认其为数字资产发行方提供 KYC、AML、制裁和转账限制等可编程合规能力。",
+            "url": "https://predicate.io/",
             "source_type": "official_site",
             "confidence": "high"
           },
           {
-            "claim": "Fun 官方公告确认 2026-05 完成 7200 万美元 Series A，由 Multicoin Capital 与 SignalFire 共同领投。",
-            "url": "https://fun.xyz/news/series-a",
+            "claim": "Axios 报道确认 800 万美元 Series A 由 Blockchain Capital 领投。",
+            "url": "https://www.axios.com/pro/fintech-deals/2026/10/27/predicate-8-million-blockchain-capital-compliance",
+            "source_type": "other",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "event_id": "crypto-fundraising-luxor--2026-10--strategic",
+        "source_detail_url": "https://crypto-fundraising.info/projects/luxor/",
+        "project_name": "Luxor",
+        "decision": "STOP",
+        "financing": {
+          "amount_usd": 16000000,
+          "round": "Strategic",
+          "lead_investors": [
+            "CMT Digital"
+          ],
+          "announcement_date": "2026-10-27",
+          "confidence": "high"
+        },
+        "plain_explanation": "Luxor 是服务比特币矿业和 AI 高性能计算市场的基础设施公司，提供算力交易、硬件经纪、能源服务和云计算工具。",
+        "mechanism_simple": "公司把矿机、能源、算力与衍生品交易连接起来，帮助矿工和数据中心采购设备、管理电力并交易计算资源。",
+        "project_status": {
+          "category": "existing_no_token",
+          "token_status": "no_token_found",
+          "note": "Luxor 已运营多年，本轮扩展 AI 算力和硬件业务；未发现原生代币。"
+        },
+        "participation": {
+          "available_now": false,
+          "what_user_can_do": null,
+          "requires_real_funds": true,
+          "friction_or_risk": "核心产品面向矿工、数据中心和机构级算力客户，通常需要专业设备、合同或较大资本。"
+        },
+        "incentives": {
+          "status": "none_found",
+          "types": [],
+          "details": "未发现面向普通用户的 Points、Season、测试网、代币或空投活动。"
+        },
+        "why": [
+          "业务主要服务矿工、硬件商和算力机构，普通用户没有低成本体验路径。",
+          "本轮资金用于扩展 AI 计算、硬件和算力衍生品，不构成个人早期参与机会。",
+          "未发现原生代币或官方用户激励。"
+        ],
+        "next_step": null,
+        "recheck_trigger": null,
+        "website_url": "https://luxor.tech/",
+        "x_url": null,
+        "evidence": [
+          {
+            "claim": "Luxor 官方公告确认 1600 万美元战略轮由 CMT Digital 领投，资金用于 AI 计算交易、硬件和算力平台。",
+            "url": "https://luxor.tech/news/corporate-news/article/luxor-raises-16-million-strategic-round-led-by-cmt-digital",
             "source_type": "official_blog",
             "confidence": "high"
           }
         ]
       },
       {
-        "event_id": "crypto-fundraising-swapglobal--2026-10--round-unknown",
-        "source_detail_url": "https://crypto-fundraising.info/projects/swapglobal/",
-        "project_name": "SwapGlobal",
-        "decision": "STOP",
+        "event_id": "crypto-fundraising-spicenet--2026-10--series-a",
+        "source_detail_url": "https://crypto-fundraising.info/projects/spicenet/",
+        "project_name": "Spicenet",
+        "decision": "WATCH",
         "financing": {
-          "amount_usd": null,
-          "round": null,
-          "lead_investors": [],
-          "announcement_date": "2026-10-23",
+          "amount_usd": 5000000,
+          "round": "Series A",
+          "lead_investors": [
+            "dao5"
+          ],
+          "announcement_date": "2026-10-27",
           "confidence": "high"
         },
-        "plain_explanation": "SwapGlobal 是面向美国机构客户的场外衍生品平台，让对冲基金、资管机构等通过掉期和期权获得加密资产、未上市公司股票、海外股票与算力敞口。",
-        "mechanism_simple": "客户不直接持有底层资产，SwapGlobal 与客户签订场外衍生品合约，再自行在交易场所对冲风险；抵押品由合格托管机构保管。",
+        "plain_explanation": "Spicenet 在不同区块链之间连接应用、用户和流动性，让用户无需手动跨链、切换网络或准备各链 Gas 就能完成交易与入金。",
+        "mechanism_simple": "Spice Flow 先识别用户已有资产，再替应用组合跨链资金路径并完成目标操作；后续 Spice Edge 计划把多个交易场所的仓位和可用保证金统一协调。",
         "project_status": {
           "category": "existing_no_token",
-          "token_status": "no_token_found",
-          "note": "公司成立于 2022 年，本次获 Marcel Boekhoorn、W Group 与 Kenzoll Capital 投资，金额与轮次未披露；未发现原生代币。"
+          "token_status": "token_announced",
+          "note": "Spicenet L1 与 Spice Flow 已上线主网，SPICE 代币已宣布但尚未确认公开交易。"
         },
         "participation": {
-          "available_now": false,
-          "what_user_can_do": null,
+          "available_now": true,
+          "what_user_can_do": "可通过已集成 Spice Flow 的 Pare 或 Reppo 体验跨链入金；Spice Edge 仍处于私有主网测试。",
           "requires_real_funds": true,
-          "friction_or_risk": "仅面向符合条件的机构合约参与者，普通用户无法使用；场外衍生品涉及交易对手、杠杆、流动性与监管风险。"
+          "friction_or_risk": "实际体验需使用链上资产并承担跨链、智能合约和交易风险，当前直接用户入口仍依赖合作应用。"
         },
         "incentives": {
-          "status": "none_found",
-          "types": [],
-          "details": "未发现官方 Points、Season、测试网、代币或空投活动。"
+          "status": "confirmed",
+          "types": [
+            "token"
+          ],
+          "details": "融资公告确认资金将支持 SPICE 代币发布，但未公布时间、分配、积分或空投资格。"
         },
         "why": [
-          "服务对象明确限定为对冲基金、家族办公室、私募基金等合格机构。",
-          "普通用户没有产品入口或低成本参与方式，且衍生品风险与准入门槛较高。",
-          "本次资金主要用于交易资本和机构业务扩张，不构成个人用户的早期参与机会。"
+          "主网产品已有真实集成，不是纯概念项目。",
+          "SPICE 代币和 Spice Edge 均有明确后续催化剂，但当前缺少公开分配和低成本参与规则。",
+          "现阶段需经合作应用投入链上资产，立即行动的收益风险比仍不够清晰。"
         ],
         "next_step": null,
-        "recheck_trigger": null,
-        "website_url": "https://swapglobal.com/",
+        "recheck_trigger": "官方公布 SPICE 代币上线时间及用户分配/资格规则，或 Spice Edge 从私有测试转为公开测试时重新评估。",
+        "website_url": "https://spicenet.io/",
         "x_url": null,
         "evidence": [
           {
-            "claim": "公司融资公告确认本轮金额未披露，投资方为 Marcel Boekhoorn、W Group 与 Kenzoll Capital，资金用于扩展机构衍生品业务。",
-            "url": "https://www.globenewswire.com/news-release/2026/10/23/3387527/0/en/swapglobal-secures-funding-backed-by-marcel-boekhoorn-w-group-and-kenzoll-capital.html",
-            "source_type": "official_blog",
+            "claim": "Spicenet 官网确认 Spice Flow 已上线主网并通过 Pare、Reppo 提供跨链资金路径，Spice Edge 仍在开发。",
+            "url": "https://spicenet.io/",
+            "source_type": "official_site",
             "confidence": "high"
           },
           {
-            "claim": "SwapGlobal 官网确认产品仅面向合格机构参与者，并披露其尚未在 CFTC、SEC 或其他监管机构注册。",
-            "url": "https://swapglobal.com/_about",
+            "claim": "Series A 公告确认 500 万美元由 dao5 领投，Babylon 与 Astrarizon 参投，资金将支持 Spice Edge 和 SPICE 代币发布。",
+            "url": "https://www.businesswire.com/news/home/20261027233445/en/",
+            "source_type": "official_blog",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "event_id": "crypto-fundraising-cancore--2026-10--seed",
+        "source_detail_url": "https://crypto-fundraising.info/projects/cancore/",
+        "project_name": "Cancore",
+        "decision": "WATCH",
+        "financing": {
+          "amount_usd": 7200000,
+          "round": "Seed",
+          "lead_investors": [],
+          "announcement_date": "2026-10-27",
+          "confidence": "high"
+        },
+        "plain_explanation": "Cancore 是连接 Canton 与公链流动性的自托管交易平台，让用户在资产仍留在原链的情况下交易和管理代币化资产。",
+        "mechanism_simple": "平台协调两条网络上的交易并采用原子结算：两边同时完成，否则双方退款；用户自己保管密钥，不需要把资产交给中心化托管方。",
+        "project_status": {
+          "category": "new_live_no_token",
+          "token_status": "token_announced",
+          "note": "产品已在主网测试运行，CNRX 代币已规划但尚无公开上线时间。"
+        },
+        "participation": {
+          "available_now": true,
+          "what_user_can_do": "可进入 Beta 应用，以自托管方式在 Canton 与支持的公链间交易或提供流动性。",
+          "requires_real_funds": true,
+          "friction_or_risk": "产品仍为 Beta，涉及跨网络结算、智能合约、流动性和真实资金风险，交易还收取费用。"
+        },
+        "incentives": {
+          "status": "unconfirmed",
+          "types": [
+            "token"
+          ],
+          "details": "团队在融资采访中确认计划发行 CNRX，并称流动性提供者可获代币相关权益；尚未看到官网公布的资格、时间或奖励规则。"
+        },
+        "why": [
+          "产品已上线并有实际交易数据，且自托管与原子结算具有明确用途。",
+          "CNRX 代币计划带来早期可选性，但官方规则和时间表尚未落地。",
+          "立即参与需要真实资金并承担 Beta 与跨链风险，暂不适合为了潜在奖励而操作。"
+        ],
+        "next_step": null,
+        "recheck_trigger": "官网正式公布 CNRX 上线时间、代币经济与流动性提供者资格/奖励规则后重新评估。",
+        "website_url": "https://cancore.io/",
+        "x_url": null,
+        "evidence": [
+          {
+            "claim": "Cancore 官网确认产品已在主网上线，采用自托管和跨网络原子结算，并明确标注为 Beta。",
+            "url": "https://cancore.io/",
             "source_type": "official_site",
+            "confidence": "high"
+          },
+          {
+            "claim": "融资采访确认 720 万美元种子轮无正式领投方，Paper Ventures 与 dao5 配额最大，并披露计划发行 CNRX。",
+            "url": "https://www.theblock.co/news/deals/2026-10-27-canton-based-trading-platform-cancore-raises-7-2-million-60-million-token-valuation-431906",
+            "source_type": "other",
             "confidence": "high"
           }
         ]
