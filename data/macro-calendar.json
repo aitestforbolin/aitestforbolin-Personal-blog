@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-28T07:03:25+00:00",
+  "generatedAt": "2026-10-28T18:25:07+00:00",
   "timezone": "Asia/Shanghai",
   "status": "healthy",
   "failedSources": [],
@@ -41,7 +41,7 @@
       "actualStatus": "complete",
       "actualMissing": [],
       "actualLastCheckedAt": "2026-10-27T12:47:56-04:00",
-      "retrievedAt": "2026-10-28T07:03:25+00:00",
+      "retrievedAt": "2026-10-28T18:25:07+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "legacy": {
@@ -104,11 +104,11 @@
         {
           "id": "metric-1",
           "label": "联邦基金利率",
-          "actual": null,
+          "actual": "4.00%",
           "forecast": "4.00%",
           "previous": "4.00%",
           "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
+          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct28.2026"
         },
         {
           "id": "metric-2",
@@ -117,18 +117,16 @@
           "forecast": null,
           "previous": null,
           "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
+          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct28.2026"
         }
       ],
-      "releasedAt": null,
-      "actualStatus": "not_due",
-      "actualMissing": [
-        "联邦基金利率"
-      ],
-      "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-28T07:03:25+00:00",
+      "releasedAt": "2026-10-28T14:00:00-04:00",
+      "actualStatus": "complete",
+      "actualMissing": [],
+      "actualLastCheckedAt": "2026-10-28T14:25:04-04:00",
+      "retrievedAt": "2026-10-28T18:25:07+00:00",
       "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
+      "releaseStatus": "released",
       "legacy": {
         "date": "2026-10-29",
         "date_et": "2026-10-28",
@@ -142,19 +140,21 @@
         "stars": 5,
         "source": "Federal Reserve（FOMC 日期已校验）",
         "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-        "result_source": "Forex Factory 市场日历",
-        "result_url": "https://www.forexfactory.com/calendar",
+        "result_source": "Forex Factory 网页日历",
+        "result_url": "https://www.forexfactory.com/calendar?day=oct28.2026",
         "consensus_source": "Forex Factory 市场日历",
         "consensus_url": "https://www.forexfactory.com/calendar",
         "metric_values": [
           {
             "label": "联邦基金利率",
             "source_title": "Federal Funds Rate",
-            "actual": null,
+            "actual": "4.00%",
             "forecast": "4.00%",
             "previous": "4.00%",
             "consensus_source": "Forex Factory 市场日历",
-            "consensus_url": "https://www.forexfactory.com/calendar"
+            "consensus_url": "https://www.forexfactory.com/calendar",
+            "actual_source": "Forex Factory 网页日历",
+            "actual_url": "https://www.forexfactory.com/calendar?day=oct28.2026"
           },
           {
             "label": "FOMC声明",
@@ -166,15 +166,18 @@
             "consensus_url": "https://www.forexfactory.com/calendar"
           }
         ],
-        "release_status": "scheduled",
+        "release_status": "released",
         "forecast": "联邦基金利率 4.00%",
         "previous": "联邦基金利率 4.00%",
         "fomc_validation": "confirmed",
+        "actual_last_checked_at": "2026-10-28T14:25:04-04:00",
+        "actual_check_status": "ok",
+        "released_at": "2026-10-28T14:00:00-04:00",
+        "actual_updated_at": "2026-10-28T18:25:06.954Z",
+        "actual": "联邦基金利率 4.00%",
         "calendar_status": "healthy",
-        "actual_missing": [
-          "联邦基金利率"
-        ],
-        "actual_status": "not_due"
+        "actual_missing": [],
+        "actual_status": "complete"
       }
     },
     {
@@ -204,8 +207,8 @@
       "releasedAt": null,
       "actualStatus": "not_expected",
       "actualMissing": [],
-      "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-28T07:03:25+00:00",
+      "actualLastCheckedAt": "2026-10-28T14:25:04-04:00",
+      "retrievedAt": "2026-10-28T18:25:07+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -237,6 +240,8 @@
           }
         ],
         "release_status": "scheduled",
+        "actual_last_checked_at": "2026-10-28T14:25:04-04:00",
+        "actual_check_status": "ok",
         "calendar_status": "healthy",
         "actual_missing": [],
         "actual_status": "not_expected"
@@ -272,7 +277,7 @@
         "初请失业金人数"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-28T07:03:25+00:00",
+      "retrievedAt": "2026-10-28T18:25:07+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -343,7 +348,7 @@
         "核心PCE环比"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-28T07:03:25+00:00",
+      "retrievedAt": "2026-10-28T18:25:07+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -414,7 +419,7 @@
         "公布值"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-28T07:03:25+00:00",
+      "retrievedAt": "2026-10-28T18:25:07+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -485,7 +490,7 @@
         "GDP年化环比"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-28T07:03:25+00:00",
+      "retrievedAt": "2026-10-28T18:25:07+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -556,7 +561,7 @@
         "公布值"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-28T07:03:25+00:00",
+      "retrievedAt": "2026-10-28T18:25:07+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
