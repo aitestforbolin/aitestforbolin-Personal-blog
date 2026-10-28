@@ -1,0 +1,455 @@
+{
+  "schemaVersion": 1,
+  "status": "success",
+  "reportDate": "2026-10-28",
+  "generatedAt": "2026-10-28T09:04:00+08:00",
+  "sourceGeneratedAt": "2026-10-28T00:58:12.140666+00:00",
+  "sourcePostCount": 130,
+  "sourceListCount": 4,
+  "executionLineage": {
+    "schemaVersion": 2,
+    "runId": "x-intelligence:codex-x-20261028T005739Z",
+    "requestId": "codex-x-20261028T005739Z",
+    "triggerSha": "033d10af82a4f1e4b6e12fe36ab9397881979c40",
+    "githubRunId": 40612123588,
+    "scheduledAt": "2026-10-28T01:00:00Z",
+    "startedAt": "2026-10-28T00:58:12.140291+00:00",
+    "sourceCheckedAt": "2026-10-28T00:58:26.448675+00:00",
+    "sourceUpdatedAt": "2026-10-28T00:30:00+00:00",
+    "completedAt": "2026-10-28T00:58:26.448718+00:00",
+    "publishedAt": "2026-10-28T09:04:00+08:00"
+  },
+  "executionStatus": {
+    "collection": "success",
+    "validation": "success",
+    "publication": {
+      "status": "success"
+    }
+  },
+  "overview": "过去24小时扫描335条候选Post，4个列表完整采集，时间窗内去重后保留130条。今日最重要的风险事件是Predict确认第三方托管的API文档站可能遭入侵，少量用户钱包出现约40万USDT未经授权转账；项目承诺全额赔付并发布事故复盘。监管侧，媒体快讯称CFTC正在调查Polymarket在美国的控制与广告活动。产品侧，代币化股票在财报季继续向24/7交易、组合抵押和跨保证金扩张；Anthropic盘前永续加入跨保证金，价格发现与杠杆风险同步放大。基础设施方面，Akash提出从Cosmos主权链迁移到Solana；AI资本开支则同时出现存储需求强劲、科技股产品溢价回吐和人力预算承压等相互矛盾的信号。",
+  "homeHighlights": [
+    "Predict确认约40万USDT未经授权转账，初步指向第三方API文档站，并承诺全额赔付。",
+    "CFTC据媒体快讯调查Polymarket在美国的控制与广告活动，预测市场监管压力上升。",
+    "代币化股票扩展至24/7财报交易、组合抵押和USDC借款，链上AUM与成交继续增长。",
+    "Akash提出从Cosmos主权链迁移到Solana，以降低维护和共识成本。",
+    "AI资本开支信号分化：存储需求强劲，但产品驱动的股价溢价和人力预算同时受压。"
+  ],
+  "topics": [
+    {
+      "title": "Predict确认约40万USDT安全事件并承诺全额赔付",
+      "importance": "high",
+      "summary": "Predict官方称，少量用户钱包出现未经授权的资金转移，合计约40万USDT。初步调查指向由第三方托管的API文档站可能遭到入侵；站点已下线，项目承诺对由本次事件直接造成的损失全额赔付，并在调查结束后发布完整复盘。同一时间，Predict确认Season 1已完成最终快照，并调整Season 2做市积分，将成交量纳入分配。",
+      "whyItMatters": "文档与开发者基础设施同样可能成为钱包攻击入口。赔付可以降低用户损失，但最终仍需确认攻击路径、受影响授权范围、凭证轮换和第三方责任。",
+      "facts": [
+        "Predict官方确认约40万USDT未经授权转账。",
+        "项目已下线API文档站并承诺全额赔付。",
+        "完整事故复盘尚未发布。"
+      ],
+      "interpretations": [
+        "第三方文档托管可能成为供应链攻击面。",
+        "继续启动Season 2之前，安全修复和赔付透明度将直接影响用户信任。"
+      ],
+      "authors": [
+        "predictdotfun"
+      ],
+      "sourceUrls": [
+        "https://x.com/predictdotfun/status/2115089547528950108",
+        "https://x.com/predictdotfun/status/2115111452944323010"
+      ],
+      "sourceCount": 2,
+      "confidence": "high"
+    },
+    {
+      "title": "Polymarket面临CFTC调查信号，预测市场仍在扩展聚合入口",
+      "importance": "high",
+      "summary": "聚合快讯转述路透称，CFTC正在调查Polymarket在美国的控制措施和广告活动。与此同时，River Markets转发称已接入Novig，可与Kalshi、Polymarket及Polymarket US等市场在同一终端或API交易。监管信息并非CFTC原始公告，需等待正式文件确认范围。",
+      "whyItMatters": "预测市场正在从单个平台竞争走向跨平台聚合，但美国业务边界、广告获客和用户地域控制可能决定增长上限。聚合层也会新增路由、结算和合规责任。",
+      "facts": [
+        "CFTC调查消息来自媒体快讯对路透的转述。",
+        "River Markets宣布其终端和API接入Novig。",
+        "packet没有CFTC正式文件。"
+      ],
+      "interpretations": [
+        "预测市场产品扩张速度可能快于监管边界澄清。",
+        "统一入口可以改善价格比较，也会集中跨平台操作与合规风险。"
+      ],
+      "authors": [
+        "bwenews",
+        "river_markets",
+        "oscar_lvy"
+      ],
+      "sourceUrls": [
+        "https://x.com/bwenews/status/2115130833254404604",
+        "https://x.com/oscar_lvy/status/2115092907522724093"
+      ],
+      "sourceCount": 2,
+      "confidence": "medium"
+    },
+    {
+      "title": "代币化股票进入24/7财报交易与组合抵押阶段",
+      "importance": "high",
+      "summary": "Coinbase Wallet与Base推广财报季24/7代币化股票交易，并明确仅向符合条件的非美国地区用户开放。Kamino披露可在单一头寸中存入多种xStocks并以整个篮子健康度借出USDC。xStocks称Raydium第三季度成交超过25亿美元；Token Terminal转述称链上AUM在30天内由8.68亿美元升至10.3亿美元，其中净流入约2.09亿美元。规模数据主要来自项目方和数据平台。",
+      "whyItMatters": "代币化股票正从交易货架升级为可组合抵押品，资本效率提高的同时，也叠加了篮子相关性、预言机、清算、休市价差和地域限制。",
+      "facts": [
+        "Coinbase Wallet与Base宣布支持财报季24/7代币化股票交易。",
+        "Kamino支持多种xStocks组合抵押借USDC。",
+        "成交与AUM数据由xStocks及Token Terminal披露。"
+      ],
+      "interpretations": [
+        "财报季可能成为检验休市时段价格发现的关键场景。",
+        "返现、激励和跨保证金可能放大早期成交及AUM。"
+      ],
+      "authors": [
+        "CoinbaseWallet",
+        "base",
+        "kamino",
+        "xStocksFi",
+        "tokenterminal"
+      ],
+      "sourceUrls": [
+        "https://x.com/CoinbaseWallet/status/2115197067299803182",
+        "https://x.com/base/status/2115186140835684488",
+        "https://x.com/kamino/status/2115120942720671992",
+        "https://x.com/xStocksFi/status/2115040635816481013",
+        "https://x.com/tokenterminal/status/2115032213473611853"
+      ],
+      "sourceCount": 5,
+      "confidence": "high"
+    },
+    {
+      "title": "Anthropic盘前永续加入跨保证金，估值分歧继续扩大",
+      "importance": "high",
+      "summary": "Trade.xyz宣布Anthropic盘前永续已启用跨保证金。KOL一方面认为S-1公开提交提升了短期AI与半导体情绪，另一方面担心正式上市后市场会重新审视收入、利润和高估值；另有交易者称文件并未验证此前流传的部分内部信息，仍在等待更合适的做多机会。",
+      "whyItMatters": "跨保证金提高资金效率，也会让Anthropic估值波动与其他仓位共享风险。盘前合约可用于价格发现，但不代表正式发行定价或真实股权。",
+      "facts": [
+        "Trade.xyz官方宣布Anthropic盘前永续启用跨保证金。",
+        "相关估值与交易节奏判断均来自KOL。",
+        "packet没有新增招股书原文细节。"
+      ],
+      "interpretations": [
+        "上市前情绪交易与上市后基本面定价可能呈现相反方向。",
+        "跨保证金会放大估值误判向账户其他仓位传导的风险。"
+      ],
+      "authors": [
+        "tradexyz",
+        "octopusycc",
+        "labubu_trader"
+      ],
+      "sourceUrls": [
+        "https://x.com/tradexyz/status/2115179921760715202",
+        "https://x.com/octopusycc/status/2115106352028848319",
+        "https://x.com/labubu_trader/status/2115176221881627048"
+      ],
+      "sourceCount": 3,
+      "confidence": "high"
+    },
+    {
+      "title": "AI资本开支出现需求强劲与回报审查并存",
+      "importance": "high",
+      "summary": "KOL整理称SK海力士第三季度业绩与存储价格超预期，并与大型客户签订长期供货协议；这些夸张的财务数字在packet内没有正式财报原文，不能独立确认。另一KOL指出，Meta在Muse发布后的股价涨幅已大幅回吐；二手消息还称微软考虑向四国员工提供大规模自愿离职方案，以缓解AI与数据中心支出对其他预算的挤压。",
+      "whyItMatters": "存储与HBM需求可能继续增长，但资本市场开始追问AI产品能否覆盖算力、人力和数据中心成本。上游供给景气与下游股东回报压力可以同时存在。",
+      "facts": [
+        "SK海力士数据来自KOL财报整理。",
+        "Meta股价回吐分析来自KOL计算。",
+        "微软自愿离职消息属于二手报道。"
+      ],
+      "interpretations": [
+        "AI基础设施仍有真实需求，但估值不再只奖励资本开支增长。",
+        "企业可能通过削减人力和非核心预算维持AI投资。"
+      ],
+      "authors": [
+        "ArtofSpecuycky",
+        "octopusycc",
+        "_FORAB",
+        "nbblock"
+      ],
+      "sourceUrls": [
+        "https://x.com/ArtofSpecuycky/status/2115239476742283407",
+        "https://x.com/octopusycc/status/2115092450134159541",
+        "https://x.com/_FORAB/status/2114889747542028616",
+        "https://x.com/nbblock/status/2114979185529921630"
+      ],
+      "sourceCount": 4,
+      "confidence": "low"
+    },
+    {
+      "title": "Akash提出离开Cosmos并迁移至Solana",
+      "importance": "high",
+      "summary": "Akash官方表示核心团队认为下一阶段应迁往Solana，并提交Prop 346交由社区决定。TechFlow解读称，迁移动机包括降低独立共识与底层分叉维护成本；迁移门户可能开放两年，转换为SPL后的AKT无法返回Cosmos，质押用户还需预留解绑期。具体实施细节主要来自二手整理。",
+      "whyItMatters": "如果通过，这将是应用链从主权基础设施转向共享高性能链的重要案例，反映验证者安全、维护成本与生态流动性之间的重新权衡。",
+      "facts": [
+        "Akash官方提出迁往Solana并由社区投票决定。",
+        "不可逆迁移、门户期限和解绑说明来自二手整理。",
+        "方案仍需治理通过。"
+      ],
+      "interpretations": [
+        "共享链可显著降低维护成本并接入更大流动性。",
+        "放弃主权链会减少独立控制，并给验证者和质押者带来迁移成本。"
+      ],
+      "authors": [
+        "akashnet",
+        "TechFlowPost"
+      ],
+      "sourceUrls": [
+        "https://x.com/akashnet/status/2114738553775374402",
+        "https://x.com/TechFlowPost/status/2114988345281671206"
+      ],
+      "sourceCount": 2,
+      "confidence": "high"
+    },
+    {
+      "title": "Agentic Finance从概念进入移动端与真实操作测试",
+      "importance": "medium",
+      "summary": "Virtuals官方推出Android封闭测试，宣称其Butler可跨链构建、交易、对冲和再平衡。币安Agent ID相关实践快速增加，但用户指出内盘卖出仍需手机确认，削弱了高波动场景的自动化价值；TermiX则用存款型Quant Agent和积分激励推动低门槛策略体验。",
+      "whyItMatters": "Agent正在成为钱包和交易的新入口，但采用取决于自动化程度、确认延迟、最小权限和异常撤销。把旧发射台流程换成Agent执行，不等于产生新的产品价值。",
+      "facts": [
+        "Virtuals官方发布Android封闭测试。",
+        "币安Agent ID与TermiX使用反馈来自实际参与者。",
+        "卖出需手机确认的限制来自用户体验。"
+      ],
+      "interpretations": [
+        "移动端Agent可降低跨链交易复杂度。",
+        "安全确认与快速执行之间仍存在明显冲突。"
+      ],
+      "authors": [
+        "virtuals_io",
+        "cutepanda",
+        "Arron_finance",
+        "termix_ai",
+        "Benjieming1Q84"
+      ],
+      "sourceUrls": [
+        "https://x.com/virtuals_io/status/2115067149119312324",
+        "https://x.com/cutepanda/status/2115039386157101284",
+        "https://x.com/Arron_finance/status/2115040850938106032",
+        "https://x.com/termix_ai/status/2114906484165452283"
+      ],
+      "sourceCount": 4,
+      "confidence": "medium"
+    },
+    {
+      "title": "链上私人信贷与代币化融资票据扩张",
+      "importance": "medium",
+      "summary": "聚合快讯称Mirae Asset Securities与GRVT合作发行代币化融资票据。另一名参与者详细拆解3Jane：USD3与sUSD3采用优先/劣后结构，LCC允许以保证金承诺未来放贷资金，并通过JANE预挖吸引流动性。3Jane机制和收益数据主要来自单一参与者，未获packet内官方材料确认。",
+      "whyItMatters": "链上RWA正在从国债和股票扩展至信用贷款与结构化票据，但收益来源转向借款人信用、劣后资本和资金调用义务，风险分析不能只看稳定币名称或APY。",
+      "facts": [
+        "Mirae与GRVT合作消息来自聚合快讯。",
+        "3Jane机制由参与者基于实际仓位整理。",
+        "USD3仍可能在极端信用损失下净值回撤。"
+      ],
+      "interpretations": [
+        "优先/劣后分层可把不同风险偏好的资本引入链上信贷。",
+        "高收益与代币预挖可能掩盖坏账、流动性和资金调用风险。"
+      ],
+      "authors": [
+        "bwenews",
+        "0xYond"
+      ],
+      "sourceUrls": [
+        "https://x.com/bwenews/status/2115067088725573931",
+        "https://x.com/0xYond/status/2114973825314193432"
+      ],
+      "sourceCount": 2,
+      "confidence": "medium"
+    },
+    {
+      "title": "低成本模型开始进入浏览器操作与形式化验证",
+      "importance": "medium",
+      "summary": "开发者实测称GPT-6.1 Terra在浏览器和电脑操作任务中速度、稳定性与成本表现良好，并将其替换为默认模型。TechFlow转述NEAR联合创始人访谈称，配合定制工具链的DeepSeek可把复杂形式化验证成本从数万美元降至数百美元。两项均为使用者或媒体整理，不是标准化独立基准。",
+      "whyItMatters": "模型竞争正从单一能力排名转向单位任务成本。计算机操作和形式化验证若能以低价稳定运行，会扩大Agent与安全审计的可用范围。",
+      "facts": [
+        "Terra效果来自开发者实测。",
+        "DeepSeek成本优势来自TechFlow对访谈的转述。",
+        "packet没有统一基准或生产故障率。"
+      ],
+      "interpretations": [
+        "快速低价模型可能比最高分模型更适合日常Agent任务。",
+        "数学和形式化推理能力仍需在真实代码库上验证。"
+      ],
+      "authors": [
+        "Khazix0918",
+        "TechFlowPost"
+      ],
+      "sourceUrls": [
+        "https://x.com/Khazix0918/status/2115093669657371061",
+        "https://x.com/TechFlowPost/status/2115014077973959164"
+      ],
+      "sourceCount": 2,
+      "confidence": "medium"
+    }
+  ],
+  "watchlist": [
+    {
+      "signal": "Predict事故复盘、赔付完成率与凭证轮换",
+      "reason": "确认第三方文档站是否为唯一攻击路径，并验证受影响授权范围。",
+      "authors": [
+        "predictdotfun"
+      ],
+      "sourceUrls": [
+        "https://x.com/predictdotfun/status/2115089547528950108"
+      ]
+    },
+    {
+      "signal": "CFTC对Polymarket调查的正式文件与美国业务边界",
+      "reason": "区分媒体快讯与实际执法范围。",
+      "authors": [
+        "bwenews"
+      ],
+      "sourceUrls": [
+        "https://x.com/bwenews/status/2115130833254404604"
+      ]
+    },
+    {
+      "signal": "代币化股票在财报夜和休市时段的价差、清算与赎回",
+      "reason": "检验24/7交易和组合抵押是否形成可靠价格发现。",
+      "authors": [
+        "CoinbaseWallet",
+        "kamino",
+        "xStocksFi"
+      ],
+      "sourceUrls": [
+        "https://x.com/CoinbaseWallet/status/2115197067299803182",
+        "https://x.com/kamino/status/2115120942720671992",
+        "https://x.com/xStocksFi/status/2115040635816481013"
+      ]
+    },
+    {
+      "signal": "Anthropic盘前永续的深度、跨保证金风险与正式发行估值",
+      "reason": "观察情绪价格与基本面定价是否出现显著偏离。",
+      "authors": [
+        "tradexyz",
+        "octopusycc"
+      ],
+      "sourceUrls": [
+        "https://x.com/tradexyz/status/2115179921760715202",
+        "https://x.com/octopusycc/status/2115106352028848319"
+      ]
+    },
+    {
+      "signal": "SK海力士正式财报与微软人员调整文件",
+      "reason": "核实二手数字并评估AI资本开支对盈利和预算的真实影响。",
+      "authors": [
+        "ArtofSpecuycky",
+        "_FORAB"
+      ],
+      "sourceUrls": [
+        "https://x.com/ArtofSpecuycky/status/2115239476742283407",
+        "https://x.com/_FORAB/status/2114889747542028616"
+      ]
+    },
+    {
+      "signal": "Akash Prop 346投票、迁移工具与交易所支持",
+      "reason": "判断从Cosmos迁至Solana能否安全执行并保留生态连续性。",
+      "authors": [
+        "akashnet",
+        "TechFlowPost"
+      ],
+      "sourceUrls": [
+        "https://x.com/akashnet/status/2114738553775374402",
+        "https://x.com/TechFlowPost/status/2114988345281671206"
+      ]
+    },
+    {
+      "signal": "Agent钱包的授权、确认延迟和异常回滚",
+      "reason": "决定Agentic Finance能否超越传统钱包操作层。",
+      "authors": [
+        "virtuals_io",
+        "cutepanda"
+      ],
+      "sourceUrls": [
+        "https://x.com/virtuals_io/status/2115067149119312324",
+        "https://x.com/cutepanda/status/2115039386157101284"
+      ]
+    },
+    {
+      "signal": "3Jane坏账、劣后覆盖与LCC资金调用率",
+      "reason": "验证链上私人信贷收益是否覆盖信用和流动性风险。",
+      "authors": [
+        "0xYond"
+      ],
+      "sourceUrls": [
+        "https://x.com/0xYond/status/2114973825314193432"
+      ]
+    }
+  ],
+  "disagreements": [
+    {
+      "topic": "Predict事件的风险范围",
+      "positions": [
+        "官方初步指向第三方API文档站，并承诺全额赔付。",
+        "在完整复盘发布前，仍不能确认攻击面是否完全收敛。"
+      ],
+      "sourceUrls": [
+        "https://x.com/predictdotfun/status/2115089547528950108"
+      ]
+    },
+    {
+      "topic": "代币化股票增长质量",
+      "positions": [
+        "成交、AUM和组合抵押显示产品进入真实融资层。",
+        "激励、返现和跨保证金可能放大早期活跃度与风险。"
+      ],
+      "sourceUrls": [
+        "https://x.com/xStocksFi/status/2115040635816481013",
+        "https://x.com/tokenterminal/status/2115032213473611853",
+        "https://x.com/kamino/status/2115120942720671992"
+      ]
+    },
+    {
+      "topic": "Anthropic上市交易节奏",
+      "positions": [
+        "S-1提交可能继续推高上市前AI情绪。",
+        "正式上市后，高估值与盈利要求可能触发折价和板块重估。"
+      ],
+      "sourceUrls": [
+        "https://x.com/octopusycc/status/2115106352028848319",
+        "https://x.com/labubu_trader/status/2115176221881627048"
+      ]
+    },
+    {
+      "topic": "AI资本开支周期",
+      "positions": [
+        "存储与HBM需求仍然强劲，上游供给可能持续紧张。",
+        "科技股产品溢价回吐和人力预算压缩显示回报审查加剧。"
+      ],
+      "sourceUrls": [
+        "https://x.com/ArtofSpecuycky/status/2115239476742283407",
+        "https://x.com/octopusycc/status/2115092450134159541",
+        "https://x.com/_FORAB/status/2114889747542028616"
+      ]
+    },
+    {
+      "topic": "应用链是否应保留主权",
+      "positions": [
+        "Akash迁往Solana可显著降低共识和维护成本。",
+        "迁移不可逆，会削弱自主控制并增加验证者、质押者的转换成本。"
+      ],
+      "sourceUrls": [
+        "https://x.com/akashnet/status/2114738553775374402",
+        "https://x.com/TechFlowPost/status/2114988345281671206"
+      ]
+    },
+    {
+      "topic": "Agent钱包的创新价值",
+      "positions": [
+        "Agent可跨链构建、交易、对冲和再平衡，降低操作门槛。",
+        "若仍依赖手机确认且主要服务旧式发射台，其自动化价值有限。"
+      ],
+      "sourceUrls": [
+        "https://x.com/virtuals_io/status/2115067149119312324",
+        "https://x.com/cutepanda/status/2115039386157101284",
+        "https://x.com/Arron_finance/status/2115040850938106032"
+      ]
+    }
+  ],
+  "noiseSummary": [
+    "财报直播与交易喊单",
+    "交易赛和邀请链接推广",
+    "meme内盘短线晒单",
+    "日常生活与饮食内容",
+    "无上下文图片或链接帖",
+    "重复空投与铸造教程",
+    "体育及娱乐争议",
+    "低信息品牌互动"
+  ]
+}
