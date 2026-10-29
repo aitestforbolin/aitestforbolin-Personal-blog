@@ -3,7 +3,7 @@
   "automation": "x-intelligence",
   "runId": "x-intelligence:codex-x-20261029T010235Z",
   "requestId": "codex-x-20261029T010235Z",
-  "result": "in_progress",
+  "result": "success",
   "lineage": {
     "triggerType": "push",
     "triggerSha": "c3c50d8085ced99b0eeaff242ef4a43daa107644",
@@ -15,7 +15,7 @@
     "startedAt": "2026-10-29T01:03:29.135847+00:00",
     "sourceCheckedAt": "2026-10-29T01:03:37.085987+00:00",
     "sourceUpdatedAt": "2026-10-28T23:35:52+00:00",
-    "completedAt": "2026-10-29T01:03:37.086066+00:00",
+    "completedAt": "2026-10-29T01:10:00.000Z",
     "publishedAt": "2026-10-29T09:08:00+08:00"
   },
   "legacyRequestedAt": null,
@@ -39,7 +39,10 @@
       "commitSha": "04bb354e8e92976a304f6dc352680a86e0785093"
     },
     "notification": {
-      "status": "not_run"
+      "status": "success",
+      "provider": "gmail",
+      "messageId": "1a18531e39452bd3",
+      "completedAt": "2026-10-29T01:10:00.000Z"
     }
   }
 }
