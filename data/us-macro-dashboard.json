@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-15T21:35:23+08:00",
-  "asOf": "2026-10-15",
+  "generatedAt": "2026-10-29T22:35:40+08:00",
+  "asOf": "2026-10-29",
   "title": "美国宏观核心数据",
   "summary": [
     {
@@ -139,17 +139,17 @@
         {
           "id": "core-pce",
           "title": "Core PCE",
-          "period": "July 2026",
-          "releaseDate": "2026-08-26",
-          "updatedAt": "2026-09-18T00:00:00+08:00",
+          "period": null,
+          "releaseDate": "2026-10-29",
+          "updatedAt": "2026-10-29T22:35:40+08:00",
           "source": "Forex Factory",
-          "sourceUrl": "https://www.forexfactory.com/calendar?week=aug23.2026",
+          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct29.2026",
           "rows": [
             {
               "label": "MoM",
-              "actual": "0.2%",
-              "forecast": "0.2%",
-              "previous": "0.1%"
+              "actual": "0.3%",
+              "forecast": "0.3%",
+              "previous": "0.3%"
             },
             {
               "label": "YoY",
@@ -301,17 +301,17 @@
         {
           "id": "real-gdp",
           "title": "GDP",
-          "period": "Q2 2026",
-          "releaseDate": "2026-08-26",
-          "updatedAt": "2026-09-18T00:00:00+08:00",
+          "period": null,
+          "releaseDate": "2026-10-29",
+          "updatedAt": "2026-10-29T22:35:40+08:00",
           "source": "Forex Factory",
-          "sourceUrl": "https://www.forexfactory.com/calendar?week=aug23.2026",
+          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct29.2026",
           "rows": [
             {
               "label": "GDP q/q",
-              "actual": "1.5%",
-              "forecast": "1.5%",
-              "previous": "1.5%"
+              "actual": "3.4%",
+              "forecast": "3.2%",
+              "previous": "2.2%"
             }
           ],
           "trend": "已写入最新一期；积累满3期后显示中期趋势。"
@@ -377,9 +377,9 @@
     "美国零售销售": "2026-10-15",
     "美国CPI / 核心CPI": "2026-10-14",
     "美国PPI": "2026-10-15",
-    "美国PCE / 核心PCE": "2026-08-26",
+    "美国PCE / 核心PCE": "2026-10-29",
     "美国非农 / 失业率 / 平均时薪": "2026-09-04",
-    "美国GDP": "2026-08-26",
+    "美国GDP": "2026-10-29",
     "美国ISM制造业PMI": "2026-10-01",
     "美国ISM服务业PMI": "2026-10-05",
     "美国工业产出": "2026-08-18"
@@ -389,7 +389,9 @@
     "美国ISM制造业PMI": "4fbd87ce4a3e237dcd0c2d43fcfe37630c334fa5c43530927aece02a9f66a053",
     "美国ISM服务业PMI": "c148b7bdcc05c9554d996efae668656e3709a77aa36ce6fbae0b8bb702d2bdf2",
     "美国CPI / 核心CPI": "a36d524f0bc8197cd2efe8dbca85cd957fe4af5d457aab44f0f6026fc6201906",
-    "美国PPI": "e9f030f697a20a3dedeeede90a1695d69b3992d7ef90f896f35dfd86b9402f77"
+    "美国PPI": "e9f030f697a20a3dedeeede90a1695d69b3992d7ef90f896f35dfd86b9402f77",
+    "美国GDP": "ef38f79c4d6ed97f8f6c28fb0bae07ce9f7c7b1ab1c8f23af436ca233aafe536",
+    "美国PCE / 核心PCE": "9a281d2db746448d735931d5c6ea5d3b8382a0752315fe8f0cf9a660223cc574"
   },
   "dataQuality": {
     "status": "forex_factory_only",
@@ -397,7 +399,7 @@
       "只写入 release_status=released 且 actual 非空的 Forex Factory 数据。",
       "没有当前已发布值的字段会等待下一次对应数据发布。"
     ],
-    "fetchedAt": "2026-10-15T21:35:23+08:00",
+    "fetchedAt": "2026-10-29T22:35:40+08:00",
     "source": "Forex Factory"
   }
 }

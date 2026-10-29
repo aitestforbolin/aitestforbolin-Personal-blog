@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-28T18:26:26+00:00",
+  "generatedAt": "2026-10-29T14:35:40+00:00",
   "timezone": "Asia/Shanghai",
   "status": "healthy",
   "failedSources": [],
@@ -41,7 +41,7 @@
       "actualStatus": "complete",
       "actualMissing": [],
       "actualLastCheckedAt": "2026-10-27T12:47:56-04:00",
-      "retrievedAt": "2026-10-28T18:26:26+00:00",
+      "retrievedAt": "2026-10-29T14:35:40+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "legacy": {
@@ -124,7 +124,7 @@
       "actualStatus": "complete",
       "actualMissing": [],
       "actualLastCheckedAt": "2026-10-28T14:25:04-04:00",
-      "retrievedAt": "2026-10-28T18:26:26+00:00",
+      "retrievedAt": "2026-10-29T14:35:40+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "legacy": {
@@ -208,7 +208,7 @@
       "actualStatus": "not_expected",
       "actualMissing": [],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-28T18:26:26+00:00",
+      "retrievedAt": "2026-10-29T14:35:40+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -262,22 +262,20 @@
         {
           "id": "metric-1",
           "label": "初请失业金人数",
-          "actual": null,
+          "actual": "194K",
           "forecast": "198K",
-          "previous": "194K",
+          "previous": "195K",
           "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
+          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct29.2026"
         }
       ],
-      "releasedAt": null,
-      "actualStatus": "not_due",
-      "actualMissing": [
-        "初请失业金人数"
-      ],
-      "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-28T18:26:26+00:00",
+      "releasedAt": "2026-10-29T08:30:00-04:00",
+      "actualStatus": "complete",
+      "actualMissing": [],
+      "actualLastCheckedAt": "2026-10-29T10:35:38-04:00",
+      "retrievedAt": "2026-10-29T14:35:40+00:00",
       "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
+      "releaseStatus": "released",
       "legacy": {
         "date": "2026-10-29",
         "date_et": "2026-10-29",
@@ -291,29 +289,34 @@
         "stars": 3,
         "source": "Forex Factory",
         "url": "https://www.forexfactory.com/calendar",
-        "result_source": "Forex Factory 市场日历",
-        "result_url": "https://www.forexfactory.com/calendar",
+        "result_source": "Forex Factory 网页日历",
+        "result_url": "https://www.forexfactory.com/calendar?day=oct29.2026",
         "consensus_source": "Forex Factory 市场日历",
         "consensus_url": "https://www.forexfactory.com/calendar",
         "metric_values": [
           {
             "label": "初请失业金人数",
             "source_title": "Unemployment Claims",
-            "actual": null,
+            "actual": "194K",
             "forecast": "198K",
-            "previous": "194K",
+            "previous": "195K",
             "consensus_source": "Forex Factory 市场日历",
-            "consensus_url": "https://www.forexfactory.com/calendar"
+            "consensus_url": "https://www.forexfactory.com/calendar",
+            "actual_source": "Forex Factory 网页日历",
+            "actual_url": "https://www.forexfactory.com/calendar?day=oct29.2026"
           }
         ],
-        "release_status": "scheduled",
+        "release_status": "released",
         "forecast": "初请失业金人数 198K",
-        "previous": "初请失业金人数 194K",
+        "previous": "初请失业金人数 195K",
+        "actual_last_checked_at": "2026-10-29T10:35:38-04:00",
+        "actual_check_status": "ok",
+        "released_at": "2026-10-29T08:30:00-04:00",
+        "actual_updated_at": "2026-10-29T14:35:40.315Z",
+        "actual": "初请失业金人数 194K",
         "calendar_status": "healthy",
-        "actual_missing": [
-          "初请失业金人数"
-        ],
-        "actual_status": "not_due"
+        "actual_missing": [],
+        "actual_status": "complete"
       }
     },
     {
@@ -333,22 +336,20 @@
         {
           "id": "metric-1",
           "label": "核心PCE环比",
-          "actual": null,
+          "actual": "0.3%",
           "forecast": "0.3%",
-          "previous": "0.2%",
+          "previous": "0.3%",
           "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
+          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct29.2026"
         }
       ],
-      "releasedAt": null,
-      "actualStatus": "not_due",
-      "actualMissing": [
-        "核心PCE环比"
-      ],
-      "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-28T18:26:26+00:00",
+      "releasedAt": "2026-10-29T08:30:00-04:00",
+      "actualStatus": "complete",
+      "actualMissing": [],
+      "actualLastCheckedAt": "2026-10-29T10:35:38-04:00",
+      "retrievedAt": "2026-10-29T14:35:40+00:00",
       "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
+      "releaseStatus": "released",
       "legacy": {
         "date": "2026-10-29",
         "date_et": "2026-10-29",
@@ -362,29 +363,34 @@
         "stars": 5,
         "source": "Forex Factory",
         "url": "https://www.forexfactory.com/calendar",
-        "result_source": "Forex Factory 市场日历",
-        "result_url": "https://www.forexfactory.com/calendar",
+        "result_source": "Forex Factory 网页日历",
+        "result_url": "https://www.forexfactory.com/calendar?day=oct29.2026",
         "consensus_source": "Forex Factory 市场日历",
         "consensus_url": "https://www.forexfactory.com/calendar",
         "metric_values": [
           {
             "label": "核心PCE环比",
             "source_title": "Core PCE Price Index m/m",
-            "actual": null,
+            "actual": "0.3%",
             "forecast": "0.3%",
-            "previous": "0.2%",
+            "previous": "0.3%",
             "consensus_source": "Forex Factory 市场日历",
-            "consensus_url": "https://www.forexfactory.com/calendar"
+            "consensus_url": "https://www.forexfactory.com/calendar",
+            "actual_source": "Forex Factory 网页日历",
+            "actual_url": "https://www.forexfactory.com/calendar?day=oct29.2026"
           }
         ],
-        "release_status": "scheduled",
+        "release_status": "released",
         "forecast": "核心PCE环比 0.3%",
-        "previous": "核心PCE环比 0.2%",
+        "previous": "核心PCE环比 0.3%",
+        "actual_last_checked_at": "2026-10-29T10:35:38-04:00",
+        "actual_check_status": "ok",
+        "released_at": "2026-10-29T08:30:00-04:00",
+        "actual_updated_at": "2026-10-29T14:35:40.315Z",
+        "actual": "核心PCE环比 0.3%",
         "calendar_status": "healthy",
-        "actual_missing": [
-          "核心PCE环比"
-        ],
-        "actual_status": "not_due"
+        "actual_missing": [],
+        "actual_status": "complete"
       }
     },
     {
@@ -404,22 +410,20 @@
         {
           "id": "metric-1",
           "label": "公布值",
-          "actual": null,
+          "actual": "2.3%",
           "forecast": "3.2%",
-          "previous": "6.2%",
+          "previous": "6.1%",
           "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
+          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct29.2026"
         }
       ],
-      "releasedAt": null,
-      "actualStatus": "not_due",
-      "actualMissing": [
-        "公布值"
-      ],
-      "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-28T18:26:26+00:00",
+      "releasedAt": "2026-10-29T08:30:00-04:00",
+      "actualStatus": "complete",
+      "actualMissing": [],
+      "actualLastCheckedAt": "2026-10-29T10:35:38-04:00",
+      "retrievedAt": "2026-10-29T14:35:40+00:00",
       "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
+      "releaseStatus": "released",
       "legacy": {
         "date": "2026-10-29",
         "date_et": "2026-10-29",
@@ -433,29 +437,34 @@
         "stars": 3,
         "source": "Forex Factory",
         "url": "https://www.forexfactory.com/calendar",
-        "result_source": "Forex Factory 市场日历",
-        "result_url": "https://www.forexfactory.com/calendar",
+        "result_source": "Forex Factory 网页日历",
+        "result_url": "https://www.forexfactory.com/calendar?day=oct29.2026",
         "consensus_source": "Forex Factory 市场日历",
         "consensus_url": "https://www.forexfactory.com/calendar",
         "metric_values": [
           {
             "label": "公布值",
             "source_title": "Advance GDP Price Index q/q",
-            "actual": null,
+            "actual": "2.3%",
             "forecast": "3.2%",
-            "previous": "6.2%",
+            "previous": "6.1%",
             "consensus_source": "Forex Factory 市场日历",
-            "consensus_url": "https://www.forexfactory.com/calendar"
+            "consensus_url": "https://www.forexfactory.com/calendar",
+            "actual_source": "Forex Factory 网页日历",
+            "actual_url": "https://www.forexfactory.com/calendar?day=oct29.2026"
           }
         ],
-        "release_status": "scheduled",
+        "release_status": "released",
         "forecast": "公布值 3.2%",
-        "previous": "公布值 6.2%",
+        "previous": "公布值 6.1%",
+        "actual_last_checked_at": "2026-10-29T10:35:38-04:00",
+        "actual_check_status": "ok",
+        "released_at": "2026-10-29T08:30:00-04:00",
+        "actual_updated_at": "2026-10-29T14:35:40.315Z",
+        "actual": "公布值 2.3%",
         "calendar_status": "healthy",
-        "actual_missing": [
-          "公布值"
-        ],
-        "actual_status": "not_due"
+        "actual_missing": [],
+        "actual_status": "complete"
       }
     },
     {
@@ -475,22 +484,20 @@
         {
           "id": "metric-1",
           "label": "GDP年化环比",
-          "actual": null,
+          "actual": "3.4%",
           "forecast": "3.2%",
-          "previous": "1.5%",
+          "previous": "2.2%",
           "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
+          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct29.2026"
         }
       ],
-      "releasedAt": null,
-      "actualStatus": "not_due",
-      "actualMissing": [
-        "GDP年化环比"
-      ],
-      "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-28T18:26:26+00:00",
+      "releasedAt": "2026-10-29T08:30:00-04:00",
+      "actualStatus": "complete",
+      "actualMissing": [],
+      "actualLastCheckedAt": "2026-10-29T10:35:38-04:00",
+      "retrievedAt": "2026-10-29T14:35:40+00:00",
       "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
+      "releaseStatus": "released",
       "legacy": {
         "date": "2026-10-29",
         "date_et": "2026-10-29",
@@ -504,29 +511,34 @@
         "stars": 5,
         "source": "Forex Factory",
         "url": "https://www.forexfactory.com/calendar",
-        "result_source": "Forex Factory 市场日历",
-        "result_url": "https://www.forexfactory.com/calendar",
+        "result_source": "Forex Factory 网页日历",
+        "result_url": "https://www.forexfactory.com/calendar?day=oct29.2026",
         "consensus_source": "Forex Factory 市场日历",
         "consensus_url": "https://www.forexfactory.com/calendar",
         "metric_values": [
           {
             "label": "GDP年化环比",
             "source_title": "Advance GDP q/q",
-            "actual": null,
+            "actual": "3.4%",
             "forecast": "3.2%",
-            "previous": "1.5%",
+            "previous": "2.2%",
             "consensus_source": "Forex Factory 市场日历",
-            "consensus_url": "https://www.forexfactory.com/calendar"
+            "consensus_url": "https://www.forexfactory.com/calendar",
+            "actual_source": "Forex Factory 网页日历",
+            "actual_url": "https://www.forexfactory.com/calendar?day=oct29.2026"
           }
         ],
-        "release_status": "scheduled",
+        "release_status": "released",
         "forecast": "GDP年化环比 3.2%",
-        "previous": "GDP年化环比 1.5%",
+        "previous": "GDP年化环比 2.2%",
+        "actual_last_checked_at": "2026-10-29T10:35:38-04:00",
+        "actual_check_status": "ok",
+        "released_at": "2026-10-29T08:30:00-04:00",
+        "actual_updated_at": "2026-10-29T14:35:40.315Z",
+        "actual": "GDP年化环比 3.4%",
         "calendar_status": "healthy",
-        "actual_missing": [
-          "GDP年化环比"
-        ],
-        "actual_status": "not_due"
+        "actual_missing": [],
+        "actual_status": "complete"
       }
     },
     {
@@ -559,7 +571,7 @@
         "公布值"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-10-28T18:26:26+00:00",
+      "retrievedAt": "2026-10-29T14:35:40+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
