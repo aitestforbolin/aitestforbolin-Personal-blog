@@ -1,71 +1,71 @@
 {
-  "updated_at": "2026-10-28T01:03:41+00:00",
+  "updated_at": "2026-10-29T00:58:48+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-mochatrade",
+      "id": "crypto-fundraising-birch-hill-holdings",
       "source_rank": 1,
+      "name": "Birch Hill Holdings",
+      "round": "Seed",
+      "announced_month": "2026-10",
+      "amount_usd": 4000000,
+      "detail_url": "https://crypto-fundraising.info/projects/birch-hill-holdings/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-ibis",
+      "source_rank": 2,
+      "name": "Ibis",
+      "round": "Pre-seed",
+      "announced_month": "2026-10",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/ibis/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-mochatrade",
+      "source_rank": 3,
       "name": "Mochatrade",
       "round": "Seed",
       "announced_month": "2026-10",
       "amount_usd": 4870000,
       "detail_url": "https://crypto-fundraising.info/projects/mochatrade/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-predicate",
-      "source_rank": 2,
+      "source_rank": 4,
       "name": "Predicate",
       "round": "Series A",
       "announced_month": "2026-10",
       "amount_usd": 8000000,
       "detail_url": "https://crypto-fundraising.info/projects/predicate/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-luxor",
-      "source_rank": 3,
+      "source_rank": 5,
       "name": "Luxor",
       "round": "Strategic",
       "announced_month": "2026-10",
       "amount_usd": 16000000,
       "detail_url": "https://crypto-fundraising.info/projects/luxor/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-spicenet",
-      "source_rank": 4,
-      "name": "Spicenet",
-      "round": "Series A",
-      "announced_month": "2026-10",
-      "amount_usd": 5000000,
-      "detail_url": "https://crypto-fundraising.info/projects/spicenet/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-cancore",
-      "source_rank": 5,
-      "name": "Cancore",
-      "round": "Seed",
-      "announced_month": "2026-10",
-      "amount_usd": 7200000,
-      "detail_url": "https://crypto-fundraising.info/projects/cancore/",
-      "is_new": true
+      "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261028-010226Z",
-    "requestId": "codex-web3-20261028-010226Z",
-    "triggerSha": "2e13be31b4e234873396019322118fdb33e868ff",
-    "githubRunId": 40612700332,
-    "scheduledAt": "2026-10-28T01:02:26Z",
-    "startedAt": "2026-10-28T01:03:39.680366+00:00",
-    "sourceCheckedAt": "2026-10-28T01:03:41.813629+00:00",
-    "sourceUpdatedAt": "2026-10-28T01:03:41+00:00",
-    "completedAt": "2026-10-28T01:03:41.813910+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261029-005756Z",
+    "requestId": "codex-web3-20261029-005756Z",
+    "triggerSha": "4421d87a0a1f3cba0c2cdb5487ece91c0aa76f9b",
+    "githubRunId": 40797518178,
+    "scheduledAt": "2026-10-29T00:57:56Z",
+    "startedAt": "2026-10-29T00:58:47.205744+00:00",
+    "sourceCheckedAt": "2026-10-29T00:58:48.876423+00:00",
+    "sourceUpdatedAt": "2026-10-29T00:58:48+00:00",
+    "completedAt": "2026-10-29T00:58:48.876768+00:00",
     "publishedAt": null
   }
 }
