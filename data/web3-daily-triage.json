@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "runDate": "2026-10-29",
-  "publishedAt": "2026-10-29T08:59:36+08:00",
-  "windowStart": "2026-10-28T01:03:41.813910+00:00",
-  "windowEnd": "2026-10-29T00:58:48.876768+00:00",
-  "sourceUpdatedAt": "2026-10-29T00:58:48+00:00",
+  "runDate": "2026-10-30",
+  "publishedAt": "2026-10-30T09:03:49+08:00",
+  "windowStart": "2026-10-29T00:58:48.876768+00:00",
+  "windowEnd": "2026-10-30T01:03:14.022220+00:00",
+  "sourceUpdatedAt": "2026-10-30T01:03:14+00:00",
   "status": "success",
   "executionLineage": {
-    "runId": "web3-daily-triage:codex-web3-20261029-005756Z",
-    "requestId": "codex-web3-20261029-005756Z",
-    "triggerSha": "4421d87a0a1f3cba0c2cdb5487ece91c0aa76f9b",
-    "githubRunId": 40797518178,
-    "scheduledAt": "2026-10-29T00:57:56Z",
-    "startedAt": "2026-10-29T00:58:47.205744+00:00",
-    "sourceCheckedAt": "2026-10-29T00:58:48.876423+00:00",
-    "sourceUpdatedAt": "2026-10-29T00:58:48+00:00",
-    "completedAt": "2026-10-29T00:58:48.876768+00:00",
-    "publishedAt": "2026-10-29T08:59:36+08:00"
+    "runId": "web3-daily-triage:codex-web3-20261030-010207Z",
+    "requestId": "codex-web3-20261030-010207Z",
+    "triggerSha": "0323d3cc74358cb11c19d7d2dc000ea2e6f86f78",
+    "githubRunId": 40983478799,
+    "scheduledAt": "2026-10-30T01:02:07Z",
+    "startedAt": "2026-10-30T01:03:11.572799+00:00",
+    "sourceCheckedAt": "2026-10-30T01:03:14.021922+00:00",
+    "sourceUpdatedAt": "2026-10-30T01:03:14+00:00",
+    "completedAt": "2026-10-30T01:03:14.022220+00:00",
+    "publishedAt": "2026-10-30T09:03:49+08:00"
   },
   "executionStatus": {
     "collection": "success",
     "validation": "success",
     "publication": "success"
   },
-  "deduplicationNote": "候选窗口从 2026-10-28 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；历史新增两个非 M&A 观测事件，按累计 reportedEventIds 去重后完成初筛。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+  "deduplicationNote": "候选窗口从 2026-10-29 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；历史新增两个非 M&A 观测事件，按累计 reportedEventIds 去重后完成初筛。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
   "reportedEventIds": [
     "crypto-fundraising-ponygo--2026-09--round-unknown",
     "crypto-fundraising-velocity--2026-09--series-a",
@@ -90,124 +90,130 @@
     "crypto-fundraising-spicenet--2026-10--series-a",
     "crypto-fundraising-cancore--2026-10--seed",
     "crypto-fundraising-birch-hill-holdings--2026-10--seed",
-    "crypto-fundraising-ibis--2026-10--pre-seed"
+    "crypto-fundraising-ibis--2026-10--pre-seed",
+    "crypto-fundraising-kalshi--2026-10--series-g",
+    "crypto-fundraising-photonpay--2026-10--series-c"
   ],
   "counts": {
     "new": 2,
     "action": 0,
-    "watch": 1,
-    "stop": 1
+    "watch": 0,
+    "stop": 2
   },
   "projects": [
     {
-      "event_id": "crypto-fundraising-birch-hill-holdings--2026-10--seed",
-      "source_detail_url": "https://crypto-fundraising.info/projects/birch-hill-holdings/",
-      "project_name": "Birch Hill Holdings",
-      "decision": "WATCH",
+      "event_id": "crypto-fundraising-kalshi--2026-10--series-g",
+      "source_detail_url": "https://crypto-fundraising.info/projects/kalshi/",
+      "project_name": "Kalshi",
+      "decision": "STOP",
       "financing": {
-        "amount_usd": 4000000,
-        "round": "Seed",
+        "amount_usd": 1000000000,
+        "round": "Series G",
         "lead_investors": [
-          "Multicoin Capital"
+          "Wellington Management",
+          "Sequoia Capital"
         ],
-        "announcement_date": "2026-10-28",
+        "announcement_date": "2026-10-29",
         "confidence": "high"
       },
-      "plain_explanation": "Birch Hill 把美国房地产等现实世界信贷引入公链，并在 Morpho 上管理借贷金库、评估抵押品和设置风险参数。",
-      "mechanism_simple": "用户向金库存入 USDC，资金借给以代币化房地产权益等资产作抵押的借款人；Birch Hill 负责筛选市场、设定风险参数并持续披露头寸。",
+      "plain_explanation": "Kalshi 是受监管的事件合约与多资产交易平台，用户可对选举、体育、经济数据和其他事件结果进行交易。",
+      "mechanism_simple": "用户完成实名与地区资格审核后充值，买卖按事件结果结算的合约；判断正确的合约到期按规则支付，判断错误可能损失全部仓位资金。",
       "project_status": {
         "category": "existing_no_token",
         "token_status": "no_token_found",
-        "note": "Birch Hill 已有 Morpho 金库和链上产品，未发现其原生代币。"
+        "note": "平台已大规模商业化运营并扩展至多类金融产品，未发现 Kalshi 原生代币。"
       },
       "participation": {
         "available_now": true,
-        "what_user_can_do": "可在 Base 上向公开的 bhGROeco 金库存入 USDC；通过 Birch Hill 应用进入时需要基础身份检查。",
+        "what_user_can_do": "符合地区与年龄要求的用户可注册、完成 KYC 后交易；部分美国用户还可参加特定市场的交易量奖励。",
         "requires_real_funds": true,
-        "friction_or_risk": "需投入真实 USDC，并承担智能合约、季度估值、预言机、抵押物集中、清算和赎回流动性风险，存在本金全部损失可能。"
+        "friction_or_risk": "需要实名、地区资格和真实资金；事件合约及永续产品可能造成全部仓位损失，且面临司法辖区限制、监管和成瘾风险。"
       },
       "incentives": {
-        "status": "none_found",
-        "types": [],
-        "details": "未发现 Birch Hill 官方 Points、Season、测试网、代币或空投计划；Morpho 的通用奖励不能自动视为该金库的官方激励。"
+        "status": "official_program",
+        "types": [
+          "referral",
+          "volume_rewards"
+        ],
+        "details": "官方存在推荐与交易量奖励，但资格、金额、期限和可提取性按账户与活动变化；交易量计划主要面向符合条件的美国用户，不是代币或无成本早期激励。"
       },
       "why": [
-        "产品已经上线并允许普通用户通过公开金库参与，具有真实用途。",
-        "当前机会依赖真实资金，且抵押物、估值与退出流动性风险较高。",
-        "尚无官方激励或足够长的公开运行记录，不值得仅为潜在早期收益立即入金。"
+        "公司已进入 Series G 并以 400 亿美元估值融资，属于成熟交易平台，不是早期产品发现机会。",
+        "未发现原生代币或测试网；现有奖励要求实名、地区资格和真实交易量。",
+        "为奖励主动交易会承担本金、杠杆、监管和行为风险，风险收益不适合本任务的轻量参与目标。"
       ],
       "next_step": null,
-      "recheck_trigger": "bhGROeco 完成至少一个季度公开运行并披露实际收益、坏账和赎回记录，或官方上线明确的该金库奖励计划时重新评估。",
-      "website_url": "https://www.birchhill.io/",
+      "recheck_trigger": null,
+      "website_url": "https://kalshi.com/",
       "x_url": null,
       "evidence": [
         {
-          "claim": "Birch Hill 官方研究确认 bhGROeco 已在 Base 的 Morpho 上线，公开用户可存入 USDC，并详细披露集中度、预言机、清算和流动性风险。",
-          "url": "https://research.birchhill.io/p/introducing-birch-hill-ecosystem",
+          "claim": "Kalshi 官方公告确认 2026 年 10 月 29 日完成 10 亿美元 Series G，投后估值 400 亿美元，由 Wellington 与 Sequoia 共同领投。",
+          "url": "https://news.kalshi.com/p/kalshi-series-g-40-billion-valuation",
           "source_type": "official_blog",
           "confidence": "high"
         },
         {
-          "claim": "公司融资公告确认 400 万美元种子轮由 Multicoin Capital 领投，ParaFi、Castle Island Ventures 与 Nascent 参投。",
-          "url": "https://www.aol.com/articles/birch-hill-raises-4-million-140000000.html",
-          "source_type": "official_blog",
+          "claim": "Kalshi 官方帮助中心说明个人账户需要年龄、实名及可能的证件审核；交易量奖励依赖符合条件的真实交易，且国际用户不符合该计划资格。",
+          "url": "https://help.kalshi.com/en/articles/13823850-what-is-the-kalshi-volume-incentive-program",
+          "source_type": "official_docs",
           "confidence": "high"
         }
       ]
     },
     {
-      "event_id": "crypto-fundraising-ibis--2026-10--pre-seed",
-      "source_detail_url": "https://crypto-fundraising.info/projects/ibis/",
-      "project_name": "Ibis",
+      "event_id": "crypto-fundraising-photonpay--2026-10--series-c",
+      "source_detail_url": "https://crypto-fundraising.info/projects/photonpay/",
+      "project_name": "PhotonPay",
       "decision": "STOP",
       "financing": {
-        "amount_usd": null,
-        "round": "Pre-seed",
+        "amount_usd": 40000000,
+        "round": "Series C",
         "lead_investors": [
-          "FalconX"
+          "Blockchain Capital"
         ],
-        "announcement_date": "2026-10-28",
+        "announcement_date": "2026-10-29",
         "confidence": "high"
       },
-      "plain_explanation": "Ibis 是面向机构的链上结构化信贷平台，为加密交易公司等企业设计、代币化、风控并管理贷款。",
-      "mechanism_simple": "Ibis 评估企业借款人并设计信贷条款，机构资金方提供资本，抵押品由 Anchorage Digital 等受监管托管机构保管；250 million 美元是 FalconX 提供的信贷额度，不是本轮股权融资金额。",
+      "plain_explanation": "PhotonPay 为企业提供把稳定币、法币账户、跨境收付款、发卡和财务管理整合在一起的支付操作系统。",
+      "mechanism_simple": "企业通过合规开户或 API 接入，在稳定币与各地法币清算网络之间收款、付款、换汇和发卡；服务可用性取决于企业资质、地区和合规审批。",
       "project_status": {
-        "category": "new_live_no_token",
+        "category": "existing_no_token",
         "token_status": "no_token_found",
-        "note": "项目刚结束隐身并开始服务符合条件的机构，未发现原生代币。"
+        "note": "PhotonPay 已有成熟企业支付产品和开放 API，未发现原生代币。"
       },
       "participation": {
         "available_now": false,
         "what_user_can_do": null,
         "requires_real_funds": true,
-        "friction_or_risk": "当前服务对象是合格的加密交易公司、机构借款人与资本提供方，普通用户没有注册、测试或低门槛参与路径。"
+        "friction_or_risk": "产品主要面向企业客户，需要商业主体、合规审核和后续真实资金流；普通个人没有公开测试、任务或低门槛参与入口。"
       },
       "incentives": {
         "status": "none_found",
         "types": [],
-        "details": "未发现面向普通用户的 Points、Season、测试网、代币或空投活动。"
+        "details": "未发现 PhotonPay 官方 Points、Season、测试网、代币或面向普通用户的空投计划。"
       },
       "why": [
-        "核心产品是机构级私人信贷，不面向普通用户。",
-        "pre-seed 金额未披露，250 million 美元属于信贷额度，不能当作融资规模或用户激励。",
-        "没有公开产品入口、原生代币或可验证的早期参与路径。"
+        "Series C 资金用于扩展企业级支付、钱包、发卡和清算基础设施，而非开放式消费者网络。",
+        "公开入口与 API 均围绕企业商户和合规接入，普通用户缺少可执行的轻量参与路径。",
+        "未发现原生代币或官方早期激励，当前没有值得行动或持续跟踪的空投信号。"
       ],
       "next_step": null,
       "recheck_trigger": null,
-      "website_url": null,
+      "website_url": "https://www.photonpay.com/",
       "x_url": null,
       "evidence": [
         {
-          "claim": "Ibis 官方公告确认 pre-seed 由 FalconX 领投、金额未披露，并获得 FalconX 的 250 million 美元信贷额度；产品初期服务合格的加密交易公司。",
-          "url": "https://www.prnewswire.com/news-releases/ibis-emerges-from-stealth-with-250-million-falconx-credit-facility-to-build-institutional-credit-rails-for-frontier-markets-302922144.html",
+          "claim": "PhotonPay 的融资公告确认完成 4000 万美元 Series C，由 Blockchain Capital 领投，资金用于稳定币金融操作系统、钱包、发卡、清算和 AI 代理执行层。",
+          "url": "https://www.prnewswire.co.uk/news-releases/photonpay-raises-40m-series-c-to-scale-its-stablecoin-centric-financial-os-302923612.html",
           "source_type": "official_blog",
           "confidence": "high"
         },
         {
-          "claim": "Crypto-Fundraising 项目页确认该事件为 2026 年 10 月 pre-seed，并将 Ibis 描述为机构链上信贷基础设施。",
-          "url": "https://crypto-fundraising.info/projects/ibis/",
-          "source_type": "database",
-          "confidence": "medium"
+          "claim": "PhotonPay 官网说明产品面向企业的稳定币与法币收付款、钱包和卡片服务，使用受地区、客户类型、监管和合规审批限制。",
+          "url": "https://www.photonpay.com/",
+          "source_type": "official_docs",
+          "confidence": "high"
         }
       ]
     }
