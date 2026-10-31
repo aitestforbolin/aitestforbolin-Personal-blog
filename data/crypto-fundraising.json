@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-30T01:03:14+00:00",
+  "updated_at": "2026-10-31T00:58:07+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
@@ -12,7 +12,7 @@
       "announced_month": "2026-10",
       "amount_usd": 1000000000,
       "detail_url": "https://crypto-fundraising.info/projects/kalshi/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-photonpay",
@@ -22,50 +22,50 @@
       "announced_month": "2026-10",
       "amount_usd": 40000000,
       "detail_url": "https://crypto-fundraising.info/projects/photonpay/",
+      "is_new": false
+    },
+    {
+      "id": "crypto-fundraising-marketnode",
+      "source_rank": 3,
+      "name": "Marketnode",
+      "round": null,
+      "announced_month": "2026-10",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/marketnode/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-tradexyz",
+      "source_rank": 4,
+      "name": "Trade[XYZ]",
+      "round": null,
+      "announced_month": "2026-10",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/tradexyz/",
       "is_new": true
     },
     {
       "id": "crypto-fundraising-birch-hill-holdings",
-      "source_rank": 3,
+      "source_rank": 5,
       "name": "Birch Hill Holdings",
       "round": "Seed",
       "announced_month": "2026-10",
       "amount_usd": 4000000,
       "detail_url": "https://crypto-fundraising.info/projects/birch-hill-holdings/",
       "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-ibis",
-      "source_rank": 4,
-      "name": "Ibis",
-      "round": "Pre-seed",
-      "announced_month": "2026-10",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/ibis/",
-      "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-mochatrade",
-      "source_rank": 5,
-      "name": "Mochatrade",
-      "round": "Seed",
-      "announced_month": "2026-10",
-      "amount_usd": 4870000,
-      "detail_url": "https://crypto-fundraising.info/projects/mochatrade/",
-      "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261030-010207Z",
-    "requestId": "codex-web3-20261030-010207Z",
-    "triggerSha": "0323d3cc74358cb11c19d7d2dc000ea2e6f86f78",
-    "githubRunId": 40983478799,
-    "scheduledAt": "2026-10-30T01:02:07Z",
-    "startedAt": "2026-10-30T01:03:11.572799+00:00",
-    "sourceCheckedAt": "2026-10-30T01:03:14.021922+00:00",
-    "sourceUpdatedAt": "2026-10-30T01:03:14+00:00",
-    "completedAt": "2026-10-30T01:03:14.022220+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261031-005658Z",
+    "requestId": "codex-web3-20261031-005658Z",
+    "triggerSha": "b2869f5e150a27225fa270db5ae3eb18d082c9ee",
+    "githubRunId": 41152957363,
+    "scheduledAt": "2026-10-31T00:56:58Z",
+    "startedAt": "2026-10-31T00:58:05.669263+00:00",
+    "sourceCheckedAt": "2026-10-31T00:58:07.301607+00:00",
+    "sourceUpdatedAt": "2026-10-31T00:58:07+00:00",
+    "completedAt": "2026-10-31T00:58:07.301942+00:00",
     "publishedAt": null
   }
 }
