@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "runDate": "2026-10-31",
+  "publishedAt": "2026-10-31T08:58:45+08:00",
+  "windowStart": "2026-10-30T01:03:14.022220+00:00",
+  "windowEnd": "2026-10-31T00:58:07.301942+00:00",
+  "sourceUpdatedAt": "2026-10-31T00:58:07+00:00",
+  "status": "success",
+  "executionLineage": {
+    "runId": "web3-daily-triage:codex-web3-20261031-005658Z",
+    "requestId": "codex-web3-20261031-005658Z",
+    "triggerSha": "b2869f5e150a27225fa270db5ae3eb18d082c9ee",
+    "githubRunId": 41152957363,
+    "scheduledAt": "2026-10-31T00:56:58Z",
+    "startedAt": "2026-10-31T00:58:05.669263+00:00",
+    "sourceCheckedAt": "2026-10-31T00:58:07.301607+00:00",
+    "sourceUpdatedAt": "2026-10-31T00:58:07+00:00",
+    "completedAt": "2026-10-31T00:58:07.301942+00:00",
+    "publishedAt": "2026-10-31T08:58:45+08:00"
+  },
+  "executionStatus": {
+    "collection": "success",
+    "validation": "success",
+    "publication": "success"
+  },
+  "deduplicationNote": "候选窗口从 2026-10-30 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；历史新增两个非 M&A 观测事件，按累计 reportedEventIds 去重后完成初筛。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+  "reportedEventIds": [
+    "crypto-fundraising-ponygo--2026-09--round-unknown",
+    "crypto-fundraising-velocity--2026-09--series-a",
+    "crypto-fundraising-usd-ai-permian-labs--2026-09--round-unknown",
+    "crypto-fundraising-tare--2026-09--seed",
+    "crypto-fundraising-finloop--2026-09--series-a",
+    "crypto-fundraising-fin-com--2026-09--seed",
+    "crypto-fundraising-tenka--2026-09--pre-seed",
+    "crypto-fundraising-rep--2026-09--angel",
+    "crypto-fundraising-dtcpay--2026-09--series-a",
+    "crypto-fundraising-infini--2026-09--seed",
+    "crypto-fundraising-circle--2026-09--round-unknown",
+    "crypto-fundraising-xstable--2026-09--round-unknown",
+    "crypto-fundraising-travix--2026-09--seed",
+    "crypto-fundraising-catchback--2026-09--seed",
+    "crypto-fundraising-infinifi--2026-09--seed",
+    "crypto-fundraising-hifi--2026-09--series-a",
+    "crypto-fundraising-functionspace--2026-09--pre-seed",
+    "crypto-fundraising-limited--2026-09--seed",
+    "crypto-fundraising-axis-robotics--2026-09--public-sale",
+    "crypto-fundraising-raven--2026-09--strategic",
+    "crypto-fundraising-jeeves--2026-09--series-c",
+    "crypto-fundraising-worldcoin--2026-09--private",
+    "crypto-fundraising-grass--2026-09--round-unknown",
+    "crypto-fundraising-jumper--2026-10--public-sale",
+    "crypto-fundraising-uorm--2026-10--pre-seed",
+    "crypto-fundraising-walapay--2026-10--seed",
+    "crypto-fundraising-perptools--2026-10--seed",
+    "crypto-fundraising-rip-cars--2026-09--private",
+    "crypto-fundraising-pheasant-network--2026-10--public-sale",
+    "crypto-fundraising-ipid--2026-10--series-a",
+    "crypto-fundraising-xverse-app--2026-10--strategic",
+    "crypto-fundraising-hyperlink--2026-10--round-unknown",
+    "crypto-fundraising-spiko--2026-10--series-b",
+    "crypto-fundraising-okx--2026-10--round-unknown",
+    "crypto-fundraising-imperial--2026-10--seed",
+    "crypto-fundraising-vest-exchange--2026-10--seed",
+    "crypto-fundraising-noah--2026-10--seed",
+    "crypto-fundraising-nous-research--2026-10--series-b",
+    "crypto-fundraising-catalyst-labs--2026-10--seed",
+    "crypto-fundraising-soda-labs--2026-10--seed",
+    "crypto-fundraising-immix--2026-10--round-unknown",
+    "crypto-fundraising-meanwhile--2026-10--round-unknown",
+    "crypto-fundraising-story-protocol--2026-10--round-unknown",
+    "crypto-fundraising-orbio--2026-10--seed",
+    "crypto-fundraising-efy-finance--2026-10--seed",
+    "crypto-fundraising-aisa--2026-10--round-unknown",
+    "crypto-fundraising-fission-labs--2026-10--series-a",
+    "crypto-fundraising-multiliquid--2026-10--seed",
+    "crypto-fundraising-spout-finance--2026-10--strategic",
+    "crypto-fundraising-zaria--2026-10--seed",
+    "crypto-fundraising-mural--2026-10--series-a",
+    "crypto-fundraising-honeyb--2026-10--seed",
+    "crypto-fundraising-lighthouse-storage--2026-10--round-unknown",
+    "crypto-fundraising-peso--2026-10--pre-seed",
+    "crypto-fundraising-erebor--2026-10--round-unknown",
+    "crypto-fundraising-dataline-ex-tearline--2026-10--seed",
+    "crypto-fundraising-whop--2026-10--series-d",
+    "crypto-fundraising-fun--2026-10--round-unknown",
+    "crypto-fundraising-swapglobal--2026-10--round-unknown",
+    "crypto-fundraising-mochatrade--2026-10--seed",
+    "crypto-fundraising-predicate--2026-10--series-a",
+    "crypto-fundraising-luxor--2026-10--strategic",
+    "crypto-fundraising-spicenet--2026-10--series-a",
+    "crypto-fundraising-cancore--2026-10--seed",
+    "crypto-fundraising-birch-hill-holdings--2026-10--seed",
+    "crypto-fundraising-ibis--2026-10--pre-seed",
+    "crypto-fundraising-kalshi--2026-10--series-g",
+    "crypto-fundraising-photonpay--2026-10--series-c",
+    "crypto-fundraising-marketnode--2026-10--round-unknown",
+    "crypto-fundraising-tradexyz--2026-10--round-unknown"
+  ],
+  "counts": {
+    "new": 2,
+    "action": 0,
+    "watch": 0,
+    "stop": 2
+  },
+  "projects": [
+    {
+      "event_id": "crypto-fundraising-marketnode--2026-10--round-unknown",
+      "source_detail_url": "https://crypto-fundraising.info/projects/marketnode/",
+      "project_name": "Marketnode",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": null,
+        "round": "Strategic",
+        "lead_investors": [
+          "Stellar Development Foundation"
+        ],
+        "announcement_date": "2026-10-29",
+        "confidence": "high"
+      },
+      "plain_explanation": "Marketnode 是亚太地区的数字金融市场基础设施，为机构提供基金、信贷和结构化产品的代币化发行、分销与资产服务。",
+      "mechanism_simple": "发行方和金融机构通过 Marketnode 把受监管金融产品登记并接入链上网络，再由获准的机构、专业或合格投资者通过受监管渠道参与。",
+      "project_status": {
+        "category": "existing_no_token",
+        "token_status": "no_token_found",
+        "note": "Marketnode 自 2021 年起运营，并已获得多家大型金融机构支持；未发现其原生代币。"
+      },
+      "participation": {
+        "available_now": false,
+        "what_user_can_do": null,
+        "requires_real_funds": true,
+        "friction_or_risk": "服务对象限定为受监管发行方、中介机构以及机构、专业或合格投资者，普通个人没有公开测试、任务或低门槛参与路径。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "未发现 Marketnode 官方 Points、Season、测试网、代币或面向普通用户的空投计划。"
+      },
+      "why": [
+        "本轮是 SDF 对成熟机构基础设施的战略投资，金额未披露，并未形成面向普通用户的新产品窗口。",
+        "官网条款明确限制服务对象为受监管实体和机构、专业或合格投资者。",
+        "没有原生代币或可验证的低成本早期参与路径，继续跟踪的个人机会价值很低。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://www.marketnode.com/",
+      "x_url": null,
+      "evidence": [
+        {
+          "claim": "Marketnode 与 SDF 的官方公告确认 2026 年 10 月 29 日获得战略投资，资金用于扩大亚太地区机构对 Stellar 上代币化基金、信贷和结构化产品的接入；金额未披露。",
+          "url": "https://www.marketnode.com/knowledge/marketnode-secures-investment-from-stellar-development-foundation",
+          "source_type": "official_blog",
+          "confidence": "high"
+        },
+        {
+          "claim": "Marketnode 官方使用条款将服务对象限定为受监管发行方、中介机构，以及机构、专业或合格投资者，并要求单独开户与资质证明。",
+          "url": "https://www.marketnode.com/terms-of-use",
+          "source_type": "official_site",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-tradexyz--2026-10--round-unknown",
+      "source_detail_url": "https://crypto-fundraising.info/projects/tradexyz/",
+      "project_name": "Trade[XYZ]",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": null,
+        "round": "Strategic",
+        "lead_investors": [
+          "Intercontinental Exchange"
+        ],
+        "announcement_date": "2026-10-29",
+        "confidence": "high"
+      },
+      "plain_explanation": "Trade[XYZ] 在 Hyperliquid 上部署股票、指数、商品、外汇和加密资产等现实世界标的的永续合约市场。",
+      "mechanism_simple": "符合地区要求的用户用 USDC 作为保证金，全天买卖没有到期日的价格合约；用户获得的是价格涨跌敞口，不持有对应股票或商品，并可能因杠杆、资金费率或清算损失本金。",
+      "project_status": {
+        "category": "existing_no_token",
+        "token_status": "no_token_found",
+        "note": "Trade[XYZ] 已运行超过一年并形成大规模交易量；未发现其官方原生代币，底层使用的是 Hyperliquid 基础设施。"
+      },
+      "participation": {
+        "available_now": true,
+        "what_user_can_do": "符合地区要求的非美国用户可连接 Hyperliquid 账户，以 USDC 交易 Trade[XYZ] 部署的现实世界资产永续合约；美国受监管市场仍待审批。",
+        "requires_real_funds": true,
+        "friction_or_risk": "需要真实保证金，存在杠杆、清算、预言机、资金费率、智能合约和地区合规风险；交易并不代表持有底层资产。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "未发现 Trade[XYZ] 官方原生代币、Points、Season、测试网或空投公告；关于未来空投的说法属于非官方推测。"
+      },
+      "why": [
+        "ICE 的战略投资用于推动受监管的美国永续合约市场，金额未披露，且该市场仍需监管批准。",
+        "现有产品已成熟并产生大量交易量，参与价值主要来自高风险交易本身，而不是新的低成本早期机会。",
+        "未发现官方代币或积分计划；为未确认空投主动增加杠杆交易量，不符合本任务的风险收益要求。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://trade.xyz/",
+      "x_url": "https://x.com/TradeXYZ",
+      "evidence": [
+        {
+          "claim": "ICE 官方公告确认对 Trade[XYZ] 进行战略投资，并计划在监管批准后建立由 ICE 运营、基于 Hyperliquid 的美国受监管永续合约市场；投资金额未披露。",
+          "url": "https://ir.theice.com/press/news-details/2026/Intercontinental-Exchange-and-TradeXYZ-to-Bring-Hyperliquid-Based-Perpetual-Markets-Onshore/default.aspx",
+          "source_type": "investor",
+          "confidence": "high"
+        },
+        {
+          "claim": "S&P Dow Jones Indices 的官方公告确认 Trade[XYZ] 已在 Hyperliquid 上提供面向合格非美国用户的 S&P 500 永续合约，属于 24/7 的杠杆价格敞口产品。",
+          "url": "https://www.spglobal.com/spdji/en/index-announcements/article/sp-dow-jones-indices-licenses-sp-500-to-trade-xyz-for-perpetual-contracts-on-hyperliquid/",
+          "source_type": "official_blog",
+          "confidence": "high"
+        }
+      ]
+    }
+  ]
+}

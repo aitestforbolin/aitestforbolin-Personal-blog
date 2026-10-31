@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "runDate": "2026-10-30",
-  "publishedAt": "2026-10-30T09:03:49+08:00",
-  "windowStart": "2026-10-29T00:58:48.876768+00:00",
-  "windowEnd": "2026-10-30T01:03:14.022220+00:00",
-  "sourceUpdatedAt": "2026-10-30T01:03:14+00:00",
+  "runDate": "2026-10-31",
+  "publishedAt": "2026-10-31T08:58:45+08:00",
+  "windowStart": "2026-10-30T01:03:14.022220+00:00",
+  "windowEnd": "2026-10-31T00:58:07.301942+00:00",
+  "sourceUpdatedAt": "2026-10-31T00:58:07+00:00",
   "status": "success",
   "executionLineage": {
-    "runId": "web3-daily-triage:codex-web3-20261030-010207Z",
-    "requestId": "codex-web3-20261030-010207Z",
-    "triggerSha": "0323d3cc74358cb11c19d7d2dc000ea2e6f86f78",
-    "githubRunId": 40983478799,
-    "scheduledAt": "2026-10-30T01:02:07Z",
-    "startedAt": "2026-10-30T01:03:11.572799+00:00",
-    "sourceCheckedAt": "2026-10-30T01:03:14.021922+00:00",
-    "sourceUpdatedAt": "2026-10-30T01:03:14+00:00",
-    "completedAt": "2026-10-30T01:03:14.022220+00:00",
-    "publishedAt": "2026-10-30T09:03:49+08:00"
+    "runId": "web3-daily-triage:codex-web3-20261031-005658Z",
+    "requestId": "codex-web3-20261031-005658Z",
+    "triggerSha": "b2869f5e150a27225fa270db5ae3eb18d082c9ee",
+    "githubRunId": 41152957363,
+    "scheduledAt": "2026-10-31T00:56:58Z",
+    "startedAt": "2026-10-31T00:58:05.669263+00:00",
+    "sourceCheckedAt": "2026-10-31T00:58:07.301607+00:00",
+    "sourceUpdatedAt": "2026-10-31T00:58:07+00:00",
+    "completedAt": "2026-10-31T00:58:07.301942+00:00",
+    "publishedAt": "2026-10-31T08:58:45+08:00"
   },
   "executionStatus": {
     "collection": "success",
     "validation": "success",
     "publication": "success"
   },
-  "deduplicationNote": "候选窗口从 2026-10-29 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；历史新增两个非 M&A 观测事件，按累计 reportedEventIds 去重后完成初筛。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+  "deduplicationNote": "候选窗口从 2026-10-30 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；历史新增两个非 M&A 观测事件，按累计 reportedEventIds 去重后完成初筛。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
   "reportedEventIds": [
     "crypto-fundraising-ponygo--2026-09--round-unknown",
     "crypto-fundraising-velocity--2026-09--series-a",
@@ -92,7 +92,9 @@
     "crypto-fundraising-birch-hill-holdings--2026-10--seed",
     "crypto-fundraising-ibis--2026-10--pre-seed",
     "crypto-fundraising-kalshi--2026-10--series-g",
-    "crypto-fundraising-photonpay--2026-10--series-c"
+    "crypto-fundraising-photonpay--2026-10--series-c",
+    "crypto-fundraising-marketnode--2026-10--round-unknown",
+    "crypto-fundraising-tradexyz--2026-10--round-unknown"
   ],
   "counts": {
     "new": 2,
@@ -102,117 +104,113 @@
   },
   "projects": [
     {
-      "event_id": "crypto-fundraising-kalshi--2026-10--series-g",
-      "source_detail_url": "https://crypto-fundraising.info/projects/kalshi/",
-      "project_name": "Kalshi",
+      "event_id": "crypto-fundraising-marketnode--2026-10--round-unknown",
+      "source_detail_url": "https://crypto-fundraising.info/projects/marketnode/",
+      "project_name": "Marketnode",
       "decision": "STOP",
       "financing": {
-        "amount_usd": 1000000000,
-        "round": "Series G",
+        "amount_usd": null,
+        "round": "Strategic",
         "lead_investors": [
-          "Wellington Management",
-          "Sequoia Capital"
+          "Stellar Development Foundation"
         ],
         "announcement_date": "2026-10-29",
         "confidence": "high"
       },
-      "plain_explanation": "Kalshi 是受监管的事件合约与多资产交易平台，用户可对选举、体育、经济数据和其他事件结果进行交易。",
-      "mechanism_simple": "用户完成实名与地区资格审核后充值，买卖按事件结果结算的合约；判断正确的合约到期按规则支付，判断错误可能损失全部仓位资金。",
+      "plain_explanation": "Marketnode 是亚太地区的数字金融市场基础设施，为机构提供基金、信贷和结构化产品的代币化发行、分销与资产服务。",
+      "mechanism_simple": "发行方和金融机构通过 Marketnode 把受监管金融产品登记并接入链上网络，再由获准的机构、专业或合格投资者通过受监管渠道参与。",
       "project_status": {
         "category": "existing_no_token",
         "token_status": "no_token_found",
-        "note": "平台已大规模商业化运营并扩展至多类金融产品，未发现 Kalshi 原生代币。"
-      },
-      "participation": {
-        "available_now": true,
-        "what_user_can_do": "符合地区与年龄要求的用户可注册、完成 KYC 后交易；部分美国用户还可参加特定市场的交易量奖励。",
-        "requires_real_funds": true,
-        "friction_or_risk": "需要实名、地区资格和真实资金；事件合约及永续产品可能造成全部仓位损失，且面临司法辖区限制、监管和成瘾风险。"
-      },
-      "incentives": {
-        "status": "official_program",
-        "types": [
-          "referral",
-          "volume_rewards"
-        ],
-        "details": "官方存在推荐与交易量奖励，但资格、金额、期限和可提取性按账户与活动变化；交易量计划主要面向符合条件的美国用户，不是代币或无成本早期激励。"
-      },
-      "why": [
-        "公司已进入 Series G 并以 400 亿美元估值融资，属于成熟交易平台，不是早期产品发现机会。",
-        "未发现原生代币或测试网；现有奖励要求实名、地区资格和真实交易量。",
-        "为奖励主动交易会承担本金、杠杆、监管和行为风险，风险收益不适合本任务的轻量参与目标。"
-      ],
-      "next_step": null,
-      "recheck_trigger": null,
-      "website_url": "https://kalshi.com/",
-      "x_url": null,
-      "evidence": [
-        {
-          "claim": "Kalshi 官方公告确认 2026 年 10 月 29 日完成 10 亿美元 Series G，投后估值 400 亿美元，由 Wellington 与 Sequoia 共同领投。",
-          "url": "https://news.kalshi.com/p/kalshi-series-g-40-billion-valuation",
-          "source_type": "official_blog",
-          "confidence": "high"
-        },
-        {
-          "claim": "Kalshi 官方帮助中心说明个人账户需要年龄、实名及可能的证件审核；交易量奖励依赖符合条件的真实交易，且国际用户不符合该计划资格。",
-          "url": "https://help.kalshi.com/en/articles/13823850-what-is-the-kalshi-volume-incentive-program",
-          "source_type": "official_docs",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "event_id": "crypto-fundraising-photonpay--2026-10--series-c",
-      "source_detail_url": "https://crypto-fundraising.info/projects/photonpay/",
-      "project_name": "PhotonPay",
-      "decision": "STOP",
-      "financing": {
-        "amount_usd": 40000000,
-        "round": "Series C",
-        "lead_investors": [
-          "Blockchain Capital"
-        ],
-        "announcement_date": "2026-10-29",
-        "confidence": "high"
-      },
-      "plain_explanation": "PhotonPay 为企业提供把稳定币、法币账户、跨境收付款、发卡和财务管理整合在一起的支付操作系统。",
-      "mechanism_simple": "企业通过合规开户或 API 接入，在稳定币与各地法币清算网络之间收款、付款、换汇和发卡；服务可用性取决于企业资质、地区和合规审批。",
-      "project_status": {
-        "category": "existing_no_token",
-        "token_status": "no_token_found",
-        "note": "PhotonPay 已有成熟企业支付产品和开放 API，未发现原生代币。"
+        "note": "Marketnode 自 2021 年起运营，并已获得多家大型金融机构支持；未发现其原生代币。"
       },
       "participation": {
         "available_now": false,
         "what_user_can_do": null,
         "requires_real_funds": true,
-        "friction_or_risk": "产品主要面向企业客户，需要商业主体、合规审核和后续真实资金流；普通个人没有公开测试、任务或低门槛参与入口。"
+        "friction_or_risk": "服务对象限定为受监管发行方、中介机构以及机构、专业或合格投资者，普通个人没有公开测试、任务或低门槛参与路径。"
       },
       "incentives": {
         "status": "none_found",
         "types": [],
-        "details": "未发现 PhotonPay 官方 Points、Season、测试网、代币或面向普通用户的空投计划。"
+        "details": "未发现 Marketnode 官方 Points、Season、测试网、代币或面向普通用户的空投计划。"
       },
       "why": [
-        "Series C 资金用于扩展企业级支付、钱包、发卡和清算基础设施，而非开放式消费者网络。",
-        "公开入口与 API 均围绕企业商户和合规接入，普通用户缺少可执行的轻量参与路径。",
-        "未发现原生代币或官方早期激励，当前没有值得行动或持续跟踪的空投信号。"
+        "本轮是 SDF 对成熟机构基础设施的战略投资，金额未披露，并未形成面向普通用户的新产品窗口。",
+        "官网条款明确限制服务对象为受监管实体和机构、专业或合格投资者。",
+        "没有原生代币或可验证的低成本早期参与路径，继续跟踪的个人机会价值很低。"
       ],
       "next_step": null,
       "recheck_trigger": null,
-      "website_url": "https://www.photonpay.com/",
+      "website_url": "https://www.marketnode.com/",
       "x_url": null,
       "evidence": [
         {
-          "claim": "PhotonPay 的融资公告确认完成 4000 万美元 Series C，由 Blockchain Capital 领投，资金用于稳定币金融操作系统、钱包、发卡、清算和 AI 代理执行层。",
-          "url": "https://www.prnewswire.co.uk/news-releases/photonpay-raises-40m-series-c-to-scale-its-stablecoin-centric-financial-os-302923612.html",
+          "claim": "Marketnode 与 SDF 的官方公告确认 2026 年 10 月 29 日获得战略投资，资金用于扩大亚太地区机构对 Stellar 上代币化基金、信贷和结构化产品的接入；金额未披露。",
+          "url": "https://www.marketnode.com/knowledge/marketnode-secures-investment-from-stellar-development-foundation",
           "source_type": "official_blog",
           "confidence": "high"
         },
         {
-          "claim": "PhotonPay 官网说明产品面向企业的稳定币与法币收付款、钱包和卡片服务，使用受地区、客户类型、监管和合规审批限制。",
-          "url": "https://www.photonpay.com/",
-          "source_type": "official_docs",
+          "claim": "Marketnode 官方使用条款将服务对象限定为受监管发行方、中介机构，以及机构、专业或合格投资者，并要求单独开户与资质证明。",
+          "url": "https://www.marketnode.com/terms-of-use",
+          "source_type": "official_site",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-tradexyz--2026-10--round-unknown",
+      "source_detail_url": "https://crypto-fundraising.info/projects/tradexyz/",
+      "project_name": "Trade[XYZ]",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": null,
+        "round": "Strategic",
+        "lead_investors": [
+          "Intercontinental Exchange"
+        ],
+        "announcement_date": "2026-10-29",
+        "confidence": "high"
+      },
+      "plain_explanation": "Trade[XYZ] 在 Hyperliquid 上部署股票、指数、商品、外汇和加密资产等现实世界标的的永续合约市场。",
+      "mechanism_simple": "符合地区要求的用户用 USDC 作为保证金，全天买卖没有到期日的价格合约；用户获得的是价格涨跌敞口，不持有对应股票或商品，并可能因杠杆、资金费率或清算损失本金。",
+      "project_status": {
+        "category": "existing_no_token",
+        "token_status": "no_token_found",
+        "note": "Trade[XYZ] 已运行超过一年并形成大规模交易量；未发现其官方原生代币，底层使用的是 Hyperliquid 基础设施。"
+      },
+      "participation": {
+        "available_now": true,
+        "what_user_can_do": "符合地区要求的非美国用户可连接 Hyperliquid 账户，以 USDC 交易 Trade[XYZ] 部署的现实世界资产永续合约；美国受监管市场仍待审批。",
+        "requires_real_funds": true,
+        "friction_or_risk": "需要真实保证金，存在杠杆、清算、预言机、资金费率、智能合约和地区合规风险；交易并不代表持有底层资产。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "未发现 Trade[XYZ] 官方原生代币、Points、Season、测试网或空投公告；关于未来空投的说法属于非官方推测。"
+      },
+      "why": [
+        "ICE 的战略投资用于推动受监管的美国永续合约市场，金额未披露，且该市场仍需监管批准。",
+        "现有产品已成熟并产生大量交易量，参与价值主要来自高风险交易本身，而不是新的低成本早期机会。",
+        "未发现官方代币或积分计划；为未确认空投主动增加杠杆交易量，不符合本任务的风险收益要求。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://trade.xyz/",
+      "x_url": "https://x.com/TradeXYZ",
+      "evidence": [
+        {
+          "claim": "ICE 官方公告确认对 Trade[XYZ] 进行战略投资，并计划在监管批准后建立由 ICE 运营、基于 Hyperliquid 的美国受监管永续合约市场；投资金额未披露。",
+          "url": "https://ir.theice.com/press/news-details/2026/Intercontinental-Exchange-and-TradeXYZ-to-Bring-Hyperliquid-Based-Perpetual-Markets-Onshore/default.aspx",
+          "source_type": "investor",
+          "confidence": "high"
+        },
+        {
+          "claim": "S&P Dow Jones Indices 的官方公告确认 Trade[XYZ] 已在 Hyperliquid 上提供面向合格非美国用户的 S&P 500 永续合约，属于 24/7 的杠杆价格敞口产品。",
+          "url": "https://www.spglobal.com/spdji/en/index-announcements/article/sp-dow-jones-indices-licenses-sp-500-to-trade-xyz-for-perpetual-contracts-on-hyperliquid/",
+          "source_type": "official_blog",
           "confidence": "high"
         }
       ]
