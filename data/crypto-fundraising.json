@@ -1,12 +1,22 @@
 {
-  "updated_at": "2026-10-31T00:58:07+00:00",
+  "updated_at": "2026-11-01T01:01:06+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-kalshi",
+      "id": "crypto-fundraising-rates-exchange",
       "source_rank": 1,
+      "name": "Rates Exchange",
+      "round": null,
+      "announced_month": "2026-10",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/rates-exchange/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-kalshi",
+      "source_rank": 2,
       "name": "Kalshi",
       "round": "Series G",
       "announced_month": "2026-10",
@@ -16,7 +26,7 @@
     },
     {
       "id": "crypto-fundraising-photonpay",
-      "source_rank": 2,
+      "source_rank": 3,
       "name": "PhotonPay",
       "round": "Series C",
       "announced_month": "2026-10",
@@ -26,46 +36,36 @@
     },
     {
       "id": "crypto-fundraising-marketnode",
-      "source_rank": 3,
+      "source_rank": 4,
       "name": "Marketnode",
       "round": null,
       "announced_month": "2026-10",
       "amount_usd": null,
       "detail_url": "https://crypto-fundraising.info/projects/marketnode/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-tradexyz",
-      "source_rank": 4,
+      "source_rank": 5,
       "name": "Trade[XYZ]",
       "round": null,
       "announced_month": "2026-10",
       "amount_usd": null,
       "detail_url": "https://crypto-fundraising.info/projects/tradexyz/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-birch-hill-holdings",
-      "source_rank": 5,
-      "name": "Birch Hill Holdings",
-      "round": "Seed",
-      "announced_month": "2026-10",
-      "amount_usd": 4000000,
-      "detail_url": "https://crypto-fundraising.info/projects/birch-hill-holdings/",
       "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261031-005658Z",
-    "requestId": "codex-web3-20261031-005658Z",
-    "triggerSha": "b2869f5e150a27225fa270db5ae3eb18d082c9ee",
-    "githubRunId": 41152957363,
-    "scheduledAt": "2026-10-31T00:56:58Z",
-    "startedAt": "2026-10-31T00:58:05.669263+00:00",
-    "sourceCheckedAt": "2026-10-31T00:58:07.301607+00:00",
-    "sourceUpdatedAt": "2026-10-31T00:58:07+00:00",
-    "completedAt": "2026-10-31T00:58:07.301942+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261101-010014Z",
+    "requestId": "codex-web3-20261101-010014Z",
+    "triggerSha": "084a7e1beac8cfeff7a3d97e69cb91d85674a186",
+    "githubRunId": 41259260000,
+    "scheduledAt": "2026-11-01T01:00:14Z",
+    "startedAt": "2026-11-01T01:01:05.155164+00:00",
+    "sourceCheckedAt": "2026-11-01T01:01:06.551645+00:00",
+    "sourceUpdatedAt": "2026-11-01T01:01:06+00:00",
+    "completedAt": "2026-11-01T01:01:06.551978+00:00",
     "publishedAt": null
   }
 }
