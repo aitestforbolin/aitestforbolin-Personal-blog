@@ -1,23 +1,23 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-11-01T02:29:53+00:00",
-  "as_of": "2026-11-01T07:30:00+08:00",
-  "window_start": "2026-10-31T07:30:00+08:00",
-  "window_end": "2026-11-01T07:30:00+08:00",
+  "generated_at": "2026-11-02T00:54:33+00:00",
+  "as_of": "2026-11-02T07:30:00+08:00",
+  "window_start": "2026-11-01T07:30:00+08:00",
+  "window_end": "2026-11-02T07:30:00+08:00",
   "source_health": [
     {
       "source": "ECB",
       "region": "eu",
       "status": "ok",
       "count": 8,
-      "checked_at": "2026-11-01T02:29:53+00:00"
+      "checked_at": "2026-11-02T00:54:33+00:00"
     },
     {
       "source": "European Commission",
       "region": "eu",
       "status": "ok",
       "count": 2,
-      "checked_at": "2026-11-01T02:29:53+00:00"
+      "checked_at": "2026-11-02T00:54:33+00:00"
     },
     {
       "source": "European Council",
@@ -25,7 +25,7 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-11-01T02:29:53+00:00"
+      "checked_at": "2026-11-02T00:54:33+00:00"
     },
     {
       "source": "European Parliament",
@@ -33,28 +33,28 @@
       "status": "error",
       "error": "ParseError",
       "count": 0,
-      "checked_at": "2026-11-01T02:29:53+00:00"
+      "checked_at": "2026-11-02T00:54:33+00:00"
     },
     {
       "source": "Eurostat",
       "region": "eu",
       "status": "ok",
-      "count": 63,
-      "checked_at": "2026-11-01T02:29:53+00:00"
+      "count": 32,
+      "checked_at": "2026-11-02T00:54:33+00:00"
     },
     {
       "source": "Politico Europe",
       "region": "eu",
       "status": "ok",
-      "count": 6,
-      "checked_at": "2026-11-01T02:29:53+00:00"
+      "count": 7,
+      "checked_at": "2026-11-02T00:54:33+00:00"
     },
     {
       "source": "Reuters Europe",
       "region": "eu",
       "status": "ok",
-      "count": 53,
-      "checked_at": "2026-11-01T02:29:53+00:00"
+      "count": 58,
+      "checked_at": "2026-11-02T00:54:33+00:00"
     },
     {
       "source": "Bundesbank",
@@ -62,7 +62,7 @@
       "status": "error",
       "error": "ParseError",
       "count": 0,
-      "checked_at": "2026-11-01T02:29:53+00:00"
+      "checked_at": "2026-11-02T00:54:33+00:00"
     },
     {
       "source": "Destatis",
@@ -70,14 +70,14 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-11-01T02:29:53+00:00"
+      "checked_at": "2026-11-02T00:54:33+00:00"
     },
     {
       "source": "Deutsche Welle",
       "region": "germany",
       "status": "empty",
       "count": 0,
-      "checked_at": "2026-11-01T02:29:53+00:00"
+      "checked_at": "2026-11-02T00:54:33+00:00"
     },
     {
       "source": "Federal Employment Agency",
@@ -85,7 +85,7 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-11-01T02:29:53+00:00"
+      "checked_at": "2026-11-02T00:54:33+00:00"
     },
     {
       "source": "German Federal Government",
@@ -93,199 +93,151 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-11-01T02:29:53+00:00"
+      "checked_at": "2026-11-02T00:54:33+00:00"
     },
     {
       "source": "Reuters Germany",
       "region": "germany",
       "status": "ok",
-      "count": 49,
-      "checked_at": "2026-11-01T02:29:53+00:00"
+      "count": 53,
+      "checked_at": "2026-11-02T00:54:33+00:00"
     },
     {
       "source": "The Local Germany",
       "region": "germany",
       "status": "ok",
-      "count": 10,
-      "checked_at": "2026-11-01T02:29:53+00:00"
+      "count": 9,
+      "checked_at": "2026-11-02T00:54:33+00:00"
     }
   ],
   "items": [
     {
-      "id": "14aceadae7e185b2",
+      "id": "a4aeedd2f165e03e",
       "region": "eu",
-      "title": "Putin’s potential G20 comeback risks normalizing Russian war crimes, says Kallas",
-      "title_cn": "卡拉斯表示，普京潜在的 G20 复出有可能使俄罗斯战争罪行正常化",
-      "summary": "The EU's foreign policy chief also rebuffed reported calls from the Pentagon for allies to tone done their criticism of the Kremlin.",
-      "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/kaja-kallas-vladimir-putin-g20-return-risks-normalizing-russian-war-crimes/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-31T16:41:12+00:00",
-      "fetched_at": "2026-11-01T02:29:53+00:00",
-      "category": "politics_society",
-      "importance": "critical",
-      "official_source": false,
-      "first_seen_at": "2026-11-01T02:29:53+00:00",
-      "last_seen_at": "2026-11-01T02:29:53+00:00"
-    },
-    {
-      "id": "4e1bae547d973b0e",
-      "region": "eu",
-      "title": "Thousands return to Lisbon square, press government to scrap rental bill - Reuters",
-      "title_cn": "数千人返回里斯本广场，敦促政府废除租金法案 - 路透中文网",
-      "summary": "Thousands return to Lisbon square, press government to scrap rental bill Reuters",
+      "title": "Russian strikes cut power to thousands in Ukraine as drones damage Russian facility - Reuters",
+      "title_cn": "无人机损坏俄罗斯设施，俄罗斯空袭导致乌克兰数千人断电 - 路透中文网",
+      "summary": "Russian strikes cut power to thousands in Ukraine as drones damage Russian facility Reuters",
       "source": "Reuters Europe",
-      "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNQWVvNnVKTGlkcFRNcmpqWmZlaUNuVXJZU1p3bi1QRDdSbWtHQ082NmdqV3RwZlVobm50NE1JRVljYjc0WXlYdG44V2p1bFJVTTZPUUhxcXM4emlfV3pQdmFIeG9hVGZGZ09mOW05c05hTTFHYzgyWmhiUlhfc3FVNzFhWDFKXzJiRFlJZUdxQmV6SFZIb0RkSERTRklwamlkekYxZjZ5RDZMYWtyR2lRQ0J3eHQ?oc=5",
-      "published_at": "2026-10-31T21:22:49+00:00",
-      "fetched_at": "2026-11-01T02:29:53+00:00",
-      "category": "housing",
+      "source_url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQeXRrWGZCWmZwTWdSSnFYMmVQTDc1eVhwLVdCaHREN0xiRmdyUk91bldUN2NzVnRDZlJLUTFCdEZ4bWRQOFBQWFlFTnNyVVQ2ci12eVEtUnNLREFqSE84OEFTeVJhNzlLUGZuRGhnMGZ5Y1k0X3dNYU5fWmR2ajM1REw3dVF3eGx6WXg4ZHBjdERtX3R1MllSVjFncjZtLXg5dHNMbmNFdTRpTHBra0NuRHVmdUpfaTdWYTVZQ0FZYW4?oc=5",
+      "published_at": "2026-11-01T20:10:29+00:00",
+      "fetched_at": "2026-11-02T00:54:33+00:00",
+      "category": "defense_security",
       "importance": "important",
       "official_source": false,
-      "first_seen_at": "2026-11-01T02:29:53+00:00",
-      "last_seen_at": "2026-11-01T02:29:53+00:00"
+      "first_seen_at": "2026-11-02T00:54:33+00:00",
+      "last_seen_at": "2026-11-02T00:54:33+00:00"
     },
     {
-      "id": "3e833ac324e7a805",
+      "id": "8332844362bfa1f5",
       "region": "eu",
-      "title": "Merz ‘surprised’ by Asian pushback to ‘Made in Europe’ plan for car industry",
-      "title_cn": "默茨对亚洲对汽车行业“欧洲制造”计划的抵制感到“惊讶”",
-      "summary": "The German chancellor said the Franco-German plan to restrict car subsidies \"sparked considerable concern\" among East Asian capitals.",
+      "title": "Russian strikes leave thousands without power in Ukraine, says Zelenskyy",
+      "title_cn": "泽连斯基表示，俄罗斯的空袭导致乌克兰数千人断电",
+      "summary": "The Ukrainian president's remarks came as Moscow reported \"significant damage\" to an industrial facility in Russia's Nizhny Novgorod region.",
       "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/friedrich-merz-surprised-by-asian-pushback-over-made-in-europe-car-industry/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-31T14:19:53+00:00",
-      "fetched_at": "2026-11-01T02:29:53+00:00",
+      "source_url": "https://www.politico.eu/article/russia-strikes-leave-thousands-without-power-ukraine-volodymyr-zelenskyy/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-11-01T14:48:54+00:00",
+      "fetched_at": "2026-11-02T00:54:33+00:00",
       "category": "industry",
-      "importance": "important",
+      "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-11-01T02:29:53+00:00",
-      "last_seen_at": "2026-11-01T02:29:53+00:00"
+      "first_seen_at": "2026-11-02T00:54:33+00:00",
+      "last_seen_at": "2026-11-02T00:54:33+00:00"
     },
     {
-      "id": "4abecfeca6b22cf2",
-      "region": "eu",
-      "title": "Polish president Nawrocki pushes his way into top court amid rule-of-law tussle",
-      "title_cn": "波兰总统纳罗基在法治之争中进入最高法院",
-      "summary": "Karol Nawrocki made his way through protesters around midnight in the latest escalation of his conflict with Prime Minister Donald Tusk.",
-      "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/poland-president-karol-nawrocki-rule-of-law-crisis/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-31T10:03:04+00:00",
-      "fetched_at": "2026-11-01T02:29:53+00:00",
-      "category": "politics_society",
-      "importance": "important",
+      "id": "b3a8433d2754559e",
+      "region": "germany",
+      "title": "German engineering industry workers begin wage strikes - Reuters",
+      "title_cn": "德国工程行业工人开始罢工 - 路透中文网",
+      "summary": "German engineering industry workers begin wage strikes Reuters",
+      "source": "Reuters Germany",
+      "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNRUxlWnZDNVAtUjJJU1dFSHZBM1E5Ul9nc3N3c295TzgtSnVKTGtTNk1fMXNZN29wV3lGdGthdkUtOHBnclpaSFJGdGdidTA5cFhwY3c0bGlycVNadFpUR2ZGNS12WGFDZ01lMThyMmxydzNmdXNXSDljelItc1JleWhfekhDNTZLN3VHSjdTQlFNd0ZTTDI1SXhKZkFFYTJWUENMeXpONUJtWVB6M18xNUdpSQ?oc=5",
+      "published_at": "2026-11-01T13:20:03+00:00",
+      "fetched_at": "2026-11-02T00:54:33+00:00",
+      "category": "work_income",
+      "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-11-01T02:29:53+00:00",
-      "last_seen_at": "2026-11-01T02:29:53+00:00"
+      "first_seen_at": "2026-11-02T00:54:33+00:00",
+      "last_seen_at": "2026-11-02T00:54:33+00:00"
     },
     {
-      "id": "fc3e712d0c782abb",
+      "id": "6d5c390c093121ce",
       "region": "eu",
-      "title": "Starved residents of Russian-occupied Oleshky return to Ukraine during a rare local ceasefire - Reuters",
-      "title_cn": "在罕见的当地停火期间，俄罗斯占领的奥列什基的饥饿居民返回乌克兰 - 路透中文网",
-      "summary": "Starved residents of Russian-occupied Oleshky return to Ukraine during a rare local ceasefire Reuters",
+      "title": "Pope Leo says he hopes Oleshky truce could spur Ukraine-Russia peace efforts - Reuters",
+      "title_cn": "教皇利奥表示，他希望奥列什基休战能够刺激乌克兰与俄罗斯的和平努力 - 路透中文网",
+      "summary": "Pope Leo says he hopes Oleshky truce could spur Ukraine-Russia peace efforts Reuters",
       "source": "Reuters Europe",
-      "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQWFpDMzF1UGlpLV9sdTZxWXRVLW04dWROZEtPTXE2V0JpNDM1c1pjOS1HbVlUNnd0THlRNnkzQTJfa1JxY3ZmR1llTHJTMnFpcll4SjN5TWdKMnY3VWRVWklVTkFxbkFJSEl5X3owR1FoU0RJZE9oUUJpTl9CUXpoV0k2al81eHpfWGNjclVrZU5lOXEyUnA4Y0JSd1dwVnR4LWVscXlza19fbF9nZmMwYlBITndMREZZTUlweF8tcTJSWDg?oc=5",
-      "published_at": "2026-10-31T16:26:58+00:00",
-      "fetched_at": "2026-11-01T02:29:53+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPQ0k4N2Y3MWpLcnU5ZW1nZGNJLVN3Ukl3aEpvLVU1c25LTWY5YkctRlE0czJHbFNoZ1lKS3RkWU51TWxpVEpveWN6ZUpjNVJEanpFeVNuTVVIazRpN1QxQU9jUnZ2MU5hUU5JdWpaVS13RzBydERpSnBYMU9RV3RJeVZZS3R0U3NGTlEzeGFsR2hxVU5PMXdBTzdGSlJ1MHpKYV93YUhtbW1yZGkyUGNndWdDLUQzQ21yMUxmS2QxVVRoRjQ?oc=5",
+      "published_at": "2026-11-01T12:20:22+00:00",
+      "fetched_at": "2026-11-02T00:54:33+00:00",
       "category": "defense_security",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-11-01T02:29:53+00:00",
-      "last_seen_at": "2026-11-01T02:29:53+00:00"
+      "first_seen_at": "2026-11-02T00:54:33+00:00",
+      "last_seen_at": "2026-11-02T00:54:33+00:00"
     },
     {
-      "id": "066cb5b918b7f7b6",
+      "id": "22731295643b27c4",
       "region": "eu",
-      "title": "Burnham ‘open’ to formal apology for Britain’s slave trade",
-      "title_cn": "伯纳姆“愿意”就英国奴隶贸易正式道歉",
-      "summary": "The U.K. prime minister however rejected calls for Britain to pay financial reparations.",
+      "title": "How Merz’s five-day Asia trip ended up being mostly about Europe",
+      "title_cn": "梅尔茨为期五天的亚洲之行为何最终主要围绕欧洲展开",
+      "summary": "Security concerns followed the German chancellor to Singapore, Japan and Korea. And his proposal for a new trade alliance is already facing hurdles.",
       "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/article/andy-burnham-open-to-formal-apology-for-britain-slave-trade/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-31T12:55:45+00:00",
-      "fetched_at": "2026-11-01T02:29:53+00:00",
+      "source_url": "https://www.politico.eu/article/friedrich-merz-asia-trip-europe-security-cooperation/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-11-01T09:07:45+00:00",
+      "fetched_at": "2026-11-02T00:54:33+00:00",
       "category": "trade",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-11-01T02:29:53+00:00",
-      "last_seen_at": "2026-11-01T02:29:53+00:00"
+      "first_seen_at": "2026-11-02T00:54:33+00:00",
+      "last_seen_at": "2026-11-02T00:54:33+00:00"
     },
     {
-      "id": "32f3bc5adcd448d5",
+      "id": "fcc8f40e13f49007",
       "region": "germany",
-      "title": "Inside Germany: Gen Z protests, Left Party scandals and the AfD email leak",
-      "title_cn": "德国内部：Z 世代抗议、左翼党丑闻和 AfD 电子邮件泄露",
-      "summary": "Given the intense focus on antisemitism in Berlin politics, it's strange that more explicit antisemitic acts highlighted in leaked emails from the AfD are scarcely in the headlines, writes The Local editor Paul Krantz in this week's Inside Germany.",
-      "source": "The Local Germany",
-      "source_url": "https://www.thelocal.de/20261031/inside-germany-gen-z-protests-left-party-scandals-and-the-afd-email-leak",
-      "published_at": "2026-10-31T11:11:35+00:00",
-      "fetched_at": "2026-11-01T02:29:53+00:00",
-      "category": "industry",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-11-01T02:29:53+00:00",
-      "last_seen_at": "2026-11-01T02:29:53+00:00"
-    },
-    {
-      "id": "64223993f21da206",
-      "region": "eu",
-      "title": "Household electricity prices ease in 1st half of 2026 - European Commission",
-      "title_cn": "欧盟委员会：2026 年上半年家庭电价将有所下降",
-      "summary": "Household electricity prices ease in 1st half of 2026 European Commission",
-      "source": "Eurostat",
-      "source_url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE92NENseFI3X2JZMm5oR2tsLTR2cTZzSldYa29XNEhzVHdzNHBTbnRiVkFxTXJEZGN0c2hHRnl1eWxBMXJCVXdhNjRaNktGTkp5dHpXWG9OTjJSVXBOeWhDRUZaSVdCWWgyRDVmQnFSTzV6TEFZalhhejFraFptdw?oc=5",
-      "published_at": "2026-10-31T08:19:59+00:00",
-      "fetched_at": "2026-11-01T02:29:53+00:00",
+      "title": "Germany must do more to boost gas reserves as storage levels hit record low, lobby group says - Reuters",
+      "title_cn": "游说团体表示，由于储存水平创历史新低，德国必须采取更多措施增加天然气储备 - 路透中文网",
+      "summary": "Germany must do more to boost gas reserves as storage levels hit record low, lobby group says Reuters",
+      "source": "Reuters Germany",
+      "source_url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNTzBFS0hhWUtOcVhOMDVsX25TV3R4eENLbjdCMUpDRDByYTBHWjU3MmtycmM2blh4Y1Y3V2t6SUhIODJidldfcjNOdG0zVHRNdVFWdXZKWVhJeWdFWE9LaDA1MnJlbk1vaC1qLUpuZWU0WERCckY3Nk4tLUhHcnNFZ1pJdzJYRTFxWFl4cjRTNG53QmxkSDAxUUd2NjdnRUhOTDBhbUx5eUppU3Q4Vmh0aFExRlVRTUJzUGl1aWgySFZtRjlnb1E?oc=5",
+      "published_at": "2026-11-01T05:04:00+00:00",
+      "fetched_at": "2026-11-02T00:54:33+00:00",
       "category": "energy",
       "importance": "normal",
-      "official_source": true,
-      "first_seen_at": "2026-11-01T02:29:53+00:00",
-      "last_seen_at": "2026-11-01T02:29:53+00:00"
+      "official_source": false,
+      "first_seen_at": "2026-11-02T00:54:33+00:00",
+      "last_seen_at": "2026-11-02T00:54:33+00:00"
     },
     {
-      "id": "b7937b067eb75f2e",
+      "id": "51d28409c4c74e6d",
       "region": "eu",
-      "title": "Special episode: An exclusive interview with Canadian PM Mark Carney",
-      "title_cn": "特别报道：加拿大总理马克·卡尼的独家专访",
-      "summary": "In this special edition, Canadian Prime Minister Mark Carney sits down with POLITICO’s chief EU correspondent Zoya and Ottawa bureau chief Nick Taylor-Vaisey for an exclusive interview. With Canada and the European Union exploring a much closer partnership, Carney discusses his vision for Canada’s place in a changing world, the future of transatlantic relations and […]",
+      "title": "Security Sunday: Wie real ist die Kriegsgefahr? – mit General Alexander Sollfrank",
+      "title_cn": "周日安全：战争威胁有多真实？ – 与亚历山大·索尔弗兰克将军",
+      "summary": "Präsentiert von YouTube.",
       "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/podcast/brussels-playbook-podcast/special-episode-an-exclusive-interview-with-canadian-pm-mark-carney/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-10-31T04:00:00+00:00",
-      "fetched_at": "2026-11-01T02:29:53+00:00",
-      "category": "industry",
+      "source_url": "https://www.politico.eu/podcast/berlin-playbook-podcast/security-sunday-wie-real-ist-die-kriegsgefahr-mit-general-alexander-sollfrank/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-11-01T05:00:00+00:00",
+      "fetched_at": "2026-11-02T00:54:33+00:00",
+      "category": "defense_security",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-11-01T02:29:53+00:00",
-      "last_seen_at": "2026-11-01T02:29:53+00:00"
+      "first_seen_at": "2026-11-02T00:54:33+00:00",
+      "last_seen_at": "2026-11-02T00:54:33+00:00"
     },
     {
-      "id": "07a5aaa87c61afe9",
+      "id": "4de1b7a8757ec94a",
       "region": "germany",
-      "title": "China willing to import more German goods, Premier Li says - Reuters",
-      "title_cn": "李克强表示中国愿意进口更多德国商品 - 路透中文网",
-      "summary": "China willing to import more German goods, Premier Li says Reuters",
+      "title": "South Korea exports nearly double in October on AI investment boom - Reuters",
+      "title_cn": "人工智能投资热潮推动韩国 10 月份出口近一倍 - 路透中文网",
+      "summary": "South Korea exports nearly double in October on AI investment boom Reuters",
       "source": "Reuters Germany",
-      "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxON2ZDVGVDQUhtbjF4cTk2bE4tRTloNnBzNW9yaXRFdnE3SklzNVBTSWpWc21vZTBTdGVhd0dQMml6LUxWTE8tYUV4TFYzMWJWTzc3Q2pqMkk2eUtuX2RScl9kMGlhUTNiVk5HcmQ1N2I0b3lhMDFEYUR5eVd1UGtYRFF2blZoNjduTXJVQUNhZllIWm0wRGpVc2FMUFh0Qkkyb3NHcw?oc=5",
-      "published_at": "2026-10-31T02:21:00+00:00",
-      "fetched_at": "2026-11-01T02:29:53+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNTEw3WmpfUE9XNlpDeFd4LUpBenRHZVpiTVpFRDZfakN2T29CaHE4emNXQ0s0VzFDZTJTeDlXVkJtV0FSVEpwblJEVWZoWEZ4eEFzNDA5eHh0TGo4X2ZFX3hlYzljRl9TTDhPNkE1a05aNjNPU19Kb1lGbmV1UWw0dUtNZk9HS2JENWx5dDJyNWgxSGRWMzBLaGxMazJRbWxGbVBFbWNJbVlzbHkzTk05RDFGMnBzcUh4V2VqSmhTZmhkUQ?oc=5",
+      "published_at": "2026-11-01T00:39:00+00:00",
+      "fetched_at": "2026-11-02T00:54:33+00:00",
       "category": "trade",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-11-01T02:29:53+00:00",
-      "last_seen_at": "2026-11-01T02:29:53+00:00"
-    },
-    {
-      "id": "f50b59d4676e4656",
-      "region": "germany",
-      "title": "Poland's Sikorski calls for rapid ceasefire in Black Sea to allow food shipments - Reuters",
-      "title_cn": "波兰西科尔斯基呼吁黑海地区迅速停火以允许食品运输 - 路透中文网",
-      "summary": "Poland's Sikorski calls for rapid ceasefire in Black Sea to allow food shipments Reuters",
-      "source": "Reuters Germany",
-      "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPNjZfQ1RGNVhiRHQ3SzZQVTV6WjVPdTNJRzF4R2cxYkVPMHFWTk1MS3pnX3FZRy00WFJXR3Y4THdob2ZGR3Z3LTRxWWNnLTVSQWE4eHIxR09wMWZnU1FDdFdpNW1PbzU2NjRUY3VaMndmNUI5cGRsZW9kS1A4Yndab2p3UU02NVNiWXdRcFNXNWgybV9MbTJ5Sm5VbmIzQW1xSlI4cGN0YzlQaEItLTBRVmVwN0NxOWJLbFE?oc=5",
-      "published_at": "2026-10-31T00:08:00+00:00",
-      "fetched_at": "2026-11-01T02:29:53+00:00",
-      "category": "technology",
-      "importance": "normal",
-      "official_source": false,
-      "first_seen_at": "2026-11-01T02:29:53+00:00",
-      "last_seen_at": "2026-11-01T02:29:53+00:00"
+      "first_seen_at": "2026-11-02T00:54:33+00:00",
+      "last_seen_at": "2026-11-02T00:54:33+00:00"
     }
   ]
 }
