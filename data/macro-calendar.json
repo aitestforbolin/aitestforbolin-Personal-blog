@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-02T18:39:51+00:00",
+  "generatedAt": "2026-11-02T21:50:18+00:00",
   "timezone": "Asia/Shanghai",
   "status": "healthy",
   "failedSources": [],
@@ -41,7 +41,7 @@
       "actualStatus": "complete",
       "actualMissing": [],
       "actualLastCheckedAt": "2026-11-02T13:39:49-05:00",
-      "retrievedAt": "2026-11-02T18:39:51+00:00",
+      "retrievedAt": "2026-11-02T21:50:18+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "legacy": {
@@ -77,10 +77,10 @@
         "release_status": "released",
         "forecast": "ISM制造业PMI 54.5",
         "previous": "ISM制造业PMI 54.5",
-        "actual_last_checked_at": "2026-11-02T13:39:49-05:00",
-        "actual_check_status": "ok",
         "released_at": "2026-11-02T10:00:00-05:00",
         "actual_updated_at": "2026-11-02T18:39:51.530Z",
+        "actual_last_checked_at": "2026-11-02T13:39:49-05:00",
+        "actual_check_status": "ok",
         "actual": "ISM制造业PMI 55.5",
         "calendar_status": "healthy",
         "actual_missing": [],
@@ -105,7 +105,7 @@
           "id": "metric-1",
           "label": "JOLTS职位空缺",
           "actual": null,
-          "forecast": "7.11M",
+          "forecast": "7.15M",
           "previous": "7.08M",
           "unit": null,
           "sourceUrl": "https://www.forexfactory.com/calendar"
@@ -117,7 +117,7 @@
         "JOLTS职位空缺"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-02T18:39:51+00:00",
+      "retrievedAt": "2026-11-02T21:50:18+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -142,14 +142,14 @@
             "label": "JOLTS职位空缺",
             "source_title": "JOLTS Job Openings",
             "actual": null,
-            "forecast": "7.11M",
+            "forecast": "7.15M",
             "previous": "7.08M",
             "consensus_source": "Forex Factory 市场日历",
             "consensus_url": "https://www.forexfactory.com/calendar"
           }
         ],
         "release_status": "scheduled",
-        "forecast": "JOLTS职位空缺 7.11M",
+        "forecast": "JOLTS职位空缺 7.15M",
         "previous": "JOLTS职位空缺 7.08M",
         "calendar_status": "healthy",
         "actual_missing": [
@@ -186,7 +186,7 @@
       "actualStatus": "not_expected",
       "actualMissing": [],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-02T18:39:51+00:00",
+      "retrievedAt": "2026-11-02T21:50:18+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -241,7 +241,7 @@
           "id": "metric-1",
           "label": "ISM服务业PMI",
           "actual": null,
-          "forecast": "54.9",
+          "forecast": "54.8",
           "previous": "54.9",
           "unit": null,
           "sourceUrl": "https://www.forexfactory.com/calendar"
@@ -253,7 +253,7 @@
         "ISM服务业PMI"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-02T18:39:51+00:00",
+      "retrievedAt": "2026-11-02T21:50:18+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -278,14 +278,14 @@
             "label": "ISM服务业PMI",
             "source_title": "ISM Services PMI",
             "actual": null,
-            "forecast": "54.9",
+            "forecast": "54.8",
             "previous": "54.9",
             "consensus_source": "Forex Factory 市场日历",
             "consensus_url": "https://www.forexfactory.com/calendar"
           }
         ],
         "release_status": "scheduled",
-        "forecast": "ISM服务业PMI 54.9",
+        "forecast": "ISM服务业PMI 54.8",
         "previous": "ISM服务业PMI 54.9",
         "calendar_status": "healthy",
         "actual_missing": [
@@ -324,7 +324,7 @@
         "初请失业金人数"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-02T18:39:51+00:00",
+      "retrievedAt": "2026-11-02T21:50:18+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -392,7 +392,7 @@
           "id": "metric-2",
           "label": "非农",
           "actual": null,
-          "forecast": "63K",
+          "forecast": "65K",
           "previous": "29K",
           "unit": null,
           "sourceUrl": "https://www.forexfactory.com/calendar"
@@ -415,7 +415,7 @@
         "失业率"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-02T18:39:51+00:00",
+      "retrievedAt": "2026-11-02T21:50:18+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -449,7 +449,7 @@
             "label": "非农",
             "source_title": "Non-Farm Employment Change",
             "actual": null,
-            "forecast": "63K",
+            "forecast": "65K",
             "previous": "29K",
             "consensus_source": "Forex Factory 市场日历",
             "consensus_url": "https://www.forexfactory.com/calendar"
@@ -465,7 +465,7 @@
           }
         ],
         "release_status": "scheduled",
-        "forecast": "时薪环比 0.3% · 非农 63K · 失业率 4.2%",
+        "forecast": "时薪环比 0.3% · 非农 65K · 失业率 4.2%",
         "previous": "时薪环比 0.1% · 非农 29K · 失业率 4.2%",
         "calendar_status": "healthy",
         "actual_missing": [
@@ -494,7 +494,7 @@
           "id": "metric-1",
           "label": "消费者信心初值",
           "actual": null,
-          "forecast": "47.8",
+          "forecast": "48.1",
           "previous": "46.3",
           "unit": null,
           "sourceUrl": "https://www.forexfactory.com/calendar"
@@ -516,7 +516,7 @@
         "通胀预期初值"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-02T18:39:51+00:00",
+      "retrievedAt": "2026-11-02T21:50:18+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -541,7 +541,7 @@
             "label": "消费者信心初值",
             "source_title": "Prelim UoM Consumer Sentiment",
             "actual": null,
-            "forecast": "47.8",
+            "forecast": "48.1",
             "previous": "46.3",
             "consensus_source": "Forex Factory 市场日历",
             "consensus_url": "https://www.forexfactory.com/calendar"
@@ -557,7 +557,7 @@
           }
         ],
         "release_status": "scheduled",
-        "forecast": "消费者信心初值 47.8",
+        "forecast": "消费者信心初值 48.1",
         "previous": "消费者信心初值 46.3 · 通胀预期初值 4.7%",
         "calendar_status": "healthy",
         "actual_missing": [
