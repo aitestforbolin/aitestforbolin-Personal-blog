@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-02T00:55:10+00:00",
+  "generatedAt": "2026-11-02T07:54:47+00:00",
   "timezone": "Asia/Shanghai",
   "status": "healthy",
   "failedSources": [],
@@ -13,80 +13,6 @@
   },
   "sourcePolicy": "U.S. calendar: all USD events rated Medium or High by Forex Factory; Federal Reserve validates FOMC dates. Briefing selection is handled separately.",
   "events": [
-    {
-      "id": "us-b9532df4601e",
-      "eventType": "data",
-      "country": "US",
-      "period": null,
-      "scheduledAt": "2026-10-30T20:30:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "Employment Cost Index q/q",
-      "category": "macro",
-      "importance": "medium",
-      "stars": 3,
-      "source": "Forex Factory",
-      "sourceUrl": "https://www.forexfactory.com/calendar",
-      "metrics": [
-        {
-          "id": "metric-1",
-          "label": "公布值",
-          "actual": "0.8%",
-          "forecast": "0.8%",
-          "previous": "0.9%",
-          "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct30.2026"
-        }
-      ],
-      "releasedAt": "2026-10-30T08:30:00-04:00",
-      "actualStatus": "complete",
-      "actualMissing": [],
-      "actualLastCheckedAt": "2026-10-30T11:09:54-04:00",
-      "retrievedAt": "2026-11-02T00:55:10+00:00",
-      "revisionStatus": "not_revised",
-      "releaseStatus": "released",
-      "legacy": {
-        "date": "2026-10-30",
-        "date_et": "2026-10-30",
-        "time_et": "08:30",
-        "time_shanghai": "20:30",
-        "title": "FF::Employment Cost Index q/q",
-        "title_cn": "Employment Cost Index q/q",
-        "period": null,
-        "category": "macro",
-        "importance": "medium",
-        "stars": 3,
-        "source": "Forex Factory",
-        "url": "https://www.forexfactory.com/calendar",
-        "result_source": "Forex Factory 网页日历",
-        "result_url": "https://www.forexfactory.com/calendar?day=oct30.2026",
-        "consensus_source": "Forex Factory 市场日历",
-        "consensus_url": "https://www.forexfactory.com/calendar",
-        "metric_values": [
-          {
-            "label": "公布值",
-            "source_title": "Employment Cost Index q/q",
-            "actual": "0.8%",
-            "forecast": "0.8%",
-            "previous": "0.9%",
-            "consensus_source": "Forex Factory 市场日历",
-            "consensus_url": "https://www.forexfactory.com/calendar",
-            "actual_source": "Forex Factory 网页日历",
-            "actual_url": "https://www.forexfactory.com/calendar?day=oct30.2026"
-          }
-        ],
-        "release_status": "released",
-        "forecast": "公布值 0.8%",
-        "previous": "公布值 0.9%",
-        "released_at": "2026-10-30T08:30:00-04:00",
-        "actual_updated_at": "2026-10-30T15:09:56.856Z",
-        "actual_last_checked_at": "2026-10-30T11:09:54-04:00",
-        "actual_check_status": "ok",
-        "actual": "公布值 0.8%",
-        "calendar_status": "healthy",
-        "actual_missing": [],
-        "actual_status": "complete"
-      }
-    },
     {
       "id": "us-7e243a2b3821",
       "eventType": "data",
@@ -117,7 +43,7 @@
         "ISM制造业PMI"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-02T00:55:10+00:00",
+      "retrievedAt": "2026-11-02T07:54:47+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -188,7 +114,7 @@
         "JOLTS职位空缺"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-02T00:55:10+00:00",
+      "retrievedAt": "2026-11-02T07:54:47+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -257,7 +183,7 @@
       "actualStatus": "not_expected",
       "actualMissing": [],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-02T00:55:10+00:00",
+      "retrievedAt": "2026-11-02T07:54:47+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -324,7 +250,7 @@
         "ISM服务业PMI"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-02T00:55:10+00:00",
+      "retrievedAt": "2026-11-02T07:54:47+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -395,7 +321,7 @@
         "初请失业金人数"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-02T00:55:10+00:00",
+      "retrievedAt": "2026-11-02T07:54:47+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -486,7 +412,7 @@
         "失业率"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-02T00:55:10+00:00",
+      "retrievedAt": "2026-11-02T07:54:47+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -587,7 +513,7 @@
         "通胀预期初值"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-02T00:55:10+00:00",
+      "retrievedAt": "2026-11-02T07:54:47+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
