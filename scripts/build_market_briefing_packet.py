@@ -749,6 +749,19 @@ def fetch_candidate(symbol: str, trading_date: str | None = None) -> dict:
             pair = yahoo_daily_session_pair(fallback, trading_date)
             if pair is not None:
                 break
+    if pair is None:
+        latest_result = (fallback if trading_date else payload).get("chart", {}).get("result") or [{}]
+        latest_result = latest_result[0] or {}
+        latest_meta = latest_result.get("meta") or {}
+        print("Candidate close diagnostics:", json.dumps({
+            "ticker": symbol, "target": trading_date,
+            "originalQuoteTime": meta.get("regularMarketTime"),
+            "originalSessionEnd": meta.get("currentTradingPeriod", {}).get("regular", {}).get("end"),
+            "latestQuoteTime": latest_meta.get("regularMarketTime"),
+            "latestSessionEnd": latest_meta.get("currentTradingPeriod", {}).get("regular", {}).get("end"),
+            "latestBarTimes": (latest_result.get("timestamp") or [])[-2:],
+            "latestCloseMissing": ((latest_result.get("indicators", {}).get("quote") or [{}])[0].get("close") or [None])[-1] is None,
+        }), flush=True)
     current = pair["current"]["value"] if pair else None
     previous = pair["previous"]["value"] if pair else None
     change = (current - previous) / previous * 100 if pair and previous else None
