@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "runDate": "2026-11-02",
-  "publishedAt": "2026-11-02T09:04:47+08:00",
-  "windowStart": "2026-11-01T01:01:06.551978+00:00",
-  "windowEnd": "2026-11-02T01:04:21.907323+00:00",
-  "sourceUpdatedAt": "2026-11-01T01:01:06+00:00",
-  "status": "unchanged",
+  "runDate": "2026-11-03",
+  "publishedAt": "2026-11-03T09:04:01+08:00",
+  "windowStart": "2026-11-02T01:04:21.907323+00:00",
+  "windowEnd": "2026-11-03T01:03:13.934307+00:00",
+  "sourceUpdatedAt": "2026-11-03T01:03:13+00:00",
+  "status": "success",
   "executionLineage": {
-    "runId": "web3-daily-triage:codex-web3-20261102-010306Z",
-    "requestId": "codex-web3-20261102-010306Z",
-    "triggerSha": "86417914cf4dbfececefa1943d082e09eeff2c9c",
-    "githubRunId": 41370488559,
-    "scheduledAt": "2026-11-02T01:03:06Z",
-    "startedAt": "2026-11-02T01:04:19.813085+00:00",
-    "sourceCheckedAt": "2026-11-02T01:04:21.906935+00:00",
-    "sourceUpdatedAt": "2026-11-01T01:01:06+00:00",
-    "completedAt": "2026-11-02T01:04:21.907323+00:00",
-    "publishedAt": "2026-11-02T09:04:47+08:00"
+    "runId": "web3-daily-triage:codex-web3-20261103-010211Z",
+    "requestId": "codex-web3-20261103-010211Z",
+    "triggerSha": "6414295bfb8ceb44c5ed363c6b183b431593c159",
+    "githubRunId": 41557121055,
+    "scheduledAt": "2026-11-03T01:02:11Z",
+    "startedAt": "2026-11-03T01:03:12.284433+00:00",
+    "sourceCheckedAt": "2026-11-03T01:03:13.933985+00:00",
+    "sourceUpdatedAt": "2026-11-03T01:03:13+00:00",
+    "completedAt": "2026-11-03T01:03:13.934307+00:00",
+    "publishedAt": "2026-11-03T09:04:01+08:00"
   },
   "executionStatus": {
-    "collection": "unchanged",
+    "collection": "success",
     "validation": "success",
     "publication": "success"
   },
-  "deduplicationNote": "候选窗口从 2026-11-01 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；本次来源首页最近五条及历史观测均未变化，按累计 reportedEventIds 去重后无新增非 M&A 候选。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+  "deduplicationNote": "候选窗口从 2026-11-02 已验证 unchanged 发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重并排除 M&A 后，对 4 个新观测事件完成轻量核验。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
   "reportedEventIds": [
     "crypto-fundraising-ponygo--2026-09--round-unknown",
     "crypto-fundraising-velocity--2026-09--series-a",
@@ -95,13 +95,248 @@
     "crypto-fundraising-photonpay--2026-10--series-c",
     "crypto-fundraising-marketnode--2026-10--round-unknown",
     "crypto-fundraising-tradexyz--2026-10--round-unknown",
-    "crypto-fundraising-rates-exchange--2026-10--round-unknown"
+    "crypto-fundraising-rates-exchange--2026-10--round-unknown",
+    "crypto-fundraising-stablestock--2026-11--strategic",
+    "crypto-fundraising-over-computer--2026-11--public-sale",
+    "crypto-fundraising-lotech--2026-11--series-a",
+    "crypto-fundraising-crshmarket--2026-11--seed"
   ],
   "counts": {
-    "new": 0,
+    "new": 4,
     "action": 0,
-    "watch": 0,
-    "stop": 0
+    "watch": 2,
+    "stop": 2
   },
-  "projects": []
+  "projects": [
+    {
+      "event_id": "crypto-fundraising-stablestock--2026-11--strategic",
+      "source_detail_url": "https://crypto-fundraising.info/projects/stablestock/",
+      "project_name": "StableStock",
+      "decision": "WATCH",
+      "financing": {
+        "amount_usd": null,
+        "round": "Strategic",
+        "lead_investors": [
+          "Amber",
+          "Nomad Capital",
+          "Flow Traders",
+          "Gate"
+        ],
+        "announcement_date": "2026-11-02",
+        "confidence": "high"
+      },
+      "plain_explanation": "StableStock 让用户用稳定币买卖真实股票和 ETF，并把部分证券映射为可在链上使用的资产。",
+      "mechanism_simple": "平台在后台通过券商完成托管、清算和成交；用户可直接交易股票，也可把符合条件的资产用于链上流动性和收益产品。",
+      "project_status": {
+        "category": "existing_no_token",
+        "token_status": "no_token_found",
+        "note": "产品和移动端已经上线，未发现原生代币；2026-11-02 启动官方 Points: Genesis。"
+      },
+      "participation": {
+        "available_now": true,
+        "what_user_can_do": "通过应用交易或持有带 Points 标识的股票与 ETF，现货和杠杆现货均可累计每日积分。",
+        "requires_real_funds": true,
+        "friction_or_risk": "需要真实资金并承担证券价格、平台托管、地区合规和链上风险；杠杆会放大亏损并可能触发强制平仓。"
+      },
+      "incentives": {
+        "status": "confirmed",
+        "types": [
+          "points",
+          "campaign"
+        ],
+        "details": "官方 Points: Genesis 已上线，交易或持有符合条件的股票与 ETF 可得积分，并追溯部分早期行为；积分不保证现金、代币或任何奖励。"
+      },
+      "why": [
+        "官方积分刚启动且有追溯与后续活动，存在明确观察价值。",
+        "积分规则不透明且不保证转换为奖励，不能单靠积分预期建立仓位。",
+        "参与必须承担真实证券与平台风险，当前不适合为了积分主动增加杠杆或大额资金。"
+      ],
+      "next_step": null,
+      "recheck_trigger": "当官方公布积分兑换、原生代币或明确奖励规则，且能以非杠杆小额持仓低成本参与时重新评估。",
+      "website_url": "https://www.stablestock.finance/",
+      "x_url": null,
+      "evidence": [
+        {
+          "claim": "官方公告确认战略轮估值为 7500 万美元，参与方包括 Amber、Nomad Capital、Flow Traders 和 Gate，并于 2026-11-02 启动 Points: Genesis。",
+          "url": "https://www.stablestock.finance/blog/detail/introducing-stablestock-points/",
+          "source_type": "official_blog",
+          "confidence": "high"
+        },
+        {
+          "claim": "官网说明平台通过稳定币提供股票与 ETF 交易、1:1 代币化证券及链上流动性能力。",
+          "url": "https://www.stablestock.finance/",
+          "source_type": "official_site",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-over-computer--2026-11--public-sale",
+      "source_detail_url": "https://crypto-fundraising.info/projects/over-computer/",
+      "project_name": "over.computer",
+      "decision": "WATCH",
+      "financing": {
+        "amount_usd": null,
+        "round": "Public sale",
+        "lead_investors": [],
+        "announcement_date": "2026-10-31",
+        "confidence": "medium"
+      },
+      "plain_explanation": "over.computer 是 Solana 上的自营交易挑战平台，用户按日付费获得模拟的大额交易账户，盈利时可申请 USDC 结算。",
+      "mechanism_simple": "用户不用先通过多阶段挑战，而是为账户每天支付费用，系统按真实市场价格记录股票和加密永续合约的模拟交易；亏损上限主要是已付费用。未来合作方还可发布交易任务并提供奖励。",
+      "project_status": {
+        "category": "new_live_no_token",
+        "token_status": "token_announced",
+        "note": "交易桌产品已上线，$OVER 公开售币已宣布但尚未开始，法律结构和日期仍待确认。"
+      },
+      "participation": {
+        "available_now": true,
+        "what_user_can_do": "可用小额日费开启交易桌测试产品；公开售币开放后可通过 MetaDAO 提交 USDC 参与，但当前尚不能执行。",
+        "requires_real_funds": true,
+        "friction_or_risk": "交易桌会持续产生费用；公开售币需要 USDC，存在超额认购、分配不确定、流动性、代币价格及法律结构风险。"
+      },
+      "incentives": {
+        "status": "confirmed",
+        "types": [
+          "token",
+          "campaign"
+        ],
+        "details": "$OVER 公开售币已宣布，但 MetaDAO 于 2026-10-31 表示因法律结构调整延期，尚无新日期。"
+      },
+      "why": [
+        "产品已可试用，日费模式把单次损失限制在费用范围内，具有低额验证路径。",
+        "公开售币已经宣布且预承诺超额，但法律结构、正式日期和最终条款仍未确定。",
+        "在正式文件与估值清楚前，不宜仅因超额认购追逐售币。"
+      ],
+      "next_step": null,
+      "recheck_trigger": "MetaDAO 与 over.computer 公布新的正式售币日期、法律结构、估值、代币分配和解锁条款时重新评估。",
+      "website_url": "https://over.computer/",
+      "x_url": "https://x.com/overdotcomputer",
+      "evidence": [
+        {
+          "claim": "官方文档说明交易桌已上线，用户按日付费获得模拟交易额度，盈利可申请 USDC 结算，最大损失为已付费用。",
+          "url": "https://docs.over.computer/",
+          "source_type": "docs",
+          "confidence": "high"
+        },
+        {
+          "claim": "MetaDAO 官方更新显示 over.computer 的公开融资因法律结构调整延期，当前没有新日期，预承诺已超过容量。",
+          "url": "https://teapawt.org/metadaoproject",
+          "source_type": "other",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-lotech--2026-11--series-a",
+      "source_detail_url": "https://crypto-fundraising.info/projects/lotech/",
+      "project_name": "LO:TECH",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": 12000000,
+        "round": "Series A",
+        "lead_investors": [
+          "MMC"
+        ],
+        "announcement_date": "2026-11-03",
+        "confidence": "high"
+      },
+      "plain_explanation": "LO:TECH 是面向机构的资本市场技术公司，为传统、加密和预测市场提供做市、行情数据、执行与场外交易服务。",
+      "mechanism_simple": "公司用同一套高频交易基础设施连接不同交易场所，为机构客户报价、提供流动性和执行交易。",
+      "project_status": {
+        "category": "existing_no_token",
+        "token_status": "no_token_found",
+        "note": "已有成熟机构业务和 50 多家机构客户，未发现面向普通用户的原生代币或早期产品。"
+      },
+      "participation": {
+        "available_now": false,
+        "what_user_can_do": null,
+        "requires_real_funds": false,
+        "friction_or_risk": "服务对象是机构与专业交易方，普通用户没有可验证的低成本参与入口。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "未发现面向普通用户的积分、测试网、代币或空投计划。"
+      },
+      "why": [
+        "融资将用于机构执行服务、监管牌照和美国及亚太扩张。",
+        "产品路径主要是做市、数据和机构交易执行，普通用户无法直接参与。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://lo.tech/",
+      "x_url": null,
+      "evidence": [
+        {
+          "claim": "官网确认 LO:TECH 的业务是机构级做市、市场数据、执行与 OTC，底层为统一的高频交易基础设施。",
+          "url": "https://lo.tech/",
+          "source_type": "official_site",
+          "confidence": "high"
+        },
+        {
+          "claim": "融资报道确认 1200 万美元 A 轮由 MMC 领投，Faction、13 Books Capital 与 Atka 参投，并将扩张机构执行服务及监管布局。",
+          "url": "https://www.finextra.com/newsarticle/48687/lotech-raises-12m-to-take-on-wall-street",
+          "source_type": "other",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-crshmarket--2026-11--seed",
+      "source_detail_url": "https://crypto-fundraising.info/projects/crshmarket/",
+      "project_name": "CRSHMARKET",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": 3500000,
+        "round": "Seed",
+        "lead_investors": [
+          "6th Man Ventures"
+        ],
+        "announcement_date": "2026-11-03",
+        "confidence": "high"
+      },
+      "plain_explanation": "CRSHMARKET 是直播内容预测市场，用户可对直播中接下来发生的事件下注，并在约 60 秒内结算。",
+      "mechanism_simple": "平台围绕正在进行的直播快速创建是非预测合约，参与者用真实价值资产选择结果，事件发生后按规则结算。",
+      "project_status": {
+        "category": "new_live_no_token",
+        "token_status": "no_token_found",
+        "note": "产品已上线并有实际交易记录，未发现原生代币。"
+      },
+      "participation": {
+        "available_now": false,
+        "what_user_can_do": "有直播市场开放时可参与短时预测；当前官方应用显示没有活动直播市场。",
+        "requires_real_funds": true,
+        "friction_or_risk": "属于高频预测交易，存在本金损失、费用、规则与结算争议以及地区合规风险。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "未发现官方积分、测试网、代币或空投激励。"
+      },
+      "why": [
+        "融资与交易量表明产品已有使用，但参与本质是需要风险资金的短时预测交易。",
+        "当前没有活动市场，也没有低成本早期激励或明确未来催化剂。",
+        "融资规模和知名投资人不足以形成普通用户的行动理由。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://crshmarket.com/",
+      "x_url": "https://x.com/crshmarket",
+      "evidence": [
+        {
+          "claim": "官方应用当前显示没有活动直播市场，只能等待下一场安排。",
+          "url": "https://app.crshmarket.com/console/",
+          "source_type": "official_site",
+          "confidence": "high"
+        },
+        {
+          "claim": "融资报道确认 350 万美元种子轮由 6th Man Ventures 领投，Reciprocal Ventures、Lattice Fund 与 Starting Line 等参投。",
+          "url": "https://traded.co/vc/deal/crshmarket-raises-3-5m-seed-funding-led-by-6th-man-ventures-in-new-york/",
+          "source_type": "other",
+          "confidence": "high"
+        }
+      ]
+    }
+  ]
 }
