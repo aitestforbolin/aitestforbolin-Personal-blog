@@ -511,7 +511,7 @@ class MarketBriefingPacketTests(unittest.TestCase):
                 ("2026-08-25", 100.0),
             ])
 
-        def fake_candidate(ticker):
+        def fake_candidate(ticker, trading_date=None):
             return {
                 "ticker": ticker,
                 "tradingDate": "2026-08-25",
@@ -599,6 +599,36 @@ class MarketBriefingPacketTests(unittest.TestCase):
 
 
 class BreadthRecoveryTests(unittest.TestCase):
+
+    def test_candidate_null_range_bar_retries_explicit_session_window(self):
+        stale = MarketBriefingPacketTests.yahoo_daily_payload([("2026-10-30", 100), ("2026-11-02", None)])
+        fresh = MarketBriefingPacketTests.yahoo_daily_payload([("2026-10-30", 100), ("2026-11-02", 102)])
+        with mock.patch.object(MODULE, "fetch_json", side_effect=[stale, fresh]) as fetch:
+            row = MODULE.fetch_candidate("NVDA", "2026-11-02")
+        self.assertEqual(row["close"], 102)
+        self.assertEqual(row["previousClose"], 100)
+        self.assertEqual(MODULE.candidate_validation_issues(row, "2026-11-02"), [])
+        self.assertIn("query2.finance.yahoo.com", fetch.call_args_list[1].args[0])
+        self.assertIn("period1=", fetch.call_args_list[1].args[0])
+
+    def test_candidate_stale_range_never_changes_requested_session(self):
+        stale = MarketBriefingPacketTests.yahoo_daily_payload([("2026-10-29", 98), ("2026-10-30", 100)])
+        fresh = MarketBriefingPacketTests.yahoo_daily_payload([("2026-10-30", 100), ("2026-11-02", 101)])
+        with mock.patch.object(MODULE, "fetch_json", side_effect=[stale, fresh]):
+            row = MODULE.fetch_candidate("NVDA", "2026-11-02")
+        self.assertEqual(row["tradingDate"], "2026-11-02")
+        self.assertEqual(row["priceDate"], "2026-11-02")
+        self.assertEqual(row["previousCloseDate"], "2026-10-30")
+
+    def test_candidate_all_windows_missing_target_remains_invalid(self):
+        stale = MarketBriefingPacketTests.yahoo_daily_payload([("2026-10-29", 98), ("2026-10-30", 100)])
+        with mock.patch.object(MODULE, "fetch_json", return_value=stale) as fetch:
+            row = MODULE.fetch_candidate("NVDA", "2026-11-02")
+        self.assertEqual(fetch.call_count, 3)
+        self.assertIsNone(row["close"])
+        self.assertEqual(row["status"], "incomplete")
+        self.assertFalse(MODULE.valid_candidate(row, "2026-11-02"))
+
     def test_candidate_null_latest_bar_never_relabels_prior_price(self):
         payload = MarketBriefingPacketTests.yahoo_daily_payload([("2026-10-12", 100), ("2026-10-13", None)])
         with mock.patch.object(MODULE, "fetch_json", return_value=payload):

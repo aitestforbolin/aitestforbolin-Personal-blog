@@ -721,7 +721,7 @@ def inherit_same_date_gold_latest(
     return True
 
 
-def fetch_candidate(symbol: str) -> dict:
+def fetch_candidate(symbol: str, trading_date: str | None = None) -> dict:
     url = (
         "https://query1.finance.yahoo.com/v8/finance/chart/"
         f"{symbol}?range=5d&interval=1d&events=div%2Csplits"
@@ -730,10 +730,25 @@ def fetch_candidate(symbol: str) -> dict:
     result = payload["chart"]["result"][0]
     meta = result.get("meta", {})
     timestamps = result.get("timestamp") or []
-    trading_date = None
-    if timestamps:
+    if trading_date is None and timestamps:
         trading_date = dt.datetime.fromtimestamp(timestamps[-1], tz=dt.timezone.utc).astimezone(ZoneInfo("America/New_York")).date().isoformat()
     pair = yahoo_daily_session_pair(payload, trading_date) if trading_date else None
+    if pair is None and trading_date:
+        # A cached range response can contain a null latest bar or omit the
+        # target session. Retry the same provider with an explicit date window,
+        # retaining the strict daily-bar/completed-close provenance checks.
+        target = dt.date.fromisoformat(trading_date)
+        start = int(dt.datetime.combine(target - dt.timedelta(days=35), dt.time(), dt.timezone.utc).timestamp())
+        end = int(dt.datetime.combine(target + dt.timedelta(days=1), dt.time(), dt.timezone.utc).timestamp())
+        for host in ("query2", "query1"):
+            fallback = fetch_json(
+                f"https://{host}.finance.yahoo.com/v8/finance/chart/{quote(symbol, safe='')}"
+                f"?period1={start}&period2={end}&interval=1d&events=div%2Csplits",
+                attempts=2,
+            )
+            pair = yahoo_daily_session_pair(fallback, trading_date)
+            if pair is not None:
+                break
     current = pair["current"]["value"] if pair else None
     previous = pair["previous"]["value"] if pair else None
     change = (current - previous) / previous * 100 if pair and previous else None
@@ -1244,7 +1259,7 @@ def build_packet(now: dt.datetime | None = None) -> dict:
     candidates_by_ticker: dict[str, dict] = {}
     candidate_error_details: dict[str, object] = {}
     with ThreadPoolExecutor(max_workers=6) as executor:
-        futures = {executor.submit(fetch_candidate, ticker): ticker for ticker in CANDIDATES}
+        futures = {executor.submit(fetch_candidate, ticker, trading_date): ticker for ticker in CANDIDATES}
         for future in as_completed(futures):
             ticker = futures[future]
             try:
