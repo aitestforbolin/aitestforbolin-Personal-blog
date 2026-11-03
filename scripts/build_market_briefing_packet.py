@@ -210,9 +210,10 @@ def yahoo_daily_session_pair(payload: object, trading_date: str) -> dict | None:
     if current is None:
         # Yahoo occasionally publishes a null latest daily close while its
         # completed regular-session quote is already available. Accept that
-        # quote only at the exact regular-session end, for this target date,
-        # and only when the target daily bar itself exists. Never use a live,
-        # pre-close, after-hours, stale, or arbitrary metadata previous close.
+        # regularMarketPrice only at the session end or within its five-second
+        # closing-auction publication delay, for this target date and only
+        # when the target daily bar itself exists. Never use postMarketPrice,
+        # pre-close, later after-hours, stale, or metadata previous-close values.
         meta = result.get("meta") or {}
         quote_time = meta.get("regularMarketTime")
         close_time = meta.get("currentTradingPeriod", {}).get("regular", {}).get("end")
@@ -221,7 +222,8 @@ def yahoo_daily_session_pair(payload: object, trading_date: str) -> dict | None:
                        if isinstance(t, (int, float)) and close is None
                        and dt.datetime.fromtimestamp(t, tz=dt.timezone.utc).astimezone(eastern).date().isoformat() == trading_date]
         if (target_bars and price is not None and price > 0
-                and isinstance(quote_time, (int, float)) and quote_time == close_time
+                and isinstance(quote_time, (int, float))
+                and isinstance(close_time, (int, float)) and 0 <= quote_time - close_time <= 5
                 and dt.datetime.fromtimestamp(quote_time, tz=dt.timezone.utc).astimezone(eastern).date().isoformat() == trading_date):
             current = {"date": trading_date, "value": price, "time": int(quote_time * 1000),
                        "valueSource": "completed_regular_session_quote"}

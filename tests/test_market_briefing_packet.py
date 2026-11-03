@@ -26,7 +26,7 @@ def asset(source="Yahoo Finance"):
 
 
 class MarketBriefingPacketTests(unittest.TestCase):
-    def test_null_daily_close_uses_only_exact_completed_regular_quote(self):
+    def test_null_daily_close_requires_completed_regular_quote_near_close(self):
         payload = self.yahoo_daily_payload([("2026-10-09", 110.38), ("2026-10-12", None)])
         end = int(dt.datetime.fromisoformat("2026-10-12T16:00:00-04:00").timestamp())
         payload["chart"]["result"][0]["meta"] = {"regularMarketTime": end, "regularMarketPrice": 111.45, "chartPreviousClose": 999,
@@ -37,7 +37,7 @@ class MarketBriefingPacketTests(unittest.TestCase):
         self.assertEqual(row["price"], 111.45)
         self.assertEqual(row["priceSourceBasis"], "completed_regular_session_quote")
         self.assertEqual(MODULE.session_change_issues(row, "2026-10-12"), [])
-        for timestamp in [end - 60, end + 60, end - 3 * 86400]:
+        for timestamp in [end - 1, end - 60, end + 6, end + 60, end - 3 * 86400]:
             payload["chart"]["result"][0]["meta"]["regularMarketTime"] = timestamp
             self.assertIsNone(MODULE.yahoo_daily_session_pair(payload, "2026-10-12"))
         payload["chart"]["result"][0]["meta"]["regularMarketTime"] = end
@@ -628,6 +628,28 @@ class BreadthRecoveryTests(unittest.TestCase):
         self.assertIsNone(row["close"])
         self.assertEqual(row["status"], "incomplete")
         self.assertFalse(MODULE.valid_candidate(row, "2026-11-02"))
+
+    def test_candidate_accepts_only_short_regular_closing_auction_delay(self):
+        payload = MarketBriefingPacketTests.yahoo_daily_payload([("2026-10-30", 100), ("2026-11-02", None)])
+        end = int(dt.datetime.fromisoformat("2026-11-02T16:00:00-05:00").timestamp())
+        meta = {"regularMarketTime": end, "regularMarketPrice": 102,
+                "postMarketPrice": 999, "chartPreviousClose": 999,
+                "currentTradingPeriod": {"regular": {"end": end}}}
+        payload["chart"]["result"][0]["meta"] = meta
+        for lag in (0, 1, 2, 5):
+            meta["regularMarketTime"] = end + lag
+            with mock.patch.object(MODULE, "fetch_json", return_value=payload):
+                row = MODULE.fetch_candidate("NVDA", "2026-11-02")
+            self.assertEqual(row["close"], 102)
+            self.assertEqual(row["previousClose"], 100)
+            self.assertEqual(row["priceSourceBasis"], "completed_regular_session_quote")
+            self.assertTrue(MODULE.valid_candidate(row, "2026-11-02"))
+        for lag in (-1, 6, 60, 86400):
+            meta["regularMarketTime"] = end + lag
+            with mock.patch.object(MODULE, "fetch_json", return_value=payload):
+                row = MODULE.fetch_candidate("NVDA", "2026-11-02")
+            self.assertIsNone(row["close"])
+            self.assertFalse(MODULE.valid_candidate(row, "2026-11-02"))
 
     def test_candidate_null_latest_bar_never_relabels_prior_price(self):
         payload = MarketBriefingPacketTests.yahoo_daily_payload([("2026-10-12", 100), ("2026-10-13", None)])
