@@ -45,6 +45,9 @@ jobs:
             git show origin/market-briefing-data:data/market-briefing-packet.json \
               > /tmp/previous-market-briefing-packet.json || true
           fi
+      - name: Refresh close snapshot for fallback runs
+        if: github.event_name != 'workflow_run'
+        run: python scripts/update_market_prices.py
       - name: Check completed close snapshot
         id: packet_gate
         env:
