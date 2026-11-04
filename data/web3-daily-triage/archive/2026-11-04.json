@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "runDate": "2026-11-04",
+  "publishedAt": "2026-11-04T09:04:34+08:00",
+  "windowStart": "2026-11-03T01:03:13.934307+00:00",
+  "windowEnd": "2026-11-04T01:03:51.208321+00:00",
+  "sourceUpdatedAt": "2026-11-04T01:03:51+00:00",
+  "status": "success",
+  "executionLineage": {
+    "runId": "web3-daily-triage:codex-web3-20261104-010252Z",
+    "requestId": "codex-web3-20261104-010252Z",
+    "triggerSha": "cd5897011e2e73f34da15218735270c6e2c707f2",
+    "githubRunId": 41751375832,
+    "scheduledAt": "2026-11-04T01:02:52Z",
+    "startedAt": "2026-11-04T01:03:49.158638+00:00",
+    "sourceCheckedAt": "2026-11-04T01:03:51.208000+00:00",
+    "sourceUpdatedAt": "2026-11-04T01:03:51+00:00",
+    "completedAt": "2026-11-04T01:03:51.208321+00:00",
+    "publishedAt": "2026-11-04T09:04:34+08:00"
+  },
+  "executionStatus": {
+    "collection": "success",
+    "validation": "success",
+    "publication": "success"
+  },
+  "deduplicationNote": "候选窗口从 2026-11-03 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重并排除 M&A 后，对 1 个新观测事件完成轻量核验。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+  "reportedEventIds": [
+    "crypto-fundraising-ponygo--2026-09--round-unknown",
+    "crypto-fundraising-velocity--2026-09--series-a",
+    "crypto-fundraising-usd-ai-permian-labs--2026-09--round-unknown",
+    "crypto-fundraising-tare--2026-09--seed",
+    "crypto-fundraising-finloop--2026-09--series-a",
+    "crypto-fundraising-fin-com--2026-09--seed",
+    "crypto-fundraising-tenka--2026-09--pre-seed",
+    "crypto-fundraising-rep--2026-09--angel",
+    "crypto-fundraising-dtcpay--2026-09--series-a",
+    "crypto-fundraising-infini--2026-09--seed",
+    "crypto-fundraising-circle--2026-09--round-unknown",
+    "crypto-fundraising-xstable--2026-09--round-unknown",
+    "crypto-fundraising-travix--2026-09--seed",
+    "crypto-fundraising-catchback--2026-09--seed",
+    "crypto-fundraising-infinifi--2026-09--seed",
+    "crypto-fundraising-hifi--2026-09--series-a",
+    "crypto-fundraising-functionspace--2026-09--pre-seed",
+    "crypto-fundraising-limited--2026-09--seed",
+    "crypto-fundraising-axis-robotics--2026-09--public-sale",
+    "crypto-fundraising-raven--2026-09--strategic",
+    "crypto-fundraising-jeeves--2026-09--series-c",
+    "crypto-fundraising-worldcoin--2026-09--private",
+    "crypto-fundraising-grass--2026-09--round-unknown",
+    "crypto-fundraising-jumper--2026-10--public-sale",
+    "crypto-fundraising-uorm--2026-10--pre-seed",
+    "crypto-fundraising-walapay--2026-10--seed",
+    "crypto-fundraising-perptools--2026-10--seed",
+    "crypto-fundraising-rip-cars--2026-09--private",
+    "crypto-fundraising-pheasant-network--2026-10--public-sale",
+    "crypto-fundraising-ipid--2026-10--series-a",
+    "crypto-fundraising-xverse-app--2026-10--strategic",
+    "crypto-fundraising-hyperlink--2026-10--round-unknown",
+    "crypto-fundraising-spiko--2026-10--series-b",
+    "crypto-fundraising-okx--2026-10--round-unknown",
+    "crypto-fundraising-imperial--2026-10--seed",
+    "crypto-fundraising-vest-exchange--2026-10--seed",
+    "crypto-fundraising-noah--2026-10--seed",
+    "crypto-fundraising-nous-research--2026-10--series-b",
+    "crypto-fundraising-catalyst-labs--2026-10--seed",
+    "crypto-fundraising-soda-labs--2026-10--seed",
+    "crypto-fundraising-immix--2026-10--round-unknown",
+    "crypto-fundraising-meanwhile--2026-10--round-unknown",
+    "crypto-fundraising-story-protocol--2026-10--round-unknown",
+    "crypto-fundraising-orbio--2026-10--seed",
+    "crypto-fundraising-efy-finance--2026-10--seed",
+    "crypto-fundraising-aisa--2026-10--round-unknown",
+    "crypto-fundraising-fission-labs--2026-10--series-a",
+    "crypto-fundraising-multiliquid--2026-10--seed",
+    "crypto-fundraising-spout-finance--2026-10--strategic",
+    "crypto-fundraising-zaria--2026-10--seed",
+    "crypto-fundraising-mural--2026-10--series-a",
+    "crypto-fundraising-honeyb--2026-10--seed",
+    "crypto-fundraising-lighthouse-storage--2026-10--round-unknown",
+    "crypto-fundraising-peso--2026-10--pre-seed",
+    "crypto-fundraising-erebor--2026-10--round-unknown",
+    "crypto-fundraising-dataline-ex-tearline--2026-10--seed",
+    "crypto-fundraising-whop--2026-10--series-d",
+    "crypto-fundraising-fun--2026-10--round-unknown",
+    "crypto-fundraising-swapglobal--2026-10--round-unknown",
+    "crypto-fundraising-mochatrade--2026-10--seed",
+    "crypto-fundraising-predicate--2026-10--series-a",
+    "crypto-fundraising-luxor--2026-10--strategic",
+    "crypto-fundraising-spicenet--2026-10--series-a",
+    "crypto-fundraising-cancore--2026-10--seed",
+    "crypto-fundraising-birch-hill-holdings--2026-10--seed",
+    "crypto-fundraising-ibis--2026-10--pre-seed",
+    "crypto-fundraising-kalshi--2026-10--series-g",
+    "crypto-fundraising-photonpay--2026-10--series-c",
+    "crypto-fundraising-marketnode--2026-10--round-unknown",
+    "crypto-fundraising-tradexyz--2026-10--round-unknown",
+    "crypto-fundraising-rates-exchange--2026-10--round-unknown",
+    "crypto-fundraising-stablestock--2026-11--strategic",
+    "crypto-fundraising-over-computer--2026-11--public-sale",
+    "crypto-fundraising-lotech--2026-11--series-a",
+    "crypto-fundraising-crshmarket--2026-11--seed",
+    "crypto-fundraising-prophub--2026-11--strategic"
+  ],
+  "counts": {
+    "new": 1,
+    "action": 0,
+    "watch": 0,
+    "stop": 1
+  },
+  "projects": [
+    {
+      "event_id": "crypto-fundraising-prophub--2026-11--strategic",
+      "source_detail_url": "https://crypto-fundraising.info/projects/prophub/",
+      "project_name": "PropHub",
+      "decision": "STOP",
+      "financing": {
+        "amount_usd": null,
+        "round": "Strategic",
+        "lead_investors": [
+          "Merchant Seven"
+        ],
+        "announcement_date": "2026-11-02",
+        "confidence": "high"
+      },
+      "plain_explanation": "PropHub 为券商、自营交易公司和加密交易平台提供整套交易技术，客户可以购买白标系统或定制平台，而不必自行拼接前端、风控、支付和后台。",
+      "mechanism_simple": "PropHub 把开户与身份验证、交易界面、客户管理、风险控制、支付、自动结算和 API 集成做成模块；其 Web3 方案还可在 Hyperliquid 等平台上搭建白标交易所。",
+      "project_status": {
+        "category": "existing_no_token",
+        "token_status": "no_token_found",
+        "note": "已有面向企业客户的完整产品与商业模式，未发现 PropHub 原生代币。"
+      },
+      "participation": {
+        "available_now": false,
+        "what_user_can_do": null,
+        "requires_real_funds": false,
+        "friction_or_risk": "产品需要企业采购、集成和合规运营，普通用户没有可独立完成的参与入口。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "未发现面向普通用户的积分、测试网、代币或空投活动。"
+      },
+      "why": [
+        "战略轮资金用于产品扩展、市场销售、渠道合作和国际化，目标客户仍是交易平台运营方。",
+        "官网产品均为白标券商、自营交易和交易所基础设施，普通用户没有直接使用价值或低成本早期参与路径。",
+        "融资与 Hyperliquid 叙事本身不足以形成个人行动理由。"
+      ],
+      "next_step": null,
+      "recheck_trigger": null,
+      "website_url": "https://prophub.tech/",
+      "x_url": null,
+      "evidence": [
+        {
+          "claim": "PropHub 官方网站确认其面向自营交易公司、券商和 Web3 交易所提供白标及定制技术，包括风控、支付、后台和 Hyperliquid 交易所基础设施。",
+          "url": "https://prophub.tech/",
+          "source_type": "official_site",
+          "confidence": "high"
+        },
+        {
+          "claim": "融资公告确认战略轮由 Merchant Seven 与私人投资者支持，金额未披露，资金用于产品、市场拓展和国际扩张。",
+          "url": "https://www.prnewswire.com/news-releases/prophub-announces-strategic-venture-round-to-scale-brokerage-composability-302926550.html",
+          "source_type": "investor",
+          "confidence": "high"
+        }
+      ]
+    }
+  ]
+}
