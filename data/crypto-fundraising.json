@@ -1,47 +1,47 @@
 {
-  "updated_at": "2026-11-03T01:03:13+00:00",
+  "updated_at": "2026-11-04T01:03:51+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-over-computer",
-      "source_rank": 1,
-      "name": "over.computer",
-      "round": "Public sale",
-      "announced_month": "2026-11",
-      "amount_usd": 0,
-      "detail_url": "https://crypto-fundraising.info/projects/over-computer/",
-      "is_new": true
-    },
-    {
       "id": "crypto-fundraising-stablestock",
-      "source_rank": 2,
+      "source_rank": 1,
       "name": "StableStock",
       "round": "Strategic",
       "announced_month": "2026-11",
       "amount_usd": null,
       "detail_url": "https://crypto-fundraising.info/projects/stablestock/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-lotech",
-      "source_rank": 3,
+      "source_rank": 2,
       "name": "LO:TECH",
       "round": "Series A",
       "announced_month": "2026-11",
       "amount_usd": 12000000,
       "detail_url": "https://crypto-fundraising.info/projects/lotech/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-crshmarket",
-      "source_rank": 4,
+      "source_rank": 3,
       "name": "CRSHMARKET",
       "round": "Seed",
       "announced_month": "2026-11",
       "amount_usd": 3500000,
       "detail_url": "https://crypto-fundraising.info/projects/crshmarket/",
+      "is_new": false
+    },
+    {
+      "id": "crypto-fundraising-prophub",
+      "source_rank": 4,
+      "name": "PropHub",
+      "round": "Strategic",
+      "announced_month": "2026-11",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/prophub/",
       "is_new": true
     },
     {
@@ -57,15 +57,15 @@
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261103-010211Z",
-    "requestId": "codex-web3-20261103-010211Z",
-    "triggerSha": "6414295bfb8ceb44c5ed363c6b183b431593c159",
-    "githubRunId": 41557121055,
-    "scheduledAt": "2026-11-03T01:02:11Z",
-    "startedAt": "2026-11-03T01:03:12.284433+00:00",
-    "sourceCheckedAt": "2026-11-03T01:03:13.933985+00:00",
-    "sourceUpdatedAt": "2026-11-03T01:03:13+00:00",
-    "completedAt": "2026-11-03T01:03:13.934307+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261104-010252Z",
+    "requestId": "codex-web3-20261104-010252Z",
+    "triggerSha": "cd5897011e2e73f34da15218735270c6e2c707f2",
+    "githubRunId": 41751375832,
+    "scheduledAt": "2026-11-04T01:02:52Z",
+    "startedAt": "2026-11-04T01:03:49.158638+00:00",
+    "sourceCheckedAt": "2026-11-04T01:03:51.208000+00:00",
+    "sourceUpdatedAt": "2026-11-04T01:03:51+00:00",
+    "completedAt": "2026-11-04T01:03:51.208321+00:00",
     "publishedAt": null
   }
 }
