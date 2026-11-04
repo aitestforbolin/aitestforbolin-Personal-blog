@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "requestId": "codex-x-20261103T010402Z",
-  "triggerSha": "b9d60debe57d762692f0469b9f8ae0c8e92dbf26",
-  "publicationDate": "2026-11-03",
-  "publishedAt": "2026-11-03T09:12:00+08:00",
+  "requestId": "codex-x-20261104T005915Z",
+  "triggerSha": "f24eceb5c6c4089e5b090644b85bb52991b4f92b",
+  "publicationDate": "2026-11-04",
+  "publishedAt": "2026-11-04T09:02:11.797+08:00",
   "payload": {
     "schemaVersion": 1,
     "status": "success",
-    "reportDate": "2026-11-03",
-    "generatedAt": "2026-11-03T09:12:00+08:00",
-    "sourceGeneratedAt": "2026-11-03T01:05:09.217404+00:00",
-    "sourcePostCount": 114,
+    "reportDate": "2026-11-04",
+    "generatedAt": "2026-11-04T09:02:11.797+08:00",
+    "sourceGeneratedAt": "2026-11-04T00:59:54.731004+00:00",
+    "sourcePostCount": 102,
     "sourceListCount": 4,
     "executionLineage": {
       "schemaVersion": 2,
-      "runId": "x-intelligence:codex-x-20261103T010402Z",
-      "requestId": "codex-x-20261103T010402Z",
-      "triggerSha": "b9d60debe57d762692f0469b9f8ae0c8e92dbf26",
-      "githubRunId": 41557344338,
-      "scheduledAt": "2026-11-03T01:00:00Z",
-      "startedAt": "2026-11-03T01:05:09.216978+00:00",
-      "sourceCheckedAt": "2026-11-03T01:05:18.698635+00:00",
-      "sourceUpdatedAt": "2026-11-03T01:04:22+00:00",
-      "completedAt": "2026-11-03T01:05:18.698678+00:00",
-      "publishedAt": "2026-11-03T09:12:00+08:00"
+      "runId": "x-intelligence:codex-x-20261104T005915Z",
+      "requestId": "codex-x-20261104T005915Z",
+      "triggerSha": "f24eceb5c6c4089e5b090644b85bb52991b4f92b",
+      "githubRunId": 41750892196,
+      "scheduledAt": "2026-11-04T01:00:00Z",
+      "startedAt": "2026-11-04T00:59:54.730632+00:00",
+      "sourceCheckedAt": "2026-11-04T01:00:05.180266+00:00",
+      "sourceUpdatedAt": "2026-11-04T00:58:42+00:00",
+      "completedAt": "2026-11-04T01:00:05.180306+00:00",
+      "publishedAt": "2026-11-04T09:02:11.797+08:00"
     },
     "executionStatus": {
       "collection": "success",
@@ -32,395 +32,409 @@
         "status": "success"
       }
     },
-    "overview": "今日安全风险继续从单一合约漏洞扩展至内核、运维权限和文档供应链：Linux高危漏洞被认为影响广泛且部分发行版补丁尚未就绪；巴西Mercado Bitcoin确认安全事件，链上监测估算逾4000万美元资产异动；Trade.xyz则披露GitBook文档遭未授权修改。币安事件进入洗钱追踪和舆论对抗阶段，约2.42亿美元TRON资产据称已快速跨链分散，朝鲜公开否认FBI归因。市场结构方面，xStocks称部分核心资产往返价差较4月收窄63%，Aave激励和备兑看涨期权计划显示代币化股票正从现货货架向借贷与衍生品扩展。AI侧，B300局部租价逼近成本线，但公开指数尚未确认全行业需求反转；国内大模型Token则通过头部直播间售出10万份月卡，零售化明显提速。",
+    "overview": "今日最重要的新增信息来自币安初步调查报告：攻击者通过伪造招聘面试植入恶意软件，再利用内部AI工具横向移动至钱包运维环境，并在最终攻击中利用EIP-7702授权与MPC处置限制扩大阻断难度。GitBook也披露由“高级AI代理”实施的安全事件，已撤销个人API令牌并要求用户轮换密钥，解释了近期多个项目文档站异常。市场结构方面，代币化资产正从单纯现货扩展至抵押、固定利率、自动投资和信用卡场景；xStocks称其占DeFi代币化股票存款的41%，但同时纠正STRCx错误股息再平衡，显示运营和公司行动处理仍是薄弱环节。传统资产永续继续扩品类，AI Agent则进一步触及购物、支付和个人资料修改，权限边界成为新的重点风险。",
     "homeHighlights": [
-      "Linux高危内核漏洞被指影响广泛，补丁完成前公网TCP服务仍需临时缓解措施。",
-      "Mercado Bitcoin确认安全事件，链上监测估算超过4000万美元跨多链资产异动。",
-      "币安赃款中约2.42亿美元TRON资产据称已快速跨链分散，朝鲜同时否认FBI归因。",
-      "xStocks称核心代币化股票往返价差较4月收窄63%，借贷激励与备兑期权场景继续扩展。",
-      "B300局部租价接近成本线，但行业指数尚未证实AI算力需求全面反转。"
+      "币安初步报告称，虚假招聘面试和内部AI工具被用于横向渗透钱包运维环境。",
+      "GitBook披露由高级AI代理实施的安全事件，已撤销个人API令牌并要求轮换密钥。",
+      "xStocks称其占DeFi代币化股票存款的41%，但同时需回滚STRCx错误股息再平衡。",
+      "Base上的代币化资产正扩展至自动组合、固定利率、抵押消费和机构信用。",
+      "Agent开始触及购物支付与个人资料修改，便利性与权限风险同步上升。"
     ],
     "topics": [
       {
-        "title": "Linux高危内核漏洞扩大基础设施暴露面",
+        "title": "币安披露虚假招聘与内部AI工具构成的攻击链",
         "importance": "high",
-        "summary": "开发者补充称CVE-2026-98432影响Linux 4.4之后的广泛内核版本，只要存在对外开放的IPv4 TCP端口就可能暴露；研究人员已在启用MPTCP的环境演示远程代码执行。截至帖子发布时，Ubuntu 22.04、24.04和26.04修复仍在进行中。",
-        "whyItMatters": "风险发生在内核TCP握手层，改SSH端口或依赖应用防火墙并不足够。云服务器、交易基础设施和Agent运行节点需要核对内核、MPTCP和发行版补丁状态。",
+        "summary": "币安初步调查报告的多方转述称，攻击者通过正规招聘平台接触软件工程师，以真人视频面试、伪造社交资料和代码作业建立信任，最终让员工在工作电脑运行带有0-day恶意软件的测试文件。随后攻击者利用币安内部AI工具横向移动至钱包DevOps环境，并取得容器部署权限。",
+        "whyItMatters": "这次攻击绕过了单纯的私钥保护，把招聘流程、员工终端、内部AI工具和部署权限连成完整攻击链；企业需要把AI工具视为高权限内网资产，而非普通生产力软件。",
         "facts": [
-          "帖子称漏洞涉及带IP options的TCP包与内核use-after-free。",
-          "启用MPTCP被描述为远程代码执行的重要条件，Ubuntu默认配置可能增加暴露。",
-          "建议的临时措施包括丢弃带IP options的IPv4 TCP包、关闭MPTCP和减少公网端口。",
-          "彻底修复仍需安装发行版修复内核并重启。"
+          "报告转述称攻击者在9月通过虚假招聘面试植入恶意软件。",
+          "恶意代码据称替换正常开发工具pyenv并连接攻击者服务器，同时清理痕迹。",
+          "受控终端被用于借助内部AI工具横向移动至钱包运维人员设备。",
+          "最终攻击被描述为利用EIP-7702授权，MPC架构又使紧急撤销更加困难。"
         ],
         "interpretations": [
-          "这是单一开发者结合公告的操作性整理，实际受影响范围需以发行版和云厂商通告为准。",
-          "AI生成PoC提高了防御验证效率，也可能降低漏洞武器化门槛。"
-        ],
-        "authors": [
-          "brucexu_eth"
-        ],
-        "sourceUrls": [
-          "https://x.com/brucexu_eth/status/2117422600066637992"
-        ],
-        "sourceCount": 1,
-        "confidence": "medium"
-      },
-      {
-        "title": "Mercado Bitcoin确认安全事件，链上监测称逾4000万美元异动",
-        "importance": "high",
-        "summary": "TechFlow整理称，巴西大型交易所Mercado Bitcoin确认系统遭遇安全事件并暂停充提，随后开始恢复运营并公布部分监控地址。官方称客户资金无损失且无数据泄露，但Hypernative据称监测到超过4000万美元资产从相关钱包转向新地址，涉及至少10条链。",
-        "whyItMatters": "如果异常转账来自签名权限失陷而非合约漏洞，风险更接近近期交易所运维与授权控制问题；多链分散也会提高冻结、核对和追回难度。",
-        "facts": [
-          "Mercado Bitcoin确认安全事件并临时暂停充值和提现。",
-          "官方强调客户资金无损失、无数据泄露，未公布金额和入侵方式。",
-          "二手链上监测称超过4000万美元资产出现跨多链转移。",
-          "转账被描述为普通签名交易，尚无证据证明具体权限入口。"
-        ],
-        "interpretations": [
-          "官方表述与链上异动规模之间存在信息缺口，需等待技术复盘和资产负债说明。"
-        ],
-        "authors": [
-          "TechFlowPost"
-        ],
-        "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2117270058254979322"
-        ],
-        "sourceCount": 1,
-        "confidence": "medium"
-      },
-      {
-        "title": "币安赃款追踪进入TRON跨链分散与归因争议",
-        "importance": "high",
-        "summary": "TechFlow整理称，约6.28亿美元资产在TRON链上受影响，Tether冻结3.78亿USDT后，攻击者把约2.49亿美元USDT换成TRX，并通过Relay、THORChain和Chainflip跨链；两天内约2.42亿美元已转出并分散到以太坊和比特币地址。与此同时，朝中社经路透转述否认朝鲜参与币安盗窃。",
-        "whyItMatters": "快速跨链和地址扇出显示单链冻结窗口很短，而国家级归因仍存在公开对抗；主体BTC和ETH若开始移动，将成为追踪体系和市场流动性的更大压力测试。",
-        "facts": [
-          "二手链上整理称稳定币发行方已冻结约27亿美元。",
-          "TRON上的约2.42亿美元据称已通过多种跨链服务转出。",
-          "跨链后资金被描述为分散至170多个以太坊地址和20多个比特币地址。",
-          "朝鲜公开否认FBI归因，称相关指控是捏造。"
-        ],
-        "interpretations": [
-          "冻结成功并不等于最终追回，跨链扇出显著增加后续执法和服务商协同成本。",
-          "朝鲜否认构成政治立场，不提供对链上证据的技术反驳。"
+          "项目方报告把攻击归因与FBI的朝鲜判断联系起来，但packet未包含完整技术附件。",
+          "内部AI工具的连接能力和权限范围可能需要像CI/CD与远程管理系统一样重新分级。"
         ],
         "authors": [
           "TechFlowPost",
+          "_FORAB",
           "bwenews"
         ],
         "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2117096953238651326",
-          "https://x.com/bwenews/status/2117364496838852626"
+          "https://x.com/TechFlowPost/status/2117658197704241559",
+          "https://x.com/_FORAB/status/2117631211506172104",
+          "https://x.com/bwenews/status/2117626324605096109",
+          "https://x.com/bwenews/status/2117625451619455074"
+        ],
+        "sourceCount": 3,
+        "confidence": "high"
+      },
+      {
+        "title": "GitBook披露高级AI代理入侵并撤销全部个人令牌",
+        "importance": "high",
+        "summary": "快讯转述GitBook博客称，11月2日的安全事件由“高级人工智能代理”实施；GitBook已撤销全部个人API令牌，并敦促用户轮换相关密钥。该事件与前一日Trade.xyz文档异常形成直接供应链背景。",
+        "whyItMatters": "GitBook承载大量项目文档、链接和开发者凭证，一次平台级令牌事件可能同时影响多个项目；AI代理能够提高侦察、凭证利用和横向操作速度。",
+        "facts": [
+          "GitBook承认11月2日发生安全事件。",
+          "官方将攻击者描述为高级AI代理。",
+          "GitBook撤销全部个人API令牌，并要求用户轮换密钥。"
+        ],
+        "interpretations": [
+          "packet只有新闻快讯，没有完整博客、影响范围或已确认损失，不能推断所有托管文档均被篡改。"
+        ],
+        "authors": [
+          "bwenews"
+        ],
+        "sourceUrls": [
+          "https://x.com/bwenews/status/2117665595995099374"
+        ],
+        "sourceCount": 1,
+        "confidence": "medium"
+      },
+      {
+        "title": "xStocks扩大DeFi渗透，同时暴露股息再平衡操作风险",
+        "importance": "high",
+        "summary": "xStocks官方称，DeFi中的代币化股票存款有41%由xStocks发行，应用已覆盖借贷、收益、流动性和利率市场；关联数据称10月底约10.2亿美元流通量中有1.37亿美元进入DeFi。与此同时，项目方确认少量STRCx持有人错误收到股息再平衡，并将执行回滚。",
+        "whyItMatters": "规模和用途扩张说明代币化股票正在进入可组合金融阶段，但错误股息处理表明公司行动、账务调整和可逆性仍可能直接影响持有人。",
+        "facts": [
+          "xStocks称其占DeFi代币化股票存款的41%。",
+          "官方列举Kamino、Pendle、Raydium和Uniswap等应用场景。",
+          "关联转发称1.02亿美元流通量中的数字实际为10.2亿美元，约1.37亿美元用于DeFi。",
+          "官方将回滚少量STRCx错误股息再平衡。"
+        ],
+        "interpretations": [
+          "41%为项目方口径，仍需统一的第三方定义和跨平台核验。",
+          "回滚有助于纠错，但也提醒用户代币化证券的公司行动依赖发行方运营。"
+        ],
+        "authors": [
+          "xStocksFi",
+          "RWAFoundation_"
+        ],
+        "sourceUrls": [
+          "https://x.com/xStocksFi/status/2117631244678869151",
+          "https://x.com/xStocksFi/status/2117571116453744968",
+          "https://x.com/xStocksFi/status/2117620090065535474"
+        ],
+        "sourceCount": 2,
+        "confidence": "high"
+      },
+      {
+        "title": "Base将代币化资产扩展至组合、固定利率和抵押消费",
+        "importance": "high",
+        "summary": "Base官方月度清单显示，生态新增自动管理的Mamo Stocks、代币化股票循环借贷、Pendle固定收益、股票抵押信用卡、LATAM入口及等权科技股组合；Centrifuge与Pendle还计划为RWA引入固定利率市场。",
+        "whyItMatters": "代币化资产正从“链上可以买”转向可抵押、可组合、可消费和可管理的完整金融栈，但每一层都会增加清算、托管、价格和地域合规风险。",
+        "facts": [
+          "Mamo Stocks提供托管式起始组合和自建组合。",
+          "PendleLoop允许用户循环做多Coinbase Tokenized Stocks并领取激励。",
+          "Exa推出以代币化股票作抵押的信用卡场景。",
+          "Centrifuge与Pendle计划把固定利率市场引入Base上的RWA。"
+        ],
+        "interpretations": [
+          "多数项目仍是生态方发布或产品公告，真实资产规模、用户和违约表现尚未披露。"
+        ],
+        "authors": [
+          "base",
+          "mamo",
+          "pendle_fi",
+          "Centrifuge"
+        ],
+        "sourceUrls": [
+          "https://x.com/base/status/2117746424461054220",
+          "https://x.com/base/status/2117693841264222447",
+          "https://x.com/base/status/2117658050756550987"
+        ],
+        "sourceCount": 3,
+        "confidence": "high"
+      },
+      {
+        "title": "传统资产永续继续覆盖股票、ETF与休市事件",
+        "importance": "high",
+        "summary": "Variational上线ExxonMobil和印度尼西亚ETF EIDO永续，分别提供最高20倍杠杆；Coinbase Wallet推广股票等多类趋势永续。美国选举结果在传统市场收盘后公布，也被平台用于强调全天候交易需求。",
+        "whyItMatters": "股票、ETF和宏观事件正逐步进入24小时链上杠杆市场，但休市期间的参考价格、做市对冲、资金费率和清算深度仍是核心约束。",
+        "facts": [
+          "Variational上线XOM零费率、最高20倍杠杆永续。",
+          "平台上线EIDO零费率、最高20倍杠杆永续。",
+          "Coinbase Wallet称部分非美国地区用户可交易股票等类别的永续。",
+          "平台明确提示永续风险高且具有地域限制。"
+        ],
+        "interpretations": [
+          "零费率和高杠杆会放大采用数据，不能仅凭上币数量判断结构性需求。"
+        ],
+        "authors": [
+          "variational_io",
+          "CoinbaseWallet"
+        ],
+        "sourceUrls": [
+          "https://x.com/variational_io/status/2117728258599096621",
+          "https://x.com/variational_io/status/2117682272979783744",
+          "https://x.com/CoinbaseWallet/status/2117723559468642578",
+          "https://x.com/variational_io/status/2117652538745077876"
+        ],
+        "sourceCount": 2,
+        "confidence": "high"
+      },
+      {
+        "title": "Vitalik在AI时代强调最小数据收集与密码学隐私",
+        "importance": "medium",
+        "summary": "TechFlow对Devcon 8演讲的整理称，Vitalik主张默认把数据视为有毒废料，能够不收集就不收集；他反对以出卖隐私换取表面安全，并把开源技术和零知识证明视为降低信任依赖的路径。Zcash开发者也借AI自动监控叙事强调透明账本的长期隐私风险。",
+        "whyItMatters": "AI提高了对公开数据进行批量关联和画像的能力，隐私需求可能从价值观议题转变为钱包、身份和企业数据的基础设施需求。",
+        "facts": [
+          "演讲整理强调默认减少数据收集。",
+          "Vitalik将开源与零知识证明作为降低信任依赖的技术路径。",
+          "Zcash开发者认为透明账本会在自动化数据爬取下扩大个人暴露。"
+        ],
+        "interpretations": [
+          "关于Zcash估值和市值的判断属于项目相关人士与媒体传播，不是采用数据。"
+        ],
+        "authors": [
+          "TechFlowPost",
+          "VitalikButerin",
+          "ebfull"
+        ],
+        "sourceUrls": [
+          "https://x.com/TechFlowPost/status/2117597443676082620",
+          "https://x.com/TechFlowPost/status/2117473683245592957"
         ],
         "sourceCount": 2,
         "confidence": "medium"
       },
       {
-        "title": "Trade.xyz文档站遭未授权修改，前端供应链风险延续",
-        "importance": "high",
-        "summary": "Trade.xyz官方称其GitBook文档出现未授权活动，并于美东时间上午9:15恢复至此前状态；调查期间仍建议用户不要点击文档中的任何链接。",
-        "whyItMatters": "文档站常承载钱包连接、合约地址和操作入口，即使核心交易系统未被确认受损，链接篡改也足以诱导授权或资金转移。",
+        "title": "Agent开始触及支付与个人资料，权限边界更重要",
+        "importance": "medium",
+        "summary": "用户传播称Grok Bot新增购物卡片、支付信息保管库和Cursor云端Agent入口，可代填联系人、地址及支付信息；另一个用户案例称，微信AI能够完成普通设置页面无法完成的地区与性别清空操作。",
+        "whyItMatters": "Agent从信息助手进入付款和账户设置层后，错误执行、越权调用、共享凭证和撤销机制将直接影响资金与个人资料。",
         "facts": [
-          "官方确认GitBook文档受到未授权活动影响。",
-          "文档已恢复至此前状态。",
-          "官方仍明确建议调查期间不要点击文档内链接。"
+          "Grok Bot功能传播称可完成商品浏览、结账和支付流程。",
+          "保管库被描述为可保存联系人、地址和支付卡。",
+          "微信案例称AI能够修改普通界面无法清空的个人资料字段。"
         ],
         "interpretations": [
-          "packet未提供受影响链接、访问人数或资金损失，不能推断核心协议被攻破。"
+          "两组信息均来自用户实测或二手传播，packet没有正式权限文档，需避免把单次现象视为普遍能力。"
         ],
         "authors": [
-          "tradexyz"
+          "spark888",
+          "_FORAB"
         ],
         "sourceUrls": [
-          "https://x.com/tradexyz/status/2117270210449183031"
+          "https://x.com/spark888/status/2117450285081931956",
+          "https://x.com/_FORAB/status/2117508861657825414"
         ],
-        "sourceCount": 1,
-        "confidence": "high"
+        "sourceCount": 2,
+        "confidence": "low"
       },
       {
-        "title": "代币化股票向更紧价差、借贷和期权场景扩展",
-        "importance": "high",
-        "summary": "xStocks称NVDAx、SPYx、TSLAx和QQQx在Jupiter上1万美元往返交易价差较4月收窄63%，并称相对其他平台紧4倍；相关转发称样本覆盖4万多次往返交易。Aave V4在Base代币化股票Hub上线USDC激励，Synapse则预告xStocks持有人未来可卖出备兑看涨期权。",
-        "whyItMatters": "链上股票正在从资产上架转向融资、收益和衍生品组合，但休市定价、地域限制、赎回和激励依赖仍是关键约束。",
+        "title": "AI资本开支叙事转向增长率与估值重定价",
+        "importance": "medium",
+        "summary": "KOL认为AI长期采用与短期估值下修并不矛盾，市场正在交易增长率放缓和资本开支回收周期。二手消息称Anthropic IPO投资者希望把估值压至1.5万亿至1.6万亿美元，低于此前接近2万亿美元的市场说法；AMD等芯片财报被视为近期风险偏好的验证点。",
+        "whyItMatters": "市场焦点已从AI需求是否存在，转向收入增速、融资成本和资本开支何时转化为现金流；高估值公司即便继续增长，也可能因增速二阶变化被重定价。",
         "facts": [
-          "xStocks官方给出63%的价差改善数字。",
-          "独立性有限的传播称统计覆盖4万多次Jupiter往返交易。",
-          "Aave V4 Coinbase Tokenized Stocks Hub上线USDC激励。",
-          "Synapse预告xStocks备兑看涨期权能力。"
+          "KOL明确区分AI长期趋势与当前增长率放缓。",
+          "二手报道称Anthropic投资者提出1.5万亿至1.6万亿美元估值区间。",
+          "市场观察把AMD、ARM和非农等事件视为风险资产关键节点。"
         ],
         "interpretations": [
-          "价差改善可能来自流动性成长，也可能部分受到激励和特定样本方法影响。",
-          "借贷与期权增加资本效率，同时引入清算、预言机和非交易时段价格风险。"
+          "Anthropic估值和IPO进程仅为二手材料，packet没有公司文件或原始报道。"
         ],
         "authors": [
-          "xStocksFi",
-          "base",
-          "aave",
-          "SynapseProtocol"
-        ],
-        "sourceUrls": [
-          "https://x.com/xStocksFi/status/2117296426715861039",
-          "https://x.com/xStocksFi/status/2117298591786241954",
-          "https://x.com/base/status/2117358241055473993",
-          "https://x.com/xStocksFi/status/2117305064725549138"
-        ],
-        "sourceCount": 3,
-        "confidence": "medium"
-      },
-      {
-        "title": "B300局部租价逼近成本线，AI算力周期尚未确认反转",
-        "importance": "high",
-        "summary": "开发者调研称，B300报价从上月约7.9美元/小时降至4.6美元附近，接近长期预订、现货和自建持有成本；但公开B300指数过去一个月仍上涨约10%，H100一年期期货折价约8%，因此当前更像新集群集中交付导致的局部过剩。",
-        "whyItMatters": "GPU租价是AI资本开支是否转化为真实付费需求的直接指标。若B300、H100和B200同步持续跌破成本线，将首先冲击高负债neocloud，再传导至芯片、HBM和云厂资本开支。",
-        "facts": [
-          "帖子给出9月底B300按需挂牌中位数约7.89美元/小时。",
-          "4.6美元附近被认为接近三年期预订和自建成本底。",
-          "公开指数和远期合约尚未显示全行业价格崩塌。",
-          "作者建议观察B300指数、现货价、云厂资本开支和neocloud合同单价。"
-        ],
-        "interpretations": [
-          "单一供应商报价不能代表行业需求崩溃。",
-          "如果跨代际GPU同步降价且持续数周，局部过剩才可能升级为资本开支周期拐点。"
-        ],
-        "authors": [
+          "octopusycc",
           "brucexu_eth"
         ],
         "sourceUrls": [
-          "https://x.com/brucexu_eth/status/2117420956159492590"
+          "https://x.com/octopusycc/status/2117475274669637905",
+          "https://x.com/octopusycc/status/2117474837014945835",
+          "https://x.com/brucexu_eth/status/2117492115869728900"
         ],
-        "sourceCount": 1,
-        "confidence": "medium"
+        "sourceCount": 2,
+        "confidence": "low"
       },
       {
-        "title": "AI软件高增长仍无法消除估值与合同增速压力",
+        "title": "KAST放弃发币，暴露合规项目与代币激励的冲突",
         "importance": "medium",
-        "summary": "KOL财报整理称，Palantir季度营收同比增长96%、调整后营业利润率62%，美国商业业务增速突出，但总合同价值仅同比增长6%，股价盘后仍下跌。苹果同样实现营收与EPS双超预期，却因一次性关税退款、存储成本和高估值承压。",
-        "whyItMatters": "市场定价正从单季超预期转向合同储备、毛利可持续性和未来现金流；AI软件与硬件龙头即使增长强劲，也需要更高质量的新增需求来支撑估值。",
+        "summary": "社区跟踪称，融资9000万美元的KAST决定不发行代币，理由是同类项目代币普遍下跌，发币容易让团队和投资者退出、由社区承担后果。",
+        "whyItMatters": "如果更多成熟或合规导向项目放弃代币，传统撸毛逻辑和早期用户激励模型会受到挑战；项目收入与用户权益可能重新回到积分、股权或产品权益。",
         "facts": [
-          "Palantir财报整理称营收23.1亿美元，同比增长96%。",
-          "总合同价值被描述为29.2亿美元，同比增长6%。",
-          "苹果财报整理称营收1145亿美元、EPS 2.10美元，均高于预期。",
-          "苹果毛利率中约1个百分点据称来自关税退款，存储成本开始侵蚀硬件利润率。"
+          "帖子称KAST融资规模为9000万美元。",
+          "项目决定不发行代币的说法来自社区转述。",
+          "给出的理由涉及同类代币表现和团队、投资者退出风险。"
         ],
         "interpretations": [
-          "财报数字来自KOL整理，需与公司原始财报核对。",
-          "股价下跌更可能反映预期和估值，而不是单凭财报即可证明需求反转。"
+          "packet没有KAST官方原文，融资金额和最终政策需进一步核实。"
         ],
         "authors": [
-          "ArtofSpecuycky"
+          "Benjieming1Q84"
         ],
         "sourceUrls": [
-          "https://x.com/ArtofSpecuycky/status/2117393140231651573",
-          "https://x.com/ArtofSpecuycky/status/2117385862598234223"
+          "https://x.com/Benjieming1Q84/status/2117604228072149043"
         ],
         "sourceCount": 1,
-        "confidence": "medium"
-      },
+        "confidence": "low"
+      }
+    ],
+    "watchlist": [
       {
-        "title": "大模型Token通过头部直播间进入大众零售",
-        "importance": "medium",
-        "summary": "TechFlow称，李佳琦直播间上架千问办公Token会员，半小时售出10万份个人月卡，合计约2万亿Token。淘宝、天猫同步出现多家国产模型额度月卡、季卡和账号商品，AI推理资源正被包装成标准消费品。",
-        "whyItMatters": "Token销售从开发者API后台进入大众电商和直播场景，可能加速价格透明、促销竞争与中小用户采用，但促销销量不等同于持续调用和复购。",
-        "facts": [
-          "帖子称半小时售出10万份个人会员月卡。",
-          "对应额度约2万亿Token。",
-          "多家国产模型在电商平台销售月卡、季卡或额度。"
-        ],
-        "interpretations": [
-          "头部直播间验证了渠道触达能力，真实使用率、续费和单位经济性仍待观察。"
-        ],
+        "signal": "币安完整技术报告与内部AI工具权限整改",
+        "reason": "验证横向移动路径、受影响终端和EIP-7702/MPC处置细节。",
         "authors": [
           "TechFlowPost",
           "_FORAB"
         ],
         "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2117249681197875468",
-          "https://x.com/_FORAB/status/2117203617581244902",
-          "https://x.com/_FORAB/status/2117129688699265441"
-        ],
-        "sourceCount": 2,
-        "confidence": "medium"
-      },
-      {
-        "title": "Hyperliquid原油订单簿出现疑似幌骗案例",
-        "importance": "medium",
-        "summary": "TechFlow援引彭博和Solidus Labs称，两个匿名账户曾在Hyperliquid能源永续合约挂出超过1.7亿美元可疑订单，撤单量与成交量比例约30:1，并在三天内获利约11.9万美元。",
-        "whyItMatters": "链上透明并不自动等于订单簿真实；依赖大单、深度或AI监控的交易策略可能被可见但可撤销的流动性反向诱导。",
-        "facts": [
-          "二手材料称可疑挂单超过1.7亿美元。",
-          "撤单与成交量比例被描述为30:1。",
-          "相关账户三天内据称获利约11.9万美元。"
-        ],
-        "interpretations": [
-          "该案例更接近市场操纵研究信号，packet未包含原始报告全文或平台回应。"
-        ],
-        "authors": [
-          "TechFlowPost"
-        ],
-        "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2117179633032732833"
-        ],
-        "sourceCount": 1,
-        "confidence": "medium"
-      }
-    ],
-    "watchlist": [
-      {
-        "signal": "Linux发行版对CVE-2026-98432的正式补丁",
-        "reason": "核对Ubuntu、AWS等环境的实际受影响版本与修复发布时间。",
-        "authors": [
-          "brucexu_eth"
-        ],
-        "sourceUrls": [
-          "https://x.com/brucexu_eth/status/2117422600066637992"
+          "https://x.com/TechFlowPost/status/2117658197704241559",
+          "https://x.com/_FORAB/status/2117631211506172104"
         ]
       },
       {
-        "signal": "Mercado Bitcoin技术复盘与资产说明",
-        "reason": "确认4000万美元链上异动是否构成净损失，以及签名权限如何被获取。",
+        "signal": "GitBook事件的影响客户、令牌范围与攻击时间线",
+        "reason": "判断Trade.xyz等文档异常是否来自同一供应链事件。",
         "authors": [
-          "TechFlowPost"
+          "bwenews"
         ],
         "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2117270058254979322"
+          "https://x.com/bwenews/status/2117665595995099374"
         ]
       },
       {
-        "signal": "币安主体BTC和ETH地址是否开始移动",
-        "reason": "主体资金启动混币将显著压力测试跨链追踪与市场流动性。",
-        "authors": [
-          "TechFlowPost"
-        ],
-        "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2117096953238651326"
-        ]
-      },
-      {
-        "signal": "Trade.xyz文档事件的受影响链接和用户范围",
-        "reason": "判断是单点文档篡改还是更广的凭证与供应链失陷。",
-        "authors": [
-          "tradexyz"
-        ],
-        "sourceUrls": [
-          "https://x.com/tradexyz/status/2117270210449183031"
-        ]
-      },
-      {
-        "signal": "xStocks价差在休市和波动行情下的持续性",
-        "reason": "验证63%改善是否独立于激励、特定样本和正常交易时段。",
+        "signal": "xStocks错误股息回滚的执行与用户处理",
+        "reason": "检验代币化证券公司行动和账务纠错机制。",
         "authors": [
           "xStocksFi"
         ],
         "sourceUrls": [
-          "https://x.com/xStocksFi/status/2117296426715861039"
+          "https://x.com/xStocksFi/status/2117620090065535474"
         ]
       },
       {
-        "signal": "B300、H100与B200租价是否同步跌破成本线",
-        "reason": "区分新集群局部过剩与AI算力周期真正反转。",
+        "signal": "代币化资产在借贷、利率市场和信用卡中的真实规模",
+        "reason": "区分生态上新与持续资产需求。",
         "authors": [
-          "brucexu_eth"
+          "base",
+          "xStocksFi"
         ],
         "sourceUrls": [
-          "https://x.com/brucexu_eth/status/2117420956159492590"
+          "https://x.com/base/status/2117693841264222447",
+          "https://x.com/xStocksFi/status/2117631244678869151"
         ]
       },
       {
-        "signal": "Palantir新增合同与苹果存储成本",
-        "reason": "检验当前高增长和高毛利能否延续至后续季度。",
+        "signal": "传统资产永续在休市时段的价格与清算表现",
+        "reason": "选举和财报波动将验证全天候市场的深度。",
         "authors": [
-          "ArtofSpecuycky"
+          "variational_io"
         ],
         "sourceUrls": [
-          "https://x.com/ArtofSpecuycky/status/2117393140231651573",
-          "https://x.com/ArtofSpecuycky/status/2117385862598234223"
+          "https://x.com/variational_io/status/2117652538745077876"
         ]
       },
       {
-        "signal": "直播售出的AI Token实际使用率与续费",
-        "reason": "判断零售化是促销渠道成功还是形成稳定推理需求。",
+        "signal": "Agent支付与资料修改的授权、确认和撤销机制",
+        "reason": "直接关系账户资料、共享凭证与资金安全。",
         "authors": [
-          "TechFlowPost"
+          "spark888",
+          "_FORAB"
         ],
         "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2117249681197875468"
+          "https://x.com/spark888/status/2117450285081931956",
+          "https://x.com/_FORAB/status/2117508861657825414"
+        ]
+      },
+      {
+        "signal": "Anthropic实际IPO文件与估值区间",
+        "reason": "核实二手传闻并观察AI增长预期是否继续下调。",
+        "authors": [
+          "octopusycc"
+        ],
+        "sourceUrls": [
+          "https://x.com/octopusycc/status/2117474837014945835"
+        ]
+      },
+      {
+        "signal": "KAST是否正式确认不发币及替代用户权益",
+        "reason": "判断合规项目是否正在系统性放弃代币激励。",
+        "authors": [
+          "Benjieming1Q84"
+        ],
+        "sourceUrls": [
+          "https://x.com/Benjieming1Q84/status/2117604228072149043"
         ]
       }
     ],
     "disagreements": [
       {
-        "topic": "Linux漏洞的实际暴露范围",
+        "topic": "币安攻击的根因",
         "positions": [
-          "开发者认为Linux 4.4后广泛受影响，任何公网TCP端口都需立即缓解。",
-          "实际可利用性仍取决于内核配置、MPTCP、发行版补丁和云环境。"
+          "初步报告强调虚假招聘、终端失陷和内部AI工具横向移动。",
+          "EIP-7702授权和MPC处置限制被认为放大损失，但并不等于协议本身存在漏洞。"
         ],
         "sourceUrls": [
-          "https://x.com/brucexu_eth/status/2117422600066637992"
+          "https://x.com/TechFlowPost/status/2117658197704241559",
+          "https://x.com/_FORAB/status/2117631211506172104"
         ]
       },
       {
-        "topic": "币安攻击的国家级归因",
+        "topic": "币安事件的国家级归因",
         "positions": [
-          "FBI已把事件归因于朝鲜TraderTraitor行动。",
-          "朝鲜经官方媒体否认，称相关指控是捏造。"
+          "FBI判断攻击模式与朝鲜黑客一致。",
+          "朝鲜官方否认并反指美国可能有政治动机。"
         ],
         "sourceUrls": [
-          "https://x.com/bwenews/status/2117364496838852626",
-          "https://x.com/TechFlowPost/status/2117096953238651326"
+          "https://x.com/TechFlowPost/status/2117658197704241559",
+          "https://x.com/TechFlowPost/status/2117428226633155037"
         ]
       },
       {
-        "topic": "B300降价是否代表算力需求崩塌",
+        "topic": "代币化股票采用质量",
         "positions": [
-          "4.6美元报价逼近成本线，可能预示局部供给过剩。",
-          "公开指数仍上涨，跨代际GPU价格尚未同步下跌。"
+          "xStocks称已占DeFi相关存款41%，用途快速扩展。",
+          "错误股息再平衡和发行方回滚说明基础运营仍未成熟。"
         ],
         "sourceUrls": [
-          "https://x.com/brucexu_eth/status/2117420956159492590"
+          "https://x.com/xStocksFi/status/2117631244678869151",
+          "https://x.com/xStocksFi/status/2117620090065535474"
         ]
       },
       {
-        "topic": "代币化股票价差改善的质量",
+        "topic": "AI长期革命与短期估值",
         "positions": [
-          "xStocks称核心资产价差较4月收窄63%，流动性显著改善。",
-          "数据主要来自项目方和关联传播，仍需独立基准与极端行情验证。"
+          "AI采用趋势不可逆，基础需求仍在扩大。",
+          "增长率放缓、资本开支和融资成本足以压低当前估值。"
         ],
         "sourceUrls": [
-          "https://x.com/xStocksFi/status/2117296426715861039",
-          "https://x.com/xStocksFi/status/2117298591786241954"
+          "https://x.com/octopusycc/status/2117475274669637905",
+          "https://x.com/brucexu_eth/status/2117492115869728900"
         ]
       },
       {
-        "topic": "AI高增长公司的估值支撑",
+        "topic": "Agent权限扩张",
         "positions": [
-          "Palantir和苹果均交出强劲收入与利润数据。",
-          "合同增速、一次性收益和高预期使财报超预期仍不足以推动股价。"
+          "自动购物、支付和资料操作可显著减少操作摩擦。",
+          "缺乏清晰确认与撤销边界时，同样能力可能变成越权与资金风险。"
         ],
         "sourceUrls": [
-          "https://x.com/ArtofSpecuycky/status/2117393140231651573",
-          "https://x.com/ArtofSpecuycky/status/2117385862598234223"
+          "https://x.com/spark888/status/2117450285081931956",
+          "https://x.com/_FORAB/status/2117508861657825414"
         ]
       },
       {
-        "topic": "链上透明能否抑制市场操纵",
+        "topic": "合规项目是否应发币",
         "positions": [
-          "公开订单与资金流便于实时监控。",
-          "可撤单大单和跨链扇出同样能利用透明数据误导交易者与AI策略。"
+          "代币能给早期用户流动权益和生态激励。",
+          "KAST案例认为代币常成为团队和投资者退出、社区承压的工具。"
         ],
         "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2117179633032732833",
-          "https://x.com/TechFlowPost/status/2117096953238651326"
+          "https://x.com/Benjieming1Q84/status/2117604228072149043"
         ]
       }
     ],
     "noiseSummary": [
-      "重复财报喊单、盘后输赢和直播引流。",
-      "高风险BSC机制盘、Mint回本与跑路讨论。",
-      "常规空投教程、积分活动和注册链接。",
-      "项目方短句、图片或短链，文本上下文不足。",
-      "节日、个人里程碑和日常闲聊。",
-      "重复的理财活动收益截图与推广。",
-      "未经原始文件支持的超大规模融资和IPO传闻。",
-      "汽车、娱乐和社会八卦等非核心内容。"
+      "重复财报直播、盘后输赢和短线喊单。",
+      "机制盘、Mint回本和高风险小游戏推广。",
+      "空投教程、积分任务和注册链接。",
+      "个人闲聊、娱乐八卦与生活分享。",
+      "仅含图片或短链、缺乏文字上下文的帖子。",
+      "理财活动收益截图和支付优惠教程。",
+      "未附原始文件的超大规模IPO与估值传闻。",
+      "重复项目上币提示及常规风险免责声明。"
     ]
   }
 }
