@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 2,
+  "automation": "x-intelligence",
+  "runId": "x-intelligence:codex-x-20261105T005557Z",
+  "requestId": "codex-x-20261105T005557Z",
+  "result": "in_progress",
+  "lineage": {
+    "triggerType": "push",
+    "triggerSha": "758f977dc6b0a2bb942f1c5e937f91f078a403bc",
+    "githubRunId": 41945086474,
+    "githubRunAttempt": 1
+  },
+  "timestamps": {
+    "scheduledAt": "2026-11-05T01:00:00Z",
+    "startedAt": "2026-11-05T00:57:17.817751+00:00",
+    "sourceCheckedAt": "2026-11-05T00:57:29.456216+00:00",
+    "sourceUpdatedAt": "2026-11-05T00:48:25+00:00",
+    "completedAt": "2026-11-05T00:57:29.456275+00:00",
+    "publishedAt": "2026-11-05T08:59:33.898+08:00"
+  },
+  "legacyRequestedAt": null,
+  "stages": {
+    "collection": {
+      "status": "success",
+      "completedAt": "2026-11-05T00:57:29.456275+00:00",
+      "details": {
+        "listsRequested": 4,
+        "listsCompleted": 4,
+        "postCount": 109,
+        "estimatedCostUsd": 0.0728
+      }
+    },
+    "validation": {
+      "status": "success",
+      "completedAt": "2026-11-05T00:57:29.456275+00:00"
+    },
+    "publication": {
+      "status": "success",
+      "commitSha": "11a8a7ef1dad0754bff6dcc3aef4a5a9da66f267"
+    },
+    "notification": {
+      "status": "not_run"
+    }
+  }
+}
