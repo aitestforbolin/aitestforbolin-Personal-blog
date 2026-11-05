@@ -1,12 +1,42 @@
 {
-  "updated_at": "2026-11-04T01:03:51+00:00",
+  "updated_at": "2026-11-05T01:00:21+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-stablestock",
+      "id": "crypto-fundraising-crymbo",
       "source_rank": 1,
+      "name": "CRYMBO",
+      "round": null,
+      "announced_month": "2026-11",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/crymbo/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-gomoney",
+      "source_rank": 2,
+      "name": "GoMoney",
+      "round": "M&A",
+      "announced_month": "2026-11",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/gomoney/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-scallopx",
+      "source_rank": 3,
+      "name": "ScallopX",
+      "round": null,
+      "announced_month": "2026-11",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/scallopx/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-stablestock",
+      "source_rank": 4,
       "name": "StableStock",
       "round": "Strategic",
       "announced_month": "2026-11",
@@ -16,56 +46,26 @@
     },
     {
       "id": "crypto-fundraising-lotech",
-      "source_rank": 2,
+      "source_rank": 5,
       "name": "LO:TECH",
       "round": "Series A",
       "announced_month": "2026-11",
       "amount_usd": 12000000,
       "detail_url": "https://crypto-fundraising.info/projects/lotech/",
       "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-crshmarket",
-      "source_rank": 3,
-      "name": "CRSHMARKET",
-      "round": "Seed",
-      "announced_month": "2026-11",
-      "amount_usd": 3500000,
-      "detail_url": "https://crypto-fundraising.info/projects/crshmarket/",
-      "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-prophub",
-      "source_rank": 4,
-      "name": "PropHub",
-      "round": "Strategic",
-      "announced_month": "2026-11",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/prophub/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-rates-exchange",
-      "source_rank": 5,
-      "name": "Rates Exchange",
-      "round": null,
-      "announced_month": "2026-10",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/rates-exchange/",
-      "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261104-010252Z",
-    "requestId": "codex-web3-20261104-010252Z",
-    "triggerSha": "cd5897011e2e73f34da15218735270c6e2c707f2",
-    "githubRunId": 41751375832,
-    "scheduledAt": "2026-11-04T01:02:52Z",
-    "startedAt": "2026-11-04T01:03:49.158638+00:00",
-    "sourceCheckedAt": "2026-11-04T01:03:51.208000+00:00",
-    "sourceUpdatedAt": "2026-11-04T01:03:51+00:00",
-    "completedAt": "2026-11-04T01:03:51.208321+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261105-005835Z",
+    "requestId": "codex-web3-20261105-005835Z",
+    "triggerSha": "f9fbc70020798870eba8e4c6c51d9eb85c96b917",
+    "githubRunId": 41945422119,
+    "scheduledAt": "2026-11-05T00:58:35Z",
+    "startedAt": "2026-11-05T01:00:11.840471+00:00",
+    "sourceCheckedAt": "2026-11-05T01:00:21.539825+00:00",
+    "sourceUpdatedAt": "2026-11-05T01:00:21+00:00",
+    "completedAt": "2026-11-05T01:00:21.540386+00:00",
     "publishedAt": null
   }
 }
