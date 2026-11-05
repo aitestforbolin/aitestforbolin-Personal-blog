@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "codex-web3-20261104-010252Z",
-  "triggerSha": "cd5897011e2e73f34da15218735270c6e2c707f2",
-  "publicationDate": "2026-11-04",
-  "publishedAt": "2026-11-04T09:04:34+08:00",
+  "requestId": "codex-web3-20261105-005835Z",
+  "triggerSha": "f9fbc70020798870eba8e4c6c51d9eb85c96b917",
+  "publicationDate": "2026-11-05",
+  "publishedAt": "2026-11-05T09:01:18+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-11-04",
-    "publishedAt": "2026-11-04T09:04:34+08:00",
-    "windowStart": "2026-11-03T01:03:13.934307+00:00",
-    "windowEnd": "2026-11-04T01:03:51.208321+00:00",
-    "sourceUpdatedAt": "2026-11-04T01:03:51+00:00",
+    "runDate": "2026-11-05",
+    "publishedAt": "2026-11-05T09:01:18+08:00",
+    "windowStart": "2026-11-04T01:03:51.208321+00:00",
+    "windowEnd": "2026-11-05T01:00:21.540386+00:00",
+    "sourceUpdatedAt": "2026-11-05T01:00:21+00:00",
     "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:codex-web3-20261104-010252Z",
-      "requestId": "codex-web3-20261104-010252Z",
-      "triggerSha": "cd5897011e2e73f34da15218735270c6e2c707f2",
-      "githubRunId": 41751375832,
-      "scheduledAt": "2026-11-04T01:02:52Z",
-      "startedAt": "2026-11-04T01:03:49.158638+00:00",
-      "sourceCheckedAt": "2026-11-04T01:03:51.208000+00:00",
-      "sourceUpdatedAt": "2026-11-04T01:03:51+00:00",
-      "completedAt": "2026-11-04T01:03:51.208321+00:00",
-      "publishedAt": "2026-11-04T09:04:34+08:00"
+      "runId": "web3-daily-triage:codex-web3-20261105-005835Z",
+      "requestId": "codex-web3-20261105-005835Z",
+      "triggerSha": "f9fbc70020798870eba8e4c6c51d9eb85c96b917",
+      "githubRunId": 41945422119,
+      "scheduledAt": "2026-11-05T00:58:35Z",
+      "startedAt": "2026-11-05T01:00:11.840471+00:00",
+      "sourceCheckedAt": "2026-11-05T01:00:21.539825+00:00",
+      "sourceUpdatedAt": "2026-11-05T01:00:21+00:00",
+      "completedAt": "2026-11-05T01:00:21.540386+00:00",
+      "publishedAt": "2026-11-05T09:01:18+08:00"
     },
     "executionStatus": {
       "collection": "success",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "候选窗口从 2026-11-03 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重并排除 M&A 后，对 1 个新观测事件完成轻量核验。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "候选窗口从 2026-11-04 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重并先排除 1 个 M&A 后，对 2 个新观测融资事件完成轻量核验。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -107,66 +107,133 @@
       "crypto-fundraising-over-computer--2026-11--public-sale",
       "crypto-fundraising-lotech--2026-11--series-a",
       "crypto-fundraising-crshmarket--2026-11--seed",
-      "crypto-fundraising-prophub--2026-11--strategic"
+      "crypto-fundraising-prophub--2026-11--strategic",
+      "crypto-fundraising-crymbo--2026-11--round-unknown",
+      "crypto-fundraising-scallopx--2026-11--round-unknown"
     ],
     "counts": {
-      "new": 1,
+      "new": 2,
       "action": 0,
       "watch": 0,
-      "stop": 1
+      "stop": 2
     },
     "projects": [
       {
-        "event_id": "crypto-fundraising-prophub--2026-11--strategic",
-        "source_detail_url": "https://crypto-fundraising.info/projects/prophub/",
-        "project_name": "PropHub",
+        "event_id": "crypto-fundraising-crymbo--2026-11--round-unknown",
+        "source_detail_url": "https://crypto-fundraising.info/projects/crymbo/",
+        "project_name": "CRYMBO",
         "decision": "STOP",
         "financing": {
           "amount_usd": null,
           "round": "Strategic",
           "lead_investors": [
-            "Merchant Seven"
+            "Orbs"
           ],
-          "announcement_date": "2026-11-02",
+          "announcement_date": "2026-11-04",
           "confidence": "high"
         },
-        "plain_explanation": "PropHub 为券商、自营交易公司和加密交易平台提供整套交易技术，客户可以购买白标系统或定制平台，而不必自行拼接前端、风控、支付和后台。",
-        "mechanism_simple": "PropHub 把开户与身份验证、交易界面、客户管理、风险控制、支付、自动结算和 API 集成做成模块；其 Web3 方案还可在 Hyperliquid 等平台上搭建白标交易所。",
+        "plain_explanation": "CRYMBO 是面向银行、支付机构和经纪商的合规数字资产基础设施，让持牌机构用一次集成接入托管、流动性、支付、身份与监控服务。",
+        "mechanism_simple": "机构保留自己的牌照和品牌，CRYMBO 在后台编排 75 家以上服务商并处理合规、结算与对账；平台不保管客户资金或私钥。",
         "project_status": {
-          "category": "existing_no_token",
-          "token_status": "no_token_found",
-          "note": "已有面向企业客户的完整产品与商业模式，未发现 PropHub 原生代币。"
+          "category": "existing_token",
+          "token_status": "token_live",
+          "note": "平台已服务持牌机构并处理超过 20 亿美元交易；官方页面确认 ERC-20 实用代币 $RMBO 已用于身份验证与节点监控。"
         },
         "participation": {
           "available_now": false,
           "what_user_can_do": null,
           "requires_real_funds": false,
-          "friction_or_risk": "产品需要企业采购、集成和合规运营，普通用户没有可独立完成的参与入口。"
+          "friction_or_risk": "核心产品面向持牌机构；原生代币已上线，已不属于本流程寻找的早期、未发币机会。"
         },
         "incentives": {
-          "status": "none_found",
-          "types": [],
-          "details": "未发现面向普通用户的积分、测试网、代币或空投活动。"
+          "status": "confirmed",
+          "types": [
+            "token"
+          ],
+          "details": "官方页面确认 $RMBO 已作为 Oracle Identity Verification 与 NodeMonitor 的实用代币。"
         },
         "why": [
-          "战略轮资金用于产品扩展、市场销售、渠道合作和国际化，目标客户仍是交易平台运营方。",
-          "官网产品均为白标券商、自营交易和交易所基础设施，普通用户没有直接使用价值或低成本早期参与路径。",
-          "融资与 Hyperliquid 叙事本身不足以形成个人行动理由。"
+          "原生 $RMBO 已由官方确认上线，触发本流程的已发币硬性 STOP。",
+          "本轮战略投资用于扩展面向机构的合规金融基础设施，不产生新的普通用户早期参与窗口。"
         ],
         "next_step": null,
         "recheck_trigger": null,
-        "website_url": "https://prophub.tech/",
+        "website_url": "https://crymbo.com/",
         "x_url": null,
         "evidence": [
           {
-            "claim": "PropHub 官方网站确认其面向自营交易公司、券商和 Web3 交易所提供白标及定制技术，包括风控、支付、后台和 Hyperliquid 交易所基础设施。",
-            "url": "https://prophub.tech/",
+            "claim": "CRYMBO 官方公告确认 Orbs 于 2026-11-04 进行战略投资，金额未披露；平台服务持牌机构并已处理超过 20 亿美元交易。",
+            "url": "https://crymbo.com/news/crymbo-orbs-investment/",
             "source_type": "official_site",
             "confidence": "high"
           },
           {
-            "claim": "融资公告确认战略轮由 Merchant Seven 与私人投资者支持，金额未披露，资金用于产品、市场拓展和国际扩张。",
-            "url": "https://www.prnewswire.com/news-releases/prophub-announces-strategic-venture-round-to-scale-brokerage-composability-302926550.html",
+            "claim": "CRYMBO 官方网站确认 $RMBO 为已投入使用的 ERC-20 实用代币，用于身份验证和 NodeMonitor。",
+            "url": "https://crymbo.com/",
+            "source_type": "official_site",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "event_id": "crypto-fundraising-scallopx--2026-11--round-unknown",
+        "source_detail_url": "https://crypto-fundraising.info/projects/scallopx/",
+        "project_name": "ScallopX",
+        "decision": "STOP",
+        "financing": {
+          "amount_usd": null,
+          "round": "Strategic",
+          "lead_investors": [
+            "XDC Ventures (XVC Tech)"
+          ],
+          "announcement_date": "2026-11-04",
+          "confidence": "high"
+        },
+        "plain_explanation": "ScallopX 是把多币种法币、稳定币、数字资产、银行卡和跨境支付放在一个账户中的全球金融应用。",
+        "mechanism_simple": "用户在统一余额中持有和兑换 52 种以上货币及数字资产，并通过 Visa 卡、Apple Pay、Google Pay 或当地支付网络消费和跨境转账。",
+        "project_status": {
+          "category": "existing_token",
+          "token_status": "token_live",
+          "note": "这是已有产品与既有代币的项目；同域官方质押应用继续提供 SCLP 质押、奖励和旧奖励领取。"
+        },
+        "participation": {
+          "available_now": true,
+          "what_user_can_do": "在支持地区完成 KYC 后使用多币种账户、卡片与跨境支付；也存在推荐计划。",
+          "requires_real_funds": true,
+          "friction_or_risk": "使用受地区、KYC、费用和支付合规限制；原生 SCLP 已上线，不属于未发币早期机会。"
+        },
+        "incentives": {
+          "status": "confirmed",
+          "types": [
+            "token",
+            "referral"
+          ],
+          "details": "官方同域质押应用提供 SCLP 质押与奖励，官方博客另有推荐奖励计划。"
+        },
+        "why": [
+          "官方同域产品仍提供 SCLP 质押和奖励，确认原生代币已上线，触发本流程硬性 STOP。",
+          "XDC Ventures 的战略投资和 XDC/USDC 支付集成扩大产品覆盖，但没有创造新的未发币参与窗口。"
+        ],
+        "next_step": null,
+        "recheck_trigger": null,
+        "website_url": "https://www.scallopx.com/",
+        "x_url": null,
+        "evidence": [
+          {
+            "claim": "ScallopX 官方网站确认其提供 52 种以上货币与数字资产的一体化账户、卡片和全球支付服务。",
+            "url": "https://www.scallopx.com/",
+            "source_type": "official_site",
+            "confidence": "high"
+          },
+          {
+            "claim": "ScallopX 官方同域质押应用提供 SCLP 质押、SCLPX 奖励和旧奖励领取，确认项目代币已上线。",
+            "url": "https://stake.scallopx.com/",
+            "source_type": "official_site",
+            "confidence": "high"
+          },
+          {
+            "claim": "XDC Ventures 的投资说明确认本轮为战略投资，将 XDC 与 USDC 接入 Scallop 卡片、Apple Pay、多币种账户和跨境支付，金额未披露。",
+            "url": "https://www.financemagnates.com/thought-leadership/xdc-ventures-backs-scallopx-to-take-xdc-and-usdc-from-wallet-to-checkout/",
             "source_type": "investor",
             "confidence": "high"
           }
