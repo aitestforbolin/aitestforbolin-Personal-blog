@@ -61,7 +61,7 @@
     return value > 0 ? "up" : "down";
   }
 
-  function streakInfo(rows) {
+  function streakInfo(rows, publishedCount) {
     const first = Number(rows[0]?.total);
     if (!Number.isFinite(first) || first === 0) {
       return { text: "最新一日资金流持平", direction: "flat" };
@@ -75,8 +75,9 @@
       }
       count += 1;
     }
+    const days = Number.isInteger(publishedCount) && publishedCount > 0 ? publishedCount : count;
     return {
-      text: `连续 ${count} 个交易日${direction > 0 ? "净流入" : "净流出"}`,
+      text: `连续 ${days} 个交易日${direction > 0 ? "净流入" : "净流出"}`,
       direction: direction > 0 ? "up" : "down",
     };
   }
@@ -84,11 +85,11 @@
   function render(data) {
     const rows = Array.isArray(data.rows) ? data.rows : [];
     const latest = data.latest || rows[0] || {};
-    const fiveDayTotal = rows.slice(0, 5).reduce((total, row) => {
-      const value = Number(row.total);
-      return total + (Number.isFinite(value) ? value : 0);
-    }, 0);
-    const currentTrend = streakInfo(rows);
+    const fiveDays = rows.slice(0, 5).map((row) => row.total);
+    const fiveDayTotal = fiveDays.length === 5 && fiveDays.every((value) =>
+      typeof value === "number" && Number.isFinite(value)
+    ) ? fiveDays.reduce((total, value) => total + value, 0) : NaN;
+    const currentTrend = streakInfo(rows, latest.streak_days);
     const cards = [
       { label: "最新一日", value: Number(latest.total), note: formatDate(latest.date) },
       { label: "近 5 个交易日", value: fiveDayTotal, note: "累计净流" },

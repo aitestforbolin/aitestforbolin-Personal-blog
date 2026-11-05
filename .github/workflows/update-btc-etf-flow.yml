@@ -3,7 +3,7 @@ name: Update BTC ETF flow
 on:
   schedule:
     # 14:30 and 18:30 Asia/Shanghai, Tuesday-Saturday after U.S. ETF trading days.
-    # Farside can publish a partial latest row first, then fill core fund values later.
+    # Wait for Farside to publish daily totals; individual fund values may lag.
     - cron: "30 6,10 * * 2-6"
   workflow_dispatch:
 
@@ -28,6 +28,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+
+      - name: Check BTC ETF flow summary logic
+        run: python -m unittest tests.test_btc_etf_flow
 
       - name: Refresh BTC ETF flow data
         run: python scripts/update_btc_etf_flow.py

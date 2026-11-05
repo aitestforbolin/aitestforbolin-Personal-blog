@@ -4,11 +4,10 @@
 from __future__ import annotations
 
 import json
-import re
+import math
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urlencode
 from urllib.error import URLError
 from urllib.request import Request, urlopen
 
@@ -17,29 +16,13 @@ SITE_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = SITE_ROOT / "data" / "btc-etf-flow.json"
 FARSIDE_URL = "https://farside.co.uk/bitcoin-etf-flow-all-data/"
 FARSIDE_BRIDGE_URL = "https://farside-etf-bridge.laibocszd.chatgpt.site/api/btc-etf-flow"
-BINANCE_URL = "https://data-api.binance.vision/api/v3/klines"
 FETCH_TIMEOUT = 90
 FETCH_RETRIES = 3
-MAX_OUTPUT_ROWS = 45
-REQUIRED_LATEST_FUNDS = ("IBIT", "FBTC", "GBTC")
-FUNDS = [
-    "IBIT",
-    "FBTC",
-    "BITB",
-    "ARKB",
-    "BTCO",
-    "EZBC",
-    "BRRR",
-    "HODL",
-    "BTCW",
-    "MSBT",
-    "GBTC",
-    "BTC",
-]
+SUMMARY_DAYS = 5
 
 
-class IncompleteLatestRowError(RuntimeError):
-    """The latest source row exists but is not fully published yet."""
+class IncompleteFlowError(RuntimeError):
+    """A total needed for the five-day summary has not been published yet."""
 
 
 class TextExtractor(HTMLParser):
@@ -93,6 +76,8 @@ def parse_money(value: str) -> float | None:
     except ValueError:
         return None
 
+    if not math.isfinite(parsed):
+        return None
     return -parsed if negative else parsed
 
 
@@ -106,37 +91,24 @@ def parse_date(value: str) -> str | None:
 def parse_farside_rows(lines: list[str]) -> list[dict[str, object]]:
     try:
         start = lines.index("Date")
+        header_end = lines.index("Total", start + 1)
     except ValueError as exc:
         raise RuntimeError("Could not find Farside ETF flow table header") from exc
 
     rows: list[dict[str, object]] = []
-    index = start + 1
-    while index < len(lines) and lines[index] != "Total":
-        index += 1
-    index += 1
-
-    columns = FUNDS + ["Total"]
+    index = header_end + 1
+    cells_per_row = header_end - start  # Fund columns plus the published total.
     while index < len(lines):
         date_value = parse_date(lines[index])
         if not date_value:
             break
 
-        values = lines[index + 1 : index + 1 + len(columns)]
-        if len(values) < len(columns):
+        values = lines[index + 1 : index + 1 + cells_per_row]
+        if len(values) < cells_per_row:
             break
 
-        fund_values = {
-            fund: parse_money(value) for fund, value in zip(FUNDS, values[: len(FUNDS)])
-        }
-        total = parse_money(values[-1])
-        rows.append(
-            {
-                "date": date_value,
-                "funds": fund_values,
-                "total": total,
-            }
-        )
-        index += 1 + len(columns)
+        rows.append({"date": date_value, "total": parse_money(values[-1])})
+        index += 1 + cells_per_row
 
     if not rows:
         raise RuntimeError("Farside ETF flow table was empty")
@@ -144,74 +116,43 @@ def parse_farside_rows(lines: list[str]) -> list[dict[str, object]]:
     return sorted(rows, key=lambda row: str(row["date"]), reverse=True)
 
 
-def fetch_btc_prices(start_date: str) -> dict[str, float]:
-    start_dt = datetime.fromisoformat(start_date).replace(tzinfo=timezone.utc)
-    params = urlencode(
-        {
-            "symbol": "BTCUSDT",
-            "interval": "1d",
-            "startTime": int(start_dt.timestamp() * 1000),
-            "limit": 1000,
-        }
-    )
-    try:
-        html = fetch_text(f"{BINANCE_URL}?{params}")
-        rows = json.loads(html)
-    except Exception:
-        return {}
-
-    prices: dict[str, float] = {}
-    for row in rows:
+def summarize_rows(source_rows: list[dict[str, object]]) -> tuple[list[dict[str, object]], int]:
+    """Use published daily totals; missing individual fund values do not remove a day."""
+    rows: list[dict[str, object]] = []
+    dates: set[str] = set()
+    for source in source_rows:
+        if not isinstance(source, dict) or not isinstance(source.get("date"), str):
+            raise RuntimeError("Farside returned a malformed date row")
+        day = source["date"]
         try:
-            day = datetime.fromtimestamp(row[0] / 1000, tz=timezone.utc).date().isoformat()
-            prices[day] = float(row[4])
-        except (TypeError, ValueError, IndexError):
-            continue
-    return prices
+            valid_date = datetime.strptime(day, "%Y-%m-%d").date().isoformat()
+        except ValueError as exc:
+            raise RuntimeError(f"Farside returned an invalid date: {day}") from exc
+        if valid_date != day or day in dates:
+            raise RuntimeError(f"Farside returned an invalid or duplicate date: {day}")
+        dates.add(day)
+        value = source.get("total")
+        if isinstance(value, str):
+            value = parse_money(value)
+        elif isinstance(value, bool) or not isinstance(value, (int, float)):
+            value = None
+        elif not math.isfinite(value):
+            value = None
+        rows.append({"date": day, "total": value})
 
+    rows.sort(key=lambda row: row["date"], reverse=True)
+    if len(rows) < SUMMARY_DAYS or any(row["total"] is None for row in rows[:SUMMARY_DAYS]):
+        raise IncompleteFlowError("Farside has not published five consecutive daily totals")
 
-def add_btc_prices(rows: list[dict[str, object]]) -> None:
-    oldest = str(rows[-1]["date"])
-    prices = fetch_btc_prices(oldest)
-    for row in rows:
-        price = prices.get(str(row["date"]))
-        if price is not None:
-            row["btc_price"] = price
-
-
-def rolling_sum(rows: list[dict[str, object]], size: int) -> float:
-    return round(
-        sum(float(row["total"] or 0) for row in rows[:size]),
-        1,
-    )
-
-
-def complete_rows(rows: list[dict[str, object]]) -> list[dict[str, object]]:
-    """Exclude a newly posted Farside row until its core fund values are complete."""
-    complete: list[dict[str, object]] = []
-    for row in rows:
-        funds = row.get("funds", {})
-        if not isinstance(funds, dict):
-            continue
-        if all(funds.get(fund) is not None for fund in REQUIRED_LATEST_FUNDS):
-            complete.append(row)
-    return complete
-
-
-def validate_latest_row(rows: list[dict[str, object]]) -> None:
-    if not rows:
-        raise IncompleteLatestRowError("Farside has no complete rows with core fund values")
-    latest = rows[0]
-    funds = latest.get("funds", {})
-    if not isinstance(funds, dict):
-        raise RuntimeError("Latest Farside row has no fund values")
-
-    missing = [fund for fund in REQUIRED_LATEST_FUNDS if funds.get(fund) is None]
-    if missing:
-        missing_text = ", ".join(missing)
-        raise IncompleteLatestRowError(
-            f"Latest Farside row for {latest.get('date')} still has missing core fund values: {missing_text}"
-        )
+    direction = (rows[0]["total"] > 0) - (rows[0]["total"] < 0)
+    streak_days = 0
+    if direction:
+        for row in rows:
+            total = row["total"]
+            if total is None or total * direction <= 0:
+                break
+            streak_days += 1
+    return rows[:SUMMARY_DAYS], streak_days
 
 
 def build_payload() -> dict[str, object]:
@@ -229,22 +170,17 @@ def build_payload() -> dict[str, object]:
             raise RuntimeError(
                 "Both the Farside bridge and direct source failed"
             ) from ExceptionGroup("Farside fetch failures", [bridge_error, direct_error])
-    rows = complete_rows(rows)
-    validate_latest_row(rows)
-    add_btc_prices(rows)
-    latest = rows[0]
-    output_rows = rows[:MAX_OUTPUT_ROWS]
+    output_rows, streak_days = summarize_rows(rows)
+    latest = output_rows[0]
     return {
         "updated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "source": "Farside Investors",
         "source_url": FARSIDE_URL,
         "unit": "US$m",
-        "funds": FUNDS,
         "latest": {
             "date": latest["date"],
             "total": latest["total"],
-            "seven_day_total": rolling_sum(rows, 7),
-            "thirty_day_total": rolling_sum(rows, 30),
+            "streak_days": streak_days,
         },
         "rows": output_rows,
     }
@@ -253,8 +189,8 @@ def build_payload() -> dict[str, object]:
 def main() -> None:
     try:
         payload = build_payload()
-    except IncompleteLatestRowError as error:
-        print(f"{error}. Keeping the previous complete dataset; a later run will retry.")
+    except IncompleteFlowError as error:
+        print(f"{error}. Keeping the previous dataset; a later run will retry.")
         return
 
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
