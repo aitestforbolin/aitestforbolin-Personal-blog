@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "codex-web3-20261105-005835Z",
-  "triggerSha": "f9fbc70020798870eba8e4c6c51d9eb85c96b917",
-  "publicationDate": "2026-11-05",
-  "publishedAt": "2026-11-05T09:01:18+08:00",
+  "requestId": "codex-web3-20261106-010350Z",
+  "triggerSha": "4701af4f8b76b7e942dc6b0a66a77e56b4f222a4",
+  "publicationDate": "2026-11-06",
+  "publishedAt": "2026-11-06T09:05:33+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-11-05",
-    "publishedAt": "2026-11-05T09:01:18+08:00",
-    "windowStart": "2026-11-04T01:03:51.208321+00:00",
-    "windowEnd": "2026-11-05T01:00:21.540386+00:00",
-    "sourceUpdatedAt": "2026-11-05T01:00:21+00:00",
+    "runDate": "2026-11-06",
+    "publishedAt": "2026-11-06T09:05:33+08:00",
+    "windowStart": "2026-11-05T01:00:21.540386+00:00",
+    "windowEnd": "2026-11-06T01:04:34.157375+00:00",
+    "sourceUpdatedAt": "2026-11-06T01:04:34+00:00",
     "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:codex-web3-20261105-005835Z",
-      "requestId": "codex-web3-20261105-005835Z",
-      "triggerSha": "f9fbc70020798870eba8e4c6c51d9eb85c96b917",
-      "githubRunId": 41945422119,
-      "scheduledAt": "2026-11-05T00:58:35Z",
-      "startedAt": "2026-11-05T01:00:11.840471+00:00",
-      "sourceCheckedAt": "2026-11-05T01:00:21.539825+00:00",
-      "sourceUpdatedAt": "2026-11-05T01:00:21+00:00",
-      "completedAt": "2026-11-05T01:00:21.540386+00:00",
-      "publishedAt": "2026-11-05T09:01:18+08:00"
+      "runId": "web3-daily-triage:codex-web3-20261106-010350Z",
+      "requestId": "codex-web3-20261106-010350Z",
+      "triggerSha": "4701af4f8b76b7e942dc6b0a66a77e56b4f222a4",
+      "githubRunId": 42141309330,
+      "scheduledAt": "2026-11-06T01:03:50Z",
+      "startedAt": "2026-11-06T01:04:32.312230+00:00",
+      "sourceCheckedAt": "2026-11-06T01:04:34.157022+00:00",
+      "sourceUpdatedAt": "2026-11-06T01:04:34+00:00",
+      "completedAt": "2026-11-06T01:04:34.157375+00:00",
+      "publishedAt": "2026-11-06T09:05:33+08:00"
     },
     "executionStatus": {
       "collection": "success",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "候选窗口从 2026-11-04 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重并先排除 1 个 M&A 后，对 2 个新观测融资事件完成轻量核验。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "候选窗口从 2026-11-05 已验证发布的 windowEnd 延续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后，对 4 个新观测融资事件完成轻量核验，未发现 M&A。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -109,132 +109,235 @@
       "crypto-fundraising-crshmarket--2026-11--seed",
       "crypto-fundraising-prophub--2026-11--strategic",
       "crypto-fundraising-crymbo--2026-11--round-unknown",
-      "crypto-fundraising-scallopx--2026-11--round-unknown"
+      "crypto-fundraising-scallopx--2026-11--round-unknown",
+      "crypto-fundraising-soter--2026-11--series-b",
+      "crypto-fundraising-uranium-digital--2026-11--series-a",
+      "crypto-fundraising-unruggable--2026-11--strategic",
+      "crypto-fundraising-semiliquid--2026-11--seed"
     ],
     "counts": {
-      "new": 2,
+      "new": 4,
       "action": 0,
-      "watch": 0,
-      "stop": 2
+      "watch": 1,
+      "stop": 3
     },
     "projects": [
       {
-        "event_id": "crypto-fundraising-crymbo--2026-11--round-unknown",
-        "source_detail_url": "https://crypto-fundraising.info/projects/crymbo/",
-        "project_name": "CRYMBO",
+        "event_id": "crypto-fundraising-soter--2026-11--series-b",
+        "source_detail_url": "https://crypto-fundraising.info/projects/soter/",
+        "project_name": "Soter Insure",
         "decision": "STOP",
         "financing": {
           "amount_usd": null,
-          "round": "Strategic",
+          "round": "Series B",
           "lead_investors": [
-            "Orbs"
+            "Galaxy"
           ],
-          "announcement_date": "2026-11-04",
+          "announcement_date": "2026-11-05",
           "confidence": "high"
         },
-        "plain_explanation": "CRYMBO 是面向银行、支付机构和经纪商的合规数字资产基础设施，让持牌机构用一次集成接入托管、流动性、支付、身份与监控服务。",
-        "mechanism_simple": "机构保留自己的牌照和品牌，CRYMBO 在后台编排 75 家以上服务商并处理合规、结算与对账；平台不保管客户资金或私钥。",
+        "plain_explanation": "Soter Insure 为数字资产机构提供专业保险，覆盖管理责任、盗窃损失、智能合约故障和验证节点罚没等风险。",
+        "mechanism_simple": "机构购买以美元、BTC 或 ETH 计价的保单；当承保的盗窃、技术故障或罚没事件发生时，赔付尽量使用与被保险资产相同的计价单位，减少币价波动造成的保障缺口。",
         "project_status": {
-          "category": "existing_token",
-          "token_status": "token_live",
-          "note": "平台已服务持牌机构并处理超过 20 亿美元交易；官方页面确认 ERC-20 实用代币 $RMBO 已用于身份验证与节点监控。"
+          "category": "existing_no_token",
+          "token_status": "no_token_found",
+          "note": "已有受监管保险业务和机构客户，未发现 Soter 原生代币。"
         },
         "participation": {
           "available_now": false,
           "what_user_can_do": null,
           "requires_real_funds": false,
-          "friction_or_risk": "核心产品面向持牌机构；原生代币已上线，已不属于本流程寻找的早期、未发币机会。"
+          "friction_or_risk": "产品、披露和招揽均面向符合条件的专业或机构客户，普通用户没有直接参与入口。"
         },
         "incentives": {
-          "status": "confirmed",
-          "types": [
-            "token"
-          ],
-          "details": "官方页面确认 $RMBO 已作为 Oracle Identity Verification 与 NodeMonitor 的实用代币。"
+          "status": "none_found",
+          "types": [],
+          "details": "未发现面向普通用户的积分、测试网、代币或空投活动。"
         },
         "why": [
-          "原生 $RMBO 已由官方确认上线，触发本流程的已发币硬性 STOP。",
-          "本轮战略投资用于扩展面向机构的合规金融基础设施，不产生新的普通用户早期参与窗口。"
+          "Series B 扩充的是机构级承保能力和全球市场覆盖。",
+          "产品需要保险询价、合规审核与机构级保单安排，普通用户没有低成本早期参与路径。"
         ],
         "next_step": null,
         "recheck_trigger": null,
-        "website_url": "https://crymbo.com/",
+        "website_url": "https://www.soter.insure/",
         "x_url": null,
         "evidence": [
           {
-            "claim": "CRYMBO 官方公告确认 Orbs 于 2026-11-04 进行战略投资，金额未披露；平台服务持牌机构并已处理超过 20 亿美元交易。",
-            "url": "https://crymbo.com/news/crymbo-orbs-investment/",
-            "source_type": "official_site",
+            "claim": "Soter 的融资公告确认 Series B 由 Galaxy 领投，SC Ventures、SBI、Coinbase Ventures、Franklin Templeton、Brevan Howard Digital 和 Token Bay Capital 等参与，金额未披露。",
+            "url": "https://www.prnewswire.com/news-releases/sc-ventures-and-sbi-join-soter-insures-series-b-alongside-follow-on-from-token-bay-capital-302930335.html",
+            "source_type": "official_blog",
             "confidence": "high"
           },
           {
-            "claim": "CRYMBO 官方网站确认 $RMBO 为已投入使用的 ERC-20 实用代币，用于身份验证和 NodeMonitor。",
-            "url": "https://crymbo.com/",
+            "claim": "Soter 官网确认产品面向机构数字资产行业，覆盖 D&O、专业责任、盗窃损失、罚没及智能合约风险。",
+            "url": "https://www.soter.insure/products",
             "source_type": "official_site",
             "confidence": "high"
           }
         ]
       },
       {
-        "event_id": "crypto-fundraising-scallopx--2026-11--round-unknown",
-        "source_detail_url": "https://crypto-fundraising.info/projects/scallopx/",
-        "project_name": "ScallopX",
+        "event_id": "crypto-fundraising-uranium-digital--2026-11--series-a",
+        "source_detail_url": "https://crypto-fundraising.info/projects/uranium-digital/",
+        "project_name": "Uranium Digital",
         "decision": "STOP",
         "financing": {
-          "amount_usd": null,
-          "round": "Strategic",
+          "amount_usd": 16500000,
+          "round": "Series A",
           "lead_investors": [
-            "XDC Ventures (XVC Tech)"
+            "Blockchain Capital"
           ],
-          "announcement_date": "2026-11-04",
+          "announcement_date": "2026-11-05",
           "confidence": "high"
         },
-        "plain_explanation": "ScallopX 是把多币种法币、稳定币、数字资产、银行卡和跨境支付放在一个账户中的全球金融应用。",
-        "mechanism_simple": "用户在统一余额中持有和兑换 52 种以上货币及数字资产，并通过 Visa 卡、Apple Pay、Google Pay 或当地支付网络消费和跨境转账。",
+        "plain_explanation": "Uranium Digital 把机构间实物铀交易搬到电子订单簿上，并用数字仓单记录对储存在合资格设施中的黄饼铀所有权。",
+        "mechanism_simple": "每张数字仓单对应一磅经审计的实物 U₃O₈；合资格机构可在订单簿交易，并按规则把仓单兑换为实物铀，资产由受监管托管机构保管。",
         "project_status": {
-          "category": "existing_token",
-          "token_status": "token_live",
-          "note": "这是已有产品与既有代币的项目；同域官方质押应用继续提供 SCLP 质押、奖励和旧奖励领取。"
+          "category": "existing_no_token",
+          "token_status": "no_token_found",
+          "note": "已有机构交易平台与数字仓单产品；仓单代表实物铀权益，不是面向公众的项目原生代币。"
         },
         "participation": {
-          "available_now": true,
-          "what_user_can_do": "在支持地区完成 KYC 后使用多币种账户、卡片与跨境支付；也存在推荐计划。",
+          "available_now": false,
+          "what_user_can_do": null,
           "requires_real_funds": true,
-          "friction_or_risk": "使用受地区、KYC、费用和支付合规限制；原生 SCLP 已上线，不属于未发币早期机会。"
+          "friction_or_risk": "仅向通过 KYC/KYB 与地域审核的生产商、金融机构、公用事业和机构投资者开放；最低发行规模可达 2 万磅 U₃O₈。"
         },
         "incentives": {
-          "status": "confirmed",
-          "types": [
-            "token",
-            "referral"
-          ],
-          "details": "官方同域质押应用提供 SCLP 质押与奖励，官方博客另有推荐奖励计划。"
+          "status": "none_found",
+          "types": [],
+          "details": "未发现面向普通用户的积分、测试网、代币或空投活动。"
         },
         "why": [
-          "官方同域产品仍提供 SCLP 质押和奖励，确认原生代币已上线，触发本流程硬性 STOP。",
-          "XDC Ventures 的战略投资和 XDC/USDC 支付集成扩大产品覆盖，但没有创造新的未发币参与窗口。"
+          "融资用于扩展机构铀交易与结算基础设施。",
+          "平台准入和实物铀规模要求排除了普通用户，且没有可验证的低成本参与路径。"
         ],
         "next_step": null,
         "recheck_trigger": null,
-        "website_url": "https://www.scallopx.com/",
+        "website_url": "https://www.uraniumdigital.com/",
         "x_url": null,
         "evidence": [
           {
-            "claim": "ScallopX 官方网站确认其提供 52 种以上货币与数字资产的一体化账户、卡片和全球支付服务。",
-            "url": "https://www.scallopx.com/",
+            "claim": "融资报道确认 1650 万美元 A 轮由 Blockchain Capital 领投，Portal Ventures 与 Apeiron Investment Group 等参与。",
+            "url": "https://www.fortune.com/2026/11/05/big-tech-nuclear-power-startup-uranium-digital-uranium-trading/",
+            "source_type": "other",
+            "confidence": "high"
+          },
+          {
+            "claim": "官网确认平台只向合资格机构开放，数字仓单以一磅实物黄饼铀 1:1 支持，最低发行规模为 2 万磅。",
+            "url": "https://www.uraniumdigital.com/",
+            "source_type": "official_site",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "event_id": "crypto-fundraising-unruggable--2026-11--strategic",
+        "source_detail_url": "https://crypto-fundraising.info/projects/unruggable/",
+        "project_name": "Unruggable",
+        "decision": "WATCH",
+        "financing": {
+          "amount_usd": 500000,
+          "round": "Strategic",
+          "lead_investors": [
+            "Colosseum"
+          ],
+          "announcement_date": "2026-11-06",
+          "confidence": "medium"
+        },
+        "plain_explanation": "Unruggable 是为 Solana 设计的开源硬件钱包，希望把手机式操作体验与离线私钥安全结合起来。",
+        "mechanism_simple": "私钥和签名在独立硬件设备中完成，配套应用负责展示交易、质押和生态应用；用户确认后才由硬件签署并广播交易。",
+        "project_status": {
+          "category": "existing_no_token",
+          "token_status": "no_token_found",
+          "note": "已有首批硬件交付和配套产品，未发现 Unruggable 原生代币。"
+        },
+        "participation": {
+          "available_now": false,
+          "what_user_can_do": "可关注后续硬件批次与产品更新；当前官网显示首批已全部分配并在第二季度完成发货。",
+          "requires_real_funds": true,
+          "friction_or_risk": "新批次尚未开放，购买硬件需要真实资金；早期硬件还存在供应、固件成熟度和售后风险。"
+        },
+        "incentives": {
+          "status": "none_found",
+          "types": [],
+          "details": "未发现当前有效的积分、测试网、代币或空投活动。"
+        },
+        "why": [
+          "消费级自托管硬件有明确用途，且首批已交付，值得保留观察。",
+          "当前没有可下单的新批次，也没有官方激励，因此现在行动价值不足。"
+        ],
+        "next_step": null,
+        "recheck_trigger": "官网重新开放新一批硬件预订，或官方公布可低成本参与的新测试、奖励或钱包应用公开发布时重新评估。",
+        "website_url": "https://www.unruggable.io/",
+        "x_url": "https://x.com/unruggable_io",
+        "evidence": [
+          {
+            "claim": "Unruggable 官网确认其为 Solana 硬件钱包，首批设备已全部分配并于第二季度完成发货。",
+            "url": "https://www.unruggable.io/",
             "source_type": "official_site",
             "confidence": "high"
           },
           {
-            "claim": "ScallopX 官方同域质押应用提供 SCLP 质押、SCLPX 奖励和旧奖励领取，确认项目代币已上线。",
-            "url": "https://stake.scallopx.com/",
-            "source_type": "official_site",
+            "claim": "官方 X 公布获得 50 万美元战略融资，由 Colosseum 领投并有多位 Solana 生态投资者参与。",
+            "url": "https://x.com/unruggable_io",
+            "source_type": "official_x",
+            "confidence": "medium"
+          }
+        ]
+      },
+      {
+        "event_id": "crypto-fundraising-semiliquid--2026-11--seed",
+        "source_detail_url": "https://crypto-fundraising.info/projects/semiliquid/",
+        "project_name": "Lombard Systems（原 SemiLiquid/PCP）",
+        "decision": "STOP",
+        "financing": {
+          "amount_usd": 4000000,
+          "round": "Pre-seed + Seed",
+          "lead_investors": [
+            "Ethereal Ventures"
+          ],
+          "announcement_date": "2026-11-05",
+          "confidence": "high"
+        },
+        "plain_explanation": "Lombard Systems 为代币化证券和数字资产设计抵押融资标准，让机构在不把资产转给贷款人的情况下用其借款。",
+        "mechanism_simple": "资产仍锁在借款人的托管账户中，贷款人获得由加密签名证明的法律担保权益；若发生经确认的违约，再按预先约定的规则执行担保。",
+        "project_status": {
+          "category": "renamed_existing",
+          "token_status": "no_token_found",
+          "note": "公司由 SemiLiquid/PCP 更名，首个机构部署尚在推进，未发现 Lombard Systems 原生代币。"
+        },
+        "participation": {
+          "available_now": false,
+          "what_user_can_do": null,
+          "requires_real_funds": false,
+          "friction_or_risk": "标准与白标工具面向银行、券商、托管机构和转让代理，普通用户没有直接产品入口。"
+        },
+        "incentives": {
+          "status": "none_found",
+          "types": [],
+          "details": "未发现面向普通用户的积分、测试网、代币或空投活动。"
+        },
+        "why": [
+          "本轮资金用于法律意见、机构集成和 DvL 标准推广，目标客户仍是金融机构。",
+          "预计的首次部署和 2027 年标准发布不构成普通用户参与窗口。"
+        ],
+        "next_step": null,
+        "recheck_trigger": null,
+        "website_url": "https://www.lombardsystems.com/",
+        "x_url": null,
+        "evidence": [
+          {
+            "claim": "公司公告确认共融资 400 万美元，覆盖 pre-seed 与 seed，由 Ethereal Ventures 领投，Alps Capital、First Commit Capital、Veris Ventures 和 Atka 等参与。",
+            "url": "https://www.prnewswire.com/news-releases/lombard-systems-raises-4-million-to-standardize-financing-for-tokenized-assets-302930746.html",
+            "source_type": "official_blog",
             "confidence": "high"
           },
           {
-            "claim": "XDC Ventures 的投资说明确认本轮为战略投资，将 XDC 与 USDC 接入 Scallop 卡片、Apple Pay、多币种账户和跨境支付，金额未披露。",
-            "url": "https://www.financemagnates.com/thought-leadership/xdc-ventures-backs-scallopx-to-take-xdc-and-usdc-from-wallet-to-checkout/",
-            "source_type": "investor",
+            "claim": "公告确认公司原名 SemiLiquid/PCP，DvL 标准面向机构抵押融资，首个机构部署预计于 2026 年底上线。",
+            "url": "https://www.prnewswire.com/news-releases/lombard-systems-raises-4-million-to-standardize-financing-for-tokenized-assets-302930746.html",
+            "source_type": "official_blog",
             "confidence": "high"
           }
         ]
