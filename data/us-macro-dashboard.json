@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-05T00:28:08+08:00",
-  "asOf": "2026-11-04",
+  "generatedAt": "2026-11-07T02:11:19+08:00",
+  "asOf": "2026-11-06",
   "title": "美国宏观核心数据",
   "summary": [
     {
@@ -16,7 +16,7 @@
       "label": "就业",
       "state": "保持韧性",
       "tone": "expanding",
-      "detail": "非农+162k，失业率4.1%。"
+      "detail": "非农+165k，失业率4.1%。"
     },
     {
       "id": "consumption",
@@ -171,17 +171,17 @@
         {
           "id": "nfp",
           "title": "Non-Farm Employment Change",
-          "period": "August 2026",
-          "releaseDate": "2026-09-04",
-          "updatedAt": "2026-09-18T00:00:00+08:00",
+          "period": null,
+          "releaseDate": "2026-11-06",
+          "updatedAt": "2026-11-07T02:11:19+08:00",
           "source": "Forex Factory",
-          "sourceUrl": "https://www.forexfactory.com/calendar?week=aug30.2026",
+          "sourceUrl": "https://www.forexfactory.com/calendar?day=nov6.2026",
           "rows": [
             {
               "label": "Non-Farm Employment Change",
-              "actual": "162K",
-              "forecast": "55K",
-              "previous": "21K"
+              "actual": "165K",
+              "forecast": "65K",
+              "previous": "60K"
             }
           ],
           "trend": "已写入最新一期；积累满3期后显示中期趋势。"
@@ -189,17 +189,17 @@
         {
           "id": "unemployment",
           "title": "Unemployment Rate",
-          "period": "August 2026",
-          "releaseDate": "2026-09-04",
-          "updatedAt": "2026-09-18T00:00:00+08:00",
+          "period": null,
+          "releaseDate": "2026-11-06",
+          "updatedAt": "2026-11-07T02:11:19+08:00",
           "source": "Forex Factory",
-          "sourceUrl": "https://www.forexfactory.com/calendar?week=aug30.2026",
+          "sourceUrl": "https://www.forexfactory.com/calendar?day=nov6.2026",
           "rows": [
             {
               "label": "Unemployment Rate",
               "actual": "4.1%",
-              "forecast": "4.1%",
-              "previous": "4.1%"
+              "forecast": "4.2%",
+              "previous": "4.2%"
             }
           ],
           "trend": "已写入最新一期；积累满3期后显示中期趋势。"
@@ -207,17 +207,17 @@
         {
           "id": "earnings",
           "title": "Average Hourly Earnings",
-          "period": "August 2026",
-          "releaseDate": "2026-09-04",
-          "updatedAt": "2026-09-18T00:00:00+08:00",
+          "period": null,
+          "releaseDate": "2026-11-06",
+          "updatedAt": "2026-11-07T02:11:19+08:00",
           "source": "Forex Factory",
-          "sourceUrl": "https://www.forexfactory.com/calendar?week=aug30.2026",
+          "sourceUrl": "https://www.forexfactory.com/calendar?day=nov6.2026",
           "rows": [
             {
               "label": "MoM",
-              "actual": "0.3%",
+              "actual": "0.4%",
               "forecast": "0.3%",
-              "previous": "0.2%"
+              "previous": "0.3%"
             },
             {
               "label": "YoY",
@@ -321,7 +321,7 @@
           "title": "ISM Manufacturing PMI",
           "period": null,
           "releaseDate": "2026-11-02",
-          "updatedAt": "2026-11-05T00:28:08+08:00",
+          "updatedAt": "2026-11-07T02:11:19+08:00",
           "source": "Forex Factory",
           "sourceUrl": "https://www.forexfactory.com/calendar?day=nov2.2026",
           "rows": [
@@ -339,7 +339,7 @@
           "title": "ISM Services PMI",
           "period": null,
           "releaseDate": "2026-11-04",
-          "updatedAt": "2026-11-05T00:28:08+08:00",
+          "updatedAt": "2026-11-07T02:11:19+08:00",
           "source": "Forex Factory",
           "sourceUrl": "https://www.forexfactory.com/calendar?day=nov4.2026",
           "rows": [
@@ -378,7 +378,7 @@
     "美国CPI / 核心CPI": "2026-10-14",
     "美国PPI": "2026-10-15",
     "美国PCE / 核心PCE": "2026-10-29",
-    "美国非农 / 失业率 / 平均时薪": "2026-09-04",
+    "美国非农 / 失业率 / 平均时薪": "2026-11-06",
     "美国GDP": "2026-10-29",
     "美国ISM制造业PMI": "2026-11-02",
     "美国ISM服务业PMI": "2026-11-04",
@@ -391,7 +391,8 @@
     "美国CPI / 核心CPI": "a36d524f0bc8197cd2efe8dbca85cd957fe4af5d457aab44f0f6026fc6201906",
     "美国PPI": "e9f030f697a20a3dedeeede90a1695d69b3992d7ef90f896f35dfd86b9402f77",
     "美国GDP": "ef38f79c4d6ed97f8f6c28fb0bae07ce9f7c7b1ab1c8f23af436ca233aafe536",
-    "美国PCE / 核心PCE": "9a281d2db746448d735931d5c6ea5d3b8382a0752315fe8f0cf9a660223cc574"
+    "美国PCE / 核心PCE": "9a281d2db746448d735931d5c6ea5d3b8382a0752315fe8f0cf9a660223cc574",
+    "美国非农 / 失业率 / 平均时薪": "eabdad01e5e1d95dca74ef91a8aed8f59699a7dd7452b92c361f968eea97c966"
   },
   "dataQuality": {
     "status": "forex_factory_only",
@@ -399,7 +400,7 @@
       "只写入 release_status=released 且 actual 非空的 Forex Factory 数据。",
       "没有当前已发布值的字段会等待下一次对应数据发布。"
     ],
-    "fetchedAt": "2026-11-05T00:28:08+08:00",
+    "fetchedAt": "2026-11-07T02:11:19+08:00",
     "source": "Forex Factory"
   }
 }
