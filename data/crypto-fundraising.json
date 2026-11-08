@@ -1,71 +1,71 @@
 {
-  "updated_at": "2026-11-06T01:04:34+00:00",
+  "updated_at": "2026-11-08T00:57:18+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-soter",
+      "id": "crypto-fundraising-avon",
       "source_rank": 1,
+      "name": "Avon",
+      "round": "M&A",
+      "announced_month": "2026-11",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/avon/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-soter",
+      "source_rank": 2,
       "name": "Soter Insure",
       "round": "Series B",
       "announced_month": "2026-11",
       "amount_usd": null,
       "detail_url": "https://crypto-fundraising.info/projects/soter/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-uranium-digital",
-      "source_rank": 2,
+      "source_rank": 3,
       "name": "Uranium Digital",
       "round": "Series A",
       "announced_month": "2026-11",
       "amount_usd": 16500000,
       "detail_url": "https://crypto-fundraising.info/projects/uranium-digital/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-unruggable",
-      "source_rank": 3,
+      "source_rank": 4,
       "name": "Unruggable",
       "round": "Strategic",
       "announced_month": "2026-11",
       "amount_usd": 500000,
       "detail_url": "https://crypto-fundraising.info/projects/unruggable/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-semiliquid",
-      "source_rank": 4,
+      "source_rank": 5,
       "name": "Lombard Systems (ex SemiLiquid)",
       "round": "Seed",
       "announced_month": "2026-11",
       "amount_usd": 4000000,
       "detail_url": "https://crypto-fundraising.info/projects/semiliquid/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-crymbo",
-      "source_rank": 5,
-      "name": "CRYMBO",
-      "round": null,
-      "announced_month": "2026-11",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/crymbo/",
       "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261107-010306Z",
-    "requestId": "codex-web3-20261107-010306Z",
-    "triggerSha": "45c3547fcfc7304ad3e9d6f9affd8de7fba15e7b",
-    "githubRunId": 42321938413,
-    "scheduledAt": "2026-11-07T01:03:06Z",
-    "startedAt": "2026-11-07T01:03:55.995086+00:00",
-    "sourceCheckedAt": "2026-11-07T01:03:57.407820+00:00",
-    "sourceUpdatedAt": "2026-11-06T01:04:34+00:00",
-    "completedAt": "2026-11-07T01:03:57.408120+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261108-005551Z",
+    "requestId": "codex-web3-20261108-005551Z",
+    "triggerSha": "c014dcd552920e554f66438651a1a6a383c96689",
+    "githubRunId": 42432085711,
+    "scheduledAt": "2026-11-08T00:55:51Z",
+    "startedAt": "2026-11-08T00:57:16.215082+00:00",
+    "sourceCheckedAt": "2026-11-08T00:57:18.481662+00:00",
+    "sourceUpdatedAt": "2026-11-08T00:57:18+00:00",
+    "completedAt": "2026-11-08T00:57:18.482015+00:00",
     "publishedAt": null
   }
 }
