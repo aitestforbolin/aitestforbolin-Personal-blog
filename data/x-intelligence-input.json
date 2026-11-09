@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
   "source": "SocialData X List Tweets",
-  "generatedAt": "2026-11-08T01:02:00.138239+00:00",
+  "generatedAt": "2026-11-09T01:01:15.819192+00:00",
   "windowHours": 24,
-  "cutoffUtc": "2026-11-07T01:02:00.138239+00:00",
+  "cutoffUtc": "2026-11-08T01:01:15.819192+00:00",
   "listsRequested": 4,
   "listsCompleted": 4,
   "stoppedForBudget": false,
-  "estimatedCostUsd": 0.0716,
+  "estimatedCostUsd": 0.0698,
   "stats": {
-    "billedTweets": 358,
-    "uniqueTweetsInWindow": 63,
-    "usefulRatio": 0.176,
+    "billedTweets": 349,
+    "uniqueTweetsInWindow": 42,
+    "usefulRatio": 0.1203,
     "contentMix": {
-      "originals": 34,
-      "replies": 7,
-      "direct_quotes": 18,
-      "retweets": 4,
-      "posts_with_media": 33
+      "originals": 11,
+      "replies": 6,
+      "direct_quotes": 20,
+      "retweets": 5,
+      "posts_with_media": 15
     }
   },
   "perList": [
@@ -26,17 +26,17 @@
       "id": "2092526123754414115",
       "pages": 1,
       "returned": 73,
-      "within_window": 5,
-      "discarded_old": 68,
+      "within_window": 7,
+      "discarded_old": 66,
       "crossed_cutoff": true
     },
     {
       "name": "List-2",
       "id": "2062314900266127784",
       "pages": 1,
-      "returned": 100,
-      "within_window": 43,
-      "discarded_old": 57,
+      "returned": 99,
+      "within_window": 27,
+      "discarded_old": 72,
       "crossed_cutoff": true
     },
     {
@@ -44,116 +44,35 @@
       "id": "1939521569493291246",
       "pages": 1,
       "returned": 92,
-      "within_window": 9,
-      "discarded_old": 83,
+      "within_window": 8,
+      "discarded_old": 84,
       "crossed_cutoff": true
     },
     {
       "name": "List-4",
       "id": "2089990503555072281",
       "pages": 1,
-      "returned": 93,
-      "within_window": 11,
-      "discarded_old": 82,
+      "returned": 85,
+      "within_window": 6,
+      "discarded_old": 79,
       "crossed_cutoff": true
     }
   ],
   "posts": [
     {
-      "list_name": "List-4",
-      "list_id": "2089990503555072281",
-      "tweet_id": "2119230980414419120",
-      "created_at": "2026-11-08T00:50:13.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "brucexu_eth",
-        "name": "brucexu.eth"
-      },
-      "text": "Fable 果然消耗快，拿来给整个 Hermes 的 skills 和核心流程做了个升级。Claude 的闲置额度问题差不多解决了。\n\n现在问题来了，Codex 还有不少额度，还剩一天过期。怎么用？急，在线等。 https://t.co/OhCwDCv88s",
-      "url": "https://x.com/brucexu_eth/status/2119230980414419120",
-      "engagement": {
-        "views": 73,
-        "likes": 0,
-        "replies": 0,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWkFHp-boAAaGyE.png"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-4",
-      "list_id": "2089990503555072281",
-      "tweet_id": "2119223366192410878",
-      "created_at": "2026-11-08T00:19:58.000000Z",
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2119591787488842152",
+      "created_at": "2026-11-09T00:43:56.000000Z",
       "kind": "quote",
       "author": {
-        "username": "brucexu_eth",
-        "name": "brucexu.eth"
+        "username": "BlockBeatsAsia",
+        "name": "BlockBeats｜We're hiring!"
       },
-      "text": "更新：Ubuntu 的修复内核已经正式发布了，可以升级了。\n\n- 24.04：6.8.0-149\n- 26.04：7.0.0-43\n- 已经进了正常的 updates 源，不用开 proposed\n\n步骤：\napt update && apt upgrade\nreboot\nuname -r 确认版本号对上\n\n几个注意点：\n- 只装不重启没用，必须重启进新内核才算修好\n- 只走 Tailscale 的 VPS，重启前可以临时只对自己的 IP 放行 22 当兜底，确认能连上再重启，完事删掉\n- Ubuntu 的 CVE 页面现在还显示 pending，是页面没更新，不影响升级\n\n还没处理的朋友，直接把这条丢给你的 Agent 就行。",
-      "url": "https://x.com/brucexu_eth/status/2119223366192410878",
+      "text": "黄仁勋的婚外情，正在演变成英伟达的国家安全风波。\n\n11 月 8 日，黄仁勋向员工发送邮件，公开承认对妻子不忠并致歉。与此同时，英伟达董事会宣布成立独立调查委员会，调查此前媒体报道涉及的外国情报活动。\n\n事件还牵涉新加坡云计算公司 Megaspeed。据《纽约时报》报道，该公司过去两年采购了超过 48 亿美元的英伟达芯片。美国情报部门怀疑其前高管 Alice Huang 涉及针对黄仁勋的情报活动，但相关指控尚未得到独立证实。\n\n英伟达股价此前也遭遇重挫：11 月 5 日单日下跌 9.26%，11 月 6 日反弹 2.78%，但较上周五收盘仍下跌约 8.8%。\n\n接下来两个时间点值得关注：\n\n11 月 17 日：英伟达公布季度财报。\n11 月 18 日：美国三位共和党众议院委员会主席要求黄仁勋参加闭门简报，解释相关情况。\n\n目前英伟达董事会表示，没有理由认为国家安全或公司机密已经遭到泄露，并继续支持黄仁勋担任 CEO。\n\n这场风波真正值得关注的，已经不只是 CEO 的个人私生活，而是英伟达的公司治理、海外客户审查，以及美国对华 AI 芯片出口管控。\n\n当全球 AI 芯片霸主卷入国家安全调查，华尔街和华盛顿都不会只把它当成八卦。",
+      "url": "https://x.com/BlockBeatsAsia/status/2119591787488842152",
       "engagement": {
-        "views": 206,
-        "likes": 0,
-        "replies": 0,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": {
-        "tweet_id": "2117422600066637992",
-        "username": "brucexu_eth",
-        "name": "brucexu.eth",
-        "text": "补充一下昨天说的 Linux 内核漏洞 CVE-2026-98432。这个洞比我一开始以为的严重，自己有服务器的朋友建议今天就处理一下。可以把这个 X 丢给你的 Agent。\n\n为什么严重：\n\n- 范围很大：Linux 4.4 以后的内核都受影响，基本等于所有还在用的 Linux 服务器。\n- 不需要登录：只要服务器上有一个对外开放的 IPv4 TCP 端口，攻击者发几个特制的包就能打。可能的后果是内核崩溃、泄露内存，或者破坏内存。\n- 已经有人做到远程执行代码：研究人员对开着 MPTCP 的机器演示过未授权远程代码执行。Ubuntu 默认是开着 MPTCP 的。\n- 现在还没有补丁：截至今天，Ubuntu 22.04 / 24.04 / 26.04 的修复内核都还是“修复进行中”，装了最新内核也没用。AWS 公告说得很直接：只有升级内核并重启才算彻底修复。\n\n我这边做了这几件事（裸金属和 VPS 一共 5 台）：\n\n1. 先挡住入口\n→ 用 nftables 丢弃所有带 IP options 的 IPv4 TCP 包\n→ 正常流量几乎不会带 IP options，所以基本没有副作用\n→ 每台都实测过：带 options 的连接被拦下，普通 SSH 正常\n\n2. 关掉 MPTCP\n→ net.mptcp.enabled=0，写进 sysctl.d，重启后也生效\n→ 这一步只能减少被利用的条件，问题本身还在\n\n3. 关掉不必要的公网端口\n→ 3 台 VPS 关掉公网 SSH 22，只走 Tailscale SSH\n→ 基本上端口全部关闭\n\n4. 等补丁\n→ 每天自动查一次 Ubuntu 的修复状态，一发布就提醒我升级重启\n\n几个容易踩的坑：\n\n- 防火墙规则重启就没了。补丁出来之前别随手重启，重启了也换不上修复。\n- 改 SSH 端口号对这个洞基本没用。漏洞在内核的 TCP 握手上，任何开着的端口都能当入口，扫一遍全端口也就几分钟。\n- 关 22 之前先设好自动回滚。我的做法是先挂一个 5 分钟后自动重新放行的定时器，确认 Tailscale 能连上再取消，避免把自己锁在外面。\n- 用 Coolify 的话，别把 Docker 内网访问本机 22 的放行也删了，不然部署会断。\n- 80/443 这类业务端口必须开着，所以在补丁出来之前，真正起作用的还是第 1 步那条丢包规则。\n\n参考：\nAWS 公告 https://t.co/HWrn7X2toA\nUbuntu 修复状态 https://t.co/kNdn3QuQhh",
-        "created_at": "2026-11-03T01:04:22.000000Z",
-        "url": "https://x.com/brucexu_eth/status/2117422600066637992",
-        "external_urls": [
-          "https://aws.amazon.com/security/security-bulletins/2026-160-aws/",
-          "https://ubuntu.com/security/CVE-2026-98432"
-        ],
-        "media": {
-          "types": [],
-          "urls": []
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-4",
-      "list_id": "2089990503555072281",
-      "tweet_id": "2119211195492356254",
-      "created_at": "2026-11-07T23:31:36.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "brucexu_eth",
-        "name": "brucexu.eth"
-      },
-      "text": "Web3Auth 的这个钱包基建也被黑了。感觉如果做钱包还是要做非托管的。托管钱包被黑的风险和概率太高了，而且很明显是平台的责任。有时候开源和非托管也是一种保护。",
-      "url": "https://x.com/brucexu_eth/status/2119211195492356254",
-      "engagement": {
-        "views": 321,
+        "views": 831,
         "likes": 2,
         "replies": 1,
         "reposts": 0,
@@ -165,19 +84,19 @@
         "urls": []
       },
       "quote": {
-        "tweet_id": "2119121596829012343",
-        "username": "camolNFT",
-        "name": "camol",
-        "text": "Fuck. \n\nA non-custodial embed wallet provider was just exploited.\n\nWeb3Auth is a provider that lets people create + control wallets with email logins (similar to Privy and Crossmint), and $700,000 was stolen earlier today.\n\nThese types of wallets are largely used by retail traders on consumer apps, and if a major provider is exploited we could see one of the largest user funds heists… ever.",
-        "created_at": "2026-11-07T17:35:34.000000Z",
-        "url": "https://x.com/camolNFT/status/2119121596829012343",
+        "tweet_id": "2119046997596590220",
+        "username": "BlockBeatsAsia",
+        "name": "BlockBeats｜We're hiring!",
+        "text": "这几天炒得沸沸扬扬的「黄仁勋疑似与中国女间谍存在恋爱关系」事件，又有新进展。\n\n据《金融时报》11 月 7 日最新披露，美国政府内部一份情报备忘录认为，英伟达 CEO 黄仁勋与一名被怀疑是中国间谍的女性 Alice Huang 存在恋爱关系。\n\n更戏剧性的是，这份备忘录据称早在今年 5 月特朗普访华前，就已经传阅至特朗普及少数美国高级官员。\n\n此前，《纽约时报》报道称，美国情报机构怀疑 Alice Huang 是中国国家安全部招募的情报人员，曾接近黄仁勋，试图收集美国 AI 芯片信息，并影响英伟达推动放宽对华芯片出口限制。\n\n目前，美国国会三名共和党委员会主席已要求黄仁勋于 11 月 18 日参加闭门简报，解释其与 Alice Huang 的接触，以及英伟达如何防范外国情报渗透。\n\n英伟达此前回应称，黄仁勋每年都会与数千名客户高管接触，双方互动属于正常商业往来，不涉及敏感技术或国家安全信息。\n\n需要强调的是，所谓间谍身份和恋爱关系目前都只是媒体披露的美国情报判断，尚未得到独立证实。\n\n这件事真正值得关注的，恐怕不是黄仁勋的私人生活，而是美国对英伟达对华业务的审查是否会进一步升级。\n\n当 AI 芯片成为中美科技博弈的核心，黄仁勋显然已经不只是一个企业 CEO 了。",
+        "created_at": "2026-11-07T12:39:08.000000Z",
+        "url": "https://x.com/BlockBeatsAsia/status/2119046997596590220",
         "external_urls": [],
         "media": {
           "types": [
             "photo"
           ],
           "urls": [
-            "https://pbs.twimg.com/media/HWih3EyWcAALZpN.jpg"
+            "https://pbs.twimg.com/media/HWheAoua0AE0mFe.jpg"
           ]
         }
       },
@@ -190,20 +109,20 @@
     {
       "list_name": "List-2",
       "list_id": "2062314900266127784",
-      "tweet_id": "2119154634761945595",
-      "created_at": "2026-11-07T19:46:51.000000Z",
+      "tweet_id": "2119550441797419037",
+      "created_at": "2026-11-08T21:59:39.000000Z",
       "kind": "quote",
       "author": {
-        "username": "Arron_finance",
-        "name": "Arron🐱"
+        "username": "YSI_crypto",
+        "name": "余三水"
       },
-      "text": "转发了一个多月，这次直接转带ticker的了， $CLAUDIA 会飞",
-      "url": "https://x.com/Arron_finance/status/2119154634761945595",
+      "text": "$BTC 破了，再收上去的话，就太玩人了。",
+      "url": "https://x.com/YSI_crypto/status/2119550441797419037",
       "engagement": {
-        "views": 2820,
-        "likes": 12,
-        "replies": 1,
-        "reposts": 2,
+        "views": 7821,
+        "likes": 15,
+        "replies": 7,
+        "reposts": 0,
         "quotes": 0
       },
       "external_urls": [],
@@ -212,16 +131,20 @@
         "urls": []
       },
       "quote": {
-        "tweet_id": "2119144684299915299",
-        "username": "elonmusk",
-        "name": "Elon Musk",
-        "text": "Who put your beliefs into your head? It probably wasn’t you.",
-        "created_at": "2026-11-07T19:07:19.000000Z",
-        "url": "https://x.com/elonmusk/status/2119144684299915299",
+        "tweet_id": "2118629421267771556",
+        "username": "YSI_crypto",
+        "name": "余三水",
+        "text": "最近没什么空频繁发\n\n$BTC 日K 76这里从指标上看是守不住啊，有强势下跌的可能。\n\n但现在总是变来变去的，我个人自己的看法是守不住。 https://t.co/P25ska1O2K",
+        "created_at": "2026-11-06T08:59:50.000000Z",
+        "url": "https://x.com/YSI_crypto/status/2118629421267771556",
         "external_urls": [],
         "media": {
-          "types": [],
-          "urls": []
+          "types": [
+            "photo"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/media/HWbiOgVagAACxcT.jpg"
+          ]
         }
       },
       "quote_context_missing": false,
@@ -231,23 +154,23 @@
       "retweet_quote_context_missing": false
     },
     {
-      "list_name": "List-3",
-      "list_id": "1939521569493291246",
-      "tweet_id": "2119144122426806346",
-      "created_at": "2026-11-07T19:05:05.000000Z",
+      "list_name": "List-1",
+      "list_id": "2092526123754414115",
+      "tweet_id": "2119541740998922506",
+      "created_at": "2026-11-08T21:25:04.000000Z",
       "kind": "original",
       "author": {
-        "username": "CoinbaseWallet",
-        "name": "Coinbase Wallet"
+        "username": "ArtofSpecuycky",
+        "name": "Art of Speculation"
       },
-      "text": "Weekend roll call.\n\nShow me your best charts ↓",
-      "url": "https://x.com/CoinbaseWallet/status/2119144122426806346",
+      "text": "刚看完All-In Podcast最新一期，期中选举民主党大获全胜、4万亿美元AI股单日蒸发、OpenAI还推翻了一个计算机科学界的基础假设\n\n期中选举复盘：民主党席卷两院，传统红州意外翻蓝\n这次中期选举民主党拿下了参众两院多数，还赢得了多个州长席位，德克萨斯、堪萨斯这些传统红州都意外翻了蓝。四位主持人从各自的角度，剖析了共和党这次溃败的根本原因。\n\nSacks认为败选的根源在于伊朗战争以及随之而来的经济恶果。战争导致原油和柴油价格暴涨，进而推高物价和食品成本，通胀反弹让美联储原本的降息预期彻底落空，房贷利率重新回到高位，直接摧毁了普通民众的生活可负担性。他还提到战争打破了共和党与年轻男性选民和独立播客圈(比如Joe Rogan、Tucker Carlson这些)之间原本的政治同盟，这部分选民流失得相当明显。\nFriedberg的切入点是更深层的财政失衡问题。他强调核心在于政府支出无度，2025年中政府效率部(DOGE)的改革受阻、宣告终止之后，每年数万亿美元的赤字开支直接推高了全社会的成本，普通民众感受不到任何繁荣红利，这种落差促使选民把票投给了主张政府介入和再分配的候选人。\n\nChamath这指出意识形态标签在这次选举里已经不重要，核心是美国经济底层机制的断裂。过去几年里，不管宏观环境怎么变，资产持有者的财富都在持续增值，而工薪阶层的实际购买力被严重剥夺，选民的这股愤怒，本质上是一场针对经济不平等的报复性投票。\n\nJason的观点认为选民抛弃执政党，是因为特朗普之前解决通胀、不发起新战争这两条竞选承诺都被打破了，再加上关税政策引发的通胀波动和执法争议，让他在中间派选民里的支持度大幅下挫。\n\n给特朗普后半程任期的几条自救建议\n针对接下来两年怎么走，几位主持人也提出了一些挺具体的政治自救方案。首先是尽快终结战争，压低国际油价，带动燃油、运输和食品价格回落，为美联储降息腾出空间，从根本上缓解民众的可负担性危机。其次是转向务实的交易型执政。放弃无谓的党派争斗，在保留边境管控成果的前提下，跟国会民主党人在一些经济民粹政策上做交换，比如提高最低工资、对低收入人群免征联邦税、刺激新建住房、限制公职人员炒股这类议题。\n\nSacks做了个有意思的历史类比。1994年克林顿和2010年奥巴马都是在中期选举惨败之后，通过政策修正重新赢得了连任，他提醒不要重蹈2006年小布什的覆辙，当年在伊拉克战争问题上孤注一掷增兵，最终导致了后续更大规模的政治溃败。\n\n4万亿美元AI股单日蒸发，数据中心审批正在被地方政治叫停\n市场因为担忧算力基建停摆，单日蒸发了接近4万亿美元市值，Anthropic和OpenAI的上市预期也因此受挫。核心矛盾集中在地方政治对大型数据中心的抵制上。地方社区和新上任的州长强烈抗议，说超大规模数据中心推高了本地居民的电费、占用了大量水资源，同时自己还享受着巨额税收减免，这种科技寡头获利、本地民众买单的对立情绪正在全面发酵。\n\nChamath做了一个挺重要的产业格局分析。审批放缓会重创那些依赖租赁算力的新型云服务商和前沿基础模型公司，而拥有自建能源和基础设施储备的超大规模厂商(亚马逊、谷歌、微软、Meta、SpaceX)会掌握稀缺算力的定价权和分配权，这次政治风波很可能会加速行业内部的分化，强者更强。\n\nJason和Sacks还警告了一个更长期的风险。如果美国各州普遍实施严格监管或者审批冻结，数据中心和算力基础设施就会被迫迁移到加拿大、墨西哥、东南亚或者中东，带走的不只是高薪工程岗位，还有相应的税收，美国有可能从一个算力净出口国，沦落为Token净进口国，这个说法虽然有点夸张，但方向上要警惕。\n\n科学角：OpenAI推翻了一个计算机科学的基础假设\n节目末尾Friedberg介绍了一个理论突破。指数时间假设(ETH)自1999年提出以来，一直是理论计算机科学里判定NP完全问题(比如3-SAT)无法在亚指数时间内求解的关键基石，也是探讨P是否等于NP这个世纪难题的核心支柱。\n\nOpenAI最近发布了一篇长达175页的论文，通过一套全新的方法论证明3-SAT问题可以在次指数时间内解决，从数学上证伪了ETH，这意味着宇宙中所有可以快速验证的问题，或许都能被高效计算出来(也就是P=NP成立的可能性)重新被激活了。这个突破不仅展示了AI系统在解决高难度纯数学和基础科学问题上的颠覆性潜力，也引发了学术界对未来计算复杂性理论的全面重新审视。",
+      "url": "https://x.com/ArtofSpecuycky/status/2119541740998922506",
       "engagement": {
-        "views": 10012,
-        "likes": 95,
-        "replies": 51,
-        "reposts": 6,
-        "quotes": 2
+        "views": 6725,
+        "likes": 20,
+        "replies": 8,
+        "reposts": 1,
+        "quotes": 0
       },
       "external_urls": [],
       "media": {
@@ -262,80 +185,35 @@
       "retweet_quote_context_missing": false
     },
     {
-      "list_name": "List-3",
-      "list_id": "1939521569493291246",
-      "tweet_id": "2119118970464927787",
-      "created_at": "2026-11-07T17:25:08.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "predictdotfun",
-        "name": "predict.fun"
-      },
-      "text": "Who will be the winner?",
-      "url": "https://x.com/predictdotfun/status/2119118970464927787",
-      "engagement": {
-        "views": 3897,
-        "likes": 27,
-        "replies": 10,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": {
-        "tweet_id": "2119052256305934584",
-        "username": "gmgnai",
-        "name": "GMGN.Ai",
-        "text": "GMGN × @predictdotfun\n\nThe official GGC Season 1 Grand Final prediction market is now LIVE on Predict!\n\n7 finalists. 1 champion. Who's taking the crown?\n\nMake your prediction:\nhttps://t.co/vfNd41dHMR\n\nNov 16 · London · Streamed live https://t.co/IxM9QZpyyq",
-        "created_at": "2026-11-07T13:00:02.000000Z",
-        "url": "https://x.com/gmgnai/status/2119052256305934584",
-        "external_urls": [
-          "https://predict.fun/market/gmgn-ggc-season-1-winner"
-        ],
-        "media": {
-          "types": [
-            "photo"
-          ],
-          "urls": [
-            "https://pbs.twimg.com/media/HWhgOrPaAAAtawu.jpg"
-          ]
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-3",
-      "list_id": "1939521569493291246",
-      "tweet_id": "2119107964363588037",
-      "created_at": "2026-11-07T16:41:24.000000Z",
+      "list_name": "List-4",
+      "list_id": "2089990503555072281",
+      "tweet_id": "2119507514459144677",
+      "created_at": "2026-11-08T19:09:04.000000Z",
       "kind": "original",
       "author": {
-        "username": "base",
-        "name": "Base"
+        "username": "Khazix0918",
+        "name": "数字生命卡兹克"
       },
-      "text": "NASDAQ: closed\n\nBase: open https://t.co/0my9sXTjYC",
-      "url": "https://x.com/base/status/2119107964363588037",
+      "text": "灰度路由到了GPT-6.2 Sol，简单测了一下，这个审美，强到爆炸，并且防御性问题有很不错的改善，这个模型有点香啊！！！\n感觉要提前开香槟恭喜OpenAI回归了？？？\n\nPrompt：“请使用 Three.js 创作一个主题为《时间的尽头》的 3D 交互式网页。\n充分发挥你最顶级的审美、艺术设计和 3D 编程能力，在构图、光影、材质、粒子、动画和空间氛围上做到极致。画面需要有令人震撼的视觉表现力，并且可以通过鼠标自由交互。\n不限制你的创意和技术方案，尽可能展示你的能力上限。请直接完成开发、运行和测试，交付一个真正可玩的作品。”",
+      "url": "https://x.com/Khazix0918/status/2119507514459144677",
       "engagement": {
-        "views": 31252,
-        "likes": 358,
-        "replies": 82,
-        "reposts": 51,
-        "quotes": 21
+        "views": 37057,
+        "likes": 271,
+        "replies": 52,
+        "reposts": 20,
+        "quotes": 6
       },
       "external_urls": [],
       "media": {
         "types": [
-          "photo"
+          "video"
         ],
         "urls": [
-          "https://pbs.twimg.com/media/HWiVcwDXsAA9fTu.png"
+          "https://pbs.twimg.com/amplify_video_thumb/2119507467990413312/img/dCMmCV5ohy_PaqTY.jpg",
+          "https://video.twimg.com/amplify_video/2119507467990413312/vid/avc1/480x270/HMi_uiJyGNus-U8q.mp4?tag=29",
+          "https://video.twimg.com/amplify_video/2119507467990413312/vid/avc1/640x360/59tj0GsiUjvlAyxJ.mp4?tag=29",
+          "https://video.twimg.com/amplify_video/2119507467990413312/vid/avc1/1280x720/erlFJIu-Nm6fciTQ.mp4?tag=29",
+          "https://video.twimg.com/amplify_video/2119507467990413312/vid/avc1/1920x1080/EbQWEWoUHdTeoSVp.mp4?tag=29"
         ]
       },
       "quote": null,
@@ -346,22 +224,106 @@
       "retweet_quote_context_missing": false
     },
     {
+      "list_name": "List-3",
+      "list_id": "1939521569493291246",
+      "tweet_id": "2119490125042434513",
+      "created_at": "2026-11-08T17:59:58.000000Z",
+      "kind": "retweet",
+      "author": {
+        "username": "river_markets",
+        "name": "River Markets"
+      },
+      "text": "RT @predictsummit: Before co-founding @river_markets, @oscar_lvy built quant models trading billions at BlackRock. Backed by YC, Haun Ventu…",
+      "url": "https://x.com/river_markets/status/2119490125042434513",
+      "engagement": {
+        "views": 39,
+        "likes": 0,
+        "replies": 0,
+        "reposts": 1,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": {
+        "tweet_id": "2119475929743323490",
+        "username": "predictsummit",
+        "name": "Voliti Co's Predict",
+        "text": "Before co-founding @river_markets, @oscar_lvy built quant models trading billions at BlackRock. Backed by YC, Haun Ventures and Coinbase Ventures, River is building prime brokerage for prediction markets.\n\nDec 7–9 · The Times Center · NYC\nhttps://t.co/Q6N0xtzOqS https://t.co/ArKnExnPZ3",
+        "created_at": "2026-11-08T17:03:34.000000Z",
+        "url": "https://x.com/predictsummit/status/2119475929743323490",
+        "external_urls": [
+          "https://predict2026.org/tickets"
+        ],
+        "media": {
+          "types": [
+            "photo"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/media/HWnkIEoWkAEKWHE.jpg"
+          ]
+        }
+      },
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
       "list_name": "List-2",
       "list_id": "2062314900266127784",
-      "tweet_id": "2119102118108000720",
-      "created_at": "2026-11-07T16:18:10.000000Z",
+      "tweet_id": "2119478453997338686",
+      "created_at": "2026-11-08T17:13:36.000000Z",
       "kind": "original",
       "author": {
-        "username": "bwenews",
-        "name": "方程式新闻 BWEnews 🏎️"
+        "username": "0xStudy",
+        "name": "0xStudy"
       },
-      "text": "AggrNews: BINANCE CONFIRMS KAISER NG LEAVING, NAMES JUSTIN YEK NEW CFO: BBG\n\nAggrNews: 币安证实凯瑟·吴将离职，并任命贾斯汀·叶为新任首席财务官：彭博社",
-      "url": "https://x.com/bwenews/status/2119102118108000720",
+      "text": "这 @squeekchain 的NFT一波百万U\n\n8888*0.05*2220=98.6万U\n打满一个号0.5E...卧槽了 还是NFT赚钱啊\n总量一万   全是金子做的仓鼠？？？ https://t.co/Fwz7jogjmD",
+      "url": "https://x.com/0xStudy/status/2119478453997338686",
       "engagement": {
-        "views": 28603,
-        "likes": 19,
-        "replies": 6,
-        "reposts": 2,
+        "views": 6229,
+        "likes": 40,
+        "replies": 28,
+        "reposts": 1,
+        "quotes": 1
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HWnl6BTawAEBu2r.jpg"
+        ]
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-3",
+      "list_id": "1939521569493291246",
+      "tweet_id": "2119448608764534982",
+      "created_at": "2026-11-08T15:15:00.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "variational_io",
+        "name": "Variational"
+      },
+      "text": "As OLP continues to improve its hedging infrastructure and it's set of liquidity partnerships expands, open interest limits will continue to rise.\n\nIf you previously had a trade on TradFi perps hitting OI limits, give it another try!",
+      "url": "https://x.com/variational_io/status/2119448608764534982",
+      "engagement": {
+        "views": 10337,
+        "likes": 208,
+        "replies": 26,
+        "reposts": 14,
         "quotes": 4
       },
       "external_urls": [],
@@ -369,174 +331,20 @@
         "types": [],
         "urls": []
       },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-3",
-      "list_id": "1939521569493291246",
-      "tweet_id": "2119097673315987565",
-      "created_at": "2026-11-07T16:00:30.000000Z",
-      "kind": "retweet",
-      "author": {
-        "username": "xStocksFi",
-        "name": "xStocks"
-      },
-      "text": "RT @tokenterminal: xStocks leads tokenized stock issuers by market cap growth over the past 7d, adding $79.9M https://t.co/7wciZHb0Mr",
-      "url": "https://x.com/xStocksFi/status/2119097673315987565",
-      "engagement": {
-        "views": 1956,
-        "likes": 0,
-        "replies": 0,
-        "reposts": 3,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWd7CESbUAADuAw.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": {
-        "tweet_id": "2118797427583168817",
-        "username": "tokenterminal",
-        "name": "Token Terminal 📊",
-        "text": "xStocks leads tokenized stock issuers by market cap growth over the past 7d, adding $79.9M https://t.co/7wciZHb0Mr",
-        "created_at": "2026-11-06T20:07:26.000000Z",
-        "url": "https://x.com/tokenterminal/status/2118797427583168817",
-        "external_urls": [],
-        "media": {
-          "types": [
-            "photo"
-          ],
-          "urls": [
-            "https://pbs.twimg.com/media/HWd7CESbUAADuAw.jpg"
-          ]
-        }
-      },
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-3",
-      "list_id": "1939521569493291246",
-      "tweet_id": "2119086227018428594",
-      "created_at": "2026-11-07T15:15:01.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "variational_io",
-        "name": "Variational"
-      },
-      "text": "Swaps are built for size.\n\nTradFi liquidity on gold, US100, oil, volatility and more, directly on-chain.\n\nOnly on Omni. https://t.co/GmfX6G5jf9",
-      "url": "https://x.com/variational_io/status/2119086227018428594",
-      "engagement": {
-        "views": 7159,
-        "likes": 181,
-        "replies": 21,
-        "reposts": 12,
-        "quotes": 3
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWiBsY6bQAAJPwX.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-4",
-      "list_id": "2089990503555072281",
-      "tweet_id": "2119083614382219734",
-      "created_at": "2026-11-07T15:04:38.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "Khazix0918",
-        "name": "数字生命卡兹克"
-      },
-      "text": "把AIHOT的Codex重置监控给简单升级了一下，现在也监控了Codex新的代言人Andrew。 \n\n同时因为又看到了Google那个Antigravity的重置通告，所以，顺道手又把Antigravity和Claude的重置监控也做了。。。\n\n现在统一成了重置监控，大家还有想监控的类似的重置更新可以跟我说一声，我判断一下，直接加进去就行，反正AIHOT已经监控了全网几千个AI信源了，随手的事～\n\n老规矩，同样开放了匿名免费API，供大家二次开发玩。希望大家玩的开心～\n\n网址：https://t.co/3Orrx3dNva",
-      "url": "https://x.com/Khazix0918/status/2119083614382219734",
-      "engagement": {
-        "views": 9815,
-        "likes": 61,
-        "replies": 19,
-        "reposts": 5,
-        "quotes": 0
-      },
-      "external_urls": [
-        "http://aihot.news/resets"
-      ],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWh-KXuboAA1Vh9.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-1",
-      "list_id": "2092526123754414115",
-      "tweet_id": "2119071172730273886",
-      "created_at": "2026-11-07T14:15:12.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "0xSleepinRain",
-        "name": "雨中狂睡SleepinRain"
-      },
-      "text": "台子只需要看 @MontraXYZ @AscendLaunch 就够了。",
-      "url": "https://x.com/0xSleepinRain/status/2119071172730273886",
-      "engagement": {
-        "views": 2896,
-        "likes": 14,
-        "replies": 9,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
       "quote": {
-        "tweet_id": "2119039537926054213",
-        "username": "agora_elysium",
-        "name": "Agora",
-        "text": "These are the top 5 launchpads on elysium in the past 24hrs \n\n@MontraXYZ - $8m volume & 66% market share\n\n@AscendLaunch - $1.26m volume & 10% market share\n\n@obolworld - $837k volume & 6.9% market share\n\n@TheKleos_ - $543k volume & 4.5% market share\n\n@ElysiumPump - $522k volume & 4.3% market share \n\nAll data are available on agora 👀🫡",
-        "created_at": "2026-11-07T12:09:30.000000Z",
-        "url": "https://x.com/agora_elysium/status/2119039537926054213",
+        "tweet_id": "2118828801002217898",
+        "username": "variational_io",
+        "name": "Variational",
+        "text": "Open interest limits on all TradFi perps are now 3 times higher.\n\nThis increase comes from OLP improvements in today's mainnet release. Limits will continue to climb as OLP and the platform mature. https://t.co/x5ZGcV0wyo",
+        "created_at": "2026-11-06T22:12:06.000000Z",
+        "url": "https://x.com/variational_io/status/2118828801002217898",
         "external_urls": [],
         "media": {
           "types": [
             "photo"
           ],
           "urls": [
-            "https://pbs.twimg.com/media/HWhXObAWkAAGG1T.jpg"
+            "https://pbs.twimg.com/media/HWeXkOGa0AAIWFq.jpg"
           ]
         }
       },
@@ -549,20 +357,20 @@
     {
       "list_name": "List-1",
       "list_id": "2092526123754414115",
-      "tweet_id": "2119068061550719241",
-      "created_at": "2026-11-07T14:02:50.000000Z",
+      "tweet_id": "2119441804416503875",
+      "created_at": "2026-11-08T14:47:58.000000Z",
       "kind": "retweet",
       "author": {
         "username": "0xSleepinRain",
         "name": "雨中狂睡SleepinRain"
       },
-      "text": "RT @tuotuotuoyu: 直接看台子的话\n\n龙一是 @MontraXYZ，目前台子上有两个究极捆绑盘 $EACCAT, $CHAMELEON。 @MontraXYZ 的组局能力很流啤，可以优先关注，后面会发平台币\n\n必须要说的是另一个台子 @AscendLaunch，创…",
-      "url": "https://x.com/0xSleepinRain/status/2119068061550719241",
+      "text": "RT @alu1337: 明天 @Enter_Elysium 就上主网了，简单聊聊为什么这条链值得关注，以及我个人正在关注哪些项目。\n\n（一）关注逻辑\n\nElysium 是 @Kinetiq_xyz 构建的一条 Hyperliquid 高性能 L2，特点是用 hyperliqu…",
+      "url": "https://x.com/0xSleepinRain/status/2119441804416503875",
       "engagement": {
-        "views": 451,
+        "views": 441,
         "likes": 0,
         "replies": 0,
-        "reposts": 4,
+        "reposts": 18,
         "quotes": 0
       },
       "external_urls": [],
@@ -573,106 +381,20 @@
       "quote": null,
       "quote_context_missing": false,
       "retweet": {
-        "tweet_id": "2118997963720778238",
-        "username": "tuotuotuoyu",
-        "name": "ttty(✨, 🧻👋) 托鱼 无情",
-        "text": "直接看台子的话\n\n龙一是 @MontraXYZ，目前台子上有两个究极捆绑盘 $EACCAT, $CHAMELEON。 @MontraXYZ 的组局能力很流啤，可以优先关注，后面会发平台币\n\n必须要说的是另一个台子 @AscendLaunch，创始人是老朋友 @CryptoTomYT , 以前的河马大户，创始人很会玩链上这件事儿非常重要，不发平台币燃烧$KNTQ",
-        "created_at": "2026-11-07T09:24:18.000000Z",
-        "url": "https://x.com/tuotuotuoyu/status/2118997963720778238",
+        "tweet_id": "2119439390506422636",
+        "username": "alu1337",
+        "name": "ALU",
+        "text": "明天 @Enter_Elysium 就上主网了，简单聊聊为什么这条链值得关注，以及我个人正在关注哪些项目。\n\n（一）关注逻辑\n\nElysium 是 @Kinetiq_xyz 构建的一条 Hyperliquid 高性能 L2，特点是用 hyperliquid:native 作为 Gas、结算回 HyperEVM ，且吞吐量目标远高于 HyperEVM。由于 Hyperliquid 的结构和生态定位的特殊性，个人觉得不能简单地将 Elysium 归纳为又一条 EVM L2 的故事，它值得关注的理由恰恰也与 Hyperliquid 息息相关，其实可以列很多，这里主要说两点：\n\n> hyperliquid:native 的财富效应还在，叙事也在升级，当前 HyperEVM 的应用密度/体验明显不够，生态资深用户/鲸鱼需要更好的投机与应用出口\n> 构建了完整的代币生命周期：代币发行 → AMM 深度 → HyperCore Spot → Perps\n\n主网正式上线前的 Private mainnet 以及各家 Launchpad 搭 RPC 抢跑，确实透支过一部分注意力了，但结合链上数据也恰恰说明了市场对它的预期还不错，并且整个运行逻辑并没有改变，因此个人依然会持续关注其主网上线后的表现和发展。\n\n（二）值得关注的项目\n\n目前大家看到最多的生态项目大概就是 Launchpad 了，据 @ElysiumEco 显示，光是 Launchpad 的数量就高达接近 40 个了。前面 Robinhood Chain 已经向大家展示了这一品类的潜力和财富效应，所以数量多个人并不意外，但毕竟注意力有限，不可能每个都关注，个人目前主要在关注下面这些项目。\n\n> @AscendLaunch ：Elysium 上最先把流量打出来的 Launchpad 之一，创始人是 @CryptoTomYT ，11/4 解开官网密码限流做压测后贡献了不错的数据，当天交易量超 $5M 量级。更为重要的是，它在费用侧把 kinetiq:native  的回购比例拉到 80%，按照 @0xSleepinRain 的说法，这体现了生态内应用与公链代币的一致性，而 Ascend 起了一个很好的生态示范作用。\n\nAscend 没有自己的官方代币，但会有一个 NFT 并且还有一个生态孵化器用于支持生态项目，这决定了它更像是一个生态入口，而不仅仅只是发射台。值得一提的是，今天 Ascend 上发射的 $e/acc @eacc_coin 已经拍下了 HyperCore Spot Ticker。\n\n> @MontraXYZ ：另一个主要 Launchpad，定位 House of launches，Private mainnet 阶段占据了最大的市场份额，超过 60% 的代币都是从 Montra 上发射出来的，日交易量在千万级别。在今天的 $e/acc 之前，Elysium 生态中的两个主要 Runner $EACCAT 和 $CHAMELEON 都是 Montra 上的。值得一提的是，Montra 提供自定义的 Launch 规则配置，包括代币如何铸造、市场如何开启、费用如何运作等，而不是单一的结构。\n\nMontra 将发行自己的代币 $MONTRA ，并有一个空投计划，总量的 25% 将用于社区空投，主要分成五块：HYPE/KNTQ/Elysium 活跃用户、早期创作者与交易者、Top 10 token 持有者、LP、内容/推荐，目前官网已有 Airdrop 积分页。\n\n> @quoted_xyz ：和前面两个 Launchpad 不一样的是，Quoted 专注的是「用什么来报价」。每个新代币不是简单跟 HYPE 配对，而是可以被股票、商品或杠杆仓位 quote，比如 SPY、QQQ、黄金、白银、Brent，以及现货 hyperliquid:native / kinetiq:native，跑在 Uniswap v4 上。个人觉得这条线和 Robinhood Chain 上的股票代币叙事是同构的：流动性本身变成可发行、可收费的产品形态。\n\n更值得关注的点是它在往「Be the quote」走：可以把 Vault（含最多 8 腿的 3x 杠杆仓位组合）直接做成 quote 对，别人在上面发射/交易，你吃交易费的一部分；官方也说会把国库和后续费用换成 kinetiq:native 并在主网 Day1 做 LP。 $QUOTED 目前已在 Elysium 上线，属于少数把 TradFi×Crypto 机制先跑起来的应用。\n\n> @Bound_Exchange ：Bound 做的是一种叫 Boundaries 的交易原语，选市场、设上下界、锁定固定赔付，哪个价先碰到就结算，没有到期日，也可以中途按报价提前平仓。本质上是把「图表上的一段路径判断」直接变成一笔可表达、可复制的仓位，介于永续深度和预测市场赔付之间。产品目前主要跑在 HyperEVM，Bio 写明即将上线  Elysium；创始人 @benny_options 也提到，HyperEVM 上 Keeper 的 Gas 成本并不便宜，Elysium 的低 Gas + 更直接的 Hyperliquid 接入为他们提供了更好的构建环境。\n\n这种项目值得关注的地方是可以用来观察 Elysium 到底能不能真正承接这种依赖 Hyperliquid 深度、又对 Gas/延迟敏感的新原语，期待在 Elysium 主网上线后的表现。\n\n> @eloscapeHQ ：Eloscape 的定位是 Elysium 上的 Virtual Mining /价值沉淀协议，官方 Slogan 就是 Value consolidation on Elysium。玩法大致是：每一轮（约 60 秒）把 hyperliquid:native 部署到网格上，链上随机结算，过程中挖出 $ELO；领取挖矿所得会有手续费，质押 $ELO 则参与协议收入分配。和纯 meme 发射不同，它更像是在给生态做一个持续消耗 HYPE、再把价值沉到协议代币上的资金漏斗。\n\n目前项目还未上线，也还没有代币，看共同关注应该是个还蛮有潜力的项目，保持关注。\n\n> @kalosfun ：定位是 Elysium 上的一站式交易终端——Meme sniping、Swap、做 LP、扫 NFT/drops，再到 Social，都想收进同一个入口。Bio 就是 Trade anything on @Enter_Elysium；官方生态页也把它归在 Launchpads + DeFi。它是 @AscendLaunch Builder Incubator 的第一个入选项目，和 Ascend 的绑定比较深，个人会把它当成「发射台之外的流量承接层」来看。\n\nGenesis NFT（1,500 枚）已在 11/4 售罄，官方定价 $25，对应未来 $KALOS 总量约 10%，并计划 11/9 空投到钱包。主网上线后，还会有积分计划。\n\nNFT 的话可以关注 @Elyziumaa @slymzcrew ，就不过多介绍了，感兴趣可以自己去看看。\n\n以上就是个人的一些看法和关注的项目，打法上也相对简单，优先看有创新、能接住 HYPE 资本溢出、又能把费用/叙事回流到 KNTQ/HYPE 的相关项目，期待主网明天的上线。\n\n最后，朋友做了一个 Elysium meme 信息聚合 & 交易小工具 @ElySignal ，如果这篇内容对你有所帮助，欢迎帮忙点点关注和参与体验，目前还在持续优化中，有任何建议也可以直接跟我提~",
+        "created_at": "2026-11-08T14:38:22.000000Z",
+        "url": "https://x.com/alu1337/status/2119439390506422636",
         "external_urls": [],
         "media": {
-          "types": [],
-          "urls": []
-        }
-      },
-      "retweet_is_quote": true,
-      "retweet_quote": {
-        "tweet_id": "2118996917669818806",
-        "username": "tuotuotuoyu",
-        "name": "ttty(✨, 🧻👋) 托鱼 无情",
-        "text": "HyperEVM 一直很菜，这一次 Elysium 可能是个大机会，无论你承不承认，目前的市场状态，链上最大的号召者绝对就是黑鬼，好好听黑鬼的话可以少亏很多钱\n\nKinetiq 正在构建 Elysium 作为一个更快的 L2 来支持更多的链上活动，而且所有的活动都是为了燃烧 $KNTQ 和 $HYPE ，看起来是非常有机的生态系统",
-        "created_at": "2026-11-07T09:20:08.000000Z",
-        "url": "https://x.com/tuotuotuoyu/status/2118996917669818806",
-        "external_urls": [],
-        "media": {
-          "types": [],
-          "urls": []
-        }
-      },
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-3",
-      "list_id": "1939521569493291246",
-      "tweet_id": "2119067373722648846",
-      "created_at": "2026-11-07T14:00:06.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "variational_io",
-        "name": "Variational"
-      },
-      "text": "We're rolling out A/B testing of new features on Omni, starting with depth indicators added to the order form for a small subset of traders. https://t.co/TPeiIPEqpr",
-      "url": "https://x.com/variational_io/status/2119067373722648846",
-      "engagement": {
-        "views": 15694,
-        "likes": 303,
-        "replies": 41,
-        "reposts": 27,
-        "quotes": 14
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWhwi9ybcAEqdxp.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-1",
-      "list_id": "2092526123754414115",
-      "tweet_id": "2119065642771063142",
-      "created_at": "2026-11-07T13:53:14.000000Z",
-      "kind": "retweet",
-      "author": {
-        "username": "0xSleepinRain",
-        "name": "雨中狂睡SleepinRain"
-      },
-      "text": "RT @tuotuotuoyu: HyperEVM 一直很菜，这一次 Elysium 可能是个大机会，无论你承不承认，目前的市场状态，链上最大的号召者绝对就是黑鬼，好好听黑鬼的话可以少亏很多钱\n\nKinetiq 正在构建 Elysium 作为一个更快的 L2 来支持更多的链上活…",
-      "url": "https://x.com/0xSleepinRain/status/2119065642771063142",
-      "engagement": {
-        "views": 457,
-        "likes": 0,
-        "replies": 0,
-        "reposts": 1,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": {
-        "tweet_id": "2118996917669818806",
-        "username": "tuotuotuoyu",
-        "name": "ttty(✨, 🧻👋) 托鱼 无情",
-        "text": "HyperEVM 一直很菜，这一次 Elysium 可能是个大机会，无论你承不承认，目前的市场状态，链上最大的号召者绝对就是黑鬼，好好听黑鬼的话可以少亏很多钱\n\nKinetiq 正在构建 Elysium 作为一个更快的 L2 来支持更多的链上活动，而且所有的活动都是为了燃烧 $KNTQ 和 $HYPE ，看起来是非常有机的生态系统",
-        "created_at": "2026-11-07T09:20:08.000000Z",
-        "url": "https://x.com/tuotuotuoyu/status/2118996917669818806",
-        "external_urls": [],
-        "media": {
-          "types": [],
-          "urls": []
+          "types": [
+            "photo"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/media/HWnA96kbMAAOoZI.jpg"
+          ]
         }
       },
       "retweet_is_quote": false,
@@ -680,22 +402,22 @@
       "retweet_quote_context_missing": false
     },
     {
-      "list_name": "List-1",
-      "list_id": "2092526123754414115",
-      "tweet_id": "2119063224452857963",
-      "created_at": "2026-11-07T13:43:37.000000Z",
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2119439065716322378",
+      "created_at": "2026-11-08T14:37:05.000000Z",
       "kind": "quote",
       "author": {
-        "username": "0xSleepinRain",
-        "name": "雨中狂睡SleepinRain"
+        "username": "Benjieming1Q84",
+        "name": "Benjieming的撸毛之旅"
       },
-      "text": "除了直观可以看到的，nest 准备在 uniswap v4 hook 上大展拳脚外，我觉得最重要的一个产品更新是 nest 想要通过 hook 把 hyperliquid 的订单簿数据引入了 amm 定价体系（avr）。\n\n当外部市场价格发生变化时，率先推动传统 amm 价格调整的是套利者。他们可以反复地从这种价格波动中捕获价值。而 avr 则能够通过接入 hypercore 的预编译接口，直接读取订单簿价格，并通过动态费率的形式，把这部分价值保留在流动性池中。用人话解释就是，你可以套利赚钱，但需要交更高的手续费。\n\n不过这个预编译接口不是和 elysium 主网同时上线的，真正开放可能需要等到主网上线的一个月后。所以现在还处于展望阶段。\n\n整体来看，nest 对其产品线的扩展还是可以的，它希望通过在 uniswap v4 hook 的扩展中获得更多的价值捕获，持续创造新的收入来源，再将这些收入反馈给 venest 持有者。我个人觉得还可以。",
-      "url": "https://x.com/0xSleepinRain/status/2119063224452857963",
+      "text": "我把Flop Labs Devnet整个过程跑下来，最大的感受是：\n- 解放双手。\n- 24年“高不可攀”的自动化脚本，分分钟可以实现。\n\n这个部分没什么门槛了。",
+      "url": "https://x.com/Benjieming1Q84/status/2119439065716322378",
       "engagement": {
-        "views": 2830,
-        "likes": 21,
+        "views": 2669,
+        "likes": 7,
         "replies": 5,
-        "reposts": 0,
+        "reposts": 2,
         "quotes": 0
       },
       "external_urls": [],
@@ -704,13 +426,20 @@
         "urls": []
       },
       "quote": {
-        "tweet_id": "2117709682340942246",
-        "username": "NestExchange",
-        "name": "nest",
-        "text": "https://t.co/mfS2s6knnb",
-        "created_at": "2026-11-03T20:05:08.000000Z",
-        "url": "https://x.com/NestExchange/status/2117709682340942246",
-        "external_urls": [],
+        "tweet_id": "2119391616679231774",
+        "username": "Benjieming1Q84",
+        "name": "Benjieming的撸毛之旅",
+        "text": "【Flop Labs Devnet参与过程 -项目跟进】\n\n⭐️再次确认：\n⓵Devnet没有空投+没收益+可能重置。\n⓶真正有空投的是之后的Testnet(公布日期以官方为准)。\n⓷目前FLOP是测试代币，不能买卖，能买到的都是假的。\n⓸官方没有Discord和Telegram，一切信息以官推和创始人推特为准。\n⭐️现在做Devnet的目的是，先跑通，不用等到Testnet发布才开始研究。\n\n1️⃣官方提供的一些链接\n⓵官方文档：https://t.co/KYjSRyd92V\n⓶测试币水龙头：https://t.co/YwmRv93yoY\n⓷Explorer：https://t.co/oGfprViN2C\n⓸Agent接入：https://t.co/D51yhFHmLg\n⓹模型API：https://t.co/WATBAujxrm\n⓺MCP：https://t.co/xSL8UIZMfr\n⓻RPC：wss://rpc.devnet.flop.network\n⓼SDK和CLI ：npm i @flop-labs/sdk\n⓽钱包：Polkadot.js / Talisman / SubWallet\n2️⃣目前能参与的角度：\n⓵Agent角度\n- 通过\"Agent接入\"这个网站，使用页面的“提示词”，让自己的AI Agent自动跑通全过程。\n⓶GPU Miner(矿工)角度\n- 这个需要自己有16G以上NVIDIA GPU，可以是自己的，也可以租。\n⓷Validator(验证者)角度\n- 跑节点，这个门槛较高。\n\n🧵",
+        "created_at": "2026-11-08T11:28:32.000000Z",
+        "url": "https://x.com/Benjieming1Q84/status/2119391616679231774",
+        "external_urls": [
+          "http://docs.flop.network/docs/official-links",
+          "http://faucet.flop.network",
+          "http://explorer.devnet.flop.network",
+          "http://explorer.devnet.flop.network/connect",
+          "http://api.flop.network/models",
+          "http://mcp.flop.network/mcp"
+        ],
         "media": {
           "types": [],
           "urls": []
@@ -725,20 +454,20 @@
     {
       "list_name": "List-2",
       "list_id": "2062314900266127784",
-      "tweet_id": "2119054970502988082",
-      "created_at": "2026-11-07T13:10:49.000000Z",
+      "tweet_id": "2119434587445358846",
+      "created_at": "2026-11-08T14:19:17.000000Z",
       "kind": "retweet",
       "author": {
-        "username": "0xYond",
-        "name": "Yond (DeFi Arc)"
+        "username": "binancezh",
+        "name": "币安Binance华语"
       },
-      "text": "RT @bonnazhu: 我也很喜欢这种产品为先的理念\n借着机会聊聊 Points：\n\n积分计划向来都是一把双刃剑。\n\n能理解，在全民积分的时代，别人都在弄，你不弄，资金、注意力就被吸走，没有积分，往往也很难有自发的社媒平台讨论，毕竟大家的时间和精力都很宝贵。… https:…",
-      "url": "https://x.com/0xYond/status/2119054970502988082",
+      "text": "RT @binance: Join Binance Co-CEOs @_RichardTeng and @heyibinance, alongside Chief Security Officer Jimmy Su, for a fireside chat.\n\nModerate…",
+      "url": "https://x.com/binancezh/status/2119434587445358846",
       "engagement": {
-        "views": 77,
+        "views": 3404,
         "likes": 0,
         "replies": 0,
-        "reposts": 1,
+        "reposts": 88,
         "quotes": 0
       },
       "external_urls": [],
@@ -749,705 +478,26 @@
       "quote": null,
       "quote_context_missing": false,
       "retweet": {
-        "tweet_id": "2119054442393931857",
-        "username": "bonnazhu",
-        "name": "Bonna",
-        "text": "我也很喜欢这种产品为先的理念\n借着机会聊聊 Points：\n\n积分计划向来都是一把双刃剑。\n\n能理解，在全民积分的时代，别人都在弄，你不弄，资金、注意力就被吸走，没有积分，往往也很难有自发的社媒平台讨论，毕竟大家的时间和精力都很宝贵。\n\n然而过早上线积分也容易让你看不清自己产品本身是否具备市场契合度，用户到底是因为产品来的，还是纯粹因为预期中的空投来的呢？\n\n所以对于第一次做 Crypto 产品冷启动的团队，我通常更倾向于建议：先想尽一切办法找到一批真正需要你产品的种子用户，double down on that。把这批人服务好，搞清楚他们为什么来、为什么留下，以及产品的飞轮到底应该是什么，再考虑用积分去加速扩张。\n\n即回归本质，在这个系统里\n积分更应该是一个获客手段\n你最终要的是用户的转化\n而不能仅限于为了获得 Listing 所需的数据\n\n当然，身在局中，有时候不得不和光同尘。但对于每一个想要利用积分来做增长的项目，都应该牢记以下几点：\n\n1）不要 Rush To a Points Program\n\n特别是把它当做试水产品或者冷启动一个未经市场验证的产品的手段，绝对的 NO！因为在经过这么多轮的教育和捶打后，市场早已经把 Points 习惯性当做一个非常明确的 Token Launch 信号了，一旦开启，是没有回头路的。即大家把 Points 都等同于矿，是去挖的，所有人都会投入时间、精力、资金去参与，并相信最终能借助代币去变现，是隐含了用户的信任的。千万不能用用户对发币的确定性预期，去替团队自己的不确定性买单。\n\n2）当你开启积分计划后，就需要开始筹备代币\n\n没错。很反常识，但大部分没有这么去做和提前筹划的项目，往往最终结果都不太好。最理想的积分跨度应该在 6 个月左右，Season 1 结束，Season 2 开始，完成 TGE，干净利落。拖的越久，参与者情绪越不稳，外加积分本质也是一种通胀，时间越长，对于所有身在其中的人也是一种稀释。很多团队没有这个概念，反复 Delay，也没有明确时间线，其实都是在消耗市场和用户对你的信任。更不用说有的直接积分全部作废那种情况，就更恶劣了。\n\n3）尽早让你的积分能定价和换手\n\n虽然积分按行业惯例都是等到 TGE 才兑现。但尽早给参与者提供积分定价、换手的场所，是很有必要的。你要做的是，让参与者知道自己投入的时间和资金，究竟可能换来什么。比如如下的行为，会带来好感和信任：\n\n- 在可能的情况下，尽早公布空投比例\n- 尽量利用好 Pendle 等市场去给积分定价\n- 适时引入 Pre-Market，建立初步的 FDV 预期\n- 合理增加积分的换手渠道\n\n其中空投比例和 Pre-Market 带来的 FDV 预期，往往是精算师们的重要参考，这会大大吸引资金参与。而积分定价、换手渠道的存在，则是有助于积分在 TGE 之前的换手，把本身零成本的空投，变成有持有成本的筹码，这都会大大有助于上线之后代币的价格表现。\n\n4）积分的最终不是发币，而是兑现预期\n\n积分很像一种建立预期和引导预期的过程。既然用预期吸引了资金和用户，就需要用一个好的 Token Launch 和 Token Price Alignment 去兑现，才算有始有终。很多项目做了前面几个环节，但没有走好最后这一步，功亏一篑。而一个好的 Token Launch 和设计，必须是：\n\n- 代币模型有持续需求支撑，supply 与 demand 相平衡\n- 有好的 listing venue，兼顾用户覆盖和有效分发\n- 良好健康的做市结构，确保利益一致，而非利益错配\n\n写在最后：\n\n当然，积分会结束，但产品还要继续。\n\n积分是借未来的预期，推动今天的增长。\n\n但增长带来的，也不应该只是一批等着兑现的筹码。\n\n这里面有多少成功的转化呢？多高算成功呢？\n\n这里面，就是项目在这套 Playbook 之外下功夫的地方。\n\n好为之，好为之。",
-        "created_at": "2026-11-07T13:08:43.000000Z",
-        "url": "https://x.com/bonnazhu/status/2119054442393931857",
-        "external_urls": [],
-        "media": {
-          "types": [
-            "photo"
-          ],
-          "urls": [
-            "https://pbs.twimg.com/media/HWhZ0LZa0AAF4gT.png"
-          ]
-        }
-      },
-      "retweet_is_quote": true,
-      "retweet_quote": {
-        "tweet_id": "2118835156845015217",
-        "username": "SipaCapital",
-        "name": "Sipa",
-        "text": "I really like projects like @get_truenorth  that want to ship a great product first and grow their user base organically without launching a points program\n\nSome teams prefer to launch a points program at an early stage, but this eventually dilutes points holders and milks early users, because you know it takes 1+ years to build a good product, which means 1+ years of points\n\nBy not launching a points program too soon, you can take your time and reward early users later on. Retroactive points are not just a moat, they have a clear goal and are useful both for teams (more time to build) and for users (better rewards, lower cost per point)\n\nTN keeps building, loyal users keep using and paying to try/test the platform, and eventually they'll launch a points program when the product is ready for mass adoption. This incentivizes new users while heavily rewarding early users who have been using it for months\n\nEarly calls. Real hedges",
-        "created_at": "2026-11-06T22:37:22.000000Z",
-        "url": "https://x.com/SipaCapital/status/2118835156845015217",
-        "external_urls": [],
-        "media": {
-          "types": [],
-          "urls": []
-        }
-      },
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-3",
-      "list_id": "1939521569493291246",
-      "tweet_id": "2119053311404109915",
-      "created_at": "2026-11-07T13:04:14.000000Z",
-      "kind": "reply",
-      "author": {
-        "username": "predictdotfun",
-        "name": "predict.fun"
-      },
-      "text": "https://t.co/p7SlqNB4EU",
-      "url": "https://x.com/predictdotfun/status/2119053311404109915",
-      "engagement": {
-        "views": 2551,
-        "likes": 3,
-        "replies": 0,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWhjvTPbQAAe-Pb.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-3",
-      "list_id": "1939521569493291246",
-      "tweet_id": "2119053297847877713",
-      "created_at": "2026-11-07T13:04:10.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "predictdotfun",
-        "name": "predict.fun"
-      },
-      "text": "Season 2 PP Distribution & Season 1 $PREDICT Claim Update\n\nThe first weekly PP distribution of Season 2 is complete, with 7,509,645 PP allocated across 60,213 users.\n\nA reminder that the displayed Liquidity PP/hour rate represents the maximum enable rate. Actual rewards depend on both resting order duration and maker fills.\n\nCheck your earnings and ranking: \n🔮https://t.co/EeTxurbFVq\n\nRegarding Season 1, the $PREDICT claim and TGE remain delayed as @BinanceWallet Alpha has yet to resume. We fully support Binance's efforts to strengthen security and are awaiting confirmation of a new launch date.\n\nWe appreciate your continued patience and will share updates as soon as more information becomes available.",
-      "url": "https://x.com/predictdotfun/status/2119053297847877713",
-      "engagement": {
-        "views": 23191,
-        "likes": 151,
-        "replies": 26,
-        "reposts": 16,
-        "quotes": 15
-      },
-      "external_urls": [
-        "https://predict.fun/points"
-      ],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2119051914310721777",
-      "created_at": "2026-11-07T12:58:41.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "Benjieming1Q84",
-        "name": "Benjieming的撸毛之旅"
-      },
-      "text": "https://t.co/RqOL1Iqmbv",
-      "url": "https://x.com/Benjieming1Q84/status/2119051914310721777",
-      "engagement": {
-        "views": 1503,
-        "likes": 4,
-        "replies": 2,
-        "reposts": 1,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2119046997596590220",
-      "created_at": "2026-11-07T12:39:08.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "BlockBeatsAsia",
-        "name": "BlockBeats｜We're hiring!"
-      },
-      "text": "这几天炒得沸沸扬扬的「黄仁勋疑似与中国女间谍存在恋爱关系」事件，又有新进展。\n\n据《金融时报》11 月 7 日最新披露，美国政府内部一份情报备忘录认为，英伟达 CEO 黄仁勋与一名被怀疑是中国间谍的女性 Alice Huang 存在恋爱关系。\n\n更戏剧性的是，这份备忘录据称早在今年 5 月特朗普访华前，就已经传阅至特朗普及少数美国高级官员。\n\n此前，《纽约时报》报道称，美国情报机构怀疑 Alice Huang 是中国国家安全部招募的情报人员，曾接近黄仁勋，试图收集美国 AI 芯片信息，并影响英伟达推动放宽对华芯片出口限制。\n\n目前，美国国会三名共和党委员会主席已要求黄仁勋于 11 月 18 日参加闭门简报，解释其与 Alice Huang 的接触，以及英伟达如何防范外国情报渗透。\n\n英伟达此前回应称，黄仁勋每年都会与数千名客户高管接触，双方互动属于正常商业往来，不涉及敏感技术或国家安全信息。\n\n需要强调的是，所谓间谍身份和恋爱关系目前都只是媒体披露的美国情报判断，尚未得到独立证实。\n\n这件事真正值得关注的，恐怕不是黄仁勋的私人生活，而是美国对英伟达对华业务的审查是否会进一步升级。\n\n当 AI 芯片成为中美科技博弈的核心，黄仁勋显然已经不只是一个企业 CEO 了。",
-      "url": "https://x.com/BlockBeatsAsia/status/2119046997596590220",
-      "engagement": {
-        "views": 6401,
-        "likes": 3,
-        "replies": 8,
-        "reposts": 1,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWheAoua0AE0mFe.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2119033861070033282",
-      "created_at": "2026-11-07T11:46:56.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "Benjieming1Q84",
-        "name": "Benjieming的撸毛之旅"
-      },
-      "text": "【今晚9点，推特Space一起聊一聊】\n\n1️⃣“跨平台”对冲机器人分享和讨论。\n2️⃣撸毛项目进度。 https://t.co/BZ8xQzIbW6",
-      "url": "https://x.com/Benjieming1Q84/status/2119033861070033282",
-      "engagement": {
-        "views": 1582,
-        "likes": 9,
-        "replies": 2,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWhSDjrakAEq9-I.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2119030366589825111",
-      "created_at": "2026-11-07T11:33:03.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "spark888",
-        "name": "spark🌟"
-      },
-      "text": "想知道头部KOL是怎么月入百万的吗？\n\nbubblemaps率先开炮、sahil疯狂曝光、Zash予以确认\n\n交易类顶流KOL发财的四个步骤→\n\n• 公开钱包来吸引跟单者 \n• 隐藏钱包用于抛售 \n• 喊单来刷奖励 \n• 捆绑上百钱包隐藏持仓\n\nsahil曝光了Ansem、麻吉、Mario等顶流聊天记录，内容尺度极大，大概包含——\n\n- Ansem被扒出多次收费炒作Meme\n\nZash对此评论：“因为你们总是被那些多年来一直行骗的KOL骗子洗劫，却从不吸取教训”\n\n- 麻吉大哥被扒出顶级KOL可以OTC诸如$ANSEM代币\n\n这下知道麻吉为啥无限子弹了吧，你炒的Meme是给他提供流动性\n\n- Mario贵为xhunt第144名大佬，提供一万美元诈骗推广，推销删推一条龙服务\n\n习以为常，这种操作中文圈KOL、老顶流也干过不少\n\n还战壕吗？还A9吗？还Meme吗？\n\n玩Meme的菜鸟动动脑子吧，大多数你买的都是顶流开的盘子、捆绑超高持仓、割跟单的，你踏马能赢吗？\n\n这两天中文圈又聊起来KOL了，不痛不痒的伤痛文学。还是看看老外狠货吧，提醒一下散户：这圈子是最没道德底线的，AV/诈骗犯/干坏事润出去的比散户还多，看好你自己的钱袋子。",
-      "url": "https://x.com/spark888/status/2119030366589825111",
-      "engagement": {
-        "views": 7428,
-        "likes": 60,
-        "replies": 36,
-        "reposts": 3,
-        "quotes": 3
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWhJuPPb0AAN73V.png",
-          "https://pbs.twimg.com/media/HWhJ1ZLa4AA7QCA.jpg",
-          "https://pbs.twimg.com/media/HWhKUEAaYAEaIo5.jpg",
-          "https://pbs.twimg.com/media/HWhMcgzaQAAoSQn.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2119028494168703439",
-      "created_at": "2026-11-07T11:25:37.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "_FORAB",
-        "name": "AB Kuai.Dong"
-      },
-      "text": "社区集中反馈，昨晚至今天 ChatGPT 中文区，出现大规模封号现象。\n\n虽然一些猜测是，代充、多人共享、低价地区等，但根据社区反馈，也有不少人只是正常使用被封禁，统一点都是开了 VPN，从内地访问。 https://t.co/vRLJ5pl0IY",
-      "url": "https://x.com/_FORAB/status/2119028494168703439",
-      "engagement": {
-        "views": 58468,
-        "likes": 160,
-        "replies": 97,
-        "reposts": 6,
-        "quotes": 5
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWhMh-EbYAA2PUa.png",
-          "https://pbs.twimg.com/media/HWhMi2dawAAMg6C.jpg",
-          "https://pbs.twimg.com/media/HWhMkP4a0AAS6KM.jpg",
-          "https://pbs.twimg.com/media/HWhMk9-bUAAm7sX.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-4",
-      "list_id": "2089990503555072281",
-      "tweet_id": "2119015370174746973",
-      "created_at": "2026-11-07T10:33:28.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "brucexu_eth",
-        "name": "brucexu.eth"
-      },
-      "text": "感觉最近 @xhunt_ai 又上新功能了，可以看到社交圈还有删除等功能。真不错。最近发的东西比较多，排名又上了一些。此外还可以看到删帖和描述修改，上次我就用这个识别了一个伪造的骗子。推荐人手一个。 https://t.co/7lH6DsdrIN",
-      "url": "https://x.com/brucexu_eth/status/2119015370174746973",
-      "engagement": {
-        "views": 626,
-        "likes": 9,
-        "replies": 4,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWhA4A5bwAAQK5L.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2119013427243110677",
-      "created_at": "2026-11-07T10:25:45.000000Z",
-      "kind": "reply",
-      "author": {
-        "username": "0xStudy",
-        "name": "0xStudy"
-      },
-      "text": "https://t.co/VOxbkwno7F",
-      "url": "https://x.com/0xStudy/status/2119013427243110677",
-      "engagement": {
-        "views": 577,
-        "likes": 1,
-        "replies": 1,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWg_ejvaAAASjW4.jpg",
-          "https://pbs.twimg.com/media/HWg_ej0bUAALZxj.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2119011236759347222",
-      "created_at": "2026-11-07T10:17:02.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "0xStudy",
-        "name": "0xStudy"
-      },
-      "text": "如果GrokBot额度 莫名其妙用得快\n\n可能是以前有些窗口的自动化搞忘关了，找个Bot给它发：\n———————————\n做一次审计，列出目前全部窗口的已启用 routines / 定时任务 / 仍在跑的后台，标触发、上次运行、是否在烧额度，按助手出表，文末给「建议关掉」Top；目的是关掉一些搞忘了但还在烧额度运行的自动化进程，不要改任何东西，挨个列出，等我看完后再选择性喊你关闭\n———————————\n\n于是…就能找到一堆以前安排但现在没用的自动化进程，在后台跑着 花了很多@bot 额度",
-      "url": "https://x.com/0xStudy/status/2119011236759347222",
-      "engagement": {
-        "views": 2440,
-        "likes": 3,
-        "replies": 4,
-        "reposts": 0,
-        "quotes": 1
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2119011128684806322",
-      "created_at": "2026-11-07T10:16:37.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "EleveResearch",
-        "name": "十一Eleve（重头悟道"
-      },
-      "text": "整体的二级观感和 @nine_DeFi 九神一致\n\n主要还是因为市场流动性改变\n\n散户倾向于做空 > 散户倾向于做多\n\n最近确实很恶心总是上下插针不流畅\n\n各种数据都很好的币时不时来一个断头台，还能看出来庄没走，洗的极其恶心\n\n整体思路已经切换成了数据好的币低接无限波段为主\n不考虑单个项目的大倍数了\n\n也许等大家思路都切换过来了就要有大倍数项目咯",
-      "url": "https://x.com/EleveResearch/status/2119011128684806322",
-      "engagement": {
-        "views": 6864,
-        "likes": 22,
-        "replies": 9,
-        "reposts": 0,
-        "quotes": 1
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": {
-        "tweet_id": "2119007214476382590",
-        "username": "nine_DeFi",
-        "name": "nine_",
-        "text": "最近的二级山寨观感：\n恶庄多： $JCT $lyn  等，上下几十个点的插针，不给散户机会\n善庄少： $IRYS  $ESPORTS  这些会给多次滚仓机会，但是这种币很少\n\n最近出现的情况：\n①操盘恶心，一不留心就插针\n②骗跑居多，专门盯着止损打\n\n后续操作：\n1.会更多的埋伏壳子彩票：挑个别链上或者盘面有点动作的，盈亏比好\n2.高倍币反弹依旧会操作，但是出手会更少了\n\n后续会埋伏为主，只能自行追踪链上\n高倍币反弹依旧会提示，其他就是严格止损止盈",
-        "created_at": "2026-11-07T10:01:03.000000Z",
-        "url": "https://x.com/nine_DeFi/status/2119007214476382590",
-        "external_urls": [],
-        "media": {
-          "types": [],
-          "urls": []
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2119010118784389429",
-      "created_at": "2026-11-07T10:12:36.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "EleveResearch",
-        "name": "十一Eleve（重头悟道"
-      },
-      "text": "积分等于 Token！大格局！ @extendedapp \n\n1 Xpoint = 4.2857 XTEN，TGE 全部解锁\n\n是和 @Ru7Longcrypto 老师一直关注的一个项目\n\n目前在 Hyperliquid 和 Lighter 都开了盘前 240M FDV\n\nFDV 大于 1.5亿的 概率是 71%\n——————————————\n\n一方面觉得牛逼，顶着 30% 抛压和大行情不好能维持 240M 的 FDV，算下来有 72M 的抛压\n\n另一方面觉得可惜，挺好的项目现在 FDV 被压的那么低唉",
-      "url": "https://x.com/EleveResearch/status/2119010118784389429",
-      "engagement": {
-        "views": 5063,
-        "likes": 15,
-        "replies": 9,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWg6xGUaEAAEFBp.png",
-          "https://pbs.twimg.com/media/HWg63mxbgAAWDQG.jpg",
-          "https://pbs.twimg.com/media/HWg659EaAAAnhnW.jpg",
-          "https://pbs.twimg.com/media/HWg7S80agAArnsm.jpg"
-        ]
-      },
-      "quote": {
-        "tweet_id": "2118437512452640910",
-        "username": "extendedapp",
-        "name": "Extended",
-        "text": "The Xpoints programme has concluded.\n\nThe final conversion rate is 1 Xpoint = ~4.2857 XTEN, reflecting the 300,000,000 XTEN Community allocation distributed across 70,000,000 Xpoints.\n\n97 community members holding the Tester role in our Discord have also received Xpoint allocations, in recognition of their testing, feedback and consistent use of the platform during Extended's earliest stages.\n\nThese allocations came from Xpoints adjusted in our final programme review.",
-        "created_at": "2026-11-05T20:17:16.000000Z",
-        "url": "https://x.com/extendedapp/status/2118437512452640910",
-        "external_urls": [],
-        "media": {
-          "types": [
-            "photo"
-          ],
-          "urls": [
-            "https://pbs.twimg.com/media/HWYx4ELWwAAMfa3.jpg"
-          ]
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2119010121481420835",
-      "created_at": "2026-11-07T10:12:36.000000Z",
-      "kind": "reply",
-      "author": {
-        "username": "EleveResearch",
-        "name": "十一Eleve（重头悟道"
-      },
-      "text": "代币经济学：\n\nhttps://t.co/6QHM4BD20L",
-      "url": "https://x.com/EleveResearch/status/2119010121481420835",
-      "engagement": {
-        "views": 541,
-        "likes": 0,
-        "replies": 0,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [
-        "https://docs.extended.exchange/extended-resources/xten/tokenomics"
-      ],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2119008793396940824",
-      "created_at": "2026-11-07T10:07:20.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "BlockBeatsAsia",
-        "name": "BlockBeats｜We're hiring!"
-      },
-      "text": "AI 投资正在反噬云巨头的现金流？\n\n美股 AI 七姐妹开始面临一个新问题：钱投进去了，什么时候才能赚回来？\n\n微软、谷歌、亚马逊和 Meta 第三季度经营现金流，已经无法覆盖固定资产支出，合计出现约 264 亿美元资金缺口。而一年前，四家公司还有约 617 亿美元现金流盈余。\n\n几个值得关注的变化：\n\n- 亚马逊：过去 12 个月自由现金流从净流入 148 亿美元，转为净流出 424 亿美元。\n- Meta：自由现金流十多年来首次转负。\n- 谷歌：长期债务从约 200 亿美元增至 1250 亿美元。\n- 微软：英伟达芯片订单交付高度依赖数据中心持续扩建，建设放缓可能影响收入兑现。\n\n更大的变量来自美国政治。\n\n中期选举后，数据中心建设监管趋严。美国 10 个州涉及数据中心的 41 项地方提案中，40 项投票倾向限制开发，27 项限制性或反对性提案获得通过。\n\n但 AI 需求本身还没有明显降温：谷歌云三季度营业利润达到去年同期的 3 倍，AWS 营业利润从 114 亿美元增至 178 亿美元，微软 Azure 收入增长 48%。\n\n所以，市场真正担心的可能不是 AI 没有需求，而是：数千亿美元的 AI 基建投资，究竟需要多久才能转化为足够的现金流？\n\nAI 泡沫论的下一场争论，可能不在模型能力，而在资本回报率。",
-      "url": "https://x.com/BlockBeatsAsia/status/2119008793396940824",
-      "engagement": {
-        "views": 2269,
-        "likes": 9,
-        "replies": 22,
-        "reposts": 1,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWg7Q0rb0AAlQfC.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-3",
-      "list_id": "1939521569493291246",
-      "tweet_id": "2118999967213732104",
-      "created_at": "2026-11-07T09:32:15.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "base",
-        "name": "Base"
-      },
-      "text": "https://t.co/8jwSnq45bB",
-      "url": "https://x.com/base/status/2118999967213732104",
-      "engagement": {
-        "views": 48804,
-        "likes": 359,
-        "replies": 64,
-        "reposts": 79,
-        "quotes": 25
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2118993847418318919",
-      "created_at": "2026-11-07T09:07:56.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "0xStudy",
-        "name": "0xStudy"
-      },
-      "text": "两年前也遇到过交易所内钱转错类似事件\n\n当时是转错过Ton链的U，其中一个备用机是12Mini 屏幕很小，从那个手机的A交易所提回B交易所\n\n但Ton链要备注memo，比如需要填666880，屏幕太小 最后那个0没按下去，没仔细看就确认了\n\n打完游戏半个小时了还没到账…就马上联系客服才发现填错了，说是被转入交易所其他用户的地址了\n\n那个Memo刚好对应一个人交易所的地址进去了，客服说只能协调  平台帮忙联系对方，同时喊我去找警cha盖章后提交文件，才能进一步申请披露对方联系方式方便协商\n\n当时才大二 哪敢找警察叔叔😭后面多方联系了好多大佬和工作人员，都没办法 不能直接从其他用户账户里面扣除 只能让客服帮忙联系协商 不过一直没人理\n\n过去两年了…对方还没回复过 可能是某人买的k注册薅完福利就扔了，发现转错的那一秒  就接受钱拿不回来了这个事实，后续也没怎么挣扎 至于维权啥的没想过，完全是自己的错误 没办法\n\n所幸只是损失了900U  而不是9000U  一次性没损失太多，从此以后养成了每次转账都反复核对看N遍地址的习惯\n\n今天看到这个  转uid这个没二次确认好  导致损失资金的瓜  回顾一下自己相似的经历，应该也只能和我一样去协商了  多半无果  \n\n哎  币圈真是事事无常 大肠包小肠  不小心资金就会被自己的神操作搞没了😮‍💨",
-      "url": "https://x.com/0xStudy/status/2118993847418318919",
-      "engagement": {
-        "views": 4572,
-        "likes": 17,
-        "replies": 8,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWgtq36aAAAnAOv.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-4",
-      "list_id": "2089990503555072281",
-      "tweet_id": "2118986124056289401",
-      "created_at": "2026-11-07T08:37:15.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "brucexu_eth",
-        "name": "brucexu.eth"
-      },
-      "text": "我是直接用 X API 定期把我收藏的 Bookmark 的信息抓取导入到我的 Agent 数据库里面，然后再由 Agent 进行处理，创建到我的个人 todo 系统上面，这样更简单，只要点一下收藏就行了。",
-      "url": "https://x.com/brucexu_eth/status/2118986124056289401",
-      "engagement": {
-        "views": 761,
-        "likes": 5,
-        "replies": 1,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": {
-        "tweet_id": "2118963418078298396",
-        "username": "interjc",
-        "name": "Justin",
-        "text": "我用 Grok Bot 登录了我的 X 小号、绑定了 Notion 账号\n\n大号刷到干货内容以后私信转发给小号，小号仔细阅读学习以后整理到 Notion\n\n其他 Agent 要用到这个知识的时候告诉他 Notion 里有这部分内容就好",
-        "created_at": "2026-11-07T07:07:01.000000Z",
-        "url": "https://x.com/interjc/status/2118963418078298396",
-        "external_urls": [],
-        "media": {
-          "types": [],
-          "urls": []
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-1",
-      "list_id": "2092526123754414115",
-      "tweet_id": "2118982092436771093",
-      "created_at": "2026-11-07T08:21:14.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "0xSleepinRain",
-        "name": "雨中狂睡SleepinRain"
-      },
-      "text": "于我而言，调用 ai 模型 api 时，一个很大的痛点就是很难验证服务商实际上给你提供的模型是什么。不同服务商可能提供更小的模型版本、缩短上下文窗口，但表面上看起来一切正常。\n\nMira 现在推出的 Sterling 则能够有效解决这个问题：通过模型身份、工具调用、参数遵循、静默故障和上下文长度五个维度验证服务商，并将请求路由给通过验证的服务商。该服务首批支持 claude、gpt 和 gemini，部分模型上线期间最高可享 50% 折扣。\n\n我觉得，随着 ai 推理服务越来越多地由第三方提供，推理服务的验证也会成为刚需🤔。",
-      "url": "https://x.com/0xSleepinRain/status/2118982092436771093",
-      "engagement": {
-        "views": 2105,
-        "likes": 11,
-        "replies": 2,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": {
-        "tweet_id": "2118252068855333067",
-        "username": "miranetwork",
-        "name": "Mira",
-        "text": "Introducing Sterling: Inference from verified providers.\n\nThe model you’re paying for might not be the one answering you. Every API model is served by a provider. Some serve a smaller version. Some break tool calls.\n\nSterling tests all providers and routes to the verified ones. https://t.co/UNRKd93URj",
-        "created_at": "2026-11-05T08:00:23.000000Z",
-        "url": "https://x.com/miranetwork/status/2118252068855333067",
+        "tweet_id": "2119423521516560738",
+        "username": "binance",
+        "name": "Binance",
+        "text": "Join Binance Co-CEOs @_RichardTeng and @heyibinance, alongside Chief Security Officer Jimmy Su, for a fireside chat.\n\nModerated by @jessicasmw.\n\n🗓️ November 9, 2026\n🕛 12:00 UTC\n📍 X Spaces\n\nSet your reminder → https://t.co/z4ldPDIuYl https://t.co/F8ymkZsf9N",
+        "created_at": "2026-11-08T13:35:19.000000Z",
+        "url": "https://x.com/binance/status/2119423521516560738",
         "external_urls": [],
         "media": {
           "types": [
             "video"
           ],
           "urls": [
-            "https://pbs.twimg.com/amplify_video_thumb/2118252041474863104/img/W-JLXkE6_SujYFBi.jpg",
-            "https://video.twimg.com/amplify_video/2118252041474863104/vid/avc1/480x270/DHuttWZCtCfNw0JL.mp4?tag=16",
-            "https://video.twimg.com/amplify_video/2118252041474863104/vid/avc1/640x360/hUZFle1LmS5OaoVW.mp4?tag=16",
-            "https://video.twimg.com/amplify_video/2118252041474863104/vid/avc1/1280x720/FuXkm2S5GC2Nb-gV.mp4?tag=16"
+            "https://pbs.twimg.com/media/HWm1DGLWwAAtTPz.jpg",
+            "https://video.twimg.com/amplify_video/2119422783461691392/vid/avc1/320x400/chrFoYdTMH5MU-QB.mp4?tag=29",
+            "https://video.twimg.com/amplify_video/2119422783461691392/vid/avc1/480x600/wNrkTv6IlhgYhO5x.mp4?tag=29",
+            "https://video.twimg.com/amplify_video/2119422783461691392/vid/avc1/720x900/2njECDR0UrLsp_gU.mp4?tag=29",
+            "https://video.twimg.com/amplify_video/2119422783461691392/vid/avc1/1080x1350/clXse5feZufOGzfh.mp4?tag=29"
           ]
         }
       },
-      "quote_context_missing": false,
-      "retweet": null,
       "retweet_is_quote": false,
       "retweet_quote": null,
       "retweet_quote_context_missing": false
@@ -1455,192 +505,24 @@
     {
       "list_name": "List-2",
       "list_id": "2062314900266127784",
-      "tweet_id": "2118978587265290558",
-      "created_at": "2026-11-07T08:07:18.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "_FORAB",
-        "name": "AB Kuai.Dong"
-      },
-      "text": "这也太卷了。一位做 Claude KYC 生意的老哥，跑到印度尼西亚西部的村庄，线下找印尼大妈，面对面做身份验证，注册 Claude 账号，然后现金结算。 https://t.co/60prssKqti",
-      "url": "https://x.com/_FORAB/status/2118978587265290558",
-      "engagement": {
-        "views": 634589,
-        "likes": 3840,
-        "replies": 386,
-        "reposts": 239,
-        "quotes": 160
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWge7LnbwAAlbMF.jpg",
-          "https://pbs.twimg.com/media/HWge7LragAAIcaj.jpg",
-          "https://pbs.twimg.com/media/HWge7LobQAAsXcL.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2118975187383427078",
-      "created_at": "2026-11-07T07:53:47.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "_FORAB",
-        "name": "AB Kuai.Dong"
-      },
-      "text": "马斯克的回复，辟谣了市面上的传闻，看样子 CZ 和马斯克关系挺好的，就是老马没事老调侃下 CZ 玩。\n\nCZ 创办的币安，目前是 X 的股东。 https://t.co/9LQQbRTaP6",
-      "url": "https://x.com/_FORAB/status/2118975187383427078",
-      "engagement": {
-        "views": 145033,
-        "likes": 184,
-        "replies": 69,
-        "reposts": 5,
-        "quotes": 3
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWgcLLvbIAAfY3e.jpg",
-          "https://pbs.twimg.com/media/HWgccWdaMAAEagr.jpg"
-        ]
-      },
-      "quote": {
-        "tweet_id": "2118967587069673914",
-        "username": "elonmusk",
-        "name": "Elon Musk",
-        "text": "@cz_binance @MartiniGuyYT Yeah, I never wrote anything like that. This is made up.",
-        "created_at": "2026-11-07T07:23:35.000000Z",
-        "url": "https://x.com/elonmusk/status/2118967587069673914",
-        "external_urls": [],
-        "media": {
-          "types": [],
-          "urls": []
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2118971132816805996",
-      "created_at": "2026-11-07T07:37:41.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "BlockBeatsAsia",
-        "name": "BlockBeats｜We're hiring!"
-      },
-      "text": "麻吉每次爆仓，似乎都有同一个后续剧情：卖 BAYC 回血，然后继续开杠杆。\n\n这次又以 12.5 ETH 卖掉 BAYC #32，转头 25 倍做多 ETH，目前浮亏 3.2 万美元。\n\n有个问题越来越好奇了：麻吉到底还剩多少只 BAYC？\n\n感觉他的 BAYC 库存，已经快成 ETH 合约账户的「弹药库」了。😂",
-      "url": "https://x.com/BlockBeatsAsia/status/2118971132816805996",
-      "engagement": {
-        "views": 16913,
-        "likes": 31,
-        "replies": 33,
-        "reposts": 0,
-        "quotes": 3
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": {
-        "tweet_id": "2118970786950304204",
-        "username": "TradingBeats_",
-        "name": "TradingBeats",
-        "text": "麻吉刚卖掉 BAYC，转头又开 25 倍杠杆做多 ETH，结果再次浮亏 3.2 万美元。\n\n过去 5 天，黄立成以亏损约 50.5 万美元为代价，出售了 15 枚 NFT，累计套现约 22.3 万美元。\n\n今日，他又以 12.5 ETH（约 2.8 万美元）的价格卖出 BAYC #32。\n\n但卖 NFT 回笼的资金似乎并没有让他远离市场，而是再次押注 ETH：\n\n做多规模：540 ETH\n杠杆：25 倍\n开仓价：2,304.23 美元\n爆仓价：2,203.40 美元\n当前浮亏：约 3.2 万美元\n\n从 NFT 到 ETH，从高杠杆到反复清算，麻吉似乎始终没有放弃抄底翻盘的执念。\n\n问题是，这次 ETH 能不能救他？",
-        "created_at": "2026-11-07T07:36:18.000000Z",
-        "url": "https://x.com/TradingBeats_/status/2118970786950304204",
-        "external_urls": [],
-        "media": {
-          "types": [
-            "photo"
-          ],
-          "urls": [
-            "https://pbs.twimg.com/media/HWgYoXta0AAUX4i.jpg"
-          ]
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2118965520624128386",
-      "created_at": "2026-11-07T07:15:23.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "_FORAB",
-        "name": "AB Kuai.Dong"
-      },
-      "text": "华为前员工证实，华为常务董事、鸿蒙智驾负责人余承东，已不再负责汽车业务。此举发生在懂车帝尊界事件之后，当时市场小作文传言，老哥在内部被降级。\n\n目前余承东的抖音出镜账号，已有 1 个月的时间未更新。 https://t.co/CJyf4CZJGx",
-      "url": "https://x.com/_FORAB/status/2118965520624128386",
-      "engagement": {
-        "views": 337182,
-        "likes": 612,
-        "replies": 244,
-        "reposts": 35,
-        "quotes": 6
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWgTM1-aAAAtUW5.jpg",
-          "https://pbs.twimg.com/media/HWgTRTwa4AA-Nb5.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2118954368276050021",
-      "created_at": "2026-11-07T06:31:04.000000Z",
+      "tweet_id": "2119433958807289887",
+      "created_at": "2026-11-08T14:16:47.000000Z",
       "kind": "reply",
       "author": {
         "username": "TechFlowPost",
         "name": "TechFlow 深潮｜APP 已上线"
       },
-      "text": "推荐阅读《播客笔记｜ 对话 Sam Altman：OpenAI 一分股权没拿，是我犯下的最大失误》\n\nhttps://t.co/X8v8KoaGTa",
-      "url": "https://x.com/TechFlowPost/status/2118954368276050021",
+      "text": "source：\nhttps://t.co/CiCKbIFu3c",
+      "url": "https://x.com/TechFlowPost/status/2119433958807289887",
       "engagement": {
-        "views": 1375,
-        "likes": 3,
+        "views": 1240,
+        "likes": 0,
         "replies": 0,
-        "reposts": 1,
+        "reposts": 0,
         "quotes": 0
       },
       "external_urls": [
-        "https://www.techflowpost.com/article/35161"
+        "https://www.truist.com/wealth/insights/special-commentary/sc-2"
       ],
       "media": {
         "types": [],
@@ -1656,395 +538,29 @@
     {
       "list_name": "List-2",
       "list_id": "2062314900266127784",
-      "tweet_id": "2118954278123364523",
-      "created_at": "2026-11-07T06:30:42.000000Z",
+      "tweet_id": "2119433956097765469",
+      "created_at": "2026-11-08T14:16:46.000000Z",
       "kind": "original",
       "author": {
         "username": "TechFlowPost",
         "name": "TechFlow 深潮｜APP 已上线"
       },
-      "text": ".@sama：职场上最残酷的一个讽刺就是，很多人自诩拥有二十年的资深经验，但事实上他们只是把第一年的经验机械重复了二十次。\n\n在最近的播客中，他提到一个人真正想要的成长，只会奖励那些在每个阶段结束时，敢于把自己丢进全新不确定性的少数人。\n\n把上一阶段的势能变成下一阶段的跳板，认知和影响力才会指数级增长。\n\n但代价就是，焦虑每天都会涌向他。\n\n“从主观感受来说，这就是我当下的生活常态，早年那种轻松闲适的日子已经变成了遥远模糊的回忆。更大的代价在于，全球各阶层对未知的恐惧、焦虑与投射几乎每天都会排山倒海般向我袭来。”\n\nAI 是个好东西，但做 AI 的人一定躺不平。",
-      "url": "https://x.com/TechFlowPost/status/2118954278123364523",
+      "text": "这轮美股科技股的下跌，效果比加密精彩的多。\n\n美股出现了一个近十年未见的反常现象：科技板块的远期估值，居然比大盘还要便宜了。\n\n在11月5日的交易日中，因大选后市场担忧AI数据中心建设与监管政策收紧，美股遭遇剧烈下挫，标普500大跌4.4%，纳斯达克100重挫6.4%。\n\n然而大幅回调之后，美国银行Truist财富管理团队的数据显示，标普500科技板块未来12个月的预期市盈率已从去年的32倍近乎腰斩至17.4倍，近十年来首次低于大盘整体（约18倍）的估值水平。\n\n估值罕见折价，部分机构开始喊单买入了。\n\n@MorganStanley 首席美国股票策略师 Mike Wilson 明确表示，暴跌更像是回调接近尾声，未来两到三周正是重新增加风险敞口的好时机。\n\nYardeni Research的 Ed Yardeni 也认为，当前只是AI泡沫在“放气”而非“破裂”，回调反而释放出了不错的布局节点。\n\n另一家数据公司数据公司 FactSet 的研究显示，标普500整体未来12个月预期每股收益今年以来仍有显著抬升，看多者赌的正是基建建设节奏虽可能放缓，但企业的真实盈利动能依然足以支撑大盘。\n\n这轮抛售挤掉的是过于激进的估值溢价，接下来的考验，就看AI资本开支能否如期转化为现金流了。",
+      "url": "https://x.com/TechFlowPost/status/2119433956097765469",
       "engagement": {
-        "views": 5361,
-        "likes": 32,
-        "replies": 17,
-        "reposts": 3,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "video"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/amplify_video_thumb/2118953812383678464/img/gZBl58PqQYN4ZyzM.jpg",
-          "https://video.twimg.com/amplify_video/2118953812383678464/vid/avc1/480x270/7xW0mnSXl1L0CF8K.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2118953812383678464/vid/avc1/640x360/eleVPBXQgBOryUJA.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2118953812383678464/vid/avc1/1280x720/nckSrzC3Ifqjm2sS.mp4?tag=29"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-4",
-      "list_id": "2089990503555072281",
-      "tweet_id": "2118953362725159104",
-      "created_at": "2026-11-07T06:27:04.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "thsottiaux",
-        "name": "Tibo"
-      },
-      "text": "Cyber",
-      "url": "https://x.com/thsottiaux/status/2118953362725159104",
-      "engagement": {
-        "views": 424763,
-        "likes": 1497,
-        "replies": 385,
-        "reposts": 39,
-        "quotes": 21
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": {
-        "tweet_id": "2118409855119880354",
-        "username": "i0n1c",
-        "name": "Stefan Esser",
-        "text": "I guess now that @openai has name dropped @calif_io as an early adopter I can tell you GPT-6 Cyber is out of this world. It is lightyears ahead of everything I used.",
-        "created_at": "2026-11-05T18:27:22.000000Z",
-        "url": "https://x.com/i0n1c/status/2118409855119880354",
-        "external_urls": [],
-        "media": {
-          "types": [],
-          "urls": []
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2118946615012765888",
-      "created_at": "2026-11-07T06:00:15.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "_FORAB",
-        "name": "AB Kuai.Dong"
-      },
-      "text": "一位老哥开直播，模仿某企业的高管\n\n然后一位叫哇哇哇，挂着华为余承东头像的大哥，给他发了个打赏。老哥说你这个头像和哇哇哇名字，有点吓人哇，结果直播间就没了 🤣\n\n至此成为艺术 https://t.co/dcY72ylMKj",
-      "url": "https://x.com/_FORAB/status/2118946615012765888",
-      "engagement": {
-        "views": 246491,
-        "likes": 829,
-        "replies": 246,
-        "reposts": 39,
-        "quotes": 3
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "video",
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/amplify_video_thumb/2118946562424680448/img/-6NO5aYVOoXpnMmi.jpg",
-          "https://video.twimg.com/amplify_video/2118946562424680448/vid/avc1/320x694/Za0Q3EDTVrgWSKRu.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2118946562424680448/vid/avc1/480x1042/tbPeFuQ7kmiZpkNC.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2118946562424680448/vid/avc1/576x1252/fzj-zNkHe6gZmSUR.mp4?tag=29",
-          "https://pbs.twimg.com/media/HWgCtMnawAA0e7t.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2118944480535744545",
-      "created_at": "2026-11-07T05:51:46.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "leto_bao",
-        "name": "Leto Bao"
-      },
-      "text": "以前做这种视频，可能要花一周\n\n但是现在有了 AI，总共花了半天，其中我参与决策的时间差不多只有不到一小时，其他时间都是挂在后台跑",
-      "url": "https://x.com/leto_bao/status/2118944480535744545",
-      "engagement": {
-        "views": 10181,
-        "likes": 19,
-        "replies": 8,
+        "views": 6016,
+        "likes": 24,
+        "replies": 22,
         "reposts": 2,
         "quotes": 0
       },
       "external_urls": [],
       "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": {
-        "tweet_id": "2118936795211596212",
-        "username": "leto_bao",
-        "name": "Leto Bao",
-        "text": "美国人开始反对数据中心，为什么苹果的端侧 AI 成了最大赢家？\n\n这期从端侧 AI 的角度，聊聊政治环境、资金和产业趋势为什么都在往对苹果有利的方向走：\n\n· 民调里 60%–71% 的美国人反对在家附近建数据中心；41 项地方公投，限制数据中心的一方赢了 40 项\n· 云厂商借钱建机房，苹果 2026 年资本开支只有约 90 亿美元，端侧算力由用户自己买单\n· 苹果要抢的不是 ChatGPT 和 Claude 的工作场景，而是大众的日常场景\n· Mac 真正的优势是容量，不是带宽\n· HomeView 和 Apple TV：家庭 AI 中枢的推演\n· 内存涨价下，谁有定价权\n\nhttps://t.co/i14plhL46Z",
-        "created_at": "2026-11-07T05:21:14.000000Z",
-        "url": "https://x.com/leto_bao/status/2118936795211596212",
-        "external_urls": [
-          "https://youtu.be/N1bj1H3CvVg"
-        ],
-        "media": {
-          "types": [],
-          "urls": []
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-4",
-      "list_id": "2089990503555072281",
-      "tweet_id": "2118939076791546000",
-      "created_at": "2026-11-07T05:30:18.000000Z",
-      "kind": "reply",
-      "author": {
-        "username": "thsottiaux",
-        "name": "Tibo"
-      },
-      "text": "Quite cool what you can do with a single prompt these days 👀",
-      "url": "https://x.com/thsottiaux/status/2118939076791546000",
-      "engagement": {
-        "views": 522300,
-        "likes": 1799,
-        "replies": 210,
-        "reposts": 18,
-        "quotes": 18
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-4",
-      "list_id": "2089990503555072281",
-      "tweet_id": "2118938956301779171",
-      "created_at": "2026-11-07T05:29:49.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "thsottiaux",
-        "name": "Tibo"
-      },
-      "text": "Get me out of the basement\n\nhttps://t.co/SsG3P83NBg",
-      "url": "https://x.com/thsottiaux/status/2118938956301779171",
-      "engagement": {
-        "views": 2140760,
-        "likes": 7975,
-        "replies": 1533,
-        "reposts": 199,
-        "quotes": 323
-      },
-      "external_urls": [
-        "https://poteto.com/"
-      ],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": {
-        "tweet_id": "2118871902366441879",
-        "username": "thsottiaux",
-        "name": "Tibo",
-        "text": "It's Friday",
-        "created_at": "2026-11-07T01:03:22.000000Z",
-        "url": "https://x.com/thsottiaux/status/2118871902366441879",
-        "external_urls": [],
-        "media": {
-          "types": [],
-          "urls": []
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2118936795211596212",
-      "created_at": "2026-11-07T05:21:14.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "leto_bao",
-        "name": "Leto Bao"
-      },
-      "text": "美国人开始反对数据中心，为什么苹果的端侧 AI 成了最大赢家？\n\n这期从端侧 AI 的角度，聊聊政治环境、资金和产业趋势为什么都在往对苹果有利的方向走：\n\n· 民调里 60%–71% 的美国人反对在家附近建数据中心；41 项地方公投，限制数据中心的一方赢了 40 项\n· 云厂商借钱建机房，苹果 2026 年资本开支只有约 90 亿美元，端侧算力由用户自己买单\n· 苹果要抢的不是 ChatGPT 和 Claude 的工作场景，而是大众的日常场景\n· Mac 真正的优势是容量，不是带宽\n· HomeView 和 Apple TV：家庭 AI 中枢的推演\n· 内存涨价下，谁有定价权\n\nhttps://t.co/i14plhL46Z",
-      "url": "https://x.com/leto_bao/status/2118936795211596212",
-      "engagement": {
-        "views": 26938,
-        "likes": 46,
-        "replies": 8,
-        "reposts": 3,
-        "quotes": 1
-      },
-      "external_urls": [
-        "https://youtu.be/N1bj1H3CvVg"
-      ],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2118934543910797316",
-      "created_at": "2026-11-07T05:12:17.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "_FORAB",
-        "name": "AB Kuai.Dong"
-      },
-      "text": "这居然是在 X 上看到的，太牛批了。此前 4 名萨尔瓦多国家的航空技师，在海地遭帮派伏击，装甲车被炸后失踪。\n\n随后萨尔瓦多，迅速部署约 2000 名士兵，进入海地寻找失踪技师，并围剿该帮派。\n\n就在军队毫无头绪的时候，一群 X 网友给找到了帮派位置，还在 X 上戳了萨尔瓦多的总统。 https://t.co/EU3UqlrEjM",
-      "url": "https://x.com/_FORAB/status/2118934543910797316",
-      "engagement": {
-        "views": 164200,
-        "likes": 902,
-        "replies": 101,
-        "reposts": 83,
-        "quotes": 8
-      },
-      "external_urls": [],
-      "media": {
         "types": [
           "photo"
         ],
         "urls": [
-          "https://pbs.twimg.com/media/HWf1zgVb0AA4EZ5.jpg",
-          "https://pbs.twimg.com/media/HWf3piXbMAAkg5Q.png"
-        ]
-      },
-      "quote": {
-        "tweet_id": "2118798429434343447",
-        "username": "nayibbukele",
-        "name": "Nayib Bukele",
-        "text": "Kote kay sa a ye? \n\nBan nou adrès egzak la, n ap detwi l.",
-        "created_at": "2026-11-06T20:11:25.000000Z",
-        "url": "https://x.com/nayibbukele/status/2118798429434343447",
-        "external_urls": [],
-        "media": {
-          "types": [],
-          "urls": []
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2118926535868793195",
-      "created_at": "2026-11-07T04:40:28.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "YSI_crypto",
-        "name": "余三水"
-      },
-      "text": "$LYN 0.03到了，但被虚晃了一枪，假动作怎么那么多😷",
-      "url": "https://x.com/YSI_crypto/status/2118926535868793195",
-      "engagement": {
-        "views": 4991,
-        "likes": 9,
-        "replies": 3,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": {
-        "tweet_id": "2118593479521812686",
-        "username": "YSI_crypto",
-        "name": "余三水",
-        "text": "$LYN 这波能成功突破的话，希望能到0.03",
-        "created_at": "2026-11-06T06:37:01.000000Z",
-        "url": "https://x.com/YSI_crypto/status/2118593479521812686",
-        "external_urls": [],
-        "media": {
-          "types": [],
-          "urls": []
-        }
-      },
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2118917210853019933",
-      "created_at": "2026-11-07T04:03:25.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "0xXIAOc",
-        "name": "小C | 🔶BNB"
-      },
-      "text": "📢Alpha 日报\n1️⃣11月7日 周末无空投\n\n不要因为渴望自己没有的东西，而忽略了已经拥有的东西，因为你今天所拥有的一切，曾经也是你梦寐以求的。\n\n2️⃣ 昨日限价单总交易量：1,047,409,698\n（较前一日-12.3% ）   \n\n3️⃣交易赛进度  \n\n4️⃣今日推荐（30 天内上线代币，积分 ×4）\n交易赛推荐：暂无\n纯交易量推荐：  限价单刷CT（剩11天）",
-      "url": "https://x.com/0xXIAOc/status/2118917210853019933",
-      "engagement": {
-        "views": 8133,
-        "likes": 30,
-        "replies": 3,
-        "reposts": 0,
-        "quotes": 1
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWfn9_gaIAAgvDx.png"
+          "https://pbs.twimg.com/media/HWm9xD6aIAA2l3I.jpg"
         ]
       },
       "quote": null,
@@ -2055,199 +571,22 @@
       "retweet_quote_context_missing": false
     },
     {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2118916773152211267",
-      "created_at": "2026-11-07T04:01:40.000000Z",
+      "list_name": "List-3",
+      "list_id": "1939521569493291246",
+      "tweet_id": "2119429851665080676",
+      "created_at": "2026-11-08T14:00:28.000000Z",
       "kind": "original",
       "author": {
-        "username": "BlockBeatsAsia",
-        "name": "BlockBeats｜We're hiring!"
+        "username": "variational_io",
+        "name": "Variational"
       },
-      "text": "民主党想给 AI 数据中心踩刹车，高盛 @GoldmanSachs 却继续上调千亿美元投资预期。\n\n美国 AI 基建可能远没有市场想象中那么快降温。\n\n11 月 7 日，高盛上调美国数据中心建设支出预测：\n\n2026 年：从 670 亿美元上调至 800 亿美元；\n2027 年：从 870 亿美元上调至 1000 亿美元；\n2028 年：首次给出预测，预计达到 1250 亿美元。\n\n为什么监管恐慌没有改变高盛的判断？\n\n几个数据值得关注：\n\n1️⃣ 美国目前约有 86GW 数据中心项目正在建设，另有约 9000 亿美元高可信度待建项目。\n\n2️⃣ 微软、亚马逊、谷歌等云巨头的需求和积压订单尚未明显降温。\n\n3️⃣ 算力租赁价格仍在上涨：H100 同比上涨 26%，GB200 年初至今上涨 50%。\n\n对于得克萨斯州候任州长 Gina Hinojosa 提出的数据中心暂停令，高盛认为，影响更可能是项目延期，而不是直接取消。\n\n但这里有一个容易被忽略的风险：\n\nAI 基建的长期需求，不代表所有数据中心开发商都能活到需求兑现的那一天。\n\n项目延期意味着融资成本增加、税收优惠可能减少，客户也可能取消合同。对于高杠杆开发商而言，哪怕行业整体仍在扩张，也可能因为现金流断裂而倒在项目投产之前。\n\n这也解释了当前 AI 基建市场的分化：\n\n一边是微软、谷歌、亚马逊继续争夺算力资源，另一边是部分数据中心开发商可能陷入融资困境。\n\n民主党可能改变 AI 基建的建设节奏，但目前还没有改变算力需求持续增长的大方向。\n\nAI 泡沫是否存在可以继续争论，但 AI 基建的资本开支，显然还没有踩下刹车。",
-      "url": "https://x.com/BlockBeatsAsia/status/2118916773152211267",
+      "text": "\"I built out a massive engineering org [at Genesis] and Ed led the quant research team. We've run books even much larger than Variational in our careers. We're very comfortable scaling out this team in that direction.\"\n\n- @variational_lvs https://t.co/M00maxqNVm",
+      "url": "https://x.com/variational_io/status/2119429851665080676",
       "engagement": {
-        "views": 2474,
-        "likes": 4,
-        "replies": 14,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWfnknWasAAtM7c.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-4",
-      "list_id": "2089990503555072281",
-      "tweet_id": "2118912727481819357",
-      "created_at": "2026-11-07T03:45:36.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "brucexu_eth",
-        "name": "brucexu.eth"
-      },
-      "text": "一百刀的 Claude Max 完全用不完，还有两天过期，怎么用掉？急，在线等。 https://t.co/GPexUFDuvW",
-      "url": "https://x.com/brucexu_eth/status/2118912727481819357",
-      "engagement": {
-        "views": 4588,
-        "likes": 14,
-        "replies": 17,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWfjx4PaoAAt5Zt.jpg"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2118911173135577337",
-      "created_at": "2026-11-07T03:39:25.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "_FORAB",
-        "name": "AB Kuai.Dong"
-      },
-      "text": "马斯克回忆，当年特斯拉被邀请进入中国时，有些政府官员还冲他吼过，吼得唾沫星子乱飞那种，只为了要求特斯拉能与本地公司合资运营。\n\n但特斯拉拒绝了，坚持要求独资，于是中国修改了法律，让特斯拉独资进入了中国。 https://t.co/VkuAOnXruy",
-      "url": "https://x.com/_FORAB/status/2118911173135577337",
-      "engagement": {
-        "views": 526068,
-        "likes": 2048,
-        "replies": 185,
-        "reposts": 122,
-        "quotes": 11
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "video"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/amplify_video_thumb/2118910749590601728/img/LcMWJHIKv3H7maWG.jpg",
-          "https://video.twimg.com/amplify_video/2118910749590601728/vid/avc1/466x270/gHC6CZtYgJlJMChn.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2118910749590601728/vid/avc1/622x360/I3S63iGN_9alPKoQ.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2118910749590601728/vid/avc1/1244x720/3BUazQP1pClFsI1W.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2118910749590601728/vid/avc1/1920x1110/m_Zy64dLdTfC3h0B.mp4?tag=29"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2118901779928948774",
-      "created_at": "2026-11-07T03:02:06.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "_FORAB",
-        "name": "AB Kuai.Dong"
-      },
-      "text": "啊？63 岁的黄仁勋原来也是个老色批。金融时报爆料称，此前传言与英伟达老板黄仁勋，有密切关系的美女间谍 Alice Huang，其实跟他是恋爱关系。\n\n早在去年，美国政府就知道了这件事，但是一直没有采取行动，明面上该女生是英伟达的大客户。 https://t.co/LYXHmk30AG",
-      "url": "https://x.com/_FORAB/status/2118901779928948774",
-      "engagement": {
-        "views": 661572,
-        "likes": 1884,
-        "replies": 575,
-        "reposts": 166,
-        "quotes": 86
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWfYRhFbYAAnCWC.png",
-          "https://pbs.twimg.com/media/HWfYR-baIAAmCy6.png",
-          "https://pbs.twimg.com/media/HWfZ30PboAAavgm.png"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2118899258577584293",
-      "created_at": "2026-11-07T02:52:05.000000Z",
-      "kind": "reply",
-      "author": {
-        "username": "0xYond",
-        "name": "Yond (DeFi Arc)"
-      },
-      "text": "@0xStudy @3janexyz 存起～",
-      "url": "https://x.com/0xYond/status/2118899258577584293",
-      "engagement": {
-        "views": 51,
-        "likes": 1,
-        "replies": 0,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [],
-        "urls": []
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2118897139774521542",
-      "created_at": "2026-11-07T02:43:39.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "_FORAB",
-        "name": "AB Kuai.Dong"
-      },
-      "text": "一群记者问特朗普，国会中期选举，输掉的感觉如何？\n\n特朗普一下生气，打着伞转头就走了。。 https://t.co/rPUlFvJCi9",
-      "url": "https://x.com/_FORAB/status/2118897139774521542",
-      "engagement": {
-        "views": 58768,
-        "likes": 294,
-        "replies": 78,
-        "reposts": 18,
+        "views": 8374,
+        "likes": 202,
+        "replies": 13,
+        "reposts": 15,
         "quotes": 2
       },
       "external_urls": [],
@@ -2256,10 +595,77 @@
           "video"
         ],
         "urls": [
-          "https://pbs.twimg.com/amplify_video_thumb/2118794236565082112/img/o0bifiEQP0fIBkBn.jpg",
-          "https://video.twimg.com/amplify_video/2118794236565082112/vid/avc1/480x270/7UhByvaa3MqEpmBo.mp4?tag=16",
-          "https://video.twimg.com/amplify_video/2118794236565082112/vid/avc1/640x360/THToLrvob5Lrwda8.mp4?tag=16",
-          "https://video.twimg.com/amplify_video/2118794236565082112/vid/avc1/1280x720/e3x3cqx0-YYPbyK9.mp4?tag=16"
+          "https://pbs.twimg.com/amplify_video_thumb/2119429756005519360/img/AgtNZCNmV6adIzhs.jpg",
+          "https://video.twimg.com/amplify_video/2119429756005519360/vid/avc1/320x426/ehhbEbUQ1cz--Btb.mp4?tag=16",
+          "https://video.twimg.com/amplify_video/2119429756005519360/vid/avc1/480x640/1PgYXmS6ZXwlduku.mp4?tag=16",
+          "https://video.twimg.com/amplify_video/2119429756005519360/vid/avc1/720x960/F0qJD8OyO93kJiiY.mp4?tag=16",
+          "https://video.twimg.com/amplify_video/2119429756005519360/vid/avc1/1080x1440/5F4I2jPOBe-e8UTm.mp4?tag=16"
+        ]
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-3",
+      "list_id": "1939521569493291246",
+      "tweet_id": "2119414020927279122",
+      "created_at": "2026-11-08T12:57:34.000000Z",
+      "kind": "reply",
+      "author": {
+        "username": "base",
+        "name": "Base"
+      },
+      "text": "Tokenized stocks are only available in eligible jurisdictions outside of the U.S.",
+      "url": "https://x.com/base/status/2119414020927279122",
+      "engagement": {
+        "views": 6729,
+        "likes": 40,
+        "replies": 8,
+        "reposts": 2,
+        "quotes": 3
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-3",
+      "list_id": "1939521569493291246",
+      "tweet_id": "2119414017001468187",
+      "created_at": "2026-11-08T12:57:33.000000Z",
+      "kind": "original",
+      "author": {
+        "username": "base",
+        "name": "Base"
+      },
+      "text": "Guess the ticker\n\n____c https://t.co/uOhpBhVYUq",
+      "url": "https://x.com/base/status/2119414017001468187",
+      "engagement": {
+        "views": 63937,
+        "likes": 596,
+        "replies": 197,
+        "reposts": 58,
+        "quotes": 29
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HWmruiPWEAA6Adu.png"
         ]
       },
       "quote": null,
@@ -2272,33 +678,746 @@
     {
       "list_name": "List-2",
       "list_id": "2062314900266127784",
-      "tweet_id": "2118895439475040704",
-      "created_at": "2026-11-07T02:36:54.000000Z",
+      "tweet_id": "2119412933646246014",
+      "created_at": "2026-11-08T12:53:14.000000Z",
+      "kind": "reply",
+      "author": {
+        "username": "Benjieming1Q84",
+        "name": "Benjieming的撸毛之旅"
+      },
+      "text": "【🧵-3】 Validator(验证者)角度\n\n1️⃣硬件  \n- 准备一台专用 Linux 服务器。  \n- 建议配置：8 核以上 CPU、32GB 以上内存、较大容量高速硬盘和稳定网络。\n\n2️⃣流程  \n- 下载官方提供的验证者安装包。  \n- 在服务器上安装必要环境。  \n- 运行准备命令，生成主机信息。  \n- 把主机名、公钥地址等信息发给官方运营人员。  \n- 等待官方开通权限并资助测试币。  \n- 运行加入命令完成注册。  \n- 等待官方激活后，再验证节点是否正常出块。\n\n3️⃣相关文档  \n- 说明页面：https://t.co/6wDqufavoE  \n- 详细操作手册：\nhttps://t.co/MebzKcgHYu  \n- 常见问题：\nhttps://t.co/55dCPMBX6x",
+      "url": "https://x.com/Benjieming1Q84/status/2119412933646246014",
+      "engagement": {
+        "views": 446,
+        "likes": 0,
+        "replies": 0,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [
+        "https://explorer.devnet.flop.network/validator",
+        "https://docs.flop.network/docs/run-validator",
+        "https://ask.flop.finance/docs/validator-faq"
+      ],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HWmqp0MaUAEibxK.jpg"
+        ]
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2119411951092834323",
+      "created_at": "2026-11-08T12:49:20.000000Z",
+      "kind": "reply",
+      "author": {
+        "username": "Benjieming1Q84",
+        "name": "Benjieming的撸毛之旅"
+      },
+      "text": "【🧵-2】 GPU Miner(矿工)角度\n\n1️⃣硬件\n- 准备一台符合要求的显卡机器(显存 16GB 以上的 NVIDIA 显卡)，可买可租。\n2️⃣流程\n- 在机器上安装Docker，并配置好显卡驱动环境。\n- 下载官方提供的矿工工具和脚本。\n- 创建矿工账号。\n- 领取官方赠送的测试币作为押金。\n- 运行性能检测(让网络测试你的机器能提供多少算力)。\n- 启动服务，等待有人来调用你的模型(目前真正付费接单的功能还没完全开放)。\n3️⃣相关文档\n- 说明页面：https://t.co/CRC9awg6oy\n- 入门介绍：https://t.co/pu4IZHiMBl\n- 详细操作手册：https://t.co/yAiFos6CZU",
+      "url": "https://x.com/Benjieming1Q84/status/2119411951092834323",
+      "engagement": {
+        "views": 620,
+        "likes": 1,
+        "replies": 1,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [
+        "https://explorer.devnet.flop.network/miner",
+        "https://docs.flop.network/docs/run-gpu-provider",
+        "https://docs.flop.network/docs/run-miner"
+      ],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HWmpzpvbMAALC-6.jpg"
+        ]
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-4",
+      "list_id": "2089990503555072281",
+      "tweet_id": "2119407942722285949",
+      "created_at": "2026-11-08T12:33:24.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "brucexu_eth",
+        "name": "brucexu.eth"
+      },
+      "text": "卧槽，彻底无敌了。我用 Hermes 连接，发现还支持远程 MCP，还以为很复杂，结果直接打开配置，把 token 发给 Hermes，就直接从远程的服务器直接连接到我本地的 iPhone 上面来操作。\n\n然后我试了一个之前必须要手动操作的对账流程，就是打开支付宝，填上信息，然后把流水文件导出，然后再拿到解压密码解压。这个任务还是非常麻烦的。结果现在就可以用它实现了，彻底疯狂。可以实现几乎完全的自动化了。\n\n然后遇到了两个小 bug，一个是打字会有空格，再一个就是有个别的奇怪组件或者是位置没办法自动填写。还有就是刷脸什么的，这个还是要拿起手机来，这个没什么办法。",
+      "url": "https://x.com/brucexu_eth/status/2119407942722285949",
+      "engagement": {
+        "views": 4749,
+        "likes": 22,
+        "replies": 8,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": {
+        "tweet_id": "2119283945514975547",
+        "username": "brucexu_eth",
+        "name": "brucexu.eth",
+        "text": "卧槽，这个直接把 iPhone Use 这个赛道杀死比赛了。试了一个任务太无敌了。跟之前的 iPhone Use 对比了一下，有几个很关键的点：\n\n1. 之前 iphone-use 做不到的，现在能做到了。之前有一个功能，或者是微信小程序的几个表单老是点击不到，但是现在是 OK 的。\n2. 使用非常方便，就是下载 APP 打开，然后连接上相关软件，然后开一个新 session，刷新一下 MCP 就可以用了。它用 MCP 的方式注入到这个 Coding Agent 里面，之前要用 Skills 安装挺多东西的。\n3. 使用一个 APP，然后能够直接看到手机界面，同时也可以直接用鼠标操作。之前的 iPhone 用户遇到了相关的事情，需要在手机上用手操作，但是手机上会有一个 Automation running 的遮罩，就很麻烦。现在基本上都能在电脑上直接操作。\n4. 授权非常清晰，有一些涉及到敏感信息或者操作的，会直接拦住 coding agent，然后提醒我来继续操作。之前的话，iPhone use 都是在 coding agent 里面，就是我比较难注意到还需要有什么授权之类的问题。这个非常清晰，而且 Developer 模式还可以把所有的具体操作都展示出来，我也能够比较清晰的知道它具体做了什么，有没有作恶。\n\nNB。",
+        "created_at": "2026-11-08T04:20:41.000000Z",
+        "url": "https://x.com/brucexu_eth/status/2119283945514975547",
+        "external_urls": [],
+        "media": {
+          "types": [],
+          "urls": []
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2119403067879907541",
+      "created_at": "2026-11-08T12:14:02.000000Z",
       "kind": "original",
       "author": {
-        "username": "_FORAB",
-        "name": "AB Kuai.Dong"
+        "username": "BlockBeatsAsia",
+        "name": "BlockBeats｜We're hiring!"
       },
-      "text": "美国民众反对 AI 数据中心有多厉害？密西西比州杰克逊，对 AI 数据中心的听证会，市议员提出一项条例，要求撤销本市对数据中心的临时禁令。\n\n结果观众，直接骂他你会为了钱卖你妈么，然后现场议员和群众对骂起来了 🤣 https://t.co/g0GVLAnGMI",
-      "url": "https://x.com/_FORAB/status/2118895439475040704",
+      "text": "Anthropic 豪掷 34 亿美元抢购燃气发电设备，AI 巨头已经开始直接争夺电力了。\n\n据《金融时报》报道，Anthropic 从美国设备供应商 OnePWR 手中接手 1.7 GW 卡特彼勒重型燃气发电机组采购承诺，交易还包括工程和施工能力，但并未收购 OnePWR。\n\n这不是孤立事件。\n\n过去一年，Oracle、微软、Meta、AIP 等公司都在大规模锁定天然气发电资源：\n\nOracle：2.3 GW\nAIP / Monarch：2 GW\n微软：最高 2.5 GW\nMeta：366 MW\nAnthropic：1.7 GW\n\n中国设备商也开始吃到这轮需求。杰瑞股份今年连续拿下美国数据中心燃气发电设备订单，相关客户累计订单已达 17.2 亿美元。\n\n更有意思的是 SoftBank。\n\n其旗下 SB Energy 正在推进俄亥俄州 9.2 GW 天然气发电项目，但 11 月 6 日，马斯克突然发文称 SoftBank 正在拖欠燃气轮机订单。目前这一说法尚未得到证实。\n\nAI 竞争已经不只是 GPU 的军备竞赛。\n\n当电网接入、变压器和燃气轮机都成为稀缺资源，谁能更早锁定电力，谁才有资格继续扩张算力。\n\nAI 的下一场战争，可能不在芯片，而在电厂。",
+      "url": "https://x.com/BlockBeatsAsia/status/2119403067879907541",
       "engagement": {
-        "views": 78733,
-        "likes": 288,
-        "replies": 66,
-        "reposts": 27,
+        "views": 3178,
+        "likes": 21,
+        "replies": 19,
+        "reposts": 3,
+        "quotes": 1
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HWmh2v_acAENKwx.jpg"
+        ]
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-1",
+      "list_id": "2092526123754414115",
+      "tweet_id": "2119394883043766482",
+      "created_at": "2026-11-08T11:41:31.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "0xSleepinRain",
+        "name": "雨中狂睡SleepinRain"
+      },
+      "text": "Genlayer 的代币经济学已经发了，看了下。它的思路是将其代币设计为其产品网络运转的核心媒介，比如说智能合约执行和共识的支付媒介、验证者抵押资产、网络争议处理的申诉保证金、治理，都需要用到其代币。其分配如下图所示。\n\n在价值捕获方面，Genlayer 代币有价值捕获，但没有设计通缩机制，前期需要通过代币激励来获得增长。最重要的价值变量在于其网络真实使用量。之前我已经介绍过 Genlayer 的机制，直接理解的话就是就是 Genlayer 搞了一套 skill。在 Agents 接入「签约、托管、争议裁决」这套流程后，它们在干活时就不会烧心，有问题可以直接通过裁决来解决。\n\n代币经济学发布后，我估计距离其 tge 应该也不远了。零撸的 szn2 估计也就是最后的窗口了：https://t.co/ffuy4jURrl",
+      "url": "https://x.com/0xSleepinRain/status/2119394883043766482",
+      "engagement": {
+        "views": 2245,
+        "likes": 3,
+        "replies": 2,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [
+        "https://portal.genlayer.foundation/go/0xsleepinrain"
+      ],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HWmX204bsAAPQaW.png"
+        ]
+      },
+      "quote": {
+        "tweet_id": "2104814268952789217",
+        "username": "0xSleepinRain",
+        "name": "雨中狂睡SleepinRain",
+        "text": "我觉得 Genlayer 的「Agent Adjudication Layer」这个概念蛮有意思的。\n\n现在 AI Agent 的发展方向已经越来越清楚了：直接运行在用户的个人设备和本地环境中+多个 Agent 之间互相协作以完成任务。\n\n但这里其实有一个很大的缺口：当两个 Agent 对执行结果产生分歧，到底谁说了算，这个结果到底算不算完成？这是传统智能合约无法解决的事情。\n\n针对这个缺口，Genlayer 引入了一个名为 Optimistic Democracy 的概念，用于解决这种分歧。我们可以把它理解为一个链上的“陪审团 + 上诉制度”，随机选一个 Validator 先给出结果，其他 Validator 像陪审团一样投票确认。大家都没意见，结果就生效；如果有人不服，就发起上诉，让更多 Validator 再审一次。\n\n关于 Genlayer 的0撸参与机会是这样的：\n1、点击链接：https://t.co/ffuy4jURrl\n2、邮箱验证；\n3、点击右上角提交贡献；\n4、绑定 X 和 DC，去完成指定任务。\n\n结合 Genlayer 写的 Q4 TGE 来看，目前是最后的参与窗口期，且现在参与 Genlayer 的撸毛和兑现的周期不会太长。",
+        "created_at": "2026-09-29T06:03:21.000000Z",
+        "url": "https://x.com/0xSleepinRain/status/2104814268952789217",
+        "external_urls": [
+          "https://portal.genlayer.foundation/go/0xsleepinrain"
+        ],
+        "media": {
+          "types": [],
+          "urls": []
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2119391616679231774",
+      "created_at": "2026-11-08T11:28:32.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "Benjieming1Q84",
+        "name": "Benjieming的撸毛之旅"
+      },
+      "text": "【Flop Labs Devnet参与过程 -项目跟进】\n\n⭐️再次确认：\n⓵Devnet没有空投+没收益+可能重置。\n⓶真正有空投的是之后的Testnet(公布日期以官方为准)。\n⓷目前FLOP是测试代币，不能买卖，能买到的都是假的。\n⓸官方没有Discord和Telegram，一切信息以官推和创始人推特为准。\n⭐️现在做Devnet的目的是，先跑通，不用等到Testnet发布才开始研究。\n\n1️⃣官方提供的一些链接\n⓵官方文档：https://t.co/KYjSRyd92V\n⓶测试币水龙头：https://t.co/YwmRv93yoY\n⓷Explorer：https://t.co/oGfprViN2C\n⓸Agent接入：https://t.co/D51yhFHmLg\n⓹模型API：https://t.co/WATBAujxrm\n⓺MCP：https://t.co/xSL8UIZMfr\n⓻RPC：wss://rpc.devnet.flop.network\n⓼SDK和CLI ：npm i @flop-labs/sdk\n⓽钱包：Polkadot.js / Talisman / SubWallet\n2️⃣目前能参与的角度：\n⓵Agent角度\n- 通过\"Agent接入\"这个网站，使用页面的“提示词”，让自己的AI Agent自动跑通全过程。\n⓶GPU Miner(矿工)角度\n- 这个需要自己有16G以上NVIDIA GPU，可以是自己的，也可以租。\n⓷Validator(验证者)角度\n- 跑节点，这个门槛较高。\n\n🧵",
+      "url": "https://x.com/Benjieming1Q84/status/2119391616679231774",
+      "engagement": {
+        "views": 4939,
+        "likes": 14,
+        "replies": 9,
+        "reposts": 2,
+        "quotes": 1
+      },
+      "external_urls": [
+        "http://docs.flop.network/docs/official-links",
+        "http://faucet.flop.network",
+        "http://explorer.devnet.flop.network",
+        "http://explorer.devnet.flop.network/connect",
+        "http://api.flop.network/models",
+        "http://mcp.flop.network/mcp"
+      ],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": {
+        "tweet_id": "2119252680879272384",
+        "username": "Benjieming1Q84",
+        "name": "Benjieming的撸毛之旅",
+        "text": "【Flop Labs项目进度 -项目跟进】\n\nDevnet已经发布，官方明确没有空投奖励。\nTestnet(测试网)日期待公布，有空投，我主要跟进这个信息。\n\n按照之前官方公布的信息：\n❶测试网2026年Q4上线，运行约90天。\n❷测试网有空投，占比“大约四分之一”。 https://t.co/qOx4i76JYu",
+        "created_at": "2026-11-08T02:16:27.000000Z",
+        "url": "https://x.com/Benjieming1Q84/status/2119252680879272384",
+        "external_urls": [],
+        "media": {
+          "types": [
+            "photo"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/media/HWkY9TcaMAAritJ.jpg"
+          ]
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-3",
+      "list_id": "1939521569493291246",
+      "tweet_id": "2119380344923209935",
+      "created_at": "2026-11-08T10:43:45.000000Z",
+      "kind": "retweet",
+      "author": {
+        "username": "base",
+        "name": "Base"
+      },
+      "text": "RT @gmgnai: GGC Grand Final is just around the corner, and we couldn't bring the London championship to life without the support of our inc…",
+      "url": "https://x.com/base/status/2119380344923209935",
+      "engagement": {
+        "views": 17084,
+        "likes": 0,
+        "replies": 0,
+        "reposts": 12,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": {
+        "tweet_id": "2118916080353817037",
+        "username": "gmgnai",
+        "name": "GMGN.Ai",
+        "text": "GGC Grand Final is just around the corner, and we couldn't bring the London championship to life without the support of our incredible sponsors and partners.\n\nA huge thank you to everyone helping us make this happen. 🧵👇\n\n📍 London | November 16\n🎟️ https://t.co/tLQOuD6wBe https://t.co/4pXtPodzT9",
+        "created_at": "2026-11-07T03:58:55.000000Z",
+        "url": "https://x.com/gmgnai/status/2118916080353817037",
+        "external_urls": [
+          "https://luma.com/39ckiuiy"
+        ],
+        "media": {
+          "types": [
+            "photo"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/media/HWfjKV9akAEyAjq.jpg"
+          ]
+        }
+      },
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-3",
+      "list_id": "1939521569493291246",
+      "tweet_id": "2119373378893361414",
+      "created_at": "2026-11-08T10:16:04.000000Z",
+      "kind": "retweet",
+      "author": {
+        "username": "xStocksFi",
+        "name": "xStocks"
+      },
+      "text": "RT @CircuitAI: The stock market just closed for the weekend. xStocks didn't.\n\nCircuit agents now trade @xStocksFi on Solana and @krakenfx,…",
+      "url": "https://x.com/xStocksFi/status/2119373378893361414",
+      "engagement": {
+        "views": 2534,
+        "likes": 0,
+        "replies": 0,
+        "reposts": 6,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": {
+        "tweet_id": "2118811198624067690",
+        "username": "CircuitAI",
+        "name": "Circuit",
+        "text": "The stock market just closed for the weekend. xStocks didn't.\n\nCircuit agents now trade @xStocksFi on Solana and @krakenfx, nights and weekends included.\n\nDescribe a strategy in one sentence and an agent runs it. https://t.co/wxCLcLiTvH",
+        "created_at": "2026-11-06T21:02:10.000000Z",
+        "url": "https://x.com/CircuitAI/status/2118811198624067690",
+        "external_urls": [],
+        "media": {
+          "types": [
+            "video"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/amplify_video_thumb/2118811160229376000/img/TWOuVrHZTrEYy2lC.jpg",
+            "https://video.twimg.com/amplify_video/2118811160229376000/vid/avc1/320x400/I-_tpjWpYCYqDI3u.mp4?tag=16",
+            "https://video.twimg.com/amplify_video/2118811160229376000/vid/avc1/480x600/FY3y3u4IoATb577-.mp4?tag=16",
+            "https://video.twimg.com/amplify_video/2118811160229376000/vid/avc1/720x900/h8gjBdiHGB_jxHbO.mp4?tag=16",
+            "https://video.twimg.com/amplify_video/2118811160229376000/vid/avc1/1080x1350/TZn-gLyEP9Z0_jHC.mp4?tag=16"
+          ]
+        }
+      },
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-3",
+      "list_id": "1939521569493291246",
+      "tweet_id": "2119368454574936079",
+      "created_at": "2026-11-08T09:56:30.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "base",
+        "name": "Base"
+      },
+      "text": "Weekend plans?\n\nHere's one ↓\n\nhttps://t.co/5nvILxww4K",
+      "url": "https://x.com/base/status/2119368454574936079",
+      "engagement": {
+        "views": 36287,
+        "likes": 286,
+        "replies": 73,
+        "reposts": 35,
+        "quotes": 8
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": {
+        "tweet_id": "2118433231842513404",
+        "username": "buildonbase",
+        "name": "Base Build",
+        "text": "https://t.co/XrWe2zqdMG",
+        "created_at": "2026-11-05T20:00:15.000000Z",
+        "url": "https://x.com/buildonbase/status/2118433231842513404",
+        "external_urls": [],
+        "media": {
+          "types": [],
+          "urls": []
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2119363824901914634",
+      "created_at": "2026-11-08T09:38:06.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "BlockBeatsAsia",
+        "name": "BlockBeats｜We're hiring!"
+      },
+      "text": "何一 @heyibinance  公开提醒：这几类钱，千万别往 Binance 转。\n\n「朋友打折的 U」「亲戚从链上转来的币」「缅甸做生意的钱」「柬埔寨收的账」，甚至只是帮朋友过一下账，都可能触发 Binance 的风控。\n\n何一表示，Binance 已建立严格的全球合规标准，相关地址可能在资金进入平台前就已被标记。一旦涉事资金入账，可能面临执法冻结，且案件往往复杂、处理周期较长，Binance 本身也没有解冻权限。\n\n说白了，链上转账不是只看你自己的地址干不干净，还要看资金来源和关联地址。\n\n别为了赚一点手续费、帮个忙，最后把自己的账户搭进去。",
+      "url": "https://x.com/BlockBeatsAsia/status/2119363824901914634",
+      "engagement": {
+        "views": 6502,
+        "likes": 11,
+        "replies": 14,
+        "reposts": 1,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": {
+        "tweet_id": "2119361395393503534",
+        "username": "heyibinance",
+        "name": "Yi He",
+        "text": "请各位注意“朋友打折的U”，“亲戚从链上打过来的币”，“缅甸做生意的钱”，“柬埔寨收的帐”，“朋友的钱从账号过了一下”等场景，这类资金请不要转到币安。\n币安有严格的全球合规标准，这类对合规团队来说很容易识别，关连地址在脏钱进入币安前已经标记，打进来的钱会面临执法冻结，普遍案情复杂，案子周期比较长，币安没有解冻权限。\n互相理解，互相尊重。",
+        "created_at": "2026-11-08T09:28:27.000000Z",
+        "url": "https://x.com/heyibinance/status/2119361395393503534",
+        "external_urls": [],
+        "media": {
+          "types": [],
+          "urls": []
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2119362777274085834",
+      "created_at": "2026-11-08T09:33:56.000000Z",
+      "kind": "reply",
+      "author": {
+        "username": "spark888",
+        "name": "spark🌟"
+      },
+      "text": "简单点说，币安一套kyc根本无法生成两个个人账户、两个uid。 https://t.co/eqdLfm2YB4",
+      "url": "https://x.com/spark888/status/2119362777274085834",
+      "engagement": {
+        "views": 454,
+        "likes": 0,
+        "replies": 0,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HWl9NiQaIAA6t7g.jpg",
+          "https://pbs.twimg.com/media/HWl9NiWagAAgovh.jpg"
+        ]
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2119358688620371984",
+      "created_at": "2026-11-08T09:17:41.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "spark888",
+        "name": "spark🌟"
+      },
+      "text": "这个事本来我下意识的想站用户的\n\n看了半天无论用户和何一说的都是云里雾里，研究半小时才明白全貌，并且发现一个重要逻辑BUG…\n\n先回顾一下事件全貌：\n\n1.用户泰国无法c2c\n2.币安弹出下载币安（泰国）\n3.用户下载币安（泰国）\n4.用户用相同KYC注册币安（泰国）\n5.用户从主站转帐泰国站失败\n6.钱到了主站的另一个账号\n\n不知道你们看出一个很大的逻辑BUG吗？\n\n用户用一套KYC资料完成主站和泰国站注册，并随后从主站往泰国站通过UID转账，这是否意味着此刻用户已经有两个UID？\n\n这是一个隐藏的关键信息啊\n\n同一个UID系统里又怎么会存在一套KYC对应两个UID呢？\n\n我随后查询了一下，币安确实一个KYC只能对应一个UID。所以用户最大的发现机会也是他注册完的时刻——我的KYC为什么能有两个不一样的UID？\n\n所以如果是我，我可能会这时候反应过来，这并不是一个币安…\n\n当然，我不是洗地，我只是爱当侦探。\n\n币安仍然占这个事件的大部分责任，作为应用端，显然具备告知用户的义务、何况还是主站弹出的下载币安（泰国）。\n\n币安现在有两件事迫在眉睫：\n\n首要做的应该做的是还钱（何一承诺补贴），加强分站和UID的告知提示，排查所有公司技术可能存在的问题。\n\n次要应该做的是管理好KOL发言，我知道币安可能并没有做公关、因为这时候公关挺傻的。\n\n但是币安枝繁叶茂，利益相关的KOL真的太多了，甚至利益不相关的都想从每次“示好”币安中获得流量/青睐/业内地位。\n\n这就造成了币安无论错与对都有无数个KOL不分青红皂白的、不分高级低级的维护（洗地）。有时候会让群众看着很蠢。\n\n这也不是什么好事，谗言佞语维护一时，但会在下坡时形成难以扭转的势。\n\n后面这几段话就当我给币安写的治安疏吧。\n\n纵观古今，忠言逆耳，得民心者得天下。嘉靖尚能看透海瑞，相信币安也可以。",
+      "url": "https://x.com/spark888/status/2119358688620371984",
+      "engagement": {
+        "views": 4725,
+        "likes": 41,
+        "replies": 40,
+        "reposts": 0,
         "quotes": 4
       },
       "external_urls": [],
       "media": {
         "types": [
-          "video"
+          "photo"
         ],
         "urls": [
-          "https://pbs.twimg.com/amplify_video_thumb/2118894205217239040/img/7GQ9jIpVKiMAoC8G.jpg",
-          "https://video.twimg.com/amplify_video/2118894205217239040/vid/avc1/480x270/K02JeGV9xB-K_uhQ.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2118894205217239040/vid/avc1/640x360/yBijuJbhdYlkVsuv.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2118894205217239040/vid/avc1/1280x720/dI_Ret7niEAkEHRC.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2118894205217239040/vid/avc1/1920x1080/otHFzG0JbWuVAqBn.mp4?tag=29"
+          "https://pbs.twimg.com/media/HWl5feSbUAAtIuG.jpg"
+        ]
+      },
+      "quote": {
+        "tweet_id": "2118967846633976061",
+        "username": "heyibinance",
+        "name": "Yi He",
+        "text": "每个人在币安都只会有一个UID，且是独立的，并不存在撞号。我理解你的感受，从联系我开始到现在，全程我和4个员工跟踪了前因后果。\n我简单描述一下背景：您把币安的钱转到币安（泰国），正常这属于跨站转账，需要用地址或者二维码，但你在转账过程中在币安直接输入UID转账，虽然我们有二次确认环节，但你没有仔细看。你发现转错后，直接找了我。我本人和4个人的团队一直在协助，第一时间帮忙冻结了这笔钱，但因为这个收到钱的持仓用户并不活跃，我们也在反复联系对方，但对方没有响应。我们做了应该做的，甚至设身处地考虑你打错了钱会着急，所以尽可能帮忙。\n对方并不是犯罪，是您打错币，如果对方坚持不退只能我们客服介入谈判。你着急，我们建议让你通过报警执法介入，我们再协助沟通。但你在泰国报警，您在您希望收款的泰国报警要求币安主站把另外一个国家的币安用户的资产直接划拨给你，这不符合执法流程，报警应该在你希望找的用户国家所在地而不是泰国。\n之前处理过很多打错币的情况，大额打错几千万美金，也是我们及时拦住帮忙追的，而且当时用户坚持不退，也是我们协助谈判，最后到双方能接受的范围和解。\n我理解你的难处，团队也一直在跟踪进展，得到的就是这篇长文，我们会继续联系另外一个用户协商，但你打错币这事儿，在泰国报警确实帮不上忙，那是你的钱想去没去成的目的地。\n最后提醒大家，币安土耳其，币安泰国，币安美国等本地法币交易平台是独立平台，并不共享账号系统，日常转账提币时请仔细检查地址和UID。",
+        "created_at": "2026-11-07T07:24:37.000000Z",
+        "url": "https://x.com/heyibinance/status/2118967846633976061",
+        "external_urls": [],
+        "media": {
+          "types": [],
+          "urls": []
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2119356820183486661",
+      "created_at": "2026-11-08T09:10:16.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "binancezh",
+        "name": "币安Binance华语"
+      },
+      "text": "提现服务最新进展\n\n目前，以下网络及资产的提现服务已恢复：\n\n本次新增恢复：\n✅ ETH 网络： ENA、USDE、PENDLE、WLD、QNT、SHIB、ZRO、FET、NIL、ONDO、ALT、SKY、LINK、ETHFI、REZ、JASMY、PUNDIX、BTC、BAT、STRK、POL、ANIME、LSK、RE、BREV、RLC、AMP、PLUME、BLUR、WBETH、ZBT、ENSO、AVA、TUSD\n\n✅ SOL 网络： USD1、PUMP、FDUSD、BMT、RENDER、RAY、TRUMP、MET、PENGU、JUP、PYTH、BONK、KMNO、BNSOL、ORCA、WIF、W、HUMA、JTO、IO、2Z、BOME\n\n此前已恢复：\n✅ ETH 网络： RLUSD、USD1、TUSD、FDUSD、XUSD\n\n随着安全检查逐步完成，我们将继续分阶段恢复更多网络及资产的提现服务。\n\n后续进展将通过币安官方渠道持续更新。",
+      "url": "https://x.com/binancezh/status/2119356820183486661",
+      "engagement": {
+        "views": 23600,
+        "likes": 56,
+        "replies": 43,
+        "reposts": 5,
+        "quotes": 3
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": {
+        "tweet_id": "2118660855609061572",
+        "username": "binancezh",
+        "name": "币安Binance华语",
+        "text": "最新进展：\n\n我们正积极推进相关工作，争取在下周末前恢复 HYPE、INJ、APT、PLASMA、NEAR 和 LTC 的提现服务。\n\n同时，我们也计划在此之前，恢复所有已恢复运行网络（包括 BSC、ETH、MATIC、ARB、POL、OP 等）上全部代币的提现服务。\n\n感谢您的耐心等待与理解。 https://t.co/r9pvrBFc8L",
+        "created_at": "2026-11-06T11:04:45.000000Z",
+        "url": "https://x.com/binancezh/status/2118660855609061572",
+        "external_urls": [],
+        "media": {
+          "types": [
+            "photo"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/media/HWb-ge4aUAECZk0.jpg"
+          ]
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-1",
+      "list_id": "2092526123754414115",
+      "tweet_id": "2119321819702587883",
+      "created_at": "2026-11-08T06:51:11.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "0xSleepinRain",
+        "name": "雨中狂睡SleepinRain"
+      },
+      "text": ". @smartestmoney in https://t.co/y7YJO8xS47",
+      "url": "https://x.com/0xSleepinRain/status/2119321819702587883",
+      "engagement": {
+        "views": 2983,
+        "likes": 19,
+        "replies": 2,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HWlX7g3bgAEuD3y.jpg"
+        ]
+      },
+      "quote": {
+        "tweet_id": "2119265631350747343",
+        "username": "0xSleepinRain",
+        "name": "雨中狂睡SleepinRain",
+        "text": "如果我是 hyperliquid trader，谁不想急头白脸买第一个上线 hypercore 现货的 meme 呢。\n\ne/acc",
+        "created_at": "2026-11-08T03:07:55.000000Z",
+        "url": "https://x.com/0xSleepinRain/status/2119265631350747343",
+        "external_urls": [],
+        "media": {
+          "types": [],
+          "urls": []
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2119308603899388023",
+      "created_at": "2026-11-08T05:58:40.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "Benjieming1Q84",
+        "name": "Benjieming的撸毛之旅"
+      },
+      "text": "NeoSoul项目方之前说会给StandX社区空投DNA代币的。\n\n今天刷推看到有些小伙伴的到账了，但是数量都不多，基本就是“3U”。\n\n我没有收到，不确定是不是因为我“存款积分多，交易积分少”，所以不符合资格。\n\n翻篇了，下个项目见。",
+      "url": "https://x.com/Benjieming1Q84/status/2119308603899388023",
+      "engagement": {
+        "views": 4581,
+        "likes": 12,
+        "replies": 9,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": {
+        "tweet_id": "2112510923726594392",
+        "username": "Benjieming1Q84",
+        "name": "Benjieming的撸毛之旅",
+        "text": "NeoSoul项目方说会给StandX社区空投DNA代币，我看了一下规则，只需要提供钱包地址，是安全的，我弄好了，步骤是：\n❶加入NeoSoul的Discord，并完成验证。\nhttps://t.co/NmlGokr18K\n❷在“record-wallet”专用频道中提交在StandX上使用的BNB链钱包地址。\n(如果看不到“record-wallet”专用频道，就先去“announcements“频道找)\n\n这种情况在空投牛市的时候很常见，叫做“吸血鬼攻击”空投，不管给不给，只能试试了。\n\n⏰ 截止日期：11月3日15:59 UTC。",
+        "created_at": "2026-10-20T11:47:07.000000Z",
+        "url": "https://x.com/Benjieming1Q84/status/2112510923726594392",
+        "external_urls": [
+          "http://discord.gg/neosoul"
+        ],
+        "media": {
+          "types": [
+            "photo"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/media/HVElQitbcAADY0T.jpg",
+            "https://pbs.twimg.com/media/HVElRQHa4AAH7xa.jpg"
+          ]
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-4",
+      "list_id": "2089990503555072281",
+      "tweet_id": "2119305294291612140",
+      "created_at": "2026-11-08T05:45:31.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "thsottiaux",
+        "name": "Tibo"
+      },
+      "text": "Would a Pro 50 make sense? Wdyt?",
+      "url": "https://x.com/thsottiaux/status/2119305294291612140",
+      "engagement": {
+        "views": 1362816,
+        "likes": 9980,
+        "replies": 3927,
+        "reposts": 224,
+        "quotes": 485
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": {
+        "tweet_id": "2119296267545419987",
+        "username": "thsottiaux",
+        "name": "Tibo",
+        "text": "Saw some confusions, but all Pro plans have no 5-hour limits, and give the following usage compared to Plus.\n\n✅ Pro 100 = 10X\n✅ Pro 200 = 20X\n✅ Pro 500 = 50X, access to ultrafast",
+        "created_at": "2026-11-08T05:09:39.000000Z",
+        "url": "https://x.com/thsottiaux/status/2119296267545419987",
+        "external_urls": [],
+        "media": {
+          "types": [],
+          "urls": []
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2119297574951674236",
+      "created_at": "2026-11-08T05:14:51.000000Z",
+      "kind": "original",
+      "author": {
+        "username": "BlockBeatsAsia",
+        "name": "BlockBeats｜We're hiring!"
+      },
+      "text": "欧洲 15 国民众已经开始上街抗议 AI 数据中心建设了。\n\n当地时间周六，来自欧洲 15 个国家的 100 多个民间组织联合行动，要求暂停新的大型数据中心项目，直到建立更明确的监管制度。\n\n抗议规模不小：爱尔兰都柏林约 2000 人参加游行，芬兰赫尔辛基约 1300 人集会。从苏格兰、西班牙到法国、丹麦，多地也出现类似行动。荷兰阿姆斯特丹甚至发生抗议者与警方冲突，一人被捕。\n\n真正引爆争议的，是 AI 基础设施扩张背后的资源账单：\n\n电力：爱尔兰 2025 年数据中心用电量已占全国电表统计总用电量的 23%。\n土地与水资源：大型项目持续占用土地、消耗水电，挤压当地资源空间。\n经济收益：科技巨头投入数十亿欧元，但当地居民究竟能获得多少就业和经济回报，仍存在争议。\n\n资本还在疯狂加码。谷歌今年 9 月宣布向芬兰投资 130 亿欧元，芬兰规划及建设中的数据中心项目总投资规模已达约 800 亿欧元。\n\n有意思的是，这场反数据中心浪潮已经不只是欧洲现象。美国中期选举期间，数据中心建设同样成为地方政治议题，部分支持暂停项目的候选人获得选民支持。\n\nAI 产业正在进入一个新的阶段：过去拼算力、拼芯片、拼模型；现在，电力、土地、水资源，以及当地居民是否买账，也开始成为决定 AI 扩张速度的关键变量。\n\nAI 的尽头可能不只是算力竞赛，还有能源和社会资源的争夺。",
+      "url": "https://x.com/BlockBeatsAsia/status/2119297574951674236",
+      "engagement": {
+        "views": 2825,
+        "likes": 6,
+        "replies": 10,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HWlB6H2bcAAvh-E.jpg"
         ]
       },
       "quote": null,
@@ -2309,20 +1428,105 @@
       "retweet_quote_context_missing": false
     },
     {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2118894192319668369",
-      "created_at": "2026-11-07T02:31:57.000000Z",
-      "kind": "reply",
+      "list_name": "List-4",
+      "list_id": "2089990503555072281",
+      "tweet_id": "2119296267545419987",
+      "created_at": "2026-11-08T05:09:39.000000Z",
+      "kind": "original",
       "author": {
-        "username": "0xStudy",
-        "name": "0xStudy"
+        "username": "thsottiaux",
+        "name": "Tibo"
       },
-      "text": "@0xYond @3janexyz 真得好好研究一下jane了  带带弟弟",
-      "url": "https://x.com/0xStudy/status/2118894192319668369",
+      "text": "Saw some confusions, but all Pro plans have no 5-hour limits, and give the following usage compared to Plus.\n\n✅ Pro 100 = 10X\n✅ Pro 200 = 20X\n✅ Pro 500 = 50X, access to ultrafast",
+      "url": "https://x.com/thsottiaux/status/2119296267545419987",
       "engagement": {
-        "views": 164,
-        "likes": 0,
+        "views": 2178740,
+        "likes": 8292,
+        "replies": 1493,
+        "reposts": 231,
+        "quotes": 385
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-4",
+      "list_id": "2089990503555072281",
+      "tweet_id": "2119283945514975547",
+      "created_at": "2026-11-08T04:20:41.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "brucexu_eth",
+        "name": "brucexu.eth"
+      },
+      "text": "卧槽，这个直接把 iPhone Use 这个赛道杀死比赛了。试了一个任务太无敌了。跟之前的 iPhone Use 对比了一下，有几个很关键的点：\n\n1. 之前 iphone-use 做不到的，现在能做到了。之前有一个功能，或者是微信小程序的几个表单老是点击不到，但是现在是 OK 的。\n2. 使用非常方便，就是下载 APP 打开，然后连接上相关软件，然后开一个新 session，刷新一下 MCP 就可以用了。它用 MCP 的方式注入到这个 Coding Agent 里面，之前要用 Skills 安装挺多东西的。\n3. 使用一个 APP，然后能够直接看到手机界面，同时也可以直接用鼠标操作。之前的 iPhone 用户遇到了相关的事情，需要在手机上用手操作，但是手机上会有一个 Automation running 的遮罩，就很麻烦。现在基本上都能在电脑上直接操作。\n4. 授权非常清晰，有一些涉及到敏感信息或者操作的，会直接拦住 coding agent，然后提醒我来继续操作。之前的话，iPhone use 都是在 coding agent 里面，就是我比较难注意到还需要有什么授权之类的问题。这个非常清晰，而且 Developer 模式还可以把所有的具体操作都展示出来，我也能够比较清晰的知道它具体做了什么，有没有作恶。\n\nNB。",
+      "url": "https://x.com/brucexu_eth/status/2119283945514975547",
+      "engagement": {
+        "views": 69735,
+        "likes": 458,
+        "replies": 29,
+        "reposts": 46,
+        "quotes": 2
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": {
+        "tweet_id": "2119268531678441646",
+        "username": "DIYgod",
+        "name": "DIŸgöd ☀️",
+        "text": "做了个新项目 Pinky：让任何 AI Agent 用上你的 iPhone 和 Android 手机，Mac、Windows、Linux 都能跑，开源免费\n\n付款前会停下来等你点头，发消息、删除也可以设成先问，随时能接管，每一步都有录屏。原生应用，安装包十几 MB\n\nGitHub：https://t.co/k79map72UK\nDiscord：https://t.co/GCszL2vMIs https://t.co/IHGz3UwywU",
+        "created_at": "2026-11-08T03:19:26.000000Z",
+        "url": "https://x.com/DIYgod/status/2119268531678441646",
+        "external_urls": [
+          "https://github.com/DIYgod/pinky",
+          "https://discord.gg/S27b7SHjng"
+        ],
+        "media": {
+          "types": [
+            "video"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/amplify_video_thumb/2119268324106551296/img/GbD71abIiFLMxBYb.jpg",
+            "https://video.twimg.com/amplify_video/2119268324106551296/vid/avc1/480x270/ArupLB7r8Dk-l1dI.mp4?tag=29",
+            "https://video.twimg.com/amplify_video/2119268324106551296/vid/avc1/640x360/dpNDacJPC12deLYV.mp4?tag=29",
+            "https://video.twimg.com/amplify_video/2119268324106551296/vid/avc1/1280x720/4yAvqY_ARyBCH8Gy.mp4?tag=29",
+            "https://video.twimg.com/amplify_video/2119268324106551296/vid/avc1/1920x1080/tlzzOUi42WVJIH_S.mp4?tag=29"
+          ]
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-4",
+      "list_id": "2089990503555072281",
+      "tweet_id": "2119274174522982629",
+      "created_at": "2026-11-08T03:41:52.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "brucexu_eth",
+        "name": "brucexu.eth"
+      },
+      "text": "好家伙，这岂不是 iPhone Use 的威力增强版？下载试试",
+      "url": "https://x.com/brucexu_eth/status/2119274174522982629",
+      "engagement": {
+        "views": 5812,
+        "likes": 15,
         "replies": 1,
         "reposts": 0,
         "quotes": 0
@@ -2332,98 +1536,27 @@
         "types": [],
         "urls": []
       },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2118891930654544135",
-      "created_at": "2026-11-07T02:22:58.000000Z",
-      "kind": "original",
-      "author": {
-        "username": "BlockBeatsAsia",
-        "name": "BlockBeats｜We're hiring!"
-      },
-      "text": "在最新的巴伦投资大会炉边访谈中，马斯克谈到了一个相当疯狂的未来：\n\n把 AI 数据中心送上太空。🚀\n\n他的逻辑很直接：AI 算力的瓶颈正在从芯片转向电力和基础设施。美国平均用电负荷已经超过 500GW，如果每年新增 200GW AI 算力，相当于每年把整个美国电网扩容约 40%。地面电力建设、审批和冷却能力，很难跟上这个速度。\n\n因此，SpaceX 正在推进 StarMind 计划，联合英伟达设计太空计算机，预计 2027 年第三季度开始发射首批设备，2028 年扩大规模，2029 年进一步放量。\n\n但这还只是第一步。\n\n马斯克同时提出了更疯狂的 TeraFab 计划：每年实现 1 太瓦 AI 芯片算力产能。按照他的估算，这相当于明年全球 AI 芯片产出规模的约 30 倍。\n\n他甚至开玩笑说，TeraFab 这个名字有三层含义：\nTerror（恐怖）、Terra（地球）、Tera（太瓦）。\n因为这个项目的规模确实大得有些恐怖。\n\n访谈中还有几个值得关注的细节：\n\n1️⃣ 对中国制造业的认可。 马斯克直言中国汽车公司非常强，甚至认为中国之外，SpaceX 和特斯拉是全球最优秀的硬件制造公司。他并不回避中国在汽车制造领域的竞争力。\n\n2️⃣ 真正的竞争在物理世界。 他认为 AI 的胜负不只取决于模型，还取决于芯片、电力、散热、工厂和部署速度。谁能更快把硬件变成实际算力，谁就更有优势。\n\n3️⃣ 亲自下场管理。 谈到 Colossus 超算中心建设，他表示自己每天在电站和厂房之间来回走动，甚至亲自处理电缆、光纤、排线和软件代码。他不希望管理层远离一线，导致真实问题被层层过滤。\n\n4️⃣ 对普通话也感兴趣。 他还表示，学习普通话确实有价值，这是一门非常有趣的语言。\n\n从特斯拉、SpaceX，到 xAI，再到 TeraFab，马斯克正在尝试打通芯片制造、能源供应、算力部署和 AI 应用的整个产业链。\n\n这背后的野心已经不只是做一家 AI 公司，而是控制 AI 时代最核心的物理基础设施。\n\n当其他公司还在争夺 GPU 时，马斯克已经开始考虑如何把整个数据中心搬出地球。",
-      "url": "https://x.com/BlockBeatsAsia/status/2118891930654544135",
-      "engagement": {
-        "views": 2893,
-        "likes": 5,
-        "replies": 11,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "video"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/amplify_video_thumb/2118891757832425472/img/Feu7fcBWirQWXp48.jpg",
-          "https://video.twimg.com/amplify_video/2118891757832425472/vid/avc1/480x270/9YO_VLSKU6hDdgot.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2118891757832425472/vid/avc1/640x360/1rOsROFe0ar_kOQe.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2118891757832425472/vid/avc1/1280x720/nGuAjrCc-FcTNSwH.mp4?tag=29",
-          "https://video.twimg.com/amplify_video/2118891757832425472/vid/avc1/1920x1080/bx8tsJZaxLDGsapx.mp4?tag=29"
-        ]
-      },
-      "quote": null,
-      "quote_context_missing": false,
-      "retweet": null,
-      "retweet_is_quote": false,
-      "retweet_quote": null,
-      "retweet_quote_context_missing": false
-    },
-    {
-      "list_name": "List-2",
-      "list_id": "2062314900266127784",
-      "tweet_id": "2118891786471174603",
-      "created_at": "2026-11-07T02:22:23.000000Z",
-      "kind": "quote",
-      "author": {
-        "username": "0xYond",
-        "name": "Yond (DeFi Arc)"
-      },
-      "text": "LCC @3janexyz 现在提供双倍激励！—— USDC 补贴直接补到 40% APY，外加最高倍率的 $JANE 排放\n\n缺点就是 LCC 的资金占用有杠杆，被 call 到的话就要把全部承诺金额存进去。不懂的可以看我之前的文章：https://t.co/ZMPhi3t2vO\n\n【图二】但是有个比较资金友好的功能是 Promise Loop，提醒你在被 call 后，用收到的 USD3l 凭证作为抵押，Morpho 借入 USDC 主动完成履约（前提是市场有足够的可借流动性）\n\n> 拿 LCC 的最低参与金额 $25200 为例，如果拉满 6.24x 杠杆，只需占用 $11794（这部分能吃 ~40% APY + $JANE 排放），等 call 到你的时候再补 $13406 即可，相对来讲资金友好一些，被 call 到也不慌。等被 call 到，通过 Promise Loop 就可以在 Morpho 借入剩余的 USDC，但同时会产生对应的债务\n\n系统补给你的 USD3 自带有底息，理论上 5-6% 的底息足够覆盖 Morpho 的 USDC 借款利率，只不过息差不算特别高，这部分从 Promise Loop 借出来的钱不怎么赚钱，但别忘了这笔钱还能白嫖 $JANE 的排放\n\n通过 Promise Loop 参与的风险点有两个：\n1) 走 Promise Loop 的人多，Morpho 的 USDC 被借完了，最后你还是需要自己放钱进去\n2) 池子利用率高， Morpho 借贷利息上涨，可能会导致息差为负，你在负债端亏利息\n\n可以使用下方我的车队码参与 LCC，额外解锁 1.1-1.25 倍的排放加成（具体加成取决于你的信用分：600 分以下是 1.1x，800 分以上是 1.25x）\n\n感谢支持，不用也可以🫶",
-      "url": "https://x.com/0xYond/status/2118891786471174603",
-      "engagement": {
-        "views": 1525,
-        "likes": 11,
-        "replies": 13,
-        "reposts": 0,
-        "quotes": 0
-      },
-      "external_urls": [],
-      "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWfQiKtaMAAo5cW.png",
-          "https://pbs.twimg.com/media/HWfQjlnbUAAtqci.png"
-        ]
-      },
       "quote": {
-        "tweet_id": "2114973825314193432",
-        "username": "0xYond",
-        "name": "Yond (DeFi Arc)",
-        "text": "我来蹭一下今早 $USD3 提额被秒抢一空的热度 ✍️\n\n@3janexyz 作为我今年继 Saturn 之后最大的稳定币理财仓位，机制和收益都有很亮眼的地方。但同时，机制上也有比较复杂的地方，如果没有正确理解，很容易踩坑。本文争取把关于 3Jane 的基本面、机制、和风险点解释清楚\n\n————————————————\n\n1️⃣ 业务逻辑\n3Jane 是一个撮合资金方和借贷方的信用贷平台\n资金方存入 USDC，获得 USD3。USD3 代表了应收债务的金额+累积利息\n借贷方是选定合作的 Fintech 公司。通过信用评级后，Fintech 公司在 3Jane 平台借款后再分发给自己的下游客户\n\n————————————————\n\n2️⃣ USD3 & sUSD3\n去年 11 月刚了解 3Jane 的时候，USD3 还是足额抵押的美元稳定币，sUSD3 去累积债务的利息，但同时要背负坏账的风险。\n\n但后面经济模型改进了，现在 USD3/sUSD3 更像是一个优先/劣后 (Senior/Junior tranche) 的关系\nUSD3 - 代表对应债务的份额 + 应收利息的 yield-bearing stablecoin，单位净值会随着时间累积。目前的 NAV ≈ $1.19，但极端信用损失的情况下净值仍有可能回撤到 $1 以下\nsUSD3 - 占整个 3Jane 资金池更小的比例，能分配到更多应收利息，但同时要吸收坏账的风险。如果借款人出现 default，sUSD3 要优先承担损失\n\n简单来说：USD3 收益略低 (~6.5% APY) 风险可控；sUSD3 收益高 (~13% APY) 但可能出现亏损\n\n————————————————\n\n3️⃣ LCC (Levered Callable Capital)\n9/1 新上的功能，全名叫 Levered Callable Capital，中文我把它翻译成「杠杆待命资本」\n简单理解就是：你需要放贷很多钱，但没人借的时候，资本空转，资本利用率很低。\nLCC 允许你只放一小部分钱当保证金，当有人借的时候，再在 9 天的窗口期内调集资金，把全部金额借出去\n但这里有一个坑：如果资金方没有在窗口期内把承诺资金放出去，保证金会被清算，分配给有能力调用资金的其他资金方作为奖励\n\n如果还不能理解，举一个实际例子：\n> 你打算借出 $100k 资金，但暂时没有人来借，资金会闲置\n> LCC 允许你先放 $7500 作为保证金，并且这部分保证金可以享受 ~20% 年化收益\n> 当有借款需求的时候，你需要在 9 天窗口期内将全额 $100k 资金贷出去（全额转换为 USD3）。如果没做到，$7500 的保证金会被罚没\n\n————————————————\n\n4️⃣ 预挖 $JANE 的几种方式\n3Jane 最吸引矿佬，也是最吸引人的一个亮点是：不搞积分 pua，直接按每周一个 epoch 来预挖 $JANE 代币（可以直接 claim 到钱包，但暂不可转让）\n\n能预挖 $JANE 的几种方式见「图二」👇🏻\n- 持有 USD3\n- 持有 sUSD3\n- 存 USDC @ Morpho\n- USD3 YT/LP @ Pendle\n- sUSD3 YT/LP @ Pendle\n- USD3/frxUSD LP @ Curve\n- LCC 存 USDC/USDT\n\n以上策略均可以不同的速率预挖 $JANE ，具体速率可参考 https://t.co/l2Xkc4ge9S\n\n————————————————\n\n5️⃣ 风险点\n3Jane 的参与流程包含了多个风险点，我尽可能列出。如有错误/遗漏，请在评论区指正\n\n1) USD3 目前没有铸造额度，115m USD3 已经被全部铸造完。想要获得 USD3 需要在 Curve 上兑换，需要承受一定的交易滑点和二级市场溢价\n2) USD3 理论风险很低，但仍有可能出现净值回撤的情况。当坏账发生，sUSD3 保险被击穿，USD3 就会出现净值回撤\n3) LCC 的收益/资金占用问题，这是我认为是 LCC 目前量很难起来的主要原因。LCC 的杠杆倍率是 13.3x / 7.5%，如果 commit $10000 进去，只有 $750 仓位能获得 20% APY。剩余的 $9250 虽然不占用，可以拿去做别的事，但需要有流动性支持，才能在窗口期内被调集\n4) 每周 $JANE 排放对应的 APY，取决于你设置多少的 FDV 来估算。记得在右上角填上你认为合理的上线估值，我设置的是 150-200m FDV（非财务建议，综合 RWA/信贷 赛道的表现和 TVL 来看，算是比较中肯的估值）\n\n————————————————\n\n从赛道、商业模型、项目审美、跟团队的交流等各方面综合考虑，个人认为 3Jane 值得参与。我自己也是从 7 月份就在参与 3Jane，策略相对保守，只持有 USD3，每周吃低保。\n\n最后祝大家安全生产，本金安全最重要！🙏",
-        "created_at": "2026-10-27T06:53:48.000000Z",
-        "url": "https://x.com/0xYond/status/2114973825314193432",
+        "tweet_id": "2119268531678441646",
+        "username": "DIYgod",
+        "name": "DIŸgöd ☀️",
+        "text": "做了个新项目 Pinky：让任何 AI Agent 用上你的 iPhone 和 Android 手机，Mac、Windows、Linux 都能跑，开源免费\n\n付款前会停下来等你点头，发消息、删除也可以设成先问，随时能接管，每一步都有录屏。原生应用，安装包十几 MB\n\nGitHub：https://t.co/k79map72UK\nDiscord：https://t.co/GCszL2vMIs https://t.co/IHGz3UwywU",
+        "created_at": "2026-11-08T03:19:26.000000Z",
+        "url": "https://x.com/DIYgod/status/2119268531678441646",
         "external_urls": [
-          "https://app.3jane.xyz/farm"
+          "https://github.com/DIYgod/pinky",
+          "https://discord.gg/S27b7SHjng"
         ],
         "media": {
           "types": [
-            "photo"
+            "video"
           ],
           "urls": [
-            "https://pbs.twimg.com/media/HVnlKNVa4AEQQbd.png",
-            "https://pbs.twimg.com/media/HVnlLGdasAAh_Qn.png"
+            "https://pbs.twimg.com/amplify_video_thumb/2119268324106551296/img/GbD71abIiFLMxBYb.jpg",
+            "https://video.twimg.com/amplify_video/2119268324106551296/vid/avc1/480x270/ArupLB7r8Dk-l1dI.mp4?tag=29",
+            "https://video.twimg.com/amplify_video/2119268324106551296/vid/avc1/640x360/dpNDacJPC12deLYV.mp4?tag=29",
+            "https://video.twimg.com/amplify_video/2119268324106551296/vid/avc1/1280x720/4yAvqY_ARyBCH8Gy.mp4?tag=29",
+            "https://video.twimg.com/amplify_video/2119268324106551296/vid/avc1/1920x1080/tlzzOUi42WVJIH_S.mp4?tag=29"
           ]
         }
       },
@@ -2436,30 +1569,73 @@
     {
       "list_name": "List-2",
       "list_id": "2062314900266127784",
-      "tweet_id": "2118876153775899059",
-      "created_at": "2026-11-07T01:20:16.000000Z",
-      "kind": "original",
+      "tweet_id": "2119269056507462101",
+      "created_at": "2026-11-08T03:21:31.000000Z",
+      "kind": "quote",
       "author": {
-        "username": "0xStudy",
-        "name": "0xStudy"
+        "username": "BlockBeatsAsia",
+        "name": "BlockBeats｜We're hiring!"
       },
-      "text": "网吧包早  只需十块钱  畅玩五小时😋 https://t.co/1Xukzj52Tk",
-      "url": "https://x.com/0xStudy/status/2118876153775899059",
+      "text": "美现货比特币 ETF 刚刚经历 6 月以来最惨的一周，机构资金正在加速撤退。\n\nFarside 数据显示，11 月 2 日至 6 日，美国现货 BTC ETF 合计净流出约 12.82 亿美元，五个交易日四天净流出，只有周三录得 7460 万美元净流入。\n\n最值得关注的是资金流向：\n\n• 贝莱德 IBIT 单周净流出 12.1 亿美元，占全市场净流出的约 94%；\n• 周四、周五连续两天净流出 4.3 亿、4.12 亿美元；\n• 周五 IBIT 单日流出 4.03 亿美元，富达 FBTC 反而逆势流入 4280 万美元。\n\n这意味着，问题并不只是整个 ETF 市场同步撤资，贝莱德旗下的 IBIT 承受了绝大部分赎回压力。\n\n更糟糕的是，2026 年以来 BTC 现货 ETF 累计资金流已经转负，目前净流出约 9.14 亿美元，此前的年度净流入被彻底抹去。\n\nETH 现货 ETF 同样承压，单周净流出约 3.65 亿美元，连续第六周资金流出。BTC、ETH 两大 ETF 市场一周合计流出约 16.47 亿美元。\n\n情绪指标也在恶化。11 月 7 日，加密市场恐惧与贪婪指数跌至 25，进入极度恐惧区间，11 月 8 日回升至 28，但仍处于恐惧区间。BTC 周末则在 7.5 万美元附近徘徊。\n\n从 AI 股重估、美国中期选举后的政策不确定性，到风险资产整体抛售，市场正在重新评估风险敞口。\n\n需要注意，ETF 净流出不等于基金管理人按同等金额直接抛售现货，也不能简单等同于所有机构都在离场。\n\n但有一点已经很明确：此前持续支撑 BTC 的 ETF 资金流入叙事，正在遭遇今年以来最严峻的一次考验。\n\n接下来要看的，不只是 BTC 能否守住 7.5 万美元，更是 ETF 资金何时重新转正。",
+      "url": "https://x.com/BlockBeatsAsia/status/2119269056507462101",
       "engagement": {
-        "views": 3462,
-        "likes": 49,
-        "replies": 36,
+        "views": 4112,
+        "likes": 18,
+        "replies": 17,
+        "reposts": 0,
+        "quotes": 1
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": {
+        "tweet_id": "2118990517937594407",
+        "username": "Diamondweb_3",
+        "name": "Diamond",
+        "text": "Friday’s bitcoin ETF outflows barely improved on Thursday. \n\n$411.9M left, versus $430.2M the day before.\n\nThe split is what caught my attention.\n\nIBIT lost $403M while Fidelity’s FBTC attracted $42.8M. \n\nAcross the five sessions, net outflows reached $1.282B.\n\nI read that as uneven demand. Some buyers are still allocating, but their purchases haven’t absorbed the redemptions elsewhere.\n\nThat makes the next session’s breakdown more useful to me than another headline about institutions buying or selling bitcoin.\n\nDoes IBIT’s selling ease, and do inflows start appearing across more funds?",
+        "created_at": "2026-11-07T08:54:43.000000Z",
+        "url": "https://x.com/Diamondweb_3/status/2118990517937594407",
+        "external_urls": [],
+        "media": {
+          "types": [
+            "photo"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/media/HWgqpMSWEAAYjH0.jpg"
+          ]
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-1",
+      "list_id": "2092526123754414115",
+      "tweet_id": "2119266965164540235",
+      "created_at": "2026-11-08T03:13:13.000000Z",
+      "kind": "reply",
+      "author": {
+        "username": "0xSleepinRain",
+        "name": "雨中狂睡SleepinRain"
+      },
+      "text": "觉得它是捆绑盘，导致我在 e/acc 上被边缘化了。\n\n我不知道对不对啊，但背后的人选了它，把它推上现货，就说明这个捆绑盘想要做到更高。\n\n不过到现在我还不能确认 elysium 能走到多高的位置，可能只有出现那种散户神盘，才能继续相信它吧。",
+      "url": "https://x.com/0xSleepinRain/status/2119266965164540235",
+      "engagement": {
+        "views": 1792,
+        "likes": 8,
+        "replies": 2,
         "reposts": 0,
         "quotes": 0
       },
       "external_urls": [],
       "media": {
-        "types": [
-          "photo"
-        ],
-        "urls": [
-          "https://pbs.twimg.com/media/HWfCoRDaEAAzfN6.jpg"
-        ]
+        "types": [],
+        "urls": []
       },
       "quote": null,
       "quote_context_missing": false,
@@ -2471,21 +1647,21 @@
     {
       "list_name": "List-2",
       "list_id": "2062314900266127784",
-      "tweet_id": "2118873113849159910",
-      "created_at": "2026-11-07T01:08:11.000000Z",
+      "tweet_id": "2119265915988845015",
+      "created_at": "2026-11-08T03:09:03.000000Z",
       "kind": "original",
       "author": {
-        "username": "BlockBeatsAsia",
-        "name": "BlockBeats｜We're hiring!"
+        "username": "0xXIAOc",
+        "name": "小C | 🔶BNB"
       },
-      "text": "美国财政部出手，MEXC 被切断美国金融体系通道，涉案资金至少 160 亿美元\n\n11 月 7 日，美国财政部金融犯罪执法局（FinCEN）下令禁止美国金融机构处理涉及 MEXC 的资金转账，拟切断其与美国金融体系的联系。\n\nFinCEN 指控，MEXC 在 2021 年 5 月至 2026 年 5 月期间，处理了至少 160 亿美元与制裁规避、网络犯罪及其他非法活动有关的资金，涉及伊朗、朝鲜和俄罗斯相关实体。\n\n其中：\n\n- 俄罗斯方向： 涉及近 15 亿美元制裁规避交易，包括与受制裁实体的 2.32 亿美元直接交易，以及为俄罗斯制裁规避网络 A7 提供至少 2600 万美元服务。\n- 伊朗方向： 与 40 多家已识别的伊朗加密交易商发生约 10 亿美元直接交易，另涉及约 2200 万美元伊朗央行及革命卫队相关交易。\n- 稳定币方向： 处理近 2 亿美元与俄罗斯相关 A7A5 稳定币有关的交易。\n\n该命令依据《打击俄罗斯洗钱法》第 9714(a) 条发布，将在《联邦公报》刊登 30 天后生效。\n\n美国财政部长贝森特表示，美国金融机构不能一边支持伊朗政权，一边继续使用美国金融体系。\n\n这次行动的影响不只是美国市场准入问题，而是美国试图通过金融体系施压，将交易所与跨境制裁规避网络切割。\n\n对于 MEXC 而言，接下来真正需要关注的是：其他司法辖区是否跟进，以及相关指控是否会引发更广泛的银行和支付渠道收紧。",
-      "url": "https://x.com/BlockBeatsAsia/status/2118873113849159910",
+      "text": "📢Alpha 日报\n1️⃣11月8日 周末无空投\n\n人生很多问题不是用来解决的，而是用来接受的。你不再挣扎的那一刻，它就不再是问题了。\n\n2️⃣ 昨日限价单总交易量：1,067,057,279\n（较前一日+1.88% ）   \n\n3️⃣交易赛进度  \nAXIS 交易赛\n昨日0 → 今日69\n(增加了69)\n\n4️⃣今日推荐（30 天内上线代币，积分 ×4）\n交易赛推荐：暂无\n纯交易量推荐：  限价单刷CT（剩10天）",
+      "url": "https://x.com/0xXIAOc/status/2119265915988845015",
       "engagement": {
-        "views": 20195,
-        "likes": 26,
-        "replies": 15,
+        "views": 7499,
+        "likes": 40,
+        "replies": 6,
         "reposts": 0,
-        "quotes": 13
+        "quotes": 0
       },
       "external_urls": [],
       "media": {
@@ -2493,7 +1669,7 @@
           "photo"
         ],
         "urls": [
-          "https://pbs.twimg.com/media/HWe_3QebcAAFHW0.jpg"
+          "https://pbs.twimg.com/media/HWklGuIbEAAxv6I.png"
         ]
       },
       "quote": null,
@@ -2504,23 +1680,23 @@
       "retweet_quote_context_missing": false
     },
     {
-      "list_name": "List-4",
-      "list_id": "2089990503555072281",
-      "tweet_id": "2118871902366441879",
-      "created_at": "2026-11-07T01:03:22.000000Z",
+      "list_name": "List-1",
+      "list_id": "2092526123754414115",
+      "tweet_id": "2119265631350747343",
+      "created_at": "2026-11-08T03:07:55.000000Z",
       "kind": "original",
       "author": {
-        "username": "thsottiaux",
-        "name": "Tibo"
+        "username": "0xSleepinRain",
+        "name": "雨中狂睡SleepinRain"
       },
-      "text": "It's Friday",
-      "url": "https://x.com/thsottiaux/status/2118871902366441879",
+      "text": "如果我是 hyperliquid trader，谁不想急头白脸买第一个上线 hypercore 现货的 meme 呢。\n\ne/acc",
+      "url": "https://x.com/0xSleepinRain/status/2119265631350747343",
       "engagement": {
-        "views": 2106272,
-        "likes": 7465,
-        "replies": 1878,
-        "reposts": 137,
-        "quotes": 216
+        "views": 11181,
+        "likes": 36,
+        "replies": 11,
+        "reposts": 1,
+        "quotes": 1
       },
       "external_urls": [],
       "media": {
@@ -2528,6 +1704,147 @@
         "urls": []
       },
       "quote": null,
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-1",
+      "list_id": "2092526123754414115",
+      "tweet_id": "2119256669242966164",
+      "created_at": "2026-11-08T02:32:18.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "0xSleepinRain",
+        "name": "雨中狂睡SleepinRain"
+      },
+      "text": ". @CryptoTomYT is cooking",
+      "url": "https://x.com/0xSleepinRain/status/2119256669242966164",
+      "engagement": {
+        "views": 3138,
+        "likes": 10,
+        "replies": 2,
+        "reposts": 0,
+        "quotes": 0
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": {
+        "tweet_id": "2119157068330586590",
+        "username": "eacc_coin",
+        "name": "e/acc",
+        "text": "We are PROUD to share that e/acc is the FIRST coin on @Enter_Elysium to buy a HyperCore spot listing \n\nSee you on HyperCore\n\ne/acc $EACC https://t.co/l52M2v1doC",
+        "created_at": "2026-11-07T19:56:31.000000Z",
+        "url": "https://x.com/eacc_coin/status/2119157068330586590",
+        "external_urls": [],
+        "media": {
+          "types": [
+            "photo"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/media/HWjCHysXoAAXFbE.jpg"
+          ]
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2119252680879272384",
+      "created_at": "2026-11-08T02:16:27.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "Benjieming1Q84",
+        "name": "Benjieming的撸毛之旅"
+      },
+      "text": "【Flop Labs项目进度 -项目跟进】\n\nDevnet已经发布，官方明确没有空投奖励。\nTestnet(测试网)日期待公布，有空投，我主要跟进这个信息。\n\n按照之前官方公布的信息：\n❶测试网2026年Q4上线，运行约90天。\n❷测试网有空投，占比“大约四分之一”。 https://t.co/qOx4i76JYu",
+      "url": "https://x.com/Benjieming1Q84/status/2119252680879272384",
+      "engagement": {
+        "views": 5653,
+        "likes": 12,
+        "replies": 4,
+        "reposts": 0,
+        "quotes": 1
+      },
+      "external_urls": [],
+      "media": {
+        "types": [
+          "photo"
+        ],
+        "urls": [
+          "https://pbs.twimg.com/media/HWkY9TcaMAAritJ.jpg"
+        ]
+      },
+      "quote": {
+        "tweet_id": "2092866462532649007",
+        "username": "Benjieming1Q84",
+        "name": "Benjieming的撸毛之旅",
+        "text": "【Flop Labs项目当前主要能做哪些事？ -项目跟进】\n\n1️⃣我前几天就关注到这个项目了，但是感觉除了在官网“填表”，并没有什么可做的，我填了表，留了Telegram和Gmail邮箱，目前没有收到回复，填表的选项有：\n❶GPU提供者(矿工)\n❷验证者\n❸创作者\n2️⃣然后，这两天，推特上面的帖子就特别多了，我归纳了一下，内容主要是以下3类：\n❶填表，主要分享在官网填表报名的。\n❷代币经济学，主要分享创始人背景和代币分配细则。\n❸Technocore + DID，主要分享Technocore和DID密钥的创建工具和教程。\n3️⃣我用线程的方式，详细分享这3类内容，尤其是Technocore和DID密钥的部分。",
+        "created_at": "2026-08-27T06:47:02.000000Z",
+        "url": "https://x.com/Benjieming1Q84/status/2092866462532649007",
+        "external_urls": [],
+        "media": {
+          "types": [
+            "photo"
+          ],
+          "urls": [
+            "https://pbs.twimg.com/media/HQtZkrgawAAyAiL.jpg"
+          ]
+        }
+      },
+      "quote_context_missing": false,
+      "retweet": null,
+      "retweet_is_quote": false,
+      "retweet_quote": null,
+      "retweet_quote_context_missing": false
+    },
+    {
+      "list_name": "List-2",
+      "list_id": "2062314900266127784",
+      "tweet_id": "2119242197132583234",
+      "created_at": "2026-11-08T01:34:48.000000Z",
+      "kind": "quote",
+      "author": {
+        "username": "BlockBeatsAsia",
+        "name": "BlockBeats｜We're hiring!"
+      },
+      "text": ".@star_okx 公开提醒用户：暂时不要直接从 MEXC 向 OKX 转账。\n\n原因是 OKX 已针对美国 FinCEN 对 MEXC 采取的特别措施，按照类似金融制裁的审慎标准加强风控。\n\n这意味着，来自相关平台的资金可能面临冻结、审查，关联账户甚至可能接受进一步调查。\n\nStar 还透露，尽管 FinCEN 给出了 30 天过渡期，OKX 仍选择提前加强风控，并为此向受影响用户致歉。\n\n此前，已有 X 用户称，自己从 MEXC 向 OKX 转入的 848.8 USDT 和 11.7 USDT 均被冻结，理由是资金来自「潜在高风险地址」。\n\n这件事值得注意的是：交易所受到监管措施影响，风险可能沿着链上资金流向传导，最终波及其他平台的普通用户。\n\n目前这不代表所有 MEXC 转出资金都会被冻结，但近期有跨平台转账需求的用户，确实需要格外谨慎。",
+      "url": "https://x.com/BlockBeatsAsia/status/2119242197132583234",
+      "engagement": {
+        "views": 4972,
+        "likes": 9,
+        "replies": 11,
+        "reposts": 2,
+        "quotes": 1
+      },
+      "external_urls": [],
+      "media": {
+        "types": [],
+        "urls": []
+      },
+      "quote": {
+        "tweet_id": "2119204354964222081",
+        "username": "star_okx",
+        "name": "Star_OKX",
+        "text": "很抱歉给您带来了不便。我们理解，您可能是一位无辜受到此次事件波及的用户，我们也非常理解您的困扰和不满。\n\n请大家暂时避免直接从 MEXC 向 OKX 转入资金。\n\nOKX 对 FinCEN采取的特别措施，按照类似金融制裁的审慎标准进行风险管理。根据我们的合规风控措施，来自相关平台的资金可能会被冻结审查，相关账户也可能需要接受进一步调查。\n\n尽管 FinCEN 提供了 30 天的过渡期，OKX 仍然选择提前大幅加强相关风控措施，而不是等到最后期限才采取行动。\n\n保护用户利益、维护金融体系的安全与诚信，始终是 OKX 的最高优先事项。\n\n感谢大家的理解与配合。",
+        "created_at": "2026-11-07T23:04:25.000000Z",
+        "url": "https://x.com/star_okx/status/2119204354964222081",
+        "external_urls": [],
+        "media": {
+          "types": [],
+          "urls": []
+        }
+      },
       "quote_context_missing": false,
       "retweet": null,
       "retweet_is_quote": false,
@@ -2537,15 +1854,15 @@
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "x-intelligence:codex-x-20261108T010120Z",
-    "requestId": "codex-x-20261108T010120Z",
-    "triggerSha": "1e00774d3954d0652da7f07bbfe442557a622cd0",
-    "githubRunId": 42432435763,
-    "scheduledAt": "2026-11-08T01:00:00Z",
-    "startedAt": "2026-11-08T01:02:00.137735+00:00",
-    "sourceCheckedAt": "2026-11-08T01:02:09.401769+00:00",
-    "sourceUpdatedAt": "2026-11-08T00:50:13+00:00",
-    "completedAt": "2026-11-08T01:02:09.401812+00:00",
+    "runId": "x-intelligence:codex-x-20261109T010011Z",
+    "requestId": "codex-x-20261109T010011Z",
+    "triggerSha": "f4b60dbf7065e65e064859acdbd03e79900d40d7",
+    "githubRunId": 42543275415,
+    "scheduledAt": "2026-11-09T01:00:00Z",
+    "startedAt": "2026-11-09T01:01:15.818553+00:00",
+    "sourceCheckedAt": "2026-11-09T01:01:24.675514+00:00",
+    "sourceUpdatedAt": "2026-11-09T00:43:56+00:00",
+    "completedAt": "2026-11-09T01:01:24.675556+00:00",
     "publishedAt": null
   }
 }
