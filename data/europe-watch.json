@@ -1,23 +1,23 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-11-08T02:39:12+00:00",
-  "as_of": "2026-11-08T07:30:00+08:00",
-  "window_start": "2026-11-07T07:30:00+08:00",
-  "window_end": "2026-11-08T07:30:00+08:00",
+  "generated_at": "2026-11-09T01:02:10+00:00",
+  "as_of": "2026-11-09T07:30:00+08:00",
+  "window_start": "2026-11-08T07:30:00+08:00",
+  "window_end": "2026-11-09T07:30:00+08:00",
   "source_health": [
     {
       "source": "ECB",
       "region": "eu",
       "status": "ok",
       "count": 8,
-      "checked_at": "2026-11-08T02:39:12+00:00"
+      "checked_at": "2026-11-09T01:02:10+00:00"
     },
     {
       "source": "European Commission",
       "region": "eu",
       "status": "ok",
       "count": 5,
-      "checked_at": "2026-11-08T02:39:12+00:00"
+      "checked_at": "2026-11-09T01:02:10+00:00"
     },
     {
       "source": "European Council",
@@ -25,7 +25,7 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-11-08T02:39:12+00:00"
+      "checked_at": "2026-11-09T01:02:10+00:00"
     },
     {
       "source": "European Parliament",
@@ -33,28 +33,28 @@
       "status": "error",
       "error": "ParseError",
       "count": 0,
-      "checked_at": "2026-11-08T02:39:12+00:00"
+      "checked_at": "2026-11-09T01:02:10+00:00"
     },
     {
       "source": "Eurostat",
       "region": "eu",
       "status": "ok",
-      "count": 60,
-      "checked_at": "2026-11-08T02:39:12+00:00"
+      "count": 38,
+      "checked_at": "2026-11-09T01:02:10+00:00"
     },
     {
       "source": "Politico Europe",
       "region": "eu",
       "status": "ok",
-      "count": 6,
-      "checked_at": "2026-11-08T02:39:12+00:00"
+      "count": 8,
+      "checked_at": "2026-11-09T01:02:10+00:00"
     },
     {
       "source": "Reuters Europe",
       "region": "eu",
       "status": "ok",
-      "count": 58,
-      "checked_at": "2026-11-08T02:39:12+00:00"
+      "count": 57,
+      "checked_at": "2026-11-09T01:02:10+00:00"
     },
     {
       "source": "Bundesbank",
@@ -62,7 +62,7 @@
       "status": "error",
       "error": "ParseError",
       "count": 0,
-      "checked_at": "2026-11-08T02:39:12+00:00"
+      "checked_at": "2026-11-09T01:02:10+00:00"
     },
     {
       "source": "Destatis",
@@ -70,14 +70,14 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-11-08T02:39:12+00:00"
+      "checked_at": "2026-11-09T01:02:10+00:00"
     },
     {
       "source": "Deutsche Welle",
       "region": "germany",
       "status": "empty",
       "count": 0,
-      "checked_at": "2026-11-08T02:39:12+00:00"
+      "checked_at": "2026-11-09T01:02:10+00:00"
     },
     {
       "source": "Federal Employment Agency",
@@ -85,7 +85,7 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-11-08T02:39:12+00:00"
+      "checked_at": "2026-11-09T01:02:10+00:00"
     },
     {
       "source": "German Federal Government",
@@ -93,103 +93,199 @@
       "status": "error",
       "error": "HTTPError",
       "count": 0,
-      "checked_at": "2026-11-08T02:39:12+00:00"
+      "checked_at": "2026-11-09T01:02:10+00:00"
     },
     {
       "source": "Reuters Germany",
       "region": "germany",
       "status": "ok",
-      "count": 52,
-      "checked_at": "2026-11-08T02:39:12+00:00"
+      "count": 56,
+      "checked_at": "2026-11-09T01:02:10+00:00"
     },
     {
       "source": "The Local Germany",
       "region": "germany",
       "status": "ok",
-      "count": 12,
-      "checked_at": "2026-11-08T02:39:12+00:00"
+      "count": 11,
+      "checked_at": "2026-11-09T01:02:10+00:00"
     }
   ],
   "items": [
     {
-      "id": "14b1c523f5db3d4e",
+      "id": "da6a2bfefcaa1d2d",
       "region": "eu",
-      "title": "Statistics | Eurostat - European Commission",
-      "title_cn": "Statistics | Eurostat - European Commission",
-      "summary": "Statistics | Eurostat European Commission",
-      "source": "Eurostat",
-      "source_url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFB3ZHNXQ2pBUEZIaWJwRkJLU0lJbGJ4Sk5icmFFdkJleHpuNnY4Z0h0ZnZGVUU4YlVQZTh6RjlzbmZLTHVud0Itc0RtOURkSW9tWTVyRXVSbVNFSjk1TXFMWUpzWWhlb3VUQ1hZOHFhODREVEtiX2RKaA?oc=5",
-      "published_at": "2026-11-07T20:15:57+00:00",
-      "fetched_at": "2026-11-08T02:39:12+00:00",
-      "category": "economy",
+      "title": "Europeans will join Ukraine talks in Abu Dhabi, French foreign minister says - Reuters",
+      "title_cn": "Europeans will join Ukraine talks in Abu Dhabi, French foreign minister says - Reuters",
+      "summary": "Europeans will join Ukraine talks in Abu Dhabi, French foreign minister says Reuters",
+      "source": "Reuters Europe",
+      "source_url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQZ2FDU05aeklyMGVkQjdLeFI3el9yaEtTUTF0RUlTQndFY2hZTVM2MFM0ZkhUX0RoUkI3VWxMQmZ0WGdmbmxyNVN2ZVRsQ2J0U29QaEljZXZVdFkwVG9IYmtHaGhIeUYyNXZ2U3didGRaUm95S3M5WEJBMjhCTkRhbndRUURPcXdmUVZWR2pHV0hWT0ZvTEFuUTVKcFdNZElmeklRNHhpWEc4TkQ0VEZ3ZUxqbVJKb0NzaTJ2cnBR?oc=5",
+      "published_at": "2026-11-08T22:50:16+00:00",
+      "fetched_at": "2026-11-09T01:02:10+00:00",
+      "category": "politics_society",
       "importance": "normal",
-      "official_source": true,
-      "first_seen_at": "2026-11-08T02:39:12+00:00",
-      "last_seen_at": "2026-11-08T02:39:12+00:00"
+      "official_source": false,
+      "first_seen_at": "2026-11-09T01:02:10+00:00",
+      "last_seen_at": "2026-11-09T01:02:10+00:00"
     },
     {
-      "id": "0bede18f9b68de2c",
+      "id": "8a5e7ddbc2fd9add",
       "region": "eu",
-      "title": "Zelenskiy criticises Ukraine's SBU security service over corruption scandal - Reuters",
-      "title_cn": "Zelenskiy criticises Ukraine's SBU security service over corruption scandal - Reuters",
-      "summary": "Zelenskiy criticises Ukraine's SBU security service over corruption scandal Reuters",
+      "title": "Poland mourns victims of Krakow shooting amid security fears - Reuters",
+      "title_cn": "Poland mourns victims of Krakow shooting amid security fears - Reuters",
+      "summary": "Poland mourns victims of Krakow shooting amid security fears Reuters",
       "source": "Reuters Europe",
-      "source_url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNSXpPV24wYmo0V1FlNXdBMEdMZTdlSmwwQVcyZFNxSGVBX1VBVFVFSEVVUlk4SEphTXU0UDFYbk5fN0ZlSXliR3lMeGEyT005WWE1UmMxTDA0ZlF6bzJlUC1BQXZmYjk1RjEzaVNfdkUtQ08zay1Sd0N3Ri15RlhrZU1ma0Q5bXV0MU9JTXUxS3F0TnVLRmNvLU1US3g0YzRfV25sYV9sSFRLd2FfU2FYV2VwamlaZEFRcW9BYk1MN18?oc=5",
-      "published_at": "2026-11-07T15:59:25+00:00",
-      "fetched_at": "2026-11-08T02:39:12+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNVjUxVkw1TWRaU0FNWjdiZlUyUk9KcmFRMjlobjltclhvd2xEMFZic2QyLVJ1U2M4WEtOVWJ0S3J6WHdkT19pcUJwQml5Z3UyLV9PalUtQWV5X1J0dzJVMnFyc2pDQllBWTNKNTh2dVNkUVFMQWZ0OWlnUFp0Tm5LZmt0YXItSUprX09QVE93dElVd082LXpyck04QU0xemMySklEV0xSVDZRcWx5LVdUWA?oc=5",
+      "published_at": "2026-11-08T21:29:48+00:00",
+      "fetched_at": "2026-11-09T01:02:10+00:00",
       "category": "defense_security",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-11-08T02:39:12+00:00",
-      "last_seen_at": "2026-11-08T02:39:12+00:00"
+      "first_seen_at": "2026-11-09T01:02:10+00:00",
+      "last_seen_at": "2026-11-09T01:02:10+00:00"
     },
     {
-      "id": "b2e5e580288b3012",
+      "id": "54a4efe9dfa449da",
       "region": "germany",
-      "title": "Inside Germany: The horror I experience every time I check my mailbox",
-      "title_cn": "Inside Germany: The horror I experience every time I check my mailbox",
-      "summary": "Germans are world champions at sending troubling letters, says journalist Rachel Loxton in this week's Inside Germany column. That's why her biggest fear is checking the mailbox.",
-      "source": "The Local Germany",
-      "source_url": "https://www.thelocal.de/20261107/inside-germany-the-horror-i-experience-every-time-i-check-my-mailbox",
-      "published_at": "2026-11-07T11:03:37+00:00",
-      "fetched_at": "2026-11-08T02:39:12+00:00",
-      "category": "technology",
+      "title": "US asks Iraq to shut most Iran border crossings, Iraqi foreign minister says - Reuters",
+      "title_cn": "US asks Iraq to shut most Iran border crossings, Iraqi foreign minister says - Reuters",
+      "summary": "US asks Iraq to shut most Iran border crossings, Iraqi foreign minister says Reuters",
+      "source": "Reuters Germany",
+      "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOaVVxWlAwOFI0ZGd4TUdTNFozbzE5TXN5UGx3R0NnX0JRdExfcVhSb21iYklFOXJ2QUpncXdoSFB3eE1NS0FFeHljZXQxeWlEVTNKVWd1eFVLWTZmbVpsSUs5Q3NqNUk2b1JYQVNxSFIyTTMxZERFdDBWVUFfUFZ2MkFtOUlIYm5VbE9kQ2kzVmdUTV9pZHFxNWNvUVFhYkI1WHc5LTZSS0JMR1Nka3gwSjgzWWFZZXN6OFFTRHB5Rzk1THIz?oc=5",
+      "published_at": "2026-11-08T19:01:43+00:00",
+      "fetched_at": "2026-11-09T01:02:10+00:00",
+      "category": "immigration",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-11-08T02:39:12+00:00",
-      "last_seen_at": "2026-11-08T02:39:12+00:00"
+      "first_seen_at": "2026-11-09T01:02:10+00:00",
+      "last_seen_at": "2026-11-09T01:02:10+00:00"
     },
     {
-      "id": "4ab9237b19ec5844",
+      "id": "201a76c18780921b",
       "region": "eu",
-      "title": "Russian diplomats and military officials to join talks with US and Ukraine, Kremlin says - Reuters",
-      "title_cn": "Russian diplomats and military officials to join talks with US and Ukraine, Kremlin says - Reuters",
-      "summary": "Russian diplomats and military officials to join talks with US and Ukraine, Kremlin says Reuters",
-      "source": "Reuters Europe",
-      "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPckRkTENydGpmMGpDbWpfYVhKemxXQnRLcWVIU05MdHZMS2Nma2Z3UlRONVpMWkg0bFh2N2J5STdSRVRPVUZNdWQ3eTRGWVZoTm90LW9acDZaOUNLYU0xQ2FubkxtbGVDc3NidWtNbkFMM0VOQ1BPS2Nfa2ptLXBGN1NKQXlIZ0F6RE5lSWtjb0dQZHFva3N5SzM2WWZnNWIwOXZlZDhTekpIMy1pQnBpZFpQbFk4VkxOc05IWU40NFR6RS0z?oc=5",
-      "published_at": "2026-11-07T07:50:00+00:00",
-      "fetched_at": "2026-11-08T02:39:12+00:00",
+      "title": "Wirecard fugitive claimed he toppled Sebastian Kurz in messages to Russian spy",
+      "title_cn": "Wirecard fugitive claimed he toppled Sebastian Kurz in messages to Russian spy",
+      "summary": "Jan Marsalek said he was involved in an operation that had \"successfully toppled\" Sebastian Kurz in 2021, in messages to a convicted Russian spy.",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/article/wirecard-fugitive-jan-marsalek-claimed-he-toppled-sebastian-kurz-in-messages-to-russian-spy/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-11-08T16:57:23+00:00",
+      "fetched_at": "2026-11-09T01:02:10+00:00",
+      "category": "industry",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-11-09T01:02:10+00:00",
+      "last_seen_at": "2026-11-09T01:02:10+00:00"
+    },
+    {
+      "id": "ac308c6a40b15a7d",
+      "region": "germany",
+      "title": "Russia says hit power substations in Ukraine and three ships in Black Sea - Reuters",
+      "title_cn": "Russia says hit power substations in Ukraine and three ships in Black Sea - Reuters",
+      "summary": "Russia says hit power substations in Ukraine and three ships in Black Sea Reuters",
+      "source": "Reuters Germany",
+      "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPN3I3aVRlN2tQellIUkRxQVR6VFhUWkRfZlJQUWsyR3g0S0w2Wlg1cUt6SW9fc081c1hfcTdPSTJwZzJIWUVtQXN1SVJiRm9zTWJKYjM2RTV3TWVBa001Y1RmeVhEOHVnb3pCSUt5T3BxU19VeDhXNGdmNkg0SlNHUWszcHI3X1hsbjJiWFN5MXlEcHdVM21wNTJrRHlVeTFQZl9CYlRwMmY?oc=5",
+      "published_at": "2026-11-08T16:02:52+00:00",
+      "fetched_at": "2026-11-09T01:02:10+00:00",
       "category": "defense_security",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-11-08T02:39:12+00:00",
-      "last_seen_at": "2026-11-08T02:39:12+00:00"
+      "first_seen_at": "2026-11-09T01:02:10+00:00",
+      "last_seen_at": "2026-11-09T01:02:10+00:00"
     },
     {
-      "id": "80f2671f51d83c91",
+      "id": "a97909cb8ace4ceb",
       "region": "eu",
-      "title": "Ein Spaziergang mit Bodo Ramelow",
-      "title_cn": "Ein Spaziergang mit Bodo Ramelow",
-      "summary": "Die Welt spielt verrückt, doch im Präsidium des Bundestages herrscht überraschende Einigkeit. Bundestagsvizepräsident Bodo Ramelow (Die Linke) gibt im Gespräch mit Gordon Repinski einen seltenen Einblick in die überparteiliche Zusammenarbeit, auch bei Nachtschichten. Dabei wird deutlich, mit welcher Strategie das Gremium den Provokationen der AfD begegnet. In seiner eigenen Partei brodelt es derweil gewaltig. Ramelow […]",
+      "title": "Russian strikes leave 600,000 in the dark in eastern Ukraine",
+      "title_cn": "Russian strikes leave 600,000 in the dark in eastern Ukraine",
+      "summary": "Ukrainian President Volodymyr Zelenskyy called for further sanctions on Russia ahead of talks in Abu Dhabi.",
       "source": "Politico Europe",
-      "source_url": "https://www.politico.eu/podcast/berlin-playbook-podcast/ein-spaziergang-mit-bodo-ramelow/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "published_at": "2026-11-07T06:22:24+00:00",
-      "fetched_at": "2026-11-08T02:39:12+00:00",
-      "category": "technology",
+      "source_url": "https://www.politico.eu/article/russian-strikes-leave-600000-in-the-dark-in-eastern-ukraine-dnipropetrovsk/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-11-08T11:09:52+00:00",
+      "fetched_at": "2026-11-09T01:02:10+00:00",
+      "category": "defense_security",
       "importance": "normal",
       "official_source": false,
-      "first_seen_at": "2026-11-08T02:39:12+00:00",
-      "last_seen_at": "2026-11-08T02:39:12+00:00"
+      "first_seen_at": "2026-11-09T01:02:10+00:00",
+      "last_seen_at": "2026-11-09T01:02:10+00:00"
+    },
+    {
+      "id": "82b2b44cee1f70a6",
+      "region": "germany",
+      "title": "Media industry still has a problem with sexual abuse, UK minister says - Reuters",
+      "title_cn": "Media industry still has a problem with sexual abuse, UK minister says - Reuters",
+      "summary": "Media industry still has a problem with sexual abuse, UK minister says Reuters",
+      "source": "Reuters Germany",
+      "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPWnNxTEJxX1RFeEt0QUF3Sl9ENl9PdjJJODNJd0hKYldTejRETXBYSW9DSVFMZ0o5OWQ0ekdqS2JlUkxpWkYzVEdnUDBsMWxIRmNkS0RfdWpmandJRE1Pc2NsYnVFNUZ3eE1LR0tLd3dGN1luMWV5dElyZ09LanljUmNwbHYxaWJxZXJIaVpLejNsbV93RlNmdjhScGRMM1JxdG5JblZNelBsMS1PY3l1NmhR?oc=5",
+      "published_at": "2026-11-08T10:21:27+00:00",
+      "fetched_at": "2026-11-09T01:02:10+00:00",
+      "category": "industry",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-11-09T01:02:10+00:00",
+      "last_seen_at": "2026-11-09T01:02:10+00:00"
+    },
+    {
+      "id": "dd292de6f21a75d4",
+      "region": "germany",
+      "title": "Egypt seeks faster progress on Libya gas, refining and power projects - Reuters",
+      "title_cn": "Egypt seeks faster progress on Libya gas, refining and power projects - Reuters",
+      "summary": "Egypt seeks faster progress on Libya gas, refining and power projects Reuters",
+      "source": "Reuters Germany",
+      "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPeGo1QXNaZTBJSGVDRjBpN2F4U3BydklOWkxwSUp2QlBsdnZ0aW50WEQyOF94eFE3bkp2bXNTbFJjOUV3eWpoYzFpRlRpN2ZEbGcyUEI5UUg5SFNCbDByTXhVR0haT0pVWnY1UE1fNEhDc0poZjNtNHl5dzMxazR6M1hDR3FfS3lFbml3dWJKQTVRUTN5ZkUwSm52T3hHaVE3R3l2VS14T3g4X0RfX25kYXNJdw?oc=5",
+      "published_at": "2026-11-08T09:51:43+00:00",
+      "fetched_at": "2026-11-09T01:02:10+00:00",
+      "category": "energy",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-11-09T01:02:10+00:00",
+      "last_seen_at": "2026-11-09T01:02:10+00:00"
+    },
+    {
+      "id": "00e5f6be3eba914d",
+      "region": "eu",
+      "title": "Security Sunday: Die neue Front der Bundeswehr in Litauen – mit Robertas Kaunas",
+      "title_cn": "Security Sunday: Die neue Front der Bundeswehr in Litauen – mit Robertas Kaunas",
+      "summary": "Eingeklemmt zwischen Kaliningrad und Belarus liegt die verwundbarste Stelle der NATO. Genau hier entsteht mit der Panzerbrigade 45 das wohl wichtigste Projekt der deutschen Zeitenwende. Bis 2027 sollen fast 5.000 deutsche Soldaten dauerhaft in Litauen stationiert werden. Doch die Bedrohung durch Russland ist längst nicht mehr nur theoretisch: Drohnen, Desinformation und brennende Infrastruktur zeigen, dass […]",
+      "source": "Politico Europe",
+      "source_url": "https://www.politico.eu/podcast/berlin-playbook-podcast/security-sunday-die-neue-front-der-bundeswehr-in-litauen-mit-robertas-kaunas/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "published_at": "2026-11-08T09:30:58+00:00",
+      "fetched_at": "2026-11-09T01:02:10+00:00",
+      "category": "defense_security",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-11-09T01:02:10+00:00",
+      "last_seen_at": "2026-11-09T01:02:10+00:00"
+    },
+    {
+      "id": "d83ea2cc67692231",
+      "region": "germany",
+      "title": "Astellas employee imprisoned in China to be released in December, Japanese media report - Reuters",
+      "title_cn": "Astellas employee imprisoned in China to be released in December, Japanese media report - Reuters",
+      "summary": "Astellas employee imprisoned in China to be released in December, Japanese media report Reuters",
+      "source": "Reuters Germany",
+      "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOODFjR25tcklTWnhjRDdJX0J4YjdUVTF3QU9hWUEwemp6cEd1c1NEb003Qm5kUE5WblVNN0c1SlBxZU4yM3lGdHRUZzR1cXpyNEs5VE9nTEF1b3d3NzlabkdLRDJWV3Nuc2tJQ3FaTU1MV1E5T0tUOUlKR2ZZSHp1TS10aWxrRzdiVi1ldlZlYXpJQldFMHFrUkRDd0hLc2NkUkp5NEpCTUlDSnJFTkYyUkE1SVJUcGw1cVI3dEdveEg3ckE?oc=5",
+      "published_at": "2026-11-08T03:49:00+00:00",
+      "fetched_at": "2026-11-09T01:02:10+00:00",
+      "category": "trade",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-11-09T01:02:10+00:00",
+      "last_seen_at": "2026-11-09T01:02:10+00:00"
+    },
+    {
+      "id": "07751bcc27122499",
+      "region": "germany",
+      "title": "Who is Qiulae Wong, the outsider who could decide New Zealand's next government? - Reuters",
+      "title_cn": "Who is Qiulae Wong, the outsider who could decide New Zealand's next government? - Reuters",
+      "summary": "Who is Qiulae Wong, the outsider who could decide New Zealand's next government? Reuters",
+      "source": "Reuters Germany",
+      "source_url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOSGgxdHhOeWFyaXMxUGlZYkJXV1pLcXY0VmtIcGM5MXlUMnZWSnJ5YXdSaklLbjBoclNxQ0hLUl9xb0pvaG1FR3JfNHltc1VFa0tHYUhWSUh4Vjk0UERoX0FtSEZuX2toWjhPeC1Gc3hZY21FRDduOWJ6R3I5OHI2YzhPaVdrWmpoNU1XRU1vMVBaMDJ1MHl5aXFPSXU1NE13VnNOZGhhWUNxMmJzV2FQc2NSNWFfVlRaZnBoeHU3WFhOUzZyS3Vn?oc=5",
+      "published_at": "2026-11-08T01:24:00+00:00",
+      "fetched_at": "2026-11-09T01:02:10+00:00",
+      "category": "politics_society",
+      "importance": "normal",
+      "official_source": false,
+      "first_seen_at": "2026-11-09T01:02:10+00:00",
+      "last_seen_at": "2026-11-09T01:02:10+00:00"
     }
   ]
 }
