@@ -4,6 +4,7 @@ on:
   workflow_run:
     workflows:
       - Update market prices
+      - Finalize daily market briefing
     types:
       - completed
   schedule:
@@ -18,6 +19,8 @@ on:
     paths:
       - scripts/build_market_briefing_packet.py
       - tests/test_market_briefing_packet.py
+      - scripts/market_packet_trigger.py
+      - tests/test_market_packet_trigger.py
       - .github/workflows/build-market-briefing-packet.yml
   workflow_dispatch:
 
@@ -30,7 +33,10 @@ concurrency:
 
 jobs:
   build-market-briefing-packet:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success' ||
+      github.event.workflow_run.name == 'Finalize daily market briefing'
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
@@ -45,13 +51,30 @@ jobs:
             git show origin/market-briefing-data:data/market-briefing-packet.json \
               > /tmp/previous-market-briefing-packet.json || true
           fi
+      - name: Check whether packet recovery is needed
+        id: recovery_gate
+        env:
+          SOURCE_WORKFLOW: ${{ github.event.workflow_run.name }}
+          PREVIOUS_PACKET_PATH: /tmp/previous-market-briefing-packet.json
+        run: |
+          if [ "$SOURCE_WORKFLOW" != "Finalize daily market briefing" ] \
+            || python scripts/market_packet_trigger.py --recovery-request; then
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+          fi
       - name: Refresh close snapshot for fallback runs
-        if: github.event_name != 'workflow_run'
+        if: >-
+          steps.recovery_gate.outputs.proceed == 'true' &&
+          (github.event_name != 'workflow_run' ||
+           github.event.workflow_run.name == 'Finalize daily market briefing')
         run: python scripts/update_market_prices.py
       - name: Check completed close snapshot
         id: packet_gate
+        if: steps.recovery_gate.outputs.proceed == 'true'
         env:
           EVENT_NAME: ${{ github.event_name }}
+          PACKET_RECOVERY: ${{ github.event.workflow_run.name == 'Finalize daily market briefing' }}
           PREVIOUS_PACKET_PATH: /tmp/previous-market-briefing-packet.json
         run: |
           if [ "$EVENT_NAME" = "workflow_dispatch" ] || [ "$EVENT_NAME" = "push" ] \
@@ -123,4 +146,5 @@ jobs:
         run: |
           echo "The failed attempt was preserved as a diagnostic artifact; canonical packet was not changed."
           exit 1
+
 

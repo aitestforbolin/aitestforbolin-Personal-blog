@@ -1,6 +1,7 @@
 import datetime as dt
 import importlib.util
 import unittest
+from unittest import mock
 from pathlib import Path
 
 
@@ -21,6 +22,51 @@ def payload(day=2, hour=20):
 
 
 class MarketPacketTriggerTests(unittest.TestCase):
+    def recovery_status(self, **changes):
+        return {
+            "runDate": "2026-11-10", "asOf": "2026-11-09",
+            "status": "failed", "stage": "packet",
+            "reasonCode": "packet_wrong_session", "briefingCommit": None,
+            **changes,
+        }
+
+    def test_requests_recovery_for_current_packet_failure(self):
+        now = dt.datetime(2026, 11, 10, 1, tzinfo=dt.timezone.utc)
+        self.assertTrue(MODULE.packet_recovery_requested(
+            self.recovery_status(), {"tradingDate": "2026-11-06"}, now))
+        self.assertTrue(MODULE.packet_recovery_requested(
+            self.recovery_status(reasonCode="packet_missing"), {}, now))
+
+    def test_recovery_preserves_terminal_and_downstream_status(self):
+        now = dt.datetime(2026, 11, 10, 1, tzinfo=dt.timezone.utc)
+        for changes in [
+            {"runDate": "2026-11-09"}, {"status": "success"},
+            {"status": "no_new_session"}, {"stage": "x"}, {"stage": "email"},
+            {"briefingCommit": "already-published"}, {"asOf": "2026-11-10"},
+            {"asOf": "invalid"}, {"reasonCode": "x_publish_failed"},
+        ]:
+            with self.subTest(changes=changes):
+                self.assertFalse(MODULE.packet_recovery_requested(
+                    self.recovery_status(**changes), {}, now))
+
+    def test_recovery_skips_repaired_or_newer_packet(self):
+        now = dt.datetime(2026, 11, 10, 1, tzinfo=dt.timezone.utc)
+        for packet in [
+            {"tradingDate": "2026-11-09", "validation": {
+                "complete": True, "criticalErrors": []}},
+            {"tradingDate": "2026-11-10"},
+        ]:
+            self.assertFalse(MODULE.packet_recovery_requested(
+                self.recovery_status(), packet, now))
+
+    def test_recovery_does_not_rebuild_a_stale_close_snapshot(self):
+        status = self.recovery_status()
+        with mock.patch.dict(MODULE.os.environ, {"PACKET_RECOVERY": "true"}), \
+             mock.patch.object(MODULE, "packet_recovery_requested", return_value=True), \
+             mock.patch.object(MODULE, "load_json", side_effect=[{}, status, {}]), \
+             mock.patch.object(MODULE, "closed_snapshot_date", return_value="2026-11-06"):
+            self.assertEqual(MODULE.main(), 1)
+
     def test_accepts_complete_same_day_close_during_post_close_window(self):
         now = dt.datetime(2026, 9, 2, 20, 57, tzinfo=dt.timezone.utc)
         self.assertEqual(MODULE.closed_snapshot_date(payload(), now), "2026-09-02")
@@ -111,3 +157,4 @@ class MarketPacketTriggerTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

@@ -6,6 +6,7 @@ from __future__ import annotations
 import datetime as dt
 import json
 import os
+import sys
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -13,6 +14,7 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 MARKET_PRICES = ROOT / "data" / "market-prices.json"
 PREVIOUS_PACKET = ROOT / "data" / "market-briefing-packet.json"
+RUN_STATUS = ROOT / "data" / "run-status.json"
 REQUIRED_CLOSE_SYMBOLS = {"SPY.US", "QQQ.US", "DIA.US"}
 
 
@@ -74,13 +76,55 @@ def packet_is_complete_for_date(payload: object, trading_date: str) -> bool:
     )
 
 
+def packet_recovery_requested(status: object, packet: object,
+                              now: dt.datetime | None = None) -> bool:
+    """Recover only today's unpublished packet failure; never downstream errors."""
+    if not isinstance(status, dict):
+        return False
+    moment = now or dt.datetime.now(dt.timezone.utc)
+    today = moment.astimezone(ZoneInfo("Asia/Shanghai")).date().isoformat()
+    target = status.get("asOf")
+    try:
+        target_day = dt.date.fromisoformat(target)
+    except (TypeError, ValueError):
+        return False
+    if target_day.isoformat() != target or target >= today:
+        return False
+    return (
+        status.get("runDate") == today
+        and status.get("status") == "failed"
+        and status.get("stage") == "packet"
+        and status.get("reasonCode") in {
+            "packet_missing", "packet_wrong_session", "packet_invalid"
+        }
+        and not status.get("briefingCommit")
+        and not packet_is_complete_for_date(packet, target)
+        and (not isinstance(packet, dict)
+             or not isinstance(packet.get("tradingDate"), str)
+             or packet["tradingDate"] <= target)
+    )
+
+
 def main() -> int:
+    previous_path = Path(os.getenv("PREVIOUS_PACKET_PATH", str(PREVIOUS_PACKET)))
+    previous = load_json(previous_path)
+    recovery = os.getenv("PACKET_RECOVERY") == "true"
+    if "--recovery-request" in sys.argv or recovery:
+        status = load_json(RUN_STATUS)
+        if not packet_recovery_requested(status, previous):
+            print("No current unpublished packet failure requires recovery.")
+            return 1
+        if "--recovery-request" in sys.argv:
+            print(f"Packet recovery requested for {status['asOf']}.")
+            return 0
     date = closed_snapshot_date(load_json(MARKET_PRICES))
     if not date:
         print("Market close snapshot is not ready; packet build not requested.")
         return 1
-    previous_path = Path(os.getenv("PREVIOUS_PACKET_PATH", str(PREVIOUS_PACKET)))
-    if packet_is_complete_for_date(load_json(previous_path), date):
+    if recovery and date != status["asOf"]:
+        print("Refreshed close snapshot does not match the requested recovery session.")
+        return 1
+    if packet_is_complete_for_date(previous, date):
         print(f"Canonical packet is already complete for {date}; rebuild not requested.")
         return 1
     print(f"Market close snapshot is ready for {date}.")
@@ -89,3 +133,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
