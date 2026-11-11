@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "requestId": "codex-x-20261110T010304Z",
-  "triggerSha": "f2e508b1a40598ca1275ea6be8fca958a7ba15cc",
-  "publicationDate": "2026-11-10",
-  "publishedAt": "2026-11-10T09:06:27.169+08:00",
+  "requestId": "codex-x-20261111T005803Z",
+  "triggerSha": "e9154c75f05c294298db41f643840cbd87abeb31",
+  "publicationDate": "2026-11-11",
+  "publishedAt": "2026-11-11T09:02:04.631+08:00",
   "payload": {
     "schemaVersion": 1,
     "status": "success",
-    "reportDate": "2026-11-10",
-    "generatedAt": "2026-11-10T09:06:27.169+08:00",
-    "sourceGeneratedAt": "2026-11-10T01:03:51.162179+00:00",
-    "sourcePostCount": 126,
+    "reportDate": "2026-11-11",
+    "generatedAt": "2026-11-11T09:02:04.631+08:00",
+    "sourceGeneratedAt": "2026-11-11T00:59:35.036500+00:00",
+    "sourcePostCount": 110,
     "sourceListCount": 4,
     "executionLineage": {
       "schemaVersion": 2,
-      "runId": "x-intelligence:codex-x-20261110T010304Z",
-      "requestId": "codex-x-20261110T010304Z",
-      "triggerSha": "f2e508b1a40598ca1275ea6be8fca958a7ba15cc",
-      "githubRunId": 42732991482,
-      "scheduledAt": "2026-11-10T01:00:00Z",
-      "startedAt": "2026-11-10T01:03:51.161838+00:00",
-      "sourceCheckedAt": "2026-11-10T01:04:00.993607+00:00",
-      "sourceUpdatedAt": "2026-11-10T00:57:22+00:00",
-      "completedAt": "2026-11-10T01:04:00.993643+00:00",
-      "publishedAt": "2026-11-10T09:06:27.169+08:00"
+      "runId": "x-intelligence:codex-x-20261111T005803Z",
+      "requestId": "codex-x-20261111T005803Z",
+      "triggerSha": "e9154c75f05c294298db41f643840cbd87abeb31",
+      "githubRunId": 42935589986,
+      "scheduledAt": "2026-11-11T01:00:00Z",
+      "startedAt": "2026-11-11T00:59:35.036010+00:00",
+      "sourceCheckedAt": "2026-11-11T00:59:45.710512+00:00",
+      "sourceUpdatedAt": "2026-11-11T00:39:55+00:00",
+      "completedAt": "2026-11-11T00:59:45.710569+00:00",
+      "publishedAt": "2026-11-11T09:02:04.631+08:00"
     },
     "executionStatus": {
       "collection": "success",
@@ -32,427 +32,413 @@
         "status": "success"
       }
     },
-    "overview": "今日信息密度显著提高，安全、监管和链上金融基础设施成为三条主线。Ankr以太坊跨链桥被报告遭验证逻辑攻击，一笔小额Optimism存款触发多次以太坊提款，损失约29.2万美元。美国国会调查压力继续扩大：民主党参议员要求Binance、Tether及特朗普家族相关加密实体提交涉及受制裁网络、海外投资和利益冲突的材料。产品侧，Hyperliquid生态首个L2 Elysium上线主网，但早期流动性、跨链退出和预编译功能仍未成熟；代币化股票及传统资产永续合约则继续向全天候、高杠杆和更广资产覆盖扩张。英伟达事件已同时牵动董事会调查、中美外交表态和Megaspeed跨境算力租赁模式，但有关间谍与走私的关键指控仍存在明显争议。",
+    "overview": "今日最明确的新增变化是MEXC监管风险进一步传导：Binance正式禁止用户向MEXC及其关联实体转出、接收或参与相关交易，直接或间接资金往来也可能进入进一步审查。Anthropic IPO成为资本市场焦点，packet中的多条二手材料显示发行可能已足额认购，但股数、价格区间和估值口径存在不一致，链上认购产品本身也明确不代表直接持股。预测市场一边录得高速增长，另一边Kalshi同时面临CFTC潜在指控和肯塔基州诉讼。链上传统资产继续从交易扩展至借贷、交易所结算和IPO认购，但专用许可链是否能为公链代币捕获价值仍未解决。宏观侧，偏高CPI与鹰派加息表态继续压制风险资产；AI基建则呈现中国低成本能源整合扩张与软银项目违约损失的鲜明对照。",
     "homeHighlights": [
-      "Ankr跨链桥被报告遭验证逻辑攻击，约29.2万美元锁定资产被转走。",
-      "美国参议员要求Binance、Tether及特朗普家族加密实体提交受制裁网络与利益冲突材料。",
-      "Hyperliquid生态首个L2 Elysium上线主网，但跨链退出与核心功能仍处早期阶段。",
-      "Base称周末代币化股票成交额达1.7亿美元，全天候传统资产交易继续扩张。",
-      "英伟达事件已升级至董事会调查和中美外交回应，间谍相关指控仍未独立证实。"
+      "Binance正式禁止与MEXC及其关联实体进行资金收付，监管风险已转为平台级双向限制。",
+      "Anthropic IPO据称已获足额认购，但发行股数、估值和链上认购权益口径仍有冲突。",
+      "Kalshi同时面临CFTC潜在指控和肯塔基州诉讼，预测市场进入联邦与州监管碰撞期。",
+      "代币化股票开始进入LSE规划、Avalanche许可链结算和链上借贷体系。",
+      "偏高CPI与鹰派加息条件继续压制风险资产，AI产业链内部出现明显分化。"
     ],
     "topics": [
       {
-        "title": "Ankr跨链桥因验证逻辑漏洞被报告遭攻击",
+        "title": "Binance正式阻断与MEXC的资金往来",
         "importance": "high",
-        "summary": "BlockBeats转述Blockaid监测称，Ankr以太坊跨链桥遭攻击并损失约29.2万美元。攻击者先在Optimism发起小额存款，随后在以太坊连续进行5次提款调用，利用跨链验证漏洞释放桥内锁定资产。",
-        "whyItMatters": "跨链桥依赖源链事件在目标链上的正确验证；若存款金额、消息唯一性或提款状态校验失效，小额输入就可能撬动远高于本金的锁仓资产。",
+        "summary": "Binance官方公告称，因FinCEN已将MEXC认定为主要洗钱关注对象，用户即日起不得通过Binance向MEXC及其关联实体转出资金、接收其资金或进行其他相关交易；向MEXC地址的转出请求将被拒绝。",
+        "whyItMatters": "此前的风险提醒已经升级为平台级双向限制，并覆盖直接与间接关联交易。链上地址标签和资金来源审查可能使影响继续扩散至中转钱包及关联账户。",
         "facts": [
-          "监测材料给出的损失约为29.2万美元。",
-          "攻击路径包含1笔Optimism存款和5笔以太坊提款调用。",
-          "资金被转移至一个新建地址。"
+          "Binance明确禁止向MEXC地址转出资金。",
+          "来自MEXC及其关联实体的资金接收也被禁止。",
+          "直接或间接相关交易需进一步审查，资金和账户可能被临时限制。"
         ],
         "interpretations": [
-          "packet发布时称攻击仍在进行，最终损失和处置状态可能变化。",
-          "材料未提供Ankr官方事故报告或完整技术复盘。"
-        ],
-        "authors": [
-          "BlockBeatsAsia"
-        ],
-        "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2119715550704406620"
-        ],
-        "sourceCount": 1,
-        "confidence": "medium"
-      },
-      {
-        "title": "美国国会调查扩展至Binance、Tether与特朗普家族加密业务",
-        "importance": "high",
-        "summary": "BlockBeats称，参议员Richard Blumenthal要求Binance、Tether、World Liberty Financial及Fight Fight Fight LLC提交材料。前两者涉及约17亿美元、被指与伊朗和俄罗斯受制裁网络有关的交易；后两者涉及海外投资及潜在利益冲突。",
-        "whyItMatters": "若民主党在新国会取得调查权，合规审查可能同时覆盖稳定币流向、交易所反洗钱机制和总统家族相关业务的利益冲突。",
-        "facts": [
-          "WLFI与Fight Fight Fight据称需从11月30日起提交材料。",
-          "四家实体的最终期限被列为2027年1月4日。",
-          "材料称不配合可能触发传唤等强制措施。"
-        ],
-        "interpretations": [
-          "这些是调查要求和指控，不等于相关实体已被认定违法。",
-          "17亿美元口径及调查范围来自packet中的媒体整理。"
-        ],
-        "authors": [
-          "BlockBeatsAsia"
-        ],
-        "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2119643234003718355"
-        ],
-        "sourceCount": 1,
-        "confidence": "medium"
-      },
-      {
-        "title": "Hyperliquid生态首个L2 Elysium上线主网",
-        "importance": "high",
-        "summary": "Elysium正式上线主网，成为packet所称Hyperliquid生态首个L2。早期用户已开始跨入HYPE、部署流动性和使用生态发射台，但材料提示无损退出可能需要5至7天，部分数据面板和功能仍不完整。",
-        "whyItMatters": "这标志着Hyperliquid从交易基础设施向应用承载层扩展；能否吸引开发者、稳定流动性并安全处理跨链退出，将决定其生态价值。",
-        "facts": [
-          "OKX Wallet已被报告支持Elysium主网。",
-          "链ID被用户材料列为99901。",
-          "社区称关键预编译功能可能约一个月后上线。",
-          "Elysium被描述为Arbitrum系网络，收入需向Arbitrum DAO分成。"
-        ],
-        "interpretations": [
-          "主网上线后KNTQ出现sell-the-news表现，属于市场观察而非协议失败证据。",
-          "早期跨链和LP操作具有流动性、合约与退出延迟风险。"
-        ],
-        "authors": [
-          "BlockBeatsAsia",
-          "0xStudy",
-          "0xSleepinRain"
-        ],
-        "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2119778562542882932",
-          "https://x.com/0xStudy/status/2119757435124469823",
-          "https://x.com/0xSleepinRain/status/2119788076210000087",
-          "https://x.com/0xSleepinRain/status/2119632108499153227"
-        ],
-        "sourceCount": 3,
-        "confidence": "medium"
-      },
-      {
-        "title": "代币化股票与TradFi永续合约继续扩容",
-        "importance": "high",
-        "summary": "Base称周末链上代币化股票成交额达到1.7亿美元，并强调仅面向美国以外符合条件的司法辖区；xStocks称其覆盖资产已从1月约80种增至1500种。Trade.xyz上线TTWO与两倍做多MU的ETF映射合约，提供10倍杠杆和全天候交易；Binance也继续推广24/7 TradFi永续合约。",
-        "whyItMatters": "传统资产休市期间的价格发现正迁移到链上和加密交易平台，但高杠杆、休市基准价格、资金费率与司法辖区限制仍是核心风险。",
-        "facts": [
-          "Base自报周末代币化股票成交额1.7亿美元。",
-          "xStocks自报覆盖超过1500种代币化资产。",
-          "Trade.xyz的TTWO和MUU产品标注10倍杠杆、24/7/365交易。",
-          "Variational称纳指抛售期间永续资金费率一度超过80%年化，而其Swap约5%。"
-        ],
-        "interpretations": [
-          "成交额和资产数来自项目方自报，不能单独证明持续流动性。",
-          "加密平台的休市报价可提供风险信号，但不等于下一交易日正股开盘价。"
-        ],
-        "authors": [
-          "base",
-          "xStocksFi",
-          "tradexyz",
-          "binancezh",
-          "variational_io",
-          "octopusycc"
-        ],
-        "sourceUrls": [
-          "https://x.com/base/status/2119800595032965621",
-          "https://x.com/xStocksFi/status/2119805359233925520",
-          "https://x.com/tradexyz/status/2119883568763834391",
-          "https://x.com/tradexyz/status/2119885114557522373",
-          "https://x.com/binancezh/status/2119724967202103593",
-          "https://x.com/variational_io/status/2119847261584990284",
-          "https://x.com/octopusycc/status/2119693212302602666"
-        ],
-        "sourceCount": 6,
-        "confidence": "medium"
-      },
-      {
-        "title": "英伟达事件升级至治理、外交与跨境算力审查",
-        "importance": "high",
-        "summary": "围绕黄仁勋私人关系及Megaspeed的媒体报道持续发酵。英伟达董事会已启动调查，中国外交部公开否认所谓中国间谍论调。packet另称Megaspeed在2023年至2025年间进口约46亿至48亿美元、约13.6万颗英伟达GPU，并通过东南亚数据中心向客户提供算力。",
-        "whyItMatters": "事件已超出个人声誉风险，涉及公司治理、芯片出口合规、第三国算力租赁和中美科技关系；对英伟达而言，真正需要验证的是客户审查与设备最终用途控制。",
-        "facts": [
-          "中国外交部将中国间谍说法称为捕风捉影、污蔑抹黑。",
-          "Megaspeed采购规模被二手材料列为约46亿至48亿美元、13.6万颗GPU。",
-          "媒体称Megaspeed向阿里巴巴提供云服务。",
-          "设备部署量、利用率、营收和合同规模未公开。"
-        ],
-        "interpretations": [
-          "有关间谍、走私及相关个人身份的关键指控尚未独立证实。",
-          "进口金额代表资本投入，不等于营收、利润或设备持续利用率。"
-        ],
-        "authors": [
-          "BlockBeatsAsia",
-          "TechFlowPost",
-          "_FORAB",
-          "octopusycc"
-        ],
-        "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2119701524301447296",
-          "https://x.com/BlockBeatsAsia/status/2119671331826635027",
-          "https://x.com/TechFlowPost/status/2119630926053274050",
-          "https://x.com/octopusycc/status/2119859404086591684"
-        ],
-        "sourceCount": 4,
-        "confidence": "low"
-      },
-      {
-        "title": "ETH估值叙事被重新锚定为价值储存",
-        "importance": "medium",
-        "summary": "TechFlow对Vitalik长文的二手解读称，以手续费燃烧支撑ETH估值的模型过度依赖投机活动，且Layer 2迁移主网流量后燃烧能力减弱；因此ETH更适合把去中心化与稳定性作为价值储存叙事。",
-        "whyItMatters": "如果市场接受这一转向，ETH估值会从类似现金流资产的燃烧模型，更多转向货币溢价、安全性与长期持有共识。",
-        "facts": [
-          "材料认为2021至2023年的高燃烧量包含大量内部杠杆和投机活动。",
-          "Layer 2迁移被视为主网手续费和燃烧下降的重要原因。",
-          "二手解读将新定位概括为Store of Value。"
-        ],
-        "interpretations": [
-          "这是对Vitalik原文的媒体概括，不代表社区已形成共识。",
-          "ETH能否获得类似BTC的价值储存溢价仍是开放问题。"
-        ],
-        "authors": [
-          "TechFlowPost"
-        ],
-        "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2119740122426126835"
-        ],
-        "sourceCount": 1,
-        "confidence": "low"
-      },
-      {
-        "title": "Binance Alpha及多网络提现继续恢复",
-        "importance": "medium",
-        "summary": "Binance官方中文账号称，本轮新增恢复Alpha在BSC、ETH、Base与Arbitrum网络的提现，此前ETH、SOL、HYPE与APT等网络或资产已分批恢复。社区观察称提现功能已大体恢复，但Alpha市价交易当时仍未恢复。",
-        "whyItMatters": "提现网络扩大说明运营恢复取得进展，但完整恢复还取决于安全检查、交易功能和剩余网络状态。",
-        "facts": [
-          "新增恢复的Alpha网络包括BSC、ETH、Base和Arbitrum。",
-          "此前恢复范围包括部分ETH与SOL资产以及HYPE、APT。",
-          "官方称将继续分阶段恢复更多资产和网络。"
-        ],
-        "interpretations": [
-          "社区所称大体恢复不等于全部服务已恢复。",
-          "packet没有给出市价交易恢复的正式时间。"
+          "通过链上钱包中转并不能消除资金来源记录或合规风险。",
+          "公告属于合规限制，不代表所有受审查资金均被认定违法。"
         ],
         "authors": [
           "binancezh",
           "Benjieming1Q84"
         ],
         "sourceUrls": [
-          "https://x.com/binancezh/status/2119662445446979813",
-          "https://x.com/Benjieming1Q84/status/2119674504683343996"
+          "https://x.com/binancezh/status/2120116551475233119",
+          "https://x.com/Benjieming1Q84/status/2120101148699090965"
         ],
         "sourceCount": 2,
         "confidence": "high"
       },
       {
-        "title": "River Markets取得CFTC期货佣金商注册",
-        "importance": "medium",
-        "summary": "River Markets转发称，其关联实体River Finance LLC已成为CFTC注册的期货佣金商，The Block将其描述为预测市场经纪商的监管里程碑。",
-        "whyItMatters": "FCM资质可能帮助预测市场接入更合规的客户资金、清算和经纪体系，但实际产品范围和上线节奏仍需等待正式披露。",
+        "title": "Anthropic IPO获追捧，但条款和估值口径存在冲突",
+        "importance": "high",
+        "summary": "多条二手材料称Anthropic IPO已获得足额认购并继续推进纳斯达克上市，但发行规模存在明显差异：一份KOL整理称发行8.25亿股、价格70至78美元；另一份媒体整理称8.67亿股、价格70至80美元、最高募资693亿美元。潜在估值讨论则由此前约2万亿美元降至约1.1万亿至1.3万亿美元。",
+        "whyItMatters": "这是AI资本热度与估值纪律的重要压力测试。足额认购只说明当前需求覆盖发行份额，不能替代对收入质量、巨额算力承诺及上市后流通结构的判断。",
         "facts": [
-          "River Finance LLC被项目方称已成为CFTC注册FCM。",
-          "消息由River Markets及其联合创始人转发确认。"
+          "BlockBeats称IPO已获足额认购。",
+          "packet中两个来源给出的发行股数和价格区间不一致。",
+          "xStocks与Kraken开放提交认购意向，但明确分配可能为全部、部分或零。",
+          "xStocks产品说明包含5%价差，并强调只提供价格敞口而非直接所有权。"
         ],
         "interpretations": [
-          "packet主要包含项目方与媒体标题，缺少注册文件和具体业务许可边界。",
-          "获得注册不等于所有预测市场产品已获批准。"
+          "在招股书原文未进入packet的情况下，不能确认哪组发行数据准确。",
+          "链上IPO访问产品与获得公司普通股所有权并非同一概念。"
         ],
         "authors": [
+          "BlockBeatsAsia",
+          "ArtofSpecuycky",
+          "xStocksFi"
+        ],
+        "sourceUrls": [
+          "https://x.com/BlockBeatsAsia/status/2120168996662313462",
+          "https://x.com/BlockBeatsAsia/status/2119961260351770681",
+          "https://x.com/ArtofSpecuycky/status/2120315549263839548",
+          "https://x.com/xStocksFi/status/2120203961147986171",
+          "https://x.com/xStocksFi/status/2120203968588681636"
+        ],
+        "sourceCount": 3,
+        "confidence": "low"
+      },
+      {
+        "title": "预测市场高速增长与监管压力同步上升",
+        "importance": "high",
+        "summary": "BlockBeats称Polymarket年化收入已由6月约10亿美元增至18亿美元，美国本土平台10月名义交易量达到145亿美元。与此同时，彭博快讯转引称CFTC警告Kalshi可能面临近期指控；肯塔基州还起诉Kalshi、Robinhood和Coinbase，指控事件合约绕过州体育博彩许可。",
+        "whyItMatters": "预测市场正在证明商业需求，但联邦商品监管与州博彩监管的管辖冲突可能决定产品能否全国扩张、是否需要逐州缴税及持牌。",
+        "facts": [
+          "Polymarket年化收入被二手材料列为18亿美元。",
+          "美国本土预测市场10月名义交易量据称达到145亿美元。",
+          "肯塔基州诉讼要求平台承担退款及消费者保护责任。",
+          "River Markets称其关联实体已完成CFTC期货佣金商注册。"
+        ],
+        "interpretations": [
+          "收入和交易量来自媒体整理，需原始财务口径验证。",
+          "CFTC警告和州诉讼均不等于Kalshi已被判违法。"
+        ],
+        "authors": [
+          "BlockBeatsAsia",
+          "bwenews",
+          "TechFlowPost",
           "river_markets"
         ],
         "sourceUrls": [
-          "https://x.com/river_markets/status/2119817049736458530",
-          "https://x.com/river_markets/status/2119816296158396664"
+          "https://x.com/BlockBeatsAsia/status/2120142065875165518",
+          "https://x.com/bwenews/status/2120269629692236082",
+          "https://x.com/TechFlowPost/status/2119994536080584910",
+          "https://x.com/river_markets/status/2120175026376970615"
         ],
-        "sourceCount": 1,
+        "sourceCount": 4,
         "confidence": "medium"
       },
       {
-        "title": "手机AI代理遭遇跨App权限与入口控制冲突",
-        "importance": "medium",
-        "summary": "BlockBeats称，海外AGI Inc正在以手机操作模型、端侧推理引擎和手机MCP向厂商提供跨App自动操作能力，并已披露高通合作、联想演示及安卓联合创始人加入顾问团队；国内豆包手机助手则被报告遭170多款App拒绝代替用户操作。",
-        "whyItMatters": "手机AI代理的竞争不只在模型能力，还取决于操作系统权限、支付授权、安全责任及App是否愿意让出用户入口和流量分发权。",
+        "title": "代币化股票向交易、借贷与机构结算全面扩展",
+        "importance": "high",
+        "summary": "Base转发称其代币化股票日成交额创1.8亿美元以上新高，并出现Aave v4单股金库；Binance称用户持有的股票和bStocks传统资产超过30亿美元。LSE计划在监管批准后于2027年在LSE24支持xStocks，纽交所关联平台则选择基于Avalanche技术的许可链作为结算账本。",
+        "whyItMatters": "代币化股票正在从单纯价格敞口进入抵押借贷和机构结算，但交易权、股东权利、结算层及底层代币价值捕获必须分别判断。",
         "facts": [
-          "AGI Inc产品被描述为AGI-0、AGI-RUN和手机MCP三部分。",
-          "材料称其与高通合作并在联想Qira中演示。",
-          "截至11月4日，豆包手机助手被报告遭170多款App限制。"
+          "Base生态自报代币化股票日成交额超过1.8亿美元。",
+          "Binance自报相关传统金融资产持有量超过30亿美元。",
+          "LSE24支持xStocks的计划仍待监管批准，目标时间为2027年。",
+          "纽交所关联平台的撮合仍由现有Pillar引擎完成，Avalanche定制链负责交易后结算。"
         ],
         "interpretations": [
-          "相关合作和App限制数量来自二手整理。",
-          "无需API的屏幕操作提高兼容性，也可能加大权限和误操作风险。"
+          "Avalanche技术被采用不等于AVAX一定用于Gas、质押或获得收入。",
+          "代币化股票可能仅提供价格敞口，并不自动授予直接股东权利。"
         ],
         "authors": [
+          "base",
+          "binancezh",
+          "xStocksFi",
           "BlockBeatsAsia"
         ],
         "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2119752997165248815"
+          "https://x.com/base/status/2120273135127892333",
+          "https://x.com/base/status/2120220600480506001",
+          "https://x.com/binancezh/status/2120141370681938403",
+          "https://x.com/xStocksFi/status/2120146592581718109",
+          "https://x.com/BlockBeatsAsia/status/2120033713543327961"
         ],
-        "sourceCount": 1,
+        "sourceCount": 4,
         "confidence": "medium"
       },
       {
-        "title": "法国指认伊朗网络部队攻击超市冷藏系统",
-        "importance": "medium",
-        "summary": "BlockBeats称，法国于11月9日正式指认伊朗伊斯兰革命卫队网络部队操纵10月针对法国超市冷藏系统的攻击，涉及约700家零售场所，并造成食品损失及至少15起火灾。",
-        "whyItMatters": "事件显示网络攻击正从数据窃取延伸到食品供应链和实体设备，工业控制与物联网安全可能成为更直接的经济和公共安全风险。",
+        "title": "通胀与鹰派加息条件继续压制风险资产",
+        "importance": "high",
+        "summary": "packet中的二手材料称，美国10月总体CPI环比上涨0.4%、核心CPI上涨0.3%，均高于预期；美联储理事Waller据称表示，即使CPI改善也支持12月加息25个基点，若核心CPI达到0.3%或更高则应考虑50个基点。",
+        "whyItMatters": "更高的实际和预期利率抬升美元资产回报要求，压制黄金、科技股与加密资产估值，并减少外部流动性改善空间。",
         "facts": [
-          "材料称约700家零售场所受到影响。",
-          "攻击方式包括篡改温度设置和关闭安全警报。",
-          "法国据称已召见伊朗大使并推动欧盟制裁。"
+          "二手材料给出的总体CPI环比为0.4%。",
+          "核心CPI环比被列为0.3%。",
+          "黄金、白银与纳指期货在鹰派表态后被报告走弱。"
         ],
         "interpretations": [
-          "责任归属和损失数字来自packet中的媒体转述，缺少法国官方原始文件。",
-          "国家指认不等于技术归因争议已经完全解决。"
+          "packet未包含官方CPI发布或Waller讲话全文。",
+          "单月数据和官员表态不等于最终加息幅度已经确定。"
         ],
         "authors": [
-          "BlockBeatsAsia"
+          "_FORAB",
+          "TechFlowPost"
         ],
         "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2119949069187727699"
+          "https://x.com/_FORAB/status/2120154312433140222",
+          "https://x.com/TechFlowPost/status/2120099525377528055"
         ],
-        "sourceCount": 1,
+        "sourceCount": 2,
         "confidence": "medium"
-      }
-    ],
-    "watchlist": [
-      {
-        "signal": "Ankr是否暂停跨链服务并发布技术复盘",
-        "reason": "确认漏洞位置、最终损失及补偿方案。",
-        "authors": [
-          "BlockBeatsAsia"
-        ],
-        "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2119715550704406620"
-        ]
       },
       {
-        "signal": "Binance、Tether、WLFI与Fight Fight Fight的材料提交",
-        "reason": "观察调查是否升级为传唤或正式执法。",
+        "title": "AI数据中心呈现低成本扩张与资本损失两面",
+        "importance": "high",
+        "summary": "内蒙古乌兰察布远景星河基地首批120MW据称不到一年建成，整个园区计划2027年底达到800MW IT容量，并以自建风电、储能和低温环境降低成本。另一边，软银被报告出现近两年来首次季度亏损，部分原因涉及俄亥俄数据中心供电设备采购违约及不可退预付款。",
+        "whyItMatters": "AI基建竞争不仅是GPU采购，更是能源、建设速度和长期利用率。更低建设成本可能扩大算力供给，但设备锁定和项目取消也会造成巨额资本损失。",
+        "facts": [
+          "乌兰察布首批容量被列为120MW，远期目标800MW。",
+          "两座自建风电场总装机据称420MW，目标覆盖前两期超过60%用电。",
+          "软银季度亏损被二手材料列为70亿美元。",
+          "供电设备采购的部分预付款据称不可退还。"
+        ],
+        "interpretations": [
+          "中美成本对比来自SemiAnalysis等二手材料，不能直接等同于同规格全生命周期成本。",
+          "软银亏损还受到愿景基金持仓下跌等多重因素影响。"
+        ],
         "authors": [
-          "BlockBeatsAsia"
+          "BlockBeatsAsia",
+          "_FORAB"
         ],
         "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2119643234003718355"
-        ]
+          "https://x.com/BlockBeatsAsia/status/2120106772728008969",
+          "https://x.com/_FORAB/status/2120085113199570945"
+        ],
+        "sourceCount": 2,
+        "confidence": "medium"
       },
       {
-        "signal": "Elysium主网稳定性与预编译上线",
-        "reason": "验证首个Hyperliquid L2能否承载持续应用和流动性。",
+        "title": "Elysium主网数据口径冲突，真正考验在预编译上线",
+        "importance": "medium",
+        "summary": "Elysium团队相关口径称上线约12小时成交额超过9000万美元、900万笔交易、14.5万独立账户和约5000万美元TVL；但BlockBeats引述DefiLlama同期数据仅约462万美元DeFi TVL和606万美元DEX成交。连接HyperCore订单簿的预编译预计约4周后上线。",
+        "whyItMatters": "Elysium能否把Hyperliquid原生流动性带入EVM应用，是其区别于普通高性能L2的关键；当前Meme交易、机器人和数据口径分歧尚不足以证明真实需求。",
+        "facts": [
+          "项目机制称50%排序器收入用于买入并销毁KNTQ。",
+          "25%收入分配给Builder，25%进入国库。",
+          "HyperCore订单簿预编译尚未上线。",
+          "项目方与DefiLlama的TVL、成交数据存在显著差异。"
+        ],
+        "interpretations": [
+          "差异可能来自统计范围或口径，不宜直接认定任一方造假。",
+          "上线初期高交易数可能包含机器人、Meme发射和重复交互。"
+        ],
         "authors": [
           "BlockBeatsAsia",
           "0xSleepinRain"
         ],
         "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2119778562542882932",
-          "https://x.com/0xSleepinRain/status/2119788076210000087"
-        ]
+          "https://x.com/BlockBeatsAsia/status/2120013589901885809",
+          "https://x.com/0xSleepinRain/status/2119978228337291632"
+        ],
+        "sourceCount": 2,
+        "confidence": "medium"
       },
       {
-        "signal": "Base代币化股票周末成交能否持续",
-        "reason": "区分事件驱动的一次性放量与长期流动性。",
+        "title": "Binance Pool关停凸显矿池盈利与集中化压力",
+        "importance": "medium",
+        "summary": "BlockBeats称Binance Pool于11月10日正式关停，结束约六年半运营。材料认为费率竞争压缩矿池利润，而Foundry仍占据约25%的全网出块份额。",
+        "whyItMatters": "矿池退出不会让算力消失，但算力迁移可能进一步向头部集中，使矿工低费率需求、矿池盈利和比特币网络去中心化之间的矛盾更加突出。",
+        "facts": [
+          "Binance Pool于2020年4月上线。",
+          "关停日期被列为2026年11月10日。",
+          "Foundry出块份额被二手材料列为约25%。"
+        ],
+        "interpretations": [
+          "packet未包含Binance Pool官方关停原因全文。",
+          "单一矿池退出对实际算力集中度的影响取决于矿工迁移目的地。"
+        ],
         "authors": [
-          "base"
+          "BlockBeatsAsia"
         ],
         "sourceUrls": [
-          "https://x.com/base/status/2119800595032965621"
-        ]
+          "https://x.com/BlockBeatsAsia/status/2120078078500364746"
+        ],
+        "sourceCount": 1,
+        "confidence": "medium"
       },
       {
-        "signal": "英伟达董事会调查与客户尽调结果",
-        "reason": "判断事件是否影响出口合规、管理层或Megaspeed合作。",
+        "title": "加密现货降温，衍生品与跨资产交易更具韧性",
+        "importance": "medium",
+        "summary": "BlockBeats整理称，10月主流CEX现货交易量环比下降8.42%，合约量仅下降1.61%；Perp DEX交易量下降2.47%，但网站访问量下降7.72%。Hyperliquid股票合约交易量在11月10日再次超过BTC，Variational则称累计Swap成交突破800亿美元，TradFi占比超过60%。",
+        "whyItMatters": "资金可能从现货方向性配置转向杠杆、对冲和跨资产交易，但交易量韧性与用户访问下降并存，也可能意味着存量资金的高频博弈。",
+        "facts": [
+          "CEX现货环比降幅被列为8.42%。",
+          "CEX合约环比下降1.61%。",
+          "Perp DEX交易量环比下降2.47%。",
+          "Variational自报累计Swap成交超过800亿美元。"
+        ],
+        "interpretations": [
+          "单月环比不足以确认长期结构变化。",
+          "股票合约超过BTC可能是事件驱动，不能直接作为BTC反弹信号。"
+        ],
         "authors": [
           "BlockBeatsAsia",
-          "TechFlowPost"
+          "variational_io"
         ],
         "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2119701524301447296",
-          "https://x.com/TechFlowPost/status/2119630926053274050"
+          "https://x.com/BlockBeatsAsia/status/2120116761383366986",
+          "https://x.com/BlockBeatsAsia/status/2119987224255352893",
+          "https://x.com/variational_io/status/2120203514802843890"
+        ],
+        "sourceCount": 2,
+        "confidence": "medium"
+      }
+    ],
+    "watchlist": [
+      {
+        "signal": "Binance对MEXC间接关联资金的审查边界",
+        "reason": "确认中转钱包、历史地址和关联账户是否受到限制。",
+        "authors": [
+          "binancezh"
+        ],
+        "sourceUrls": [
+          "https://x.com/binancezh/status/2120116551475233119"
         ]
       },
       {
-        "signal": "ETH社区是否接受价值储存估值框架",
-        "reason": "观察燃烧叙事弱化后是否形成新的长期持有共识。",
+        "signal": "Anthropic正式招股书与最终定价",
+        "reason": "解决股数、价格区间、估值和算力承诺口径冲突。",
+        "authors": [
+          "BlockBeatsAsia",
+          "ArtofSpecuycky"
+        ],
+        "sourceUrls": [
+          "https://x.com/BlockBeatsAsia/status/2119961260351770681",
+          "https://x.com/ArtofSpecuycky/status/2120315549263839548"
+        ]
+      },
+      {
+        "signal": "CFTC对Kalshi是否正式提出指控",
+        "reason": "判断联邦监管压力是否升级为执法案件。",
+        "authors": [
+          "bwenews"
+        ],
+        "sourceUrls": [
+          "https://x.com/bwenews/status/2120269629692236082"
+        ]
+      },
+      {
+        "signal": "肯塔基州预测市场诉讼结果",
+        "reason": "可能形成州博彩监管挑战联邦事件合约牌照的模板。",
         "authors": [
           "TechFlowPost"
         ],
         "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2119740122426126835"
+          "https://x.com/TechFlowPost/status/2119994536080584910"
         ]
       },
       {
-        "signal": "Binance Alpha市价交易与剩余提现网络",
-        "reason": "确认平台是否完成全部功能恢复。",
+        "signal": "LSE24和Avalanche许可链的监管批准与代币价值捕获",
+        "reason": "区分技术采用、真实结算流量和公链代币收益。",
         "authors": [
-          "binancezh",
-          "Benjieming1Q84"
+          "xStocksFi",
+          "BlockBeatsAsia"
         ],
         "sourceUrls": [
-          "https://x.com/binancezh/status/2119662445446979813",
-          "https://x.com/Benjieming1Q84/status/2119674504683343996"
+          "https://x.com/xStocksFi/status/2120146592581718109",
+          "https://x.com/BlockBeatsAsia/status/2120033713543327961"
         ]
       },
       {
-        "signal": "Kaito创作者贡献新评价规则",
-        "reason": "认证曝光、认证关注者和Aura被纳入后，内容激励可能进一步向高影响账户集中。",
+        "signal": "12月议息前的通胀与美联储表态",
+        "reason": "确认25或50个基点加息是否成为正式政策路径。",
         "authors": [
-          "Benjieming1Q84"
+          "TechFlowPost",
+          "_FORAB"
         ],
         "sourceUrls": [
-          "https://x.com/Benjieming1Q84/status/2119957554562523288"
+          "https://x.com/TechFlowPost/status/2120099525377528055",
+          "https://x.com/_FORAB/status/2120154312433140222"
+        ]
+      },
+      {
+        "signal": "Elysium HyperCore预编译及第三方数据",
+        "reason": "验证订单簿可组合性和真实TVL、成交需求。",
+        "authors": [
+          "BlockBeatsAsia"
+        ],
+        "sourceUrls": [
+          "https://x.com/BlockBeatsAsia/status/2120013589901885809"
+        ]
+      },
+      {
+        "signal": "Binance Pool算力迁移目的地",
+        "reason": "判断关停是否进一步推高矿池集中度。",
+        "authors": [
+          "BlockBeatsAsia"
+        ],
+        "sourceUrls": [
+          "https://x.com/BlockBeatsAsia/status/2120078078500364746"
         ]
       }
     ],
     "disagreements": [
       {
-        "topic": "英伟达事件是否涉及国家安全风险",
+        "topic": "Anthropic IPO的真实发行条件",
         "positions": [
-          "美国媒体与官员相关说法把Megaspeed及相关个人与情报或出口规避联系起来。",
-          "中国外交部否认间谍论调，英伟达此前也表示未发现国家安全或机密泄露证据。"
+          "部分材料称发行8.25亿股、价格70至78美元。",
+          "另一份材料称发行8.67亿股、价格70至80美元，潜在估值也更低。"
         ],
         "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2119701524301447296",
-          "https://x.com/TechFlowPost/status/2119630926053274050"
+          "https://x.com/ArtofSpecuycky/status/2120315549263839548",
+          "https://x.com/BlockBeatsAsia/status/2119961260351770681"
         ]
       },
       {
-        "topic": "ETH应按现金流资产还是价值储存估值",
+        "topic": "预测市场是金融创新还是无牌照博彩",
         "positions": [
-          "手续费燃烧可以构建类似现金流的估值模型。",
-          "L2迁移和投机性燃烧使该模型脆弱，去中心化稳定性可能更适合价值储存定位。"
+          "Polymarket和River展示高速增长及联邦合规路径。",
+          "肯塔基州认为事件合约绕过州体育博彩牌照和税收。"
         ],
         "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2119740122426126835"
+          "https://x.com/BlockBeatsAsia/status/2120142065875165518",
+          "https://x.com/river_markets/status/2120175026376970615",
+          "https://x.com/TechFlowPost/status/2119994536080584910"
         ]
       },
       {
-        "topic": "全天候链上股票提高还是扭曲价格发现",
+        "topic": "机构采用Avalanche技术是否利好AVAX",
         "positions": [
-          "休市期间的链上报价让持仓者能及时观察风险和对冲。",
-          "高杠杆、极端资金费率及缺乏主市场基准可能放大偏离。"
+          "许可链结算增强Avalanche的机构采用叙事。",
+          "撮合仍在传统系统，且Gas、质押与收入是否使用AVAX尚不明确。"
         ],
         "sourceUrls": [
-          "https://x.com/octopusycc/status/2119693212302602666",
-          "https://x.com/variational_io/status/2119847261584990284"
+          "https://x.com/BlockBeatsAsia/status/2120033713543327961"
         ]
       },
       {
-        "topic": "Elysium主网上线后的短期评价",
+        "topic": "Elysium主网上线是否已证明真实需求",
         "positions": [
-          "首个Hyperliquid L2为生态应用扩张提供新基础设施。",
-          "预编译未上线、退出较慢和sell-the-news表现说明网络仍处验证期。"
+          "项目方口径显示高成交、账户数和TVL。",
+          "第三方数据显著更低，且目前交易可能主要由Meme和机器人驱动。"
         ],
         "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2119778562542882932",
-          "https://x.com/0xSleepinRain/status/2119632108499153227",
-          "https://x.com/0xStudy/status/2119757435124469823"
+          "https://x.com/BlockBeatsAsia/status/2120013589901885809"
         ]
       },
       {
-        "topic": "加密发射台是否仍有可持续需求",
+        "topic": "加密市场是否正在转向衍生品主导",
         "positions": [
-          "项目和发射台持续制造新资产与交易机会。",
-          "KOL观察认为供给无限扩张、散户需求下降和内幕交易正在破坏市场。"
+          "现货降幅明显高于合约，股票合约与TradFi Swap继续增长。",
+          "用户访问和总体交易活动仍在下滑，可能只是存量资金杠杆化。"
         ],
         "sourceUrls": [
-          "https://x.com/spark888/status/2119767125166604730",
-          "https://x.com/spark888/status/2119838077116125308"
+          "https://x.com/BlockBeatsAsia/status/2120116761383366986",
+          "https://x.com/BlockBeatsAsia/status/2119987224255352893",
+          "https://x.com/variational_io/status/2120203514802843890"
         ]
       }
     ],
     "noiseSummary": [
-      "黄仁勋私人生活的重复八卦、餐厅打卡和戏谑内容。",
-      "短线喊单、期权墙、抄底和价格情绪判断。",
-      "Meme、白名单、NFT销售及空投催促。",
-      "只有短链、图片或点名且缺乏文字上下文的帖子。",
-      "项目活动、电竞竞猜和推广转发。",
-      "AI模型体验、套餐额度和个人效率感叹。",
-      "未经证实的政治内幕及人物动机猜测。",
-      "LP年化、积分估值和高杠杆交易推广。"
+      "短线喊单、均线目标、期权墙和盘中直播。",
+      "黄仁勋私人生活、离婚金额和员工表情的重复八卦。",
+      "空投领取、积分刷量、NFT与发射台推广。",
+      "只有短链、图片或点名且缺少文本语境的帖子。",
+      "项目招聘、VIP礼品和社区活动。",
+      "未经证实的政治人物、家庭关系和个人动机猜测。",
+      "AI游戏演示、写作工具和个人效率体验。",
+      "高杠杆套利方案及未验证收益截图。"
     ]
   }
 }
