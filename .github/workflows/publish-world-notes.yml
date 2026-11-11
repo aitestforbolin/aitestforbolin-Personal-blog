@@ -1,0 +1,39 @@
+name: Publish World Notes
+on:
+  push:
+    branches: [main]
+    paths: [data/world-notes-publish-request.json]
+permissions:
+  contents: write
+concurrency:
+  group: world-notes-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Publish current request against latest main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            python scripts/publish_world_notes.py
+            git add data/world-notes.json data/world-notes/
+            if git diff --cached --quiet; then exit 0; fi
+            git commit -m 'Publish World Notes'
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
