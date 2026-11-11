@@ -1,0 +1,88 @@
+{
+  "reportDate": "2026-11-12",
+  "requestId": "world-notes-20261112-0734",
+  "startedAt": "2026-11-12T07:32:58+08:00",
+  "status": "published",
+  "qualifiedCount": 2,
+  "zeroQualified": false,
+  "collectionFailed": false,
+  "sourceReadability": {
+    "discovery": [
+      "GroundUp 首页可读",
+      "The Kathmandu Post 首页可读",
+      "Mexico News Daily 首页可读"
+    ],
+    "fullText": [
+      {
+        "source": "The Kathmandu Post",
+        "topic": "帕尔帕布艺送礼",
+        "readable": true,
+        "selected": true
+      },
+      {
+        "source": "The Kathmandu Post",
+        "topic": "巴德岗陶灯",
+        "readable": true,
+        "selected": false,
+        "reason": "同地区同节日，与送礼候选相比主题重叠，留待后续"
+      },
+      {
+        "source": "GroundUp",
+        "topic": "德班公共厕所",
+        "readable": true,
+        "selected": false,
+        "reason": "与上一期公共服务失灵情境相近，优先选择不同日常领域"
+      },
+      {
+        "source": "GroundUp",
+        "topic": "埃利斯公园网球",
+        "readable": true,
+        "selected": true
+      }
+    ]
+  },
+  "screening": {
+    "method": "从三家当地媒体首页与社区/文化/教育入口粗筛，四篇候选阅读全文（含图说），选入两篇",
+    "candidates": [
+      "帕尔帕Dhaka布艺送礼",
+      "巴德岗陶灯与电灯",
+      "尼泊尔交通岗位非正式就业",
+      "陶工职业传承视频",
+      "被迁离住户的德赛节",
+      "加德满都塑料花环",
+      "南非低年级数学表现",
+      "德班公共厕所关闭",
+      "埃利斯公园儿童网球",
+      "鸡肉厂工人罢工",
+      "养老保险扣款退款",
+      "墨西哥Otomí社区占用机构办公楼"
+    ],
+    "recentArchiveDates": [
+      "2026-11-11"
+    ]
+  },
+  "publication": {
+    "workflowRun": 43120846509,
+    "conclusion": "success",
+    "publishedAt": "2026-11-12T07:34:30.780800+08:00",
+    "repositoryLatestArchiveIndexMatch": true,
+    "deployCommit": "cba3b754fd8b7866631fb8c965af9627d7bbcfaa",
+    "deployWorkflowRun": 43120928633,
+    "deployConclusion": "success"
+  },
+  "failures": [
+    {
+      "stage": "public-readback",
+      "reason": "搜索工具无法读取站点，改用直接HTTPS回读成功，未影响来源正文采集"
+    },
+    {
+      "stage": "deployment-pending",
+      "reason": "07:35:18首次回读仍是上一期，今日归档404；部署当时正在运行，等待完成，不重写内容"
+    }
+  ],
+  "onlineVerifiedAt": "2026-11-12T07:35:56.078606+08:00",
+  "onlineTimeBasis": "首次公开回读成功时间；实际CDN可读时间不晚于此刻",
+  "publicLatestArchiveMatch": true,
+  "publicContentMatchesRepository": true,
+  "publicPageAndScriptReadable": true
+}
