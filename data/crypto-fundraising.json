@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T01:01:45+00:00",
+  "updated_at": "2026-11-12T01:03:15+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
@@ -12,7 +12,7 @@
       "announced_month": "2026-11",
       "amount_usd": 988200,
       "detail_url": "https://crypto-fundraising.info/projects/slop-cash/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-marble",
@@ -22,7 +22,7 @@
       "announced_month": "2026-11",
       "amount_usd": 11000000,
       "detail_url": "https://crypto-fundraising.info/projects/marble/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-alta-ex-metal",
@@ -32,40 +32,40 @@
       "announced_month": "2026-11",
       "amount_usd": 47500000,
       "detail_url": "https://crypto-fundraising.info/projects/alta-ex-metal/",
+      "is_new": false
+    },
+    {
+      "id": "crypto-fundraising-index-industries",
+      "source_rank": 4,
+      "name": "Index Industries",
+      "round": "Seed",
+      "announced_month": "2026-11",
+      "amount_usd": 50000000,
+      "detail_url": "https://crypto-fundraising.info/projects/index-industries/",
       "is_new": true
     },
     {
       "id": "crypto-fundraising-river-one",
-      "source_rank": 4,
+      "source_rank": 5,
       "name": "River One",
       "round": "M&A",
       "announced_month": "2026-11",
       "amount_usd": null,
       "detail_url": "https://crypto-fundraising.info/projects/river-one/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-deca-labs",
-      "source_rank": 5,
-      "name": "DECA Labs",
-      "round": null,
-      "announced_month": "2026-11",
-      "amount_usd": 12000000,
-      "detail_url": "https://crypto-fundraising.info/projects/deca-labs/",
-      "is_new": true
+      "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261111-010009Z",
-    "requestId": "codex-web3-20261111-010009Z",
-    "triggerSha": "75690b9e1372e553188fbdeed373557dcee1b891",
-    "githubRunId": 42935865615,
-    "scheduledAt": "2026-11-11T01:00:09Z",
-    "startedAt": "2026-11-11T01:01:44.114226+00:00",
-    "sourceCheckedAt": "2026-11-11T01:01:45.586219+00:00",
-    "sourceUpdatedAt": "2026-11-11T01:01:45+00:00",
-    "completedAt": "2026-11-11T01:01:45.586685+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261112-010225Z",
+    "requestId": "codex-web3-20261112-010225Z",
+    "triggerSha": "66db45342bd0ca73ffb803adf3bea5fa60c315eb",
+    "githubRunId": 43131746386,
+    "scheduledAt": "2026-11-12T01:02:25Z",
+    "startedAt": "2026-11-12T01:03:13.465849+00:00",
+    "sourceCheckedAt": "2026-11-12T01:03:15.206846+00:00",
+    "sourceUpdatedAt": "2026-11-12T01:03:15+00:00",
+    "completedAt": "2026-11-12T01:03:15.207231+00:00",
     "publishedAt": null
   }
 }
