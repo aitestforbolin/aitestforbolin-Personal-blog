@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "codex-web3-20261111-010009Z",
-  "triggerSha": "75690b9e1372e553188fbdeed373557dcee1b891",
-  "publicationDate": "2026-11-11",
-  "publishedAt": "2026-11-11T09:04:05.570+08:00",
+  "requestId": "codex-web3-20261112-010225Z",
+  "triggerSha": "66db45342bd0ca73ffb803adf3bea5fa60c315eb",
+  "publicationDate": "2026-11-12",
+  "publishedAt": "2026-11-12T09:05:25.233+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-11-11",
-    "publishedAt": "2026-11-11T09:04:05.570+08:00",
-    "windowStart": "2026-11-10T00:57:25.471993+00:00",
-    "windowEnd": "2026-11-11T01:01:45.586685+00:00",
-    "sourceUpdatedAt": "2026-11-11T01:01:45+00:00",
+    "runDate": "2026-11-12",
+    "publishedAt": "2026-11-12T09:05:25.233+08:00",
+    "windowStart": "2026-11-11T01:01:45.586685+00:00",
+    "windowEnd": "2026-11-12T01:03:15.207231+00:00",
+    "sourceUpdatedAt": "2026-11-12T01:03:15+00:00",
     "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:codex-web3-20261111-010009Z",
-      "requestId": "codex-web3-20261111-010009Z",
-      "triggerSha": "75690b9e1372e553188fbdeed373557dcee1b891",
-      "githubRunId": 42935865615,
-      "scheduledAt": "2026-11-11T01:00:09Z",
-      "startedAt": "2026-11-11T01:01:44.114226+00:00",
-      "sourceCheckedAt": "2026-11-11T01:01:45.586219+00:00",
-      "sourceUpdatedAt": "2026-11-11T01:01:45+00:00",
-      "completedAt": "2026-11-11T01:01:45.586685+00:00",
-      "publishedAt": "2026-11-11T09:04:05.570+08:00"
+      "runId": "web3-daily-triage:codex-web3-20261112-010225Z",
+      "requestId": "codex-web3-20261112-010225Z",
+      "triggerSha": "66db45342bd0ca73ffb803adf3bea5fa60c315eb",
+      "githubRunId": 43131746386,
+      "scheduledAt": "2026-11-12T01:02:25Z",
+      "startedAt": "2026-11-12T01:03:13.465849+00:00",
+      "sourceCheckedAt": "2026-11-12T01:03:15.206846+00:00",
+      "sourceUpdatedAt": "2026-11-12T01:03:15+00:00",
+      "completedAt": "2026-11-12T01:03:15.207231+00:00",
+      "publishedAt": "2026-11-12T09:05:25.233+08:00"
     },
     "executionStatus": {
       "collection": "success",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "候选窗口从 2026-11-10 已验证的 unchanged 发布 windowEnd 接续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重，先排除 River One 的 M&A 事件，再研究 4 个新融资项目。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "候选窗口从 2026-11-11 已验证发布的 windowEnd 接续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重并排除 M&A 后，确认 1 个新融资候选。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -117,249 +117,69 @@
       "crypto-fundraising-slop-cash--2026-11--public-sale",
       "crypto-fundraising-marble--2026-11--seed",
       "crypto-fundraising-alta-ex-metal--2026-11--series-a",
-      "crypto-fundraising-deca-labs--2026-11--round-unknown"
+      "crypto-fundraising-deca-labs--2026-11--round-unknown",
+      "crypto-fundraising-index-industries--2026-11--seed"
     ],
     "counts": {
-      "new": 4,
+      "new": 1,
       "action": 0,
-      "watch": 2,
-      "stop": 2
+      "watch": 1,
+      "stop": 0
     },
     "projects": [
       {
-        "event_id": "crypto-fundraising-slop-cash--2026-11--public-sale",
-        "source_detail_url": "https://crypto-fundraising.info/projects/slop-cash/",
-        "project_name": "Slop Cash",
-        "decision": "STOP",
+        "event_id": "crypto-fundraising-index-industries--2026-11--seed",
+        "source_detail_url": "https://crypto-fundraising.info/projects/index-industries/",
+        "project_name": "Index Industries",
+        "decision": "WATCH",
         "financing": {
-          "amount_usd": 988200,
-          "round": "Public sale",
-          "lead_investors": [],
-          "announcement_date": "2026-11-10",
-          "confidence": "high"
-        },
-        "plain_explanation": "面向开源项目的非托管资助与贡献者付款工具，按最终被合并的代码和评审结果给贡献者结算。",
-        "mechanism_simple": "项目方设月度奖励池，贡献者照常通过 GitHub 提交工作；只有被接受并合并的成果计分，月末按公开结果分配付款。",
-        "project_status": {
-          "category": "existing_token",
-          "token_status": "token_live",
-          "note": "产品此前已运行；原生 SLOP 于 2026-11-10 在 Robinhood Chain 上线并开放交易。"
-        },
-        "participation": {
-          "available_now": true,
-          "what_user_can_do": "可贡献开源代码或交易 SLOP，但代币已经上线，已不属于本流程寻找的前期机会。",
-          "requires_real_funds": true,
-          "friction_or_risk": "交易涉及真实资金、流动性与新发代币波动风险；贡献路径需要可被维护者接受的实际产出。"
-        },
-        "incentives": {
-          "status": "confirmed",
-          "types": [
-            "token"
-          ],
-          "details": "SLOP 已完成公开拍卖并上线交易；这触发已发币硬性 STOP。"
-        },
-        "why": [
-          "原生代币已确认上线并可交易，按规则必须 STOP。",
-          "公开销售已结束，早期参与窗口已关闭。"
-        ],
-        "next_step": null,
-        "recheck_trigger": null,
-        "website_url": "https://slop.cash/",
-        "x_url": "https://x.com/SlopCash",
-        "evidence": [
-          {
-            "claim": "SLOP 于 2026-11-10 上线交易并公布合约地址",
-            "url": "https://x.com/umia_finance",
-            "source_type": "official_x",
-            "confidence": "high"
-          },
-          {
-            "claim": "公开销售、代币分配及产品机制",
-            "url": "https://www.benzinga.com/content/63018065/slop-cash-elizaos-creator-shaw-walters-opens-public-bidding-umia-after-passing-its-400k-minimum",
-            "source_type": "other",
-            "confidence": "medium"
-          },
-          {
-            "claim": "代币销售 45% 及 TGE 全解锁安排",
-            "url": "https://blockworks.com/token-transparency/filing/slop-cash",
-            "source_type": "database",
-            "confidence": "high"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-marble--2026-11--seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/marble/",
-        "project_name": "Marble",
-        "decision": "STOP",
-        "financing": {
-          "amount_usd": 11000000,
+          "amount_usd": 50000000,
           "round": "Seed",
           "lead_investors": [
-            "Polychain Capital"
+            "Lightspeed Venture Partners"
           ],
           "announcement_date": "2026-11-10",
           "confidence": "high"
         },
-        "plain_explanation": "为机构提供跨数字资产、现实资产、预测市场和算力市场的交易服务，并为 AI 算力运营商连接私人信贷。",
-        "mechanism_simple": "Marble Markets 计划以机构做市与统一抵押方式提供交易；Marble Compute 则替 GPU/云算力运营商做尽调、结构化融资并连接机构贷款人。",
+        "plain_explanation": "把美国整体住房价格做成每天更新的指数，并为第三方发行与该指数挂钩的链上投资产品提供技术和资本市场基础设施。",
+        "mechanism_simple": "它汇总主要住房价格指数形成全国日度基准；独立发行方 USHP Limited 计划发行跟踪该指数的 USHP，让合格投资者用一种流动产品获得美国房价敞口。",
         "project_status": {
           "category": "new_unlaunched",
           "token_status": "no_token_found",
-          "note": "公司刚公布启动，但核心交易与信贷产品仍面向机构并处建设阶段。"
+          "note": "公司于 2026 年刚从隐身状态推出；Index Industries 本身未发现原生代币，首个 USHP 投资产品仍处计划发布阶段。"
         },
         "participation": {
           "available_now": false,
           "what_user_can_do": null,
           "requires_real_funds": true,
-          "friction_or_risk": "目标客户是机构交易方、贷款人和算力运营商，普通用户暂无可验证的低成本参与路径。"
+          "friction_or_risk": "USHP 尚未正式开放；未来发行仅面向美国境外的合格非美国人士，并涉及真实资金、产品流动性、发行人和指数跟踪风险。"
         },
         "incentives": {
           "status": "none_found",
           "types": [],
-          "details": "未发现官方 Points、测试网、空投或代币计划。"
+          "details": "未发现官方 Points、测试网、空投或原生代币激励。"
         },
         "why": [
-          "产品直接面向机构资本市场，并非普通用户场景。",
-          "核心服务仍在建设且需监管、托管与银行连接，当前没有个人用户可执行动作。"
+          "把难以直接投资的美国整体住房价格变成可交易敞口，真实需求明确。",
+          "融资与团队信号强，但产品尚未正式开放，合格投资者限制和结构风险较高。",
+          "需要先看到发行、赎回、储备或托管、费用和流动性细则，当前不值得投入资金。"
         ],
         "next_step": null,
-        "recheck_trigger": null,
-        "website_url": null,
-        "x_url": "https://x.com/marblegroupxyz",
+        "recheck_trigger": "USHP 在 Ethereum 正式上线，并公布合格投资者条件、费用、赎回、托管或储备、流动性及独立审计或证明后复查。",
+        "website_url": "https://indexindustries.com/",
+        "x_url": "https://x.com/index_inds",
         "evidence": [
           {
-            "claim": "1100 万美元种子轮由 Polychain 领投及两条机构业务线",
-            "url": "https://www.prnewswire.com/news-releases/marble-launches-with-11m-seed-led-by-polychain-capital-to-build-institutional-frontier-markets-trading-and-ai-infrastructure-finance-302934821.html",
-            "source_type": "official_blog",
-            "confidence": "high"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-alta-ex-metal--2026-11--series-a",
-        "source_detail_url": "https://crypto-fundraising.info/projects/alta-ex-metal/",
-        "project_name": "Alta（原 Metal）",
-        "decision": "WATCH",
-        "financing": {
-          "amount_usd": 47500000,
-          "round": "Series A",
-          "lead_investors": [
-            "Index Ventures"
-          ],
-          "announcement_date": "2026-11-10",
-          "confidence": "high"
-        },
-        "plain_explanation": "面向银行、金融科技公司和企业财资的隐私型区块链结算基础设施，重点解决跨境支付、外汇、合规和资金利用效率。",
-        "mechanism_simple": "链上把身份、授权与合规规则直接写进交易验证，同时用零知识证明隐藏余额和交易细节；再连接本地支付网络和代币化资产。",
-        "project_status": {
-          "category": "renamed_existing",
-          "token_status": "no_token_found",
-          "note": "项目由 Metal 更名为 Alta；未发现原生代币已上线，当前主要是企业及开发者测试网。"
-        },
-        "participation": {
-          "available_now": true,
-          "what_user_can_do": "开发者可申请测试网 RPC、浏览器与 agentic 工具；普通消费者没有直接产品入口。",
-          "requires_real_funds": false,
-          "friction_or_risk": "测试网资产无价值且可能重置；服务条款明确面向企业、开发者和合作集成商。"
-        },
-        "incentives": {
-          "status": "none_found",
-          "types": [
-            "testnet"
-          ],
-          "details": "官方提供实验性测试网，但未发现 Points、空投或代币奖励承诺。"
-        },
-        "why": [
-          "隐私与合规内建的机构结算路线有明确需求，且 Airwallex 是早期设计伙伴。",
-          "当前只有开发者测试网，普通用户参与质量低，也没有官方奖励。",
-          "仍值得等到主网或开放激励出现后复查。"
-        ],
-        "next_step": null,
-        "recheck_trigger": "Alta 公布主网上线、面向公众的无许可测试活动，或官方 Points/代币/奖励计划时复查。",
-        "website_url": "https://alta.finance/",
-        "x_url": null,
-        "evidence": [
-          {
-            "claim": "4750 万美元 Series A 由 Index Ventures 领投，及机构产品定位",
-            "url": "https://alta.finance/news/series-a-release/",
+            "claim": "5000 万美元种子轮由 Lightspeed 领投，以及 USHP Index、USHP 产品结构和发行限制",
+            "url": "https://www.prnewswire.com/news-releases/index-industries-raises-50-million-in-funding-to-reinvent-how-the-world-invests-in-real-estate-302935231.html",
             "source_type": "official_blog",
             "confidence": "high"
           },
           {
-            "claim": "测试网只面向企业、开发者和集成商，测试资产无价值",
-            "url": "https://alta.finance/terms/",
-            "source_type": "official_site",
-            "confidence": "high"
-          },
-          {
-            "claim": "Alta 由 Metal 更名",
-            "url": "https://alta.finance/security/",
-            "source_type": "official_site",
-            "confidence": "high"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-deca-labs--2026-11--round-unknown",
-        "source_detail_url": "https://crypto-fundraising.info/projects/deca-labs/",
-        "project_name": "DECA Labs",
-        "decision": "WATCH",
-        "financing": {
-          "amount_usd": 12000000,
-          "round": null,
-          "lead_investors": [],
-          "announcement_date": "2026-11-10",
-          "confidence": "high"
-        },
-        "plain_explanation": "让 AI 代理先从市场信号中找软件机会、用真实买家验证需求，再把开发和分发资源投向通过验证的产品。",
-        "mechanism_simple": "系统把流程拆成机会发现、需求测试、开发和分发四步；达不到预设需求门槛的想法会被停止，只有验证通过的项目继续获得资源。",
-        "project_status": {
-          "category": "existing_no_token",
-          "token_status": "no_token_found",
-          "note": "已有产品、收入与用户数据，属于已有项目；未发现原生代币上线。"
-        },
-        "participation": {
-          "available_now": true,
-          "what_user_can_do": "创始人可报名做 10 天需求验证；内容创作者可申请有偿推广；Backer 入口仍是等待名单。",
-          "requires_real_funds": false,
-          "friction_or_risk": "Founder 路径涉及真实广告测试成本；创作者需通过申请，Backer 尚未开放。"
-        },
-        "incentives": {
-          "status": "confirmed",
-          "types": [
-            "campaign",
-            "other"
-          ],
-          "details": "官方 Creator 项目按被接受的内容分配现金池；这属于工作报酬，不是代币或空投承诺。"
-        },
-        "why": [
-          "需求验证优先于盲目开发的机制有现实价值，且项目自报已有收入与用户。",
-          "现阶段普通用户主要是申请或等待名单，Backer 尚未开放，早期参与条件和回报不清晰。",
-          "没有发现官方代币或空投安排。"
-        ],
-        "next_step": null,
-        "recheck_trigger": "Backer 正式开放并公布资金、收益与风险条款，或 DECA 发布公开的代币/积分激励时复查。",
-        "website_url": "https://decalabs.ai/",
-        "x_url": "https://x.com/deca_labs",
-        "evidence": [
-          {
-            "claim": "累计融资 1200 万美元、投资人及商业化网络机制",
-            "url": "https://www.theblock.co/press-releases/deca-labs-raises-12-million-to-build-the-agent-led-software-commercialization-network-436211",
-            "source_type": "other",
-            "confidence": "high"
-          },
-          {
-            "claim": "Founder、Backer 和 Creator 三种官方参与路径",
-            "url": "https://app.decalabs.ai/join",
-            "source_type": "official_site",
-            "confidence": "high"
-          },
-          {
-            "claim": "Creator 可申请获得按接受内容分配的现金报酬",
-            "url": "https://app.decalabs.ai/join/creator",
-            "source_type": "official_site",
-            "confidence": "high"
+            "claim": "Index Industries 当前无原生代币记录，首个 USHP 产品仍为计划状态",
+            "url": "https://cryptorank.io/price/index-industries",
+            "source_type": "database",
+            "confidence": "medium"
           }
         ]
       }
