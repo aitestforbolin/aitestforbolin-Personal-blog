@@ -30,6 +30,7 @@ class RunWatchdogTests(unittest.TestCase):
         self.assertNotIn('cron: "30 1 * * 2-6"', workflow)
         self.assertIn("09:00, 10:00, and 11:00", skill)
         self.assertIn("Record recoverable packet status", skill)
+        self.assertIn("Record recoverable briefing status", skill)
 
     def test_keeps_valid_status_for_today(self):
         with tempfile.TemporaryDirectory() as directory:

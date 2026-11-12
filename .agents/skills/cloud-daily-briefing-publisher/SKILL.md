@@ -268,7 +268,11 @@ If writing/generation or the briefing commit unexpectedly fails, and it is still
 
 The commit message must start with:
 
-`Finalize early market briefing status`
+`Record recoverable briefing status`
+
+This prefix avoids an immediate failure email while the same-day retry window remains open. The next scheduled invocation at 10:00 or 11:00 must re-read the packet, current briefing, and run status, then retry generation or commit when no successful briefing/archive exists. Never overwrite an existing archive or a real downstream/final status.
+
+The 11:30 watchdog sends the final failure notification if the daily run is still failed after the retry window.
 
 Do not replace an existing `success` or `no_new_session` terminal status for the same run date with `failed`.
 
