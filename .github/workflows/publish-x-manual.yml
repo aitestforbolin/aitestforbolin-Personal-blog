@@ -83,6 +83,22 @@ jobs:
         run: |
           python -m unittest tests.test_validate_x_snapshot tests.test_run_watchdog -v
           python scripts/validate_x_snapshot.py --snapshot data/daily-market-status.json
+      - name: Enforce automatic X publication cutoff
+        if: >-
+          steps.gate.outputs.publish == 'true' &&
+          steps.gate.outputs.publish_mode == 'automatic'
+        run: |
+          python - <<'PY'
+          import datetime as dt
+          from zoneinfo import ZoneInfo
+
+          now = dt.datetime.now(ZoneInfo("Asia/Shanghai"))
+          cutoff = now.replace(hour=9, minute=25, second=0, microsecond=0)
+          if now >= cutoff:
+              print(f"::error::Automatic X publication missed the 09:25 start cutoff: {now.isoformat()}")
+              raise SystemExit(1)
+          print(f"Automatic X publication is within the deadline: {now.isoformat()}")
+          PY
       - name: Render, deduplicate, and publish
         id: publish
         if: steps.gate.outputs.publish == 'true'

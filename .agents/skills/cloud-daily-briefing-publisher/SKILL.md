@@ -48,7 +48,7 @@ When an atomic commit is required, use the GitHub Connector's Git Data operation
 
 Use `Asia/Shanghai` for the scheduled run and run-date interpretation.
 
-The scheduled production task runs once per U.S. trading day, Tuesday through Saturday, at 08:30 Asia/Shanghai. There are no 10:00 or 11:00 scheduled retries. The hard end-to-end deadline is 09:30 Asia/Shanghai: the website briefing and archive must be committed by 09:15 so the existing X publication workflow has time to validate and publish. The canonical run status must show success, including a confirmed X post, before 09:30. Use the latest complete U.S. trading session and the latest valid packet available at execution time.
+The scheduled production task runs once per U.S. trading day, Tuesday through Saturday, at 08:30 Asia/Shanghai. There are no 10:00 or 11:00 scheduled retries. The hard end-to-end deadline is 09:30 Asia/Shanghai: the website briefing and archive must be committed by 09:15 so the existing X publication workflow has time to validate and publish. The automatic X workflow must reach its publish step before 09:25; if it misses that start cutoff, it must fail closed rather than publish late. The canonical run status must show success, including a confirmed X post, before 09:30. Use the latest complete U.S. trading session and the latest valid packet available at execution time.
 
 Determine the latest complete U.S. trading session. Compare it with the currently published `data/daily-market-status.json`.
 

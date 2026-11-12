@@ -31,6 +31,8 @@ class RunWatchdogTests(unittest.TestCase):
         self.assertIn("08:30 Asia/Shanghai", skill)
         self.assertIn("09:15", skill)
         self.assertIn("09:30 Asia/Shanghai", skill)
+        self.assertIn("09:25", workflow)
+        self.assertIn("Enforce automatic X publication cutoff", workflow)
         self.assertIn("There are no 10:00 or 11:00 scheduled retries", skill)
         self.assertIn("same 08:30 production run", skill)
         self.assertIn("Record recoverable packet status", skill)
