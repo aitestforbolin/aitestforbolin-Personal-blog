@@ -6,8 +6,8 @@
   const mode = root.dataset.worldNotes;
   const list = root.querySelector('[data-wn-items]');
   const dateLabel = root.querySelector('[data-wn-date]');
+  const countLabel = root.querySelector('[data-wn-count]');
   const archiveSelect = root.querySelector('[data-wn-archive]');
-  const filter = root.querySelector('[data-wn-filter]');
   let current;
   let generation = 0;
   const node = (tag, text) => {
@@ -30,28 +30,42 @@
     return response.json();
   }
   function render() {
-    const selected = current.items.filter(item => !filter || !filter.value || item.category === filter.value);
+    const selected = current.items;
     list.replaceChildren();
-    dateLabel.textContent = `${current.edition || ''} · ${current.reportDate}`.replace(/^ · /, '');
+    dateLabel.textContent = current.reportDate;
+    if (countLabel) countLabel.textContent = `${current.items.length} 条切片`;
     const more = root.querySelector('[data-wn-link]');
     if (more) more.href = new URL(`world-notes/?date=${current.reportDate}`, base);
-    const visible = mode === 'home' ? selected.slice(0, 2) : mode === 'brief' ? selected.slice(0, 1) : selected;
-    visible.forEach(item => {
-      const article = node('article');
-      article.append(node('h3', item.title));
-      if (mode !== 'brief') {
-        article.append(node('p', item.body));
-        const footer = node('footer', `${item.location} ｜ ${item.materialDate} ｜ ${item.evidenceType} ｜ `);
-        item.sources.forEach((source, i) => {
-          if (i) footer.append(document.createTextNode(' · '));
-          footer.append(link(source.publisher, source.url));
-        });
-        article.append(footer);
-        const evidence = node('details');
-        evidence.append(node('summary', '看依据'));
-        item.sources.forEach(source => evidence.append(node('p', source.evidence)));
-        article.append(evidence);
+    const visible = mode === 'brief' ? selected.slice(0, 1) : selected;
+    visible.forEach((item, index) => {
+      if (mode === 'home' || mode === 'brief') {
+        const row = node('li');
+        const title = node('a', item.title);
+        title.href = new URL(`world-notes/?date=${current.reportDate}#${encodeURIComponent(item.id)}`, base);
+        row.append(title);
+        list.append(row);
+        return;
       }
+      const article = node('article');
+      article.id = item.id;
+      const number = node('span', String(index + 1).padStart(2, '0'));
+      number.className = 'wn-number';
+      number.setAttribute('aria-hidden', 'true');
+      article.append(number, node('h2', item.title));
+      const body = node('div');
+      body.className = 'wn-body';
+      item.body.split(/\n\s*\n/).filter(part => part.trim()).forEach(part => body.append(node('p', part.trim())));
+      article.append(body);
+      const footer = node('footer');
+      footer.append(node('span', `${item.location} · ${item.materialDate}`));
+      const sources = node('span');
+      sources.className = 'wn-sources';
+      item.sources.forEach((source, i) => {
+        if (i) sources.append(document.createTextNode(' · '));
+        sources.append(link(`${source.publisher} 原文 ↗`, source.url));
+      });
+      footer.append(sources);
+      article.append(footer);
       list.append(article);
     });
     if (!visible.length) list.append(node('p', '本期暂无这类条目。'));
@@ -64,6 +78,10 @@
       if (!Array.isArray(data.items)) throw new Error('内容格式异常');
       current = data;
       render();
+      if (mode === 'page' && location.hash) {
+        const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+        if (target && list.contains(target)) target.scrollIntoView({behavior: 'instant', block: 'start'});
+      }
     } catch (error) {
       if (request === generation) dateLabel.textContent = '暂时无法读取，请刷新重试。';
     }
@@ -71,7 +89,6 @@
   const requested = new URLSearchParams(location.search).get('date');
   const date = /^\d{4}-\d{2}-\d{2}$/.test(requested || '') ? requested : null;
   load(date);
-  if (filter) filter.addEventListener('change', () => { if (current) render(); });
   if (archiveSelect) {
     read('data/world-notes/index.json').then(index => {
       archiveSelect.replaceChildren(new Option('最新一期', ''));

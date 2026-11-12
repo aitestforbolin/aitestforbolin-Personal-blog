@@ -18,8 +18,8 @@ def validate(payload):
     if report_date != datetime.now(ZoneInfo('Asia/Shanghai')).date().isoformat():
         raise ValueError('reportDate must be today in Shanghai')
     items = payload.get('items')
-    if not isinstance(items, list) or not 1 <= len(items) <= 2:
-        raise ValueError('publish one or two items')
+    if not isinstance(items, list) or len(items) != 5:
+        raise ValueError('publish exactly five items')
     ids = set()
     for item in items:
         for field in ('id', 'title', 'body', 'location', 'materialDate', 'evidenceType', 'category'):

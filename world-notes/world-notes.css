@@ -1,1 +1,68 @@
-.world-notes{max-width:760px}.world-notes h2{font-size:clamp(1.8rem,4vw,2.3rem)}.wn-page{padding:32px 0 80px}.wn-page h1{font-size:clamp(2.3rem,6vw,3.5rem)}.world-notes article{padding:24px 0;border-bottom:1px solid var(--line)}.world-notes h3{font-size:1.25rem;line-height:1.5;margin:0 0 10px}.world-notes article p{font-size:1rem;line-height:1.9;margin:0 0 12px}.wn-date,.world-notes footer{font-size:.85rem;color:var(--muted)}.world-notes footer a,.wn-more,.world-notes summary{color:var(--accent-dark);text-decoration:underline;text-underline-offset:4px}.world-notes details{margin-top:10px;color:var(--muted);font-size:.85rem}.world-notes summary{cursor:pointer}.wn-tools{display:flex;flex-wrap:wrap;gap:18px;margin:24px 0 0}.wn-tools select{font:inherit;padding:6px;border:1px solid var(--line);background:var(--surface);border-radius:4px}.wn-more{display:inline-block;margin-top:18px}.wn-brief{padding:28px 0;border-top:1px solid var(--line)}.wn-brief h3{font-size:1rem}.world-notes a:focus-visible,.world-notes select:focus-visible{outline:2px solid var(--accent);outline-offset:4px}@media(max-width:600px){.world-notes article{padding:20px 0}.world-notes h3{font-size:1.15rem}.wn-page{padding-top:20px}}
+/* The home module follows the site's X Intelligence headline list. */
+.wn-home {
+  display: grid;
+  grid-template-columns: minmax(260px, .62fr) minmax(0, 1.38fr);
+  gap: clamp(28px, 5vw, 64px);
+}
+.wn-home-head { border-bottom: 1px solid var(--line); padding-bottom: 24px; }
+.wn-home-head h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.2; }
+.wn-home-intro { margin: 20px 0 0; color: var(--muted); line-height: 1.8; }
+.wn-home-cta {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  width: min(330px, 100%); margin-top: 32px; padding: 14px 16px;
+  border-radius: 8px; background: var(--accent-dark); color: #fffdf8;
+}
+.wn-home-cta > span:first-child { display: grid; gap: 4px; }
+.wn-home-cta small { font-size: .68rem; letter-spacing: .08em; opacity: .75; }
+.wn-home-cta strong { font-size: .96rem; }
+.wn-home-cta:hover { background: #703b29; }
+.wn-home-panel { min-width: 0; padding: 18px 22px; border: 1px solid var(--line); border-radius: 10px; background: rgba(251,250,246,.94); }
+.wn-home-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: .82rem; }
+.wn-headlines { list-style: none; margin: 0; padding: 6px 0 0; }
+.wn-headlines li { position: relative; margin: 0; padding-left: 24px; }
+.wn-headlines li::before { content: '•'; position: absolute; top: 15px; left: 0; color: var(--accent-dark); }
+.wn-headlines li + li { border-top: 1px solid rgba(24,25,22,.08); }
+.wn-headlines a { display: block; padding: 15px 0; color: var(--text); font-size: 1rem; line-height: 1.75; text-decoration: none; }
+.wn-headlines a:hover { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 5px; }
+/* A quiet, single reading column for the full edition. */
+.wn-reader { background: #f8f7f3; color: #292a27; }
+.wn-reader .site-header { width: min(1080px, calc(100% - 48px)); padding-top: 24px; }
+.wn-page { width: min(720px, calc(100% - 48px)); margin: 0 auto; padding: 58px 0 96px; }
+.wn-masthead { padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+.wn-masthead h1 { font-size: clamp(2.2rem, 5vw, 3rem); line-height: 1.2; }
+.wn-edition-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 18px; color: var(--muted); font-size: .9rem; }
+.wn-date { color: var(--muted); font-size: .88rem; }
+.wn-edition-meta .wn-date { margin: 0; }
+.wn-tools { margin-left: auto; }
+.wn-tools label { display: flex; align-items: center; gap: 8px; }
+.wn-tools select { max-width: 150px; padding: 7px 9px; border: 1px solid var(--line); border-radius: 5px; background: #fffdfa; color: var(--text); font: inherit; font-size: .85rem; }
+.wn-page article { padding: 38px 0 40px; border-bottom: 1px solid var(--line); scroll-margin-top: 28px; }
+.wn-number { display: block; margin-bottom: 12px; color: var(--accent-dark); font-size: .8rem; font-weight: 700; letter-spacing: .1em; }
+.wn-page article h2 { margin: 0 0 20px; color: #262724; font-size: clamp(1.3rem, 2.5vw, 1.55rem); line-height: 1.55; text-wrap: pretty; }
+.wn-body p { margin: 0 0 16px; font-size: 1.125rem; line-height: 1.95; letter-spacing: .015em; overflow-wrap: break-word; }
+.wn-body p:last-child { margin-bottom: 0; }
+.wn-page article footer { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; margin-top: 20px; color: var(--muted); font-size: .8rem; line-height: 1.8; }
+.wn-sources a { color: var(--accent-dark); text-decoration: underline; text-decoration-color: #cbb7a9; text-underline-offset: 4px; }
+.wn-sources a:hover { text-decoration-color: currentColor; }
+.wn-end { display: block; margin-top: 30px; color: var(--muted); font-size: .9rem; }
+.wn-brief { padding: 28px 0; border-top: 1px solid var(--line); }
+.wn-brief > a { color: var(--accent-dark); font-weight: 700; }
+.wn-brief .wn-headlines { padding-top: 0; }
+.world-notes a:focus-visible, .world-notes select:focus-visible, .wn-reader .site-header a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+@media (max-width: 760px) {
+  .wn-home { grid-template-columns: 1fr; gap: 24px; }
+  .wn-home-head { border-bottom: 0; padding-bottom: 0; }
+  .wn-home-cta { width: 100%; margin-top: 22px; }
+  .wn-home-panel { padding: 16px 18px; }
+}
+@media (max-width: 560px) {
+  .wn-reader .site-header { width: calc(100% - 40px); }
+  .wn-page { width: calc(100% - 40px); padding-top: 32px; }
+  .wn-page article { padding: 30px 0 32px; }
+  .wn-page article h2 { font-size: 1.3rem; margin-bottom: 16px; }
+  .wn-body p { font-size: 1.0625rem; line-height: 1.95; }
+  .wn-edition-meta { gap: 10px 14px; }
+  .wn-tools { width: 100%; margin-left: 0; margin-top: 6px; }
+  .wn-page article footer { display: grid; gap: 4px; margin-top: 18px; }
+}
+@media (prefers-reduced-motion: reduce) { .wn-reader { scroll-behavior: auto; } }

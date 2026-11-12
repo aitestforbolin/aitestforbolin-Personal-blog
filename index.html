@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="home-market-widget.css?v=20260917-5" />
     <link rel="stylesheet" href="home-fundraising.css?v=20260918-no-row-actions-1" />
     <link rel="stylesheet" href="us-macro/us-macro.css?v=20260819-3" />
-  <link rel="stylesheet" href="world-notes/world-notes.css?v=1">
+  <link rel="stylesheet" href="world-notes/world-notes.css?v=20261112-2">
 </head>
   <body>
     <header class="site-header">
@@ -98,9 +98,21 @@
         </div>
       </section>
 
-<section class="section world-notes" id="world-notes" data-world-notes="home" aria-labelledby="world-notes-title">
-<h2 id="world-notes-title">世界切片</h2><p class="wn-date" data-wn-date>正在读取…</p>
-<div data-wn-items></div><a class="wn-more" href="world-notes/" data-wn-link>读完本期 →</a></section>
+      <section class="section world-notes wn-home" id="world-notes" data-world-notes="home" aria-labelledby="world-notes-title">
+        <div class="wn-home-head">
+          <p class="eyebrow">World Notes</p>
+          <h2 id="world-notes-title">世界切片</h2>
+          <p class="wn-home-intro">每天五条，看看世界各地的人怎样过日子。</p>
+          <a class="wn-home-cta" href="world-notes/" data-wn-link>
+            <span><small>World Notes</small><strong>阅读本期世界切片</strong></span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <div class="wn-home-panel">
+          <div class="wn-home-meta"><span data-wn-date>正在读取…</span><span data-wn-count></span></div>
+          <ul class="wn-headlines" data-wn-items aria-live="polite"></ul>
+        </div>
+      </section>
       <section
         class="section market-prices"
         id="market-prices"
@@ -395,6 +407,6 @@
     <script src="macro-calendar.js?v=20261010-actual-recovery-1"></script>
     <script src="home-fundraising.js?v=20260918-no-row-actions-1"></script>
     <script src="us-macro/us-macro.js?v=20260917-ff-1"></script>
-  <script src="world-notes/world-notes.js?v=1" defer></script>
+  <script src="world-notes/world-notes.js?v=20261112-2" defer></script>
 </body>
 </html>
