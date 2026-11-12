@@ -48,7 +48,7 @@ When an atomic commit is required, use the GitHub Connector's Git Data operation
 
 Use `Asia/Shanghai` for the scheduled run and run-date interpretation.
 
-The scheduled production task runs Tuesday through Saturday at 09:00, 10:00, and 11:00 Asia/Shanghai. These are retry opportunities for one daily run, not separate publications. Every invocation must use the same Asia/Shanghai run date and latest complete U.S. trading session, and must re-read the packet and run status at the start.
+The scheduled production task runs once per U.S. trading day, Tuesday through Saturday, at 08:30 Asia/Shanghai. There are no 10:00 or 11:00 scheduled retries. The hard end-to-end deadline is 09:30 Asia/Shanghai: the website briefing and archive must be committed by 09:15 so the existing X publication workflow has time to validate and publish. The canonical run status must show success, including a confirmed X post, before 09:30. Use the latest complete U.S. trading session and the latest valid packet available at execution time.
 
 Determine the latest complete U.S. trading session. Compare it with the currently published `data/daily-market-status.json`.
 
@@ -66,7 +66,7 @@ If the existing status has the same `runDate` as the current Asia/Shanghai calen
 
 then treat this as a repeated execution of an already-started or completed daily run. Do not modify `data/run-status.json`, do not alter the briefing or archive, and stop. Preserve the existing downstream/final status exactly as-is.
 
-This idempotency guard exists only to prevent a repeated/manual rerun from overwriting a real downstream result such as `x_publish_failed`. It does not change the normal first-run behavior. A failed status with `stage = "packet"` and no `briefingCommit` is intentionally not an idempotency stop: it is a recoverable packet gate, and the next scheduled invocation must re-read the packet and continue if it has become valid.
+This idempotency guard exists only to prevent a repeated/manual rerun from overwriting a real downstream result such as `x_publish_failed`. A failed status with `stage = "packet"` and no `briefingCommit` is a temporary marker for the one immediate packet-recovery path within the same 08:30 production run; it is not permission to defer work to another scheduled invocation.
 
 When there is no unpublished new complete trading session and the idempotency guard above does not apply, update only `main:data/run-status.json`:
 
@@ -120,19 +120,19 @@ Instead update only `main:data/run-status.json`:
 
 All other status fields follow the canonical status contract above, with the target session in `asOf`, null publication fields, and `updatedAt` in `+08:00`.
 
-This is a recoverable retry marker, not an immediate final alert. The commit message must start with:
+This is a temporary in-run recovery marker, not a scheduled retry. The commit message must start with:
 
 `Record recoverable packet status`
 
-This prefix intentionally avoids the immediate early-failure email. The push to `main:data/run-status.json` still triggers the existing `Finalize daily market briefing` workflow and its packet-recovery chain.
+This prefix avoids a premature failure email while one immediate packet recovery is underway. The push to `main:data/run-status.json` triggers the existing `Finalize daily market briefing` workflow and its packet-recovery chain.
 
-On the next scheduled invocation at 10:00 or 11:00, re-read both the packet and run status. A previous `failed` status at `stage = "packet"` for the same run date and target session does not block a retry. If the packet now passes all hard gates, continue normal briefing generation. If it still fails, refresh the canonical packet failure status with the current reason, commit using the same prefix, and stop only that invocation.
+Within the same 08:30 production run, wait for that recovery chain to finish, re-read the packet from `market-briefing-data`, and continue only if the packet now passes every hard gate and still matches the latest complete U.S. trading session. This is one immediate in-run recovery path, not a second scheduled ChatGPT run. If recovery does not complete or the packet remains invalid by 09:15, stop and commit a final failed status using the `Finalize early market briefing status` prefix so the existing notification workflow alerts immediately.
 
-The 11:30 watchdog is responsible for sending the final failure notification if the daily run is still failed after the retry window.
+The 09:30 watchdog is responsible for detecting any run that has not reached a valid terminal status by the hard deadline.
 
 ## Existing briefing schema is authoritative
 
-The current production `main:data/daily-market-status.json` is the schema and formatting contract for the generated briefing.
+The current production `main:data/daily-market-status.json` is the schema and formatting contract for the generated briefing. At the start of the run, inspect the packet's `generatedAt` and `sourceAudit` timestamps as well as its `tradingDate`; never silently fall back to an older packet or reuse stale source observations. Qualitative news research must use the latest relevant reporting and official updates available at run time, with publication timestamps checked.
 
 Preserve the existing structure and field semantics. Do not redesign, simplify, rename, remove, or add business fields as part of the scheduled run.
 
@@ -240,6 +240,8 @@ Do not create blank, duplicate, speculative, or partially generated briefings.
 
 The current file and archive must contain the same finalized briefing content.
 
+The atomic website commit must complete no later than 09:15 Asia/Shanghai. Do not publish a partial or stale briefing after this cutoff and describe it as on time.
+
 Publish both in one atomic commit through the GitHub Connector Git Data API, then confirm the commit succeeded.
 
 ## Handoff to downstream X and email workflow
@@ -268,15 +270,13 @@ If writing/generation or the briefing commit unexpectedly fails, and it is still
 
 The commit message must start with:
 
-`Record recoverable briefing status`
+`Finalize early market briefing status`
 
-This prefix avoids an immediate failure email while the same-day retry window remains open. The next scheduled invocation at 10:00 or 11:00 must re-read the packet, current briefing, and run status, then retry generation or commit when no successful briefing/archive exists. Never overwrite an existing archive or a real downstream/final status.
-
-The 11:30 watchdog sends the final failure notification if the daily run is still failed after the retry window.
+This is a terminal failure for the current daily run and triggers the existing failure notification. There is no later 10:00 or 11:00 scheduled retry. Do not publish a stale, partial, or late briefing to make the run appear successful. Never overwrite an existing archive or a real downstream/final status.
 
 Do not replace an existing `success` or `no_new_session` terminal status for the same run date with `failed`.
 
-If even the status file cannot be safely committed, do not attempt an alternate GitHub write path. Report the failure in ChatGPT; the existing 11:30 watchdog handles missing terminal status.
+If even the status file cannot be safely committed, do not attempt an alternate GitHub write path. Report the failure in ChatGPT; the existing 09:30 watchdog handles missing terminal status.
 
 ## Final ChatGPT response
 

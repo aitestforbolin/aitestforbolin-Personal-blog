@@ -19,18 +19,22 @@ SPEC.loader.exec_module(MODULE)
 
 
 class RunWatchdogTests(unittest.TestCase):
-    def test_watchdog_schedule_is_after_retry_window(self):
+    def test_daily_run_and_watchdog_share_0930_deadline(self):
         workflow = (ROOT / ".github" / "workflows" / "publish-x-manual.yml").read_text(
             encoding="utf-8"
         )
         skill = (ROOT / ".agents" / "skills" / "cloud-daily-briefing-publisher" / "SKILL.md").read_text(
             encoding="utf-8"
         )
-        self.assertIn('cron: "30 3 * * 2-6"', workflow)
-        self.assertNotIn('cron: "30 1 * * 2-6"', workflow)
-        self.assertIn("09:00, 10:00, and 11:00", skill)
+        self.assertIn('cron: "30 1 * * 2-6"', workflow)
+        self.assertNotIn('cron: "30 3 * * 2-6"', workflow)
+        self.assertIn("08:30 Asia/Shanghai", skill)
+        self.assertIn("09:15", skill)
+        self.assertIn("09:30 Asia/Shanghai", skill)
+        self.assertIn("There are no 10:00 or 11:00 scheduled retries", skill)
+        self.assertIn("same 08:30 production run", skill)
         self.assertIn("Record recoverable packet status", skill)
-        self.assertIn("Record recoverable briefing status", skill)
+        self.assertIn("Finalize early market briefing status", skill)
 
     def test_keeps_valid_status_for_today(self):
         with tempfile.TemporaryDirectory() as directory:
