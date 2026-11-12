@@ -635,12 +635,12 @@
   },
   "fedProbability": {
     "label": "12月FOMC加息50个基点概率（11月11日收盘Reuters引用）",
-    "previous": null,
+    "previous": 11.8,
     "current": 10.4,
     "unit": "%",
-    "previousAsOf": null,
+    "previousAsOf": "2026-11-10收盘",
     "currentAsOf": "2026-11-11收盘",
-    "source": "Reuters引用CME FedWatch",
+    "source": "Reuters两日收盘报道引用CME FedWatch",
     "sourceUrl": "https://www.reuters.com/business/sp-500-nasdaq-futures-rise-after-coreweave-soothes-ai-spending-fears-2026-11-11/"
   },
   "macro24h": [
@@ -825,7 +825,8 @@
       "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Third-Quarter-2026-Results/default.aspx",
       "https://www.reuters.com/business/media-telecom/global-markets-global-markets-2026-11-11/",
       "https://www.forexfactory.com/calendar",
-      "https://farside.co.uk/bitcoin-etf-flow-all-data/"
+      "https://farside.co.uk/bitcoin-etf-flow-all-data/",
+      "https://www.reuters.com/business/sp-500-dow-futures-climb-oil-slide-lifts-sentiment-2026-11-10/"
     ],
     "fallbackReason": null,
     "inconsistencies": [
@@ -834,7 +835,7 @@
       "BTC目标锚点实际为15:00 ET（距16:00收盘60分钟），比较仅作近似方向，不称精确收盘。",
       "黄金为Yahoo GC=F / GC_FUTURES，属于COMEX黄金期货（XAU/USD代理），非现货。",
       "Reuters Brent结算价92.76美元与packet 16:00 ET锚点92.51美元口径不同，叙事采用packet锚点。",
-      "Reuters收盘报道的FedWatch 50基点概率10.4%与11月10日早报的11.8%观察不构成严格同源连续序列，本期不写前后变化。",
+      "FedWatch 50基点概率前值11.8%取11月10日Reuters收盘报道，当前10.4%取11月11日Reuters收盘报道；两者同为CME FedWatch，但观察时间不同，观点仅引用当前值。",
       "BTC ETF最新完整流量为11月10日净流出9500万美元，滞后目标交易日一天。",
       "部分板块ETF使用Yahoo已完成常规时段报价填充空白daily close，具体warning保留于packet。"
     ],
