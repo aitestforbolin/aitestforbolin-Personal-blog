@@ -9,8 +9,8 @@ on:
       - data/x-publish-request.json
       - data/run-status.json
   schedule:
-    # 09:30 Asia/Shanghai watchdog, Tuesday-Saturday.
-    - cron: "30 1 * * 2-6"
+    # 11:30 Asia/Shanghai watchdog, after the 09:00/10:00/11:00 retry window.
+    - cron: "30 3 * * 2-6"
   workflow_dispatch:
     inputs:
       as_of:
@@ -81,7 +81,7 @@ jobs:
         id: validate
         if: steps.gate.outputs.publish == 'true'
         run: |
-          python -m unittest tests.test_validate_x_snapshot -v
+          python -m unittest tests.test_validate_x_snapshot tests.test_run_watchdog -v
           python scripts/validate_x_snapshot.py --snapshot data/daily-market-status.json
       - name: Render, deduplicate, and publish
         id: publish

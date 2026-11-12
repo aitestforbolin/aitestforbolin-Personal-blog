@@ -66,6 +66,18 @@ class XSnapshotQualityTests(unittest.TestCase):
     def test_complete_snapshot_passes(self):
         validate_snapshot(self.complete_snapshot())
 
+    def test_missing_fedwatch_previous_is_blocked(self):
+        snapshot = self.complete_snapshot()
+        snapshot["fedProbability"]["previous"] = None
+        with self.assertRaisesRegex(SnapshotQualityError, "fedProbability: missing numeric previous"):
+            validate_snapshot(snapshot)
+
+    def test_missing_fedwatch_current_is_blocked(self):
+        snapshot = self.complete_snapshot()
+        snapshot["fedProbability"]["current"] = None
+        with self.assertRaisesRegex(SnapshotQualityError, "fedProbability: missing numeric current"):
+            validate_snapshot(snapshot)
+
     def test_missing_sp500_breadth_is_blocked(self):
         snapshot = self.complete_snapshot()
         row = snapshot["fallback"]["breadth"][0]

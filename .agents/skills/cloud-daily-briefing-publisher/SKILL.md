@@ -48,7 +48,7 @@ When an atomic commit is required, use the GitHub Connector's Git Data operation
 
 Use `Asia/Shanghai` for the scheduled run and run-date interpretation.
 
-The scheduled production run is Tuesday through Saturday at 09:00 Asia/Shanghai.
+The scheduled production task runs Tuesday through Saturday at 09:00, 10:00, and 11:00 Asia/Shanghai. These are retry opportunities for one daily run, not separate publications. Every invocation must use the same Asia/Shanghai run date and latest complete U.S. trading session, and must re-read the packet and run status at the start.
 
 Determine the latest complete U.S. trading session. Compare it with the currently published `data/daily-market-status.json`.
 
@@ -66,7 +66,7 @@ If the existing status has the same `runDate` as the current Asia/Shanghai calen
 
 then treat this as a repeated execution of an already-started or completed daily run. Do not modify `data/run-status.json`, do not alter the briefing or archive, and stop. Preserve the existing downstream/final status exactly as-is.
 
-This idempotency guard exists only to prevent a repeated/manual rerun from overwriting a real downstream result such as `x_publish_failed`. It does not change the normal first-run behavior at 09:00.
+This idempotency guard exists only to prevent a repeated/manual rerun from overwriting a real downstream result such as `x_publish_failed`. It does not change the normal first-run behavior. A failed status with `stage = "packet"` and no `briefingCommit` is intentionally not an idempotency stop: it is a recoverable packet gate, and the next scheduled invocation must re-read the packet and continue if it has become valid.
 
 When there is no unpublished new complete trading session and the idempotency guard above does not apply, update only `main:data/run-status.json`:
 
@@ -120,11 +120,15 @@ Instead update only `main:data/run-status.json`:
 
 All other status fields follow the canonical status contract above, with the target session in `asOf`, null publication fields, and `updatedAt` in `+08:00`.
 
-The commit message must start with:
+This is a recoverable retry marker, not an immediate final alert. The commit message must start with:
 
-`Finalize early market briefing status`
+`Record recoverable packet status`
 
-Then stop.
+This prefix intentionally avoids the immediate early-failure email. The push to `main:data/run-status.json` still triggers the existing `Finalize daily market briefing` workflow and its packet-recovery chain.
+
+On the next scheduled invocation at 10:00 or 11:00, re-read both the packet and run status. A previous `failed` status at `stage = "packet"` for the same run date and target session does not block a retry. If the packet now passes all hard gates, continue normal briefing generation. If it still fails, refresh the canonical packet failure status with the current reason, commit using the same prefix, and stop only that invocation.
+
+The 11:30 watchdog is responsible for sending the final failure notification if the daily run is still failed after the retry window.
 
 ## Existing briefing schema is authoritative
 
@@ -152,7 +156,7 @@ For every successful briefing generation:
 
 The model may add or update qualitative fields such as `drivers`, `events`, `fedProbability`, `view`, `verdict`, and qualitative source-audit notes. It must not rewrite packet-covered mechanical rows into a shorter shape.
 
-`fedProbability` is the single structured source of truth for the briefing's FedWatch probability comparison. Populate its `previous` and `current` values from the same cited research observation. If `view` explicitly states a FedWatch before/after probability transition, those numbers must match `fedProbability.previous` and `fedProbability.current` apart from display rounding. Do not independently retype a different FedWatch pair in prose.
+`fedProbability` is the single structured source of truth for the briefing's FedWatch probability comparison. Populate its `previous` and `current` values from the same cited research observation. Both values must be finite numbers; `null`, blank, non-numeric, NaN, or infinite values are not allowed. If `view` explicitly states a FedWatch before/after probability transition, those numbers must match `fedProbability.previous` and `fedProbability.current` apart from display rounding. Do not independently retype a different FedWatch pair in prose. Do not proceed to any GitHub write until both values and their shared observation/source have been verified. If a reliable paired observation cannot be verified, fail the pre-commit gate and do not publish a partial briefing or archive.
 
 Gold instrument identity must also be preserved. If the packet uses Yahoo `GC=F` / `GC_FUTURES`, treat it as a COMEX gold-futures proxy for XAU/USD and never label it as XAU/USD spot. Only Swissquote/XAU/USD spot data may be labelled as XAU/USD spot.
 
@@ -164,9 +168,10 @@ Before any GitHub write, perform a pre-commit structural check on the candidate 
 4. every session row has a string `previousCloseDate` earlier than `priceDate`;
 5. every session row has `comparisonBasis == "yahoo_daily_history"`;
 6. the candidate's packet-covered mechanical values and provenance fields match the packet source rows;
-7. any explicit FedWatch before/after transition in `view` matches `fedProbability.previous/current`;
-8. gold provider/symbol identity is preserved so a futures proxy cannot be presented as spot;
-9. the current file and archive candidate are identical.
+7. `fedProbability` is an object with finite numeric `previous` and `current` values from the same cited observation;
+8. any explicit FedWatch before/after transition in `view` matches `fedProbability.previous/current`;
+9. gold provider/symbol identity is preserved so a futures proxy cannot be presented as spot;
+10. the current file and archive candidate are identical.
 
 If any check fails, do not commit the briefing or archive. Write only the canonical failed run status with `stage = "briefing"` and `reasonCode = "briefing_generation_failed"`.
 
@@ -267,7 +272,7 @@ The commit message must start with:
 
 Do not replace an existing `success` or `no_new_session` terminal status for the same run date with `failed`.
 
-If even the status file cannot be safely committed, do not attempt an alternate GitHub write path. Report the failure in ChatGPT; the existing 09:30 watchdog handles missing terminal status.
+If even the status file cannot be safely committed, do not attempt an alternate GitHub write path. Report the failure in ChatGPT; the existing 11:30 watchdog handles missing terminal status.
 
 ## Final ChatGPT response
 
