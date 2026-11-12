@@ -1,0 +1,121 @@
+{
+  "reportDate": "2026-11-13",
+  "requestId": "world-notes-20261113-0601",
+  "startedAt": "2026-11-13T06:01:03+08:00",
+  "status": "published",
+  "qualifiedCount": 5,
+  "collectionFailed": false,
+  "sourceReadability": {
+    "discovery": [
+      "GroundUp首页可读",
+      "Kathmandu Post国家版可读",
+      "Mexico News Daily文化版可读",
+      "TOKYO UPDATES首页403，归档页及选定访谈全文可读",
+      "赫尔辛基市活动页可读"
+    ],
+    "fullText": [
+      {
+        "source": "TOKYO UPDATES（东京都）",
+        "url": "https://www.tokyoupdates.metro.tokyo.lg.jp/en/post-1865/",
+        "readable": true,
+        "selected": true
+      },
+      {
+        "source": "Youth Helsinki（赫尔辛基市）",
+        "url": "https://nuorten.hel.fi/en/events/?event_id=helsinki:agqfpd3fxm",
+        "readable": true,
+        "selected": true
+      },
+      {
+        "source": "The Kathmandu Post",
+        "url": "https://kathmandupost.com/national/2026/11/12/crossing-the-border-for-a-better-education",
+        "readable": true,
+        "selected": true
+      },
+      {
+        "source": "GroundUp",
+        "url": "https://groundup.org.za/article/cape-town-cafe-helps-former-prisoners-brew-a-new-life/",
+        "readable": true,
+        "selected": true
+      },
+      {
+        "source": "Mexico News Daily",
+        "url": "https://mexiconewsdaily.com/mexico-living-guide/tepoztlan-day-of-the-dead-octava-tradition/",
+        "readable": true,
+        "selected": true
+      }
+    ],
+    "excluded": [
+      {
+        "source": "Asia News Network",
+        "topic": "韩国退休者图书馆",
+        "reason": "正文403；未入选"
+      },
+      {
+        "source": "Suomi.fi",
+        "topic": "Urban Workshop",
+        "reason": "说明截断，不作选稿依据；改用可完整读取的市政府具体活动页"
+      }
+    ]
+  },
+  "screening": {
+    "recentArchiveDates": [
+      "2026-11-12",
+      "2026-11-11"
+    ],
+    "method": "从当地媒体版面、公开访谈与公共服务说明粗筛，再阅读全文；五条围绕单件事按中文顺序重写并逐句通读",
+    "candidates": [
+      "开普敦刑满释放者咖啡馆",
+      "Cathcart家庭厕所",
+      "南非小学数学",
+      "Middledrift停滞项目",
+      "德班公厕",
+      "养老保险退款",
+      "南非河岸花园",
+      "尼泊尔学生跨境上学",
+      "尼泊尔少女造桥",
+      "村庄节日秋千",
+      "学生学校花田",
+      "返乡过节",
+      "帕尔帕布艺（已刊排除）",
+      "墨西哥特波兹特兰亡灵节",
+      "墨西哥万寿菊传说",
+      "万圣节日常",
+      "亡灵节祭坛",
+      "瓦哈卡酒坊",
+      "墨西哥面包地图",
+      "北爱尔兰修理咖啡馆",
+      "赫尔辛基改衣工坊",
+      "韩国退休者图书馆",
+      "东京关东煮豆腐饭",
+      "东京老面包店",
+      "东京简易日语交流",
+      "东京木桶匠",
+      "东京庭院生活"
+    ]
+  },
+  "publication": {
+    "workflowRun": 43316290142,
+    "conclusion": "success",
+    "publishedAt": "2026-11-13T06:03:42.467901+08:00",
+    "repositoryLatestArchiveIndexMatch": true,
+    "deployCommit": "ae31454678a9b877b2d2b63f6337dd18ccdfc8be",
+    "deployWorkflowRun": 43316369097,
+    "deployConclusion": "success"
+  },
+  "failures": [
+    {
+      "stage": "discovery",
+      "reason": "东京首页和ANN正文403，已改用其他可全文读取页面；未用摘要凑稿"
+    },
+    {
+      "stage": "deployment-pending",
+      "reason": "06:04:29前公开最新版仍为11月12日且今日归档404；等待本次Pages构建成功后回读恢复，未覆盖旧期或重复提交请求"
+    }
+  ],
+  "onlineVerifiedAt": "2026-11-13T06:05:09.429735+08:00",
+  "onlineTimeBasis": "首次公开最新版与当天归档完全一致的核验时间，实际CDN上线不晚于此刻",
+  "publicLatestArchiveMatch": true,
+  "publicContentMatchesRepository": true,
+  "publicPageAndScriptReadable": true
+}
