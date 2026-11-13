@@ -2,22 +2,15 @@
   "schema_version": 1,
   "timezone": "Asia/Shanghai",
   "horizon_days": 35,
-  "checked_at": "2026-11-13T10:09:42+08:00",
-  "updated_at": "2026-11-13T10:09:42+08:00",
+  "checked_at": "2026-11-13T12:15:42+08:00",
+  "updated_at": "2026-11-13T12:15:42+08:00",
   "companies": [
     {
-      "id": "meta",
-      "name": "Meta",
-      "ticker": "META",
+      "id": "microsoft",
+      "name": "Microsoft",
+      "ticker": "MSFT",
       "group": "platform_cloud",
       "group_zh": "平台与云"
-    },
-    {
-      "id": "nvidia",
-      "name": "NVIDIA",
-      "ticker": "NVDA",
-      "group": "ai_semiconductor",
-      "group_zh": "AI 与半导体"
     },
     {
       "id": "amazon",
@@ -34,46 +27,130 @@
       "group_zh": "平台与云"
     },
     {
-      "id": "apple",
-      "name": "Apple",
-      "ticker": "AAPL",
-      "group": "consumer_platform",
-      "group_zh": "消费与终端"
-    },
-    {
-      "id": "jpmorgan_chase",
-      "name": "JPMorgan Chase",
-      "ticker": "JPM",
-      "group": "financials",
-      "group_zh": "金融"
-    },
-    {
-      "id": "microsoft",
-      "name": "Microsoft",
-      "ticker": "MSFT",
+      "id": "oracle",
+      "name": "Oracle",
+      "ticker": "ORCL",
       "group": "platform_cloud",
       "group_zh": "平台与云"
     },
     {
-      "id": "walmart",
-      "name": "Walmart",
-      "ticker": "WMT",
-      "group": "consumer_retail",
-      "group_zh": "消费与零售"
+      "id": "meta",
+      "name": "Meta",
+      "ticker": "META",
+      "group": "ai_platform",
+      "group_zh": "AI 平台"
+    },
+    {
+      "id": "coreweave",
+      "name": "CoreWeave",
+      "ticker": "CRWV",
+      "group": "ai_cloud",
+      "group_zh": "专业 AI 云"
+    },
+    {
+      "id": "nebius",
+      "name": "Nebius",
+      "ticker": "NBIS",
+      "group": "ai_cloud",
+      "group_zh": "专业 AI 云"
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA",
+      "ticker": "NVDA",
+      "group": "ai_semiconductor",
+      "group_zh": "AI 与半导体"
+    },
+    {
+      "id": "amd",
+      "name": "AMD",
+      "ticker": "AMD",
+      "group": "ai_semiconductor",
+      "group_zh": "AI 与半导体"
+    },
+    {
+      "id": "broadcom",
+      "name": "Broadcom",
+      "ticker": "AVGO",
+      "group": "ai_semiconductor",
+      "group_zh": "AI 与半导体"
+    },
+    {
+      "id": "marvell",
+      "name": "Marvell",
+      "ticker": "MRVL",
+      "group": "ai_semiconductor",
+      "group_zh": "AI 与半导体"
+    },
+    {
+      "id": "tsmc",
+      "name": "TSMC",
+      "ticker": "TSM",
+      "group": "semiconductor_manufacturing",
+      "group_zh": "半导体制造"
     },
     {
       "id": "micron",
       "name": "Micron",
       "ticker": "MU",
-      "group": "ai_semiconductor",
-      "group_zh": "AI 与半导体"
+      "group": "memory_storage",
+      "group_zh": "内存与存储"
     },
     {
       "id": "sandisk",
       "name": "SanDisk",
       "ticker": "SNDK",
-      "group": "ai_semiconductor",
-      "group_zh": "AI 与半导体"
+      "group": "memory_storage",
+      "group_zh": "内存与存储"
+    },
+    {
+      "id": "western_digital",
+      "name": "Western Digital",
+      "ticker": "WDC",
+      "group": "memory_storage",
+      "group_zh": "内存与存储"
+    },
+    {
+      "id": "arista",
+      "name": "Arista Networks",
+      "ticker": "ANET",
+      "group": "networking",
+      "group_zh": "数据中心网络"
+    },
+    {
+      "id": "lumentum",
+      "name": "Lumentum",
+      "ticker": "LITE",
+      "group": "optical_communications",
+      "group_zh": "光通信"
+    },
+    {
+      "id": "coherent",
+      "name": "Coherent",
+      "ticker": "COHR",
+      "group": "optical_communications",
+      "group_zh": "光通信"
+    },
+    {
+      "id": "dell",
+      "name": "Dell Technologies",
+      "ticker": "DELL",
+      "group": "servers",
+      "group_zh": "服务器"
+    },
+    {
+      "id": "supermicro",
+      "name": "Supermicro",
+      "ticker": "SMCI",
+      "group": "servers",
+      "group_zh": "服务器"
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "ticker": "AAPL",
+      "group": "consumer_platform",
+      "group_zh": "消费与终端"
     }
   ],
   "events": [
@@ -81,64 +158,114 @@
       "event_id": "nvidia-earnings-2026-q4",
       "company_id": "nvidia",
       "event_category": "earnings",
-      "event_name": "NVIDIA 2026 Q4财报",
-      "reported_period": "2026 Q4",
+      "event_name": "NVIDIA FY2027 Q3 财报与电话会",
+      "reported_period": "FY2027 Q3",
       "importance": "core",
       "status": "changed",
-      "confirmation": "inferred",
+      "confirmation": "confirmed",
       "date_type": "exact",
-      "date_bjt": "2026-11-17",
-      "time_bjt": null,
-      "market_timing": "time_tbd",
-      "original_time": "2026-11-17 time-after-hours America/New_York",
-      "original_timezone": "America/New_York",
-      "eps_estimate": "$2.49",
-      "revenue_estimate": null,
-      "source_label": "Nasdaq Earnings Calendar",
-      "source_url": "https://api.nasdaq.com/api/calendar/earnings?date=2026-11-17",
-      "source_published_at": null,
+      "start_at": "2026-11-18T06:00:00+08:00",
+      "date_bjt": "2026-11-18",
+      "time_bjt": "06:00",
+      "market_timing": "after_close",
+      "original_time": "2026-11-17T14:00:00 America/Los_Angeles",
+      "original_timezone": "America/Los_Angeles",
+      "source_label": "NVIDIA Investor Relations",
+      "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Sets-Conference-Call-for-Third-Quarter-Financial-Results/default.aspx",
+      "source_published_at": "2026-10-28",
+      "updated_at": "2026-11-13T12:15:42+08:00",
       "company": "NVIDIA",
       "ticker": "NVDA",
       "company_group": "ai_semiconductor",
       "company_group_zh": "AI 与半导体",
       "date_changed": true,
-      "date_changed_at": "2026-10-31T09:05:07+08:00",
+      "date_changed_at": "2026-11-13T12:15:42+08:00",
       "previous_timing": {
         "date_type": "exact",
         "start_at": null,
-        "date_bjt": "2026-11-18",
+        "date_bjt": "2026-11-17",
         "time_bjt": null,
         "window_start": null,
         "window_end": null
-      },
-      "updated_at": "2026-10-31T09:05:07+08:00"
+      }
     },
     {
-      "event_id": "walmart-earnings-2026-q4",
-      "company_id": "walmart",
+      "event_id": "dell-earnings-fy2027-q3",
+      "company_id": "dell",
       "event_category": "earnings",
-      "event_name": "Walmart 2026 Q4财报",
-      "reported_period": "2026 Q4",
+      "event_name": "Dell Technologies FY2027 Q3 财报与电话会",
+      "reported_period": "FY2027 Q3",
       "importance": "core",
       "status": "scheduled",
-      "confirmation": "inferred",
+      "confirmation": "confirmed",
       "date_type": "exact",
-      "date_bjt": "2026-11-19",
-      "time_bjt": null,
-      "market_timing": "time_tbd",
-      "original_time": "2026-11-19 time-pre-market America/New_York",
-      "original_timezone": "America/New_York",
-      "eps_estimate": "$0.63",
-      "revenue_estimate": null,
-      "source_label": "Nasdaq Earnings Calendar",
-      "source_url": "https://api.nasdaq.com/api/calendar/earnings?date=2026-11-19",
+      "start_at": "2026-11-25T05:30:00+08:00",
+      "date_bjt": "2026-11-25",
+      "time_bjt": "05:30",
+      "market_timing": "after_close",
+      "original_time": "2026-11-24T15:30:00 America/Chicago",
+      "original_timezone": "America/Chicago",
+      "source_label": "Dell Technologies Investor Relations",
+      "source_url": "https://investors.delltechnologies.com/news-events/press-releases/detail/1661/dell-technologies-to-hold-conference-call-nov-24-to-discuss-third-quarter-fiscal-2027-financial-results",
+      "source_published_at": "2026-11-10",
+      "updated_at": "2026-11-13T12:15:42+08:00",
+      "company": "Dell Technologies",
+      "ticker": "DELL",
+      "company_group": "servers",
+      "company_group_zh": "服务器",
+      "date_changed": false
+    },
+    {
+      "event_id": "marvell-earnings-fy2027-q3",
+      "company_id": "marvell",
+      "event_category": "earnings",
+      "event_name": "Marvell FY2027 Q3 财报与电话会",
+      "reported_period": "FY2027 Q3",
+      "importance": "core",
+      "status": "scheduled",
+      "confirmation": "confirmed",
+      "date_type": "exact",
+      "start_at": "2026-12-02T05:30:00+08:00",
+      "date_bjt": "2026-12-02",
+      "time_bjt": "05:30",
+      "market_timing": "after_close",
+      "original_time": "2026-12-01T13:30:00 America/Los_Angeles",
+      "original_timezone": "America/Los_Angeles",
+      "source_label": "Marvell Investor Relations",
+      "source_url": "https://investor.marvell.com/news-events/ir-calendar",
       "source_published_at": null,
-      "company": "Walmart",
-      "ticker": "WMT",
-      "company_group": "consumer_retail",
-      "company_group_zh": "消费与零售",
-      "date_changed": false,
-      "updated_at": "2026-10-15T08:08:01+08:00"
+      "updated_at": "2026-11-13T12:15:42+08:00",
+      "company": "Marvell",
+      "ticker": "MRVL",
+      "company_group": "ai_semiconductor",
+      "company_group_zh": "AI 与半导体",
+      "date_changed": false
+    },
+    {
+      "event_id": "broadcom-earnings-fy2026-q4",
+      "company_id": "broadcom",
+      "event_category": "earnings",
+      "event_name": "Broadcom FY2026 Q4 财报与电话会",
+      "reported_period": "FY2026 Q4",
+      "importance": "core",
+      "status": "scheduled",
+      "confirmation": "confirmed",
+      "date_type": "exact",
+      "start_at": "2026-12-10T06:00:00+08:00",
+      "date_bjt": "2026-12-10",
+      "time_bjt": "06:00",
+      "market_timing": "after_close",
+      "original_time": "2026-12-09T14:00:00 America/Los_Angeles",
+      "original_timezone": "America/Los_Angeles",
+      "source_label": "Broadcom Investor Relations",
+      "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announce-fourth-quarter-and-fiscal-year-2026",
+      "source_published_at": "2026-11-09",
+      "updated_at": "2026-11-13T12:15:42+08:00",
+      "company": "Broadcom",
+      "ticker": "AVGO",
+      "company_group": "ai_semiconductor",
+      "company_group_zh": "AI 与半导体",
+      "date_changed": false
     },
     {
       "event_id": "micron-earnings-2026-q4",
@@ -162,8 +289,8 @@
       "source_published_at": null,
       "company": "Micron",
       "ticker": "MU",
-      "company_group": "ai_semiconductor",
-      "company_group_zh": "AI 与半导体",
+      "company_group": "memory_storage",
+      "company_group_zh": "内存与存储",
       "date_changed": false,
       "updated_at": "2026-11-13T10:09:42+08:00"
     }

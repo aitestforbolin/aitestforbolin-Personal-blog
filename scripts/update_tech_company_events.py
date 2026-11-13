@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build and validate the static technology-company catalyst calendar."""
+"""Build and validate the AI, cloud and semiconductor earnings calendar."""
 
 from __future__ import annotations
 
@@ -30,13 +30,7 @@ MAX_RESPONSE_BYTES = 5_000_000
 MAX_DETAIL_PAGES_PER_SOURCE = 12
 NASDAQ_EARNINGS_URL = "https://api.nasdaq.com/api/calendar/earnings?date={day}"
 
-EVENT_CATEGORIES = {
-    "earnings",
-    "operating_data",
-    "product_event",
-    "investor_event",
-    "regulatory_legal",
-}
+EVENT_CATEGORIES = {"earnings"}
 CONFIRMATION_LEVELS = {"confirmed", "guided", "inferred"}
 IMPORTANCE_LEVELS = {"core", "important"}
 STATUS_LEVELS = {"scheduled", "changed", "cancelled"}
@@ -609,6 +603,10 @@ def discover_company_events(
 
 def normalize_calendar_time(value: Any) -> str:
     text = " ".join(str(value or "").lower().replace("-", " ").split())
+    if text == "time pre market":
+        return "before_open"
+    if text == "time after hours":
+        return "after_close"
     if "before" in text and ("open" in text or "market" in text):
         return "before_open"
     if "after" in text and ("close" in text or "market" in text):
@@ -786,6 +784,8 @@ def merge_events(
             event = deepcopy(raw_event)
             event_id = event.get("event_id")
             if not event_id or event.get("company_id") not in company_map:
+                continue
+            if event.get("event_category") not in EVENT_CATEGORIES:
                 continue
             try:
                 if not within_horizon(event, start, end):
@@ -1003,9 +1003,6 @@ def main() -> int:
         end = start + timedelta(days=args.days)
         for company in config["companies"]:
             discovered.extend(discover_company_events(company, start, end, source_health))
-        discovered.extend(
-            discover_regulatory_events(config, config["companies"], start, end, source_health)
-        )
         try:
             discovered.extend(discover_earnings_calendar_events(config, config["companies"], start, end))
             print("Nasdaq earnings calendar check succeeded")
@@ -1045,3 +1042,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

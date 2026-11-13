@@ -5,15 +5,85 @@
   "earnings_calendar": {
     "source_label": "Nasdaq Earnings Calendar",
     "url_template": "https://api.nasdaq.com/api/calendar/earnings?date={day}",
-    "allowed_domains": ["api.nasdaq.com", "nasdaq.com"]
+    "allowed_domains": [
+      "api.nasdaq.com",
+      "nasdaq.com"
+    ]
   },
   "companies": [
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "ticker": "MSFT",
+      "group": "platform_cloud",
+      "group_zh": "平台与云",
+      "default_timezone": "America/Los_Angeles",
+      "source_label": "Microsoft Investor Relations",
+      "discovery_urls": [
+        "https://www.microsoft.com/en-us/investor/events",
+        "https://news.microsoft.com/source/topics/company-news/"
+      ],
+      "allowed_domains": [
+        "microsoft.com",
+        "news.microsoft.com"
+      ]
+    },
+    {
+      "id": "amazon",
+      "name": "Amazon",
+      "ticker": "AMZN",
+      "group": "platform_cloud",
+      "group_zh": "平台与云",
+      "default_timezone": "America/Los_Angeles",
+      "source_label": "Amazon Investor Relations",
+      "discovery_urls": [
+        "https://ir.aboutamazon.com/events/default.aspx",
+        "https://ir.aboutamazon.com/news-release/default.aspx"
+      ],
+      "allowed_domains": [
+        "aboutamazon.com",
+        "ir.aboutamazon.com"
+      ]
+    },
+    {
+      "id": "alphabet",
+      "name": "Alphabet",
+      "ticker": "GOOGL",
+      "group": "platform_cloud",
+      "group_zh": "平台与云",
+      "default_timezone": "America/Los_Angeles",
+      "source_label": "Alphabet Investor Relations",
+      "discovery_urls": [
+        "https://abc.xyz/investor/events/default.aspx",
+        "https://abc.xyz/investor/news/"
+      ],
+      "allowed_domains": [
+        "abc.xyz",
+        "alphabet2025ir.q4web.com"
+      ]
+    },
+    {
+      "id": "oracle",
+      "name": "Oracle",
+      "ticker": "ORCL",
+      "group": "platform_cloud",
+      "group_zh": "平台与云",
+      "default_timezone": "America/Los_Angeles",
+      "source_label": "Oracle Investor Relations",
+      "discovery_urls": [
+        "https://investor.oracle.com/events-and-presentations/default.aspx",
+        "https://investor.oracle.com/investor-news/default.aspx"
+      ],
+      "allowed_domains": [
+        "oracle.com"
+      ]
+    },
     {
       "id": "meta",
       "name": "Meta",
       "ticker": "META",
-      "group": "platform_cloud",
-      "group_zh": "平台与云",
+      "group": "ai_platform",
+      "group_zh": "AI 平台",
       "default_timezone": "America/Los_Angeles",
       "source_label": "Meta Investor Relations",
       "discovery_urls": [
@@ -21,7 +91,43 @@
         "https://investor.atmeta.com/investor-news/default.aspx",
         "https://about.fb.com/news/"
       ],
-      "allowed_domains": ["investor.atmeta.com", "about.fb.com", "meta.com"]
+      "allowed_domains": [
+        "investor.atmeta.com",
+        "about.fb.com",
+        "meta.com"
+      ]
+    },
+    {
+      "id": "coreweave",
+      "name": "CoreWeave",
+      "ticker": "CRWV",
+      "group": "ai_cloud",
+      "group_zh": "专业 AI 云",
+      "default_timezone": "America/New_York",
+      "source_label": "CoreWeave Investor Relations",
+      "discovery_urls": [
+        "https://investors.coreweave.com/events-and-presentations/",
+        "https://investors.coreweave.com/news/"
+      ],
+      "allowed_domains": [
+        "coreweave.com"
+      ]
+    },
+    {
+      "id": "nebius",
+      "name": "Nebius",
+      "ticker": "NBIS",
+      "group": "ai_cloud",
+      "group_zh": "专业 AI 云",
+      "default_timezone": "America/New_York",
+      "source_label": "Nebius Investor Relations",
+      "discovery_urls": [
+        "https://nebius.com/investor-events",
+        "https://nebius.com/investor-hub"
+      ],
+      "allowed_domains": [
+        "nebius.com"
+      ]
     },
     {
       "id": "nvidia",
@@ -36,35 +142,210 @@
         "https://nvidianews.nvidia.com/",
         "https://www.nvidia.com/"
       ],
-      "allowed_domains": ["investor.nvidia.com", "nvidia.com"]
+      "allowed_domains": [
+        "investor.nvidia.com",
+        "nvidia.com"
+      ]
     },
     {
-      "id": "amazon",
-      "name": "Amazon",
-      "ticker": "AMZN",
-      "group": "platform_cloud",
-      "group_zh": "平台与云",
+      "id": "amd",
+      "name": "AMD",
+      "ticker": "AMD",
+      "group": "ai_semiconductor",
+      "group_zh": "AI 与半导体",
       "default_timezone": "America/Los_Angeles",
-      "source_label": "Amazon Investor Relations",
+      "source_label": "AMD Investor Relations",
       "discovery_urls": [
-        "https://ir.aboutamazon.com/events/default.aspx",
-        "https://ir.aboutamazon.com/news-release/default.aspx"
+        "https://ir.amd.com/news-events/ir-calendar",
+        "https://ir.amd.com/news-events/press-releases"
       ],
-      "allowed_domains": ["aboutamazon.com", "ir.aboutamazon.com"]
+      "allowed_domains": [
+        "amd.com"
+      ]
     },
     {
-      "id": "alphabet",
-      "name": "Alphabet",
-      "ticker": "GOOGL",
-      "group": "platform_cloud",
-      "group_zh": "平台与云",
+      "id": "broadcom",
+      "name": "Broadcom",
+      "ticker": "AVGO",
+      "group": "ai_semiconductor",
+      "group_zh": "AI 与半导体",
       "default_timezone": "America/Los_Angeles",
-      "source_label": "Alphabet Investor Relations",
+      "source_label": "Broadcom Investor Relations",
       "discovery_urls": [
-        "https://abc.xyz/investor/events/default.aspx",
-        "https://abc.xyz/investor/news/"
+        "https://investors.broadcom.com/",
+        "https://investors.broadcom.com/news-releases"
       ],
-      "allowed_domains": ["abc.xyz", "alphabet2025ir.q4web.com"]
+      "allowed_domains": [
+        "broadcom.com"
+      ]
+    },
+    {
+      "id": "marvell",
+      "name": "Marvell",
+      "ticker": "MRVL",
+      "group": "ai_semiconductor",
+      "group_zh": "AI 与半导体",
+      "default_timezone": "America/Los_Angeles",
+      "source_label": "Marvell Investor Relations",
+      "discovery_urls": [
+        "https://investor.marvell.com/news-events/ir-calendar",
+        "https://investor.marvell.com/news-events/press-releases"
+      ],
+      "allowed_domains": [
+        "marvell.com"
+      ]
+    },
+    {
+      "id": "tsmc",
+      "name": "TSMC",
+      "ticker": "TSM",
+      "group": "semiconductor_manufacturing",
+      "group_zh": "半导体制造",
+      "default_timezone": "Asia/Taipei",
+      "source_label": "TSMC Investor Relations",
+      "discovery_urls": [
+        "https://investor.tsmc.com/english/financial-calendar"
+      ],
+      "allowed_domains": [
+        "tsmc.com"
+      ]
+    },
+    {
+      "id": "micron",
+      "name": "Micron",
+      "ticker": "MU",
+      "group": "memory_storage",
+      "group_zh": "内存与存储",
+      "default_timezone": "America/Denver",
+      "source_label": "Micron Investor Relations",
+      "discovery_urls": [
+        "https://investors.micron.com/events-and-presentations",
+        "https://investors.micron.com/news/default.aspx",
+        "https://micron.gcs-web.com/"
+      ],
+      "allowed_domains": [
+        "investors.micron.com",
+        "micron.gcs-web.com",
+        "micron.com"
+      ]
+    },
+    {
+      "id": "sandisk",
+      "name": "SanDisk",
+      "ticker": "SNDK",
+      "group": "memory_storage",
+      "group_zh": "内存与存储",
+      "default_timezone": "America/Los_Angeles",
+      "source_label": "SanDisk Investor Relations",
+      "discovery_urls": [
+        "https://investor.sandisk.com/news-events/events",
+        "https://investor.sandisk.com/news-events/news-releases"
+      ],
+      "allowed_domains": [
+        "investor.sandisk.com",
+        "sandisk.com"
+      ]
+    },
+    {
+      "id": "western_digital",
+      "name": "Western Digital",
+      "ticker": "WDC",
+      "group": "memory_storage",
+      "group_zh": "内存与存储",
+      "default_timezone": "America/Los_Angeles",
+      "source_label": "Western Digital Investor Relations",
+      "discovery_urls": [
+        "https://investor.wdc.com/",
+        "https://investor.wdc.com/news-releases"
+      ],
+      "allowed_domains": [
+        "wdc.com",
+        "westerndigital.com",
+        "wdc.gcs-web.com"
+      ]
+    },
+    {
+      "id": "arista",
+      "name": "Arista Networks",
+      "ticker": "ANET",
+      "group": "networking",
+      "group_zh": "数据中心网络",
+      "default_timezone": "America/Los_Angeles",
+      "source_label": "Arista Networks Investor Relations",
+      "discovery_urls": [
+        "https://investors.arista.com/Events/",
+        "https://investors.arista.com/Communications/Press-Releases/"
+      ],
+      "allowed_domains": [
+        "arista.com"
+      ]
+    },
+    {
+      "id": "lumentum",
+      "name": "Lumentum",
+      "ticker": "LITE",
+      "group": "optical_communications",
+      "group_zh": "光通信",
+      "default_timezone": "America/Los_Angeles",
+      "source_label": "Lumentum Investor Relations",
+      "discovery_urls": [
+        "https://investor.lumentum.com/events-and-presentations/default.aspx",
+        "https://investor.lumentum.com/financial-news-releases/default.aspx"
+      ],
+      "allowed_domains": [
+        "lumentum.com"
+      ]
+    },
+    {
+      "id": "coherent",
+      "name": "Coherent",
+      "ticker": "COHR",
+      "group": "optical_communications",
+      "group_zh": "光通信",
+      "default_timezone": "America/New_York",
+      "source_label": "Coherent Investor Relations",
+      "discovery_urls": [
+        "https://ir.coherent.com/news-events/events",
+        "https://ir.coherent.com/news-events/press-releases"
+      ],
+      "allowed_domains": [
+        "coherent.com",
+        "coherent.gcs-web.com"
+      ]
+    },
+    {
+      "id": "dell",
+      "name": "Dell Technologies",
+      "ticker": "DELL",
+      "group": "servers",
+      "group_zh": "服务器",
+      "default_timezone": "America/Chicago",
+      "source_label": "Dell Technologies Investor Relations",
+      "discovery_urls": [
+        "https://investors.delltechnologies.com/news-events/events",
+        "https://investors.delltechnologies.com/news-events/press-releases"
+      ],
+      "allowed_domains": [
+        "delltechnologies.com",
+        "delltechnologies.gcs-web.com",
+        "dell.com"
+      ]
+    },
+    {
+      "id": "supermicro",
+      "name": "Supermicro",
+      "ticker": "SMCI",
+      "group": "servers",
+      "group_zh": "服务器",
+      "default_timezone": "America/Los_Angeles",
+      "source_label": "Supermicro Investor Relations",
+      "discovery_urls": [
+        "https://ir.supermicro.com/events-and-presentations/default.aspx",
+        "https://ir.supermicro.com/news/default.aspx"
+      ],
+      "allowed_domains": [
+        "supermicro.com"
+      ]
     },
     {
       "id": "apple",
@@ -74,84 +355,17 @@
       "group_zh": "消费与终端",
       "default_timezone": "America/Los_Angeles",
       "source_label": "Apple Investor Relations",
-      "discovery_urls": ["https://investor.apple.com/", "https://www.apple.com/newsroom/topics/events/"],
-      "allowed_domains": ["apple.com", "investor.apple.com"]
-    },
-    {
-      "id": "jpmorgan_chase",
-      "name": "JPMorgan Chase",
-      "ticker": "JPM",
-      "group": "financials",
-      "group_zh": "金融",
-      "default_timezone": "America/New_York",
-      "source_label": "JPMorgan Chase Investor Relations",
       "discovery_urls": [
-        "https://www.jpmorganchase.com/ir/events",
-        "https://www.jpmorganchase.com/ir/quarterly-earnings",
-        "https://www.jpmorganchase.com/ir/news/2025/jpmc-announces-conference-calls-to-review-first-quarter-second-quarter-third-quarter-and-fourth-quarter-2026-earnings"
+        "https://investor.apple.com/",
+        "https://www.apple.com/newsroom/topics/events/"
       ],
-      "allowed_domains": ["jpmorganchase.com"]
-    },
-    {
-      "id": "microsoft",
-      "name": "Microsoft",
-      "ticker": "MSFT",
-      "group": "platform_cloud",
-      "group_zh": "平台与云",
-      "default_timezone": "America/Los_Angeles",
-      "source_label": "Microsoft Investor Relations",
-      "discovery_urls": [
-        "https://www.microsoft.com/en-us/investor/events",
-        "https://news.microsoft.com/source/topics/company-news/"
-      ],
-      "allowed_domains": ["microsoft.com", "news.microsoft.com"]
-    },
-    {
-      "id": "walmart",
-      "name": "Walmart",
-      "ticker": "WMT",
-      "group": "consumer_retail",
-      "group_zh": "消费与零售",
-      "default_timezone": "America/Chicago",
-      "source_label": "Walmart Investor Relations",
-      "discovery_urls": ["https://stock.walmart.com/", "https://corporate.walmart.com/news/events"],
-      "allowed_domains": ["stock.walmart.com", "corporate.walmart.com", "walmart.com"]
-    },
-    {
-      "id": "micron",
-      "name": "Micron",
-      "ticker": "MU",
-      "group": "ai_semiconductor",
-      "group_zh": "AI 与半导体",
-      "default_timezone": "America/Denver",
-      "source_label": "Micron Investor Relations",
-      "discovery_urls": [
-        "https://investors.micron.com/events-and-presentations",
-        "https://investors.micron.com/news/default.aspx",
-        "https://micron.gcs-web.com/"
-      ],
-      "allowed_domains": ["investors.micron.com", "micron.gcs-web.com", "micron.com"]
-    },
-    {
-      "id": "sandisk",
-      "name": "SanDisk",
-      "ticker": "SNDK",
-      "group": "ai_semiconductor",
-      "group_zh": "AI 与半导体",
-      "default_timezone": "America/Los_Angeles",
-      "source_label": "SanDisk Investor Relations",
-      "discovery_urls": [
-        "https://investor.sandisk.com/news-events/events",
-        "https://investor.sandisk.com/news-events/news-releases"
-      ],
-      "allowed_domains": ["investor.sandisk.com", "sandisk.com"]
+      "allowed_domains": [
+        "apple.com",
+        "investor.apple.com"
+      ]
     }
   ],
-  "regulator_sources": [
-    "https://www.sec.gov/newsroom/press-releases",
-    "https://www.ftc.gov/news-events/news/press-releases",
-    "https://www.justice.gov/atr/press-releases",
-    "https://competition-policy.ec.europa.eu/news_en"
-  ],
-  "regulator_allowed_domains": ["sec.gov", "ftc.gov", "justice.gov", "ec.europa.eu", "europa.eu"]
+  "event_categories": [
+    "earnings"
+  ]
 }

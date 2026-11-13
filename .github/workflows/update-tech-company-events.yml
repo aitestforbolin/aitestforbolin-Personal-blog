@@ -1,6 +1,13 @@
-name: Update technology company events
+name: Update AI company earnings
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - data/tech-company-event-sources.json
+      - data/tech-company-events-curated.json
+      - scripts/update_tech_company_events.py
+      - .github/workflows/update-tech-company-events.yml
   schedule:
     # 05:50 Asia/Shanghai every day; refreshes events before the 07:00 briefing.
     - cron: "50 21 * * *"
@@ -60,3 +67,4 @@ jobs:
 
           echo "Unable to push technology company events after three attempts."
           exit 1
+

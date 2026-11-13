@@ -47,9 +47,9 @@ class TechCompanyEventTests(unittest.TestCase):
     def test_tracking_universe_matches_requested_symbols(self):
         self.assertEqual(
             [company["ticker"] for company in self.config["companies"]],
-            ["META", "NVDA", "AMZN", "GOOGL", "AAPL", "JPM", "MSFT", "WMT", "MU", "SNDK"],
+            ["MSFT", "AMZN", "GOOGL", "ORCL", "META", "CRWV", "NBIS", "NVDA", "AMD", "AVGO", "MRVL", "TSM", "MU", "SNDK", "WDC", "ANET", "LITE", "COHR", "DELL", "SMCI", "AAPL"],
         )
-        self.assertEqual(len(self.companies), 10)
+        self.assertEqual(len(self.companies), 21)
 
     def test_standard_time_converts_with_sixteen_hour_offset(self):
         html = """
@@ -179,13 +179,13 @@ class TechCompanyEventTests(unittest.TestCase):
         config = deepcopy(self.config)
         config["earnings_calendar"]["url_template"] = "https://example.test/earnings?date={day}"
         original = updater.fetch_text
-        updater.fetch_text = lambda url: json.dumps({"data": {"rows": [{"symbol": "JPM", "time": "Before Market Open", "epsForecast": "5.12", "revenueForecast": "46.2B", "fiscalQuarterEnding": "09/30/2026"}]}})
+        updater.fetch_text = lambda url: json.dumps({"data": {"rows": [{"symbol": "AVGO", "time": "Before Market Open", "epsForecast": "5.12", "revenueForecast": "46.2B", "fiscalQuarterEnding": "09/30/2026"}]}})
         try:
             events = updater.discover_earnings_calendar_events(config, list(self.companies.values()), date(2026, 10, 13), date(2026, 10, 13))
         finally:
             updater.fetch_text = original
         self.assertEqual(len(events), 1)
-        self.assertEqual(events[0]["company_id"], "jpmorgan_chase")
+        self.assertEqual(events[0]["company_id"], "broadcom")
         self.assertEqual(events[0]["market_timing"], "before_open")
         self.assertEqual(events[0]["date_bjt"], "2026-10-13")
         self.assertEqual(events[0]["eps_estimate"], "5.12")
@@ -194,18 +194,18 @@ class TechCompanyEventTests(unittest.TestCase):
 
     def test_confirmed_official_earnings_replaces_matching_nasdaq_inference(self):
         inferred = {
-            "event_id": "jpmorgan_chase-earnings-quarter-ended-2026-09-30",
-            "company_id": "jpmorgan_chase", "event_category": "earnings", "event_name": "JPMorgan Chase 财报",
+            "event_id": "broadcom-earnings-quarter-ended-2026-09-30",
+            "company_id": "broadcom", "event_category": "earnings", "event_name": "Broadcom 财报",
             "reported_period": "截至 2026-09-30 季度", "importance": "core", "status": "scheduled",
             "confirmation": "inferred", "date_type": "exact", "date_bjt": "2026-10-13", "market_timing": "before_open",
             "source_label": "Nasdaq Earnings Calendar", "source_url": "https://api.nasdaq.com/api/calendar/earnings?date=2026-10-13",
         }
         official = deepcopy(inferred)
-        official.update({"event_id": "jpmorgan_chase-earnings-2026-q3", "confirmation": "confirmed", "time_bjt": "20:30", "source_label": "JPMorgan Chase Investor Relations", "source_url": "https://www.jpmorganchase.com/ir/events"})
+        official.update({"event_id": "broadcom-earnings-2026-q3", "confirmation": "confirmed", "time_bjt": "20:30", "source_label": "Broadcom Investor Relations", "source_url": "https://investors.broadcom.com/"})
         events = updater.merge_events(list(self.companies.values()), [official], [inferred], [], date(2026, 9, 18), 35, datetime(2026, 9, 18, tzinfo=ZoneInfo("Asia/Shanghai")))
         self.assertEqual(len(events), 1)
         self.assertEqual(events[0]["confirmation"], "confirmed")
-        self.assertEqual(events[0]["source_label"], "JPMorgan Chase Investor Relations")
+        self.assertEqual(events[0]["source_label"], "Broadcom Investor Relations")
 
     def test_ordinal_fiscal_period_has_stable_id(self):
         period, slug = updater.extract_reported_period("NVIDIA 2nd Quarter FY27 Financial Results")
@@ -228,6 +228,28 @@ class TechCompanyEventTests(unittest.TestCase):
         errors = updater.validate_event_payload(payload, self.config)
         self.assertIn("checked_at is required", errors)
 
+    def test_removed_companies_and_non_earnings_do_not_survive_refresh(self):
+        now = datetime(2026, 11, 13, tzinfo=ZoneInfo("Asia/Shanghai"))
+        prior = [
+            {"event_id": "walmart-earnings", "company_id": "walmart", "event_category": "earnings", "date_bjt": "2026-11-19"},
+            {"event_id": "nvidia-product", "company_id": "nvidia", "event_category": "product_event", "date_bjt": "2026-11-19"},
+        ]
+        self.assertEqual(updater.merge_events(list(self.companies.values()), prior, prior, prior, date(2026, 11, 13), 35, now), [])
+
+    def test_nasdaq_icon_timing_uses_next_beijing_day(self):
+        self.assertEqual(updater.normalize_calendar_time("time-pre-market"), "before_open")
+        self.assertEqual(updater.normalize_calendar_time("time-after-hours"), "after_close")
+        original = updater.fetch_text
+        updater.fetch_text = lambda url: json.dumps({"data": {"rows": [{"symbol": "DELL", "time": "time-after-hours"}, {"symbol": "WMT", "time": "time-pre-market"}]}})
+        try:
+            events = updater.discover_earnings_calendar_events(self.config, list(self.companies.values()), date(2026, 11, 24), date(2026, 11, 24))
+        finally:
+            updater.fetch_text = original
+        self.assertEqual(len(events), 1)
+        self.assertEqual(events[0]["company_id"], "dell")
+        self.assertEqual(events[0]["date_bjt"], "2026-11-25")
+
 
 if __name__ == "__main__":
     unittest.main()
+

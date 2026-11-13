@@ -1,5 +1,5 @@
 (function () {
-  const DATA_URL = "data/tech-company-events.json?v=20260918-full-window-1";
+  const DATA_URL = "data/tech-company-events.json?v=20261113-earnings-21";
   const SHANGHAI_OFFSET = "+08:00";
   const DAY_MS = 86400000;
 
@@ -41,7 +41,7 @@
   const categoryButtons = Array.from(root.querySelectorAll("[data-event-category]"));
 
   const state = {
-    category: "all",
+    category: "earnings",
     company: "all",
     companies: [],
     events: [],
@@ -188,7 +188,7 @@
     title.target = "_blank";
     title.rel = "noreferrer";
     title.textContent = event.event_name;
-    title.setAttribute("aria-label", `${event.event_name}，打开${event.source_label}官方来源`);
+    title.setAttribute("aria-label", `${event.event_name}，打开${event.source_label}来源`);
 
     const badges = document.createElement("div");
     badges.className = "tech-event-badges";
@@ -215,7 +215,7 @@
     source.href = event.source_url;
     source.target = "_blank";
     source.rel = "noreferrer";
-    source.textContent = `官方来源：${event.source_label}`;
+    source.textContent = `来源：${event.source_label}`;
     details.append(market, source);
 
     body.append(companyRow, title, badges, details);
@@ -226,7 +226,7 @@
   function renderStatus(events) {
     const total = state.events.length;
     if (!events.length) {
-      status.textContent = "当前筛选下暂无关键事件。";
+      status.textContent = "当前筛选下未来 35 天暂无财报日程。";
       return;
     }
     const confirmed = events.filter((event) => event.confirmation === "confirmed").length;
@@ -243,7 +243,7 @@
     if (!events.length) {
       const empty = document.createElement("p");
       empty.className = "tech-events-empty";
-      empty.textContent = "可尝试切换事件类型或选择其他公司。";
+      empty.textContent = "可选择其他公司；日期尚未公布的公司会在后续更新中补充。";
       eventList.append(empty);
       return;
     }
@@ -304,14 +304,15 @@
     })
     .then((payload) => {
       state.companies = Array.isArray(payload.companies) ? payload.companies : [];
-      state.events = Array.isArray(payload.events) ? payload.events : [];
+      state.events = Array.isArray(payload.events) ? payload.events.filter((event) => event.event_category === "earnings") : [];
       state.updatedAt = payload.updated_at || "";
       updated.textContent = formatUpdatedAt(state.updatedAt);
       populateCompanies();
       render();
     })
     .catch(() => {
-      status.textContent = "科技事件暂时无法载入，请稍后刷新。";
+      status.textContent = "财报日程暂时无法载入，请稍后刷新。";
       updated.textContent = "数据载入失败";
     });
 })();
+

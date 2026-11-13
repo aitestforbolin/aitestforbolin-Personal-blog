@@ -6,7 +6,7 @@
     <title>Bolin Brief | 市场、宏观与关键事件</title>
     <meta
       name="description"
-      content="每日整理美股市场状态、跨资产市场、美国宏观数据与科技巨头关键事件。"
+      content="每日整理美股市场状态、跨资产市场、美国宏观数据与 AI、云和半导体公司财报。"
     />
     <link rel="stylesheet" href="styles.css?v=20260819-us-macro-1" />
     <link rel="stylesheet" href="macro-alerts.css?v=20260916-ff-fields-1" />
@@ -33,7 +33,7 @@
         <a href="macro-brief/">Macro Brief</a>
         <a href="us-macro/">美国宏观</a>
         <a href="#macro-calendar">宏观日历</a>
-        <a href="#tech-events">公司事件</a>
+        <a href="#tech-events">财报追踪</a>
         <a href="#web3">Web3</a>
         <a href="#europe-watch">欧洲观察</a>
       </nav>
@@ -212,9 +212,9 @@
       >
         <div class="tech-events-head">
           <div>
-            <p class="eyebrow">Earnings &amp; Company Catalyst Calendar</p>
-            <h2 id="tech-events-title">财报与公司关键事件日历</h2>
-            <p>追踪指定核心标的的财报、经营数据与关键活动，全部按北京时间显示。</p>
+            <p class="eyebrow">AI, Cloud &amp; Semiconductor Earnings</p>
+            <h2 id="tech-events-title">AI、云与半导体财报追踪</h2>
+            <p>追踪 21 家公司的财报公布与电话会，展示未来 35 天日程，全部按北京时间显示。</p>
           </div>
           <div class="tech-events-source-note">
             <strong>财报日历与官方来源</strong>
@@ -223,16 +223,7 @@
         </div>
 
         <div class="tech-events-panel">
-          <div class="tech-events-toolbar" aria-label="筛选已追踪标的关键事件">
-            <div class="tech-events-category-filters" role="group" aria-label="按事件类型筛选">
-              <button class="tech-event-filter is-active" type="button" data-event-category="all" aria-pressed="true">全部</button>
-              <button class="tech-event-filter" type="button" data-event-category="earnings" aria-pressed="false">财报与指引</button>
-              <button class="tech-event-filter" type="button" data-event-category="operating_data" aria-pressed="false">经营数据</button>
-              <button class="tech-event-filter" type="button" data-event-category="product_event" aria-pressed="false">产品活动</button>
-              <button class="tech-event-filter" type="button" data-event-category="investor_event" aria-pressed="false">投资者日</button>
-              <button class="tech-event-filter" type="button" data-event-category="regulatory_legal" aria-pressed="false">监管法律</button>
-            </div>
-
+          <div class="tech-events-toolbar" aria-label="筛选已追踪公司财报">
             <label class="tech-events-company-filter">
               <span>公司</span>
               <select data-tech-events-company aria-label="按公司筛选">
@@ -242,7 +233,7 @@
           </div>
 
           <div class="tech-events-status" data-tech-events-status aria-live="polite">
-            正在载入科技事件...
+            正在载入财报日程...
           </div>
           <div class="tech-event-list" data-tech-events-list></div>
         </div>
@@ -379,7 +370,7 @@
         </div>
         <p>
           这是一个持续更新的个人信息桌面。我在这里整理市场变化、
-          宏观数据与科技公司的关键事件，尽量保留原始来源和时间边界，
+          宏观数据与 AI、云和半导体公司的财报日程，尽量保留原始来源和时间边界，
           让每天的阅读更短，也更接近真正重要的变化。
         </p>
       </section>
@@ -402,7 +393,7 @@
     <script src="home-market-snapshot.js?v=20260917-2"></script>
     <script src="home-x-intelligence.js?v=20260918-2"></script>
     <script src="btc-etf-flow-signal.js?v=20260918-home-order-1"></script>
-    <script src="tech-events.js?v=20260918-full-window-1"></script>
+    <script src="tech-events.js?v=20261113-earnings-21"></script>
     <script src="macro-calendar-model.js?v=20260916-ff-us-only-1"></script>
     <script src="macro-calendar.js?v=20261010-actual-recovery-1"></script>
     <script src="home-fundraising.js?v=20260918-no-row-actions-1"></script>
@@ -410,3 +401,4 @@
   <script src="world-notes/world-notes.js?v=20261113-images" defer></script>
 </body>
 </html>
+
