@@ -29,6 +29,37 @@
     if (!response.ok) throw new Error('读取失败');
     return response.json();
   }
+  function photo(item, index, article) {
+    if (!item.image) return null; // Earlier editions remain readable without photos.
+    try {
+      const data = item.image;
+      const url = new URL(data.url);
+      if (url.protocol !== 'https:') return null;
+      const figure = node('figure');
+      figure.className = 'wn-photo';
+      const original = link('', data.sourceUrl);
+      original.setAttribute('aria-label', `${data.alt}，查看图片原文`);
+      const img = node('img');
+      img.alt = data.alt;
+      img.loading = index === 0 ? 'eager' : 'lazy';
+      img.decoding = 'async';
+      const caption = node('figcaption');
+      caption.append(node('span', data.caption));
+      caption.append(link(`图片：${data.credit} ↗`, data.sourceUrl));
+      // Keep the source accessible if a publisher stops serving its image.
+      img.addEventListener('error', () => {
+        original.replaceChildren(node('span', '到原文查看图片 ↗'));
+        original.classList.add('wn-photo-unavailable');
+      }, {once: true});
+      original.append(img);
+      figure.append(original, caption);
+      img.src = url.href;
+      article.classList.add('wn-illustrated');
+      return figure;
+    } catch (error) {
+      return null;
+    }
+  }
   function render() {
     const selected = current.items;
     list.replaceChildren();
@@ -52,6 +83,8 @@
       number.className = 'wn-number';
       number.setAttribute('aria-hidden', 'true');
       article.append(number, node('h2', item.title));
+      const image = photo(item, index, article);
+      if (image) article.append(image);
       const body = node('div');
       body.className = 'wn-body';
       item.body.split(/\n\s*\n/).filter(part => part.trim()).forEach(part => body.append(node('p', part.trim())));

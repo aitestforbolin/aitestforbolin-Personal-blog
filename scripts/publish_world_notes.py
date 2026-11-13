@@ -28,6 +28,16 @@ def validate(payload):
         if not re.fullmatch(r'[A-Za-z0-9._-]+', item['id']) or item['id'] in ids:
             raise ValueError('invalid or duplicate item ID')
         ids.add(item['id'])
+        image = item.get('image')
+        if not isinstance(image, dict):
+            raise ValueError('image required')
+        for field in ('url', 'sourceUrl', 'alt', 'credit', 'caption'):
+            if not isinstance(image.get(field), str) or not image[field].strip():
+                raise ValueError(f'image {field} required')
+        for field in ('url', 'sourceUrl'):
+            url = urlsplit(image[field])
+            if url.scheme != 'https' or not url.hostname or url.username or url.password:
+                raise ValueError(f'invalid image {field}')
         if item['category'] not in ('数据', '规则', '报道', '个体'):
             raise ValueError('unknown category')
         if not re.fullmatch(r'\d{4}-\d{2}(?:-\d{2})?', item['materialDate']):

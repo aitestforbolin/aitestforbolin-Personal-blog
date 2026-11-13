@@ -27,7 +27,7 @@
 /* A quiet, single reading column for the full edition. */
 .wn-reader { background: #f8f7f3; color: #292a27; }
 .wn-reader .site-header { width: min(1080px, calc(100% - 48px)); padding-top: 24px; }
-.wn-page { width: min(720px, calc(100% - 48px)); margin: 0 auto; padding: 58px 0 96px; }
+.wn-page { width: min(1040px, calc(100% - 48px)); margin: 0 auto; padding: 58px 0 96px; }
 .wn-masthead { padding-bottom: 28px; border-bottom: 1px solid var(--line); }
 .wn-masthead h1 { font-size: clamp(2.2rem, 5vw, 3rem); line-height: 1.2; }
 .wn-edition-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 18px; color: var(--muted); font-size: .9rem; }
@@ -37,6 +37,15 @@
 .wn-tools label { display: flex; align-items: center; gap: 8px; }
 .wn-tools select { max-width: 150px; padding: 7px 9px; border: 1px solid var(--line); border-radius: 5px; background: #fffdfa; color: var(--text); font: inherit; font-size: .85rem; }
 .wn-page article { padding: 38px 0 40px; border-bottom: 1px solid var(--line); scroll-margin-top: 28px; }
+.wn-page article:not(.wn-illustrated) { max-width: 720px; margin-inline: auto; }
+.wn-page article.wn-illustrated { display: grid; grid-template-columns: minmax(0, 1fr) 300px; column-gap: 38px; align-items: start; }
+.wn-illustrated > :not(.wn-photo) { grid-column: 1; min-width: 0; }
+.wn-photo { grid-column: 2; grid-row: 1 / span 4; min-width: 0; margin: 0; }
+.wn-photo > a { display: block; overflow: hidden; border-radius: 8px; background: #eeece6; }
+.wn-photo img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; }
+.wn-photo figcaption { display: grid; gap: 5px; margin-top: 9px; color: var(--muted); font-size: .75rem; line-height: 1.65; }
+.wn-photo figcaption a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+.wn-photo-unavailable { padding: 28px 16px; color: var(--accent-dark); font-size: .85rem; }
 .wn-number { display: block; margin-bottom: 12px; color: var(--accent-dark); font-size: .8rem; font-weight: 700; letter-spacing: .1em; }
 .wn-page article h2 { margin: 0 0 20px; color: #262724; font-size: clamp(1.3rem, 2.5vw, 1.55rem); line-height: 1.55; text-wrap: pretty; }
 .wn-body p { margin: 0 0 16px; font-size: 1.125rem; line-height: 1.95; letter-spacing: .015em; overflow-wrap: break-word; }
@@ -50,6 +59,10 @@
 .wn-brief .wn-headlines { padding-top: 0; }
 .world-notes a:focus-visible, .world-notes select:focus-visible, .wn-reader .site-header a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
 @media (max-width: 760px) {
+  .wn-page { max-width: 640px; }
+  .wn-page article.wn-illustrated { display: block; }
+  .wn-photo { margin: 0 0 22px; }
+  .wn-photo img { max-height: 340px; }
   .wn-home { grid-template-columns: 1fr; gap: 24px; }
   .wn-home-head { border-bottom: 0; padding-bottom: 0; }
   .wn-home-cta { width: 100%; margin-top: 22px; }

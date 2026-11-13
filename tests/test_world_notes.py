@@ -22,6 +22,8 @@ class WorldNotesPublicationTests(unittest.TestCase):
             'schemaVersion': 1, 'reportDate': today,
             'items': [dict(id=f'item-{i}', title=f'Title {i}', body='Body', location='Place',
                            materialDate=today, evidenceType='Interview', category='报道',
+                           image=dict(url='https://example.com/photo.jpg', sourceUrl='https://example.com/article',
+                                      alt='Photo description', credit='Photographer', caption='Photo caption'),
                            sources=[dict(publisher='Publisher', url='https://example.com/article',
                                          evidence='Verified paragraph')]) for i in range(5)],
         }
@@ -53,6 +55,22 @@ class WorldNotesPublicationTests(unittest.TestCase):
             for name, content in files.items():
                 self.assertEqual((data / name).read_text(), content)
             self.assertEqual(len(list((data / 'world-notes/archive').glob('*.json'))), 1)
+
+    def test_rejects_missing_images_and_unsafe_image_links(self):
+        for field in ('url', 'sourceUrl', 'alt', 'credit', 'caption'):
+            payload = copy.deepcopy(self.payload)
+            del payload['items'][0]['image'][field]
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                publisher.validate(payload)
+        for field in ('url', 'sourceUrl'):
+            for url in ('javascript:alert(1)', 'http://example.com/p.jpg', 'https://user:pass@example.com/p.jpg'):
+                payload = copy.deepcopy(self.payload)
+                payload['items'][0]['image'][field] = url
+                with self.subTest(field=field, url=url), self.assertRaises(ValueError):
+                    publisher.validate(payload)
+        del self.payload['items'][0]['image']
+        with self.assertRaisesRegex(ValueError, 'image required'):
+            publisher.validate(self.payload)
 
     def test_full_edition_is_atomic_and_repeat_is_idempotent(self):
         with tempfile.TemporaryDirectory() as directory:
