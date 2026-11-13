@@ -1,0 +1,460 @@
+{
+  "schemaVersion": 1,
+  "status": "success",
+  "reportDate": "2026-11-13",
+  "generatedAt": "2026-11-13T09:01:54.611+08:00",
+  "sourceGeneratedAt": "2026-11-13T00:59:28.227041+00:00",
+  "sourcePostCount": 144,
+  "sourceListCount": 4,
+  "executionLineage": {
+    "schemaVersion": 2,
+    "runId": "x-intelligence:codex-x-20261113T005838Z",
+    "requestId": "codex-x-20261113T005838Z",
+    "triggerSha": "609398ac9a441669fe539e4e4f371784a5a11ef9",
+    "githubRunId": 43341393122,
+    "scheduledAt": "2026-11-13T01:00:00Z",
+    "startedAt": "2026-11-13T00:59:28.226588+00:00",
+    "sourceCheckedAt": "2026-11-13T00:59:36.431580+00:00",
+    "sourceUpdatedAt": "2026-11-13T00:45:10+00:00",
+    "completedAt": "2026-11-13T00:59:36.431637+00:00",
+    "publishedAt": "2026-11-13T09:01:54.611+08:00"
+  },
+  "executionStatus": {
+    "collection": "success",
+    "validation": "success",
+    "publication": {
+      "status": "success"
+    }
+  },
+  "overview": "今日最重要的确定性变化是英伟达进入后黄仁勋时代：黄仁勋辞去CEO、总裁及董事职务，CFO Colette Kress出任临时CEO，市场开始重新评估创始人溢价、客户议价权和AI供应链协调能力。风险偏好同步走弱，美国现货BTC与ETH ETF连续五个交易日净流出，黄金、美股与加密资产一度共同承压。链上传统金融仍在扩张，xStocks进入Optimism、Ether Fi与Monad，并增加抵押借贷和Uniswap v4交易场景；但平台自报规模、地区限制和代币化权益仍需分开判断。安全侧，Binance称已完成受影响资产回填，司法部快讯则称查获与朝鲜相关的12亿美元被盗加密资产。其他值得跟踪的结构变化包括Tether储备向股票、黄金和BTC多元化，PREDICT确定TGE与线性领取方案，以及Zcash社区拟动用超过一半金库储备。",
+  "homeHighlights": [
+    "黄仁勋辞去英伟达全部管理与董事职务，Colette Kress临时接任CEO，AI产业链开始重估创始人依赖。",
+    "BTC与ETH现货ETF连续五个交易日净流出，11月累计流出超过25亿美元。",
+    "xStocks扩展至Optimism、Ether Fi和Monad，代币化股票进入借贷与Uniswap v4交易。",
+    "Binance称已完成安全事件资产回填，司法部另称查获12亿美元朝鲜相关被盗加密资产。",
+    "Zcash拟动用55%的社区金库持仓，同时知名多头退出永续合约但保留现货。"
+  ],
+  "topics": [
+    {
+      "title": "英伟达进入后黄仁勋时代，创始人溢价与产业协调能力重估",
+      "importance": "high",
+      "summary": "英伟达相关多条快讯与媒体转述显示，黄仁勋已辞去CEO、总裁及董事职务，CFO Colette Kress出任临时CEO，Harvey C. Jones被任命为独立董事长。市场关注点从私人风波转向继任、治理分权、客户关系和AI供应链执行。",
+      "whyItMatters": "黄仁勋既是产品与技术路线决策者，也是英伟达与云厂商、台积电、算力租赁商及政策部门之间的核心协调者。组织能否把个人网络转化为制度能力，将影响估值、客户议价权与整个AI硬件周期。",
+      "facts": [
+        "黄仁勋被报道即日起辞去CEO、总裁及董事会成员职务。",
+        "Colette Kress被任命为临时CEO，并继续兼任CFO。",
+        "黄仁勋仍持有约3.6%股份，但未获安排顾问或名誉管理职务。",
+        "半导体与AI相关资产在消息后出现明显波动。"
+      ],
+      "interpretations": [
+        "Michael Burry关于客户削减采购和隐性杠杆暴露的判断属于投资者观点，不是已发生事实。",
+        "CUDA、产品路线和既有供应链不会因CEO更换立即消失，短期需求与长期组织能力应分开评估。"
+      ],
+      "authors": [
+        "BlockBeatsAsia",
+        "TechFlowPost",
+        "bwenews",
+        "_FORAB"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2120880958056599822",
+        "https://x.com/TechFlowPost/status/2120885787063632098",
+        "https://x.com/bwenews/status/2120876432582905980",
+        "https://x.com/BlockBeatsAsia/status/2121034679746957533"
+      ],
+      "sourceCount": 4,
+      "confidence": "high"
+    },
+    {
+      "title": "ETF持续流出与跨资产下跌显示流动性压力上升",
+      "importance": "high",
+      "summary": "Farside数据转述称，美国现货BTC与ETH ETF已连续五个交易日净流出，11月2日至11日合计流出25.73亿美元；同期黄金、美股期货、BTC和ETH一度共同下跌。10月交易所数据还显示现货量降幅明显大于衍生品，资金更偏向杠杆与短期方向交易。",
+      "whyItMatters": "避险资产与风险资产同步下跌通常比单一品种回调更值得警惕，可能反映现金需求或集中去杠杆。ETF流出若延续，将削弱此前重要的机构买盘来源。",
+      "facts": [
+        "11月以来BTC ETF累计净流出被列为18.78亿美元，ETH ETF为6.96亿美元。",
+        "11月11日IBIT与ETHA分别被报告净流出2.697亿和1.298亿美元。",
+        "10月CEX现货交易量据称环比下降9.7%，衍生品下降1.7%。",
+        "RWA合约交易量被报告环比增长24.1%至6110亿美元。"
+      ],
+      "interpretations": [
+        "跨资产同步下跌可能来自流动性收紧，但packet没有提供完整资金面证据。",
+        "衍生品相对韧性也可能只是现货萎缩后的存量杠杆化，而非新增需求。"
+      ],
+      "authors": [
+        "BlockBeatsAsia",
+        "spark888"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2120747410519708022",
+        "https://x.com/BlockBeatsAsia/status/2120876449477329160",
+        "https://x.com/spark888/status/2120796175532224763"
+      ],
+      "sourceCount": 2,
+      "confidence": "medium"
+    },
+    {
+      "title": "代币化股票扩展至借贷、多链交易和低门槛杠杆产品",
+      "importance": "high",
+      "summary": "xStocks宣布进入Optimism并接入Ether Fi，用户可访问1500多只代币化股票和ETF并以其抵押借款；Monad上的Uniswap v4新增10个xStocks市场。Base继续推动全天候股票交易，香港市场则出现追踪铠侠的低门槛1.25倍杠杆产品。",
+      "whyItMatters": "代币化证券正在由价格敞口向抵押借贷和多链流动性延伸，但地区准入、托管结构、直接股东权利以及杠杆产品的每日重置风险仍需分别审查。",
+      "facts": [
+        "xStocks官方称已部署至Optimism并接入Ether Fi。",
+        "Monad上的Uniswap v4上线10个xStocks交易市场。",
+        "xStocks明确不向美国用户开放并适用地区限制。",
+        "铠侠杠杆产品一手参考资金约780港元，但被定位为短线工具。"
+      ],
+      "interpretations": [
+        "部署数量和资产覆盖不等于每个市场都有充分深度或可靠赎回。",
+        "降低入场资金并未降低底层股票波动、杠杆损耗或产品结构风险。"
+      ],
+      "authors": [
+        "xStocksFi",
+        "base",
+        "octopusycc"
+      ],
+      "sourceUrls": [
+        "https://x.com/xStocksFi/status/2120923817203703955",
+        "https://x.com/xStocksFi/status/2120909985236549715",
+        "https://x.com/octopusycc/status/2120903477979443585"
+      ],
+      "sourceCount": 3,
+      "confidence": "high"
+    },
+    {
+      "title": "Binance完成资产回填，交易所安全进入赔付与验证阶段",
+      "importance": "high",
+      "summary": "Binance官方称已完成安全事件中受影响资产的资金回填，并发布新一轮储备证明快照，待零知识证明生成后用户可验证至少1:1储备。另有快讯称美国司法部查获12亿美元朝鲜相关被盗加密资产，并捣毁与60亿美元Binance攻击相关的深伪骗局。",
+      "whyItMatters": "资产回填解决的是用户余额恢复，零知识储备证明验证的是特定时点资产覆盖；攻击根因、内部控制和追回规模仍是不同问题。司法部行动若有正式文件支持，可能揭示朝鲜黑客的洗钱与身份欺诈网络。",
+      "facts": [
+        "Binance确认受影响资产资金回填已完成。",
+        "新的储备证明快照已经发布，但ZK Proof尚待生成。",
+        "bwenews快讯称司法部查获12亿美元相关资产。"
+      ],
+      "interpretations": [
+        "储备足额不能单独证明平台不存在安全漏洞或运营风险。",
+        "司法部数据目前仅来自速度优先快讯，packet没有原始公告全文。"
+      ],
+      "authors": [
+        "binancezh",
+        "bwenews"
+      ],
+      "sourceUrls": [
+        "https://x.com/binancezh/status/2120925031790502362",
+        "https://x.com/bwenews/status/2120993905634414729"
+      ],
+      "sourceCount": 2,
+      "confidence": "medium"
+    },
+    {
+      "title": "Tether储备资产进一步多元化并形成集中股权敞口",
+      "importance": "high",
+      "summary": "BlockBeats转引Protos统计称，Tether持有13家美国上市公司约48.04亿美元股份，其中Twenty One Capital、Rumble和Adecoagro占约76%。BDO鉴证数据则显示其资产还包括1228.4亿美元美国短债、190.85亿美元黄金和83.67亿美元BTC。",
+      "whyItMatters": "Tether已从稳定币发行商演变为大型资产配置机构。更多股票、黄金和BTC可能提升收益与战略影响力，也会增加价格波动、集中持仓和关联交易审查的重要性。",
+      "facts": [
+        "前三大美股持仓合计约36.6亿美元。",
+        "Tether International总资产被列为1914.5亿美元，代币负债1834.7亿美元。",
+        "超额储备被列为约79.55亿美元。",
+        "48亿美元股票敞口属于总资产中的公开股票科目，不能重复相加。"
+      ],
+      "interpretations": [
+        "美股持仓市值会随价格波动，不能等同现金储备。",
+        "Tether Gold属于另一业务实体，不应并入USDT储备。"
+      ],
+      "authors": [
+        "BlockBeatsAsia"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2120815715070759409"
+      ],
+      "sourceCount": 1,
+      "confidence": "medium"
+    },
+    {
+      "title": "PREDICT确定TGE日期并改善锁仓领取结构",
+      "importance": "medium",
+      "summary": "PREDICT官方宣布11月18日09:00 UTC开放Season 1领取，用户可选择立即领取35%，或在12个月内按月线性领取100%。受损或高风险账户需额外验证，并在开放领取后30天内完成账户迁移。Binance Alpha确认同一时间开始TGE交易。",
+      "whyItMatters": "由12个月悬崖锁定改为线性释放降低了长期锁仓的不确定性，但即时领取折价、估值、流动性和集中解锁仍会影响开盘价格。",
+      "facts": [
+        "TGE和领取时间为11月18日09:00 UTC。",
+        "即时解锁比例为35%。",
+        "完整领取改为12个月按月线性释放。",
+        "高风险账户需要额外身份验证并迁移至安全账户。"
+      ],
+      "interpretations": [
+        "Aspecta约10.9亿美元FDV是盘前市场定价，不是正式估值。",
+        "社区按积分计算的价值依赖盘前价格与最终供应口径。"
+      ],
+      "authors": [
+        "predictdotfun",
+        "binancezh",
+        "aspecta_ai",
+        "Benjieming1Q84"
+      ],
+      "sourceUrls": [
+        "https://x.com/predictdotfun/status/2120784883908030508",
+        "https://x.com/predictdotfun/status/2120784890799194493",
+        "https://x.com/binancezh/status/2120781341243650266",
+        "https://x.com/aspecta_ai/status/2120808411181023373"
+      ],
+      "sourceCount": 4,
+      "confidence": "high"
+    },
+    {
+      "title": "Zcash拟动用多数社区金库，杠杆多头同步退场",
+      "importance": "medium",
+      "summary": "Zcash社区提案计划从ZCG持有的9.1万枚ZEC中转出5万枚进入流通，并停止把新发行ZEC的8%继续分配给现有金库。知名多头Taiki Maeda则已关闭永续合约多头，但保留现货并继续看好2027年表现。",
+      "whyItMatters": "提案会把金库可支撑年限从约13年缩短至约6年，同时增加潜在流通压力；多头退出杠杆却保留现货，说明短期风险控制与长期信念正在分化。",
+      "facts": [
+        "社区投票计划于11月16日至30日进行。",
+        "拟转出的5万枚ZEC约占金库持仓55%。",
+        "资金计划在30天内转出，并通过未来区块奖励逐步返还。",
+        "Taiki Maeda已平掉ZEC永续多头但保留现货。"
+      ],
+      "interpretations": [
+        "金库转出不等于全部立即出售，实际市场影响取决于执行机制。",
+        "单一知名交易员平仓是情绪信号，不代表整个市场完成去杠杆。"
+      ],
+      "authors": [
+        "BlockBeatsAsia",
+        "TechFlowPost"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2120765370806231416",
+        "https://x.com/TechFlowPost/status/2120747290528801272"
+      ],
+      "sourceCount": 2,
+      "confidence": "medium"
+    },
+    {
+      "title": "台积电数据经云服务供应商外泄，供应链安全再受关注",
+      "importance": "medium",
+      "summary": "TechFlow转述称，黑客在地下论坛出售约6.9GB员工数据并索要3枚BTC。台积电回应确认资料外泄，但称受影响的是合作云服务供应商，未涉及自身生产系统或客户资料，事件仍在调查。",
+      "whyItMatters": "关键半导体企业即使核心系统未被攻破，也可能因供应商权限、员工数据和身份信息外泄遭受勒索、钓鱼或后续横向攻击。",
+      "facts": [
+        "被兜售数据量被列为6.9GB。",
+        "勒索金额为3枚BTC。",
+        "台积电称不涉及生产与客户资料。",
+        "事件被归因于合作云服务供应商。"
+      ],
+      "interpretations": [
+        "供应商事件不等于台积电核心网络被入侵。",
+        "数据完整性、受影响员工范围和后续攻击风险仍需正式调查结论。"
+      ],
+      "authors": [
+        "TechFlowPost"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2120806337835594107"
+      ],
+      "sourceCount": 1,
+      "confidence": "medium"
+    },
+    {
+      "title": "加密资本转向机器人，焦点从硬件制造转向数据质量",
+      "importance": "medium",
+      "summary": "Pantera团队对深圳机器人产业链的调研认为，中国硬件供应链在迭代速度和成本方面领先，美国在具身智能软件上领先约1至2年；真正稀缺的中间层可能不是重复采集数据，而是清洗、标注和评估等数据智能能力。",
+      "whyItMatters": "在加密一级市场流动性收紧时，头部基金向AI和机器人扩展可能带动资本迁移。若硬件因竞争难以保留利润，数据质量、软件和客户信任可能成为更可持续的价值层。",
+      "facts": [
+        "调研覆盖整机厂、模型团队、灵巧手与数据采集设备商。",
+        "受访观点认为国内软件与具身智能算法落后海外约1至2年。",
+        "重复动作数据被认为边际价值较低。"
+      ],
+      "interpretations": [
+        "这是VC团队的产业判断，不是整个机器人行业的一致结论。",
+        "中国硬件领先、美国软件领先的二分法可能掩盖公司与细分领域差异。"
+      ],
+      "authors": [
+        "TechFlowPost"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2120845906933399987"
+      ],
+      "sourceCount": 1,
+      "confidence": "medium"
+    },
+    {
+      "title": "Kalshi以高估值融资，同时切割政治顾问关系",
+      "importance": "medium",
+      "summary": "bwenews转引彭博称Kalshi正在洽谈新一轮融资，估值达到650亿美元；另一路透快讯称公司已终止Donald Trump Jr.的顾问合同。packet未提供融资条款或终止合同原因。",
+      "whyItMatters": "高估值反映预测市场的增长预期，但公司近期还面临监管与利益冲突审视。融资进度和治理调整可能影响其全国扩张及合规定位。",
+      "facts": [
+        "融资讨论估值被列为650亿美元。",
+        "公司发言人被转引确认终止顾问合同。"
+      ],
+      "interpretations": [
+        "洽谈融资不等于交易已经完成。",
+        "终止顾问关系是否与监管或政治风险有关，packet没有证据。"
+      ],
+      "authors": [
+        "bwenews"
+      ],
+      "sourceUrls": [
+        "https://x.com/bwenews/status/2120976927561527687",
+        "https://x.com/bwenews/status/2120940838389981216"
+      ],
+      "sourceCount": 1,
+      "confidence": "medium"
+    }
+  ],
+  "watchlist": [
+    {
+      "signal": "英伟达正式继任者及11月17日财报沟通",
+      "reason": "检验管理层能否稳定客户、供应链和资本开支预期。",
+      "authors": [
+        "TechFlowPost",
+        "BlockBeatsAsia"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2120885787063632098",
+        "https://x.com/BlockBeatsAsia/status/2120884781361816026"
+      ]
+    },
+    {
+      "signal": "BTC与ETH ETF净流出是否结束",
+      "reason": "判断机构买盘能否回归，以及风险资产是否仍处去杠杆阶段。",
+      "authors": [
+        "BlockBeatsAsia"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2120747410519708022"
+      ]
+    },
+    {
+      "signal": "Binance新一轮ZK储备证明及攻击复盘",
+      "reason": "确认回填后的1:1覆盖、攻击根因和剩余追偿情况。",
+      "authors": [
+        "binancezh"
+      ],
+      "sourceUrls": [
+        "https://x.com/binancezh/status/2120925031790502362"
+      ]
+    },
+    {
+      "signal": "司法部朝鲜相关资产查获的原始公告",
+      "reason": "核对12亿美元金额、60亿美元攻击关联及深伪骗局细节。",
+      "authors": [
+        "bwenews"
+      ],
+      "sourceUrls": [
+        "https://x.com/bwenews/status/2120993905634414729"
+      ]
+    },
+    {
+      "signal": "PREDICT 11月18日TGE与首月解锁表现",
+      "reason": "观察35%即时领取和线性释放选择对流通与价格的影响。",
+      "authors": [
+        "predictdotfun",
+        "binancezh"
+      ],
+      "sourceUrls": [
+        "https://x.com/predictdotfun/status/2120784883908030508",
+        "https://x.com/binancezh/status/2120781341243650266"
+      ]
+    },
+    {
+      "signal": "Zcash金库提案投票与实际转账路径",
+      "reason": "区分治理授权、进入流通和真实卖压。",
+      "authors": [
+        "BlockBeatsAsia"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2120765370806231416"
+      ]
+    },
+    {
+      "signal": "台积电供应商泄露调查结果",
+      "reason": "确认数据类型、影响人数以及是否产生后续钓鱼或访问风险。",
+      "authors": [
+        "TechFlowPost"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2120806337835594107"
+      ]
+    },
+    {
+      "signal": "Tether股票持仓集中度与储备波动",
+      "reason": "观察前三大持仓价格变化是否显著影响超额储备。",
+      "authors": [
+        "BlockBeatsAsia"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2120815715070759409"
+      ]
+    }
+  ],
+  "disagreements": [
+    {
+      "topic": "英伟达是否高度依赖黄仁勋个人能力",
+      "positions": [
+        "市场担心客户关系、产品判断和产业融资网络失去核心协调者。",
+        "CUDA、产品路线、人才和供应链是组织资产，短期需求不会随CEO离任消失。"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2121034679746957533",
+        "https://x.com/BlockBeatsAsia/status/2120785909058801869"
+      ]
+    },
+    {
+      "topic": "当前跨资产下跌是短期事件冲击还是流动性去杠杆",
+      "positions": [
+        "英伟达领导层变动和鹰派表态可解释部分风险资产下跌。",
+        "黄金与风险资产同步走弱、ETF持续流出，更像广泛现金需求和杠杆收缩。"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2120876449477329160",
+        "https://x.com/BlockBeatsAsia/status/2120747410519708022"
+      ]
+    },
+    {
+      "topic": "代币化股票扩张是否代表成熟流动性",
+      "positions": [
+        "多链部署、抵押借贷和1500多资产覆盖显示产品场景快速增加。",
+        "地区限制、资产权利与单个市场深度仍不透明，部署数量不能替代成交质量。"
+      ],
+      "sourceUrls": [
+        "https://x.com/xStocksFi/status/2120923817203703955",
+        "https://x.com/xStocksFi/status/2120909985236549715"
+      ]
+    },
+    {
+      "topic": "ZEC金库释放是可持续融资还是新增卖压",
+      "positions": [
+        "提案重新安排资金以支持网络可持续性和法律防御。",
+        "动用55%储备会缩短金库寿命，并可能增加市场流通压力。"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2120765370806231416"
+      ]
+    },
+    {
+      "topic": "AI硬件需求增长是否仍能支撑上游高利润率",
+      "positions": [
+        "算力需求与资本开支仍在扩张。",
+        "若产能追上需求，客户议价权恢复可能使利润增速先于收入增速放缓。"
+      ],
+      "sourceUrls": [
+        "https://x.com/octopusycc/status/2120705640704487448"
+      ]
+    },
+    {
+      "topic": "中国机器人产业的核心优势在哪里",
+      "positions": [
+        "深圳供应链使硬件迭代速度和成本具有显著优势。",
+        "长期价值可能更多集中在软件、数据质量和客户信任，而非低利润硬件制造。"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2120845906933399987"
+      ]
+    }
+  ],
+  "noiseSummary": [
+    "英伟达私人生活、继任人选玩笑及缺少证据的间谍叙事。",
+    "币安抽奖名单、周边礼品与VIP推广。",
+    "短线喊单、目标价、跟单排行榜和高杠杆仓位展示。",
+    "空投积分估值、白名单与盘前价格猜测。",
+    "只有短链、图片、笑声或单句互动而缺少文本语境的帖子。",
+    "个人家庭、购物、供暖和娱乐内容。",
+    "AI工具额度、第三方模型调用和订阅广告体验。",
+    "交易竞赛、积分周报及常规营销活动。"
+  ]
+}
