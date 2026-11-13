@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "codex-web3-20261112-010225Z",
-  "triggerSha": "66db45342bd0ca73ffb803adf3bea5fa60c315eb",
-  "publicationDate": "2026-11-12",
-  "publishedAt": "2026-11-12T09:05:25.233+08:00",
+  "requestId": "codex-web3-20261113-010452Z",
+  "triggerSha": "b123f00ea001a7c2fb14aa46c401afb7f01ba860",
+  "publicationDate": "2026-11-13",
+  "publishedAt": "2026-11-13T09:06:46.951+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-11-12",
-    "publishedAt": "2026-11-12T09:05:25.233+08:00",
-    "windowStart": "2026-11-11T01:01:45.586685+00:00",
-    "windowEnd": "2026-11-12T01:03:15.207231+00:00",
-    "sourceUpdatedAt": "2026-11-12T01:03:15+00:00",
+    "runDate": "2026-11-13",
+    "publishedAt": "2026-11-13T09:06:46.951+08:00",
+    "windowStart": "2026-11-12T01:03:15.207231+00:00",
+    "windowEnd": "2026-11-13T01:05:14.046461+00:00",
+    "sourceUpdatedAt": "2026-11-13T01:05:14+00:00",
     "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:codex-web3-20261112-010225Z",
-      "requestId": "codex-web3-20261112-010225Z",
-      "triggerSha": "66db45342bd0ca73ffb803adf3bea5fa60c315eb",
-      "githubRunId": 43131746386,
-      "scheduledAt": "2026-11-12T01:02:25Z",
-      "startedAt": "2026-11-12T01:03:13.465849+00:00",
-      "sourceCheckedAt": "2026-11-12T01:03:15.206846+00:00",
-      "sourceUpdatedAt": "2026-11-12T01:03:15+00:00",
-      "completedAt": "2026-11-12T01:03:15.207231+00:00",
-      "publishedAt": "2026-11-12T09:05:25.233+08:00"
+      "runId": "web3-daily-triage:codex-web3-20261113-010452Z",
+      "requestId": "codex-web3-20261113-010452Z",
+      "triggerSha": "b123f00ea001a7c2fb14aa46c401afb7f01ba860",
+      "githubRunId": 43342157427,
+      "scheduledAt": "2026-11-13T01:04:52Z",
+      "startedAt": "2026-11-13T01:05:12.034631+00:00",
+      "sourceCheckedAt": "2026-11-13T01:05:14.046077+00:00",
+      "sourceUpdatedAt": "2026-11-13T01:05:14+00:00",
+      "completedAt": "2026-11-13T01:05:14.046461+00:00",
+      "publishedAt": "2026-11-13T09:06:46.951+08:00"
     },
     "executionStatus": {
       "collection": "success",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "候选窗口从 2026-11-11 已验证发布的 windowEnd 接续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重并排除 M&A 后，确认 1 个新融资候选。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "候选窗口从 2026-11-12 已验证发布的 windowEnd 接续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重并排除 M&A 后，确认 2 个新融资候选。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -118,68 +118,129 @@
       "crypto-fundraising-marble--2026-11--seed",
       "crypto-fundraising-alta-ex-metal--2026-11--series-a",
       "crypto-fundraising-deca-labs--2026-11--round-unknown",
-      "crypto-fundraising-index-industries--2026-11--seed"
+      "crypto-fundraising-index-industries--2026-11--seed",
+      "crypto-fundraising-seedify-fund--2026-11--public-sale",
+      "crypto-fundraising-griffin--2026-11--series-b"
     ],
     "counts": {
-      "new": 1,
+      "new": 2,
       "action": 0,
       "watch": 1,
-      "stop": 0
+      "stop": 1
     },
     "projects": [
       {
-        "event_id": "crypto-fundraising-index-industries--2026-11--seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/index-industries/",
-        "project_name": "Index Industries",
+        "event_id": "crypto-fundraising-seedify-fund--2026-11--public-sale",
+        "source_detail_url": "https://crypto-fundraising.info/projects/seedify-fund/",
+        "project_name": "vibe/vibe（原 Seedify）",
         "decision": "WATCH",
         "financing": {
-          "amount_usd": 50000000,
-          "round": "Seed",
-          "lead_investors": [
-            "Lightspeed Venture Partners"
-          ],
-          "announcement_date": "2026-11-10",
-          "confidence": "high"
+          "amount_usd": 300000,
+          "round": "Public sale",
+          "lead_investors": [],
+          "announcement_date": "2026-11-12",
+          "confidence": "medium"
         },
-        "plain_explanation": "把美国整体住房价格做成每天更新的指数，并为第三方发行与该指数挂钩的链上投资产品提供技术和资本市场基础设施。",
-        "mechanism_simple": "它汇总主要住房价格指数形成全国日度基准；独立发行方 USHP Limited 计划发行跟踪该指数的 USHP，让合格投资者用一种流动产品获得美国房价敞口。",
+        "plain_explanation": "由 Seedify 团队改名推进的 Robinhood Chain 代币发行与游戏生态，帮助创作者发行代币并把项目继续做成产品和社区。",
+        "mechanism_simple": "创作者通过平台的发行曲线启动代币，达到条件后进入流动性池；平台费用计划用于回购、销毁或奖励 VIBEVIBE 持有人。",
         "project_status": {
-          "category": "new_unlaunched",
-          "token_status": "no_token_found",
-          "note": "公司于 2026 年刚从隐身状态推出；Index Industries 本身未发现原生代币，首个 USHP 投资产品仍处计划发布阶段。"
+          "category": "renamed_existing",
+          "token_status": "token_announced",
+          "note": "这是 Seedify 的延续和改名项目；VIBEVIBE 已公布但尚未 TGE。11 月 12 日的公开销售尝试已取消，参与资金将退款，团队计划下周调整估值和募资额后重做。"
         },
         "participation": {
-          "available_now": false,
-          "what_user_can_do": null,
-          "requires_real_funds": true,
-          "friction_or_risk": "USHP 尚未正式开放；未来发行仅面向美国境外的合格非美国人士，并涉及真实资金、产品流动性、发行人和指数跟踪风险。"
+          "available_now": true,
+          "what_user_can_do": "可免费体验测试网或 Vibe Vibers 游戏；公开销售目前已暂停，不应继续转入资金。",
+          "requires_real_funds": false,
+          "friction_or_risk": "测试网已运行一段时间，新增参与者是否仍计入奖励尚未确认；未来销售需要真实资金和 KYC，且首次销售失败表明执行与条款仍不稳定。"
+        },
+        "incentives": {
+          "status": "confirmed",
+          "types": [
+            "testnet",
+            "campaign",
+            "token",
+            "airdrop"
+          ],
+          "details": "官方代币分配包含 5% 给测试网用户和建设者、25% 给 SPARK 持有人；但新参与者当前的快照和资格规则未确认。"
+        },
+        "why": [
+          "原生代币尚未上线，并存在明确的测试网和用户奖励分配，因此仍值得保留观察。",
+          "首次公开销售已取消并安排退款，团队将降低估值和募资额后重做，当前不适合投入资金。",
+          "项目是 Seedify 的延续而非全新项目，参与窗口已较晚，新增用户的奖励资格也不明确。"
+        ],
+        "next_step": null,
+        "recheck_trigger": "官方完成退款并公布下周重启销售的最终估值、募资额、审计、TGE 日期及测试网奖励快照规则后复查。",
+        "website_url": "https://vibevibe.fun/",
+        "x_url": "https://x.com/vibevibefun",
+        "evidence": [
+          {
+            "claim": "官方确认首次销售取消、次日退款，并计划下周以更低估值和募资额重做",
+            "url": "https://x.com/vibevibefun",
+            "source_type": "official_x",
+            "confidence": "high"
+          },
+          {
+            "claim": "VIBEVIBE 代币分配、公开销售参数、TGE 计划及测试网奖励配置",
+            "url": "https://x.com/vibevibefun",
+            "source_type": "official_x",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "event_id": "crypto-fundraising-griffin--2026-11--series-b",
+        "source_detail_url": "https://crypto-fundraising.info/projects/griffin/",
+        "project_name": "Griffin",
+        "decision": "STOP",
+        "financing": {
+          "amount_usd": 20000000,
+          "round": "Series B",
+          "lead_investors": [
+            "Octagon Partners"
+          ],
+          "announcement_date": "2026-11-12",
+          "confidence": "high"
+        },
+        "plain_explanation": "一家面向金融科技公司和平台的英国持牌银行，通过 API 提供账户、支付、合规和嵌入式银行能力。",
+        "mechanism_simple": "企业把 Griffin 的银行账户和支付接口嵌入自己的产品；新融资将用于增加发卡、稳定币储备服务和链上跨境支付能力。",
+        "project_status": {
+          "category": "existing_no_token",
+          "token_status": "no_token_found",
+          "note": "Griffin 2017 年成立，2024 年取得完整英国银行牌照；这是成熟的 B2B 银行基础设施公司，未发现原生代币。"
+        },
+        "participation": {
+          "available_now": true,
+          "what_user_can_do": "开发者可注册免费沙盒测试 API，但普通用户没有直接的链上产品或早期参与入口。",
+          "requires_real_funds": false,
+          "friction_or_risk": "真正上线需要企业集成、合规审核和商业合作；稳定币服务仍在开发。"
         },
         "incentives": {
           "status": "none_found",
           "types": [],
-          "details": "未发现官方 Points、测试网、空投或原生代币激励。"
+          "details": "未发现官方 Points、测试网奖励、空投或原生代币计划。"
         },
         "why": [
-          "把难以直接投资的美国整体住房价格变成可交易敞口，真实需求明确。",
-          "融资与团队信号强，但产品尚未正式开放，合格投资者限制和结构风险较高。",
-          "需要先看到发行、赎回、储备或托管、费用和流动性细则，当前不值得投入资金。"
+          "产品主要服务金融科技公司和平台，不是普通用户可直接参与的项目。",
+          "稳定币和链上支付能力仍处开发阶段，融资并未创造相关的个人早期参与机会。",
+          "免费开发者沙盒是企业集成工具，不构成值得持续跟踪的代币或奖励路径。"
         ],
         "next_step": null,
-        "recheck_trigger": "USHP 在 Ethereum 正式上线，并公布合格投资者条件、费用、赎回、托管或储备、流动性及独立审计或证明后复查。",
-        "website_url": "https://indexindustries.com/",
-        "x_url": "https://x.com/index_inds",
+        "recheck_trigger": null,
+        "website_url": "https://griffin.com/",
+        "x_url": "https://x.com/griffinbank",
         "evidence": [
           {
-            "claim": "5000 万美元种子轮由 Lightspeed 领投，以及 USHP Index、USHP 产品结构和发行限制",
-            "url": "https://www.prnewswire.com/news-releases/index-industries-raises-50-million-in-funding-to-reinvent-how-the-world-invests-in-real-estate-302935231.html",
+            "claim": "2000 万美元 Series B 由 Octagon Partners 领投，以及发卡、稳定币储备和链上支付用途",
+            "url": "https://griffin.com/blog/series-b-announcement",
             "source_type": "official_blog",
             "confidence": "high"
           },
           {
-            "claim": "Index Industries 当前无原生代币记录，首个 USHP 产品仍为计划状态",
-            "url": "https://cryptorank.io/price/index-industries",
-            "source_type": "database",
-            "confidence": "medium"
+            "claim": "Griffin 是受 PRA/FCA 监管的英国银行，并提供免费开发者沙盒",
+            "url": "https://griffin.com/company-facts",
+            "source_type": "official_site",
+            "confidence": "high"
           }
         ]
       }
