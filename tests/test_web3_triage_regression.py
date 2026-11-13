@@ -45,16 +45,18 @@ def test_skill_contains_core_safety_and_decision_contract():
         "confirmed live/tradable native token",
         "If `token_status` is `token_live`, the final decision must be `STOP`",
         "data/crypto-fundraising-history.json",
-        "previous working day's 14:00",
-        "previous Friday's 14:00",
+        "09:00 Asia/Shanghai",
+        "use its `windowEnd` as the new `windowStart`",
+        "exactly 24 hours before the current `windowEnd`",
         "event_id",
-        "今日新增融资项目",
-        "今日没有需要新增研究的融资项目",
+        "本次新观察到并完成初筛的融资项目",
+        "本次没有需要新增研究的融资项目",
         "Do not guess, silently fall back to old rules",
         "data/web3-daily-triage.json",
         "data/web3-daily-triage/archive/YYYY-MM-DD.json",
         "reportedEventIds",
-        "one atomic GitHub commit",
+        "atomically commits the byte-identical current and archive",
+        "Do not write either file directly or use a non-atomic fallback",
         "do not overwrite the last good",
     ):
         assert required in text
@@ -81,3 +83,4 @@ def test_evaluator_penalizes_false_stop_more_than_action_to_watch():
     evaluator = load_evaluator()
     assert evaluator.PENALTY[("ACTION", "STOP")] > evaluator.PENALTY[("ACTION", "WATCH")]
     assert evaluator.PENALTY[("WATCH", "STOP")] > evaluator.PENALTY[("WATCH", "ACTION")]
+
