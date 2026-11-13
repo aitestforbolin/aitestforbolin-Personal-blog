@@ -1,12 +1,32 @@
 {
-  "updated_at": "2026-11-12T01:03:15+00:00",
+  "updated_at": "2026-11-13T01:05:14+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-slop-cash",
+      "id": "crypto-fundraising-seedify-fund",
       "source_rank": 1,
+      "name": "vibe/vibe (ex Seedify)",
+      "round": "Public sale",
+      "announced_month": "2026-11",
+      "amount_usd": 300000,
+      "detail_url": "https://crypto-fundraising.info/projects/seedify-fund/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-griffin",
+      "source_rank": 2,
+      "name": "Griffin",
+      "round": "Series B",
+      "announced_month": "2026-11",
+      "amount_usd": 20000000,
+      "detail_url": "https://crypto-fundraising.info/projects/griffin/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-slop-cash",
+      "source_rank": 3,
       "name": "Slop Cash",
       "round": "Public sale",
       "announced_month": "2026-11",
@@ -16,7 +36,7 @@
     },
     {
       "id": "crypto-fundraising-marble",
-      "source_rank": 2,
+      "source_rank": 4,
       "name": "Marble",
       "round": "Seed",
       "announced_month": "2026-11",
@@ -26,46 +46,26 @@
     },
     {
       "id": "crypto-fundraising-alta-ex-metal",
-      "source_rank": 3,
+      "source_rank": 5,
       "name": "Alta (ex Metal)",
       "round": "Series A",
       "announced_month": "2026-11",
       "amount_usd": 47500000,
       "detail_url": "https://crypto-fundraising.info/projects/alta-ex-metal/",
       "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-index-industries",
-      "source_rank": 4,
-      "name": "Index Industries",
-      "round": "Seed",
-      "announced_month": "2026-11",
-      "amount_usd": 50000000,
-      "detail_url": "https://crypto-fundraising.info/projects/index-industries/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-river-one",
-      "source_rank": 5,
-      "name": "River One",
-      "round": "M&A",
-      "announced_month": "2026-11",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/river-one/",
-      "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261112-010225Z",
-    "requestId": "codex-web3-20261112-010225Z",
-    "triggerSha": "66db45342bd0ca73ffb803adf3bea5fa60c315eb",
-    "githubRunId": 43131746386,
-    "scheduledAt": "2026-11-12T01:02:25Z",
-    "startedAt": "2026-11-12T01:03:13.465849+00:00",
-    "sourceCheckedAt": "2026-11-12T01:03:15.206846+00:00",
-    "sourceUpdatedAt": "2026-11-12T01:03:15+00:00",
-    "completedAt": "2026-11-12T01:03:15.207231+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261113-010452Z",
+    "requestId": "codex-web3-20261113-010452Z",
+    "triggerSha": "b123f00ea001a7c2fb14aa46c401afb7f01ba860",
+    "githubRunId": 43342157427,
+    "scheduledAt": "2026-11-13T01:04:52Z",
+    "startedAt": "2026-11-13T01:05:12.034631+00:00",
+    "sourceCheckedAt": "2026-11-13T01:05:14.046077+00:00",
+    "sourceUpdatedAt": "2026-11-13T01:05:14+00:00",
+    "completedAt": "2026-11-13T01:05:14.046461+00:00",
     "publishedAt": null
   }
 }
