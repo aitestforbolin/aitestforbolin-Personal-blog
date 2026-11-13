@@ -424,9 +424,6 @@ h2 {
   padding-bottom: 17px;
   border-bottom: 1px solid rgba(24, 25, 22, 0.16);
 }
-
-.market-chart-card,
-.macro-market-card,
 .macro-calendar-panel,
 .tech-events-panel,
 .btc-etf-panel {
@@ -435,27 +432,14 @@ h2 {
   background: rgba(251, 250, 246, 0.94);
   box-shadow: none;
 }
-
-.market-chart-card,
 .macro-calendar-panel,
 .tech-events-panel,
 .btc-etf-panel {
   padding: 18px;
 }
-
-.market-chart-tab,
-.tech-event-filter,
 .tech-events-company-filter select {
   border-radius: 5px;
   background: transparent;
-}
-
-.market-chart-tab.is-active,
-.tech-event-filter.is-active,
-.tech-event-filter:hover {
-  border-color: var(--ink);
-  background: var(--ink);
-  color: var(--paper);
 }
 
 .market-link-button {
@@ -469,7 +453,6 @@ h2 {
 
 .market-asset-panel,
 .market-quote.prominent,
-.macro-market-item,
 .btc-etf-stat,
 .btc-etf-chart {
   border-color: rgba(24, 25, 22, 0.14);
@@ -651,7 +634,6 @@ h2 {
 }
 
 .market-quote strong,
-.macro-market-item strong,
 .macro-date,
 .tech-event-date,
 .btc-etf-stat strong {
@@ -1177,3 +1159,4 @@ select:focus-visible {
     font-weight: 700;
   }
 }
+

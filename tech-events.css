@@ -50,35 +50,6 @@
   padding-bottom: 14px;
   border-bottom: 1px solid rgba(117, 108, 97, 0.14);
 }
-
-.tech-events-category-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-}
-
-.tech-event-filter {
-  min-height: 34px;
-  border: 1px solid rgba(117, 108, 97, 0.22);
-  border-radius: 999px;
-  padding: 5px 12px;
-  background: rgba(255, 255, 255, 0.58);
-  color: var(--muted);
-  font: inherit;
-  font-size: 0.82rem;
-  font-weight: 800;
-  cursor: pointer;
-  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
-}
-
-.tech-event-filter:hover,
-.tech-event-filter.is-active {
-  border-color: var(--accent);
-  background: var(--accent);
-  color: #fffaf4;
-}
-
-.tech-event-filter:focus-visible,
 .tech-events-company-filter select:focus-visible,
 .tech-event-name:focus-visible,
 .tech-event-details a:focus-visible {
@@ -144,22 +115,6 @@
 
 .tech-event-earnings::before {
   background: #b86b4b;
-}
-
-.tech-event-operating_data::before {
-  background: #5d7b5a;
-}
-
-.tech-event-product_event::before {
-  background: #7b67a3;
-}
-
-.tech-event-investor_event::before {
-  background: #b48a2d;
-}
-
-.tech-event-regulatory_legal::before {
-  background: #58768d;
 }
 
 .tech-event-core {
@@ -332,10 +287,6 @@
     padding: 12px;
   }
 
-  .tech-event-filter {
-    flex: 1 1 calc(50% - 7px);
-  }
-
   .tech-event {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -352,3 +303,4 @@
     grid-column: 1 / -1;
   }
 }
+

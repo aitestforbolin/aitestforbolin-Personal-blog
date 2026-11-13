@@ -3,14 +3,6 @@
   const SHANGHAI_OFFSET = "+08:00";
   const DAY_MS = 86400000;
 
-  const CATEGORY_LABELS = {
-    earnings: "财报与指引",
-    operating_data: "经营数据",
-    product_event: "产品活动",
-    investor_event: "投资者日",
-    regulatory_legal: "监管法律",
-  };
-
   const CONFIRMATION_LABELS = {
     confirmed: "日期确认",
     guided: "官方窗口",
@@ -38,10 +30,8 @@
   const status = root.querySelector("[data-tech-events-status]");
   const updated = root.querySelector("[data-tech-events-updated]");
   const companySelect = root.querySelector("[data-tech-events-company]");
-  const categoryButtons = Array.from(root.querySelectorAll("[data-event-category]"));
 
   const state = {
-    category: "earnings",
     company: "all",
     companies: [],
     events: [],
@@ -137,7 +127,6 @@
 
   function filteredEvents() {
     return state.events
-      .filter((event) => state.category === "all" || event.event_category === state.category)
       .filter((event) => state.company === "all" || event.company_id === state.company)
       .sort((a, b) => {
         const first = `${eventStartDate(a)} ${a.time_bjt || "99:99"}`;
@@ -193,7 +182,7 @@
     const badges = document.createElement("div");
     badges.className = "tech-event-badges";
     badges.append(
-      createBadge(CATEGORY_LABELS[event.event_category] || "公司事件", "tech-event-category"),
+      createBadge("财报与指引", "tech-event-category"),
       createBadge(
         IMPORTANCE_LABELS[event.importance] || "重要",
         `tech-event-importance tech-event-importance-${event.importance}`
@@ -278,18 +267,6 @@
     }).format(date)}`;
   }
 
-  categoryButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      state.category = button.dataset.eventCategory;
-      categoryButtons.forEach((candidate) => {
-        const active = candidate === button;
-        candidate.classList.toggle("is-active", active);
-        candidate.setAttribute("aria-pressed", String(active));
-      });
-      render();
-    });
-  });
-
   companySelect.addEventListener("change", () => {
     state.company = companySelect.value;
     render();
@@ -315,4 +292,5 @@
       updated.textContent = "数据载入失败";
     });
 })();
+
 

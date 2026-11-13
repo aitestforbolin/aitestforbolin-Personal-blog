@@ -8,6 +8,7 @@ from copy import deepcopy
 from datetime import date, datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
+from unittest.mock import patch
 
 
 SCRIPT_PATH = Path(__file__).resolve().parents[1] / "scripts" / "update_tech_company_events.py"
@@ -98,6 +99,56 @@ class TechCompanyEventTests(unittest.TestCase):
         self.assertTrue(
             updater.within_horizon(event, date(2026, 7, 21), date(2026, 8, 25))
         )
+
+    def test_official_discovery_follows_earnings_and_ignores_product_events(self):
+        company = deepcopy(self.companies["nvidia"])
+        listing = "https://investor.nvidia.com/events"
+        company["discovery_urls"] = [listing]
+        pages = {
+            listing: '<a href="/earnings">NVIDIA FY2027 Third Quarter Financial Results</a><a href="/gtc">NVIDIA GTC</a>',
+            "https://investor.nvidia.com/earnings": '<p>NVIDIA will host a conference call on November 17, 2026 at 2:00 p.m. PT.</p>',
+        }
+        with patch.object(updater, "fetch_text", side_effect=lambda url: pages[url]) as fetch:
+            events = updater.discover_company_events(company, date(2026, 11, 13), date(2026, 12, 18))
+        self.assertEqual(fetch.call_count, 2)
+        self.assertEqual(len(events), 1)
+        self.assertEqual(events[0]["date_bjt"], "2026-11-18")
+        self.assertEqual(events[0]["time_bjt"], "06:00")
+        self.assertEqual(events[0]["event_category"], "earnings")
+
+    def test_announcement_timestamp_does_not_replace_the_call_time(self):
+        html = '''<time itemprop="datePublished" datetime="2026-11-13T08:00:00-06:00">Published November 13, 2026 at 8:00 a.m. CST</time>
+        <p>Dell will conduct a conference call on November 24, 2026 at 3:30 p.m. CST.</p>
+        <p>A replay is available until December 8, 2026.</p>'''
+        event = updater.build_discovered_event(self.companies["dell"], "Dell Third Quarter Financial Results", "https://investors.delltechnologies.com/news", html, date(2026, 11, 13), date(2026, 12, 18))
+        self.assertEqual((event["date_bjt"], event["time_bjt"]), ("2026-11-25", "05:30"))
+
+    def test_replay_deadline_alone_is_not_a_scheduled_earnings_date(self):
+        event = updater.build_discovered_event(self.companies["marvell"], "Q3 2027 Marvell Earnings Conference Call", "https://investor.marvell.com/event", '<p>A replay of the call is available until December 8, 2026.</p>', date(2026, 11, 13), date(2026, 12, 18))
+        self.assertIsNone(event)
+
+    def test_announcement_without_year_uses_the_event_window(self):
+        event = updater.build_discovered_event(self.companies["nvidia"], "NVIDIA Third Quarter Financial Results", "https://investor.nvidia.com/event", '<p>NVIDIA will host a conference call on November 17 at 2 p.m. PT.</p>', date(2026, 11, 13), date(2026, 12, 18))
+        self.assertEqual((event["date_bjt"], event["time_bjt"]), ("2026-11-18", "06:00"))
+
+    def test_first_beijing_day_can_be_the_previous_local_day(self):
+        event = updater.build_discovered_event(self.companies["nvidia"], "NVIDIA Financial Results", "https://investor.nvidia.com/event", '<p>NVIDIA will host a conference call on November 17, 2026 at 2 p.m. PT.</p>', date(2026, 11, 18), date(2026, 11, 18))
+        self.assertEqual(event["date_bjt"], "2026-11-18")
+
+    def test_offset_aware_event_time_keeps_its_explicit_timezone(self):
+        event = updater.build_discovered_event(self.companies["marvell"], "Marvell Earnings Call", "https://investor.marvell.com/event", '<time datetime="2026-12-01T17:30:00-05:00">Dec 1, 2026</time>', date(2026, 11, 13), date(2026, 12, 18))
+        self.assertEqual((event["date_bjt"], event["time_bjt"]), ("2026-12-02", "06:30"))
+
+    def test_date_only_us_guidance_does_not_guess_a_beijing_clock(self):
+        event = updater.build_discovered_event(self.companies["oracle"], "Oracle FY2027 Q2 Earnings", "https://investor.oracle.com/event", '<p>Oracle will announce earnings on December 14, 2026.</p>', date(2026, 11, 13), date(2026, 12, 18))
+        self.assertEqual(event["confirmation"], "guided")
+        self.assertEqual((event["window_start"], event["window_end"]), ("2026-12-14", "2026-12-15"))
+        self.assertIsNone(event["time_bjt"])
+        self.assertNotIn("date_bjt", event)
+
+    def test_script_text_is_not_used_as_event_evidence(self):
+        event = updater.build_discovered_event(self.companies["marvell"], "Marvell Earnings Call", "https://investor.marvell.com/event", '<script>will host a conference call on November 30, 2026 at 8 p.m. PT</script><p>Marvell will host a conference call on Dec 1, 2026 at 1:30 p.m. PT.</p>', date(2026, 11, 13), date(2026, 12, 18))
+        self.assertEqual((event["date_bjt"], event["time_bjt"]), ("2026-12-02", "05:30"))
 
     def test_date_change_preserves_previous_timing(self):
         previous = {
@@ -252,4 +303,5 @@ class TechCompanyEventTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
 

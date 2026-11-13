@@ -8,8 +8,8 @@ import json
 import re
 import sys
 from copy import deepcopy
-from datetime import date, datetime, time, timedelta, timezone
-from html import unescape
+from concurrent.futures import ThreadPoolExecutor
+from datetime import date, datetime, time, timedelta
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
@@ -27,7 +27,7 @@ SHANGHAI = ZoneInfo("Asia/Shanghai")
 DEFAULT_DAYS = 35
 REQUEST_TIMEOUT_SECONDS = 12
 MAX_RESPONSE_BYTES = 5_000_000
-MAX_DETAIL_PAGES_PER_SOURCE = 12
+MAX_DETAIL_PAGES_PER_SOURCE = 4
 NASDAQ_EARNINGS_URL = "https://api.nasdaq.com/api/calendar/earnings?date={day}"
 
 EVENT_CATEGORIES = {"earnings"}
@@ -38,10 +38,10 @@ STATUS_LEVELS = {"scheduled", "changed", "cancelled"}
 MONTH_PATTERN = (
     r"January|February|March|April|May|June|July|August|September|October|"
     r"November|December|Jan\.?|Feb\.?|Mar\.?|Apr\.?|Jun\.?|Jul\.?|Aug\.?|"
-    r"Sep\.?|Sept\.?|Oct\.?|Nov\.?|Dec\."
+    r"Sep\.?|Sept\.?|Oct\.?|Nov\.?|Dec\.?"
 )
 DATE_PATTERN = re.compile(
-    rf"\b(?P<month>{MONTH_PATTERN})\s+(?P<day>\d{{1,2}})(?:st|nd|rd|th)?[,]?\s+(?P<year>20\d{{2}})\b",
+    rf"\b(?P<month>{MONTH_PATTERN})\s+(?P<day>\d{{1,2}})(?:st|nd|rd|th)?(?:[,]?\s+(?P<year>20\d{{2}}))?\b",
     re.IGNORECASE,
 )
 NUMERIC_DATE_PATTERN = re.compile(r"\b(?P<month>\d{1,2})/(?P<day>\d{1,2})/(?P<year>20\d{2})\b")
@@ -52,53 +52,11 @@ TIME_PATTERN = re.compile(
     re.IGNORECASE,
 )
 
-MATERIAL_PATTERNS = [
-    re.compile(pattern, re.IGNORECASE)
-    for pattern in (
-        r"earnings",
-        r"financial results",
-        r"financial call",
-        r"quarterly results",
-        r"report.{0,50}(?:fiscal|first|second|third|fourth).{0,30}quarter.{0,30}results",
-        r"results conference call",
-        r"investor day",
-        r"analyst day",
-        r"capital markets day",
-        r"monthly sales",
-        r"monthly revenue",
-        r"production.{0,30}deliver",
-        r"deliveries.{0,30}deploy",
-        r"WWDC",
-        r"\bGTC\b",
-        r"Advancing AI",
-        r"Google I/O",
-        r"Cloud Next",
-        r"Microsoft Build",
-        r"Microsoft Ignite",
-        r"Meta Connect",
-        r"AWS re:Invent",
-        r"Made by Google",
-        r"Dreamforce",
-        r"antitrust",
-        r"regulatory decision",
-        r"court ruling",
-        r"merger approval",
-    )
-]
-
-PRODUCT_EVENT_NAMES = {
-    "advancing ai": "AMD Advancing AI",
-    "wwdc": "Apple WWDC",
-    "google i/o": "Google I/O",
-    "cloud next": "Google Cloud Next",
-    "microsoft build": "Microsoft Build",
-    "microsoft ignite": "Microsoft Ignite",
-    "meta connect": "Meta Connect",
-    "aws re:invent": "AWS re:Invent",
-    "made by google": "Made by Google",
-    "dreamforce": "Salesforce Dreamforce",
-    "gtc": "NVIDIA GTC",
-}
+EARNINGS_PATTERN = re.compile(
+    r"earnings|financial results|financial call|quarterly results|results conference call|"
+    r"report.{0,50}(?:fiscal|first|second|third|fourth).{0,30}quarter.{0,30}results",
+    re.IGNORECASE,
+)
 
 TIMEZONE_ALIASES = {
     "pacific time": "America/Los_Angeles",
@@ -126,20 +84,27 @@ class PageParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
         self.links: List[Tuple[str, str]] = []
-        self.time_values: List[str] = []
+        self.time_values: List[Tuple[str, int, str]] = []
+        self._hidden_depth = 0
         self.text_parts: List[str] = []
         self._href: Optional[str] = None
         self._anchor_parts: List[str] = []
 
     def handle_starttag(self, tag: str, attrs: Sequence[Tuple[str, Optional[str]]]) -> None:
         attributes = dict(attrs)
+        if tag.lower() in {"script", "style", "noscript"}:
+            self._hidden_depth += 1
+        if self._hidden_depth:
+            return
         if tag.lower() == "a":
             self._href = attributes.get("href")
             self._anchor_parts = []
         if tag.lower() == "time" and attributes.get("datetime"):
-            self.time_values.append(str(attributes["datetime"]))
+            self.time_values.append((str(attributes["datetime"]), sum(len(part) + 1 for part in self.text_parts), str(attributes.get("itemprop") or "")))
 
     def handle_data(self, data: str) -> None:
+        if self._hidden_depth:
+            return
         text = " ".join(data.split())
         if not text:
             return
@@ -148,6 +113,11 @@ class PageParser(HTMLParser):
             self._anchor_parts.append(text)
 
     def handle_endtag(self, tag: str) -> None:
+        if tag.lower() in {"script", "style", "noscript"}:
+            self._hidden_depth = max(0, self._hidden_depth - 1)
+            return
+        if self._hidden_depth:
+            return
         if tag.lower() != "a" or self._href is None:
             return
         self.links.append((self._href, " ".join(self._anchor_parts).strip()))
@@ -181,16 +151,10 @@ def parse_page(html: str) -> PageParser:
     return parser
 
 
-def visible_text(html: str) -> str:
-    parser = parse_page(html)
-    return " ".join(parser.text_parts)
 
 
 def is_material_title(title: str) -> bool:
-    normalized = " ".join(title.split())
-    if not normalized:
-        return False
-    return any(pattern.search(normalized) for pattern in MATERIAL_PATTERNS)
+    return bool(EARNINGS_PATTERN.search(" ".join(title.split())))
 
 
 def normalize_domain(value: str) -> str:
@@ -245,15 +209,11 @@ def parse_iso_datetime(value: str, default_timezone: str) -> Optional[datetime]:
     return parsed
 
 
-def natural_date_candidates(text: str) -> List[Tuple[date, int]]:
+def natural_date_candidates(text: str, year: int) -> List[Tuple[date, int]]:
     candidates: List[Tuple[date, int]] = []
     for match in DATE_PATTERN.finditer(text):
         try:
-            day = date(
-                int(match.group("year")),
-                month_number(match.group("month")),
-                int(match.group("day")),
-            )
+            day = date(int(match.group("year") or year), month_number(match.group("month")), int(match.group("day")))
         except ValueError:
             continue
         candidates.append((day, match.start()))
@@ -263,31 +223,44 @@ def natural_date_candidates(text: str) -> List[Tuple[date, int]]:
         except ValueError:
             continue
         candidates.append((day, match.start()))
-    return sorted(candidates, key=lambda item: item[1])
+    return sorted(set(candidates), key=lambda item: item[1])
 
 
 def select_event_date(
-    parser: PageParser,
-    text: str,
-    default_timezone: str,
-    start: date,
-    end: date,
+    parser: PageParser, text: str, default_timezone: str, start: date, end: date
 ) -> Tuple[Optional[date], Optional[datetime], int]:
-    for raw_value in parser.time_values:
+    """Use explicit event dates; never substitute a publication or replay date."""
+    negative = re.compile(r"(?:replay|available until|archiv|published|posted|released|quarter.{0,25}end)[^.]{0,70}$", re.I)
+    positive = re.compile(
+        r"(?:will|to)\s+(?:report|announce|release|hold|host|conduct).{0,180}|"
+        r"(?:conference call|webcast).{0,100}(?:on|begin|take place|held).{0,40}|"
+        r"(?:date|when)\s*:\s*.{0,25}$", re.I,
+    )
+    for year in sorted({start.year, end.year}):
+        for day, position in natural_date_candidates(text, year):
+            if not start - timedelta(days=1) <= day <= end:
+                continue
+            before = text[max(0, position - 200):position]
+            if not negative.search(before) and positive.search(before):
+                return day, None, position
+    for raw_value, position, kind in parser.time_values:
+        if kind.lower() in {"datepublished", "datemodified"}:
+            continue
         parsed = parse_iso_datetime(raw_value, default_timezone)
-        if parsed and start <= parsed.date() <= end:
-            position = text.find(str(parsed.year))
-            return parsed.date(), parsed, max(position, 0)
-
-    for day, position in natural_date_candidates(text):
-        if start <= day <= end:
-            return day, None, position
+        if parsed and (parsed.hour or parsed.minute) and start - timedelta(days=1) <= parsed.date() <= end:
+            before = text[max(0, position - 100):position]
+            if not negative.search(before):
+                return parsed.date(), parsed, position
     return None, None, 0
 
 
 def time_from_context(text: str, position: int, default_timezone: str) -> Tuple[Optional[time], str]:
-    context = text[max(0, position - 80) : position + 430]
+    context = text[position : position + 350]
     match = TIME_PATTERN.search(context)
+    if not match:
+        before = text[max(0, position - 100) : position]
+        if not re.search(r"published|posted|released|replay", before, re.I):
+            match = TIME_PATTERN.search(before)
     if not match:
         return None, default_timezone
 
@@ -300,26 +273,14 @@ def time_from_context(text: str, position: int, default_timezone: str) -> Tuple[
         hour = 0
     zone_text = (match.group("zone") or "").lower()
     zone_name = TIMEZONE_ALIASES.get(zone_text, default_timezone)
+    if not 0 <= hour < 24 or not 0 <= minute < 60:
+        return None, default_timezone
     return time(hour, minute), zone_name
 
 
 def classify_event(title: str, body: str = "") -> Optional[str]:
-    text = f"{title} {body[:600]}".lower()
-    if re.search(
-        r"earnings|financial results|financial call|quarterly results|results conference call|"
-        r"report.{0,50}(?:fiscal|first|second|third|fourth).{0,30}quarter.{0,30}results",
-        text,
-    ):
-        return "earnings"
-    if re.search(r"monthly sales|monthly revenue|production.{0,40}deliver|deliveries.{0,40}deploy", text):
-        return "operating_data"
-    if any(key in text for key in PRODUCT_EVENT_NAMES):
-        return "product_event"
-    if re.search(r"investor day|analyst day|capital markets day", text):
-        return "investor_event"
-    if re.search(r"antitrust|regulatory decision|court ruling|merger approval|appeal hearing", text):
-        return "regulatory_legal"
-    return None
+    # A product page mentioning earnings elsewhere is not an earnings event.
+    return "earnings" if is_material_title(title) else None
 
 
 def extract_reported_period(text: str) -> Tuple[str, str]:
@@ -376,56 +337,14 @@ def extract_reported_period(text: str) -> Tuple[str, str]:
     return "", "upcoming"
 
 
-def product_name(title: str, year: int) -> Tuple[str, str]:
-    lowered = title.lower()
-    for key, display in PRODUCT_EVENT_NAMES.items():
-        if key in lowered:
-            year_suffix = "" if str(year) in display else f" {year}"
-            return f"{display}{year_suffix}", re.sub(r"[^a-z0-9]+", "-", key).strip("-")
-    cleaned = " ".join(title.split())
-    return cleaned, re.sub(r"[^a-z0-9]+", "-", cleaned.lower()).strip("-")[:50]
 
 
 def event_identity_and_name(
-    company: Dict[str, Any], category: str, title: str, body: str, event_day: date
+    company: Dict[str, Any], title: str, body: str, event_day: date
 ) -> Tuple[str, str, str]:
-    if category == "earnings":
-        period, period_slug = extract_reported_period(f"{title} {body[:900]}")
-        if period:
-            match = re.match(r"(?P<fiscal>FY)?(?P<year>20\d{2}) Q(?P<quarter>[1-4])", period)
-            if match:
-                fiscal_text = " 财年" if match.group("fiscal") else " 年"
-                period_zh = f"{match.group('year')}{fiscal_text}第{match.group('quarter')}季度"
-            else:
-                period_zh = period
-            name = f"{company['name']} {period_zh}财报与电话会"
-        else:
-            name = f"{company['name']} 财报与电话会"
-        return f"{company['id']}-earnings-{period_slug}", name, period
-
-    if category == "operating_data":
-        period, period_slug = extract_reported_period(f"{title} {body[:500]}")
-        if "monthly" in title.lower():
-            month_match = re.search(rf"({MONTH_PATTERN})\s+(20\d{{2}})", title, re.IGNORECASE)
-            if month_match:
-                month = month_number(month_match.group(1))
-                year = int(month_match.group(2))
-                period = f"{year}-{month:02d}"
-                period_slug = period
-            name = f"{company['name']} {period.replace('-', ' 年 ', 1)} 月度营收" if period else f"{company['name']} 月度经营数据"
-        else:
-            name = f"{company['name']} 季度产量、交付与部署数据"
-        return f"{company['id']}-operating-{period_slug}", name, period
-
-    if category == "product_event":
-        name, slug = product_name(title, event_day.year)
-        return f"{company['id']}-product-{slug}-{event_day.year}", name, ""
-
-    if category == "investor_event":
-        return f"{company['id']}-investor-day-{event_day.year}", f"{company['name']} 投资者日", ""
-
-    slug = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")[:48]
-    return f"{company['id']}-regulatory-{slug}-{event_day.year}", " ".join(title.split()), ""
+    period, slug = extract_reported_period(f"{title} {body[:1200]}")
+    name = f"{company['name']} {period} 财报与电话会" if period else f"{company['name']} 财报与电话会"
+    return f"{company['id']}-earnings-{slug}", name, period
 
 
 def market_timing(text: str, exact_time: Optional[time]) -> str:
@@ -471,7 +390,7 @@ def build_discovered_event(
         timezone_name = company["default_timezone"]
 
     event_id, event_name, reported_period = event_identity_and_name(
-        company, category, title, text, event_day
+        company, title, text, event_day
     )
     event: Dict[str, Any] = {
         "event_id": event_id,
@@ -479,7 +398,7 @@ def build_discovered_event(
         "event_category": category,
         "event_name": event_name,
         "reported_period": reported_period,
-        "importance": "core" if category != "regulatory_legal" else "important",
+        "importance": "core",
         "status": "scheduled",
         "confirmation": "confirmed",
         "date_type": "exact",
@@ -494,60 +413,32 @@ def build_discovered_event(
     }
 
     if exact_time:
-        local_dt = datetime.combine(event_day, exact_time, ZoneInfo(timezone_name))
+        local_zone = machine_datetime.tzinfo if machine_datetime and not context_time else ZoneInfo(timezone_name)
+        local_dt = datetime.combine(event_day, exact_time, local_zone)
         shanghai_dt = local_dt.astimezone(SHANGHAI)
         event["start_at"] = shanghai_dt.isoformat(timespec="seconds")
         event["date_bjt"] = shanghai_dt.date().isoformat()
         event["time_bjt"] = shanghai_dt.strftime("%H:%M")
         event["original_time"] = f"{event_day.isoformat()} {exact_time.strftime('%H:%M')} {timezone_name}"
+    else:
+        first = datetime.combine(event_day, time.min, ZoneInfo(timezone_name)).astimezone(SHANGHAI).date()
+        last = datetime.combine(event_day, time.max, ZoneInfo(timezone_name)).astimezone(SHANGHAI).date()
+        if first != last:
+            event.update(date_type="window", confirmation="guided", window_start=first.isoformat(), window_end=last.isoformat())
+            event.pop("date_bjt", None)
+        else:
+            event["date_bjt"] = first.isoformat()
+    if not within_horizon(event, start, end):
+        return None
     return event
 
 
-def discover_tsmc(company: Dict[str, Any], html: str, start: date, end: date) -> List[Dict[str, Any]]:
-    text = visible_text(html)
-    events: List[Dict[str, Any]] = []
-    pattern = re.compile(
-        r"(?P<timestamp>20\d{2}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}).{0,160}?"
-        r"TSMC Monthly Sales\s*-\s*(?P<month>[A-Za-z]+)\s+(?P<year>20\d{2})",
-        re.IGNORECASE,
-    )
-    for match in pattern.finditer(text):
-        local_dt = datetime.strptime(match.group("timestamp"), "%Y-%m-%d %H:%M:%S").replace(
-            tzinfo=ZoneInfo("Asia/Taipei")
-        )
-        if not start <= local_dt.date() <= end:
-            continue
-        shanghai_dt = local_dt.astimezone(SHANGHAI)
-        month = month_number(match.group("month"))
-        period = f"{match.group('year')}-{month:02d}"
-        events.append(
-            {
-                "event_id": f"tsmc-operating-{period}-monthly-sales",
-                "company_id": "tsmc",
-                "event_category": "operating_data",
-                "event_name": f"TSMC {match.group('year')} 年 {month} 月月度营收",
-                "reported_period": period,
-                "importance": "core",
-                "status": "scheduled",
-                "confirmation": "confirmed",
-                "date_type": "exact",
-                "start_at": shanghai_dt.isoformat(timespec="seconds"),
-                "date_bjt": shanghai_dt.date().isoformat(),
-                "time_bjt": shanghai_dt.strftime("%H:%M"),
-                "market_timing": "scheduled_time",
-                "original_time": f"{local_dt.strftime('%Y-%m-%d %H:%M')} Asia/Taipei",
-                "original_timezone": "Asia/Taipei",
-                "source_label": company["source_label"],
-                "source_url": "https://investor.tsmc.com/english/financial-calendar",
-                "source_published_at": None,
-            }
-        )
-    return events
 
 
 def discover_company_events(
     company: Dict[str, Any], start: date, end: date, source_health: Optional[Dict[str, int]] = None
 ) -> List[Dict[str, Any]]:
+    """Follow only dedicated earnings links on the company's official IR pages."""
     events: List[Dict[str, Any]] = []
     seen_urls = set()
     for discovery_url in company["discovery_urls"]:
@@ -562,40 +453,25 @@ def discover_company_events(
             continue
         if source_health is not None:
             source_health["successful"] += 1
-
-        if company["id"] == "tsmc":
-            events.extend(discover_tsmc(company, html, start, end))
-
-        parser = parse_page(html)
-        source_event = build_discovered_event(
-            company, company["name"], discovery_url, html, start, end
-        )
-        if source_event and source_event["event_category"] != "earnings":
-            events.append(source_event)
         detail_pages_checked = 0
-        for href, title in parser.links:
-            if not href or not is_material_title(title):
-                continue
-            if classify_event(title) == "earnings":
+        for href, title in parse_page(html).links:
+            if not href or not is_material_title(title) or re.search(r"replay|transcript|presentation", title, re.I):
                 continue
             event_url = urljoin(discovery_url, href)
             if event_url in seen_urls or not domain_allowed(event_url, company["allowed_domains"]):
                 continue
-            seen_urls.add(event_url)
+            if urlparse(event_url).path.lower().endswith((".pdf", ".ics")):
+                continue
             if detail_pages_checked >= MAX_DETAIL_PAGES_PER_SOURCE:
-                print(
-                    f"warning: capped detail checks for {discovery_url} at "
-                    f"{MAX_DETAIL_PAGES_PER_SOURCE}",
-                    file=sys.stderr,
-                )
                 break
+            seen_urls.add(event_url)
             detail_pages_checked += 1
             try:
                 detail_html = fetch_text(event_url)
+                event = build_discovered_event(company, title, event_url, detail_html, start, end)
             except (HTTPError, URLError, TimeoutError, OSError) as exc:
-                print(f"warning: could not read event {event_url}: {exc}", file=sys.stderr)
+                print(f"warning: could not read earnings {event_url}: {exc}", file=sys.stderr)
                 continue
-            event = build_discovered_event(company, title, event_url, detail_html, start, end)
             if event:
                 events.append(event)
     return events
@@ -664,52 +540,6 @@ def discover_earnings_calendar_events(config: Dict[str, Any], companies: Sequenc
     return events
 
 
-def discover_regulatory_events(
-    config: Dict[str, Any],
-    companies: Sequence[Dict[str, Any]],
-    start: date,
-    end: date,
-    source_health: Optional[Dict[str, int]] = None,
-) -> List[Dict[str, Any]]:
-    events: List[Dict[str, Any]] = []
-    allowed_domains = config.get("regulator_allowed_domains", [])
-    for source_url in config.get("regulator_sources", []):
-        if source_health is not None:
-            source_health["checked"] += 1
-        try:
-            html = fetch_text(source_url)
-        except (HTTPError, URLError, TimeoutError, OSError) as exc:
-            if source_health is not None:
-                source_health["failed"] += 1
-            print(f"warning: could not check regulator source {source_url}: {exc}", file=sys.stderr)
-            continue
-        if source_health is not None:
-            source_health["successful"] += 1
-        parser = parse_page(html)
-        for href, title in parser.links:
-            lowered = title.lower()
-            company = next(
-                (
-                    item
-                    for item in companies
-                    if item["name"].lower() in lowered or item["ticker"].lower() in lowered
-                ),
-                None,
-            )
-            if not company or classify_event(title) != "regulatory_legal":
-                continue
-            event_url = urljoin(source_url, href)
-            if not domain_allowed(event_url, allowed_domains):
-                continue
-            try:
-                detail_html = fetch_text(event_url)
-            except (HTTPError, URLError, TimeoutError, OSError):
-                continue
-            event = build_discovered_event(company, title, event_url, detail_html, start, end)
-            if event:
-                event["source_label"] = normalize_domain(source_url)
-                events.append(event)
-    return events
 
 
 def timing_signature(event: Dict[str, Any]) -> Tuple[Any, ...]:
@@ -854,7 +684,6 @@ def all_allowed_domains(config: Dict[str, Any]) -> List[str]:
     domains: List[str] = []
     for company in config["companies"]:
         domains.extend(company.get("allowed_domains", []))
-    domains.extend(config.get("regulator_allowed_domains", []))
     domains.extend(config.get("earnings_calendar", {}).get("allowed_domains", []))
     return sorted(set(domains))
 
@@ -1001,15 +830,24 @@ def main() -> int:
     source_health = {"checked": 0, "successful": 0, "failed": 0}
     if not args.offline:
         end = start + timedelta(days=args.days)
-        for company in config["companies"]:
-            discovered.extend(discover_company_events(company, start, end, source_health))
+        def check_company(company):
+            health = {"checked": 0, "successful": 0, "failed": 0}
+            return discover_company_events(company, start, end, health), health
+
+        with ThreadPoolExecutor(max_workers=6) as pool:
+            for company_events, health in pool.map(check_company, config["companies"]):
+                discovered.extend(company_events)
+                for key in source_health:
+                    source_health[key] += health[key]
+        nasdaq_ok = False
         try:
             discovered.extend(discover_earnings_calendar_events(config, config["companies"], start, end))
+            nasdaq_ok = True
             print("Nasdaq earnings calendar check succeeded")
         except OSError as exc:
             print(f"warning: {exc}; retaining last-known-good earnings events", file=sys.stderr)
-        if source_health["successful"] == 0:
-            print("error: every configured official source failed", file=sys.stderr)
+        if source_health["successful"] == 0 and not nasdaq_ok:
+            print("error: all earnings sources failed; preserving published data", file=sys.stderr)
             return 1
         print(
             "official source checks: "
@@ -1042,4 +880,5 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
 

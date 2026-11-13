@@ -34,8 +34,8 @@ class RunWatchdogTests(unittest.TestCase):
         self.assertIn("09:25", workflow)
         self.assertIn("Enforce automatic X publication cutoff", workflow)
         self.assertIn("There are no 10:00 or 11:00 scheduled retries", skill)
-        self.assertIn("same 08:30 production run", skill)
-        self.assertIn("Record recoverable packet status", skill)
+        self.assertIn("same scheduled GPT run", skill)
+        self.assertIn("Do not use a temporary failure-status commit", skill)
         self.assertIn("Finalize early market briefing status", skill)
 
     def test_keeps_valid_status_for_today(self):
@@ -138,3 +138,4 @@ class RunWatchdogTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

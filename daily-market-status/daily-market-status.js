@@ -841,102 +841,8 @@
     return lines.join("\n");
   }
 
-  const X_POST_WEIGHT_LIMIT = 260;
-  const X_POST_SEPARATOR = "\n\n──────────\n\n";
-
-  function xCharacterWeight(character) {
-    const codePoint = character.codePointAt(0);
-    return codePoint <= 0x10ff ||
-      (codePoint >= 0x2000 && codePoint <= 0x200d) ||
-      (codePoint >= 0x2010 && codePoint <= 0x201f) ||
-      (codePoint >= 0x2032 && codePoint <= 0x2037)
-      ? 1
-      : 2;
-  }
-
-  function xWeightedLength(text) {
-    return Array.from(String(text)).reduce(
-      (total, character) => total + xCharacterWeight(character),
-      0
-    );
-  }
-
-  function splitXText(text, limit) {
-    const source = String(text || "").replace(/\s+/g, " ").trim();
-    if (!source) return [];
-    if (xWeightedLength(source) <= limit) return [source];
-
-    const sentences = source.match(/[^。！？；.!?;]+[。！？；.!?;]?/g) || [source];
-    const chunks = [];
-    let current = "";
-    const pushCurrent = () => {
-      if (current.trim()) chunks.push(current.trim());
-      current = "";
-    };
-
-    sentences.forEach((sentence) => {
-      const candidate = current ? current + sentence : sentence;
-      if (xWeightedLength(candidate) <= limit) {
-        current = candidate;
-        return;
-      }
-      pushCurrent();
-      let fragment = "";
-      Array.from(sentence).forEach((character) => {
-        if (xWeightedLength(fragment + character) > limit) {
-          if (fragment.trim()) chunks.push(fragment.trim());
-          fragment = character;
-        } else {
-          fragment += character;
-        }
-      });
-      current = fragment;
-    });
-    pushCurrent();
-    return chunks;
-  }
-
-  function splitXBlock(text, limit) {
-    const chunks = [];
-    let current = "";
-    String(text || "").split("\n").forEach((line) => {
-      const candidate = current ? current + "\n" + line : line;
-      if (xWeightedLength(candidate) <= limit) {
-        current = candidate;
-        return;
-      }
-      if (current.trim()) chunks.push(current.trim());
-      const pieces = splitXText(line, limit);
-      chunks.push(...pieces.slice(0, -1));
-      current = pieces.at(-1) || "";
-    });
-    if (current.trim()) chunks.push(current.trim());
-    return chunks;
-  }
-
-  function packXBlocks(blocks) {
-    const posts = [];
-    let current = "";
-    blocks.filter(Boolean).forEach((block) => {
-      const normalized = String(block).trim();
-      if (!normalized) return;
-      const candidate = current ? current + "\n\n" + normalized : normalized;
-      if (xWeightedLength(candidate) <= X_POST_WEIGHT_LIMIT) {
-        current = candidate;
-        return;
-      }
-      if (current) posts.push(current);
-      const pieces = splitXBlock(normalized, X_POST_WEIGHT_LIMIT);
-      posts.push(...pieces.slice(0, -1));
-      current = pieces.at(-1) || "";
-    });
-    if (current) posts.push(current);
-    return posts;
-  }
-
-  function buildXThreadText() {
+  function buildXLongPost() {
     if (!snapshot) throw new Error("Snapshot is not ready");
-    const blocks = [];
     const title = "每日市场早报｜" + formatBriefingDate();
     const indexLines = indexConfig.map(([id, label]) =>
       "• " + label + "：" + formatDocumentPercent(marketMap.get(id)?.changePercent)
@@ -953,18 +859,6 @@
         formatNumber(item.unchanged, 0) + "｜" +
         (percent === null ? "上涨比例待核验" : formatNumber(percent, 1) + "%上涨");
     }).filter(Boolean);
-    blocks.push(
-      title + "\n\n01｜美股\n\n▍三大核心指数\n" + indexLines.join("\n") +
-      "\n\n▍市场宽度\n" + breadthLines.join("\n") +
-      "\n\n▍细分板块如下"
-    );
-
-    const drivers = sortedDrivers()
-      .slice(0, 8)
-      .map((item) => "• " + item.name + "（" + item.ticker + "）：" +
-        formatDocumentPercent(item.changePercent));
-    if (drivers.length) blocks.push("01｜核心个股驱动\n\n" + drivers.join("\n"));
-
     const comparisons = new Map(macroConfig.map(([id]) => {
       const comparison = anchorComparison(id, marketMap.get(id));
       return [id, {
@@ -975,10 +869,7 @@
       }];
     }));
     const fed = snapshot.fedProbability || {};
-    // Keep the entire macro block in one X Post. Eight separate bullet lines are
-    // easily split by the weighted-character limit, which used to leave BTC alone
-    // in the next post. The X-specific presentation is deliberately compact, while
-    // the full "复制正文" version above remains unchanged.
+    // Long-post formatting is centralized in x-copy.js; body copy keeps its full layout.
     const compactXAssetLine = (label, comparison, decimals, suffix) =>
       String(comparison.status || "").includes("休市")
         ? `—${label} 官方${formatNumber(comparison.current, decimals)}${suffix}（${comparison.status}）`
@@ -1000,45 +891,21 @@
       goldAssetLine(comparisons.get("GOLD"), true),
       compactXAssetLine("BTC", comparisons.get("BTCUSDT"), 0, ""),
     ];
-    const compactMacroLines = [];
-    for (let index = 0; index < macroLines.length; index += 2) {
-      compactMacroLines.push(macroLines.slice(index, index + 2).join("｜"));
-    }
-    blocks.push(
-      "02｜宏观资产数据（美股交易时段变化）\n\n" +
-        compactMacroLines.join("\n")
-    );
-
-    const eventGroups = new Map();
-    visibleEvents().forEach((item) => {
-      const day = formatDocumentEventDay(item.startAt);
-      if (!eventGroups.has(day)) eventGroups.set(day, []);
-      eventGroups.get(day).push(item);
+    return window.BolinXCopy.build({
+      title,
+      indexLines,
+      breadthLines,
+      drivers: sortedDrivers().slice(0, 8).map((item) => ({
+        name: item.name,
+        ticker: item.ticker,
+        change: formatDocumentPercent(item.changePercent),
+        reason: item.reason,
+      })),
+      macroLines,
+      events: visibleEvents(),
+      view: (snapshot.view || []).slice(0, 10),
+      verdict: snapshot.verdict,
     });
-    const eventBlocks = [];
-    Array.from(eventGroups.entries()).slice(0, 3).forEach(([day, items]) => {
-      const lines = [day];
-      items.forEach((item) => {
-        lines.push("• " + formatEventTime(item.startAt) + "｜" + item.name);
-        const impact = String(item.impact || "")
-          .replace(/^主要影响：?\s*/, "")
-          .replace("Fed加息概率、美元、美债收益率与成长股估值", "加息概率、美元、美债与成长股")
-          .replace("消费韧性、增长预期与周期股", "消费、增长与周期股");
-        if (impact) lines.push("影响：" + impact);
-      });
-      eventBlocks.push(lines.join("\n"));
-    });
-    if (eventBlocks.length) blocks.push("03｜日历、事件及其影响\n\n" + eventBlocks.join("\n\n"));
-
-    if (snapshot.verdict) {
-      blocks.push("04｜看法和观点\n\n" +
-        String(snapshot.verdict).replace(/^[—–-]\s*/, ""));
-    }
-
-    const posts = packXBlocks(blocks);
-    const total = posts.length;
-    return posts.map((post, index) => post + "\n\n" + (index + 1) + "/" + total)
-      .join(X_POST_SEPARATOR);
   }
 
   function setCopyStatus(message, level) {
@@ -1053,65 +920,6 @@
     }, level === "error" ? 5000 : 2400);
   }
 
-  function fallbackCopy(text) {
-    const textarea = document.createElement("textarea");
-    const activeElement = document.activeElement;
-    textarea.value = text;
-    textarea.setAttribute("readonly", "");
-    textarea.setAttribute("aria-hidden", "true");
-    textarea.style.position = "fixed";
-    textarea.style.left = "-9999px";
-    textarea.style.top = "0";
-    document.body.appendChild(textarea);
-    textarea.focus();
-    textarea.select();
-    textarea.setSelectionRange(0, textarea.value.length);
-    let copied = false;
-    try {
-      copied = document.execCommand("copy");
-    } finally {
-      textarea.remove();
-      if (activeElement && typeof activeElement.focus === "function") {
-        activeElement.focus();
-      }
-    }
-    if (!copied) throw new Error("Fallback copy failed");
-  }
-
-  async function copyDocumentBody(text) {
-    let nativeWrite = null;
-    let fallbackSucceeded = false;
-    let fallbackError = null;
-
-    if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
-      try {
-        nativeWrite = navigator.clipboard.writeText(text);
-      } catch (error) {
-        nativeWrite = null;
-      }
-    }
-
-    try {
-      fallbackCopy(text);
-      fallbackSucceeded = true;
-    } catch (error) {
-      fallbackError = error;
-    }
-
-    if (nativeWrite) {
-      try {
-        await nativeWrite;
-        return;
-      } catch (error) {
-        if (fallbackSucceeded) return;
-        throw fallbackError || error;
-      }
-    }
-
-    if (fallbackSucceeded) return;
-    throw fallbackError || new Error("Clipboard copy failed");
-  }
-
   async function handleCopyBody() {
     const button = root.querySelector("[data-copy-body]");
     if (!button || button.disabled) return;
@@ -1119,7 +927,7 @@
     try {
       const text = buildDocumentCopyText();
       button.copyPayload = text;
-      await copyDocumentBody(text);
+      await window.BolinXCopy.copy(text);
       setCopyStatus("已复制", "success");
     } catch (error) {
       setCopyStatus("复制失败，请手动选择", "error");
@@ -1134,13 +942,12 @@
     if (!button || button.disabled) return;
     button.disabled = true;
     try {
-      const text = buildXThreadText();
+      const text = buildXLongPost();
       button.copyPayload = text;
-      await copyDocumentBody(text);
-      const count = text.split(X_POST_SEPARATOR).length;
-      setCopyStatus("已复制 " + count + " 条 X Post", "success");
+      await window.BolinXCopy.copy(text);
+      setCopyStatus("已复制 1 篇 X 长帖", "success");
     } catch (error) {
-      setCopyStatus("X 串文复制失败，请稍后重试", "error");
+      setCopyStatus("X 长帖复制失败，请稍后重试", "error");
     } finally {
       button.disabled = false;
       button.focus();
@@ -1548,4 +1355,5 @@
       root.querySelector("[data-page-state]").textContent = "载入失败";
     });
 })();
+
 
