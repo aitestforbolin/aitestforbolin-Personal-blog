@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-11T02:45:16+08:00",
-  "asOf": "2026-11-10",
+  "generatedAt": "2026-11-14T00:41:04+08:00",
+  "asOf": "2026-11-13",
   "title": "美国宏观核心数据",
   "summary": [
     {
@@ -45,7 +45,7 @@
           "title": "CPI",
           "period": null,
           "releaseDate": "2026-11-10",
-          "updatedAt": "2026-11-11T02:45:16+08:00",
+          "updatedAt": "2026-11-14T00:41:04+08:00",
           "source": "Forex Factory",
           "sourceUrl": "https://www.forexfactory.com/calendar?day=nov10.2026",
           "rows": [
@@ -69,7 +69,7 @@
           "title": "Core CPI",
           "period": null,
           "releaseDate": "2026-11-10",
-          "updatedAt": "2026-11-11T02:45:16+08:00",
+          "updatedAt": "2026-11-14T00:41:04+08:00",
           "source": "Forex Factory",
           "sourceUrl": "https://www.forexfactory.com/calendar?day=nov10.2026",
           "rows": [
@@ -92,16 +92,16 @@
           "id": "ppi",
           "title": "PPI",
           "period": null,
-          "releaseDate": "2026-10-15",
-          "updatedAt": "2026-10-15T21:35:23+08:00",
+          "releaseDate": "2026-11-13",
+          "updatedAt": "2026-11-14T00:41:04+08:00",
           "source": "Forex Factory",
-          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct15.2026",
+          "sourceUrl": "https://www.forexfactory.com/calendar?day=nov13.2026",
           "rows": [
             {
               "label": "MoM",
-              "actual": "1.3%",
-              "forecast": "0.6%",
-              "previous": "0.5%"
+              "actual": "0.3%",
+              "forecast": "0.4%",
+              "previous": "1.4%"
             },
             {
               "label": "YoY",
@@ -110,22 +110,22 @@
               "previous": null
             }
           ],
-          "trend": "已写入最新一期；积累满3期后显示中期趋势。"
+          "trend": "最近3期由0.4变为0.3，总体下行。"
         },
         {
           "id": "core-ppi",
           "title": "Core PPI",
           "period": null,
-          "releaseDate": "2026-10-15",
-          "updatedAt": "2026-10-15T21:35:23+08:00",
+          "releaseDate": "2026-11-13",
+          "updatedAt": "2026-11-14T00:41:04+08:00",
           "source": "Forex Factory",
-          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct15.2026",
+          "sourceUrl": "https://www.forexfactory.com/calendar?day=nov13.2026",
           "rows": [
             {
               "label": "MoM",
-              "actual": "0.7%",
+              "actual": "0.3%",
               "forecast": "0.3%",
-              "previous": "0.2%"
+              "previous": "0.8%"
             },
             {
               "label": "YoY",
@@ -134,7 +134,7 @@
               "previous": null
             }
           ],
-          "trend": "已写入最新一期；积累满3期后显示中期趋势。"
+          "trend": "最近3期由0.2变为0.3，总体上行。"
         },
         {
           "id": "core-pce",
@@ -376,7 +376,7 @@
   "sourceEvents": {
     "美国零售销售": "2026-10-15",
     "美国CPI / 核心CPI": "2026-11-10",
-    "美国PPI": "2026-10-15",
+    "美国PPI": "2026-11-13",
     "美国PCE / 核心PCE": "2026-10-29",
     "美国非农 / 失业率 / 平均时薪": "2026-11-06",
     "美国GDP": "2026-10-29",
@@ -389,7 +389,7 @@
     "美国ISM制造业PMI": "b8a998f878a88846f4a55fd1fb406f3d2d156ff0bfc2bbec127bea13a195fcf8",
     "美国ISM服务业PMI": "1d2de25012352ddd94d51109e946acc12748a0afefa9f34339320e1aa02af67c",
     "美国CPI / 核心CPI": "4b2b969bb3cc5f1cfaf3f98d7aeffc951d15c38baab72fae13abfa0f710391a9",
-    "美国PPI": "e9f030f697a20a3dedeeede90a1695d69b3992d7ef90f896f35dfd86b9402f77",
+    "美国PPI": "4476c3df2e4efd2328b619109d64e37b51fc5f9be801fbc9bbe4c79ed96e13fc",
     "美国GDP": "ef38f79c4d6ed97f8f6c28fb0bae07ce9f7c7b1ab1c8f23af436ca233aafe536",
     "美国PCE / 核心PCE": "9a281d2db746448d735931d5c6ea5d3b8382a0752315fe8f0cf9a660223cc574",
     "美国非农 / 失业率 / 平均时薪": "eabdad01e5e1d95dca74ef91a8aed8f59699a7dd7452b92c361f968eea97c966"
@@ -400,7 +400,7 @@
       "只写入 release_status=released 且 actual 非空的 Forex Factory 数据。",
       "没有当前已发布值的字段会等待下一次对应数据发布。"
     ],
-    "fetchedAt": "2026-11-11T02:45:16+08:00",
+    "fetchedAt": "2026-11-14T00:41:04+08:00",
     "source": "Forex Factory"
   }
 }
