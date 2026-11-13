@@ -1,0 +1,132 @@
+{
+  "reportDate": "2026-11-14",
+  "requestId": "world-notes-20261114-0604",
+  "startedAt": "2026-11-14T05:57:48+08:00",
+  "status": "published",
+  "qualifiedCount": 5,
+  "collectionFailed": false,
+  "screening": {
+    "recentArchiveDates": [
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-11"
+    ],
+    "method": "读取索引所有现存近14天归档；从当地媒体首页、社区版、公共机构活动说明及访谈粗筛，精选五条；全文及图像核实、中文逐句通读。",
+    "candidates": [
+      "开普敦街头摄影师",
+      "约翰内斯堡泳池关闭",
+      "Umlazi社保临时办公室",
+      "尼泊尔女孩造桥",
+      "尼泊尔节日返乡",
+      "Lumbini宗教聚会",
+      "尼泊尔设计师西装",
+      "加德满都文化活动",
+      "东京稻田蜜蜂",
+      "东京江户铠甲",
+      "东京婚恋支持",
+      "东京老面包店",
+      "东京简易日语",
+      "东京木桶匠",
+      "东京藤编",
+      "东京蓝莓农场",
+      "东京住宅庭院",
+      "墨西哥移居者日常",
+      "墨西哥家庭节日旅行",
+      "墨西哥海滨小镇生活",
+      "赫尔辛基爱情诗活动",
+      "赫尔辛基图书馆秋季服务",
+      "赫尔辛基乌尼岛浮桥",
+      "奥克兰食谱聚餐",
+      "Nelson植物饮食讨论",
+      "旺斯特德修理咖啡馆"
+    ]
+  },
+  "sourceReadability": {
+    "fullText": [
+      {
+        "source": "OurAuckland（奥克兰市议会）",
+        "url": "https://ourauckland.aucklandcouncil.govt.nz/events/2026/11/vegan-cookbook-club/",
+        "readable": true,
+        "selected": true
+      },
+      {
+        "source": "赫尔辛基市政府",
+        "url": "https://www.hel.fi/en/news/pontoon-bridge-to-uunisaari-to-be-installed-on-monday-16-november",
+        "readable": true,
+        "selected": true
+      },
+      {
+        "source": "Wanstead Village Directory",
+        "url": "https://wansteadvillagedirectory.com/2026/10/05/mending-matters/",
+        "readable": true,
+        "selected": true
+      },
+      {
+        "source": "The Restart Project",
+        "url": "https://therestartproject.org/parties/wanstead-repair-cafe-4/",
+        "readable": true,
+        "selected": true
+      },
+      {
+        "source": "TOKYO UPDATES / Artisan by ZOZO NEXT",
+        "url": "https://www.tokyoupdates.metro.tokyo.lg.jp/en/post-1858/",
+        "readable": true,
+        "selected": true
+      },
+      {
+        "source": "Mexico News Daily",
+        "url": "https://mexiconewsdaily.com/mexico-living/moving-to-mexico-starts-feeling-like-home/",
+        "readable": true,
+        "selected": true
+      }
+    ],
+    "excluded": [
+      {
+        "source": "GroundUp",
+        "reason": "正文可读；2026年新转载许可明确需事先批准，不采用其照片，转用其他候选。"
+      }
+    ],
+    "imageChecks": [
+      {
+        "source": "Wanstead Village Directory",
+        "reason": "og配图已打开但真实性及个人署名未确认，不采用；改用同地点教区公开分享预览环境图。"
+      },
+      {
+        "source": "Wikimedia Commons",
+        "reason": "分类检索可读，文件页403，未使用该图片。"
+      }
+    ],
+    "fallbacks": [
+      "浏览器插件不可调用，改用云端浏览器验读公开页面",
+      "部分图片web工具读取失败，改用直接读取图片核对画面；未绕过访问控制。"
+    ]
+  },
+  "publication": {
+    "workflowRun": 43515983767,
+    "conclusion": "success",
+    "publishedAt": "2026-11-14T06:03:04.723658+08:00",
+    "repositoryLatestArchiveIndexMatch": true,
+    "deployCommit": "6f5fc08e63317becaa8d7fa241f9a164631c94d9",
+    "deployWorkflowRun": 43516065446,
+    "deployConclusion": "success"
+  },
+  "failures": [
+    {
+      "stage": "deployment-pending",
+      "reason": "构建期间公开最新版暂为11月13日、今日归档404；等待构建成功后恢复一致，无重复发布请求。"
+    }
+  ],
+  "onlineVerifiedAt": "2026-11-14T06:04:58.050542+08:00",
+  "onlineTimeBasis": "公开最新版与当日归档完全一致并完成页面图片验读的核验时间，上线不晚于此刻。",
+  "publicLatestArchiveMatch": true,
+  "publicContentMatchesRepository": true,
+  "publicPageAndScriptReadable": true,
+  "publicImageNaturalWidths": [
+    1020,
+    863,
+    750,
+    1200,
+    850
+  ],
+  "homepageTitlesOnly": true
+}
