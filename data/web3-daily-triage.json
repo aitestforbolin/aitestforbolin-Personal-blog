@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "runDate": "2026-11-13",
-  "publishedAt": "2026-11-13T09:06:46.951+08:00",
-  "windowStart": "2026-11-12T01:03:15.207231+00:00",
-  "windowEnd": "2026-11-13T01:05:14.046461+00:00",
-  "sourceUpdatedAt": "2026-11-13T01:05:14+00:00",
+  "runDate": "2026-11-14",
+  "publishedAt": "2026-11-14T09:03:03.904+08:00",
+  "windowStart": "2026-11-13T01:05:14.046461+00:00",
+  "windowEnd": "2026-11-14T01:01:05.625615+00:00",
+  "sourceUpdatedAt": "2026-11-14T01:01:05+00:00",
   "status": "success",
   "executionLineage": {
-    "runId": "web3-daily-triage:codex-web3-20261113-010452Z",
-    "requestId": "codex-web3-20261113-010452Z",
-    "triggerSha": "b123f00ea001a7c2fb14aa46c401afb7f01ba860",
-    "githubRunId": 43342157427,
-    "scheduledAt": "2026-11-13T01:04:52Z",
-    "startedAt": "2026-11-13T01:05:12.034631+00:00",
-    "sourceCheckedAt": "2026-11-13T01:05:14.046077+00:00",
-    "sourceUpdatedAt": "2026-11-13T01:05:14+00:00",
-    "completedAt": "2026-11-13T01:05:14.046461+00:00",
-    "publishedAt": "2026-11-13T09:06:46.951+08:00"
+    "runId": "web3-daily-triage:codex-web3-20261114-010054Z",
+    "requestId": "codex-web3-20261114-010054Z",
+    "triggerSha": "e524a887af36b85ab802dbe337d388086becd10d",
+    "githubRunId": 43537900768,
+    "scheduledAt": "2026-11-14T01:00:54Z",
+    "startedAt": "2026-11-14T01:01:03.505154+00:00",
+    "sourceCheckedAt": "2026-11-14T01:01:05.625313+00:00",
+    "sourceUpdatedAt": "2026-11-14T01:01:05+00:00",
+    "completedAt": "2026-11-14T01:01:05.625615+00:00",
+    "publishedAt": "2026-11-14T09:03:03.904+08:00"
   },
   "executionStatus": {
     "collection": "success",
     "validation": "success",
     "publication": "success"
   },
-  "deduplicationNote": "候选窗口从 2026-11-12 已验证发布的 windowEnd 接续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重并排除 M&A 后，确认 2 个新融资候选。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+  "deduplicationNote": "候选窗口从 2026-11-13 已验证发布的 windowEnd 接续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重并排除 M&A 后，确认 3 个新融资候选。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
   "reportedEventIds": [
     "crypto-fundraising-ponygo--2026-09--round-unknown",
     "crypto-fundraising-velocity--2026-09--series-a",
@@ -113,127 +113,187 @@
     "crypto-fundraising-deca-labs--2026-11--round-unknown",
     "crypto-fundraising-index-industries--2026-11--seed",
     "crypto-fundraising-seedify-fund--2026-11--public-sale",
-    "crypto-fundraising-griffin--2026-11--series-b"
+    "crypto-fundraising-griffin--2026-11--series-b",
+    "crypto-fundraising-mori-finance--2026-11--public-sale",
+    "crypto-fundraising-spout-finance--2026-11--round-unknown",
+    "crypto-fundraising-kailash--2026-11--pre-seed"
   ],
   "counts": {
-    "new": 2,
+    "new": 3,
     "action": 0,
-    "watch": 1,
+    "watch": 2,
     "stop": 1
   },
   "projects": [
     {
-      "event_id": "crypto-fundraising-seedify-fund--2026-11--public-sale",
-      "source_detail_url": "https://crypto-fundraising.info/projects/seedify-fund/",
-      "project_name": "vibe/vibe（原 Seedify）",
+      "event_id": "crypto-fundraising-mori-finance--2026-11--public-sale",
+      "source_detail_url": "https://crypto-fundraising.info/projects/mori-finance/",
+      "project_name": "Mori Finance",
       "decision": "WATCH",
       "financing": {
-        "amount_usd": 300000,
+        "amount_usd": 250000,
         "round": "Public sale",
         "lead_investors": [],
-        "announcement_date": "2026-11-12",
-        "confidence": "medium"
+        "announcement_date": "2026-11-13",
+        "confidence": "high"
       },
-      "plain_explanation": "由 Seedify 团队改名推进的 Robinhood Chain 代币发行与游戏生态，帮助创作者发行代币并把项目继续做成产品和社区。",
-      "mechanism_simple": "创作者通过平台的发行曲线启动代币，达到条件后进入流动性池；平台费用计划用于回购、销毁或奖励 VIBEVIBE 持有人。",
+      "plain_explanation": "面向 Solana 代币持有者的期权收益产品，让用户用持仓卖出备兑看涨期权并先收取 USDC 权利金。",
+      "mechanism_simple": "用户把 SOL、PENGU 等代币交由平台托管，选择到期日和卖出价；平台通过机构做市商执行。到期若价格超过执行价，代币按约定价格卖出，否则用户取回代币并保留权利金。",
       "project_status": {
-        "category": "renamed_existing",
+        "category": "new_live_no_token",
         "token_status": "token_announced",
-        "note": "这是 Seedify 的延续和改名项目；VIBEVIBE 已公布但尚未 TGE。11 月 12 日的公开销售尝试已取消，参与资金将退款，团队计划下周调整估值和募资额后重做。"
+        "note": "产品已上线且有实际期权成交；MORI 公开销售已于 11 月 13 日结束，第三方状态显示尚未交易。"
       },
       "participation": {
         "available_now": true,
-        "what_user_can_do": "可免费体验测试网或 Vibe Vibers 游戏；公开销售目前已暂停，不应继续转入资金。",
-        "requires_real_funds": false,
-        "friction_or_risk": "测试网已运行一段时间，新增参与者是否仍计入奖励尚未确认；未来销售需要真实资金和 KYC，且首次销售失败表明执行与条款仍不稳定。"
+        "what_user_can_do": "可连接 Solana 钱包体验已上线的备兑看涨期权；公开销售窗口已结束。",
+        "requires_real_funds": true,
+        "friction_or_risk": "需要托管真实代币并承担期权封顶上涨收益、平台托管和单一做市商对手方风险；销售结束后没有低成本新增参与窗口。"
       },
       "incentives": {
         "status": "confirmed",
         "types": [
-          "testnet",
-          "campaign",
-          "token",
-          "airdrop"
+          "token"
         ],
-        "details": "官方代币分配包含 5% 给测试网用户和建设者、25% 给 SPARK 持有人；但新参与者当前的快照和资格规则未确认。"
+        "details": "MORI 已完成 MetaDAO 公开销售；未发现面向销售结束后新用户的积分、测试网或空投活动。"
       },
       "why": [
-        "原生代币尚未上线，并存在明确的测试网和用户奖励分配，因此仍值得保留观察。",
-        "首次公开销售已取消并安排退款，团队将降低估值和募资额后重做，当前不适合投入资金。",
-        "项目是 Seedify 的延续而非全新项目，参与窗口已较晚，新增用户的奖励资格也不明确。"
+        "产品已有真实成交和清晰个人用户用途，但需要投入真实资产并承担托管及期权风险。",
+        "MORI 销售已结束，当前没有适合新用户的低成本早期参与动作。",
+        "代币尚未确认可交易；若正式上线交易，将按本流程的硬规则转为 STOP。"
       ],
       "next_step": null,
-      "recheck_trigger": "官方完成退款并公布下周重启销售的最终估值、募资额、审计、TGE 日期及测试网奖励快照规则后复查。",
-      "website_url": "https://vibevibe.fun/",
-      "x_url": "https://x.com/vibevibefun",
+      "recheck_trigger": "MetaDAO 公布 MORI 结算和可交易状态，或官方开放无需大额真实资产的新用户活动后复查。",
+      "website_url": "https://mori.finance/",
+      "x_url": "https://x.com/morifinance_",
       "evidence": [
         {
-          "claim": "官方确认首次销售取消、次日退款，并计划下周以更低估值和募资额重做",
-          "url": "https://x.com/vibevibefun",
-          "source_type": "official_x",
+          "claim": "官方产品已提供 SOL、PENGU、cbBTC 与 jitoSOL 的备兑看涨期权及具体到期和执行价",
+          "url": "https://mori.finance/",
+          "source_type": "official_site",
           "confidence": "high"
         },
         {
-          "claim": "VIBEVIBE 代币分配、公开销售参数、TGE 计划及测试网奖励配置",
-          "url": "https://x.com/vibevibefun",
-          "source_type": "official_x",
+          "claim": "MetaDAO 页面确认 25 万美元目标、64.5 万美元估值、产品机制、成交数据和托管/对手方风险",
+          "url": "https://metadao.com/companies/mori-finance",
+          "source_type": "official_site",
+          "confidence": "high"
+        },
+        {
+          "claim": "公开销售为 11 月 9–13 日，当前显示已结束且尚未交易",
+          "url": "https://coincodex.com/ido/mori-finance-2/",
+          "source_type": "database",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-spout-finance--2026-11--round-unknown",
+      "source_detail_url": "https://crypto-fundraising.info/projects/spout-finance/",
+      "project_name": "Spout Finance",
+      "decision": "WATCH",
+      "financing": {
+        "amount_usd": 2000000,
+        "round": "Strategic",
+        "lead_investors": [],
+        "announcement_date": "2026-10-15",
+        "confidence": "high"
+      },
+      "plain_explanation": "基于 Solana 的代币化股票借贷协议，让用户抵押链上美股代币借出 USDC，同时由出借方赚取覆盖式期权权利金。",
+      "mechanism_simple": "借款人以合资格代币化美股按约 50% 抵押率借 USDC，借款利率为 0%；出借收益来自对抵押股票卖出备兑看涨期权，而不是代币补贴。",
+      "project_status": {
+        "category": "new_live_no_token",
+        "token_status": "no_token_found",
+        "note": "目前在 Solana Devnet 运行 beta，主网尚未上线，未发现原生代币。"
+      },
+      "participation": {
+        "available_now": true,
+        "what_user_can_do": "可查看产品并申请私测；公开用户目前只能在 Devnet beta 了解流程。",
+        "requires_real_funds": false,
+        "friction_or_risk": "当前还不是主网产品；未来需承担代币化股票、期权策略、智能合约和抵押品价格风险。"
+      },
+      "incentives": {
+        "status": "none_found",
+        "types": [],
+        "details": "未发现官方 Points、空投、测试网奖励或代币计划。"
+      },
+      "why": [
+        "0% 借款的收益来源解释清楚，产品方向对持有代币化股票的用户有实际用途。",
+        "主网未上线且私测入口有限，现在无法完成有意义的真实用户验证。",
+        "没有官方激励或代币计划，当前参与的时间优势不明确。"
+      ],
+      "next_step": null,
+      "recheck_trigger": "官方开放主网公共 beta、公布支持的代币化股票和风险参数，或推出有明确规则的用户激励后复查。",
+      "website_url": "https://spout.finance/",
+      "x_url": "https://x.com/SpoutFi",
+      "evidence": [
+        {
+          "claim": "官方产品说明 0% 股票抵押借款、覆盖式期权收益来源及私测入口",
+          "url": "https://spout.finance/",
+          "source_type": "official_site",
+          "confidence": "high"
+        },
+        {
+          "claim": "官方披露 200 万美元战略轮、投资方、50% 抵押率以及 Devnet beta/主网未上线状态",
+          "url": "https://spout.finance/learn/weekly-roundup-tokenized-stocks-gain-ground-as-lending-and-regulation-take-shape/",
+          "source_type": "official_blog",
           "confidence": "high"
         }
       ]
     },
     {
-      "event_id": "crypto-fundraising-griffin--2026-11--series-b",
-      "source_detail_url": "https://crypto-fundraising.info/projects/griffin/",
-      "project_name": "Griffin",
+      "event_id": "crypto-fundraising-kailash--2026-11--pre-seed",
+      "source_detail_url": "https://crypto-fundraising.info/projects/kailash/",
+      "project_name": "Kailash",
       "decision": "STOP",
       "financing": {
-        "amount_usd": 20000000,
-        "round": "Series B",
+        "amount_usd": null,
+        "round": "Pre-seed",
         "lead_investors": [
-          "Octagon Partners"
+          "UTXO Management"
         ],
         "announcement_date": "2026-11-12",
-        "confidence": "high"
+        "confidence": "medium"
       },
-      "plain_explanation": "一家面向金融科技公司和平台的英国持牌银行，通过 API 提供账户、支付、合规和嵌入式银行能力。",
-      "mechanism_simple": "企业把 Griffin 的银行账户和支付接口嵌入自己的产品；新融资将用于增加发卡、稳定币储备服务和链上跨境支付能力。",
+      "plain_explanation": "一家面向机构和专业投资者的数字资产管理公司，计划把市场中性策略和现实资产结构做成链上投资产品。",
+      "mechanism_simple": "团队通过量化交易、托管和合规渠道管理资产，并计划用链上 vault 封装市场中性策略；具体 vault 参数和上线时间尚未公布。",
       "project_status": {
         "category": "existing_no_token",
         "token_status": "no_token_found",
-        "note": "Griffin 2017 年成立，2024 年取得完整英国银行牌照；这是成熟的 B2B 银行基础设施公司，未发现原生代币。"
+        "note": "已有机构资管业务，正在开发首个链上 vault；未发现原生代币。"
       },
       "participation": {
-        "available_now": true,
-        "what_user_can_do": "开发者可注册免费沙盒测试 API，但普通用户没有直接的链上产品或早期参与入口。",
-        "requires_real_funds": false,
-        "friction_or_risk": "真正上线需要企业集成、合规审核和商业合作；稳定币服务仍在开发。"
+        "available_now": false,
+        "what_user_can_do": null,
+        "requires_real_funds": true,
+        "friction_or_risk": "官网以机构询价为主，产品参数、最低门槛、费用、流动性和上线时间均未明确。"
       },
       "incentives": {
         "status": "none_found",
         "types": [],
-        "details": "未发现官方 Points、测试网奖励、空投或原生代币计划。"
+        "details": "未发现 Points、测试网、空投、代币或面向普通用户的活动。"
       },
       "why": [
-        "产品主要服务金融科技公司和平台，不是普通用户可直接参与的项目。",
-        "稳定币和链上支付能力仍处开发阶段，融资并未创造相关的个人早期参与机会。",
-        "免费开发者沙盒是企业集成工具，不构成值得持续跟踪的代币或奖励路径。"
+        "定位是机构、家族办公室和专业投资者，普通用户目前没有可验证的参与入口。",
+        "融资金额未披露，链上 vault 尚未给出明确产品参数和上线计划。",
+        "融资事件本身没有创造低成本早期参与或官方激励路径。"
       ],
       "next_step": null,
       "recheck_trigger": null,
-      "website_url": "https://griffin.com/",
-      "x_url": "https://x.com/griffinbank",
+      "website_url": "https://kailash.management/",
+      "x_url": null,
       "evidence": [
         {
-          "claim": "2000 万美元 Series B 由 Octagon Partners 领投，以及发卡、稳定币储备和链上支付用途",
-          "url": "https://griffin.com/blog/series-b-announcement",
-          "source_type": "official_blog",
+          "claim": "官网确认机构资管定位、市场中性/STRC/创投策略以及机构询价模式",
+          "url": "https://kailash.management/",
+          "source_type": "official_site",
           "confidence": "high"
         },
         {
-          "claim": "Griffin 是受 PRA/FCA 监管的英国银行，并提供免费开发者沙盒",
-          "url": "https://griffin.com/company-facts",
-          "source_type": "official_site",
-          "confidence": "high"
+          "claim": "数据库记录未披露金额的 Pre-seed、UTXO Management 领投和链上 vault 计划",
+          "url": "https://cryptorank.io/insights/deals/kailash-pre-seed-2026-11-12",
+          "source_type": "database",
+          "confidence": "medium"
         }
       ]
     }
