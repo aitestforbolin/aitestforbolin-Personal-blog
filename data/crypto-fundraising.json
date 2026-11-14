@@ -1,71 +1,71 @@
 {
-  "updated_at": "2026-11-13T01:05:14+00:00",
+  "updated_at": "2026-11-14T01:01:05+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-seedify-fund",
+      "id": "crypto-fundraising-mori-finance",
       "source_rank": 1,
+      "name": "Mori Finance",
+      "round": "Public sale",
+      "announced_month": "2026-11",
+      "amount_usd": 0,
+      "detail_url": "https://crypto-fundraising.info/projects/mori-finance/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-seedify-fund",
+      "source_rank": 2,
       "name": "vibe/vibe (ex Seedify)",
       "round": "Public sale",
       "announced_month": "2026-11",
       "amount_usd": 300000,
       "detail_url": "https://crypto-fundraising.info/projects/seedify-fund/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-griffin",
-      "source_rank": 2,
+      "source_rank": 3,
       "name": "Griffin",
       "round": "Series B",
       "announced_month": "2026-11",
       "amount_usd": 20000000,
       "detail_url": "https://crypto-fundraising.info/projects/griffin/",
+      "is_new": false
+    },
+    {
+      "id": "crypto-fundraising-spout-finance",
+      "source_rank": 4,
+      "name": "Spout Finance",
+      "round": null,
+      "announced_month": "2026-11",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/spout-finance/",
       "is_new": true
     },
     {
-      "id": "crypto-fundraising-slop-cash",
-      "source_rank": 3,
-      "name": "Slop Cash",
-      "round": "Public sale",
-      "announced_month": "2026-11",
-      "amount_usd": 988200,
-      "detail_url": "https://crypto-fundraising.info/projects/slop-cash/",
-      "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-marble",
-      "source_rank": 4,
-      "name": "Marble",
-      "round": "Seed",
-      "announced_month": "2026-11",
-      "amount_usd": 11000000,
-      "detail_url": "https://crypto-fundraising.info/projects/marble/",
-      "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-alta-ex-metal",
+      "id": "crypto-fundraising-kailash",
       "source_rank": 5,
-      "name": "Alta (ex Metal)",
-      "round": "Series A",
+      "name": "Kailash",
+      "round": "Pre-seed",
       "announced_month": "2026-11",
-      "amount_usd": 47500000,
-      "detail_url": "https://crypto-fundraising.info/projects/alta-ex-metal/",
-      "is_new": false
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/kailash/",
+      "is_new": true
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261113-010452Z",
-    "requestId": "codex-web3-20261113-010452Z",
-    "triggerSha": "b123f00ea001a7c2fb14aa46c401afb7f01ba860",
-    "githubRunId": 43342157427,
-    "scheduledAt": "2026-11-13T01:04:52Z",
-    "startedAt": "2026-11-13T01:05:12.034631+00:00",
-    "sourceCheckedAt": "2026-11-13T01:05:14.046077+00:00",
-    "sourceUpdatedAt": "2026-11-13T01:05:14+00:00",
-    "completedAt": "2026-11-13T01:05:14.046461+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261114-010054Z",
+    "requestId": "codex-web3-20261114-010054Z",
+    "triggerSha": "e524a887af36b85ab802dbe337d388086becd10d",
+    "githubRunId": 43537900768,
+    "scheduledAt": "2026-11-14T01:00:54Z",
+    "startedAt": "2026-11-14T01:01:03.505154+00:00",
+    "sourceCheckedAt": "2026-11-14T01:01:05.625313+00:00",
+    "sourceUpdatedAt": "2026-11-14T01:01:05+00:00",
+    "completedAt": "2026-11-14T01:01:05.625615+00:00",
     "publishedAt": null
   }
 }
