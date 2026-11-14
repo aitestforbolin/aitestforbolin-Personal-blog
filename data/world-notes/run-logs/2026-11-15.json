@@ -1,0 +1,151 @@
+{
+  "reportDate": "2026-11-15",
+  "requestId": "world-notes-20261115-0603",
+  "startedAt": "2026-11-15T05:57:30+08:00",
+  "status": "published",
+  "qualifiedCount": 5,
+  "collectionFailed": false,
+  "screening": {
+    "recentArchiveDates": [
+      "2026-11-14",
+      "2026-11-13",
+      "2026-11-12",
+      "2026-11-11"
+    ],
+    "method": "按索引读取全部现存近14天内容，粗筛当地媒体社区、生活版与公共机构说明；全文核实五个独立主题，逐句通读并删去不能支持的食材单位和兄弟年龄关系。",
+    "candidates": [
+      "任实泡菜节",
+      "济州本土鸡食物体验",
+      "韩国艺术家展览",
+      "首尔夜间社区空间",
+      "新加坡拉面店关闭",
+      "泰国美食广场",
+      "定制酱油",
+      "理工学院印尼食摊",
+      "家庭厨房汉堡",
+      "纽顿摊位停售墨鱼菜",
+      "勿洛客家面减少配料",
+      "西餐摊减少肉份量",
+      "澳大利亚社区俱乐部关闭",
+      "泳池重开",
+      "夏令时与假期",
+      "珀斯合租租客",
+      "悉尼多份工租客",
+      "墨尔本城市边缘基础设施",
+      "达尔文足球俱乐部",
+      "黎巴嫩村庄记忆档案",
+      "加拿大白马石头交换柜",
+      "加拿大图书馆月活动",
+      "法国黑麦面包公炉",
+      "沃特福德乡村公交诉求",
+      "恩尼斯新公交"
+    ]
+  },
+  "sourceReadability": {
+    "fullText": [
+      {
+        "source": "The Korea Herald",
+        "url": "https://www.koreaherald.com/article/10937014",
+        "readable": true,
+        "selected": true
+      },
+      {
+        "source": "ABC News",
+        "url": "https://www.abc.net.au/news/2026-10-19/rental-applications-new-trend-group-applications/107274950",
+        "readable": true,
+        "selected": true
+      },
+      {
+        "source": "CNA",
+        "url": "https://www.channelnewsasia.com/cna-insider/big-read/hawker-food-rising-costs-nutrition-health-salt-6502136",
+        "readable": true,
+        "selected": true
+      },
+      {
+        "source": "爱尔兰国家交通管理局",
+        "url": "https://www.nationaltransport.ie/news/nta-announces-new-ennis-town-bus-service-connecting-communities-across-the-town/",
+        "readable": true,
+        "selected": true
+      },
+      {
+        "source": "Transport for Ireland",
+        "url": "https://www.transportforireland.ie/plan-a-journey/network-maps/ennis-town-services/",
+        "readable": true,
+        "selected": true
+      },
+      {
+        "source": "The Connexion",
+        "url": "https://www.connexionfrance.com/food-and-drink/frances-boiled-bread-festival-see-the-ancient-rye-tradition-in-the-alps/821885",
+        "readable": true,
+        "selected": true
+      },
+      {
+        "source": "Hautes Vallées / Oisans旅游局",
+        "url": "https://en.oisans.com/agenda/fete-du-pain-bouilli-po-buli-de-villar-darene/",
+        "readable": true,
+        "selected": true
+      }
+    ],
+    "excluded": [
+      {
+        "source": "CBC",
+        "topic": "白马石头交换柜",
+        "reason": "原文web工具无法打开，直接读取返回Site Unavailable；虽然转载全文可读，仍不以转载替代本期原文核实，换选恩尼斯公交。"
+      },
+      {
+        "source": "RNZ",
+        "reason": "社区入口无法读取，改从ABC、韩国先驱报和公共机构发现。"
+      }
+    ],
+    "imageChecks": {
+      "naturalWidths": [
+        1280,
+        862,
+        747,
+        600,
+        380
+      ],
+      "allFiveLoadedOnPublicPage": true,
+      "notes": [
+        "五张均已实际打开核对画面、原图注和署名",
+        "爱尔兰未采用公交渲染宣传图，替换为县议会启动活动实拍",
+        "法国为活动旧照，已明示；web和公开浏览器可读，终端请求403未作为图片失效结论",
+        "新加坡未采用插画或不同地点照片，保留CNA水印"
+      ]
+    }
+  },
+  "publication": {
+    "workflowRun": 43645986845,
+    "conclusion": "success",
+    "publishedAt": "2026-11-15T06:02:57.727051+08:00",
+    "repositoryLatestArchiveIndexMatch": true,
+    "deployCommit": "fbc2461f4fd8f6e8dd8a26429051af8c3d4b6738",
+    "deployWorkflowRun": 43646047295,
+    "deployConclusion": "success"
+  },
+  "failures": [
+    {
+      "stage": "source",
+      "reason": "CBC原文不可读，排除该候选并扩展其他来源。"
+    },
+    {
+      "stage": "browser-plugin",
+      "reason": "Browser插件调用Unknown tool，改用云端浏览器完成公开页面和naturalWidth验读。"
+    },
+    {
+      "stage": "deployment-pending",
+      "reason": "站点构建期间最新版仍11月14日且当日归档404；等待部署成功后恢复一致，无重复提交发布请求。"
+    }
+  ],
+  "onlineVerifiedAt": "2026-11-15T06:04:46.941490+08:00",
+  "onlineTimeBasis": "第一次公开最新版与当天归档回读完全一致的核验时间，上线不晚于此刻。",
+  "publicLatestArchiveMatch": true,
+  "publicContentMatchesRepository": true,
+  "publicPageAndScriptReadable": true,
+  "publicImagesVerifiedAt": "2026-11-15T06:05:29+08:00",
+  "homepageTitlesOnly": true,
+  "editorialNotes": [
+    "公交儿童免费年龄在原公告与当前服务页不一致，未采用相关规则",
+    "法国媒体面包节20—22日与旅游局19—22日不一致，正文只称十一月；当期叙述不依赖这个差异"
+  ]
+}
