@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-15T01:04:42+00:00",
+  "updated_at": "2026-11-16T01:04:17+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
@@ -15,8 +15,18 @@
       "is_new": false
     },
     {
-      "id": "crypto-fundraising-seedify-fund",
+      "id": "crypto-fundraising-di",
       "source_rank": 2,
+      "name": "DI (Decentralized Intelligence)",
+      "round": null,
+      "announced_month": "2026-11",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/di/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-seedify-fund",
+      "source_rank": 3,
       "name": "vibe/vibe (ex Seedify)",
       "round": "Public sale",
       "announced_month": "2026-11",
@@ -26,7 +36,7 @@
     },
     {
       "id": "crypto-fundraising-griffin",
-      "source_rank": 3,
+      "source_rank": 4,
       "name": "Griffin",
       "round": "Series B",
       "announced_month": "2026-11",
@@ -36,36 +46,26 @@
     },
     {
       "id": "crypto-fundraising-spout-finance",
-      "source_rank": 4,
+      "source_rank": 5,
       "name": "Spout Finance",
       "round": null,
       "announced_month": "2026-11",
       "amount_usd": null,
       "detail_url": "https://crypto-fundraising.info/projects/spout-finance/",
       "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-kailash",
-      "source_rank": 5,
-      "name": "Kailash",
-      "round": "Pre-seed",
-      "announced_month": "2026-11",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/kailash/",
-      "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261115-010427Z",
-    "requestId": "codex-web3-20261115-010427Z",
-    "triggerSha": "d182984b0e7cd5168862e982346d1acc4f49e9b9",
-    "githubRunId": 43661316994,
-    "scheduledAt": "2026-11-15T01:04:27Z",
-    "startedAt": "2026-11-15T01:04:37.520882+00:00",
-    "sourceCheckedAt": "2026-11-15T01:04:42.058958+00:00",
-    "sourceUpdatedAt": "2026-11-15T01:04:42+00:00",
-    "completedAt": "2026-11-15T01:04:42.059248+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261116-010405Z",
+    "requestId": "codex-web3-20261116-010405Z",
+    "triggerSha": "e21ff98cf8e5093612ca9ed7dcc78119ae870323",
+    "githubRunId": 43784039888,
+    "scheduledAt": "2026-11-16T01:04:05Z",
+    "startedAt": "2026-11-16T01:04:13.840680+00:00",
+    "sourceCheckedAt": "2026-11-16T01:04:17.647149+00:00",
+    "sourceUpdatedAt": "2026-11-16T01:04:17+00:00",
+    "completedAt": "2026-11-16T01:04:17.647437+00:00",
     "publishedAt": null
   }
 }
