@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "codex-web3-20261116-010405Z",
-  "triggerSha": "e21ff98cf8e5093612ca9ed7dcc78119ae870323",
-  "publicationDate": "2026-11-16",
-  "publishedAt": "2026-11-16T09:06:07.954+08:00",
+  "requestId": "codex-web3-20261117-005658Z",
+  "triggerSha": "13e996c26402e3e3a7091eca03c90a45f3f39cfd",
+  "publicationDate": "2026-11-17",
+  "publishedAt": "2026-11-17T08:58:30.444+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-11-16",
-    "publishedAt": "2026-11-16T09:06:07.954+08:00",
-    "windowStart": "2026-11-15T01:04:42.059248+00:00",
-    "windowEnd": "2026-11-16T01:04:17.647437+00:00",
-    "sourceUpdatedAt": "2026-11-16T01:04:17+00:00",
+    "runDate": "2026-11-17",
+    "publishedAt": "2026-11-17T08:58:30.444+08:00",
+    "windowStart": "2026-11-16T01:04:17.647437+00:00",
+    "windowEnd": "2026-11-17T00:57:13.945916+00:00",
+    "sourceUpdatedAt": "2026-11-17T00:57:13+00:00",
     "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:codex-web3-20261116-010405Z",
-      "requestId": "codex-web3-20261116-010405Z",
-      "triggerSha": "e21ff98cf8e5093612ca9ed7dcc78119ae870323",
-      "githubRunId": 43784039888,
-      "scheduledAt": "2026-11-16T01:04:05Z",
-      "startedAt": "2026-11-16T01:04:13.840680+00:00",
-      "sourceCheckedAt": "2026-11-16T01:04:17.647149+00:00",
-      "sourceUpdatedAt": "2026-11-16T01:04:17+00:00",
-      "completedAt": "2026-11-16T01:04:17.647437+00:00",
-      "publishedAt": "2026-11-16T09:06:07.954+08:00"
+      "runId": "web3-daily-triage:codex-web3-20261117-005658Z",
+      "requestId": "codex-web3-20261117-005658Z",
+      "triggerSha": "13e996c26402e3e3a7091eca03c90a45f3f39cfd",
+      "githubRunId": 43991731104,
+      "scheduledAt": "2026-11-17T00:56:58Z",
+      "startedAt": "2026-11-17T00:57:12.437431+00:00",
+      "sourceCheckedAt": "2026-11-17T00:57:13.945593+00:00",
+      "sourceUpdatedAt": "2026-11-17T00:57:13+00:00",
+      "completedAt": "2026-11-17T00:57:13.945916+00:00",
+      "publishedAt": "2026-11-17T08:58:30.444+08:00"
     },
     "executionStatus": {
       "collection": "success",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "候选窗口从 2026-11-15 已验证发布的 windowEnd 接续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后，新观察到 1 个非 M&A 融资事件并完成初筛。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "候选窗口从 2026-11-16 已验证发布的 windowEnd 接续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后，新观察到 1 个非 M&A 融资事件并完成初筛。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -124,97 +124,82 @@
       "crypto-fundraising-mori-finance--2026-11--public-sale",
       "crypto-fundraising-spout-finance--2026-11--round-unknown",
       "crypto-fundraising-kailash--2026-11--pre-seed",
-      "crypto-fundraising-di--2026-11--round-unknown"
+      "crypto-fundraising-di--2026-11--round-unknown",
+      "crypto-fundraising-nomad-fintech--2026-11--round-unknown"
     ],
     "counts": {
       "new": 1,
-      "action": 1,
+      "action": 0,
       "watch": 0,
-      "stop": 0
+      "stop": 1
     },
     "projects": [
       {
-        "event_id": "crypto-fundraising-di--2026-11--round-unknown",
-        "source_detail_url": "https://crypto-fundraising.info/projects/di/",
-        "project_name": "DI (Decentralized Intelligence)",
-        "decision": "ACTION",
+        "event_id": "crypto-fundraising-nomad-fintech--2026-11--round-unknown",
+        "source_detail_url": "https://crypto-fundraising.info/projects/nomad-fintech/",
+        "project_name": "Nomad Fintech",
+        "decision": "STOP",
         "financing": {
-          "amount_usd": null,
-          "round": null,
+          "amount_usd": 15000000,
+          "round": "Strategic investment",
           "lead_investors": [
-            "OKX Ventures",
-            "Lingfeng Capital",
-            "Draper Dragon",
-            "W3 Storage Lab",
-            "DePIN X",
-            "Central Pinnacle Technology Limited"
+            "Tether Capital"
           ],
-          "announcement_date": "2026-11-13",
-          "confidence": "medium"
+          "announcement_date": "2026-11-16",
+          "confidence": "high"
         },
-        "plain_explanation": "DI 在做面向加密资产和美股的 AI 金融研究工具，让多个专业智能体从不同角度分析市场事件并展示共识、分歧与依据。",
-        "mechanism_simple": "用户用自然语言提出市场问题，Event Engine 调用不同专长的 AI 智能体并行推演，再汇总证据和判断过程；报告版本可选择留下链上证明。",
+        "plain_explanation": "Nomad 是面向巴西居民的跨境金融科技平台，提供美元账户、国际支付、借记卡和海外投资服务。",
+        "mechanism_simple": "用户完成身份验证后，可把巴西雷亚尔换成美元并使用美国账户、Visa 借记卡或投资服务；Tether 的投资计划探索把 USDT 与 XAUT 接入这些既有金融服务。",
         "project_status": {
           "category": "existing_no_token",
-          "token_status": "token_announced",
-          "note": "项目并非刚成立；官方白皮书已描述 $DI 用途，但未见可靠证据证明原生代币已正式发行或交易。市场上的同名小池代币无法确认与官方有关。"
+          "token_status": "no_token_found",
+          "note": "Nomad 是 2020 年起运营的成熟金融科技平台，并非新 Web3 项目；未发现其发行原生代币。"
         },
         "participation": {
           "available_now": true,
-          "what_user_can_do": "使用隔离的低价值钱包在 BNB Chain 完成一次官网每日链上签到，观察积分与白名单进度；Event Engine 尚待正式上线。",
+          "what_user_can_do": "符合条件的巴西居民可注册、完成 KYC 并使用美元账户、支付或投资服务；这不是面向全球用户的早期测试或积分活动。",
           "requires_real_funds": true,
-          "friction_or_risk": "只需少量 BNB Gas，但仍有钱包授权、活动规则可变和产品尚未上线的风险；不要购买无法核验的同名代币。"
+          "friction_or_risk": "需要地区资格、完整身份验证与真实资金；还涉及汇率、跨境监管、投资损失和合作机构风险。"
         },
         "incentives": {
-          "status": "confirmed",
-          "types": [
-            "points",
-            "campaign",
-            "token",
-            "other"
-          ],
-          "details": "官方签到活动提供积分，连续 15/30 天与 Genesis NFT 白名单相关；白皮书描述未来 $DI 用途，但 TGE、供应量和分配尚未披露，不能视为已确认空投。"
+          "status": "none_found",
+          "types": [],
+          "details": "未找到官方 Points、Season、测试网、空投或原生代币激励；USDT 与 XAUT 接入仍只是潜在整合方向，暂无上线日期。"
         },
         "why": [
-          "已有官方可执行的低成本签到与积分路径，验证成本可控。",
-          "融资披露称估值 1 亿美元并列出多家投资方，但具体融资金额和轮次未披露。",
-          "核心 Event Engine 尚未正式上线，产品价值仍需实测，因此只建议最小验证动作。",
-          "代币经济与 Genesis NFT 权益披露不足，应避免资金化参与和同名代币风险。"
+          "Nomad 已有数百万用户和成熟金融产品，本次只是 Tether Capital 对既有公司的战略投资。",
+          "服务主要面向巴西居民，参与需要 KYC 和真实资金，缺少低成本早期用户路径。",
+          "未发现 Nomad 原生代币或官方积分、测试网、空投等激励。",
+          "潜在 USDT/XAUT 整合尚无时间表，不构成当前行动催化剂。"
         ],
-        "next_step": "用隔离的低价值钱包完成一次 BNB Chain 签到，只支付极少量 Gas；核对签名内容并记录积分变化，暂不购买 NFT 或任何同名代币。",
+        "next_step": null,
         "recheck_trigger": null,
-        "website_url": "https://di.xyz/",
-        "x_url": "https://x.com/Didotxyz_",
+        "website_url": "https://www.nomadglobal.com/en",
+        "x_url": null,
         "evidence": [
           {
-            "claim": "官网确认其定位为计算、智能体和链上智能的一体化生态，并提供每日链上签到入口。",
-            "url": "https://di.xyz/",
+            "claim": "Tether Capital 于 2026-11-16 宣布对 Nomad 战略投资 1,500 万美元，并计划探索 USDT 与 XAUT 的潜在整合。",
+            "url": "https://tether.io/news/tether-capital-invests-15-million-in-nomad-to-expand-access-to-dollar-based-financial-services-in-brazil/",
+            "source_type": "investor",
+            "confidence": "high"
+          },
+          {
+            "claim": "Nomad 官网确认其提供美元账户、国际支付、借记卡和海外投资服务，主要服务巴西居民。",
+            "url": "https://www.nomadglobal.com/en",
             "source_type": "official_site",
             "confidence": "high"
           },
           {
-            "claim": "官方白皮书目录与项目资料描述 $DI 的计划用途，但未给出完整供应、分配、解锁与 TGE 信息。",
-            "url": "https://whitepaper.di.xyz/",
-            "source_type": "docs",
-            "confidence": "medium"
+            "claim": "Nomad 官方历史页显示公司早于本次投资已运营多年，并曾于 2023 年融资 6,100 万美元。",
+            "url": "https://www.nomadglobal.com/en/about-us",
+            "source_type": "official_site",
+            "confidence": "high"
           },
           {
-            "claim": "融资于 2026-11-13 披露，金额未公开、估值 1 亿美元，并列出 OKX Ventures 等投资方。",
-            "url": "https://h.chaincatcher.com/en/article/2304551",
-            "source_type": "other",
-            "confidence": "medium"
-          },
-          {
-            "claim": "结构化数据库将 DI 标为 No Token，并记录 2026-11-13 的未披露融资及投资方。",
-            "url": "https://cryptorank.io/price/di",
-            "source_type": "database",
-            "confidence": "medium"
-          },
-          {
-            "claim": "项目官方账号用于确认近期融资披露、Event Engine 预告和签到活动。",
-            "url": "https://x.com/Didotxyz_",
-            "source_type": "official_x",
-            "confidence": "medium"
+            "claim": "Nomad 的加密资产买卖服务由 Global DTVM 提供，需符合资格并完成相关开户与风险评估。",
+            "url": "https://benomad.zendesk.com/hc/en-us/articles/40739856459287-Who-can-invest-in-crypto-assets-through-the-Nomad-app",
+            "source_type": "official_site",
+            "confidence": "high"
           }
         ]
       }
