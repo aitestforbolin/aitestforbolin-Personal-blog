@@ -2,14 +2,14 @@
   "reportDate": "2026-11-17",
   "startedAt": "2026-11-17T06:04:04+08:00",
   "recordedAt": "2026-11-17T06:07:00+08:00",
-  "status": "blocked-before-publish",
-  "onlineVerifiedAt": null,
+  "status": "recovered-published",
+  "onlineVerifiedAt": "2026-11-17T02:04:29.192Z",
   "previousReportDate": "2026-11-16",
-  "qualifiedCount": 0,
+  "qualifiedCount": 5,
   "textVerifiedCandidateCount": 5,
   "collectionFailed": false,
-  "publicationAttempted": false,
-  "retainedPreviousEdition": true,
+  "publicationAttempted": true,
+  "retainedPreviousEdition": false,
   "editorialSha": "0b0f54196bb67a250bf3a2ccbfe17f79d7be484d",
   "recentArchiveDates": [
     "2026-11-16",
@@ -80,7 +80,7 @@
       "recovered": false
     }
   ],
-  "resumeFrom": "恢复可用浏览器后先核对图片画面、原图注、署名及适用性；补齐GroundUp照片URL和缺失署名。重查当日归档，若无则重新确认来源与日期，满足五条资格才提交发布请求。",
+  "resumeFrom": null,
   "drafts": [
     {
       "title": "老师订的咖啡，变成了学生练习坐公交的车票",
@@ -152,5 +152,43 @@
         "captionBasis": "45原图注Tumi Gama跨过家外污水井。工具未返回照片URL，未核图，不能发布。"
       }
     }
-  ]
+  ],
+  "initialAttempt": {
+    "status": "blocked-before-publish",
+    "qualifiedCount": 0,
+    "publicationAttempted": false,
+    "retainedPreviousEdition": true,
+    "resumeFrom": "恢复可用浏览器后先核对图片画面、原图注、署名及适用性；补齐GroundUp照片URL和缺失署名。重查当日归档，若无则重新确认来源与日期，满足五条资格才提交发布请求。"
+  },
+  "recovery": {
+    "recordedAt": "2026-11-17T02:04:29.192Z",
+    "requestId": "world-notes-20261117-recovery-020214",
+    "fixCommit": "fe6f01a26f9a3373599841db90993211e262bb6f",
+    "textVerifiedCandidateCount": 5,
+    "imageCount": 2,
+    "imageOmissions": [
+      {
+        "id": "20261117-lespar-guest-rice",
+        "reason": "未取得明确图片署名，图片留空"
+      },
+      {
+        "id": "20261117-rotorua-meal-delivery",
+        "reason": "图片画面与原署名未完成核对，图片留空"
+      },
+      {
+        "id": "20261117-thembisa-door-net",
+        "reason": "未提取到可核实的照片URL，图片留空"
+      }
+    ],
+    "publishRunId": 44000013206,
+    "deployRunId": 44000078495,
+    "publicReadback": {
+      "date": "2026-11-17",
+      "requestId": "world-notes-20261117-recovery-020214",
+      "itemCount": 5,
+      "latestAndArchiveMatch": true,
+      "photoErrorHidesFigure": true
+    },
+    "notificationMessageId": "1a1e73b5bbd636a5"
+  }
 }
