@@ -1,12 +1,22 @@
 {
-  "updated_at": "2026-11-16T01:04:17+00:00",
+  "updated_at": "2026-11-17T00:57:13+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-mori-finance",
+      "id": "crypto-fundraising-nomad-fintech",
       "source_rank": 1,
+      "name": "Nomad Fintech",
+      "round": null,
+      "announced_month": "2026-11",
+      "amount_usd": 15000000,
+      "detail_url": "https://crypto-fundraising.info/projects/nomad-fintech/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-mori-finance",
+      "source_rank": 2,
       "name": "Mori Finance",
       "round": "Public sale",
       "announced_month": "2026-11",
@@ -16,17 +26,17 @@
     },
     {
       "id": "crypto-fundraising-di",
-      "source_rank": 2,
+      "source_rank": 3,
       "name": "DI (Decentralized Intelligence)",
       "round": null,
       "announced_month": "2026-11",
       "amount_usd": null,
       "detail_url": "https://crypto-fundraising.info/projects/di/",
-      "is_new": true
+      "is_new": false
     },
     {
       "id": "crypto-fundraising-seedify-fund",
-      "source_rank": 3,
+      "source_rank": 4,
       "name": "vibe/vibe (ex Seedify)",
       "round": "Public sale",
       "announced_month": "2026-11",
@@ -36,36 +46,26 @@
     },
     {
       "id": "crypto-fundraising-griffin",
-      "source_rank": 4,
+      "source_rank": 5,
       "name": "Griffin",
       "round": "Series B",
       "announced_month": "2026-11",
       "amount_usd": 20000000,
       "detail_url": "https://crypto-fundraising.info/projects/griffin/",
       "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-spout-finance",
-      "source_rank": 5,
-      "name": "Spout Finance",
-      "round": null,
-      "announced_month": "2026-11",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/spout-finance/",
-      "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261116-010405Z",
-    "requestId": "codex-web3-20261116-010405Z",
-    "triggerSha": "e21ff98cf8e5093612ca9ed7dcc78119ae870323",
-    "githubRunId": 43784039888,
-    "scheduledAt": "2026-11-16T01:04:05Z",
-    "startedAt": "2026-11-16T01:04:13.840680+00:00",
-    "sourceCheckedAt": "2026-11-16T01:04:17.647149+00:00",
-    "sourceUpdatedAt": "2026-11-16T01:04:17+00:00",
-    "completedAt": "2026-11-16T01:04:17.647437+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261117-005658Z",
+    "requestId": "codex-web3-20261117-005658Z",
+    "triggerSha": "13e996c26402e3e3a7091eca03c90a45f3f39cfd",
+    "githubRunId": 43991731104,
+    "scheduledAt": "2026-11-17T00:56:58Z",
+    "startedAt": "2026-11-17T00:57:12.437431+00:00",
+    "sourceCheckedAt": "2026-11-17T00:57:13.945593+00:00",
+    "sourceUpdatedAt": "2026-11-17T00:57:13+00:00",
+    "completedAt": "2026-11-17T00:57:13.945916+00:00",
     "publishedAt": null
   }
 }
