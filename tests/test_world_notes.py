@@ -56,7 +56,7 @@ class WorldNotesPublicationTests(unittest.TestCase):
                 self.assertEqual((data / name).read_text(), content)
             self.assertEqual(len(list((data / 'world-notes/archive').glob('*.json'))), 1)
 
-    def test_rejects_missing_images_and_unsafe_image_links(self):
+    def test_rejects_incomplete_images_and_unsafe_image_links(self):
         for field in ('url', 'sourceUrl', 'alt', 'credit', 'caption'):
             payload = copy.deepcopy(self.payload)
             del payload['items'][0]['image'][field]
@@ -68,11 +68,18 @@ class WorldNotesPublicationTests(unittest.TestCase):
                 payload['items'][0]['image'][field] = url
                 with self.subTest(field=field, url=url), self.assertRaises(ValueError):
                     publisher.validate(payload)
+
+    def test_accepts_missing_and_null_images(self):
         del self.payload['items'][0]['image']
-        with self.assertRaisesRegex(ValueError, 'image required'):
-            publisher.validate(self.payload)
+        self.payload['items'][1]['image'] = None
+        self.assertEqual(publisher.validate(self.payload), self.payload['reportDate'])
+        for item in self.payload['items']:
+            item.pop('image', None)
+        self.assertEqual(publisher.validate(self.payload), self.payload['reportDate'])
 
     def test_full_edition_is_atomic_and_repeat_is_idempotent(self):
+        del self.payload['items'][0]['image']
+        self.payload['items'][1]['image'] = None
         with tempfile.TemporaryDirectory() as directory:
             data = Path(directory)
             (data / 'world-notes/archive').mkdir(parents=True)

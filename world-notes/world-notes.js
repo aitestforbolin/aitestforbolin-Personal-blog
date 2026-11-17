@@ -30,7 +30,7 @@
     return response.json();
   }
   function photo(item, index, article) {
-    if (!item.image) return null; // Earlier editions remain readable without photos.
+    if (!item.image) return null; // Photos are optional for every edition.
     try {
       const data = item.image;
       const url = new URL(data.url);
@@ -46,10 +46,10 @@
       const caption = node('figcaption');
       caption.append(node('span', data.caption));
       caption.append(link(`图片：${data.credit} ↗`, data.sourceUrl));
-      // Keep the source accessible if a publisher stops serving its image.
+      // An unavailable photo must not interrupt reading.
       img.addEventListener('error', () => {
-        original.replaceChildren(node('span', '到原文查看图片 ↗'));
-        original.classList.add('wn-photo-unavailable');
+        figure.remove();
+        article.classList.remove('wn-illustrated');
       }, {once: true});
       original.append(img);
       figure.append(original, caption);
