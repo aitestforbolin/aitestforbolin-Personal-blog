@@ -1,0 +1,104 @@
+{
+  "reportDate": "2026-11-18",
+  "startedAt": "2026-11-18T06:02:50+08:00",
+  "status": "published",
+  "requestId": "world-notes-20261118-0602",
+  "previousReportDate": "2026-11-17",
+  "editorialSha": "cbb6311d1fc446d01eecc541423ce740e3a41b57",
+  "recentArchiveDates": [
+    "2026-11-17",
+    "2026-11-16",
+    "2026-11-15",
+    "2026-11-14",
+    "2026-11-13",
+    "2026-11-12",
+    "2026-11-11"
+  ],
+  "qualifiedCount": 5,
+  "textVerifiedCandidateCount": 7,
+  "collectionFailed": false,
+  "publicationAttempted": true,
+  "publicationRequestCommit": "774f5665b5bfc7c8b4c37a3de8f8aad32a0bc029",
+  "publishRunId": 44186718563,
+  "imageCount": 2,
+  "imageOmissions": [
+    {
+      "id": "20261118-philadelphia-laundry-truck",
+      "reason": "官方活动页无相关现场配图，HTTP提取403；不影响文字发布"
+    },
+    {
+      "id": "20261118-xalapa-custom-desk",
+      "reason": "原文图片为泛用场景及异地缝纫，未用作受访者定制家具照片"
+    },
+    {
+      "id": "20261118-cape-town-cleaner-commute",
+      "reason": "原文图注可读，HTTP提取403，未取得可核对画面的照片地址"
+    }
+  ],
+  "sourceReadability": {
+    "selectedFullTextReadable": true,
+    "fullTextPages": 8,
+    "initialFailures": [
+      "GroundUp直接打开初次失败，经首页链接点击后全文恢复",
+      "费城日历分页搜索结果和打开页不一致，转查具体活动页核实"
+    ],
+    "imageReadability": "ABC图片网页读取失败后经HTTP成功取得，官方泳馆图片亦经HTTP取得；两张已实际打开核对画面及原图注署名"
+  },
+  "screening": {
+    "method": "浏览当地新闻、公共机构及公开访谈，约26个入口/选题粗筛；全文阅读8页，7条不同候选中选5；通读改写后提交。",
+    "topics": [
+      "尼泊尔村庄民宿（近期重复）",
+      "东京稻田（近期重复）",
+      "图书馆缝纫（近期相似）",
+      "东京盔甲",
+      "老年创业",
+      "传统面包店",
+      "羽毛球/包容体育",
+      "蓝莓农场",
+      "木桶匠（近期重复）",
+      "墨西哥徒步",
+      "墨西哥海滩生活",
+      "墨西哥植物画（近期重复）",
+      "哈拉帕定制家具",
+      "费城免费洗衣车",
+      "费城拼图",
+      "费城家族影像扫描",
+      "费城社工值班",
+      "赫尔辛基泳馆",
+      "儿童节免费游泳",
+      "霍巴特园艺搭档",
+      "南澳社区烹饪课",
+      "社区志愿者奖",
+      "开普敦清洁工通勤与停工结果",
+      "滕比萨缺水停电（与近期地域问题相近）",
+      "南非教育项目",
+      "城镇修理咖啡馆（近期重复）"
+    ]
+  },
+  "notificationMessageId": null,
+  "onlineVerifiedAt": "2026-11-17 22:08:46 UTC",
+  "recordedAt": "2026-11-17 22:08:46 UTC",
+  "deployRunId": 44186903332,
+  "deployTriggerCommit": "69545922c1eece9e28be6c69265ddf53be241b73",
+  "publicReadback": {
+    "date": "2026-11-18",
+    "requestId": "world-notes-20261118-0602",
+    "itemCount": 5,
+    "latestAndArchiveMatch": true,
+    "status": "confirmed"
+  },
+  "retainedPreviousEdition": false,
+  "failures": [
+    {
+      "stage": "public-readback",
+      "reason": "部署进行中首次归档HTTP返回503、最新版仍为11月17日；后续回读已恢复一致",
+      "recovered": true
+    },
+    {
+      "stage": "deployment",
+      "reason": "前两次构建被新提交替换而取消；跟进最新提交的Pages构建及部署均成功",
+      "recovered": true
+    }
+  ],
+  "notificationReason": "无终止性采集/发布/部署故障；构建取消为并发提交替换，后续部署成功，最终公开回读一致。"
+}
