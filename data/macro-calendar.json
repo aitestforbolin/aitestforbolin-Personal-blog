@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-17T13:42:58+00:00",
+  "generatedAt": "2026-11-17T22:07:34+00:00",
   "timezone": "Asia/Shanghai",
   "status": "healthy",
   "failedSources": [],
@@ -41,7 +41,7 @@
       "actualStatus": "not_expected",
       "actualMissing": [],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-17T13:42:58+00:00",
+      "retrievedAt": "2026-11-17T22:07:34+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -115,7 +115,7 @@
       "actualStatus": "complete",
       "actualMissing": [],
       "actualLastCheckedAt": "2026-11-17T08:42:56-05:00",
-      "retrievedAt": "2026-11-17T13:42:58+00:00",
+      "retrievedAt": "2026-11-17T22:07:34+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "legacy": {
@@ -162,10 +162,10 @@
         "release_status": "released",
         "forecast": "核心零售环比 0.4% · 零售环比 0.1%",
         "previous": "核心零售环比 1.1% · 零售环比 0.8%",
-        "actual_last_checked_at": "2026-11-17T08:42:56-05:00",
-        "actual_check_status": "ok",
         "released_at": "2026-11-17T08:30:00-05:00",
         "actual_updated_at": "2026-11-17T13:42:58.505Z",
+        "actual_last_checked_at": "2026-11-17T08:42:56-05:00",
+        "actual_check_status": "ok",
         "actual": "核心零售环比 0.6% · 零售环比 0.2%",
         "calendar_status": "healthy",
         "actual_missing": [],
@@ -200,7 +200,7 @@
       "actualStatus": "not_expected",
       "actualMissing": [],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-17T13:42:58+00:00",
+      "retrievedAt": "2026-11-17T22:07:34+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -255,7 +255,7 @@
           "id": "metric-1",
           "label": "初请失业金人数",
           "actual": null,
-          "forecast": "199K",
+          "forecast": "198K",
           "previous": "200K",
           "unit": null,
           "sourceUrl": "https://www.forexfactory.com/calendar"
@@ -267,7 +267,7 @@
         "初请失业金人数"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-17T13:42:58+00:00",
+      "retrievedAt": "2026-11-17T22:07:34+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -292,14 +292,14 @@
             "label": "初请失业金人数",
             "source_title": "Unemployment Claims",
             "actual": null,
-            "forecast": "199K",
+            "forecast": "198K",
             "previous": "200K",
             "consensus_source": "Forex Factory 市场日历",
             "consensus_url": "https://www.forexfactory.com/calendar"
           }
         ],
         "release_status": "scheduled",
-        "forecast": "初请失业金人数 199K",
+        "forecast": "初请失业金人数 198K",
         "previous": "初请失业金人数 200K",
         "calendar_status": "healthy",
         "actual_missing": [
@@ -326,7 +326,7 @@
           "id": "metric-1",
           "label": "费城联储制造业指数",
           "actual": null,
-          "forecast": "19.2",
+          "forecast": "20.6",
           "previous": "20.9",
           "unit": null,
           "sourceUrl": "https://www.forexfactory.com/calendar"
@@ -338,7 +338,7 @@
         "费城联储制造业指数"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-17T13:42:58+00:00",
+      "retrievedAt": "2026-11-17T22:07:34+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -363,14 +363,14 @@
             "label": "费城联储制造业指数",
             "source_title": "Philly Fed Manufacturing Index",
             "actual": null,
-            "forecast": "19.2",
+            "forecast": "20.6",
             "previous": "20.9",
             "consensus_source": "Forex Factory 市场日历",
             "consensus_url": "https://www.forexfactory.com/calendar"
           }
         ],
         "release_status": "scheduled",
-        "forecast": "费城联储制造业指数 19.2",
+        "forecast": "费城联储制造业指数 20.6",
         "previous": "费城联储制造业指数 20.9",
         "calendar_status": "healthy",
         "actual_missing": [
@@ -397,7 +397,7 @@
           "id": "metric-1",
           "label": "消费者信心终值",
           "actual": null,
-          "forecast": "52.1",
+          "forecast": "51.7",
           "previous": "51.0",
           "unit": null,
           "sourceUrl": "https://www.forexfactory.com/calendar"
@@ -419,7 +419,7 @@
         "通胀预期终值"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-17T13:42:58+00:00",
+      "retrievedAt": "2026-11-17T22:07:34+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -444,7 +444,7 @@
             "label": "消费者信心终值",
             "source_title": "Revised UoM Consumer Sentiment",
             "actual": null,
-            "forecast": "52.1",
+            "forecast": "51.7",
             "previous": "51.0",
             "consensus_source": "Forex Factory 市场日历",
             "consensus_url": "https://www.forexfactory.com/calendar"
@@ -460,7 +460,7 @@
           }
         ],
         "release_status": "scheduled",
-        "forecast": "消费者信心终值 52.1",
+        "forecast": "消费者信心终值 51.7",
         "previous": "消费者信心终值 51.0 · 通胀预期终值 4.3%",
         "calendar_status": "healthy",
         "actual_missing": [
