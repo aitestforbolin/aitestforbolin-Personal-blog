@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "requestId": "codex-x-20261117T010350Z",
-  "triggerSha": "fce5437bab7b2955d17b342f6245db071f4acd89",
-  "publicationDate": "2026-11-17",
-  "publishedAt": "2026-11-17T09:07:24.344+08:00",
+  "requestId": "codex-x-20261118T010329Z",
+  "triggerSha": "20f4a96ed5a420bba323da14125f620e908894ba",
+  "publicationDate": "2026-11-18",
+  "publishedAt": "2026-11-18T09:12:00+08:00",
   "payload": {
     "schemaVersion": 1,
     "status": "success",
-    "reportDate": "2026-11-17",
-    "generatedAt": "2026-11-17T09:07:24.344+08:00",
-    "sourceGeneratedAt": "2026-11-17T01:04:28.862783+00:00",
-    "sourcePostCount": 133,
+    "reportDate": "2026-11-18",
+    "generatedAt": "2026-11-18T09:12:00+08:00",
+    "sourceGeneratedAt": "2026-11-18T01:04:26.874847+00:00",
+    "sourcePostCount": 156,
     "sourceListCount": 4,
     "executionLineage": {
       "schemaVersion": 2,
-      "runId": "x-intelligence:codex-x-20261117T010350Z",
-      "requestId": "codex-x-20261117T010350Z",
-      "triggerSha": "fce5437bab7b2955d17b342f6245db071f4acd89",
-      "githubRunId": 43992687604,
-      "scheduledAt": "2026-11-17T01:00:00Z",
-      "startedAt": "2026-11-17T01:04:28.862237+00:00",
-      "sourceCheckedAt": "2026-11-17T01:04:42.547846+00:00",
-      "sourceUpdatedAt": "2026-11-17T00:44:38+00:00",
-      "completedAt": "2026-11-17T01:04:42.547899+00:00",
-      "publishedAt": "2026-11-17T09:07:24.344+08:00"
+      "runId": "x-intelligence:codex-x-20261118T010329Z",
+      "requestId": "codex-x-20261118T010329Z",
+      "triggerSha": "20f4a96ed5a420bba323da14125f620e908894ba",
+      "githubRunId": 44212900076,
+      "scheduledAt": "2026-11-18T01:00:00Z",
+      "startedAt": "2026-11-18T01:04:26.874313+00:00",
+      "sourceCheckedAt": "2026-11-18T01:04:36.592807+00:00",
+      "sourceUpdatedAt": "2026-11-18T01:04:01+00:00",
+      "completedAt": "2026-11-18T01:04:36.592862+00:00",
+      "publishedAt": "2026-11-18T09:12:00+08:00"
     },
     "executionStatus": {
       "collection": "success",
@@ -32,439 +32,413 @@
         "status": "success"
       }
     },
-    "overview": "今日信息流的优先级明显偏向安全与监管。Optimizely Web 供应链攻击被报告波及约 178 家机构，恶意脚本可替换加密地址、窃取支付信息与 Cookie；Lighter 则出现约 1,550 万美元异常转移，社区暂时更倾向于两个做市商账户 API 密钥及账户权限路径被利用，而非协议底层失守。Kava 同时公布 HARD Lend 事件进展，确认约 183 万美元 KAVA 被盗，并计划永久关闭新增借贷。市场结构方面，Backpack 获批消息、xStocks 扩展至 1,000 多只代币化证券，以及 Anthropic IPO 价格敞口产品显示传统资产继续上链；但这些产品通常只提供价格敞口，并有地域、价差与所有权限制。英伟达仍是注意力中心，董事大额减持、家族信托转移、黄仁勋回归请愿与供应链担忧需要严格分开看待。",
+    "overview": "今日信息流由英伟达财报与治理、AI 算力监管、链上市场基础设施和账户安全四条主线推动。英伟达披露强劲数据中心增长与上调预期，但董事会换帅信号和黄仁勋是否回归仍存在明显分歧；美国对海外数据中心向受限实体提供先进 AI 算力的监管被指进一步收紧。加密市场侧，Backpack 获 CFTC 双牌照、Anthropic IPO 价格敞口产品上线和 Solana Foundation 控股 CoinGecko，显示传统市场与链上基础设施继续融合。与此同时，Aster Agent Key 权限事件、Robinhood 前员工利用上币信息交易永续合约，提醒平台权限与内部信息隔离仍是关键风险。",
     "homeHighlights": [
-      "Optimizely Web 供应链攻击被报告波及约 178 家机构，正规网站可能通过可信 CDN 加载恶意代码。",
-      "Lighter 约 1,550 万美元异常转移疑与做市商 API 密钥和账户权限路径有关，平台尚未给出正式结论。",
-      "Kava 确认 HARD Lend 漏洞造成约 183 万美元损失，并计划永久关闭新增借贷。",
-      "xStocks 在 Solana 扩展至 1,000 多只代币化股票与 ETF，但产品只提供价格敞口而非直接所有权。",
-      "英伟达治理争议继续升温，董事减持、家族信托安排和黄仁勋回归声量需分别核验。"
+      "英伟达披露季度收入 1,158 亿美元、数据中心收入 1,076 亿美元，并上调长期增长预期，但 CEO 继任仍未定。",
+      "美国被指扩大先进 AI 算力出口监管，将部分海外数据中心向受限实体提供算力纳入许可范围。",
+      "Backpack 获 CFTC 的 DCM 与 DCO 双重批准，计划推进受监管衍生品和代币化美股。",
+      "Aster 用户报告 Agent Key 权限路径导致约 456 万美元资产转移，平台尚未给出正式结论。",
+      "Anthropic IPO 价格敞口产品与 Solana Foundation 控股 CoinGecko，显示链上金融基础设施继续纵向整合。"
     ],
     "topics": [
       {
-        "title": "Optimizely Web 供应链攻击波及约 178 家机构",
+        "title": "英伟达财报强劲，但 CEO 继任与黄仁勋回归仍存分歧",
         "importance": "high",
-        "summary": "安全研究员披露，攻击者通过篡改 Optimizely Web 后台的 Project JavaScript 字段，把恶意代码经官方 CDN 注入客户网站，受影响品牌被报告包括 Zoom、BBC、CNN、HSBC、Ledger、Salesforce 与 GitLab。",
-        "whyItMatters": "第三方脚本平台一旦失守，可以绕过单个网站自身防护，让用户在访问正规域名时仍加载恶意代码，形成高度隐蔽的广泛供应链风险。",
+        "summary": "信息流称英伟达季度总收入 1,158 亿美元、同比增长 103%，数据中心收入 1,076 亿美元、同比增长 110%；公司将 2028 财年增长预期从 70% 上调至 75%，并给出下一季度 1,261 亿至 1,339 亿美元指引。与此同时，董事会被指无意让黄仁勋回任，并正委托猎头寻找新 CEO；黄仁勋公开表示如董事会认为合适，愿意回来。",
+        "whyItMatters": "需求与财务指引仍强，但管理层连续性、董事会选择和供应链执行将直接影响市场对 AI 基础设施周期的信心。",
         "facts": [
-          "约 178 个组织、188 个第三方脚本被报告受影响。",
-          "恶意功能包括加密地址替换、信用卡、Cookie 和截图窃取。",
-          "截至 11 月 16 日 19:25 UTC，攻击者钱包被报告收到约 7,000 美元加密资产。"
+          "季度总收入被报告为 1,158 亿美元，数据中心收入为 1,076 亿美元。",
+          "Vera Rubin 相关收入被称接近 200 亿美元。",
+          "董事会被报告正寻找新 CEO；黄仁勋本人表达了有条件回归意愿。"
         ],
         "interpretations": [
-          "信息来自媒体账号对研究员披露的转述，packet 中没有受影响机构逐一确认。",
-          "影响范围需要区分代码已注入、用户实际执行和资产实际损失。"
-        ],
-        "authors": [
-          "BlockBeatsAsia"
-        ],
-        "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2122488962069790822"
-        ],
-        "sourceCount": 1,
-        "confidence": "medium"
-      },
-      {
-        "title": "Lighter 约 1,550 万美元异常转移，API 权限路径成为焦点",
-        "importance": "high",
-        "summary": "两个大型做市商账户被报告通过自身机器人 API 密钥发生约 1,550 万美元 USDC 异常转移。社区分析认为攻击者创建高占比公共池，再通过同一 L1 地址下的账户间转账与赎回路径取走资金；Lighter 一度暂停提款。",
-        "whyItMatters": "若分析成立，风险核心不是合约底层漏洞，而是 API 密钥、关联账户和公共池权限组合产生的越权路径，这对交易所与做市商的密钥隔离具有直接启示。",
-        "facts": [
-          "账户 #714710 和 #714723 被列为主要受影响账户。",
-          "其中约 1,039 万 USDC 被转出并经 CoW Protocol 换为 ETH。",
-          "多个信息源一致提及约 1,550 万美元规模。"
-        ],
-        "interpretations": [
-          "API 密钥泄露及权限机制利用仍是社区分析，Lighter 尚未发布正式调查结论。",
-          "协议层未失守的判断不能降低账户级资金损失和权限设计风险。"
+          "财务数据支持 AI 算力需求仍强，但治理不确定性尚未消除。",
+          "董事会无意召回与黄仁勋愿意回归是不同主体的立场，不能合并为已确定的人事结果。"
         ],
         "authors": [
           "BlockBeatsAsia",
-          "bwenews",
-          "EleveResearch",
-          "0xSleepinRain"
+          "_FORAB",
+          "TechFlowPost",
+          "octopusycc"
         ],
         "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2122286208667787386",
-          "https://x.com/bwenews/status/2122283631570022782",
-          "https://x.com/EleveResearch/status/2122281872755470415",
-          "https://x.com/0xSleepinRain/status/2122285251728965992"
+          "https://x.com/BlockBeatsAsia/status/2122847776409342052",
+          "https://x.com/BlockBeatsAsia/status/2122728231988302139",
+          "https://x.com/_FORAB/status/2122511327155610080",
+          "https://x.com/TechFlowPost/status/2122515943746376006",
+          "https://x.com/octopusycc/status/2122709200312877151"
         ],
         "sourceCount": 4,
         "confidence": "medium"
       },
       {
-        "title": "Kava 确认 HARD Lend 漏洞损失并提出永久关闭新增借贷",
+        "title": "美国 AI 芯片管制被指延伸至海外数据中心算力服务",
         "importance": "high",
-        "summary": "Kava 披露攻击者利用借贷账户核算漏洞虚增 BUSD 抵押品价值，通过借款和清算转走约 5,390 万枚 KAVA，事发时估值约 183 万美元；约 4,920 万枚已跨链至 BNB Chain。",
-        "whyItMatters": "事件从初步异常升级为明确漏洞与损失披露，后续重点转向冻结追回、用户仓位处置和治理关闭方案。",
+        "summary": "信息流称美国商务部扩大监管：海外数据中心若向中国或其他受限实体提供大量先进 AI 算力，也可能需要许可，并为既有安排设置过渡期。",
+        "whyItMatters": "监管边界若从实体芯片出口扩展到第三国远程算力服务，将影响云计算、GPU 租赁和跨境 AI 训练的可获得性。",
         "facts": [
-          "漏洞被项目方称已识别并封堵。",
-          "部分攻击者资金已被冻结。",
-          "治理提案计划经 7 天投票后永久关闭 HARD Lend 新增借贷。",
-          "项目方称 Kava Chain 底层及其他生态应用未受影响。"
+          "帖子明确提及第三国数据中心许可要求。",
+          "既有服务安排被称具有过渡期。"
         ],
         "interpretations": [
-          "项目方声明是最接近一手的事件说明，但具体追回比例和用户补偿尚未公布。",
-          "永久关闭新增借贷说明该产品的风险处置不仅是临时修补。"
+          "packet 中只有媒体账号转述，没有商务部规则原文，适用阈值和实施细节仍需核验。",
+          "该规则可能收紧绕道第三国取得算力的空间，但实际影响取决于许可执行。"
         ],
         "authors": [
           "BlockBeatsAsia"
         ],
         "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2122272986061558241"
-        ],
-        "sourceCount": 1,
-        "confidence": "high"
-      },
-      {
-        "title": "美国链上市场监管出现两项边界信号",
-        "importance": "high",
-        "summary": "新闻聚合账号称 CFTC 批准 Backpack 成为首个采用区块链技术的 DCO 与 DCM；另一则法庭消息称，涉及诱骗三明治机器人的 2,500 万美元 MEV 事件未被认定为电信欺诈，MIT 兄弟获判无罪。",
-        "whyItMatters": "一边是区块链原生市场基础设施进入受监管牌照框架，另一边是传统欺诈法律对链上交易策略的适用边界受到挑战，二者共同影响链上市场的制度化路径。",
-        "facts": [
-          "Backpack 获批消息明确提到 DCO 与 DCM。",
-          "MEV 案被报道涉及约 2,500 万美元。",
-          "法官被转述为强调相关交易并非在受监管市场下单。"
-        ],
-        "interpretations": [
-          "两则信息均来自新闻聚合账号，packet 未包含 CFTC 文件或法院判决全文。",
-          "无罪判决不等于所有 MEV 操作合法，只能说明该案指控与法律适用结果。"
-        ],
-        "authors": [
-          "bwenews"
-        ],
-        "sourceUrls": [
-          "https://x.com/bwenews/status/2122455348925894861",
-          "https://x.com/bwenews/status/2122417949176959411"
+          "https://x.com/BlockBeatsAsia/status/2122642001413955639"
         ],
         "sourceCount": 1,
         "confidence": "medium"
       },
       {
-        "title": "AI 芯片管制被指延伸至海外数据中心远程算力",
+        "title": "Aster Agent Key 权限事件涉及约 456 万美元转移",
         "importance": "high",
-        "summary": "信息流称美国商务部新规要求，海外数据中心若向总部或母公司位于受限国家的企业提供大量前沿 AI 算力，需要申请许可；另有帖子称印尼、马来西亚、新加坡、泰国和巴西的先进芯片出口也受到新增限制。",
-        "whyItMatters": "监管若从实体芯片流转延伸至远程算力服务，将直接影响海外数据中心、云算力租赁和中国 AI 企业的算力获取路径。",
+        "summary": "用户报告 33 BTC 与约 220 万 USDT 被通过平台生成的 Agent Key 转移，合计约 456 万美元；发帖者强调并非钱包私钥泄露，而是 Agent Key 权限与私有模式路径可能被利用。",
+        "whyItMatters": "若属实，事件指向账户授权模型而非链上私钥本身，交易平台需要重新审视 API/Agent Key 的资产转移边界、可见性和撤销机制。",
         "facts": [
-          "帖子明确区分物理芯片出口与海外数据中心远程提供算力。",
-          "五个国家被列为新增许可要求涉及地区。"
+          "被报告转移资产为 33 BTC 和 2,200,134 USDT。",
+          "发帖者称操作来自 Aster 生成的 Agent Key。",
+          "Aster 尚未在 packet 中给出正式调查结论。"
         ],
         "interpretations": [
-          "信息来自 KOL 对所谓新规的转述，packet 中没有商务部原文，具体适用门槛与生效范围需等待一手文件核验。",
-          "社区关于规则针对特定企业或事件的推断没有直接证据。"
+          "目前主要依据受影响用户陈述，损失路径与责任归属尚未独立确认。",
+          "Agent Key 若具备超出用户预期的权限，会构成产品权限设计风险。"
         ],
         "authors": [
-          "_FORAB"
+          "BlockBeatsAsia"
         ],
         "sourceUrls": [
-          "https://x.com/_FORAB/status/2122323641342013768",
-          "https://x.com/_FORAB/status/2122330659448611282"
+          "https://x.com/BlockBeatsAsia/status/2122537710149841344"
         ],
         "sourceCount": 1,
         "confidence": "low"
       },
       {
-        "title": "代币化证券继续扩容，但所有权与准入限制仍明显",
+        "title": "Backpack 获 CFTC DCM 与 DCO 双重批准",
         "importance": "high",
-        "summary": "xStocks 宣布在 JTX Equities 上线 1,000 多只美国、欧洲和英国代币化股票及 ETF，RFQ 单笔规模可达 100 万美元；同时通过 Kraken 等渠道提供 Anthropic IPO 价格敞口。",
-        "whyItMatters": "标的数量、RFQ 流动性与 IPO 场景表明代币化证券正在扩展，但用户获得的是价格敞口而非直接股权，且存在地域限制、5%价差和不保证配售等条件。",
+        "summary": "信息流称 Backpack 获美国 CFTC 指定合约市场与衍生品清算组织双重批准，计划提供期货、期权和掉期，并探索在 Solana 上发行代币化美国股票。",
+        "whyItMatters": "交易与清算牌照同时落地，为链上原生平台接入受监管衍生品和现实资产提供了更完整的制度路径。",
         "facts": [
-          "JTX 被称上线 1,000 多只代币化股票和 ETF。",
-          "xStocks RFQ 宣称单笔支持最高 100 万美元。",
-          "IPO xStocks 明确仅提供价格敞口，不代表直接所有权。",
-          "相关产品不向美国、英国、加拿大和澳大利亚等地区用户开放。"
+          "获批类型被报告为 DCM 与 DCO。",
+          "业务规划包括期货、期权、掉期及代币化美股。",
+          "拟采用 Solana 作为部分链上基础设施。"
         ],
         "interpretations": [
-          "官方产品与风险披露可确认产品结构，但不能证明二级流动性和价格跟踪质量。",
-          "伦敦证券交易所相关暗示帖信息不足，不能据此推断正式合作范围。"
+          "批准是基础设施资质信号，但具体产品、上线时间与客户范围仍需正式文件确认。"
         ],
         "authors": [
-          "xStocksFi",
-          "base",
+          "BlockBeatsAsia",
+          "_FORAB"
+        ],
+        "sourceUrls": [
+          "https://x.com/BlockBeatsAsia/status/2122525704252527011",
+          "https://x.com/_FORAB/status/2122515412206445002"
+        ],
+        "sourceCount": 2,
+        "confidence": "medium"
+      },
+      {
+        "title": "Anthropic IPO 价格敞口产品在 Binance Wallet 开放",
+        "importance": "high",
+        "summary": "Binance 中文官方账号宣布在 BSC 上以 USDC 开放 Anthropic IPO xStocks 活动，时间为北京时间 14:00 至 22:00，总上限 5 亿美元，并设 Alpha 积分和地域限制。",
+        "whyItMatters": "未上市公司价格敞口进一步进入链上钱包分发，但配售、地域、价格跟踪和非直接股权性质决定了它不能等同于 IPO 股票所有权。",
+        "facts": [
+          "官方活动时间为北京时间 14:00 至 22:00。",
+          "结算资产为 USDC，网络为 BSC。",
+          "活动总上限被列为 5 亿美元，并设地理限制。"
+        ],
+        "interpretations": [
+          "官方帖可确认活动规则，但不能保证用户配售、二级流动性或与真实 IPO 定价一致。"
+        ],
+        "authors": [
+          "binancezh",
           "0xStudy"
         ],
         "sourceUrls": [
-          "https://x.com/xStocksFi/status/2122375127224725583",
-          "https://x.com/xStocksFi/status/2122302209073504676",
-          "https://x.com/xStocksFi/status/2122302205114114549",
-          "https://x.com/base/status/2122253921737433301",
-          "https://x.com/0xStudy/status/2122235532994617716"
+          "https://x.com/binancezh/status/2122782384932504058",
+          "https://x.com/binancezh/status/2122782388002619452",
+          "https://x.com/0xStudy/status/2122795501804552572"
         ],
-        "sourceCount": 3,
+        "sourceCount": 2,
         "confidence": "high"
       },
       {
-        "title": "英伟达治理争议从创始人去留延伸至董事交易与技术监督",
+        "title": "Robinhood 前工程师承认利用上币信息交易永续合约",
         "importance": "high",
-        "summary": "SEC 文件转述显示，董事 Mark Stevens 在 8 月底至 9 月中旬卖出约 424 万股、套现约 9.47 亿美元，申报未注明依据 10b5-1 预设计划执行；同时，黄仁勋回归请愿、董事会技术背景和供应链依赖成为高频讨论。",
-        "whyItMatters": "财报前的治理争议已不只是创始人个人问题，而是扩展到董事交易程序、技术监督能力、客户信用与供应链连续性。",
+        "summary": "信息流称 Robinhood 一名前工程师对电信欺诈认罪，承认利用代币上市内部信息在 Hyperliquid 开仓永续合约，并同意没收 125,523 美元；量刑日期被列为 2027 年 2 月 25 日。",
+        "whyItMatters": "事件显示链上永续市场可成为传统平台内部信息变现的通道，交易所需要加强上币信息隔离、员工监控与跨市场合规。",
         "facts": [
-          "Mark Stevens 的三份申报被转述为未勾选 10b5-1 计划。",
-          "未采用 10b5-1 本身不等于违法或证明提前知情。",
-          "Stevens 最后申报时仍持有约 2,753 万股。",
-          "黄仁勋约 5,896 万股信托转移被说明为提前安排的遗产规划，并非市场减持。"
+          "被告被报告已对电信欺诈认罪。",
+          "非法交易工具被指为 Hyperliquid 永续合约。",
+          "没收金额为 125,523 美元，量刑日期为 2027 年 2 月 25 日。"
         ],
         "interpretations": [
-          "董事减持时间引发质疑，但现有证据不能建立内幕交易结论。",
-          "请愿签名由用户自行填写且未核验，预测市场概率只是注意力信号。",
-          "“董事会无人懂 GPU”是治理观点，不是董事胜任能力的充分证明。"
+          "信息来自媒体账号对美国司法程序的转述，packet 未包含法院文件原文。"
         ],
         "authors": [
-          "BlockBeatsAsia",
-          "TechFlowPost",
-          "nbblock"
+          "BlockBeatsAsia"
         ],
         "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2122178299019616428",
-          "https://x.com/TechFlowPost/status/2122197595372077107",
-          "https://x.com/BlockBeatsAsia/status/2122196910643818816",
-          "https://x.com/BlockBeatsAsia/status/2122491064951156840",
-          "https://x.com/BlockBeatsAsia/status/2122160682234007857",
-          "https://x.com/nbblock/status/2122310230784856480"
-        ],
-        "sourceCount": 3,
-        "confidence": "medium"
-      },
-      {
-        "title": "比特币资金面承压，极端恐慌与长期低估值信号并存",
-        "importance": "high",
-        "summary": "Strategy 数据看板被转述为：BTC 低于 200 周均线约 4.4%，恐慌贪婪指数降至 10，过去 30 天现货 ETF 净流出约 29.19 亿美元、近 7 天流出约 16.7 亿美元；BTC 市占率升至 66.9%。",
-        "whyItMatters": "机构资金流出和极端恐慌说明风险偏好仍弱，而跌破长期均线又可能吸引左侧资金，市场处于“估值变便宜但资金仍撤出”的矛盾状态。",
-        "facts": [
-          "近 30 天 ETF 净流出被列为 29.19 亿美元。",
-          "近 7 天净流出被列为 16.7 亿美元。",
-          "BTC 市占率被列为 66.9%。",
-          "2026 年初至 11 月中旬的 BTC 收益被转述为约 -22%。"
-        ],
-        "interpretations": [
-          "200 周均线和恐慌指数属于历史定位工具，不能单独证明底部。",
-          "不同帖子对下跌原因包含政治、交易所和宏观归因，均缺少单一因果证据。"
-        ],
-        "authors": [
-          "TechFlowPost",
-          "BlockBeatsAsia",
-          "Benjieming1Q84"
-        ],
-        "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2122274496274997534",
-          "https://x.com/TechFlowPost/status/2122206541293973743",
-          "https://x.com/BlockBeatsAsia/status/2122162049002389854",
-          "https://x.com/Benjieming1Q84/status/2122162827091947727"
-        ],
-        "sourceCount": 3,
-        "confidence": "medium"
-      },
-      {
-        "title": "EIP-8037 引发以太坊状态成本与生态迁移争论",
-        "importance": "medium",
-        "summary": "Vitalik 被转述为支持 EIP-8037，通过大幅提高新账户和合约部署等新增状态空间成本，抑制主网状态膨胀，并鼓励 Merkle 领取与更多活动迁往 L2。",
-        "whyItMatters": "提案触及以太坊主网定位：提高永久状态成本可能改善长期可持续性，却也可能增加发行、空投和新应用门槛。",
-        "facts": [
-          "新账户 Gas 成本被转述为提高超过 5 倍。",
-          "合约部署成本被转述为提高超过 7 倍。",
-          "Merkle 树自助领取被提出为降低项目方状态写入的方法。"
-        ],
-        "interpretations": [
-          "开发者担忧项目可能不迁往 L2 而直接换链，这属于生态竞争判断。",
-          "packet 只提供媒体解读和推荐链接，未包含提案全文。"
-        ],
-        "authors": [
-          "TechFlowPost"
-        ],
-        "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2122269584049021434",
-          "https://x.com/TechFlowPost/status/2122269818942570621"
+          "https://x.com/BlockBeatsAsia/status/2122499918275526829"
         ],
         "sourceCount": 1,
         "confidence": "medium"
       },
       {
-        "title": "ASTER 出现极端价格波动，团队调查疑似恶意清算",
-        "importance": "medium",
-        "summary": "ASTER 一小时上涨约 30% 后，在 15 分钟内回撤 32%。Aster CEO 表示团队正在调查，初步判断可能与高杠杆仓位清算有关，并怀疑存在恶意清算。",
-        "whyItMatters": "低流动性时段的异常拉升与快速回撤会暴露清算机制、价格源和市场深度风险，完整报告比短期价格修复更重要。",
+        "title": "Solana Foundation 被确认持有 CoinGecko 多数股权",
+        "importance": "high",
+        "summary": "CoinGecko 联合创始人被转述确认 Solana Foundation 已取得多数股权，双方计划扩展 API、RWA、衍生品及面向交易的市场情报能力。",
+        "whyItMatters": "公链基金会控股主流数据平台意味着从底层网络向数据、研究和交易入口纵向整合，也会带来平台中立性与治理边界问题。",
         "facts": [
-          "价格一度触及约 0.71 美元，随后跌至约 0.48 美元。",
-          "团队称业务运营正常。",
-          "CEO 否认事件与官方做市安排有关。"
+          "CoinGecko 联合创始人被报告确认多数股权关系。",
+          "合作方向包括 API、RWA、衍生品和市场情报。"
         ],
         "interpretations": [
-          "恶意清算目前只是团队初步判断，尚无完整调查报告。",
-          "KOL 关于做市商问题和流动性获取的推测不能当作事实。"
+          "多数股权不等于日常编辑或数据口径已发生变化，仍需观察治理和独立性安排。"
         ],
         "authors": [
-          "BlockBeatsAsia",
-          "EleveResearch"
+          "BlockBeatsAsia"
         ],
         "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2122135821117743391",
-          "https://x.com/EleveResearch/status/2122212566655275353"
+          "https://x.com/BlockBeatsAsia/status/2122626134894661886"
+        ],
+        "sourceCount": 1,
+        "confidence": "medium"
+      },
+      {
+        "title": "Base 宣布可在 ChatGPT 对话中连接 Coinbase 并交易",
+        "importance": "medium",
+        "summary": "Base 官方账号称用户可在 ChatGPT 中连接 Coinbase 账户并交易 Base 资产，同时明确提示 AI 可能出错，交易责任由用户承担。",
+        "whyItMatters": "自然语言入口正在接近真实交易执行，但模型错误、授权范围、确认流程和责任归属会成为产品采用的核心门槛。",
+        "facts": [
+          "Base 官方帖子称可连接 Coinbase 账户。",
+          "支持在对话中交易 Base 资产。",
+          "官方同时发布 AI 可能失败和用户自行负责的风险提示。"
+        ],
+        "interpretations": [
+          "这是 Base 的产品宣传信号；packet 中没有 OpenAI 官方说明，不能据此扩大解释产品支持范围。"
+        ],
+        "authors": [
+          "base"
+        ],
+        "sourceUrls": [
+          "https://x.com/base/status/2122694622862565444",
+          "https://x.com/base/status/2122696544541352084"
+        ],
+        "sourceCount": 1,
+        "confidence": "high"
+      },
+      {
+        "title": "GPT-6.2 发布与个人评测显示模型分层继续拉大",
+        "importance": "medium",
+        "summary": "开发者账号称 GPT-6.2 Sol 与 Astra 已发布；个人评测报告中，Sol xhigh 得分 84%、Astra 为 96%，高于此前 6.1 Sol 的 65%，但 Astra 成本约四倍、速度约慢一倍。",
+        "whyItMatters": "模型能力上升的同时，成本与延迟分化加剧，团队更可能采用多模型路由而非单一模型覆盖全部任务。",
+        "facts": [
+          "发布帖提到 GPT-6.2 Sol 与 Astra。",
+          "个人评测给出 84%、96% 与 65% 的对比。",
+          "评测者称 Astra 成本约四倍、速度约慢一倍。"
+        ],
+        "interpretations": [
+          "这些数字来自个人基准，不能当作通用性能结论。",
+          "能力、成本与速度差异支持按任务进行模型分层。"
+        ],
+        "authors": [
+          "thsottiaux",
+          "Khazix0918"
+        ],
+        "sourceUrls": [
+          "https://x.com/thsottiaux/status/2122753991000133943",
+          "https://x.com/Khazix0918/status/2122811072025694318",
+          "https://x.com/Khazix0918/status/2122692392218464305"
         ],
         "sourceCount": 2,
+        "confidence": "medium"
+      },
+      {
+        "title": "加密资本向 AI 与机器人迁移，基础设施需求与估值风险并存",
+        "importance": "medium",
+        "summary": "风险投资讨论认为，大型基金为满足回报规模正转向 AI、机器人、稳定币支付、代币化股票和 AI 钱包；另一组持仓与产业观点显示，部分投资者仍看好 AI 基础设施，但未来资本开支预测下调，市场对需求持续性存在分歧。",
+        "whyItMatters": "资金流向决定下一轮创业供给，但 AI 基础设施的高估值、资本开支和回报周期可能使投资热度与实际盈利分化。",
+        "facts": [
+          "帖子明确提到部分加密 VC 向 AI 与机器人转移。",
+          "稳定币支付、代币化股票和 AI 钱包被列为仍受关注的加密方向。",
+          "半导体未来资本开支预期被报告下调。"
+        ],
+        "interpretations": [
+          "当前 GPU 租赁和 token 需求仍强，被部分 KOL 用来反驳资本开支见顶判断。",
+          "13F 与个人观点只反映阶段性仓位和看法，不能证明长期趋势。"
+        ],
+        "authors": [
+          "TechFlowPost",
+          "BlockBeatsAsia",
+          "nbblock"
+        ],
+        "sourceUrls": [
+          "https://x.com/TechFlowPost/status/2122616910986842438",
+          "https://x.com/BlockBeatsAsia/status/2122608843196871122",
+          "https://x.com/BlockBeatsAsia/status/2122660776410526006",
+          "https://x.com/nbblock/status/2122519345196921190"
+        ],
+        "sourceCount": 3,
         "confidence": "medium"
       }
     ],
     "watchlist": [
       {
-        "signal": "Optimizely 攻击的受影响客户清单与清除时间",
-        "reason": "区分脚本注入范围、实际执行用户与真实资产损失。",
+        "signal": "英伟达 CEO 搜索与董事会正式说明",
+        "reason": "确认黄仁勋是否可能回归，以及新 CEO 的时间表与授权边界。",
         "authors": [
-          "BlockBeatsAsia"
-        ],
-        "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2122488962069790822"
-        ]
-      },
-      {
-        "signal": "Lighter 正式事故报告与账户权限修复",
-        "reason": "确认 API 密钥是否泄露，以及公共池赎回路径是否被利用。",
-        "authors": [
-          "BlockBeatsAsia"
-        ],
-        "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2122286208667787386"
-        ]
-      },
-      {
-        "signal": "Kava 资金追回、治理投票与用户仓位安排",
-        "reason": "漏洞封堵之后，资金与用户善后决定实际损失。",
-        "authors": [
-          "BlockBeatsAsia"
-        ],
-        "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2122272986061558241"
-        ]
-      },
-      {
-        "signal": "CFTC Backpack 批准文件与业务范围",
-        "reason": "确认 DCO、DCM 权限、上线时间和区块链结算边界。",
-        "authors": [
-          "bwenews"
-        ],
-        "sourceUrls": [
-          "https://x.com/bwenews/status/2122455348925894861"
-        ]
-      },
-      {
-        "signal": "美国海外算力许可规则原文",
-        "reason": "核验适用国家、算力阈值、企业归属和生效时间。",
-        "authors": [
+          "BlockBeatsAsia",
           "_FORAB"
         ],
         "sourceUrls": [
-          "https://x.com/_FORAB/status/2122323641342013768"
+          "https://x.com/BlockBeatsAsia/status/2122728231988302139",
+          "https://x.com/_FORAB/status/2122511327155610080"
         ]
       },
       {
-        "signal": "xStocks 单笔大额 RFQ 的成交质量",
-        "reason": "观察价差、深度、配售率和价格跟踪误差。",
+        "signal": "美国海外 AI 算力规则原文与阈值",
+        "reason": "核实适用实体、第三国数据中心、许可门槛和过渡期。",
         "authors": [
-          "xStocksFi"
-        ],
-        "sourceUrls": [
-          "https://x.com/xStocksFi/status/2122375127224725583"
-        ]
-      },
-      {
-        "signal": "英伟达财报与董事会回应",
-        "reason": "验证 AI 需求、供应链信用、管理权与董事交易质疑。",
-        "authors": [
-          "binancezh",
           "BlockBeatsAsia"
         ],
         "sourceUrls": [
-          "https://x.com/binancezh/status/2122278615467569315",
-          "https://x.com/BlockBeatsAsia/status/2122178299019616428"
+          "https://x.com/BlockBeatsAsia/status/2122642001413955639"
         ]
       },
       {
-        "signal": "BTC ETF 净流出与 200 周均线位置",
-        "reason": "判断极端恐慌是否伴随资金流企稳。",
+        "signal": "Aster 正式事故报告与 Agent Key 权限修复",
+        "reason": "确认资金路径、权限范围、用户补偿和密钥撤销机制。",
         "authors": [
-          "TechFlowPost"
+          "BlockBeatsAsia"
         ],
         "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2122274496274997534"
+          "https://x.com/BlockBeatsAsia/status/2122537710149841344"
+        ]
+      },
+      {
+        "signal": "Backpack 牌照文件与产品上线时间",
+        "reason": "明确 DCM、DCO 许可范围及链上结算边界。",
+        "authors": [
+          "BlockBeatsAsia"
+        ],
+        "sourceUrls": [
+          "https://x.com/BlockBeatsAsia/status/2122525704252527011"
+        ]
+      },
+      {
+        "signal": "Anthropic xStocks 配售率、价差与二级流动性",
+        "reason": "判断 5 亿美元上限是否转化为真实成交与可持续流动性。",
+        "authors": [
+          "binancezh",
+          "0xStudy"
+        ],
+        "sourceUrls": [
+          "https://x.com/binancezh/status/2122782384932504058",
+          "https://x.com/0xStudy/status/2122795501804552572"
+        ]
+      },
+      {
+        "signal": "CoinGecko 控股后的治理与数据中立性",
+        "reason": "观察 API、排名、研究和 Solana 生态合作是否改变平台口径。",
+        "authors": [
+          "BlockBeatsAsia"
+        ],
+        "sourceUrls": [
+          "https://x.com/BlockBeatsAsia/status/2122626134894661886"
+        ]
+      },
+      {
+        "signal": "ChatGPT 内交易的授权、确认和风控机制",
+        "reason": "自然语言交易的模型错误与账户权限风险需要产品级约束。",
+        "authors": [
+          "base"
+        ],
+        "sourceUrls": [
+          "https://x.com/base/status/2122696544541352084"
+        ]
+      },
+      {
+        "signal": "PREDICT 推迟 2 至 4 周后的 TGE 进度",
+        "reason": "官方延迟与社区内幕交易质疑并存，需等待新时间表和分配说明。",
+        "authors": [
+          "predictdotfun",
+          "0xStudy"
+        ],
+        "sourceUrls": [
+          "https://x.com/predictdotfun/status/2122570440363434350",
+          "https://x.com/0xStudy/status/2122590522045071420"
         ]
       }
     ],
     "disagreements": [
       {
-        "topic": "Lighter 是协议漏洞还是账户权限事件",
+        "topic": "黄仁勋是否应重返英伟达",
         "positions": [
-          "社区分析认为两个做市商 API 密钥及关联账户路径被利用，协议层本身未失守。",
-          "在平台正式报告前，仍不能排除账户权限设计或其他系统机制存在更广泛问题。"
+          "黄仁勋表示若董事会认为最合适，他愿意回归。",
+          "董事会被报告无意召回，并正寻找新的 CEO。"
         ],
         "sourceUrls": [
-          "https://x.com/0xSleepinRain/status/2122285251728965992",
-          "https://x.com/BlockBeatsAsia/status/2122286208667787386"
+          "https://x.com/BlockBeatsAsia/status/2122728231988302139",
+          "https://x.com/_FORAB/status/2122511327155610080"
         ]
       },
       {
-        "topic": "BTC 跌破长期均线是低估机会还是资金继续撤出",
+        "topic": "AI 基础设施需求是继续加速还是资本开支见顶",
         "positions": [
-          "低于 200 周均线、极端恐慌被视为长周期低位信号。",
-          "ETF 连续净流出和风险资产弱势说明需求尚未稳定。"
+          "英伟达财报、GPU 租赁和 token 消耗被视为需求仍在加速。",
+          "半导体远期资本开支预期下调，被解读为扩张节奏可能放缓。"
         ],
         "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2122274496274997534",
-          "https://x.com/TechFlowPost/status/2122206541293973743"
+          "https://x.com/BlockBeatsAsia/status/2122847776409342052",
+          "https://x.com/nbblock/status/2122519345196921190"
         ]
       },
       {
-        "topic": "黄仁勋回归是否能解决英伟达治理风险",
+        "topic": "Aster 事件是用户侧密钥问题还是平台权限问题",
         "positions": [
-          "支持者认为供应链、工程文化和客户关系高度依赖黄仁勋。",
-          "董事减持程序、董事会监督和合规争议不会因创始人回归自动消失。"
+          "帖子强调钱包私钥没有泄露，异常来自平台生成的 Agent Key。",
+          "平台尚未正式说明，Agent Key 权限设计、用户操作或其他路径仍不能定论。"
         ],
         "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2122160682234007857",
-          "https://x.com/BlockBeatsAsia/status/2122178299019616428",
-          "https://x.com/BlockBeatsAsia/status/2122196910643818816"
+          "https://x.com/BlockBeatsAsia/status/2122537710149841344"
         ]
       },
       {
-        "topic": "EIP-8037 是安全扩容还是提高生态门槛",
+        "topic": "Anthropic IPO xStocks 是可及性提升还是有限价格敞口",
         "positions": [
-          "提高永久状态成本可以抑制膨胀并推动活动迁往 L2。",
-          "更高账户和合约成本可能迫使新项目直接迁往其他链。"
+          "链上活动让更多合资格用户参与 IPO 价格表达。",
+          "地域、配售、价差和非直接股权性质限制了它与真实 IPO 持股的等价性。"
         ],
         "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2122269584049021434"
+          "https://x.com/binancezh/status/2122782384932504058",
+          "https://x.com/0xStudy/status/2122795501804552572"
         ]
       },
       {
-        "topic": "代币化 IPO 产品是可及性提升还是有限价格敞口",
+        "topic": "AI 模型应追求单一最强还是多模型分工",
         "positions": [
-          "链上渠道让更多合资格用户提前表达 IPO 价格需求。",
-          "产品不代表直接所有权，并受配售、地域、价差和流动性限制。"
+          "Astra 的个人基准成绩更高，适合复杂任务。",
+          "更高成本和更慢速度使 Sol 与其他模型在日常任务中更实用。"
         ],
         "sourceUrls": [
-          "https://x.com/xStocksFi/status/2122302205114114549",
-          "https://x.com/xStocksFi/status/2122302209073504676"
-        ]
-      },
-      {
-        "topic": "加密市场下跌责任属于宏观资金面还是交易所事件",
-        "positions": [
-          "ETF 流出、利率预期和选举不确定性被列为主要因素。",
-          "交易所创始人公开互相指责平台事故与安全缺失加剧市场崩盘。"
-        ],
-        "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2122162049002389854"
+          "https://x.com/Khazix0918/status/2122811072025694318",
+          "https://x.com/Khazix0918/status/2122692392218464305"
         ]
       }
     ],
     "noiseSummary": [
-      "Muse、邮箱、账号注册及代理购买教程。",
-      "短线 SPY、NVDA、BTC 和山寨币交易点位。",
-      "交易竞赛、空投、积分与邀请奖励。",
-      "人物私生活、媒体立场和未经证实的政治动机推断。",
-      "仅含短链、图片或缺少文本语境的帖子。",
-      "个人模型使用感受、订阅价格与支付经历。",
-      "名人传闻、生活玩笑及低信息量互动。",
-      "未经官方材料核实的行程、裁员和内幕消息。"
+      "交易竞赛、积分、空投与邀请奖励。",
+      "短线 BTC、MSTR、山寨币与股票点位判断。",
+      "未经证实的名人、政治与公司内部传闻。",
+      "VPN、账号、订阅及代理购买教程。",
+      "生活方式、游戏、家庭和低信息量互动。",
+      "只有图片、短链或缺少文本语境的内容。",
+      "重复转发与未增加新证据的传播帖。",
+      "缺少方法说明的单次模型体验和收益截图。"
     ]
   }
 }
