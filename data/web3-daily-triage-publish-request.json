@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "codex-web3-20261118-010029Z",
-  "triggerSha": "bd1c8dab3ffe2a2038c8324ca6f815f733b77e21",
-  "publicationDate": "2026-11-18",
-  "publishedAt": "2026-11-18T09:03:05.479+08:00",
+  "requestId": "codex-web3-20261119-005703Z",
+  "triggerSha": "ba061226b8bf1f4e2343be1d7edb9af06bf65446",
+  "publicationDate": "2026-11-19",
+  "publishedAt": "2026-11-19T08:59:12.074+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-11-18",
-    "publishedAt": "2026-11-18T09:03:05.479+08:00",
-    "windowStart": "2026-11-17T00:57:13.945916+00:00",
-    "windowEnd": "2026-11-18T01:00:40.896874+00:00",
-    "sourceUpdatedAt": "2026-11-18T01:00:40+00:00",
+    "runDate": "2026-11-19",
+    "publishedAt": "2026-11-19T08:59:12.074+08:00",
+    "windowStart": "2026-11-18T01:00:40.896874+00:00",
+    "windowEnd": "2026-11-19T00:57:14.155023+00:00",
+    "sourceUpdatedAt": "2026-11-19T00:57:14+00:00",
     "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:codex-web3-20261118-010029Z",
-      "requestId": "codex-web3-20261118-010029Z",
-      "triggerSha": "bd1c8dab3ffe2a2038c8324ca6f815f733b77e21",
-      "githubRunId": 44212423812,
-      "scheduledAt": "2026-11-18T01:00:29Z",
-      "startedAt": "2026-11-18T01:00:39.147985+00:00",
-      "sourceCheckedAt": "2026-11-18T01:00:40.896541+00:00",
-      "sourceUpdatedAt": "2026-11-18T01:00:40+00:00",
-      "completedAt": "2026-11-18T01:00:40.896874+00:00",
-      "publishedAt": "2026-11-18T09:03:05.479+08:00"
+      "runId": "web3-daily-triage:codex-web3-20261119-005703Z",
+      "requestId": "codex-web3-20261119-005703Z",
+      "triggerSha": "ba061226b8bf1f4e2343be1d7edb9af06bf65446",
+      "githubRunId": 44433106400,
+      "scheduledAt": "2026-11-19T00:57:03Z",
+      "startedAt": "2026-11-19T00:57:13.110030+00:00",
+      "sourceCheckedAt": "2026-11-19T00:57:14.154724+00:00",
+      "sourceUpdatedAt": "2026-11-19T00:57:14+00:00",
+      "completedAt": "2026-11-19T00:57:14.155023+00:00",
+      "publishedAt": "2026-11-19T08:59:12.074+08:00"
     },
     "executionStatus": {
       "collection": "success",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "候选窗口从 2026-11-17 已验证发布的 windowEnd 接续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后观察到 5 个事件，其中 CoinGecko 为 Solana Foundation 取得多数股权的交易，按 M&A 规则排除，其余 4 个项目完成初筛。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "候选窗口从 2026-11-18 已验证发布的 windowEnd 接续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后，新观察到 2 个非 M&A 融资事件并完成初筛。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -129,241 +129,142 @@
       "crypto-fundraising-thehub--2026-11--seed",
       "crypto-fundraising-stables--2026-11--round-unknown",
       "crypto-fundraising-codex--2026-11--series-a",
-      "crypto-fundraising-avenia--2026-11--series-a"
+      "crypto-fundraising-avenia--2026-11--series-a",
+      "crypto-fundraising-variational--2026-11--series-b",
+      "crypto-fundraising-null--2026-11--pre-seed"
     ],
     "counts": {
-      "new": 4,
+      "new": 2,
       "action": 0,
-      "watch": 0,
-      "stop": 4
+      "watch": 2,
+      "stop": 0
     },
     "projects": [
       {
-        "event_id": "crypto-fundraising-thehub--2026-11--seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/thehub/",
-        "project_name": "TheHUB",
-        "decision": "STOP",
+        "event_id": "crypto-fundraising-variational--2026-11--series-b",
+        "source_detail_url": "https://crypto-fundraising.info/projects/variational/",
+        "project_name": "Variational",
+        "decision": "WATCH",
         "financing": {
-          "amount_usd": 4000000,
-          "round": "Seed",
+          "amount_usd": 110000000,
+          "round": "Series B",
           "lead_investors": [
-            "Valor Capital Group"
+            "Bain Capital Crypto"
           ],
-          "announcement_date": "2026-11-17",
+          "announcement_date": "2026-11-18",
           "confidence": "high"
         },
-        "plain_explanation": "TheHUB 为数字资产交易市场建设低延迟共址和公平接入的物理网络基础设施，主要服务交易所、做市商、验证者与基础设施运营方。",
-        "mechanism_simple": "参与机构把交易或验证节点部署在指定数据中心，通过等长光纤、同步时钟和统一市场数据分发减少连接速度差异，并把部分排序与执行记录写入链上。",
-        "project_status": {
-          "category": "new_live_no_token",
-          "token_status": "no_token_found",
-          "note": "项目始于 2025 年，东京首个站点已上线；未发现原生代币。"
-        },
-        "participation": {
-          "available_now": false,
-          "what_user_can_do": "官网仅提供面向区块链、Rollup、服务商和机构参与者的申请入口，普通用户没有可验证的产品使用路径。",
-          "requires_real_funds": false,
-          "friction_or_risk": "加入需机构或项目资质、技术部署与商业合作，门槛远高于个人低成本测试。"
-        },
-        "incentives": {
-          "status": "none_found",
-          "types": [],
-          "details": "未发现官方 Points、Season、测试网、空投或代币激励。"
-        },
-        "why": [
-          "产品是机构级交易基础设施，不是面向普通用户的应用。",
-          "首个站点虽已运行，但参与需要组织资质和技术部署。",
-          "未发现原生代币或低成本早期参与激励。"
-        ],
-        "next_step": null,
-        "recheck_trigger": null,
-        "website_url": "https://www.jointhehub.com/",
-        "x_url": null,
-        "evidence": [
-          {
-            "claim": "Global Kiwi Labs 宣布 TheHUB 完成 400 万美元种子轮，Valor Capital Group 领投，Keyrock、Staking Facilities 等参投。",
-            "url": "https://www.wboc.com/online_features/press_releases/global-kiwi-labs-raises-4m-seed-round-led-by-valor-capital-to-build-the-physical/article_1482379b-3c0e-567b-bba7-a296ed1446c0.html",
-            "source_type": "other",
-            "confidence": "high"
-          },
-          {
-            "claim": "TheHUB 官网显示其面向区块链、Rollup、服务商和机构级基础设施参与者，并采用申请制。",
-            "url": "https://www.jointhehub.com/",
-            "source_type": "official_site",
-            "confidence": "high"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-stables--2026-11--round-unknown",
-        "source_detail_url": "https://crypto-fundraising.info/projects/stables/",
-        "project_name": "Stables（原 Tiiik）",
-        "decision": "STOP",
-        "financing": {
-          "amount_usd": null,
-          "round": "Strategic investment",
-          "lead_investors": [
-            "Tether Capital"
-          ],
-          "announcement_date": "2026-11-17",
-          "confidence": "high"
-        },
-        "plain_explanation": "Stables 是面向亚洲和中东企业的 USDT 跨境支付基础设施，通过 API 提供收款、换汇、合规审查、虚拟账户和本地法币付款。",
-        "mechanism_simple": "企业完成 KYB 后接入统一 API，把法币收款自动结算为 USDT，或把 USDT 换成当地法币支付给供应商和用户；平台负责流动性、合规筛查和各地支付通道。",
-        "project_status": {
-          "category": "renamed_existing",
-          "token_status": "no_token_found",
-          "note": "公司 2020 年以 Tiiik 运营，现已转型为 Stables；未发现其发行原生代币。"
-        },
-        "participation": {
-          "available_now": false,
-          "what_user_can_do": "开发者可查看文档和 sandbox，但生产使用需要企业主体、KYB 与商务审核；普通个人没有直接参与路径。",
-          "requires_real_funds": false,
-          "friction_or_risk": "面向企业客户，生产接入依赖合规审核、地区通道与交易规模，个人测试价值有限。"
-        },
-        "incentives": {
-          "status": "none_found",
-          "types": [],
-          "details": "未发现官方积分、Season、测试网奖励、空投或原生代币计划。"
-        },
-        "why": [
-          "这是已有多年运营历史的企业支付公司，本次为战略投资而非新消费级产品启动。",
-          "生产接入需要企业 KYB，普通用户无法形成有意义的低成本参与。",
-          "未发现原生代币或官方激励。"
-        ],
-        "next_step": null,
-        "recheck_trigger": null,
-        "website_url": "https://www.stables.money/",
-        "x_url": null,
-        "evidence": [
-          {
-            "claim": "Tether Capital 于 2026-11-17 宣布对 Stables 的战略投资，用于扩展亚洲与中东的 USDT 商业支付基础设施。",
-            "url": "https://tether.io/news/tether-capital-invests-in-stables-to-expand-usdt-payment-infrastructure-across-asia-and-mena/",
-            "source_type": "investor",
-            "confidence": "high"
-          },
-          {
-            "claim": "Stables 官网确认其为企业提供 USDT 收款、换汇、合规、虚拟账户和跨境付款，生产接入需要企业审核。",
-            "url": "https://www.stables.money/",
-            "source_type": "official_site",
-            "confidence": "high"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-codex--2026-11--series-a",
-        "source_detail_url": "https://crypto-fundraising.info/projects/codex/",
-        "project_name": "Codex FX",
-        "decision": "STOP",
-        "financing": {
-          "amount_usd": 30000000,
-          "round": "Series A",
-          "lead_investors": [
-            "Pantera Capital"
-          ],
-          "announcement_date": "2026-11-17",
-          "confidence": "high"
-        },
-        "plain_explanation": "Codex FX 为企业提供稳定币与法币之间的跨境换汇和结算服务，重点连接亚洲、拉美和非洲市场。",
-        "mechanism_simple": "企业在执行付款前锁定批发汇率，无需长期预存资金；Codex 在后台完成稳定币、法币和当地支付通道之间的兑换与结算。",
+        "plain_explanation": "Variational 是链上衍生品协议，旗下 Omni 让用户交易加密资产以及股票、指数、商品和外汇等传统市场敞口。",
+        "mechanism_simple": "平台把链上流动性与传统金融机构报价聚合起来，通过自有流动性提供者为交易者报价；用户以抵押资金交易永续合约和 swaps，并承担杠杆、清算、价差与资金费风险。",
         "project_status": {
           "category": "existing_no_token",
-          "token_status": "no_token_found",
-          "note": "公司 2024 年成立，已有生产级企业支付业务；未发现原生代币。"
-        },
-        "participation": {
-          "available_now": false,
-          "what_user_can_do": "官网产品面向支付公司、企业财资和跨境供应链客户，普通个人没有直接产品或早期测试入口。",
-          "requires_real_funds": true,
-          "friction_or_risk": "实际使用涉及企业账户、KYC/KYB、跨境支付与真实资金结算。"
-        },
-        "incentives": {
-          "status": "none_found",
-          "types": [],
-          "details": "未发现官方 Points、Season、测试网、空投或原生代币激励。"
-        },
-        "why": [
-          "核心产品服务企业跨境支付和批发外汇，不是普通用户应用。",
-          "使用需要企业合规与真实资金，无法进行低风险个人验证。",
-          "融资与知名投资者本身不构成早期参与机会，且未发现代币激励。"
-        ],
-        "next_step": null,
-        "recheck_trigger": null,
-        "website_url": "https://codex.xyz/",
-        "x_url": "https://x.com/CodexFX",
-        "evidence": [
-          {
-            "claim": "Codex 于 2026-11-17 宣布完成 3,000 万美元 A 轮融资，由 Pantera Capital 领投，Dragonfly 与 Coinbase Ventures 等参投。",
-            "url": "https://fortune.com/2026/11/17/pantera-backed-codex-30-million-asia-global-markets-stablecoins/",
-            "source_type": "other",
-            "confidence": "high"
-          },
-          {
-            "claim": "Circle 合作伙伴目录确认 Codex 是面向企业的稳定币原生外汇平台，支持法币与稳定币换汇及跨境付款。",
-            "url": "https://partners.circle.com/partner/codex",
-            "source_type": "database",
-            "confidence": "high"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-avenia--2026-11--series-a",
-        "source_detail_url": "https://crypto-fundraising.info/projects/avenia/",
-        "project_name": "Avenia（原 BRLA Digital）",
-        "decision": "STOP",
-        "financing": {
-          "amount_usd": 25000000,
-          "round": "Series A extension",
-          "lead_investors": [
-            "Lightspeed Faction"
-          ],
-          "announcement_date": "2026-11-17",
-          "confidence": "high"
-        },
-        "plain_explanation": "Avenia 是巴西稳定币支付基础设施公司，为企业和金融机构提供法币、BRLA、USDC、USDT 等资产之间的收付、换汇和跨境结算。",
-        "mechanism_simple": "客户通过 API 或后台把巴西雷亚尔等法币转换成稳定币，再通过本地转账、SWIFT 等通道向全球付款；BRLA 是其发行、以巴西雷亚尔储备支持的稳定币。",
-        "project_status": {
-          "category": "renamed_existing",
-          "token_status": "no_token_found",
-          "note": "公司 2023 年以 BRLA Digital 成立，现更名 Avenia；BRLA 是支付型稳定币，不是可提供早期权益的原生治理代币，未发现其他原生代币。"
+          "token_status": "token_announced",
+          "note": "Omni 已于 2025 年上线并进入公开主网；官方已公布 VAR 代币与创世空投，但截至本次核验尚未确认 TGE 完成或代币可交易。"
         },
         "participation": {
           "available_now": true,
-          "what_user_can_do": "符合地区和合规条件的客户可使用 BRLA 或 Avenia 的支付换汇服务；主要产品仍面向企业与机构。",
+          "what_user_can_do": "用户可在 Omni 公开主网交易并继续获得每周积分，积分将按比例计入 VAR 创世分配。",
           "requires_real_funds": true,
-          "friction_or_risk": "需要身份或企业审核、真实资金、跨境合规与稳定币/汇率风险，且对非拉美普通用户实用性有限。"
+          "friction_or_risk": "参与依赖真实抵押资金和衍生品交易，存在杠杆、清算、市场波动、智能合约和地区合规风险；项目已积累大量交易量，积分阶段偏晚。"
         },
         "incentives": {
-          "status": "none_found",
-          "types": [],
-          "details": "未发现官方积分、Season、测试网奖励、空投或治理代币计划。"
+          "status": "confirmed",
+          "types": [
+            "points",
+            "airdrop",
+            "token"
+          ],
+          "details": "官方公布 VAR 将在 2026 年第四季度 TGE，32% 总供应量用于按积分比例创世空投；每周积分发放延续至 TGE。"
         },
         "why": [
-          "Avenia 是已运营的企业支付公司，本次为既有 A 轮追加融资并伴随品牌更名。",
-          "BRLA 是已流通的法币抵押稳定币，不代表可捕获早期项目权益。",
-          "普通用户参与需要真实资金和地区合规，未发现低成本激励路径。"
+          "官方代币、积分与 32% 创世空投均已确认，仍有明确催化剂。",
+          "但获取积分需要真实衍生品交易，风险高且平台已运行多年、参与窗口较晚。",
+          "当前不值得为了积分主动增加杠杆或交易频率，等待 TGE 细节更合适。"
         ],
         "next_step": null,
-        "recheck_trigger": null,
-        "website_url": "https://avenia.io/",
-        "x_url": null,
+        "recheck_trigger": "官方公布 VAR 的确切 TGE/积分快照日期、领取资格与可交易状态时重新核验；若存在无需新增杠杆仓位的低风险领取路径，再评估是否行动。",
+        "website_url": "https://www.variational.io/",
+        "x_url": "https://x.com/variational_io",
         "evidence": [
           {
-            "claim": "Avenia 完成 2,500 万美元 A 轮追加融资，由 Lightspeed Faction 领投；公司原名 BRLA Digital。",
-            "url": "https://www.theblock.co/news/deals/2026-11-17-avenia-funding-stablecoin-crypto-infrastructure-442119",
+            "claim": "Variational 官方宣布完成 1.1 亿美元 B 轮融资，估值 15 亿美元，由 Bain Capital Crypto 领投。",
+            "url": "https://www.variational.io/blog/series-b",
+            "source_type": "official_blog",
+            "confidence": "high"
+          },
+          {
+            "claim": "官方代币说明确认 VAR 计划于 2026 年第四季度 TGE，32% 供应量用于按积分比例创世空投，积分每周持续发放至 TGE。",
+            "url": "https://www.variational.io/blog/var-tokenomics-and-tge-timing",
+            "source_type": "official_blog",
+            "confidence": "high"
+          },
+          {
+            "claim": "官方积分文档说明 Omni 积分来自协议使用并按周分配。",
+            "url": "https://docs.variational.io/omni/rewards/points",
+            "source_type": "docs",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "event_id": "crypto-fundraising-null--2026-11--pre-seed",
+        "source_detail_url": "https://crypto-fundraising.info/projects/null/",
+        "project_name": "Null",
+        "decision": "WATCH",
+        "financing": {
+          "amount_usd": 1700000,
+          "round": "Pre-seed",
+          "lead_investors": [
+            "cyber•Fund",
+            "Nethermind"
+          ],
+          "announcement_date": "2026-11-18",
+          "confidence": "high"
+        },
+        "plain_explanation": "Null 是准备在以太坊推出的新型衍生品协议，目标是让交易者针对资产的资金费率方向建立多空敞口。",
+        "mechanism_simple": "每个市场由资金费率接收方与支付方两个抵押池组成，双方存入 ERC-20 资产；协议根据预言机价格和资金费率在两侧之间结算盈亏，而不是依靠传统订单簿撮合。",
+        "project_status": {
+          "category": "new_unlaunched",
+          "token_status": "no_token_found",
+          "note": "项目仍处于即将公开亮相阶段；已有合约安全审查，但未确认公开主网、正式产品或原生代币。"
+        },
+        "participation": {
+          "available_now": false,
+          "what_user_can_do": "目前没有核实到面向普通用户的公开产品、测试网或存款入口，官方称即将结束隐身开发阶段。",
+          "requires_real_funds": false,
+          "friction_or_risk": "衍生品设计涉及抵押资产、资金费率、预言机和智能合约风险；在正式部署地址与参数公开前不应投入资金。"
+        },
+        "incentives": {
+          "status": "unconfirmed",
+          "types": [],
+          "details": "未找到官方积分、Season、测试网奖励、空投或代币计划。"
+        },
+        "why": [
+          "产品机制与合约审计表明项目并非只有概念，值得保留观察。",
+          "但尚未公开正式产品、部署地址和普通用户参与路径。",
+          "未发现官方激励或代币计划，目前行动没有明确收益。"
+        ],
+        "next_step": null,
+        "recheck_trigger": "Null 官方公开产品、主网合约地址、完整文档或明确测试网/积分计划时重新核验；在此之前不连接钱包或存入抵押品。",
+        "website_url": "https://null.xyz/",
+        "x_url": "https://x.com/0xNull",
+        "evidence": [
+          {
+            "claim": "Null 官方融资公告显示项目完成 170 万美元 Pre-seed，由 cyber•Fund 与 Nethermind 领投，并称即将结束隐身阶段。",
+            "url": "https://x.com/0xNull",
+            "source_type": "official_x",
+            "confidence": "medium"
+          },
+          {
+            "claim": "cyber•Fund 表示 Null 将成为以太坊上的新型、不可变且可组合的衍生品协议。",
+            "url": "https://x.com/cyberfund",
+            "source_type": "investor",
+            "confidence": "medium"
+          },
+          {
+            "claim": "Nethermind Security 对 NullV1 完成安全审查，确认其为由两侧资金池构成的永续衍生品市场协议，审计发现均已修复。",
+            "url": "https://www.nethermind.io/audits/null-solutions-nullv1",
             "source_type": "other",
-            "confidence": "high"
-          },
-          {
-            "claim": "Avenia 官网确认其通过 API 提供拉美法币与稳定币之间的收付和流动性服务。",
-            "url": "https://avenia.io/",
-            "source_type": "official_site",
-            "confidence": "high"
-          },
-          {
-            "claim": "Avenia 官方 BRLA 页面确认 BRLA 是由 Avenia 发行、以巴西雷亚尔为锚的储备支持稳定币。",
-            "url": "https://avenia.io/brla",
-            "source_type": "official_site",
             "confidence": "high"
           }
         ]
