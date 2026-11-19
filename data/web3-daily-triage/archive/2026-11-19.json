@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 1,
+  "runDate": "2026-11-19",
+  "publishedAt": "2026-11-19T08:59:12.074+08:00",
+  "windowStart": "2026-11-18T01:00:40.896874+00:00",
+  "windowEnd": "2026-11-19T00:57:14.155023+00:00",
+  "sourceUpdatedAt": "2026-11-19T00:57:14+00:00",
+  "status": "success",
+  "executionLineage": {
+    "runId": "web3-daily-triage:codex-web3-20261119-005703Z",
+    "requestId": "codex-web3-20261119-005703Z",
+    "triggerSha": "ba061226b8bf1f4e2343be1d7edb9af06bf65446",
+    "githubRunId": 44433106400,
+    "scheduledAt": "2026-11-19T00:57:03Z",
+    "startedAt": "2026-11-19T00:57:13.110030+00:00",
+    "sourceCheckedAt": "2026-11-19T00:57:14.154724+00:00",
+    "sourceUpdatedAt": "2026-11-19T00:57:14+00:00",
+    "completedAt": "2026-11-19T00:57:14.155023+00:00",
+    "publishedAt": "2026-11-19T08:59:12.074+08:00"
+  },
+  "executionStatus": {
+    "collection": "success",
+    "validation": "success",
+    "publication": "success"
+  },
+  "deduplicationNote": "候选窗口从 2026-11-18 已验证发布的 windowEnd 接续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后，新观察到 2 个非 M&A 融资事件并完成初筛。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+  "reportedEventIds": [
+    "crypto-fundraising-ponygo--2026-09--round-unknown",
+    "crypto-fundraising-velocity--2026-09--series-a",
+    "crypto-fundraising-usd-ai-permian-labs--2026-09--round-unknown",
+    "crypto-fundraising-tare--2026-09--seed",
+    "crypto-fundraising-finloop--2026-09--series-a",
+    "crypto-fundraising-fin-com--2026-09--seed",
+    "crypto-fundraising-tenka--2026-09--pre-seed",
+    "crypto-fundraising-rep--2026-09--angel",
+    "crypto-fundraising-dtcpay--2026-09--series-a",
+    "crypto-fundraising-infini--2026-09--seed",
+    "crypto-fundraising-circle--2026-09--round-unknown",
+    "crypto-fundraising-xstable--2026-09--round-unknown",
+    "crypto-fundraising-travix--2026-09--seed",
+    "crypto-fundraising-catchback--2026-09--seed",
+    "crypto-fundraising-infinifi--2026-09--seed",
+    "crypto-fundraising-hifi--2026-09--series-a",
+    "crypto-fundraising-functionspace--2026-09--pre-seed",
+    "crypto-fundraising-limited--2026-09--seed",
+    "crypto-fundraising-axis-robotics--2026-09--public-sale",
+    "crypto-fundraising-raven--2026-09--strategic",
+    "crypto-fundraising-jeeves--2026-09--series-c",
+    "crypto-fundraising-worldcoin--2026-09--private",
+    "crypto-fundraising-grass--2026-09--round-unknown",
+    "crypto-fundraising-jumper--2026-10--public-sale",
+    "crypto-fundraising-uorm--2026-10--pre-seed",
+    "crypto-fundraising-walapay--2026-10--seed",
+    "crypto-fundraising-perptools--2026-10--seed",
+    "crypto-fundraising-rip-cars--2026-09--private",
+    "crypto-fundraising-pheasant-network--2026-10--public-sale",
+    "crypto-fundraising-ipid--2026-10--series-a",
+    "crypto-fundraising-xverse-app--2026-10--strategic",
+    "crypto-fundraising-hyperlink--2026-10--round-unknown",
+    "crypto-fundraising-spiko--2026-10--series-b",
+    "crypto-fundraising-okx--2026-10--round-unknown",
+    "crypto-fundraising-imperial--2026-10--seed",
+    "crypto-fundraising-vest-exchange--2026-10--seed",
+    "crypto-fundraising-noah--2026-10--seed",
+    "crypto-fundraising-nous-research--2026-10--series-b",
+    "crypto-fundraising-catalyst-labs--2026-10--seed",
+    "crypto-fundraising-soda-labs--2026-10--seed",
+    "crypto-fundraising-immix--2026-10--round-unknown",
+    "crypto-fundraising-meanwhile--2026-10--round-unknown",
+    "crypto-fundraising-story-protocol--2026-10--round-unknown",
+    "crypto-fundraising-orbio--2026-10--seed",
+    "crypto-fundraising-efy-finance--2026-10--seed",
+    "crypto-fundraising-aisa--2026-10--round-unknown",
+    "crypto-fundraising-fission-labs--2026-10--series-a",
+    "crypto-fundraising-multiliquid--2026-10--seed",
+    "crypto-fundraising-spout-finance--2026-10--strategic",
+    "crypto-fundraising-zaria--2026-10--seed",
+    "crypto-fundraising-mural--2026-10--series-a",
+    "crypto-fundraising-honeyb--2026-10--seed",
+    "crypto-fundraising-lighthouse-storage--2026-10--round-unknown",
+    "crypto-fundraising-peso--2026-10--pre-seed",
+    "crypto-fundraising-erebor--2026-10--round-unknown",
+    "crypto-fundraising-dataline-ex-tearline--2026-10--seed",
+    "crypto-fundraising-whop--2026-10--series-d",
+    "crypto-fundraising-fun--2026-10--round-unknown",
+    "crypto-fundraising-swapglobal--2026-10--round-unknown",
+    "crypto-fundraising-mochatrade--2026-10--seed",
+    "crypto-fundraising-predicate--2026-10--series-a",
+    "crypto-fundraising-luxor--2026-10--strategic",
+    "crypto-fundraising-spicenet--2026-10--series-a",
+    "crypto-fundraising-cancore--2026-10--seed",
+    "crypto-fundraising-birch-hill-holdings--2026-10--seed",
+    "crypto-fundraising-ibis--2026-10--pre-seed",
+    "crypto-fundraising-kalshi--2026-10--series-g",
+    "crypto-fundraising-photonpay--2026-10--series-c",
+    "crypto-fundraising-marketnode--2026-10--round-unknown",
+    "crypto-fundraising-tradexyz--2026-10--round-unknown",
+    "crypto-fundraising-rates-exchange--2026-10--round-unknown",
+    "crypto-fundraising-stablestock--2026-11--strategic",
+    "crypto-fundraising-over-computer--2026-11--public-sale",
+    "crypto-fundraising-lotech--2026-11--series-a",
+    "crypto-fundraising-crshmarket--2026-11--seed",
+    "crypto-fundraising-prophub--2026-11--strategic",
+    "crypto-fundraising-crymbo--2026-11--round-unknown",
+    "crypto-fundraising-scallopx--2026-11--round-unknown",
+    "crypto-fundraising-soter--2026-11--series-b",
+    "crypto-fundraising-uranium-digital--2026-11--series-a",
+    "crypto-fundraising-unruggable--2026-11--strategic",
+    "crypto-fundraising-semiliquid--2026-11--seed",
+    "crypto-fundraising-slop-cash--2026-11--public-sale",
+    "crypto-fundraising-marble--2026-11--seed",
+    "crypto-fundraising-alta-ex-metal--2026-11--series-a",
+    "crypto-fundraising-deca-labs--2026-11--round-unknown",
+    "crypto-fundraising-index-industries--2026-11--seed",
+    "crypto-fundraising-seedify-fund--2026-11--public-sale",
+    "crypto-fundraising-griffin--2026-11--series-b",
+    "crypto-fundraising-mori-finance--2026-11--public-sale",
+    "crypto-fundraising-spout-finance--2026-11--round-unknown",
+    "crypto-fundraising-kailash--2026-11--pre-seed",
+    "crypto-fundraising-di--2026-11--round-unknown",
+    "crypto-fundraising-nomad-fintech--2026-11--round-unknown",
+    "crypto-fundraising-thehub--2026-11--seed",
+    "crypto-fundraising-stables--2026-11--round-unknown",
+    "crypto-fundraising-codex--2026-11--series-a",
+    "crypto-fundraising-avenia--2026-11--series-a",
+    "crypto-fundraising-variational--2026-11--series-b",
+    "crypto-fundraising-null--2026-11--pre-seed"
+  ],
+  "counts": {
+    "new": 2,
+    "action": 0,
+    "watch": 2,
+    "stop": 0
+  },
+  "projects": [
+    {
+      "event_id": "crypto-fundraising-variational--2026-11--series-b",
+      "source_detail_url": "https://crypto-fundraising.info/projects/variational/",
+      "project_name": "Variational",
+      "decision": "WATCH",
+      "financing": {
+        "amount_usd": 110000000,
+        "round": "Series B",
+        "lead_investors": [
+          "Bain Capital Crypto"
+        ],
+        "announcement_date": "2026-11-18",
+        "confidence": "high"
+      },
+      "plain_explanation": "Variational 是链上衍生品协议，旗下 Omni 让用户交易加密资产以及股票、指数、商品和外汇等传统市场敞口。",
+      "mechanism_simple": "平台把链上流动性与传统金融机构报价聚合起来，通过自有流动性提供者为交易者报价；用户以抵押资金交易永续合约和 swaps，并承担杠杆、清算、价差与资金费风险。",
+      "project_status": {
+        "category": "existing_no_token",
+        "token_status": "token_announced",
+        "note": "Omni 已于 2025 年上线并进入公开主网；官方已公布 VAR 代币与创世空投，但截至本次核验尚未确认 TGE 完成或代币可交易。"
+      },
+      "participation": {
+        "available_now": true,
+        "what_user_can_do": "用户可在 Omni 公开主网交易并继续获得每周积分，积分将按比例计入 VAR 创世分配。",
+        "requires_real_funds": true,
+        "friction_or_risk": "参与依赖真实抵押资金和衍生品交易，存在杠杆、清算、市场波动、智能合约和地区合规风险；项目已积累大量交易量，积分阶段偏晚。"
+      },
+      "incentives": {
+        "status": "confirmed",
+        "types": [
+          "points",
+          "airdrop",
+          "token"
+        ],
+        "details": "官方公布 VAR 将在 2026 年第四季度 TGE，32% 总供应量用于按积分比例创世空投；每周积分发放延续至 TGE。"
+      },
+      "why": [
+        "官方代币、积分与 32% 创世空投均已确认，仍有明确催化剂。",
+        "但获取积分需要真实衍生品交易，风险高且平台已运行多年、参与窗口较晚。",
+        "当前不值得为了积分主动增加杠杆或交易频率，等待 TGE 细节更合适。"
+      ],
+      "next_step": null,
+      "recheck_trigger": "官方公布 VAR 的确切 TGE/积分快照日期、领取资格与可交易状态时重新核验；若存在无需新增杠杆仓位的低风险领取路径，再评估是否行动。",
+      "website_url": "https://www.variational.io/",
+      "x_url": "https://x.com/variational_io",
+      "evidence": [
+        {
+          "claim": "Variational 官方宣布完成 1.1 亿美元 B 轮融资，估值 15 亿美元，由 Bain Capital Crypto 领投。",
+          "url": "https://www.variational.io/blog/series-b",
+          "source_type": "official_blog",
+          "confidence": "high"
+        },
+        {
+          "claim": "官方代币说明确认 VAR 计划于 2026 年第四季度 TGE，32% 供应量用于按积分比例创世空投，积分每周持续发放至 TGE。",
+          "url": "https://www.variational.io/blog/var-tokenomics-and-tge-timing",
+          "source_type": "official_blog",
+          "confidence": "high"
+        },
+        {
+          "claim": "官方积分文档说明 Omni 积分来自协议使用并按周分配。",
+          "url": "https://docs.variational.io/omni/rewards/points",
+          "source_type": "docs",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "event_id": "crypto-fundraising-null--2026-11--pre-seed",
+      "source_detail_url": "https://crypto-fundraising.info/projects/null/",
+      "project_name": "Null",
+      "decision": "WATCH",
+      "financing": {
+        "amount_usd": 1700000,
+        "round": "Pre-seed",
+        "lead_investors": [
+          "cyber•Fund",
+          "Nethermind"
+        ],
+        "announcement_date": "2026-11-18",
+        "confidence": "high"
+      },
+      "plain_explanation": "Null 是准备在以太坊推出的新型衍生品协议，目标是让交易者针对资产的资金费率方向建立多空敞口。",
+      "mechanism_simple": "每个市场由资金费率接收方与支付方两个抵押池组成，双方存入 ERC-20 资产；协议根据预言机价格和资金费率在两侧之间结算盈亏，而不是依靠传统订单簿撮合。",
+      "project_status": {
+        "category": "new_unlaunched",
+        "token_status": "no_token_found",
+        "note": "项目仍处于即将公开亮相阶段；已有合约安全审查，但未确认公开主网、正式产品或原生代币。"
+      },
+      "participation": {
+        "available_now": false,
+        "what_user_can_do": "目前没有核实到面向普通用户的公开产品、测试网或存款入口，官方称即将结束隐身开发阶段。",
+        "requires_real_funds": false,
+        "friction_or_risk": "衍生品设计涉及抵押资产、资金费率、预言机和智能合约风险；在正式部署地址与参数公开前不应投入资金。"
+      },
+      "incentives": {
+        "status": "unconfirmed",
+        "types": [],
+        "details": "未找到官方积分、Season、测试网奖励、空投或代币计划。"
+      },
+      "why": [
+        "产品机制与合约审计表明项目并非只有概念，值得保留观察。",
+        "但尚未公开正式产品、部署地址和普通用户参与路径。",
+        "未发现官方激励或代币计划，目前行动没有明确收益。"
+      ],
+      "next_step": null,
+      "recheck_trigger": "Null 官方公开产品、主网合约地址、完整文档或明确测试网/积分计划时重新核验；在此之前不连接钱包或存入抵押品。",
+      "website_url": "https://null.xyz/",
+      "x_url": "https://x.com/0xNull",
+      "evidence": [
+        {
+          "claim": "Null 官方融资公告显示项目完成 170 万美元 Pre-seed，由 cyber•Fund 与 Nethermind 领投，并称即将结束隐身阶段。",
+          "url": "https://x.com/0xNull",
+          "source_type": "official_x",
+          "confidence": "medium"
+        },
+        {
+          "claim": "cyber•Fund 表示 Null 将成为以太坊上的新型、不可变且可组合的衍生品协议。",
+          "url": "https://x.com/cyberfund",
+          "source_type": "investor",
+          "confidence": "medium"
+        },
+        {
+          "claim": "Nethermind Security 对 NullV1 完成安全审查，确认其为由两侧资金池构成的永续衍生品市场协议，审计发现均已修复。",
+          "url": "https://www.nethermind.io/audits/null-solutions-nullv1",
+          "source_type": "other",
+          "confidence": "high"
+        }
+      ]
+    }
+  ]
+}
