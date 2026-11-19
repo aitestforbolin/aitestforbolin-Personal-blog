@@ -2,8 +2,8 @@
   "schema_version": 1,
   "timezone": "Asia/Shanghai",
   "horizon_days": 35,
-  "checked_at": "2026-11-18T11:09:53+08:00",
-  "updated_at": "2026-11-13T12:18:18+08:00",
+  "checked_at": "2026-11-19T10:50:22+08:00",
+  "updated_at": "2026-11-19T10:50:22+08:00",
   "companies": [
     {
       "id": "microsoft",
@@ -154,41 +154,6 @@
     }
   ],
   "events": [
-    {
-      "event_id": "nvidia-earnings-2026-q4",
-      "company_id": "nvidia",
-      "event_category": "earnings",
-      "event_name": "NVIDIA FY2027 Q3 财报与电话会",
-      "reported_period": "FY2027 Q3",
-      "importance": "core",
-      "status": "changed",
-      "confirmation": "confirmed",
-      "date_type": "exact",
-      "start_at": "2026-11-18T06:00:00+08:00",
-      "date_bjt": "2026-11-18",
-      "time_bjt": "06:00",
-      "market_timing": "after_close",
-      "original_time": "2026-11-17T14:00:00 America/Los_Angeles",
-      "original_timezone": "America/Los_Angeles",
-      "source_label": "NVIDIA Investor Relations",
-      "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Sets-Conference-Call-for-Third-Quarter-Financial-Results/default.aspx",
-      "source_published_at": "2026-10-28",
-      "updated_at": "2026-11-13T12:15:42+08:00",
-      "company": "NVIDIA",
-      "ticker": "NVDA",
-      "company_group": "ai_semiconductor",
-      "company_group_zh": "AI 与半导体",
-      "date_changed": true,
-      "date_changed_at": "2026-11-13T12:15:42+08:00",
-      "previous_timing": {
-        "date_type": "exact",
-        "start_at": null,
-        "date_bjt": "2026-11-17",
-        "time_bjt": null,
-        "window_start": null,
-        "window_end": null
-      }
-    },
     {
       "event_id": "dell-earnings-fy2027-q3",
       "company_id": "dell",
