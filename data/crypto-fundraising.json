@@ -1,71 +1,71 @@
 {
-  "updated_at": "2026-11-19T00:57:14+00:00",
+  "updated_at": "2026-11-20T00:59:09+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-variational",
+      "id": "crypto-fundraising-metacomp",
       "source_rank": 1,
+      "name": "MetaComp",
+      "round": "Series A",
+      "announced_month": "2026-11",
+      "amount_usd": 10000000,
+      "detail_url": "https://crypto-fundraising.info/projects/metacomp/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-xxhh",
+      "source_rank": 2,
+      "name": "XXHH",
+      "round": "Angel",
+      "announced_month": "2026-11",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/xxhh/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-scrypt",
+      "source_rank": 3,
+      "name": "SCRYPT",
+      "round": null,
+      "announced_month": "2026-11",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/scrypt/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-tribe-capital",
+      "source_rank": 4,
+      "name": "Tribe Capital",
+      "round": "M&A",
+      "announced_month": "2026-11",
+      "amount_usd": null,
+      "detail_url": "https://crypto-fundraising.info/projects/tribe-capital/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-variational",
+      "source_rank": 5,
       "name": "Variational",
       "round": "Series B",
       "announced_month": "2026-11",
       "amount_usd": 110000000,
       "detail_url": "https://crypto-fundraising.info/projects/variational/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-null",
-      "source_rank": 2,
-      "name": "Null",
-      "round": "Pre-seed",
-      "announced_month": "2026-11",
-      "amount_usd": 1700000,
-      "detail_url": "https://crypto-fundraising.info/projects/null/",
-      "is_new": true
-    },
-    {
-      "id": "crypto-fundraising-coingecko",
-      "source_rank": 3,
-      "name": "CoinGecko",
-      "round": null,
-      "announced_month": "2026-11",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/coingecko/",
-      "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-stables",
-      "source_rank": 4,
-      "name": "Stables (ex Tiiik)",
-      "round": null,
-      "announced_month": "2026-11",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/stables/",
-      "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-codex",
-      "source_rank": 5,
-      "name": "Codex",
-      "round": "Series A",
-      "announced_month": "2026-11",
-      "amount_usd": 30000000,
-      "detail_url": "https://crypto-fundraising.info/projects/codex/",
       "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261119-005703Z",
-    "requestId": "codex-web3-20261119-005703Z",
-    "triggerSha": "ba061226b8bf1f4e2343be1d7edb9af06bf65446",
-    "githubRunId": 44433106400,
-    "scheduledAt": "2026-11-19T00:57:03Z",
-    "startedAt": "2026-11-19T00:57:13.110030+00:00",
-    "sourceCheckedAt": "2026-11-19T00:57:14.154724+00:00",
-    "sourceUpdatedAt": "2026-11-19T00:57:14+00:00",
-    "completedAt": "2026-11-19T00:57:14.155023+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261120-005848Z-r0vpn8",
+    "requestId": "codex-web3-20261120-005848Z-r0vpn8",
+    "triggerSha": "b34a9f82642bb4004100d148c9d90e42b1ba66ab",
+    "githubRunId": 44650108912,
+    "scheduledAt": "2026-11-20T09:00:00+08:00",
+    "startedAt": "2026-11-20T00:59:07.129925+00:00",
+    "sourceCheckedAt": "2026-11-20T00:59:09.561423+00:00",
+    "sourceUpdatedAt": "2026-11-20T00:59:09+00:00",
+    "completedAt": "2026-11-20T00:59:09.561752+00:00",
     "publishedAt": null
   }
 }

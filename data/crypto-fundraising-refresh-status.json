@@ -1,52 +1,45 @@
 {
   "schemaVersion": 2,
   "automation": "web3-daily-triage",
-  "runId": "web3-daily-triage:codex-web3-20261119-005703Z",
-  "requestId": "codex-web3-20261119-005703Z",
-  "result": "success",
+  "runId": "web3-daily-triage:codex-web3-20261120-005848Z-r0vpn8",
+  "requestId": "codex-web3-20261120-005848Z-r0vpn8",
+  "result": "in_progress",
   "lineage": {
     "triggerType": "push",
-    "triggerSha": "ba061226b8bf1f4e2343be1d7edb9af06bf65446",
-    "githubRunId": 44433106400,
+    "triggerSha": "b34a9f82642bb4004100d148c9d90e42b1ba66ab",
+    "githubRunId": 44650108912,
     "githubRunAttempt": 1
   },
   "timestamps": {
-    "scheduledAt": "2026-11-19T00:57:03Z",
-    "startedAt": "2026-11-19T00:57:13.110030+00:00",
-    "sourceCheckedAt": "2026-11-19T00:57:14.154724+00:00",
-    "sourceUpdatedAt": "2026-11-19T00:57:14+00:00",
-    "completedAt": "2026-11-19T00:57:14.155023+00:00",
-    "publishedAt": "2026-11-19T08:59:12.074+08:00"
+    "scheduledAt": "2026-11-20T09:00:00+08:00",
+    "startedAt": "2026-11-20T00:59:07.129925+00:00",
+    "sourceCheckedAt": "2026-11-20T00:59:09.561423+00:00",
+    "sourceUpdatedAt": "2026-11-20T00:59:09+00:00",
+    "completedAt": "2026-11-20T00:59:09.561752+00:00",
+    "publishedAt": null
   },
   "legacyRequestedAt": null,
   "stages": {
     "collection": {
       "status": "success",
-      "completedAt": "2026-11-19T00:57:14.155023+00:00",
+      "completedAt": "2026-11-20T00:59:09.561752+00:00",
       "details": {
         "feedChanged": true,
         "historyChanged": true,
         "projectCount": 5,
-        "eventCount": 118,
+        "eventCount": 122,
         "coverage": "observed snapshots of the five-item homepage feed; not a complete source-wide archive"
       }
     },
     "validation": {
       "status": "success",
-      "completedAt": "2026-11-19T00:57:14.155023+00:00"
+      "completedAt": "2026-11-20T00:59:09.561752+00:00"
     },
     "publication": {
-      "status": "success",
-      "commitSha": "badb6651e900abebae909380590783b70ca1be5f"
+      "status": "not_run"
     },
     "notification": {
-      "status": "success",
-      "completedAt": "2026-11-19T09:02:24.369+08:00",
-      "details": {
-        "provider": "Gmail",
-        "messageId": "1a1f1531f2845563",
-        "recipient": "laibocszd@gmail.com"
-      }
+      "status": "not_run"
     }
   }
 }
