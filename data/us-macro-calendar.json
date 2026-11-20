@@ -215,38 +215,79 @@
     "stars": 3,
     "source": "Forex Factory",
     "url": "https://www.forexfactory.com/calendar",
-    "result_source": "Forex Factory 市场日历",
-    "result_url": "https://www.forexfactory.com/calendar",
+    "result_source": "Forex Factory 网页日历",
+    "result_url": "https://www.forexfactory.com/calendar?day=nov20.2026",
     "consensus_source": "Forex Factory 市场日历",
     "consensus_url": "https://www.forexfactory.com/calendar",
     "metric_values": [
       {
         "label": "消费者信心终值",
         "source_title": "Revised UoM Consumer Sentiment",
-        "actual": null,
+        "actual": "51.5",
         "forecast": "51.7",
         "previous": "51.0",
         "consensus_source": "Forex Factory 市场日历",
-        "consensus_url": "https://www.forexfactory.com/calendar"
+        "consensus_url": "https://www.forexfactory.com/calendar",
+        "actual_source": "Forex Factory 网页日历",
+        "actual_url": "https://www.forexfactory.com/calendar?day=nov20.2026"
       },
       {
         "label": "通胀预期终值",
         "source_title": "Revised UoM Inflation Expectations",
-        "actual": null,
+        "actual": "3.7%",
         "forecast": null,
         "previous": "4.3%",
+        "consensus_source": "Forex Factory 市场日历",
+        "consensus_url": "https://www.forexfactory.com/calendar",
+        "actual_source": "Forex Factory 网页日历",
+        "actual_url": "https://www.forexfactory.com/calendar?day=nov20.2026"
+      }
+    ],
+    "release_status": "released",
+    "forecast": "消费者信心终值 51.7",
+    "previous": "消费者信心终值 51.0 · 通胀预期终值 4.3%",
+    "actual_last_checked_at": "2026-11-20T13:42:11-05:00",
+    "actual_check_status": "ok",
+    "released_at": "2026-11-20T10:00:00-05:00",
+    "actual_updated_at": "2026-11-20T18:42:12.076Z",
+    "actual": "消费者信心终值 51.5 · 通胀预期终值 3.7%",
+    "calendar_status": "healthy",
+    "actual_missing": [],
+    "actual_status": "complete"
+  },
+  {
+    "date": "2026-11-21",
+    "date_et": "2026-11-20",
+    "time_et": "12:00",
+    "time_shanghai": "01:00",
+    "title": "FF::President Trump Speaks",
+    "title_cn": "President Trump Speaks",
+    "period": null,
+    "category": "macro",
+    "importance": "medium",
+    "stars": 3,
+    "source": "Forex Factory",
+    "url": "https://www.forexfactory.com/calendar",
+    "result_source": "Forex Factory 市场日历",
+    "result_url": "https://www.forexfactory.com/calendar",
+    "consensus_source": "Forex Factory 市场日历",
+    "consensus_url": "https://www.forexfactory.com/calendar",
+    "metric_values": [
+      {
+        "label": "公布值",
+        "source_title": "President Trump Speaks",
+        "actual": null,
+        "forecast": null,
+        "previous": null,
         "consensus_source": "Forex Factory 市场日历",
         "consensus_url": "https://www.forexfactory.com/calendar"
       }
     ],
     "release_status": "scheduled",
-    "forecast": "消费者信心终值 51.7",
-    "previous": "消费者信心终值 51.0 · 通胀预期终值 4.3%",
+    "actual_last_checked_at": "2026-11-20T13:42:11-05:00",
+    "actual_check_status": "ok",
     "calendar_status": "healthy",
-    "actual_missing": [
-      "消费者信心终值",
-      "通胀预期终值"
-    ],
-    "actual_status": "not_due"
+    "actual_missing": [],
+    "actual_status": "not_expected"
   }
 ]
