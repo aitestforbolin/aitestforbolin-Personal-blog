@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "codex-web3-20261119-005703Z",
-  "triggerSha": "ba061226b8bf1f4e2343be1d7edb9af06bf65446",
-  "publicationDate": "2026-11-19",
-  "publishedAt": "2026-11-19T08:59:12.074+08:00",
+  "requestId": "codex-web3-20261120-005848Z-r0vpn8",
+  "triggerSha": "b34a9f82642bb4004100d148c9d90e42b1ba66ab",
+  "publicationDate": "2026-11-20",
+  "publishedAt": "2026-11-20T09:00:57.000+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-11-19",
-    "publishedAt": "2026-11-19T08:59:12.074+08:00",
-    "windowStart": "2026-11-18T01:00:40.896874+00:00",
-    "windowEnd": "2026-11-19T00:57:14.155023+00:00",
-    "sourceUpdatedAt": "2026-11-19T00:57:14+00:00",
+    "runDate": "2026-11-20",
+    "publishedAt": "2026-11-20T09:00:57.000+08:00",
+    "windowStart": "2026-11-19T00:57:14.155023+00:00",
+    "windowEnd": "2026-11-20T00:59:09.561752+00:00",
+    "sourceUpdatedAt": "2026-11-20T00:59:09+00:00",
     "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:codex-web3-20261119-005703Z",
-      "requestId": "codex-web3-20261119-005703Z",
-      "triggerSha": "ba061226b8bf1f4e2343be1d7edb9af06bf65446",
-      "githubRunId": 44433106400,
-      "scheduledAt": "2026-11-19T00:57:03Z",
-      "startedAt": "2026-11-19T00:57:13.110030+00:00",
-      "sourceCheckedAt": "2026-11-19T00:57:14.154724+00:00",
-      "sourceUpdatedAt": "2026-11-19T00:57:14+00:00",
-      "completedAt": "2026-11-19T00:57:14.155023+00:00",
-      "publishedAt": "2026-11-19T08:59:12.074+08:00"
+      "runId": "web3-daily-triage:codex-web3-20261120-005848Z-r0vpn8",
+      "requestId": "codex-web3-20261120-005848Z-r0vpn8",
+      "triggerSha": "b34a9f82642bb4004100d148c9d90e42b1ba66ab",
+      "githubRunId": 44650108912,
+      "scheduledAt": "2026-11-20T09:00:00+08:00",
+      "startedAt": "2026-11-20T00:59:07.129925+00:00",
+      "sourceCheckedAt": "2026-11-20T00:59:09.561423+00:00",
+      "sourceUpdatedAt": "2026-11-20T00:59:09+00:00",
+      "completedAt": "2026-11-20T00:59:09.561752+00:00",
+      "publishedAt": "2026-11-20T09:00:57.000+08:00"
     },
     "executionStatus": {
       "collection": "success",
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "候选窗口从 2026-11-18 已验证发布的 windowEnd 接续至本次匹配回执的 completedAt；按累计 reportedEventIds 去重后，新观察到 2 个非 M&A 融资事件并完成初筛。本历史仅是来源首页最近五条的观测快照，不代表来源全量融资事件。",
+    "deduplicationNote": "候选窗口从 2026-11-19 已核验归档的 windowEnd 接续至本次采集回执的 completedAt，使用累计 reportedEventIds 去重，排除 1 条并购。本次统计覆盖来源首页近五条的已观测快照。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -131,143 +131,185 @@
       "crypto-fundraising-codex--2026-11--series-a",
       "crypto-fundraising-avenia--2026-11--series-a",
       "crypto-fundraising-variational--2026-11--series-b",
-      "crypto-fundraising-null--2026-11--pre-seed"
+      "crypto-fundraising-null--2026-11--pre-seed",
+      "crypto-fundraising-metacomp--2026-11--series-a",
+      "crypto-fundraising-xxhh--2026-11--angel",
+      "crypto-fundraising-scrypt--2026-11--round-unknown"
     ],
     "counts": {
-      "new": 2,
+      "new": 3,
       "action": 0,
-      "watch": 2,
-      "stop": 0
+      "watch": 1,
+      "stop": 2
     },
     "projects": [
       {
-        "event_id": "crypto-fundraising-variational--2026-11--series-b",
-        "source_detail_url": "https://crypto-fundraising.info/projects/variational/",
-        "project_name": "Variational",
-        "decision": "WATCH",
+        "project_name": "MetaComp",
+        "decision": "STOP",
         "financing": {
-          "amount_usd": 110000000,
-          "round": "Series B",
-          "lead_investors": [
-            "Bain Capital Crypto"
+          "amount_usd": 10000000,
+          "round": "Pre-A+ 轮追加（约 1,000 万美元）",
+          "lead_investors": [],
+          "participating_investors": [
+            "Tether",
+            "Further Asset Management"
           ],
-          "announcement_date": "2026-11-18",
+          "announcement_date": "2026-11-19",
           "confidence": "high"
         },
-        "plain_explanation": "Variational 是链上衍生品协议，旗下 Omni 让用户交易加密资产以及股票、指数、商品和外汇等传统市场敞口。",
-        "mechanism_simple": "平台把链上流动性与传统金融机构报价聚合起来，通过自有流动性提供者为交易者报价；用户以抵押资金交易永续合约和 swaps，并承担杠杆、清算、价差与资金费风险。",
+        "plain_explanation": "新加坡跨境支付服务商，获 Tether 与 Further 约 1,000 万美元的 Pre-A+ 追加投资。资金用于牌照、合规和跨境支付渠道，暂无面向普通用户的早期参与入口。",
+        "mechanism_simple": "企业发起跨境付款后，系统按汇率和到账速度在银行和稳定币渠道之间选择。",
         "project_status": {
           "category": "existing_no_token",
-          "token_status": "token_announced",
-          "note": "Omni 已于 2025 年上线并进入公开主网；官方已公布 VAR 代币与创世空投，但截至本次核验尚未确认 TGE 完成或代币可交易。"
-        },
-        "participation": {
-          "available_now": true,
-          "what_user_can_do": "用户可在 Omni 公开主网交易并继续获得每周积分，积分将按比例计入 VAR 创世分配。",
-          "requires_real_funds": true,
-          "friction_or_risk": "参与依赖真实抵押资金和衍生品交易，存在杠杆、清算、市场波动、智能合约和地区合规风险；项目已积累大量交易量，积分阶段偏晚。"
-        },
-        "incentives": {
-          "status": "confirmed",
-          "types": [
-            "points",
-            "airdrop",
-            "token"
-          ],
-          "details": "官方公布 VAR 将在 2026 年第四季度 TGE，32% 总供应量用于按积分比例创世空投；每周积分发放延续至 TGE。"
-        },
-        "why": [
-          "官方代币、积分与 32% 创世空投均已确认，仍有明确催化剂。",
-          "但获取积分需要真实衍生品交易，风险高且平台已运行多年、参与窗口较晚。",
-          "当前不值得为了积分主动增加杠杆或交易频率，等待 TGE 细节更合适。"
-        ],
-        "next_step": null,
-        "recheck_trigger": "官方公布 VAR 的确切 TGE/积分快照日期、领取资格与可交易状态时重新核验；若存在无需新增杠杆仓位的低风险领取路径，再评估是否行动。",
-        "website_url": "https://www.variational.io/",
-        "x_url": "https://x.com/variational_io",
-        "evidence": [
-          {
-            "claim": "Variational 官方宣布完成 1.1 亿美元 B 轮融资，估值 15 亿美元，由 Bain Capital Crypto 领投。",
-            "url": "https://www.variational.io/blog/series-b",
-            "source_type": "official_blog",
-            "confidence": "high"
-          },
-          {
-            "claim": "官方代币说明确认 VAR 计划于 2026 年第四季度 TGE，32% 供应量用于按积分比例创世空投，积分每周持续发放至 TGE。",
-            "url": "https://www.variational.io/blog/var-tokenomics-and-tge-timing",
-            "source_type": "official_blog",
-            "confidence": "high"
-          },
-          {
-            "claim": "官方积分文档说明 Omni 积分来自协议使用并按周分配。",
-            "url": "https://docs.variational.io/omni/rewards/points",
-            "source_type": "docs",
-            "confidence": "high"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-null--2026-11--pre-seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/null/",
-        "project_name": "Null",
-        "decision": "WATCH",
-        "financing": {
-          "amount_usd": 1700000,
-          "round": "Pre-seed",
-          "lead_investors": [
-            "cyber•Fund",
-            "Nethermind"
-          ],
-          "announcement_date": "2026-11-18",
-          "confidence": "high"
-        },
-        "plain_explanation": "Null 是准备在以太坊推出的新型衍生品协议，目标是让交易者针对资产的资金费率方向建立多空敞口。",
-        "mechanism_simple": "每个市场由资金费率接收方与支付方两个抵押池组成，双方存入 ERC-20 资产；协议根据预言机价格和资金费率在两侧之间结算盈亏，而不是依靠传统订单簿撮合。",
-        "project_status": {
-          "category": "new_unlaunched",
           "token_status": "no_token_found",
-          "note": "项目仍处于即将公开亮相阶段；已有合约安全审查，但未确认公开主网、正式产品或原生代币。"
+          "note": "StableX 是支付网络，公开材料未见 MetaComp 自有代币。"
         },
         "participation": {
           "available_now": false,
-          "what_user_can_do": "目前没有核实到面向普通用户的公开产品、测试网或存款入口，官方称即将结束隐身开发阶段。",
-          "requires_real_funds": false,
-          "friction_or_risk": "衍生品设计涉及抵押资产、资金费率、预言机和智能合约风险；在正式部署地址与参数公开前不应投入资金。"
+          "what_user_can_do": null,
+          "requires_real_funds": null,
+          "friction_or_risk": "服务面向机构或企业，未见适合普通用户的低成本参与入口。"
+        },
+        "incentives": {
+          "status": "none_found",
+          "types": [],
+          "details": "在已核实的官方材料中未发现面向普通用户的参与激励。"
+        },
+        "why": [
+          "现有服务及本轮扩张面向企业和机构。",
+          "公司公告将融资列为 Pre-A+ 追加，来源首页将其标作 A 轮。"
+        ],
+        "next_step": null,
+        "recheck_trigger": null,
+        "website_url": "https://www.mce.sg/",
+        "x_url": "https://x.com/MetaCompHQ",
+        "evidence": [
+          {
+            "claim": "公司披露融资金额、轮次及投资方，未指定领投",
+            "url": "https://www.prnewswire.com/apac/news-releases/metacomp-extends-pre-a-with-approximately-us10m-from-tether-and-further-302944750.html",
+            "source_type": "official_blog",
+            "confidence": "high"
+          },
+          {
+            "claim": "支付网络机制和主要服务对象",
+            "url": "https://www.mce.sg/",
+            "source_type": "official_site",
+            "confidence": "high"
+          }
+        ],
+        "event_id": "crypto-fundraising-metacomp--2026-11--series-a",
+        "source_detail_url": "https://crypto-fundraising.info/projects/metacomp/"
+      },
+      {
+        "project_name": "XXHH",
+        "decision": "WATCH",
+        "financing": {
+          "amount_usd": null,
+          "round": "天使轮",
+          "lead_investors": [],
+          "participating_investors": [
+            "DI（Decentralized Intelligence）"
+          ],
+          "announcement_date": null,
+          "confidence": "medium"
+        },
+        "plain_explanation": "给每种加密资产建一个社区，把行情、持有人讨论和线上会议放在同一处。",
+        "mechanism_simple": "按币名或合约地址找对应的社区，查看行情并参与讨论。项目还计划把交易入口和预测市场放进同一个页面。",
+        "project_status": {
+          "category": "unclear",
+          "token_status": "unconfirmed",
+          "note": "公开上线状态及原生代币状态均未确认。"
+        },
+        "participation": {
+          "available_now": false,
+          "what_user_can_do": "目前仅能关注项目官方账号，尚未核实可用的公开产品入口。",
+          "requires_real_funds": null,
+          "friction_or_risk": "参与所需资金未确认，等待可直接浏览的公开入口。"
         },
         "incentives": {
           "status": "unconfirmed",
           "types": [],
-          "details": "未找到官方积分、Season、测试网奖励、空投或代币计划。"
+          "details": "未确认积分、测试网、活动、发币或空投。"
         },
         "why": [
-          "产品机制与合约审计表明项目并非只有概念，值得保留观察。",
-          "但尚未公开正式产品、部署地址和普通用户参与路径。",
-          "未发现官方激励或代币计划，目前行动没有明确收益。"
+          "按资产整理行情和持有人讨论，有明确使用场景。",
+          "公开产品可用性尚未确认。融资库列出 DI 为投资方，领投与实募金额未确认。"
         ],
         "next_step": null,
-        "recheck_trigger": "Null 官方公开产品、主网合约地址、完整文档或明确测试网/积分计划时重新核验；在此之前不连接钱包或存入抵押品。",
-        "website_url": "https://null.xyz/",
-        "x_url": "https://x.com/0xNull",
+        "recheck_trigger": "项目官方公布无需入金即可浏览资产社区的公开测试版时，检查是否能找到活跃讨论。",
+        "website_url": null,
+        "x_url": "https://x.com/xxhhspace",
         "evidence": [
           {
-            "claim": "Null 官方融资公告显示项目完成 170 万美元 Pre-seed，由 cyber•Fund 与 Nethermind 领投，并称即将结束隐身阶段。",
-            "url": "https://x.com/0xNull",
-            "source_type": "official_x",
+            "claim": "产品定位、天使轮、估值及项目 X 链接，实募金额未披露",
+            "url": "https://crypto-fundraising.info/projects/xxhh/",
+            "source_type": "database",
             "confidence": "medium"
           },
           {
-            "claim": "cyber•Fund 表示 Null 将成为以太坊上的新型、不可变且可组合的衍生品协议。",
-            "url": "https://x.com/cyberfund",
+            "claim": "披露的投资方为 DI",
+            "url": "https://crypto-fundraising.info/",
+            "source_type": "database",
+            "confidence": "medium"
+          }
+        ],
+        "event_id": "crypto-fundraising-xxhh--2026-11--angel",
+        "source_detail_url": "https://crypto-fundraising.info/projects/xxhh/"
+      },
+      {
+        "project_name": "SCRYPT",
+        "decision": "STOP",
+        "financing": {
+          "amount_usd": null,
+          "round": "战略投资",
+          "lead_investors": [],
+          "participating_investors": [
+            "Tether"
+          ],
+          "announcement_date": "2026-11-19",
+          "confidence": "high"
+        },
+        "plain_explanation": "瑞士机构数字资产服务商。Tether 宣布战略投资，金额未披露。服务面向银行、券商和支付公司，暂无适合普通用户的参与入口。",
+        "mechanism_simple": "机构可把法币换成稳定币跨境结算，再在收款地换回法币。",
+        "project_status": {
+          "category": "existing_no_token",
+          "token_status": "no_token_found",
+          "note": "已有机构服务，核实的公开资料未见自有代币。"
+        },
+        "participation": {
+          "available_now": false,
+          "what_user_can_do": null,
+          "requires_real_funds": null,
+          "friction_or_risk": "服务面向机构或企业，未见适合普通用户的低成本参与入口。"
+        },
+        "incentives": {
+          "status": "none_found",
+          "types": [],
+          "details": "在已核实的官方材料中未发现面向普通用户的参与激励。"
+        },
+        "why": [
+          "战略投资用于拓展机构支付，暂无面向普通用户的低成本参与机会。"
+        ],
+        "next_step": null,
+        "recheck_trigger": null,
+        "website_url": "https://scrypt.swiss/",
+        "x_url": null,
+        "evidence": [
+          {
+            "claim": "Tether 确认战略投资及服务对象，未披露金额",
+            "url": "https://tether.io/news/tether-makes-strategic-investment-in-scrypt-to-expand-institutional-stablecoin-infrastructure/",
             "source_type": "investor",
-            "confidence": "medium"
+            "confidence": "high"
           },
           {
-            "claim": "Nethermind Security 对 NullV1 完成安全审查，确认其为由两侧资金池构成的永续衍生品市场协议，审计发现均已修复。",
-            "url": "https://www.nethermind.io/audits/null-solutions-nullv1",
-            "source_type": "other",
+            "claim": "瑞士运营实体及服务范围",
+            "url": "https://scrypt.swiss/regulatory",
+            "source_type": "official_site",
             "confidence": "high"
           }
-        ]
+        ],
+        "event_id": "crypto-fundraising-scrypt--2026-11--round-unknown",
+        "source_detail_url": "https://crypto-fundraising.info/projects/scrypt/"
       }
     ]
   }
