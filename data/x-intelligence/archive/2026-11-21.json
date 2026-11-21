@@ -1,0 +1,289 @@
+{
+  "schemaVersion": 1,
+  "status": "success",
+  "reportDate": "2026-11-21",
+  "generatedAt": "2026-11-21T09:07:14+08:00",
+  "sourceGeneratedAt": "2026-11-21T01:06:26.995066+00:00",
+  "sourcePostCount": 115,
+  "sourceListCount": 4,
+  "executionLineage": {
+    "schemaVersion": 2,
+    "runId": "x-intelligence:codex-x-20261121-mwppipl2-klenw5sv",
+    "requestId": "codex-x-20261121-mwppipl2-klenw5sv",
+    "triggerSha": "c5058546a390b6ec0d033e106fff4c9187ed7550",
+    "githubRunId": 44848093469,
+    "scheduledAt": "2026-11-21T01:00:00Z",
+    "startedAt": "2026-11-21T01:06:26.994619+00:00",
+    "sourceCheckedAt": "2026-11-21T01:06:36.546799+00:00",
+    "sourceUpdatedAt": "2026-11-21T00:33:37+00:00",
+    "completedAt": "2026-11-21T01:06:36.546846+00:00",
+    "publishedAt": "2026-11-21T09:08:06+08:00"
+  },
+  "executionStatus": {
+    "collection": "success",
+    "validation": "success",
+    "publication": {
+      "status": "success"
+    }
+  },
+  "overview": "Anthropic 上市热度退去后，市场讨论转向长期算力承诺、融资成本和估值。BTC 跌破 6 万美元，上市矿企成本和 stUSDS 金库流动性成为加密市场的两个压力观察点。代币化 Anthropic 仍在扩大分发，Base 推广金融 API，Coinbase Wallet 展示交易代理。",
+  "homeHighlights": [
+    "Anthropic 上市后涨幅回吐，长期算力合同与发债计划成为焦点。",
+    "BTC 跌破 6 万美元，四家上市矿企的样本现金成本高于帖文所引现价。",
+    "stUSDS 金库出现提款受限的社区报告，协议数据仍待核对。",
+    "xStocks 自报 ANTx 首日 1.75 万持有人。"
+  ],
+  "topics": [
+    {
+      "title": "Anthropic 上市后涨幅回吐，算力承诺与融资成为焦点",
+      "importance": "high",
+      "summary": "FORAB 报道 Anthropic 上市冲高后回落，Arthur Hayes 发帖称已认亏退出，等待新的做多时机。BlockBeats 援引最终招股书称，公司签署的长期算力及基础设施合同承诺约 9,009 亿美元。",
+      "whyItMatters": "现金储备、未来一年要支付的款项和长期合同总额反映不同期限的资金需求，后续仍要看经营现金流和发债条件。",
+      "facts": [
+        "BlockBeats 援引招股书称，IPO 及配套私募完成后预计现金及短期投资约 2,324 亿美元，长期承诺约有 707 亿美元在未来 12 个月到期。",
+        "该媒体转述 Amodei 称，公司希望未来获得投资级评级并发行债券。",
+        "Hayes 自述交易亏损退出。"
+      ],
+      "interpretations": [
+        "BlockBeats 转述 Bill Ackman 对竞争地位持正面看法，但认为融资成本和收入增长的不确定性令估值难定。"
+      ],
+      "authors": [
+        "BlockBeatsAsia",
+        "_FORAB",
+        "CryptoHayes"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2123617138372182511",
+        "https://x.com/_FORAB/status/2123630274437345495",
+        "https://x.com/CryptoHayes/status/2123606454074785932",
+        "https://x.com/_FORAB/status/2123769720252105048",
+        "https://x.com/BlockBeatsAsia/status/2123634945856037313"
+      ],
+      "sourceCount": 3,
+      "confidence": "medium"
+    },
+    {
+      "title": "BTC 跌破 6 万美元，四家上市矿企样本的现金成本受考验",
+      "importance": "high",
+      "summary": "TechFlow 估算四家主要上市矿企第三季度按产量加权的单枚 BTC 现金运营成本约 60,477 美元，高于其帖中约 59,355 美元的价格快照。",
+      "whyItMatters": "持续低于部分矿企的运营成本，可能影响开机率、算力和难度。",
+      "facts": [
+        "TechFlow 指出样本内各矿企的成本分布差异较大。"
+      ],
+      "interpretations": [
+        "采用四家公司和季度成本口径，适合观察样本盈利压力。市场仍需等待算力、难度和矿企运营数据给出信号。"
+      ],
+      "authors": [
+        "TechFlowPost",
+        "Benjieming1Q84"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2123816047560245367",
+        "https://x.com/Benjieming1Q84/status/2123937432550936933"
+      ],
+      "sourceCount": 2,
+      "confidence": "medium"
+    },
+    {
+      "title": "stUSDS 金库出现提款流动性预警",
+      "importance": "high",
+      "summary": "0xSleepinRain 称，Sky 生态的 stUSDS 金库可用资金被借出，提款一度受限，存款 APY 约升至 30%。帖文把利用率升高与一笔大额 SKY 抵押借款联系起来。",
+      "whyItMatters": "金库提款能力取决于即时流动性和集中借款风险，稳定币整体偿付能力需要独立证据评估。",
+      "facts": [
+        "包内关于提款、APY 和大额借款的细节来自一个分析帖，缺少协议方公告或独立数据佐证。"
+      ],
+      "interpretations": [
+        "该作者把问题解释为金库利用率过高。应跟踪提款恢复、利用率和协议方更新。"
+      ],
+      "authors": [
+        "0xSleepinRain"
+      ],
+      "sourceUrls": [
+        "https://x.com/0xSleepinRain/status/2123726127844008196"
+      ],
+      "sourceCount": 1,
+      "confidence": "low"
+    },
+    {
+      "title": "ANTx 披露首日 1.75 万持有人，一级分配差距仍大",
+      "importance": "medium",
+      "summary": "xStocks 称 ANTx 上市不到 24 小时拥有 17,500 名持有人。Bitget 官方披露获配 153,774 股对应额度，VIP 轮获配率 10.06%，公开轮 1.3%。",
+      "whyItMatters": "持有人数反映二级分发覆盖，配售率则显示不同渠道与不同人群在一级市场的实际获取能力。",
+      "facts": [
+        "17,500 为 xStocks 自报，统计口径未在帖文中展开。",
+        "BlockBeats 汇总称 Gate 获配价值约 764 万 USDT，币安钱包获配按发行价折算约 24.5 万美元。"
+      ],
+      "interpretations": [
+        "钱包密集转发上线说明分发渠道扩张。交易深度、活跃留存与真实用户数量仍待数据验证。"
+      ],
+      "authors": [
+        "xStocksFi",
+        "Bitget_zh",
+        "BlockBeatsAsia",
+        "Mantle_Official",
+        "beefyfinance"
+      ],
+      "sourceUrls": [
+        "https://x.com/xStocksFi/status/2123807703466434942",
+        "https://x.com/Bitget_zh/status/2123460883720569037",
+        "https://x.com/BlockBeatsAsia/status/2123588907032055869",
+        "https://x.com/Mantle_Official/status/2123834832753221786",
+        "https://x.com/beefyfinance/status/2123855398348198317"
+      ],
+      "sourceCount": 5,
+      "confidence": "high"
+    },
+    {
+      "title": "Base 推广稳定币收益与加密抵押借款 API",
+      "importance": "medium",
+      "summary": "Base 介绍 Earn 与 Borrow API，分别面向闲置稳定币余额获取收益和以加密资产作抵押借款。Beefy 同时宣布在 Base 推出带激励的 Take-Two 和 Anthropic 金库。",
+      "whyItMatters": "钱包和平台可以通过同一类接口把交易后的资金接入收益与借贷，实际采用和风险参数值得跟踪。",
+      "facts": [
+        "Base 公开介绍了两项 API 的用途。",
+        "Beefy 自报两只金库已上线，并注明存在地区限制。"
+      ],
+      "interpretations": [],
+      "authors": [
+        "base",
+        "beefyfinance"
+      ],
+      "sourceUrls": [
+        "https://x.com/base/status/2123730937188094032",
+        "https://x.com/beefyfinance/status/2123855398348198317"
+      ],
+      "sourceCount": 2,
+      "confidence": "high"
+    },
+    {
+      "title": "Coinbase Wallet 开放桌面试用，展示 AI 代理交易设想",
+      "importance": "medium",
+      "summary": "Coinbase Wallet 开始招募桌面测试用户，并在 Solana Breakpoint 展示 AI 代理与社交交易的结合方向。",
+      "whyItMatters": "评估交易代理时，用户授权范围、撤销方式和执行边界比产品演示更具体。",
+      "facts": [
+        "Coinbase Wallet 官方称桌面版早期访问已开放给测试者。",
+        "FINTECH.TV 转述交易负责人称，代理只在用户接受建议策略后代其交易。"
+      ],
+      "interpretations": [
+        "发布内容属于早期展示。实际开放范围、确认和撤销流程仍待产品上线核对。"
+      ],
+      "authors": [
+        "CoinbaseWallet",
+        "FINTECHTVglobal"
+      ],
+      "sourceUrls": [
+        "https://x.com/CoinbaseWallet/status/2123880515401056396",
+        "https://x.com/CoinbaseWallet/status/2123836366220095588",
+        "https://x.com/FINTECHTVglobal/status/2123488980985594192"
+      ],
+      "sourceCount": 2,
+      "confidence": "high"
+    },
+    {
+      "title": "链上股票永续新增腾讯，闪迪按拆股后口径复牌",
+      "importance": "medium",
+      "summary": "Variational 公告上线腾讯永续。trade[XYZ] 公告闪迪永续已按拆股后的股本口径恢复交易。",
+      "whyItMatters": "跟踪新增标的之外，也要看现货休市、公司行动和流动性变化如何进入合约规则。",
+      "facts": [
+        "Variational 称腾讯永续最高支持 20 倍杠杆。",
+        "trade[XYZ] 引用先前已结清仓位的公告并宣布 SNDK 复牌。"
+      ],
+      "interpretations": [],
+      "authors": [
+        "variational_io",
+        "tradexyz"
+      ],
+      "sourceUrls": [
+        "https://x.com/variational_io/status/2123785406122725698",
+        "https://x.com/tradexyz/status/2123585186441068855"
+      ],
+      "sourceCount": 2,
+      "confidence": "high"
+    }
+  ],
+  "watchlist": [
+    {
+      "signal": "AI 资本开支如何融资",
+      "reason": "分开看未来一年要支付的算力合同、长期租赁承诺和已经发行的债务，再追踪现金流能覆盖多少。",
+      "authors": [
+        "BlockBeatsAsia"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2123617138372182511",
+        "https://x.com/BlockBeatsAsia/status/2123722555374842136"
+      ]
+    },
+    {
+      "signal": "stUSDS 提款与大额头寸",
+      "reason": "等待协议更新，并核对可用流动性、利用率和集中借款的变化。",
+      "authors": [
+        "0xSleepinRain"
+      ],
+      "sourceUrls": [
+        "https://x.com/0xSleepinRain/status/2123726127844008196"
+      ]
+    },
+    {
+      "signal": "矿企是否出现停机或算力转弱",
+      "reason": "以难度、算力和个别矿企运营数据检验成本压力是否持续。",
+      "authors": [
+        "TechFlowPost"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2123816047560245367"
+      ]
+    },
+    {
+      "signal": "ANTx 首日持有人能否转化为持续流动性",
+      "reason": "跟踪去除活动激励后的成交、价差与活跃变化。",
+      "authors": [
+        "xStocksFi",
+        "beefyfinance"
+      ],
+      "sourceUrls": [
+        "https://x.com/xStocksFi/status/2123807703466434942",
+        "https://x.com/beefyfinance/status/2123855398348198317"
+      ]
+    },
+    {
+      "signal": "ChatGPT 桌面端和 Plus 的 Space",
+      "reason": "产品团队介绍新的桌面设计、性能更新和 Plus 的 Space，实际入口可按账号查看。",
+      "authors": [
+        "ajambrosino"
+      ],
+      "sourceUrls": [
+        "https://x.com/ajambrosino/status/2123840812534452296"
+      ]
+    }
+  ],
+  "disagreements": [
+    {
+      "topic": "科技股抛售是技术性调整，还是算力融资风险开始重估",
+      "positions": [
+        "BlockBeats 转述贝莱德投资组合经理 Russ Koesterich 的判断，本轮抛售主要受技术因素驱动。",
+        "Gregory Raymond 解读欧洲央行金融稳定报告时，强调长期承诺、项目融资与机构持仓可能传导风险。现有帖子未给出足以确认因果的证据。"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2123748200930480227",
+        "https://x.com/gregory_raymond/status/2123679738426261935",
+        "https://x.com/BlockBeatsAsia/status/2123617138372182511"
+      ]
+    },
+    {
+      "topic": "Anthropic 的增长能否支撑上市估值",
+      "positions": [
+        "据 BlockBeats 转述，Brad Gerstner 以大额认购意向看待增长机会。",
+        "同一报道转述 Bill Ackman 认可业务前景，但因估值与融资成本难判断而观望。Hayes 则表示已退出亏损交易，等待新的入场条件。"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2123634945856037313",
+        "https://x.com/CryptoHayes/status/2123606454074785932"
+      ]
+    }
+  ],
+  "noiseSummary": [
+    "重复转发代币化股票上架",
+    "平台竞赛和空投促销",
+    "个人日内交易复盘与闲聊",
+    "只有图片、视频或链接，文字上下文不足"
+  ]
+}
