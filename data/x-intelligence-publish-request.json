@@ -1,28 +1,28 @@
 {
   "schemaVersion": 1,
-  "requestId": "codex-x-20261121-mwppipl2-klenw5sv",
-  "triggerSha": "c5058546a390b6ec0d033e106fff4c9187ed7550",
-  "publicationDate": "2026-11-21",
-  "publishedAt": "2026-11-21T09:08:06+08:00",
+  "requestId": "codex-x-20261122-mwr4v9m9-1383i0t5",
+  "triggerSha": "c2695171169d278c8f534e5407494aa95f5ed775",
+  "publicationDate": "2026-11-22",
+  "publishedAt": "2026-11-22T09:05:07+08:00",
   "payload": {
     "schemaVersion": 1,
     "status": "success",
-    "reportDate": "2026-11-21",
-    "generatedAt": "2026-11-21T09:07:14+08:00",
-    "sourceGeneratedAt": "2026-11-21T01:06:26.995066+00:00",
-    "sourcePostCount": 115,
+    "reportDate": "2026-11-22",
+    "generatedAt": "2026-11-22T09:04:19+08:00",
+    "sourceGeneratedAt": "2026-11-22T01:03:39.666585+00:00",
+    "sourcePostCount": 60,
     "sourceListCount": 4,
     "executionLineage": {
       "schemaVersion": 2,
-      "runId": "x-intelligence:codex-x-20261121-mwppipl2-klenw5sv",
-      "requestId": "codex-x-20261121-mwppipl2-klenw5sv",
-      "triggerSha": "c5058546a390b6ec0d033e106fff4c9187ed7550",
-      "githubRunId": 44848093469,
-      "scheduledAt": "2026-11-21T01:00:00Z",
-      "startedAt": "2026-11-21T01:06:26.994619+00:00",
-      "sourceCheckedAt": "2026-11-21T01:06:36.546799+00:00",
-      "sourceUpdatedAt": "2026-11-21T00:33:37+00:00",
-      "completedAt": "2026-11-21T01:06:36.546846+00:00",
+      "runId": "x-intelligence:codex-x-20261122-mwr4v9m9-1383i0t5",
+      "requestId": "codex-x-20261122-mwr4v9m9-1383i0t5",
+      "triggerSha": "c2695171169d278c8f534e5407494aa95f5ed775",
+      "githubRunId": 44969623301,
+      "scheduledAt": "2026-11-22T01:00:00Z",
+      "startedAt": "2026-11-22T01:03:39.666009+00:00",
+      "sourceCheckedAt": "2026-11-22T01:03:50.263455+00:00",
+      "sourceUpdatedAt": "2026-11-22T01:02:23+00:00",
+      "completedAt": "2026-11-22T01:03:50.263500+00:00",
       "publishedAt": null
     },
     "executionStatus": {
@@ -32,175 +32,142 @@
         "status": "not_run"
       }
     },
-    "overview": "Anthropic 上市热度退去后，市场讨论转向长期算力承诺、融资成本和估值。BTC 跌破 6 万美元，上市矿企成本和 stUSDS 金库流动性成为加密市场的两个压力观察点。代币化 Anthropic 仍在扩大分发，Base 推广金融 API，Coinbase Wallet 展示交易代理。",
+    "overview": "BTC 再创新低，现货 ETF 流出和矿企成本受到关注。AI 资本开支的讨论转向融资后的机架交付、算力上线和现金流。链上衍生品则有 Forecast 白名单上线与 Variational 深度指标扩大开放两项进展。",
     "homeHighlights": [
-      "Anthropic 上市后涨幅回吐，长期算力合同与发债计划成为焦点。",
-      "BTC 跌破 6 万美元，四家上市矿企的样本现金成本高于帖文所引现价。",
-      "stUSDS 金库出现提款受限的社区报告，协议数据仍待核对。",
-      "xStocks 自报 ANTx 首日 1.75 万持有人。"
+      "BTC 一度跌破 5.6 万美元，30 天现货 ETF 净流出进一步扩大。",
+      "甲骨文称 OpenAI 合同融资已经落实，下一步可跟踪机架交付。",
+      "Forecast 在 Base 主网向白名单开放。",
+      "Variational 向全部用户开放下单深度指标。"
     ],
     "topics": [
       {
-        "title": "Anthropic 上市后涨幅回吐，算力承诺与融资成为焦点",
+        "title": "BTC 一度失守 5.6 万美元，现货 ETF 流出扩大",
         "importance": "high",
-        "summary": "FORAB 报道 Anthropic 上市冲高后回落，Arthur Hayes 发帖称已认亏退出，等待新的做多时机。BlockBeats 援引最终招股书称，公司签署的长期算力及基础设施合同承诺约 9,009 亿美元。",
-        "whyItMatters": "现金储备、未来一年要支付的款项和长期合同总额反映不同期限的资金需求，后续仍要看经营现金流和发债条件。",
+        "summary": "BlockBeats 报道 11 月 21 日 BTC 一度跌破 5.6 万美元，并出现集中清算。TechFlow 根据 Strategy 看板称，其截点的 BTC 价格约低于 200 周均线 15.2%，过去 30 天现货 ETF 净流出扩大至约 34.85 亿美元。",
+        "whyItMatters": "均线偏离反映历史价格位置，滚动申赎反映当前资金变化。两者在本期指向不同的交易条件。",
         "facts": [
-          "BlockBeats 援引招股书称，IPO 及配套私募完成后预计现金及短期投资约 2,324 亿美元，长期承诺约有 707 亿美元在未来 12 个月到期。",
-          "该媒体转述 Amodei 称，公司希望未来获得投资级评级并发行债券。",
-          "Hayes 自述交易亏损退出。"
+          "BlockBeats 的低点报道与 TechFlow 的看板快照是不同时间截点。",
+          "TechFlow 所列前次 30 天净流出约为 29.19 亿美元。"
         ],
         "interpretations": [
-          "BlockBeats 转述 Bill Ackman 对竞争地位持正面看法，但认为融资成本和收入增长的不确定性令估值难定。"
+          "FORAB 转述 Vida 将下跌视为去杠杆；Arthur Hayes 表示会等待政策支持信号。"
         ],
         "authors": [
           "BlockBeatsAsia",
+          "TechFlowPost",
           "_FORAB",
           "CryptoHayes"
         ],
         "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2123617138372182511",
-          "https://x.com/_FORAB/status/2123630274437345495",
-          "https://x.com/CryptoHayes/status/2123606454074785932",
-          "https://x.com/_FORAB/status/2123769720252105048",
-          "https://x.com/BlockBeatsAsia/status/2123634945856037313"
+          "https://x.com/BlockBeatsAsia/status/2123998438752989436",
+          "https://x.com/TechFlowPost/status/2124080388092166420",
+          "https://x.com/_FORAB/status/2123949042615144479",
+          "https://x.com/CryptoHayes/status/2123894151557390519"
         ],
-        "sourceCount": 3,
+        "sourceCount": 4,
         "confidence": "medium"
       },
       {
-        "title": "BTC 跌破 6 万美元，四家上市矿企样本的现金成本受考验",
+        "title": "甲骨文称履约资金已到位，算力交付仍是下一关",
         "importance": "high",
-        "summary": "TechFlow 估算四家主要上市矿企第三季度按产量加权的单枚 BTC 现金运营成本约 60,477 美元，高于其帖中约 59,355 美元的价格快照。",
-        "whyItMatters": "持续低于部分矿企的运营成本，可能影响开机率、算力和难度。",
+        "summary": "甲骨文称履行 OpenAI 合同所需的资金已经落实，包括此前披露的供应商融资，并称未来几周将交付 Vera Rubin 机架。马斯克同日讨论行业普遍面临的电力、散热、可靠性与现金周转压力。",
+        "whyItMatters": "资金落实、机架交付、设备稳定上线和开始贡献收入是不同里程碑。两条动态把研究重点落到交付节点和现金流。",
         "facts": [
-          "TechFlow 指出样本内各矿企的成本分布差异较大。"
+          "甲骨文称 Abilene 园区接近完工、Shackelford 园区已获许可，并维持 FY2028 下半年自由现金流转正的预期。",
+          "FY2029 自由现金流超过 300 亿美元是甲骨文目标。"
         ],
         "interpretations": [
-          "采用四家公司和季度成本口径，适合观察样本盈利压力。市场仍需等待算力、难度和矿企运营数据给出信号。"
+          "马斯克认为从付款到稳定创收若延后数月，行业会增加大量营运资金需求。这是行业层面的判断。"
         ],
         "authors": [
-          "TechFlowPost",
-          "Benjieming1Q84"
+          "Oracle",
+          "elonmusk"
         ],
         "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2123816047560245367",
-          "https://x.com/Benjieming1Q84/status/2123937432550936933"
+          "https://x.com/Oracle/status/2123884437045760420",
+          "https://x.com/elonmusk/status/2124271725927903388"
         ],
         "sourceCount": 2,
-        "confidence": "medium"
-      },
-      {
-        "title": "stUSDS 金库出现提款流动性预警",
-        "importance": "high",
-        "summary": "0xSleepinRain 称，Sky 生态的 stUSDS 金库可用资金被借出，提款一度受限，存款 APY 约升至 30%。帖文把利用率升高与一笔大额 SKY 抵押借款联系起来。",
-        "whyItMatters": "金库提款能力取决于即时流动性和集中借款风险，稳定币整体偿付能力需要独立证据评估。",
-        "facts": [
-          "包内关于提款、APY 和大额借款的细节来自一个分析帖，缺少协议方公告或独立数据佐证。"
-        ],
-        "interpretations": [
-          "该作者把问题解释为金库利用率过高。应跟踪提款恢复、利用率和协议方更新。"
-        ],
-        "authors": [
-          "0xSleepinRain"
-        ],
-        "sourceUrls": [
-          "https://x.com/0xSleepinRain/status/2123726127844008196"
-        ],
-        "sourceCount": 1,
-        "confidence": "low"
-      },
-      {
-        "title": "ANTx 披露首日 1.75 万持有人，一级分配差距仍大",
-        "importance": "medium",
-        "summary": "xStocks 称 ANTx 上市不到 24 小时拥有 17,500 名持有人。Bitget 官方披露获配 153,774 股对应额度，VIP 轮获配率 10.06%，公开轮 1.3%。",
-        "whyItMatters": "持有人数反映二级分发覆盖，配售率则显示不同渠道与不同人群在一级市场的实际获取能力。",
-        "facts": [
-          "17,500 为 xStocks 自报，统计口径未在帖文中展开。",
-          "BlockBeats 汇总称 Gate 获配价值约 764 万 USDT，币安钱包获配按发行价折算约 24.5 万美元。"
-        ],
-        "interpretations": [
-          "钱包密集转发上线说明分发渠道扩张。交易深度、活跃留存与真实用户数量仍待数据验证。"
-        ],
-        "authors": [
-          "xStocksFi",
-          "Bitget_zh",
-          "BlockBeatsAsia",
-          "Mantle_Official",
-          "beefyfinance"
-        ],
-        "sourceUrls": [
-          "https://x.com/xStocksFi/status/2123807703466434942",
-          "https://x.com/Bitget_zh/status/2123460883720569037",
-          "https://x.com/BlockBeatsAsia/status/2123588907032055869",
-          "https://x.com/Mantle_Official/status/2123834832753221786",
-          "https://x.com/beefyfinance/status/2123855398348198317"
-        ],
-        "sourceCount": 5,
         "confidence": "high"
       },
       {
-        "title": "Base 推广稳定币收益与加密抵押借款 API",
+        "title": "矿企的成本压力升温，摩根大通估算约 8.6 万美元",
         "importance": "medium",
-        "summary": "Base 介绍 Earn 与 Borrow API，分别面向闲置稳定币余额获取收益和以加密资产作抵押借款。Beefy 同时宣布在 Base 推出带激励的 Take-Two 和 Anthropic 金库。",
-        "whyItMatters": "钱包和平台可以通过同一类接口把交易后的资金接入收益与借贷，实际采用和风险参数值得跟踪。",
+        "summary": "BlockBeats 转引报道称，摩根大通估算当前 BTC 挖矿成本约 8.6 万美元，并认为高成本矿企可能出售储备。帖文同时提到加密 ETF 流出与股票 ETF 流入。",
+        "whyItMatters": "成本估算可用于发现压力，实际卖币、算力和难度数据才能验证矿企如何应对。",
         "facts": [
-          "Base 公开介绍了两项 API 的用途。",
-          "Beefy 自报两只金库已上线，并注明存在地区限制。"
+          "8.6 万美元为媒体转述的机构估算，帖文未披露完整模型。",
+          "帖文中的散户资金转向美股是机构推断，两类 ETF 资金流无法识别是否为同一批资金。"
+        ],
+        "interpretations": [
+          "矿企可能通过减产、出售储备或调整经营计划应对，包内未提供足够数据确认其规模。"
+        ],
+        "authors": [
+          "BlockBeatsAsia"
+        ],
+        "sourceUrls": [
+          "https://x.com/BlockBeatsAsia/status/2124041139263328304"
+        ],
+        "sourceCount": 1,
+        "confidence": "medium"
+      },
+      {
+        "title": "Forecast 在 Base 主网向白名单开放",
+        "importance": "medium",
+        "summary": "Base 宣布 Forecast 已上主网，当前先向白名单开放。Jesse Pollak 另称其所谈及的衍生品产品过去一周名义量约 65 亿美元。",
+        "whyItMatters": "主网上线是可观察的产品节点，名义量需要用成交深度、费用和重复使用率补充解读。",
+        "facts": [
+          "Base 公告明确当前阶段为白名单，公开开放尚未开始。",
+          "名义量来自生态方表述，帖文未给出统计口径或独立核验。"
         ],
         "interpretations": [],
         "authors": [
           "base",
-          "beefyfinance"
+          "jessepollak"
         ],
         "sourceUrls": [
-          "https://x.com/base/status/2123730937188094032",
-          "https://x.com/beefyfinance/status/2123855398348198317"
+          "https://x.com/base/status/2124219842769375317",
+          "https://x.com/jessepollak/status/2124186857009250340"
         ],
         "sourceCount": 2,
         "confidence": "high"
       },
       {
-        "title": "Coinbase Wallet 开放桌面试用，展示 AI 代理交易设想",
+        "title": "Variational 将下单表单的深度指标开放给所有用户",
         "importance": "medium",
-        "summary": "Coinbase Wallet 开始招募桌面测试用户，并在 Solana Breakpoint 展示 AI 代理与社交交易的结合方向。",
-        "whyItMatters": "评估交易代理时，用户授权范围、撤销方式和执行边界比产品演示更具体。",
+        "summary": "Variational 宣布 Omni 的深度指标结束小范围 A/B 测试，现已开放给所有用户，可在设置中切换。",
+        "whyItMatters": "提供下单时的深度可见性，下一步能从同等订单规模下的实际滑点观察效果。",
         "facts": [
-          "Coinbase Wallet 官方称桌面版早期访问已开放给测试者。",
-          "FINTECH.TV 转述交易负责人称，代理只在用户接受建议策略后代其交易。"
-        ],
-        "interpretations": [
-          "发布内容属于早期展示。实际开放范围、确认和撤销流程仍待产品上线核对。"
-        ],
-        "authors": [
-          "CoinbaseWallet",
-          "FINTECHTVglobal"
-        ],
-        "sourceUrls": [
-          "https://x.com/CoinbaseWallet/status/2123880515401056396",
-          "https://x.com/CoinbaseWallet/status/2123836366220095588",
-          "https://x.com/FINTECHTVglobal/status/2123488980985594192"
-        ],
-        "sourceCount": 2,
-        "confidence": "high"
-      },
-      {
-        "title": "链上股票永续新增腾讯，闪迪按拆股后口径复牌",
-        "importance": "medium",
-        "summary": "Variational 公告上线腾讯永续。trade[XYZ] 公告闪迪永续已按拆股后的股本口径恢复交易。",
-        "whyItMatters": "跟踪新增标的之外，也要看现货休市、公司行动和流动性变化如何进入合约规则。",
-        "facts": [
-          "Variational 称腾讯永续最高支持 20 倍杠杆。",
-          "trade[XYZ] 引用先前已结清仓位的公告并宣布 SNDK 复牌。"
+          "当前及引用公告均来自项目方。"
         ],
         "interpretations": [],
         "authors": [
-          "variational_io",
-          "tradexyz"
+          "variational_io"
         ],
         "sourceUrls": [
-          "https://x.com/variational_io/status/2123785406122725698",
-          "https://x.com/tradexyz/status/2123585186441068855"
+          "https://x.com/variational_io/status/2124140830143480265"
+        ],
+        "sourceCount": 1,
+        "confidence": "high"
+      },
+      {
+        "title": "Antigravity 重置 Gemini 配额并报告缓存优化",
+        "importance": "medium",
+        "summary": "Mohan 宣布为 Antigravity 用户重置 Gemini 配额，并称缓存优化让同一配额下可完成的工作量增加 22%。AIHOT 开发者称已监测多个工具的配额重置并开放 API。",
+        "whyItMatters": "前者是官方人员披露的配额体验变化，后者是第三方监测，便于区分平台更新和提醒服务。",
+        "facts": [
+          "22% 是发布者对同一配额下可完成工作量提升的表述。"
+        ],
+        "interpretations": [
+          "不同任务的实际体验可通过同类长任务的配额消耗观察。"
+        ],
+        "authors": [
+          "_mohansolo",
+          "Khazix0918"
+        ],
+        "sourceUrls": [
+          "https://x.com/_mohansolo/status/2124070033534161407",
+          "https://x.com/Khazix0918/status/2124106642933653521"
         ],
         "sourceCount": 2,
         "confidence": "high"
@@ -208,89 +175,75 @@
     ],
     "watchlist": [
       {
-        "signal": "AI 资本开支如何融资",
-        "reason": "分开看未来一年要支付的算力合同、长期租赁承诺和已经发行的债务，再追踪现金流能覆盖多少。",
+        "signal": "BTC ETF 净流出、清算与矿企算力是否同步缓和",
+        "reason": "比单次反弹更能区分杠杆冲击结束与资金流真正修复。",
         "authors": [
+          "TechFlowPost",
           "BlockBeatsAsia"
         ],
         "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2123617138372182511",
-          "https://x.com/BlockBeatsAsia/status/2123722555374842136"
+          "https://x.com/TechFlowPost/status/2124080388092166420",
+          "https://x.com/BlockBeatsAsia/status/2123998438752989436",
+          "https://x.com/BlockBeatsAsia/status/2124041139263328304"
         ]
       },
       {
-        "signal": "stUSDS 提款与大额头寸",
-        "reason": "等待协议更新，并核对可用流动性、利用率和集中借款的变化。",
+        "signal": "甲骨文的机架交付、算力上线与自由现金流",
+        "reason": "沿着甲骨文披露的里程碑跟踪资金何时转成可计费收入。",
         "authors": [
-          "0xSleepinRain"
+          "Oracle",
+          "elonmusk"
         ],
         "sourceUrls": [
-          "https://x.com/0xSleepinRain/status/2123726127844008196"
+          "https://x.com/Oracle/status/2123884437045760420",
+          "https://x.com/elonmusk/status/2124271725927903388"
         ]
       },
       {
-        "signal": "矿企是否出现停机或算力转弱",
-        "reason": "以难度、算力和个别矿企运营数据检验成本压力是否持续。",
+        "signal": "Forecast 公开开放后的流动性",
+        "reason": "重点看点差、深度、费用与实际复用，补充名义交易量所能提供的信息。",
         "authors": [
-          "TechFlowPost"
+          "base",
+          "jessepollak"
         ],
         "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2123816047560245367"
-        ]
-      },
-      {
-        "signal": "ANTx 首日持有人能否转化为持续流动性",
-        "reason": "跟踪去除活动激励后的成交、价差与活跃变化。",
-        "authors": [
-          "xStocksFi",
-          "beefyfinance"
-        ],
-        "sourceUrls": [
-          "https://x.com/xStocksFi/status/2123807703466434942",
-          "https://x.com/beefyfinance/status/2123855398348198317"
-        ]
-      },
-      {
-        "signal": "ChatGPT 桌面端和 Plus 的 Space",
-        "reason": "产品团队介绍新的桌面设计、性能更新和 Plus 的 Space，实际入口可按账号查看。",
-        "authors": [
-          "ajambrosino"
-        ],
-        "sourceUrls": [
-          "https://x.com/ajambrosino/status/2123840812534452296"
+          "https://x.com/base/status/2124219842769375317",
+          "https://x.com/jessepollak/status/2124186857009250340"
         ]
       }
     ],
     "disagreements": [
       {
-        "topic": "科技股抛售是技术性调整，还是算力融资风险开始重估",
+        "topic": "BTC 处于去杠杆回调，还是仍缺企稳条件",
         "positions": [
-          "BlockBeats 转述贝莱德投资组合经理 Russ Koesterich 的判断，本轮抛售主要受技术因素驱动。",
-          "Gregory Raymond 解读欧洲央行金融稳定报告时，强调长期承诺、项目融资与机构持仓可能传导风险。现有帖子未给出足以确认因果的证据。"
+          "FORAB 转述 Vida 将其类比为 2021 年 5 月去杠杆，认为基本面未恶化。",
+          "Hayes 表示等待更明确的政策支持信号。TechFlow 看到长期均线折价扩大、现货 ETF 持续流出，显示估值指标与资金流分化。"
         ],
         "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2123748200930480227",
-          "https://x.com/gregory_raymond/status/2123679738426261935",
-          "https://x.com/BlockBeatsAsia/status/2123617138372182511"
+          "https://x.com/_FORAB/status/2123949042615144479",
+          "https://x.com/CryptoHayes/status/2123894151557390519",
+          "https://x.com/TechFlowPost/status/2124080388092166420"
         ]
       },
       {
-        "topic": "Anthropic 的增长能否支撑上市估值",
+        "topic": "AI 硬件需求旺盛能否很快转成收入",
         "positions": [
-          "据 BlockBeats 转述，Brad Gerstner 以大额认购意向看待增长机会。",
-          "同一报道转述 Bill Ackman 认可业务前景，但因估值与融资成本难判断而观望。Hayes 则表示已退出亏损交易，等待新的入场条件。"
+          "FORAB 转述有分析者用 GPU 现货价格和高端内存预订判断需求尚未见顶。",
+          "马斯克强调从买算力到稳定运行并创收之间的工程和现金周转间隔。甲骨文披露的交付节点可作为后续观察。"
         ],
         "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2123634945856037313",
-          "https://x.com/CryptoHayes/status/2123606454074785932"
+          "https://x.com/_FORAB/status/2124307472848654726",
+          "https://x.com/elonmusk/status/2124271725927903388",
+          "https://x.com/Oracle/status/2123884437045760420"
         ]
       }
     ],
     "noiseSummary": [
-      "重复转发代币化股票上架",
-      "平台竞赛和空投促销",
-      "个人日内交易复盘与闲聊",
-      "只有图片、视频或链接，文字上下文不足"
+      "竞猜与空投促销",
+      "个人短线复盘和设备闲聊",
+      "FTX 影视讨论与重复采访摘录",
+      "缺少文字上下文的链接及截图",
+      "暂无独立佐证的单平台报价异常"
     ]
   }
 }
