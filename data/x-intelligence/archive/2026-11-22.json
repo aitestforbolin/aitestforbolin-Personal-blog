@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "status": "success",
+  "reportDate": "2026-11-22",
+  "generatedAt": "2026-11-22T09:04:19+08:00",
+  "sourceGeneratedAt": "2026-11-22T01:03:39.666585+00:00",
+  "sourcePostCount": 60,
+  "sourceListCount": 4,
+  "executionLineage": {
+    "schemaVersion": 2,
+    "runId": "x-intelligence:codex-x-20261122-mwr4v9m9-1383i0t5",
+    "requestId": "codex-x-20261122-mwr4v9m9-1383i0t5",
+    "triggerSha": "c2695171169d278c8f534e5407494aa95f5ed775",
+    "githubRunId": 44969623301,
+    "scheduledAt": "2026-11-22T01:00:00Z",
+    "startedAt": "2026-11-22T01:03:39.666009+00:00",
+    "sourceCheckedAt": "2026-11-22T01:03:50.263455+00:00",
+    "sourceUpdatedAt": "2026-11-22T01:02:23+00:00",
+    "completedAt": "2026-11-22T01:03:50.263500+00:00",
+    "publishedAt": "2026-11-22T09:05:07+08:00"
+  },
+  "executionStatus": {
+    "collection": "success",
+    "validation": "success",
+    "publication": {
+      "status": "success"
+    }
+  },
+  "overview": "BTC 再创新低，现货 ETF 流出和矿企成本受到关注。AI 资本开支的讨论转向融资后的机架交付、算力上线和现金流。链上衍生品则有 Forecast 白名单上线与 Variational 深度指标扩大开放两项进展。",
+  "homeHighlights": [
+    "BTC 一度跌破 5.6 万美元，30 天现货 ETF 净流出进一步扩大。",
+    "甲骨文称 OpenAI 合同融资已经落实，下一步可跟踪机架交付。",
+    "Forecast 在 Base 主网向白名单开放。",
+    "Variational 向全部用户开放下单深度指标。"
+  ],
+  "topics": [
+    {
+      "title": "BTC 一度失守 5.6 万美元，现货 ETF 流出扩大",
+      "importance": "high",
+      "summary": "BlockBeats 报道 11 月 21 日 BTC 一度跌破 5.6 万美元，并出现集中清算。TechFlow 根据 Strategy 看板称，其截点的 BTC 价格约低于 200 周均线 15.2%，过去 30 天现货 ETF 净流出扩大至约 34.85 亿美元。",
+      "whyItMatters": "均线偏离反映历史价格位置，滚动申赎反映当前资金变化。两者在本期指向不同的交易条件。",
+      "facts": [
+        "BlockBeats 的低点报道与 TechFlow 的看板快照是不同时间截点。",
+        "TechFlow 所列前次 30 天净流出约为 29.19 亿美元。"
+      ],
+      "interpretations": [
+        "FORAB 转述 Vida 将下跌视为去杠杆；Arthur Hayes 表示会等待政策支持信号。"
+      ],
+      "authors": [
+        "BlockBeatsAsia",
+        "TechFlowPost",
+        "_FORAB",
+        "CryptoHayes"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2123998438752989436",
+        "https://x.com/TechFlowPost/status/2124080388092166420",
+        "https://x.com/_FORAB/status/2123949042615144479",
+        "https://x.com/CryptoHayes/status/2123894151557390519"
+      ],
+      "sourceCount": 4,
+      "confidence": "medium"
+    },
+    {
+      "title": "甲骨文称履约资金已到位，算力交付仍是下一关",
+      "importance": "high",
+      "summary": "甲骨文称履行 OpenAI 合同所需的资金已经落实，包括此前披露的供应商融资，并称未来几周将交付 Vera Rubin 机架。马斯克同日讨论行业普遍面临的电力、散热、可靠性与现金周转压力。",
+      "whyItMatters": "资金落实、机架交付、设备稳定上线和开始贡献收入是不同里程碑。两条动态把研究重点落到交付节点和现金流。",
+      "facts": [
+        "甲骨文称 Abilene 园区接近完工、Shackelford 园区已获许可，并维持 FY2028 下半年自由现金流转正的预期。",
+        "FY2029 自由现金流超过 300 亿美元是甲骨文目标。"
+      ],
+      "interpretations": [
+        "马斯克认为从付款到稳定创收若延后数月，行业会增加大量营运资金需求。这是行业层面的判断。"
+      ],
+      "authors": [
+        "Oracle",
+        "elonmusk"
+      ],
+      "sourceUrls": [
+        "https://x.com/Oracle/status/2123884437045760420",
+        "https://x.com/elonmusk/status/2124271725927903388"
+      ],
+      "sourceCount": 2,
+      "confidence": "high"
+    },
+    {
+      "title": "矿企的成本压力升温，摩根大通估算约 8.6 万美元",
+      "importance": "medium",
+      "summary": "BlockBeats 转引报道称，摩根大通估算当前 BTC 挖矿成本约 8.6 万美元，并认为高成本矿企可能出售储备。帖文同时提到加密 ETF 流出与股票 ETF 流入。",
+      "whyItMatters": "成本估算可用于发现压力，实际卖币、算力和难度数据才能验证矿企如何应对。",
+      "facts": [
+        "8.6 万美元为媒体转述的机构估算，帖文未披露完整模型。",
+        "帖文中的散户资金转向美股是机构推断，两类 ETF 资金流无法识别是否为同一批资金。"
+      ],
+      "interpretations": [
+        "矿企可能通过减产、出售储备或调整经营计划应对，包内未提供足够数据确认其规模。"
+      ],
+      "authors": [
+        "BlockBeatsAsia"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2124041139263328304"
+      ],
+      "sourceCount": 1,
+      "confidence": "medium"
+    },
+    {
+      "title": "Forecast 在 Base 主网向白名单开放",
+      "importance": "medium",
+      "summary": "Base 宣布 Forecast 已上主网，当前先向白名单开放。Jesse Pollak 另称其所谈及的衍生品产品过去一周名义量约 65 亿美元。",
+      "whyItMatters": "主网上线是可观察的产品节点，名义量需要用成交深度、费用和重复使用率补充解读。",
+      "facts": [
+        "Base 公告明确当前阶段为白名单，公开开放尚未开始。",
+        "名义量来自生态方表述，帖文未给出统计口径或独立核验。"
+      ],
+      "interpretations": [],
+      "authors": [
+        "base",
+        "jessepollak"
+      ],
+      "sourceUrls": [
+        "https://x.com/base/status/2124219842769375317",
+        "https://x.com/jessepollak/status/2124186857009250340"
+      ],
+      "sourceCount": 2,
+      "confidence": "high"
+    },
+    {
+      "title": "Variational 将下单表单的深度指标开放给所有用户",
+      "importance": "medium",
+      "summary": "Variational 宣布 Omni 的深度指标结束小范围 A/B 测试，现已开放给所有用户，可在设置中切换。",
+      "whyItMatters": "提供下单时的深度可见性，下一步能从同等订单规模下的实际滑点观察效果。",
+      "facts": [
+        "当前及引用公告均来自项目方。"
+      ],
+      "interpretations": [],
+      "authors": [
+        "variational_io"
+      ],
+      "sourceUrls": [
+        "https://x.com/variational_io/status/2124140830143480265"
+      ],
+      "sourceCount": 1,
+      "confidence": "high"
+    },
+    {
+      "title": "Antigravity 重置 Gemini 配额并报告缓存优化",
+      "importance": "medium",
+      "summary": "Mohan 宣布为 Antigravity 用户重置 Gemini 配额，并称缓存优化让同一配额下可完成的工作量增加 22%。AIHOT 开发者称已监测多个工具的配额重置并开放 API。",
+      "whyItMatters": "前者是官方人员披露的配额体验变化，后者是第三方监测，便于区分平台更新和提醒服务。",
+      "facts": [
+        "22% 是发布者对同一配额下可完成工作量提升的表述。"
+      ],
+      "interpretations": [
+        "不同任务的实际体验可通过同类长任务的配额消耗观察。"
+      ],
+      "authors": [
+        "_mohansolo",
+        "Khazix0918"
+      ],
+      "sourceUrls": [
+        "https://x.com/_mohansolo/status/2124070033534161407",
+        "https://x.com/Khazix0918/status/2124106642933653521"
+      ],
+      "sourceCount": 2,
+      "confidence": "high"
+    }
+  ],
+  "watchlist": [
+    {
+      "signal": "BTC ETF 净流出、清算与矿企算力是否同步缓和",
+      "reason": "比单次反弹更能区分杠杆冲击结束与资金流真正修复。",
+      "authors": [
+        "TechFlowPost",
+        "BlockBeatsAsia"
+      ],
+      "sourceUrls": [
+        "https://x.com/TechFlowPost/status/2124080388092166420",
+        "https://x.com/BlockBeatsAsia/status/2123998438752989436",
+        "https://x.com/BlockBeatsAsia/status/2124041139263328304"
+      ]
+    },
+    {
+      "signal": "甲骨文的机架交付、算力上线与自由现金流",
+      "reason": "沿着甲骨文披露的里程碑跟踪资金何时转成可计费收入。",
+      "authors": [
+        "Oracle",
+        "elonmusk"
+      ],
+      "sourceUrls": [
+        "https://x.com/Oracle/status/2123884437045760420",
+        "https://x.com/elonmusk/status/2124271725927903388"
+      ]
+    },
+    {
+      "signal": "Forecast 公开开放后的流动性",
+      "reason": "重点看点差、深度、费用与实际复用，补充名义交易量所能提供的信息。",
+      "authors": [
+        "base",
+        "jessepollak"
+      ],
+      "sourceUrls": [
+        "https://x.com/base/status/2124219842769375317",
+        "https://x.com/jessepollak/status/2124186857009250340"
+      ]
+    }
+  ],
+  "disagreements": [
+    {
+      "topic": "BTC 处于去杠杆回调，还是仍缺企稳条件",
+      "positions": [
+        "FORAB 转述 Vida 将其类比为 2021 年 5 月去杠杆，认为基本面未恶化。",
+        "Hayes 表示等待更明确的政策支持信号。TechFlow 看到长期均线折价扩大、现货 ETF 持续流出，显示估值指标与资金流分化。"
+      ],
+      "sourceUrls": [
+        "https://x.com/_FORAB/status/2123949042615144479",
+        "https://x.com/CryptoHayes/status/2123894151557390519",
+        "https://x.com/TechFlowPost/status/2124080388092166420"
+      ]
+    },
+    {
+      "topic": "AI 硬件需求旺盛能否很快转成收入",
+      "positions": [
+        "FORAB 转述有分析者用 GPU 现货价格和高端内存预订判断需求尚未见顶。",
+        "马斯克强调从买算力到稳定运行并创收之间的工程和现金周转间隔。甲骨文披露的交付节点可作为后续观察。"
+      ],
+      "sourceUrls": [
+        "https://x.com/_FORAB/status/2124307472848654726",
+        "https://x.com/elonmusk/status/2124271725927903388",
+        "https://x.com/Oracle/status/2123884437045760420"
+      ]
+    }
+  ],
+  "noiseSummary": [
+    "竞猜与空投促销",
+    "个人短线复盘和设备闲聊",
+    "FTX 影视讨论与重复采访摘录",
+    "缺少文字上下文的链接及截图",
+    "暂无独立佐证的单平台报价异常"
+  ]
+}
