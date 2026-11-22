@@ -1,28 +1,28 @@
 {
   "schemaVersion": 2,
   "automation": "web3-daily-triage",
-  "runId": "web3-daily-triage:codex-web3-20261121-010234Z-4n36dd",
-  "requestId": "codex-web3-20261121-010234Z-4n36dd",
+  "runId": "web3-daily-triage:codex-web3-20261122-010501Z-t2vxss",
+  "requestId": "codex-web3-20261122-010501Z-t2vxss",
   "result": "unchanged",
   "lineage": {
     "triggerType": "push",
-    "triggerSha": "9186202b42481bb89f5e244a57e066acf9edc28b",
-    "githubRunId": 44847726344,
+    "triggerSha": "7fe6b8fefcc8feaf65655cf52bbda57d0a1d1abd",
+    "githubRunId": 44969748397,
     "githubRunAttempt": 1
   },
   "timestamps": {
-    "scheduledAt": "2026-11-21T09:00:00+08:00",
-    "startedAt": "2026-11-21T01:02:44.813762+00:00",
-    "sourceCheckedAt": "2026-11-21T01:02:46.186823+00:00",
+    "scheduledAt": "2026-11-22T09:00:00+08:00",
+    "startedAt": "2026-11-22T01:05:09.584926+00:00",
+    "sourceCheckedAt": "2026-11-22T01:05:10.764566+00:00",
     "sourceUpdatedAt": "2026-11-20T00:59:09+00:00",
-    "completedAt": "2026-11-21T01:02:46.187328+00:00",
-    "publishedAt": "2026-11-21T09:03:36.000+08:00"
+    "completedAt": "2026-11-22T01:05:10.765174+00:00",
+    "publishedAt": null
   },
   "legacyRequestedAt": null,
   "stages": {
     "collection": {
       "status": "unchanged",
-      "completedAt": "2026-11-21T01:02:46.187328+00:00",
+      "completedAt": "2026-11-22T01:05:10.765174+00:00",
       "details": {
         "feedChanged": false,
         "historyChanged": false,
@@ -33,20 +33,13 @@
     },
     "validation": {
       "status": "success",
-      "completedAt": "2026-11-21T01:02:46.187328+00:00"
+      "completedAt": "2026-11-22T01:05:10.765174+00:00"
     },
     "publication": {
-      "status": "success",
-      "commitSha": "4b8db55c65116a10421c0805f00ce642b4283e7d"
+      "status": "not_run"
     },
     "notification": {
-      "status": "success",
-      "completedAt": "2026-11-21T09:04:55.000+08:00",
-      "details": {
-        "provider": "Gmail",
-        "messageId": "1a1fba2508043f4c",
-        "recipient": "laibocszd@gmail.com"
-      }
+      "status": "not_run"
     }
   }
 }
