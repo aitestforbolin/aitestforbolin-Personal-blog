@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "status": "success",
+  "reportDate": "2026-11-23",
+  "generatedAt": "2026-11-23T09:01:03+08:00",
+  "sourceGeneratedAt": "2026-11-23T01:00:17.187526+00:00",
+  "sourcePostCount": 37,
+  "sourceListCount": 4,
+  "executionLineage": {
+    "schemaVersion": 2,
+    "runId": "x-intelligence:codex-x-20261123-mwsk6oxj-tnlpnkaq",
+    "requestId": "codex-x-20261123-mwsk6oxj-tnlpnkaq",
+    "triggerSha": "db03eb0276722b1773fd55d0a4d2839e26b80728",
+    "githubRunId": 45092018319,
+    "scheduledAt": "2026-11-23T01:00:00Z",
+    "startedAt": "2026-11-23T01:00:17.186914+00:00",
+    "sourceCheckedAt": "2026-11-23T01:00:25.855461+00:00",
+    "sourceUpdatedAt": "2026-11-23T00:50:49+00:00",
+    "completedAt": "2026-11-23T01:00:25.855493+00:00",
+    "publishedAt": "2026-11-23T09:01:51+08:00"
+  },
+  "executionStatus": {
+    "collection": "success",
+    "validation": "success",
+    "publication": {
+      "status": "success"
+    }
+  },
+  "overview": "BTC 收复 6 万美元，但稳定币供给仍在收缩。中韩股市支持措施受到关注，AI 基建融资成本与终端需求继续分化。加密原生进展中，Fusionist 跨链桥安全快讯待确认，Oripa 披露早鸟安排。",
+  "homeHighlights": [
+    "BTC 收复 6 万美元，稳定币总市值仍处年内低位。",
+    "中韩市场稳定措施的转述引发关注。",
+    "芯片盈利预期上调之际，AI 基建债务融资条件成为关注点。",
+    "Fusionist 跨链桥疑似安全事件仍待项目方确认。"
+  ],
+  "topics": [
+    {
+      "title": "BTC 重回 6 万美元，稳定币市值仍处年内低位",
+      "importance": "high",
+      "summary": "BlockBeats 报道 BTC 收复 6 万美元，并称 Abraxas Capital 在其统计窗口内从两家交易所提出约 15,130 枚 BTC。该媒体援引 DefiLlama 称，稳定币总市值降至约 2,842 亿美元，近 30 天下降约 6.15%。",
+      "whyItMatters": "反弹和个别地址提币可以与总体流动性收缩同时发生。净申赎和稳定币供应能帮助检验资金是否持续回流。",
+      "facts": [
+        "约 15,130 枚是媒体报告的交易所提币数量。",
+        "同一媒体两条帖文对年内峰值使用了不同数值，因此采用最新总市值和该帖的滚动 30 天变化。"
+      ],
+      "interpretations": [
+        "提币动作未能单独确认买入时间或成交价格。",
+        "媒体转述彭博称部分受访投资者转向美股、预测市场和代币化产品。个案与链上转账数据的含义有待区分。"
+      ],
+      "authors": [
+        "BlockBeatsAsia"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2124321077400850483",
+        "https://x.com/BlockBeatsAsia/status/2124429024474865748",
+        "https://x.com/BlockBeatsAsia/status/2124395928929051093"
+      ],
+      "sourceCount": 1,
+      "confidence": "medium"
+    },
+    {
+      "title": "中韩市场稳定措施受到关注",
+      "importance": "high",
+      "summary": "FORAB 转述，沪深北交易所拟自 11 月 30 日起将融资买入的最低保证金比例从 100% 降至 80%。该帖还称，韩国当局准备视情况动用稳定基金，并考虑放宽上市公司回购限制。",
+      "whyItMatters": "两地举措分别影响融资条件和市场支持预期。落地细则和政策响应是接下来的确认点。",
+      "facts": [
+        "日期、比例和韩国计划均来自同一转述帖。",
+        "信息包未包含主管机构原文。"
+      ],
+      "interpretations": [
+        "观察措施公布后是否出现成交量、融资余额和风险偏好的持续变化。"
+      ],
+      "authors": [
+        "_FORAB"
+      ],
+      "sourceUrls": [
+        "https://x.com/_FORAB/status/2124463800594366681"
+      ],
+      "sourceCount": 1,
+      "confidence": "medium"
+    },
+    {
+      "title": "AI 需求与融资能力出现分歧",
+      "importance": "high",
+      "summary": "BlockBeats 转述策略师 Jonathan Golub 称，芯片盈利预期仍在上调，但他估算未来一年 AI 基础设施可能需要约 1.5 万亿美元融资，其中约 9,000 亿美元依赖债务。另有帖子称软银不再积极推进曾讨论的 SK 海力士交易。",
+      "whyItMatters": "终端需求、扩产速度和资本可得性应分别检验。大额并购传闻、供应商订单和实际融资条件也属于不同证据。",
+      "facts": [
+        "1.5 万亿美元及其中债务融资部分均为策略师估算。",
+        "软银立场来自 FORAB 的转述；信息包未收录公司原文或正式交易文件。"
+      ],
+      "interpretations": [
+        "nbblock 认为终端使用可能延续，资本开支增速与尚未启动的扩产项目更容易受到融资收紧影响。",
+        "马斯克强调付款至算力稳定创收之间的时间差会增加营运资金需求。"
+      ],
+      "authors": [
+        "BlockBeatsAsia",
+        "_FORAB",
+        "nbblock",
+        "elonmusk"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2124472977102139700",
+        "https://x.com/_FORAB/status/2124377997352526009",
+        "https://x.com/nbblock/status/2124366170124152993",
+        "https://x.com/elonmusk/status/2124271725927903388"
+      ],
+      "sourceCount": 4,
+      "confidence": "medium"
+    },
+    {
+      "title": "Fusionist 跨链桥疑似出现安全事件",
+      "importance": "high",
+      "summary": "方程式新闻快讯称，Fusionist 跨链桥疑遭利用，初步估计约 104 万美元等值 USDT 流出。",
+      "whyItMatters": "官方确认、影响范围和后续处置是判断事件严重程度的依据。",
+      "facts": [
+        "信息包只有单条快讯，缺少项目方公告及独立损失核对。"
+      ],
+      "interpretations": [],
+      "authors": [
+        "bwenews"
+      ],
+      "sourceUrls": [
+        "https://x.com/bwenews/status/2124587650044797183"
+      ],
+      "sourceCount": 1,
+      "confidence": "low"
+    },
+    {
+      "title": "Ackman 提出 3% 通胀目标观点",
+      "importance": "medium",
+      "summary": "BlockBeats 转述 Bill Ackman 称，在融资趋紧及 AI、能源投资抬升需求的背景下，3% 比 2% 更符合他判断的通胀环境。",
+      "whyItMatters": "关注有影响力的投资者如何把企业融资成本与政策路径联系起来。",
+      "facts": [
+        "帖文转述的是 Ackman 的政策主张。"
+      ],
+      "interpretations": [
+        "他认为继续收紧以压回 2% 会提高衰退风险。"
+      ],
+      "authors": [
+        "BlockBeatsAsia"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2124666948453802145"
+      ],
+      "sourceCount": 1,
+      "confidence": "medium"
+    },
+    {
+      "title": "黄仁勋回归英伟达的讨论升温",
+      "importance": "medium",
+      "summary": "FORAB 转述美国财长表态和媒体报道，称外界仍在讨论黄仁勋回归的可能性。",
+      "whyItMatters": "董事会正式任命、调查披露和公司声明比外部支持更能证实管理层变动。",
+      "facts": [
+        "信息包未发现英伟达宣布任命的官方声明。"
+      ],
+      "interpretations": [
+        "外部支持使讨论升温，回归仍待公司确认。"
+      ],
+      "authors": [
+        "_FORAB"
+      ],
+      "sourceUrls": [
+        "https://x.com/_FORAB/status/2124663131666518247",
+        "https://x.com/_FORAB/status/2124312915826352275"
+      ],
+      "sourceCount": 1,
+      "confidence": "low"
+    },
+    {
+      "title": "Oripa 公布早鸟排期，外界关注抽卡补贴机制",
+      "importance": "medium",
+      "summary": "Oripa 官方称早鸟徽章可让持有人在 11 月 26 日 20:00 起使用抽卡功能。社区对项目通过代币补贴抽卡损失的机制提出了测算。",
+      "whyItMatters": "早鸟参与量、无补贴复购和兑现成本可以分别衡量产品需求与激励效果。",
+      "facts": [
+        "官方原帖称早鸟徽章不可转让。",
+        "亏损补贴和成本曲线来自社区分析。"
+      ],
+      "interpretations": [
+        "社区帖估算实际成本对卡池结构敏感。"
+      ],
+      "authors": [
+        "oripaxyz",
+        "0xSleepinRain"
+      ],
+      "sourceUrls": [
+        "https://x.com/oripaxyz/status/2124378629744554100",
+        "https://x.com/0xSleepinRain/status/2124504633116946758"
+      ],
+      "sourceCount": 2,
+      "confidence": "medium"
+    }
+  ],
+  "watchlist": [
+    {
+      "signal": "稳定币供给、ETF 申赎与 BTC 反弹能否同步",
+      "reason": "观察反弹期间是否出现持续的资金改善。",
+      "authors": [
+        "BlockBeatsAsia"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2124429024474865748",
+        "https://x.com/BlockBeatsAsia/status/2124321077400850483"
+      ]
+    },
+    {
+      "signal": "AI 基建实际融资和交付",
+      "reason": "跟踪发债利率、已签订单变化和投产到创收的时间差。",
+      "authors": [
+        "BlockBeatsAsia",
+        "nbblock",
+        "elonmusk"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2124472977102139700",
+        "https://x.com/nbblock/status/2124366170124152993",
+        "https://x.com/elonmusk/status/2124271725927903388"
+      ]
+    },
+    {
+      "signal": "Fusionist 官方确认及资产影响范围",
+      "reason": "核对损失估算和项目方公布的处置。",
+      "authors": [
+        "bwenews"
+      ],
+      "sourceUrls": [
+        "https://x.com/bwenews/status/2124587650044797183"
+      ]
+    },
+    {
+      "signal": "Variational 的 B 轮融资交流",
+      "reason": "项目宣布联合创始人将在 X Space 讨论近期融资和产品进展。",
+      "authors": [
+        "variational_io"
+      ],
+      "sourceUrls": [
+        "https://x.com/variational_io/status/2124533394952561013"
+      ]
+    },
+    {
+      "signal": "ChatGPT 与 Codex 桌面端后续更新",
+      "reason": "团队称正在准备另一次更新，并征集上一版反馈。",
+      "authors": [
+        "thsottiaux"
+      ],
+      "sourceUrls": [
+        "https://x.com/thsottiaux/status/2124322968499282388"
+      ]
+    }
+  ],
+  "disagreements": [
+    {
+      "topic": "BTC 反弹是否伴随流动性修复",
+      "positions": [
+        "BlockBeats 强调价格收复 6 万美元和约 15,130 枚 BTC 的提币动态。",
+        "其另一篇报道援引稳定币总市值收缩，并转述部分投资者迁往其他市场的观察。单笔链上移动与全市场资金指标反映不同范围。"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2124321077400850483",
+        "https://x.com/BlockBeatsAsia/status/2124429024474865748",
+        "https://x.com/BlockBeatsAsia/status/2124395928929051093"
+      ]
+    },
+    {
+      "topic": "AI 投资会因资金收紧而降速吗",
+      "positions": [
+        "Golub 认为半导体盈利预期仍在上调。nbblock 认为终端使用有韧性。",
+        "两者同时关注融资收紧对资本开支的约束。马斯克强调设备稳定创收延迟会增加营运资金需求。"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2124472977102139700",
+        "https://x.com/nbblock/status/2124366170124152993",
+        "https://x.com/elonmusk/status/2124271725927903388"
+      ]
+    }
+  ],
+  "noiseSummary": [
+    "低信息行情感叹与价格点位",
+    "重复引用前一期算力观点",
+    "竞赛促销和多账号活动闲聊",
+    "缺少文字上下文的截图或链接"
+  ]
+}
