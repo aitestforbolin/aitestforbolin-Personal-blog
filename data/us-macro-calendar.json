@@ -32,10 +32,10 @@
     "release_status": "released",
     "forecast": "公布值 54.5",
     "previous": "公布值 54.9",
-    "actual_last_checked_at": "2026-11-23T10:07:24-05:00",
-    "actual_check_status": "ok",
     "released_at": "2026-11-23T09:45:00-05:00",
     "actual_updated_at": "2026-11-23T15:07:25.123Z",
+    "actual_last_checked_at": "2026-11-23T10:07:24-05:00",
+    "actual_check_status": "ok",
     "actual": "公布值 54.5",
     "calendar_status": "healthy",
     "actual_missing": [],
@@ -74,10 +74,10 @@
     "release_status": "released",
     "forecast": "公布值 55.6",
     "previous": "公布值 56.1",
-    "actual_last_checked_at": "2026-11-23T10:07:24-05:00",
-    "actual_check_status": "ok",
     "released_at": "2026-11-23T09:45:00-05:00",
     "actual_updated_at": "2026-11-23T15:07:25.123Z",
+    "actual_last_checked_at": "2026-11-23T10:07:24-05:00",
+    "actual_check_status": "ok",
     "actual": "公布值 54.7",
     "calendar_status": "healthy",
     "actual_missing": [],
@@ -105,14 +105,14 @@
         "label": "公布值",
         "source_title": "CB Consumer Confidence",
         "actual": null,
-        "forecast": "92.1",
+        "forecast": "92.4",
         "previous": "91.7",
         "consensus_source": "Forex Factory 市场日历",
         "consensus_url": "https://www.forexfactory.com/calendar"
       }
     ],
     "release_status": "scheduled",
-    "forecast": "公布值 92.1",
+    "forecast": "公布值 92.4",
     "previous": "公布值 91.7",
     "calendar_status": "healthy",
     "actual_missing": [
@@ -191,43 +191,6 @@
     "calendar_status": "healthy",
     "actual_missing": [
       "GDP年化环比"
-    ],
-    "actual_status": "not_due"
-  },
-  {
-    "date": "2026-11-25",
-    "date_et": "2026-11-25",
-    "time_et": "08:30",
-    "time_shanghai": "21:30",
-    "title": "Jobless Claims",
-    "title_cn": "美国初请失业金人数",
-    "period": null,
-    "category": "jobs",
-    "importance": "medium",
-    "stars": 3,
-    "source": "Forex Factory",
-    "url": "https://www.forexfactory.com/calendar",
-    "result_source": "Forex Factory 市场日历",
-    "result_url": "https://www.forexfactory.com/calendar",
-    "consensus_source": "Forex Factory 市场日历",
-    "consensus_url": "https://www.forexfactory.com/calendar",
-    "metric_values": [
-      {
-        "label": "初请失业金人数",
-        "source_title": "Unemployment Claims",
-        "actual": null,
-        "forecast": "201K",
-        "previous": "203K",
-        "consensus_source": "Forex Factory 市场日历",
-        "consensus_url": "https://www.forexfactory.com/calendar"
-      }
-    ],
-    "release_status": "scheduled",
-    "forecast": "初请失业金人数 201K",
-    "previous": "初请失业金人数 203K",
-    "calendar_status": "healthy",
-    "actual_missing": [
-      "初请失业金人数"
     ],
     "actual_status": "not_due"
   },

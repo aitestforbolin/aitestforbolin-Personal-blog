@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-23T15:07:25+00:00",
+  "generatedAt": "2026-11-23T22:50:55+00:00",
   "timezone": "Asia/Shanghai",
   "status": "healthy",
   "failedSources": [],
@@ -41,7 +41,7 @@
       "actualStatus": "complete",
       "actualMissing": [],
       "actualLastCheckedAt": "2026-11-23T10:07:24-05:00",
-      "retrievedAt": "2026-11-23T15:07:25+00:00",
+      "retrievedAt": "2026-11-23T22:50:55+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "legacy": {
@@ -77,10 +77,10 @@
         "release_status": "released",
         "forecast": "公布值 54.5",
         "previous": "公布值 54.9",
-        "actual_last_checked_at": "2026-11-23T10:07:24-05:00",
-        "actual_check_status": "ok",
         "released_at": "2026-11-23T09:45:00-05:00",
         "actual_updated_at": "2026-11-23T15:07:25.123Z",
+        "actual_last_checked_at": "2026-11-23T10:07:24-05:00",
+        "actual_check_status": "ok",
         "actual": "公布值 54.5",
         "calendar_status": "healthy",
         "actual_missing": [],
@@ -115,7 +115,7 @@
       "actualStatus": "complete",
       "actualMissing": [],
       "actualLastCheckedAt": "2026-11-23T10:07:24-05:00",
-      "retrievedAt": "2026-11-23T15:07:25+00:00",
+      "retrievedAt": "2026-11-23T22:50:55+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "released",
       "legacy": {
@@ -151,10 +151,10 @@
         "release_status": "released",
         "forecast": "公布值 55.6",
         "previous": "公布值 56.1",
-        "actual_last_checked_at": "2026-11-23T10:07:24-05:00",
-        "actual_check_status": "ok",
         "released_at": "2026-11-23T09:45:00-05:00",
         "actual_updated_at": "2026-11-23T15:07:25.123Z",
+        "actual_last_checked_at": "2026-11-23T10:07:24-05:00",
+        "actual_check_status": "ok",
         "actual": "公布值 54.7",
         "calendar_status": "healthy",
         "actual_missing": [],
@@ -179,7 +179,7 @@
           "id": "metric-1",
           "label": "公布值",
           "actual": null,
-          "forecast": "92.1",
+          "forecast": "92.4",
           "previous": "91.7",
           "unit": null,
           "sourceUrl": "https://www.forexfactory.com/calendar"
@@ -191,7 +191,7 @@
         "公布值"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-23T15:07:25+00:00",
+      "retrievedAt": "2026-11-23T22:50:55+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -216,14 +216,14 @@
             "label": "公布值",
             "source_title": "CB Consumer Confidence",
             "actual": null,
-            "forecast": "92.1",
+            "forecast": "92.4",
             "previous": "91.7",
             "consensus_source": "Forex Factory 市场日历",
             "consensus_url": "https://www.forexfactory.com/calendar"
           }
         ],
         "release_status": "scheduled",
-        "forecast": "公布值 92.1",
+        "forecast": "公布值 92.4",
         "previous": "公布值 91.7",
         "calendar_status": "healthy",
         "actual_missing": [
@@ -262,7 +262,7 @@
         "GDP年化环比"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-23T15:07:25+00:00",
+      "retrievedAt": "2026-11-23T22:50:55+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -333,7 +333,7 @@
         "核心PCE环比"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-23T15:07:25+00:00",
+      "retrievedAt": "2026-11-23T22:50:55+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -404,7 +404,7 @@
         "公布值"
       ],
       "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-23T15:07:25+00:00",
+      "retrievedAt": "2026-11-23T22:50:55+00:00",
       "revisionStatus": "not_revised",
       "releaseStatus": "scheduled",
       "legacy": {
@@ -441,77 +441,6 @@
         "calendar_status": "healthy",
         "actual_missing": [
           "公布值"
-        ],
-        "actual_status": "not_due"
-      }
-    },
-    {
-      "id": "us-9954140fa151",
-      "eventType": "data",
-      "country": "US",
-      "period": null,
-      "scheduledAt": "2026-11-25T21:30:00+08:00",
-      "dateStatus": "confirmed",
-      "title": "美国初请失业金人数",
-      "category": "jobs",
-      "importance": "medium",
-      "stars": 3,
-      "source": "Forex Factory",
-      "sourceUrl": "https://www.forexfactory.com/calendar",
-      "metrics": [
-        {
-          "id": "metric-1",
-          "label": "初请失业金人数",
-          "actual": null,
-          "forecast": "201K",
-          "previous": "203K",
-          "unit": null,
-          "sourceUrl": "https://www.forexfactory.com/calendar"
-        }
-      ],
-      "releasedAt": null,
-      "actualStatus": "not_due",
-      "actualMissing": [
-        "初请失业金人数"
-      ],
-      "actualLastCheckedAt": null,
-      "retrievedAt": "2026-11-23T15:07:25+00:00",
-      "revisionStatus": "not_revised",
-      "releaseStatus": "scheduled",
-      "legacy": {
-        "date": "2026-11-25",
-        "date_et": "2026-11-25",
-        "time_et": "08:30",
-        "time_shanghai": "21:30",
-        "title": "Jobless Claims",
-        "title_cn": "美国初请失业金人数",
-        "period": null,
-        "category": "jobs",
-        "importance": "medium",
-        "stars": 3,
-        "source": "Forex Factory",
-        "url": "https://www.forexfactory.com/calendar",
-        "result_source": "Forex Factory 市场日历",
-        "result_url": "https://www.forexfactory.com/calendar",
-        "consensus_source": "Forex Factory 市场日历",
-        "consensus_url": "https://www.forexfactory.com/calendar",
-        "metric_values": [
-          {
-            "label": "初请失业金人数",
-            "source_title": "Unemployment Claims",
-            "actual": null,
-            "forecast": "201K",
-            "previous": "203K",
-            "consensus_source": "Forex Factory 市场日历",
-            "consensus_url": "https://www.forexfactory.com/calendar"
-          }
-        ],
-        "release_status": "scheduled",
-        "forecast": "初请失业金人数 201K",
-        "previous": "初请失业金人数 203K",
-        "calendar_status": "healthy",
-        "actual_missing": [
-          "初请失业金人数"
         ],
         "actual_status": "not_due"
       }
