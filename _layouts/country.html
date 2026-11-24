@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ page.title }} | 国家笔记 | Bolin Brief</title>
+    <meta name="description" content="{{ page.title }}的个人工作、生活与移民观察笔记。">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../countries.css?v=20261124-prototype">
+  </head>
+  <body class="country-note-page">
+    <header class="site-header">
+      <a class="brand" href="../../">Bolin Brief</a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="../">国家笔记</a>
+        <a href="../../world-notes/">世界切片</a>
+        <a href="../../">首页</a>
+      </nav>
+    </header>
+
+    <main class="country-shell">
+      <header class="country-masthead">
+        <div>
+          <p class="eyebrow">Country Notes</p>
+          <h1><span aria-hidden="true">{{ page.flag }}</span> {{ page.title }}</h1>
+          <p class="country-deck">关于在这里工作、生活与留下来的个人观察。</p>
+        </div>
+        <a
+          class="country-edit"
+          href="https://github.com/aitestforbolin/aitestforbolin-Personal-blog/edit/main/{{ page.path }}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >编辑这页</a>
+      </header>
+
+      <article class="country-note">
+        {{ content }}
+      </article>
+
+      <footer class="country-footer">
+        <a href="../">返回国家笔记</a>
+        <span>每次提交都会保留在 Git 历史中</span>
+      </footer>
+    </main>
+  </body>
+</html>
