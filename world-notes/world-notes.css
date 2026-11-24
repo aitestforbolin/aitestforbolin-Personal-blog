@@ -79,3 +79,22 @@
   .wn-page article footer { display: grid; gap: 4px; margin-top: 18px; }
 }
 @media (prefers-reduced-motion: reduce) { .wn-reader { scroll-behavior: auto; } }
+
+.wn-country-cta {
+  display: flex;
+  align-items: center;
+  width: min(330px, 100%);
+  margin-top: 12px;
+  padding: 13px 16px;
+  border: 1px solid rgba(126, 61, 35, .28);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, .72);
+  color: var(--accent-dark);
+}
+.wn-country-cta > span { display: grid; gap: 4px; }
+.wn-country-cta small { font-size: .68rem; letter-spacing: .08em; opacity: .7; }
+.wn-country-cta strong { font-size: .96rem; }
+.wn-country-cta:hover { border-color: var(--accent-dark); background: #fffdf8; }
+@media (max-width: 760px) {
+  .wn-country-cta { width: 100%; }
+}
