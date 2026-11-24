@@ -2,8 +2,8 @@
   "schema_version": 1,
   "timezone": "Asia/Shanghai",
   "horizon_days": 35,
-  "checked_at": "2026-11-23T09:59:50+08:00",
-  "updated_at": "2026-11-19T10:50:22+08:00",
+  "checked_at": "2026-11-24T13:35:26+08:00",
+  "updated_at": "2026-11-24T13:35:26+08:00",
   "companies": [
     {
       "id": "microsoft",
@@ -274,25 +274,34 @@
       "event_name": "Micron 2026 Q4财报",
       "reported_period": "2026 Q4",
       "importance": "core",
-      "status": "scheduled",
+      "status": "changed",
       "confirmation": "inferred",
       "date_type": "exact",
-      "date_bjt": "2026-12-16",
+      "date_bjt": "2026-12-18",
       "time_bjt": null,
-      "market_timing": "time_tbd",
-      "original_time": "2026-12-16 time-not-supplied America/New_York",
+      "market_timing": "after_close",
+      "original_time": "2026-12-17 time-after-hours America/New_York",
       "original_timezone": "America/New_York",
       "eps_estimate": "$37.95",
       "revenue_estimate": null,
       "source_label": "Nasdaq Earnings Calendar",
-      "source_url": "https://api.nasdaq.com/api/calendar/earnings?date=2026-12-16",
+      "source_url": "https://api.nasdaq.com/api/calendar/earnings?date=2026-12-17",
       "source_published_at": null,
       "company": "Micron",
       "ticker": "MU",
       "company_group": "memory_storage",
       "company_group_zh": "内存与存储",
-      "date_changed": false,
-      "updated_at": "2026-11-13T10:09:42+08:00"
+      "date_changed": true,
+      "date_changed_at": "2026-11-24T13:35:26+08:00",
+      "previous_timing": {
+        "date_type": "exact",
+        "start_at": null,
+        "date_bjt": "2026-12-16",
+        "time_bjt": null,
+        "window_start": null,
+        "window_end": null
+      },
+      "updated_at": "2026-11-24T13:35:26+08:00"
     }
   ]
 }
