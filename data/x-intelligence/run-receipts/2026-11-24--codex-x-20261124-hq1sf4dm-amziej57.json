@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 2,
+  "automation": "x-intelligence",
+  "runId": "x-intelligence:codex-x-20261124-hq1sf4dm-amziej57",
+  "requestId": "codex-x-20261124-hq1sf4dm-amziej57",
+  "result": "in_progress",
+  "lineage": {
+    "triggerType": "push",
+    "triggerSha": "9a9844fc41663122b4fd43973436b77cac9f9a59",
+    "githubRunId": 45301477351,
+    "githubRunAttempt": 1
+  },
+  "timestamps": {
+    "scheduledAt": "2026-11-24T01:00:00Z",
+    "startedAt": "2026-11-24T00:58:58.292005+00:00",
+    "sourceCheckedAt": "2026-11-24T00:59:06.681360+00:00",
+    "sourceUpdatedAt": "2026-11-24T00:54:01+00:00",
+    "completedAt": "2026-11-24T00:59:06.681436+00:00",
+    "publishedAt": "2026-11-24T09:02:33.975+08:00"
+  },
+  "legacyRequestedAt": null,
+  "stages": {
+    "collection": {
+      "status": "success",
+      "completedAt": "2026-11-24T00:59:06.681436+00:00",
+      "details": {
+        "listsRequested": 4,
+        "listsCompleted": 4,
+        "postCount": 142,
+        "estimatedCostUsd": 0.0682
+      }
+    },
+    "validation": {
+      "status": "success",
+      "completedAt": "2026-11-24T00:59:06.681436+00:00"
+    },
+    "publication": {
+      "status": "success",
+      "commitSha": "e72df7cfb63e797c19225e04b4b0a3fba3bbc22d"
+    },
+    "notification": {
+      "status": "not_run"
+    }
+  }
+}
