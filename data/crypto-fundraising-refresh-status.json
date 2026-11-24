@@ -1,52 +1,45 @@
 {
   "schemaVersion": 2,
   "automation": "web3-daily-triage",
-  "runId": "web3-daily-triage:codex-web3-20261123-005619Z-33ycyz",
-  "requestId": "codex-web3-20261123-005619Z-33ycyz",
-  "result": "unchanged",
+  "runId": "web3-daily-triage:codex-web3-20261124-010033Z-f9k1tl",
+  "requestId": "codex-web3-20261124-010033Z-f9k1tl",
+  "result": "in_progress",
   "lineage": {
     "triggerType": "push",
-    "triggerSha": "98edd4877148d45866d43cc550c0577930c23efa",
-    "githubRunId": 45091678179,
+    "triggerSha": "059dce8ad56cf7c0e0f4aed0881e9db6a5a3d01d",
+    "githubRunId": 45301709583,
     "githubRunAttempt": 1
   },
   "timestamps": {
-    "scheduledAt": "2026-11-23T09:00:00+08:00",
-    "startedAt": "2026-11-23T00:56:29.670457+00:00",
-    "sourceCheckedAt": "2026-11-23T00:56:30.864853+00:00",
-    "sourceUpdatedAt": "2026-11-20T00:59:09+00:00",
-    "completedAt": "2026-11-23T00:56:30.865213+00:00",
-    "publishedAt": "2026-11-23T08:57:22.000+08:00"
+    "scheduledAt": "2026-11-24T09:00:00+08:00",
+    "startedAt": "2026-11-24T01:00:43.206754+00:00",
+    "sourceCheckedAt": "2026-11-24T01:00:44.481438+00:00",
+    "sourceUpdatedAt": "2026-11-24T01:00:44+00:00",
+    "completedAt": "2026-11-24T01:00:44.481770+00:00",
+    "publishedAt": null
   },
   "legacyRequestedAt": null,
   "stages": {
     "collection": {
-      "status": "unchanged",
-      "completedAt": "2026-11-23T00:56:30.865213+00:00",
+      "status": "success",
+      "completedAt": "2026-11-24T01:00:44.481770+00:00",
       "details": {
-        "feedChanged": false,
-        "historyChanged": false,
+        "feedChanged": true,
+        "historyChanged": true,
         "projectCount": 5,
-        "eventCount": 122,
+        "eventCount": 124,
         "coverage": "observed snapshots of the five-item homepage feed; not a complete source-wide archive"
       }
     },
     "validation": {
       "status": "success",
-      "completedAt": "2026-11-23T00:56:30.865213+00:00"
+      "completedAt": "2026-11-24T01:00:44.481770+00:00"
     },
     "publication": {
-      "status": "success",
-      "commitSha": "59d52d8275196b757dc3d9e8ec5133cf2e4e9a5c"
+      "status": "not_run"
     },
     "notification": {
-      "status": "success",
-      "completedAt": "2026-11-23T08:58:44.000+08:00",
-      "details": {
-        "provider": "Gmail",
-        "messageId": "1a205e95db0a6d5e",
-        "recipient": "laibocszd@gmail.com"
-      }
+      "status": "not_run"
     }
   }
 }
