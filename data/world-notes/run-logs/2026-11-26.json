@@ -1,0 +1,150 @@
+{
+  "reportDate": "2026-11-26",
+  "startedAt": "2026-11-26T06:00:49+08:00",
+  "recordedAt": "2026-11-26T06:09:07+08:00",
+  "status": "online-verified",
+  "onlineVerifiedAt": "2026-11-26T06:08:45+08:00",
+  "previousReportDate": "2026-11-25",
+  "qualifiedCount": 5,
+  "textVerifiedCandidateCount": 5,
+  "collectionFailed": false,
+  "publicationAttempted": true,
+  "retainedPreviousEdition": false,
+  "requestId": "world-notes-20261126-daily-r4k8n2",
+  "editorialSha": "2c6e9d9d2d50194efc153334a9fc6f37d92d4c56",
+  "archiveCommit": "published-by-action",
+  "deployTriggerCommit": "767f89a90879cad22a4ff690f7886011bc415503",
+  "recentArchiveDates": [
+    "2026-11-25",
+    "2026-11-24",
+    "2026-11-23",
+    "2026-11-22",
+    "2026-11-21",
+    "2026-11-20",
+    "2026-11-19",
+    "2026-11-18",
+    "2026-11-17",
+    "2026-11-16",
+    "2026-11-15",
+    "2026-11-14",
+    "2026-11-13",
+    "2026-11-12"
+  ],
+  "screening": {
+    "method": "先按近14天归档找少见地区，并按地名与当地语言开放搜索；由生活线索继续追读当地报道、公共机构材料和公开访谈。约粗筛二十余条后，按五个不同大类和昨日未重复小项确定五条。",
+    "exploredRegions": [
+      "西非",
+      "东非",
+      "高加索",
+      "巴尔干",
+      "太平洋岛国",
+      "拉丁美洲"
+    ],
+    "roughCandidates": [
+      "阿塞拜疆离婚女性租房",
+      "布基纳法索复工母亲托育",
+      "佛得角移民语言课",
+      "佛得角萨尔岛移民住房与手续",
+      "莫桑比克卡滕贝小巴危机",
+      "萨摩亚公交乘车方式",
+      "乌干达临时工工资",
+      "乌干达最低工资规则",
+      "亚美尼亚工资与购买力",
+      "玻利维亚塔里哈低薪招聘",
+      "玻利维亚科恰班巴家庭缩减食物",
+      "坦桑尼亚私营部门最低工资",
+      "科特迪瓦萨桑德拉住房短缺",
+      "塞内加尔达喀尔住房线索",
+      "科索沃侨民青年交流",
+      "佛得角移民融入访谈",
+      "佛得角移民教育与住房",
+      "乌干达劳动力调查",
+      "马普托交通补贴争议",
+      "瓦加杜古年轻母亲临时照护",
+      "萨摩亚木制公交",
+      "普拉亚葡语课程",
+      "阿塞拜疆租房广告",
+      "玻利维亚市场摊贩收入"
+    ]
+  },
+  "topicCheck": [
+    {
+      "category": "住房与生活成本",
+      "subtopic": "住房与租房负担",
+      "itemId": "2026-11-26-azerbaijan-divorced-women-rent"
+    },
+    {
+      "category": "教育、医疗与社会保障",
+      "subtopic": "教育与育儿",
+      "itemId": "2026-11-26-ouagadougou-childcare-commute"
+    },
+    {
+      "category": "签证、身份与准入门槛",
+      "subtopic": "语言与职业门槛",
+      "itemId": "2026-11-26-praia-immigrant-language-class"
+    },
+    {
+      "category": "城市环境、基建与治安",
+      "subtopic": "交通、数字化与城市生活",
+      "itemId": "2026-11-26-katembe-chapa-fare"
+    },
+    {
+      "category": "工作、收入与财富",
+      "subtopic": "工资与实际生活水平",
+      "itemId": "2026-11-26-cochabamba-market-food-cuts"
+    }
+  ],
+  "sourceReadability": {
+    "selectedFullTextReadable": true,
+    "selectedSourcesReadInFull": 5,
+    "initialFailures": [
+      "一次批量网页抓取在最后一个地址超时，未据此判断来源失效",
+      "公开站点首次回读仍为11月25日，判断为部署尚未完成"
+    ],
+    "recovered": "改用可读的全文检索页逐条核实；部署触发后等待并再次用HTTP客户端回读，最新版和当天归档均更新为11月26日。"
+  },
+  "imageVerification": {
+    "verifiedCount": 5,
+    "missingReasons": [],
+    "checks": "五张候选图均实际下载，以file与ImageMagick确认可解码，并合成预览后逐张打开核对画面。",
+    "rejectedOriginals": [
+      "Lent.az分享图为抽象拼贴，非真实租房现场",
+      "Mousso News头图为摆拍素材，使用条件不清",
+      "Balai原报道为学员照片，但再利用条件未明确",
+      "Radar Nacional头图为运输业人士照片，与乘客候车主线不符",
+      "El Salto头图为道路抗议，与市场家庭主线不符"
+    ],
+    "replacements": "全部改用Wikimedia Commons同地点或同城市真实环境照片，并记录作者、日期、来源页与明确许可；图注均标明不是文中现场或当事人。"
+  },
+  "publication": {
+    "archiveVerified": true,
+    "latestVerified": true,
+    "indexVerified": true,
+    "publicLatestVerified": true,
+    "publicArchiveVerified": true,
+    "publicJsonEqual": true,
+    "readingPageHttpStatus": 200,
+    "publicUrl": "https://aitestforbolin.github.io/aitestforbolin-Personal-blog/world-notes/?date=2026-11-26"
+  },
+  "failures": [
+    {
+      "stage": "source-fetch",
+      "reason": "批量HTML抓取超时且最后一个地址输入有误。",
+      "recovered": true,
+      "action": "未使用不完整结果，改为逐条打开全文核实。"
+    },
+    {
+      "stage": "image-selection",
+      "reason": "五篇原报道的首选图片均有相关性或复用条件问题。",
+      "recovered": true,
+      "action": "同一次运行继续检查并换为五张许可清楚的环境照片，实际下载与打开核验。"
+    },
+    {
+      "stage": "public-readback",
+      "reason": "部署触发后的第一次读取仍返回上一期。",
+      "recovered": true,
+      "action": "等待Pages构建后再次回读，公开最新版与当天归档一致。"
+    }
+  ],
+  "notificationEmailId": null
+}
