@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-17T21:42:58+08:00",
-  "asOf": "2026-11-17",
+  "generatedAt": "2026-11-26T04:01:42+08:00",
+  "asOf": "2026-11-25",
   "title": "美国宏观核心数据",
   "summary": [
     {
@@ -140,10 +140,10 @@
           "id": "core-pce",
           "title": "Core PCE",
           "period": null,
-          "releaseDate": "2026-10-29",
-          "updatedAt": "2026-10-29T22:35:40+08:00",
+          "releaseDate": "2026-11-25",
+          "updatedAt": "2026-11-26T04:01:42+08:00",
           "source": "Forex Factory",
-          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct29.2026",
+          "sourceUrl": "https://www.forexfactory.com/calendar?day=nov25.2026",
           "rows": [
             {
               "label": "MoM",
@@ -158,7 +158,7 @@
               "previous": null
             }
           ],
-          "trend": "已写入最新一期；积累满3期后显示中期趋势。"
+          "trend": "最近3期由0.2变为0.3，总体上行。"
         }
       ]
     },
@@ -302,19 +302,19 @@
           "id": "real-gdp",
           "title": "GDP",
           "period": null,
-          "releaseDate": "2026-10-29",
-          "updatedAt": "2026-10-29T22:35:40+08:00",
+          "releaseDate": "2026-11-25",
+          "updatedAt": "2026-11-26T04:01:42+08:00",
           "source": "Forex Factory",
-          "sourceUrl": "https://www.forexfactory.com/calendar?day=oct29.2026",
+          "sourceUrl": "https://www.forexfactory.com/calendar?day=nov25.2026",
           "rows": [
             {
               "label": "GDP q/q",
-              "actual": "3.4%",
-              "forecast": "3.2%",
-              "previous": "2.2%"
+              "actual": "4.3%",
+              "forecast": "3.5%",
+              "previous": "3.4%"
             }
           ],
-          "trend": "已写入最新一期；积累满3期后显示中期趋势。"
+          "trend": "最近3期由1.5变为4.3，总体上行。"
         },
         {
           "id": "ism-manufacturing",
@@ -377,9 +377,9 @@
     "美国零售销售": "2026-11-17",
     "美国CPI / 核心CPI": "2026-11-10",
     "美国PPI": "2026-11-13",
-    "美国PCE / 核心PCE": "2026-10-29",
+    "美国PCE / 核心PCE": "2026-11-25",
     "美国非农 / 失业率 / 平均时薪": "2026-11-06",
-    "美国GDP": "2026-10-29",
+    "美国GDP": "2026-11-25",
     "美国ISM制造业PMI": "2026-11-02",
     "美国ISM服务业PMI": "2026-11-04",
     "美国工业产出": "2026-08-18"
@@ -390,8 +390,8 @@
     "美国ISM服务业PMI": "1d2de25012352ddd94d51109e946acc12748a0afefa9f34339320e1aa02af67c",
     "美国CPI / 核心CPI": "4b2b969bb3cc5f1cfaf3f98d7aeffc951d15c38baab72fae13abfa0f710391a9",
     "美国PPI": "4476c3df2e4efd2328b619109d64e37b51fc5f9be801fbc9bbe4c79ed96e13fc",
-    "美国GDP": "ef38f79c4d6ed97f8f6c28fb0bae07ce9f7c7b1ab1c8f23af436ca233aafe536",
-    "美国PCE / 核心PCE": "9a281d2db746448d735931d5c6ea5d3b8382a0752315fe8f0cf9a660223cc574",
+    "美国GDP": "95c53b67d3f19a50e8ed78f7b0e6be7885da2c8f13739b2b49a6ab39d0a73c1c",
+    "美国PCE / 核心PCE": "7dd2a3f1a283ba406ae61cb48aecdc98e6941bcafcea00bac9c1f0da8416bdb0",
     "美国非农 / 失业率 / 平均时薪": "eabdad01e5e1d95dca74ef91a8aed8f59699a7dd7452b92c361f968eea97c966"
   },
   "dataQuality": {
@@ -400,7 +400,7 @@
       "只写入 release_status=released 且 actual 非空的 Forex Factory 数据。",
       "没有当前已发布值的字段会等待下一次对应数据发布。"
     ],
-    "fetchedAt": "2026-11-17T21:42:58+08:00",
+    "fetchedAt": "2026-11-26T04:01:42+08:00",
     "source": "Forex Factory"
   }
 }
