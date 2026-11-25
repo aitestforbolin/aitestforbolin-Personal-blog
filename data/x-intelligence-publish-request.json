@@ -1,28 +1,28 @@
 {
   "schemaVersion": 1,
-  "requestId": "codex-x-20261124-hq1sf4dm-amziej57",
-  "triggerSha": "9a9844fc41663122b4fd43973436b77cac9f9a59",
-  "publicationDate": "2026-11-24",
-  "publishedAt": "2026-11-24T09:02:33.975+08:00",
+  "requestId": "codex-x-20261125-35y6wms4-9nt4pmk0",
+  "triggerSha": "7972d33fe588ae529f45a22c6981b0ab62d62757",
+  "publicationDate": "2026-11-25",
+  "publishedAt": "2026-11-25T09:05:34.563+08:00",
   "payload": {
     "schemaVersion": 1,
     "status": "success",
-    "reportDate": "2026-11-24",
-    "generatedAt": "2026-11-24T09:02:33.975+08:00",
-    "sourceGeneratedAt": "2026-11-24T00:58:58.292639+00:00",
-    "sourcePostCount": 142,
+    "reportDate": "2026-11-25",
+    "generatedAt": "2026-11-25T09:05:34.563+08:00",
+    "sourceGeneratedAt": "2026-11-25T01:02:43.377106+00:00",
+    "sourcePostCount": 122,
     "sourceListCount": 4,
     "executionLineage": {
       "schemaVersion": 2,
-      "runId": "x-intelligence:codex-x-20261124-hq1sf4dm-amziej57",
-      "requestId": "codex-x-20261124-hq1sf4dm-amziej57",
-      "triggerSha": "9a9844fc41663122b4fd43973436b77cac9f9a59",
-      "githubRunId": 45301477351,
-      "scheduledAt": "2026-11-24T01:00:00Z",
-      "startedAt": "2026-11-24T00:58:58.292005+00:00",
-      "sourceCheckedAt": "2026-11-24T00:59:06.681360+00:00",
-      "sourceUpdatedAt": "2026-11-24T00:54:01+00:00",
-      "completedAt": "2026-11-24T00:59:06.681436+00:00",
+      "runId": "x-intelligence:codex-x-20261125-35y6wms4-9nt4pmk0",
+      "requestId": "codex-x-20261125-35y6wms4-9nt4pmk0",
+      "triggerSha": "7972d33fe588ae529f45a22c6981b0ab62d62757",
+      "githubRunId": 45522735888,
+      "scheduledAt": "2026-11-25T01:00:00Z",
+      "startedAt": "2026-11-25T01:02:43.376513+00:00",
+      "sourceCheckedAt": "2026-11-25T01:02:56.306384+00:00",
+      "sourceUpdatedAt": "2026-11-25T00:57:55+00:00",
+      "completedAt": "2026-11-25T01:02:56.306445+00:00",
       "publishedAt": null
     },
     "executionStatus": {
@@ -32,325 +32,387 @@
         "status": "not_run"
       }
     },
-    "overview": "过去 24 小时的信息流由英伟达管理层事件主导：黄仁勋据多家转述已获董事会恢复职务，相关 AI 产业链资产出现剧烈反弹。与此同时，代币化股票、TradFi 永续与链上借贷产品继续扩张，OpenAI 披露模型更新和安全研究进展；加密市场则在 BTC 急反弹与中期看空叙事之间明显分化。",
+    "overview": "过去 24 小时，Anthropic 上市后的破发与期权热度降温，成为 AI 资产重新定价的主线；与此同时，代币化股票和 24/7 杠杆产品继续快速扩张。BTC 在科技股反弹后迅速回吐涨幅，市场在“结构性卖压”与“已超卖”之间分歧加深。产品层面，ChatGPT 合并 Chat/Work、小豆 Agent 与 AI 自动购物研究显示 Agent 正从聊天工具转向实际执行；安全侧则出现 OpenAI 与 Cisco 的自主防御基础设施。",
     "homeHighlights": [
-      "黄仁勋回归英伟达成为压倒性主线，市场快速重估 AI 产业链资产。",
-      "代币化股票与 TradFi 永续继续向全天候链上交易扩张。",
-      "OpenAI 推进 GPT-6.2 Sol 日常对话版本，并披露 Linux 内核漏洞验证成果。",
-      "BTC 急拉至约 6.4 万美元，但周期底部判断仍高度分歧。"
+      "Anthropic 跌破发行价，期权成交热度也明显低于 SpaceX 上市同期。",
+      "代币化股票继续扩张到 24/7 现货、借贷与高杠杆衍生品。",
+      "BTC 未能跟随科技股守住反弹，结构性卖压与超卖信号并存。",
+      "AI Agent 正从对话走向工作流、消费下单与链上操作。"
     ],
     "topics": [
       {
-        "title": "黄仁勋恢复英伟达职务，AI 产业链资产剧烈反弹",
+        "title": "Anthropic 跌破发行价，IPO 热度开始接受二级市场检验",
         "importance": "high",
-        "summary": "多家账号转述英伟达董事会已恢复黄仁勋的总裁、CEO 与董事职务；相关帖文称 NVDA 盘前一度上涨约 20%—27%，CoreWeave、SK 海力士、美光与闪迪同步大涨。后续帖文显示其官网简介恢复，并已回到公司总部。",
-        "whyItMatters": "这是当天最强的跨账户共识事件，直接改变英伟达治理预期和 AI 产业链风险定价；但复职并不等于此前调查结束。",
+        "summary": "BlockBeats 称 ANT 已跌破 83 美元发行价，上市第二个交易日的期权成交量仅为 SpaceX 同期约四分之一；FORAB 还转述创始团队在 IPO 中出售老股及 Dario Amodei 上市后休假的消息。",
+        "whyItMatters": "Anthropic 是本轮 AI 估值的重要风向标。破发、期权参与度和创始人减持叙事会直接影响市场对高估值 AI 公司的风险偏好。",
         "facts": [
-          "bwenews 转述彭博快讯，TechFlow、FORAB 与 BlockBeats 分别转述董事会复职公告。",
-          "TechFlow 的公告摘要称，独立董事委员会的相关调查仍将继续。",
-          "FORAB 报道英伟达官网恢复黄仁勋的创始人、总裁兼 CEO 简介。"
+          "83 美元发行价、期权成交量对比来自 BlockBeats 对做市商 Optiver 数据的转述。",
+          "创始人套现金额与休假信息来自 FORAB 的媒体转述，信息包没有 IPO 文件或公司回应。"
         ],
         "interpretations": [
-          "市场把黄仁勋回归视为领导层不确定性快速下降的信号。",
-          "大量重复帖主要反映传播强度，不能算作同等数量的独立事实来源。"
+          "上市前的稀缺性和叙事热度没有完全转化为二级市场持续买盘。",
+          "创始人休假本身不能证明治理或经营问题，但在股价破发时被市场赋予负面叙事。"
         ],
         "authors": [
-          "bwenews",
-          "TechFlowPost",
-          "_FORAB",
           "BlockBeatsAsia",
-          "xStocksFi"
+          "_FORAB"
         ],
         "sourceUrls": [
-          "https://x.com/bwenews/status/2124864575237669040",
-          "https://x.com/TechFlowPost/status/2124866420777640245",
-          "https://x.com/_FORAB/status/2124866220893896791",
-          "https://x.com/BlockBeatsAsia/status/2124865803661283544",
-          "https://x.com/_FORAB/status/2125020295052607843",
-          "https://x.com/xStocksFi/status/2124866067407294550"
+          "https://x.com/BlockBeatsAsia/status/2125393512183276006",
+          "https://x.com/_FORAB/status/2125139376221097995",
+          "https://x.com/_FORAB/status/2125390014188286267"
         ],
-        "sourceCount": 5,
-        "confidence": "high"
+        "sourceCount": 2,
+        "confidence": "medium"
       },
       {
-        "title": "OpenAI 同时推进日常模型体验与软件安全研究",
+        "title": "代币化股票迈向 24/7 现货、DeFi 与高杠杆交易",
         "importance": "high",
-        "summary": "ChatGPT 官方帖宣布逐步推出面向日常对话优化的 GPT-6.2 Sol；OpenAI 官方帖称 GPT-6 Cyber 在一次研究运行中协助验证 948 个可能导致本地 root 权限的 Linux 内核缺陷，并生成补丁供审查。另有 OpenAI 员工介绍 dots 正成为内部常用工作方式。",
-        "whyItMatters": "一端是普通用户可感知的对话质量升级，另一端是高价值安全研究能力；两者共同显示模型能力正向产品体验和专业工程场景并行落地。",
+        "summary": "xStocks 转述 NVDAx 在黄仁勋回归当日于 Solana 成交约 8,500 万美元，并称其发行资产占 DeFi 中代币化股票存款的 46%；TradeXYZ 上线 TQQQ 与 SOXS 的 10 倍、全年无休交易，Variational 上线 POPMART 永续。",
+        "whyItMatters": "传统股票的链上化已不止是价格映射，而是在形成现货、借贷、流动性和衍生品叠加的全天候市场结构。",
         "facts": [
-          "模型更新信息来自 ChatGPT 官方帖的引用上下文。",
-          "漏洞数量与补丁进展来自 OpenAI 官方帖；帖子表述为供维护者审查，并非所有补丁均已合入。"
+          "NVDAx 成交量来自 Kamino Swap 对 Token Terminal 数据的转述。",
+          "46% 份额由 xStocks 自报，覆盖借贷、收益和流动性场景。",
+          "TQQQ、SOXS 与 POPMART 产品信息来自平台官方账号。"
         ],
         "interpretations": [
-          "员工称年底前聊天与工作体验还将继续融合，这是产品方向表态而非已完成承诺。"
+          "全天候交易可捕捉传统市场休市期间的事件，但高杠杆和底层 ETF 日度重置会增加路径风险。",
+          "发行方自报的份额和成交量仍需独立数据持续验证。"
         ],
         "authors": [
-          "ChatGPT",
+          "xStocksFi",
+          "kamino_swap",
+          "tradexyz",
+          "variational_io"
+        ],
+        "sourceUrls": [
+          "https://x.com/kamino_swap/status/2125229434869334347",
+          "https://x.com/xStocksFi/status/2125212852193485152",
+          "https://x.com/tradexyz/status/2125280010252505307",
+          "https://x.com/tradexyz/status/2125274227247116609",
+          "https://x.com/variational_io/status/2125247408544399439"
+        ],
+        "sourceCount": 4,
+        "confidence": "medium"
+      },
+      {
+        "title": "BTC 相对风险资产走弱，结构性卖压与超卖信号并存",
+        "importance": "high",
+        "summary": "BlockBeats 指出 BTC 在科技股反弹时一度上涨近 5%，随后约 6 小时内回吐涨幅，并列出 Coinbase Prime 流入、矿企卖币及财库公司融资压力等潜在卖压；TechFlow 转述 Grayscale 认为市场已超卖，但短期仍受 AI 科技股波动牵引。",
+        "whyItMatters": "BTC 当前的关键不只是价格点位，而是曾经的长期买家是否因现金需求转为卖家，以及风险偏好能否从科技股传导至加密市场。",
+        "facts": [
+          "Coinbase Prime 流入、MARA 出售数量和筹码成本区间来自 BlockBeats 的综合转述。",
+          "ETP 流出、稳定币兑换与期权保护需求来自 TechFlow 对 Grayscale 研报的转述。"
+        ],
+        "interpretations": [
+          "结构性卖压观点认为反弹缺少持续买盘。",
+          "超卖观点认为估值对中长期资金更有吸引力，但并未给出明确反转时点。"
+        ],
+        "authors": [
+          "BlockBeatsAsia",
+          "TechFlowPost"
+        ],
+        "sourceUrls": [
+          "https://x.com/BlockBeatsAsia/status/2125179322382377248",
+          "https://x.com/TechFlowPost/status/2125118618149024232"
+        ],
+        "sourceCount": 2,
+        "confidence": "medium"
+      },
+      {
+        "title": "AI Agent 从聊天界面走向工作流与实际消费",
+        "importance": "high",
+        "summary": "OpenAI 员工称 ChatGPT 开始向少量 Pro 用户测试合并 Chat 与 Work 的体验；社区帖称字节“小豆”可连接抖音、飞书、日历和地图执行订座、外卖与导航；TechFlow 转述 a16z 的 1.1 万次 Agent 模拟购物研究，显示机器更偏好可读取、无需登录和需求匹配明确的商家。",
+        "whyItMatters": "Agent 的竞争正在从回答质量转向能否可靠调用工具、完成交易和进入既有应用生态，这会改变软件入口和电商获客方式。",
+        "facts": [
+          "Chat/Work 灰度测试来自 OpenAI 员工账号。",
+          "小豆的功能和邀请码热度来自社区帖，信息包没有字节官方公告。",
+          "1.1 万次模拟下单结论来自 TechFlow 对 a16z 研究的转述。"
+        ],
+        "interpretations": [
+          "未来企业可能同时服务人类用户和机器采购者，机器可读性、免登录结账与可信定价的重要性上升。",
+          "社区热度不能替代产品稳定性和真实交易完成率。"
+        ],
+        "authors": [
+          "thsottiaux",
+          "spark888",
+          "TechFlowPost"
+        ],
+        "sourceUrls": [
+          "https://x.com/thsottiaux/status/2125284868414394550",
+          "https://x.com/spark888/status/2125170424078295274",
+          "https://x.com/TechFlowPost/status/2125083172689875188"
+        ],
+        "sourceCount": 3,
+        "confidence": "medium"
+      },
+      {
+        "title": "OpenAI 与 Cisco 推出面向 Agent 的 Linux 动态防御运行时",
+        "importance": "high",
+        "summary": "OpenAI 官方帖介绍开源项目 Shirudo：让 Agent 通过动态 eBPF 控制在不中断服务的情况下临时屏蔽漏洞，为测试和部署正式补丁争取时间。",
+        "whyItMatters": "如果防御系统能以机器速度发现受影响主机并部署临时保护，安全运营可能从人工响应转向 Agent 辅助的持续自防御基础设施。",
+        "facts": [
+          "Shirudo 由 Cisco 与 OpenAI 合作，定位为开源 Linux 运行时。",
+          "官方称其目标是动态部署防护，而不是替代正式补丁。"
+        ],
+        "interpretations": [
+          "自动化防御扩大响应速度的同时，也要求严格限制 Agent 编写和下发系统级控制的权限。"
+        ],
+        "authors": [
           "OpenAI",
           "thsottiaux"
         ],
         "sourceUrls": [
-          "https://x.com/ChatGPT/status/2124942186425069836",
-          "https://x.com/OpenAI/status/2125007927098699827",
-          "https://x.com/thsottiaux/status/2124998553856844186",
-          "https://x.com/thsottiaux/status/2124923055072043052"
+          "https://x.com/OpenAI/status/2124980590717911527",
+          "https://x.com/thsottiaux/status/2125141302501417232"
         ],
-        "sourceCount": 3,
+        "sourceCount": 2,
         "confidence": "high"
       },
       {
-        "title": "代币化股票与 TradFi 衍生品继续向 24/7 交易扩张",
+        "title": "美国拟提高对中国及其他经济体的关税",
         "importance": "high",
-        "summary": "xStocks 称 NVDAx 在 Raydium 过去 24 小时成交约 3,600 万美元，并推动 Anthropic 相关代币化资产在 Uniswap、Kraken、Hyperliquid 等渠道交易；币安则宣布增加 JNJ、AMDL 和 NIO 等 TradFi 永续合约。",
-        "whyItMatters": "传统资产的链上现货、RFQ 与永续合约正在形成跨平台分发网络，全天候交易和可组合抵押逐渐从叙事转向真实产品竞争。",
+        "summary": "bwenews 转述华尔街日报和路透称，美国准备提高对中国及其他国家的关税；其补充摘要称，相关动作可能基于 301 调查展开，不同经济体适用税率可能存在差异。",
+        "whyItMatters": "新一轮关税若落地，将影响制造业、通胀路径、美元流动性及全球风险资产定价，对加密市场也具有宏观传导意义。",
         "facts": [
-          "3,600 万美元成交量与相关排名来自 xStocks 自报。",
-          "币安官方华语账号宣布新增 TradFi 永续合约，标注 24/7 与最高 20 倍杠杆。"
+          "提高关税的核心消息来自 bwenews 对 WSJ/Reuters 的快讯转述。",
+          "具体覆盖范围和税率来自该账号的 AI Overview，信息包未包含正式政策文件。"
         ],
         "interpretations": [
-          "高成交量和多平台上线说明需求存在，但发行方自报数据仍需后续独立核验。",
-          "周末对 NVDA 事件的交易传播凸显 24/7 资产的时间优势，也放大定价偏差风险。"
+          "在官方文本公布前，不能把媒体计划稿视为已生效政策。"
         ],
         "authors": [
-          "xStocksFi",
-          "binancezh",
-          "silhouette_ex"
+          "bwenews"
         ],
         "sourceUrls": [
-          "https://x.com/xStocksFi/status/2124988701088403524",
-          "https://x.com/xStocksFi/status/2124911080992538887",
-          "https://x.com/xStocksFi/status/2124808235605692525",
-          "https://x.com/xStocksFi/status/2124934179859149084",
-          "https://x.com/binancezh/status/2124725358423584801"
+          "https://x.com/bwenews/status/2125215197262721109",
+          "https://x.com/bwenews/status/2125223563942846665"
         ],
-        "sourceCount": 3,
+        "sourceCount": 1,
         "confidence": "medium"
       },
       {
-        "title": "加密产品开始争夺银行式账户、借贷与收益入口",
+        "title": "美国司法部申请没收约 11 亿美元朝鲜黑客相关加密资产",
         "importance": "high",
-        "summary": "Base 官方称其将与 Coinbase 合作经验产品化为 Earn API，并提到超过 30 亿美元的贷款和借贷资本；BlockBeats 则归纳 Aave、钱包、稳定币与 Coinbase 等产品正在把入金、工资、收益和贷款整合进同一账户体验。",
-        "whyItMatters": "竞争重点正从单一链上交易速度，转向更接近银行账户的资金入口、留存和交叉销售能力。",
+        "summary": "美国司法部国家安全部门官方帖称，已采取行动没收朝鲜行为者从币安盗取的超过 11 亿美元加密资产，并称这属于协助币安追回逾 60 亿美元被盗资产的一部分。",
+        "whyItMatters": "该案同时涉及链上冻结、发行方配合、法院没收程序和国家级黑客活动，可能成为稳定币资产处置的重要执法案例。",
         "facts": [
-          "Base 的 30 亿美元规模和 Earn API 来自 Base 官方帖。",
-          "Aave、Coinbase 等案例为媒体归纳，信息包未提供每个项目的原始公告。"
+          "11 亿美元、60 亿美元及累计协助冻结或返还 29 亿美元等数字来自 DOJ 官方帖。",
+          "FORAB 对发行方重新发行等额稳定币的描述属于转述，需以后续法院文件为准。"
         ],
         "interpretations": [
-          "减少操作步骤和整合收益/借贷可能成为下一阶段用户增长的关键，而非单靠代币激励。"
+          "链上资产被冻结并不等同于控制权已经完成司法转移。"
         ],
         "authors": [
-          "base",
+          "DOJNatSec",
+          "_FORAB"
+        ],
+        "sourceUrls": [
+          "https://x.com/DOJNatSec/status/2124938143803625635",
+          "https://x.com/_FORAB/status/2125045984376070325"
+        ],
+        "sourceCount": 2,
+        "confidence": "high"
+      },
+      {
+        "title": "英伟达事件进入第二阶段：反弹兑现、治理与可疑交易并存",
+        "importance": "medium",
+        "summary": "黄仁勋复职推动全球半导体资产大涨后，NVDA 出现回落。新的讨论集中于政府介入程度、董事会治理、预测市场提前交易和媒体叙事，而非复职事实本身。",
+        "whyItMatters": "事件冲击已经从“是否回归”转为“反弹能否持续、治理风险是否解除、是否存在信息优势交易”三个可验证问题。",
+        "facts": [
+          "政府施压和谈判过程主要来自 FORAB 对彭博等媒体的转述。",
+          "TechFlow 转述一名研究者对 Polymarket 可疑账户的链上分析，但没有证据证明内幕交易。",
+          "BlockBeats 称 NVDA 单日大涨后相关链上交易出现巨大盈亏分化。"
+        ],
+        "interpretations": [
+          "价格剧烈反应反映市场高度依赖个人领导力。",
+          "提前交易的时间相关性不足以单独证明违法信息泄露。"
+        ],
+        "authors": [
+          "_FORAB",
+          "TechFlowPost",
+          "DeucalionK_",
           "BlockBeatsAsia"
         ],
         "sourceUrls": [
-          "https://x.com/base/status/2124854552948081091",
-          "https://x.com/BlockBeatsAsia/status/2124778729909928123"
+          "https://x.com/_FORAB/status/2125033411970777171",
+          "https://x.com/TechFlowPost/status/2125122924705399057",
+          "https://x.com/DeucalionK_/status/2124936561716260970",
+          "https://x.com/BlockBeatsAsia/status/2125046190790308081"
+        ],
+        "sourceCount": 4,
+        "confidence": "medium"
+      },
+      {
+        "title": "FLOP 测试网上线不完整，AI 代操作反而暴露新竞争点",
+        "importance": "medium",
+        "summary": "FLOP 官方宣布测试网上线，但称仍会在随后数小时激活功能；BlockBeats 观察到浏览器和交易功能不可用，随后又使用 AI Bot 完成 DID、环境配置和 API 接入流程。",
+        "whyItMatters": "事件一方面暴露 AI 算力项目急于上线和用户体验不足，另一方面说明 Agent 可能显著降低复杂链上操作门槛。",
+        "facts": [
+          "测试网延期和早期上线状态来自 FLOP 官方引用帖。",
+          "不可用功能与 AI Bot 操作体验来自 BlockBeats 的实际叙述，未提供独立复现数据。"
+        ],
+        "interpretations": [
+          "当执行被 Agent 标准化后，空投和测试网参与的稀缺能力可能从操作技巧转向策略判断与成本控制。"
+        ],
+        "authors": [
+          "flop_labs",
+          "BlockBeatsAsia"
+        ],
+        "sourceUrls": [
+          "https://x.com/flop_labs/status/2125212060481093834",
+          "https://x.com/BlockBeatsAsia/status/2125214430309097595",
+          "https://x.com/BlockBeatsAsia/status/2125162951770546269"
         ],
         "sourceCount": 2,
         "confidence": "medium"
-      },
-      {
-        "title": "BTC 急反弹，但周期底部判断仍未形成共识",
-        "importance": "high",
-        "summary": "BlockBeats 报道 BTC 从约 6.1 万美元快速拉升至接近 6.4 万美元，24 小时涨幅扩大；同一信息流中，Cathie Wood 认为可能已经见底，而另一篇研究转述仍把 4.4 万—5.5 万美元视为潜在周期底区域。",
-        "whyItMatters": "短线价格反弹、宏观流动性判断和长期稀缺性叙事正在混杂。判断趋势反转需要观察成交、稳定币供给、ETF 资金与宏观风险，而非只看单根大阳线。",
-        "facts": [
-          "约 6.4 万美元的价格与涨幅来自媒体帖的当时快照。",
-          "Cathie Wood 的观点来自 BlockBeats 对 CNBC 采访的转述。",
-          "4.4 万—5.5 万美元区间来自 TechFlow 对研究文章的转述。"
-        ],
-        "interpretations": [
-          "FORAB 与 BlockBeats 的全球资产回撤内容显示风险收缩并非加密市场独有。",
-          "当日反弹是否具有持续资金支持，信息包没有给出足够证据。"
-        ],
-        "authors": [
-          "BlockBeatsAsia",
-          "TechFlowPost",
-          "YSI_crypto"
-        ],
-        "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2124866518127345788",
-          "https://x.com/BlockBeatsAsia/status/2124720353113182492",
-          "https://x.com/TechFlowPost/status/2124740641129124216",
-          "https://x.com/YSI_crypto/status/2124870122817175993",
-          "https://x.com/BlockBeatsAsia/status/2124812707673022965"
-        ],
-        "sourceCount": 3,
-        "confidence": "medium"
-      },
-      {
-        "title": "Solana 把 AI Agent 支付与工具链推向基础设施层",
-        "importance": "medium",
-        "summary": "TechFlow 转述 Solana 新上线 AI 基础设施入口，重点包括按次付费、支付通道、机密计算、Agent 钱包与开发工具；Solana 官方引用帖只给出入口并号召开发者开始构建。",
-        "whyItMatters": "如果 Agent 能自主付费调用 API、管理钱包和执行链上操作，稳定币微支付可能成为 AI Agent 的原生结算层。",
-        "facts": [
-          "官方 Solana 帖确认了新入口，但功能细节主要来自 TechFlow 的页面解读。",
-          "信息包未包含实际采用量、交易额或独立开发者反馈。"
-        ],
-        "interpretations": [
-          "该方向目前更像基础设施铺设，商业需求与安全边界仍需用真实使用数据验证。"
-        ],
-        "authors": [
-          "solana",
-          "TechFlowPost"
-        ],
-        "sourceUrls": [
-          "https://x.com/solana/status/2124744758434075037",
-          "https://x.com/TechFlowPost/status/2124776701842583738"
-        ],
-        "sourceCount": 2,
-        "confidence": "medium"
-      },
-      {
-        "title": "MON 大额解锁临近，流通冲击口径出现差异",
-        "importance": "medium",
-        "summary": "TechFlow 的周历称 MON 将于 11 月 24 日解锁，价值约 2.18 亿美元、占当前流通量约 32.37%；社区帖则声称解锁 166 亿枚，并用“流通盘膨胀 240%”描述冲击。",
-        "whyItMatters": "大额团队与早期投资者解锁可能带来实际抛压，但两个帖子使用的比例口径明显不同，必须先核对官方解锁表。",
-        "facts": [
-          "日期和金额来自 TechFlow 周历。",
-          "166 亿枚与 240% 说法来自社区转述，信息包没有官方代币经济学文件。"
-        ],
-        "interpretations": [
-          "价格已明显回撤并不代表解锁风险完全计价。"
-        ],
-        "authors": [
-          "TechFlowPost",
-          "spark888",
-          "Meta8Mate"
-        ],
-        "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2124687185861284219",
-          "https://x.com/spark888/status/2124808378304417961",
-          "https://x.com/Meta8Mate/status/2124781708616831310"
-        ],
-        "sourceCount": 3,
-        "confidence": "low"
       }
     ],
     "watchlist": [
       {
-        "signal": "英伟达复职后的调查与治理安排",
-        "reason": "确认独立调查是否继续、董事会是否披露治理整改，以及市场反弹能否脱离单一人事催化。",
+        "signal": "ANT 破发后的成交量、锁定期与持续卖压",
+        "reason": "确认散户热度下降是否扩展为更广泛的 AI 估值压缩。",
         "authors": [
-          "TechFlowPost",
+          "BlockBeatsAsia",
           "_FORAB"
         ],
         "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2124866420777640245",
-          "https://x.com/_FORAB/status/2125020295052607843"
+          "https://x.com/BlockBeatsAsia/status/2125393512183276006",
+          "https://x.com/_FORAB/status/2125139376221097995"
         ]
       },
       {
-        "signal": "代币化 NVDA 与 ANTx 的真实持仓和流动性",
-        "reason": "跟踪发行规模、赎回机制、价差与独立成交数据，区分宣传量与可持续流动性。",
+        "signal": "代币化股票的独立成交、赎回与杠杆风险",
+        "reason": "跟踪 NVDAx、ANTx、TQQQ 和 SOXS 在发行方激励之外的真实流动性。",
         "authors": [
-          "xStocksFi"
+          "xStocksFi",
+          "tradexyz"
         ],
         "sourceUrls": [
-          "https://x.com/xStocksFi/status/2124988701088403524",
-          "https://x.com/xStocksFi/status/2124808235605692525"
+          "https://x.com/xStocksFi/status/2125212852193485152",
+          "https://x.com/tradexyz/status/2125280010252505307",
+          "https://x.com/tradexyz/status/2125274227247116609"
         ]
       },
       {
-        "signal": "MON 11 月 24 日解锁后的链上转账和卖压",
-        "reason": "两个来源的流通比例口径冲突，需以官方解锁数据和实际链上流向校验。",
+        "signal": "BTC 的机构流入与被迫卖币是否持续",
+        "reason": "观察 Coinbase Prime、矿企和财库公司的现金需求能否缓解。",
         "authors": [
-          "TechFlowPost",
-          "spark888"
+          "BlockBeatsAsia",
+          "TechFlowPost"
         ],
         "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2124687185861284219",
-          "https://x.com/spark888/status/2124808378304417961"
+          "https://x.com/BlockBeatsAsia/status/2125179322382377248",
+          "https://x.com/TechFlowPost/status/2125118618149024232"
         ]
       },
       {
-        "signal": "韩国救市基金是否实际入场",
-        "reason": "FORAB 称政策表态后市场仍下跌，投资者开始追问托底资金的实际买入时点。",
+        "signal": "ChatGPT 合并 Chat/Work 的灰度反馈",
+        "reason": "判断统一界面是否真正减少切换成本，并改善长任务执行。",
         "authors": [
-          "_FORAB"
-        ],
-        "sourceUrls": [
-          "https://x.com/_FORAB/status/2124674645559492691"
-        ]
-      },
-      {
-        "signal": "OPNW 的 AI 资产代币化融资",
-        "reason": "社区研究提到光伏、储能、算力和知识产权融资方案，但不能把拟议额度当作已完成融资。",
-        "authors": [
-          "octopusycc"
-        ],
-        "sourceUrls": [
-          "https://x.com/octopusycc/status/2124896222716764634"
-        ]
-      },
-      {
-        "signal": "Base Earn API 的外部客户采用",
-        "reason": "观察除 Coinbase 外的集成方、存量资金和贷款表现。",
-        "authors": [
-          "base"
-        ],
-        "sourceUrls": [
-          "https://x.com/base/status/2124854552948081091"
-        ]
-      },
-      {
-        "signal": "GPT-6 Cyber 补丁的上游合入情况",
-        "reason": "验证 948 个漏洞中有多少被维护者确认、修复并进入主线。",
-        "authors": [
-          "OpenAI",
           "thsottiaux"
         ],
         "sourceUrls": [
-          "https://x.com/OpenAI/status/2125007927098699827",
-          "https://x.com/thsottiaux/status/2125027477877887231"
+          "https://x.com/thsottiaux/status/2125284868414394550"
+        ]
+      },
+      {
+        "signal": "Shirudo 的真实部署与权限边界",
+        "reason": "关注 eBPF 动态防护是否获得维护者采用，以及误封和 Agent 权限如何控制。",
+        "authors": [
+          "OpenAI"
+        ],
+        "sourceUrls": [
+          "https://x.com/OpenAI/status/2124980590717911527"
+        ]
+      },
+      {
+        "signal": "美国关税正式文本",
+        "reason": "核对覆盖经济体、税率、豁免范围和法律依据，避免把媒体计划稿当作落地政策。",
+        "authors": [
+          "bwenews"
+        ],
+        "sourceUrls": [
+          "https://x.com/bwenews/status/2125215197262721109"
+        ]
+      },
+      {
+        "signal": "Polymarket 可疑账户的资金来源与调查",
+        "reason": "现有链上时序只能证明提前交易，尚不能证明内幕信息来源。",
+        "authors": [
+          "TechFlowPost",
+          "DeucalionK_"
+        ],
+        "sourceUrls": [
+          "https://x.com/TechFlowPost/status/2125122924705399057",
+          "https://x.com/DeucalionK_/status/2124936561716260970"
+        ]
+      },
+      {
+        "signal": "SpaceX 与特斯拉合并谈判传闻",
+        "reason": "FORAB 转述 FT 称双方设立特别委员会；需等待公司文件或董事会确认。",
+        "authors": [
+          "_FORAB"
+        ],
+        "sourceUrls": [
+          "https://x.com/_FORAB/status/2125105592746619246"
         ]
       }
     ],
     "disagreements": [
       {
-        "topic": "黄仁勋回归是否消除了治理风险",
+        "topic": "BTC 是结构性走弱还是已经超卖",
         "positions": [
-          "市场与多家传播账号把复职视为领导力回归，并迅速推高相关资产。",
-          "TechFlow 对公告的转述称独立调查仍继续；此前关于诚信与治理问题的媒体转述并未因复职自动消失。"
+          "结构性卖压观点强调矿企、财库公司和机构需要美元，反弹难以留住买盘。",
+          "Grayscale 研报转述认为 ETP 流出、衍生品降杠杆等已反映明显超卖，中长期估值开始具备吸引力。"
         ],
         "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2124865803661283544",
-          "https://x.com/TechFlowPost/status/2124866420777640245",
-          "https://x.com/TechFlowPost/status/2124796601856139384"
+          "https://x.com/BlockBeatsAsia/status/2125179322382377248",
+          "https://x.com/TechFlowPost/status/2125118618149024232"
         ]
       },
       {
-        "topic": "BTC 是否已经形成周期底部",
+        "topic": "Anthropic 破发代表估值重置还是短期交易降温",
         "positions": [
-          "Cathie Wood 的采访转述认为 BTC 可能已经见底，短线也快速反弹至约 6.4 万美元。",
-          "另一份研究转述仍把 4.4 万—5.5 万美元视为潜在底部区域，并认为趋势反转依赖未来流动性变化。"
+          "BlockBeats 将期权成交下降和跌破发行价视为散户热情消退。",
+          "Variational 与交易平台仍在推动 ANT 永续、代币化资产和交易活动，显示交易需求并未消失。"
         ],
         "sourceUrls": [
-          "https://x.com/BlockBeatsAsia/status/2124720353113182492",
-          "https://x.com/BlockBeatsAsia/status/2124866518127345788",
-          "https://x.com/TechFlowPost/status/2124740641129124216"
+          "https://x.com/BlockBeatsAsia/status/2125393512183276006",
+          "https://x.com/variational_io/status/2125384479594418542",
+          "https://x.com/xStocksFi/status/2125299831497269631"
         ]
       },
       {
-        "topic": "MON 解锁对流通盘的冲击规模",
+        "topic": "英伟达复职是否足以扭转 AI 风险",
         "positions": [
-          "TechFlow 周历给出约 2.18 亿美元、占流通量 32.37%的口径。",
-          "社区帖子以 166 亿枚和流通盘膨胀 240%描述冲击，两者可能使用了不同分母或存在误算。"
+          "股市和半导体资产用大涨定价领导层不确定性下降。",
+          "Ruchir Sharma 的采访转述认为真正约束 AI 泡沫的是利率、财政赤字和融资成本，CEO 回归未改变这一点。"
         ],
         "sourceUrls": [
-          "https://x.com/TechFlowPost/status/2124687185861284219",
-          "https://x.com/spark888/status/2124808378304417961",
-          "https://x.com/Meta8Mate/status/2124781708616831310"
+          "https://x.com/BlockBeatsAsia/status/2125046190790308081",
+          "https://x.com/BlockBeatsAsia/status/2125124759570571532"
+        ]
+      },
+      {
+        "topic": "AI Agent 降低操作门槛是否会提高收益",
+        "positions": [
+          "BlockBeats 的 FLOP 体验显示 Agent 能替普通用户完成复杂链上配置。",
+          "同一分析认为当所有人都能自动化执行后，参与人数和反女巫竞争会压低平均收益。"
+        ],
+        "sourceUrls": [
+          "https://x.com/BlockBeatsAsia/status/2125162951770546269",
+          "https://x.com/BlockBeatsAsia/status/2125127713380090029"
         ]
       }
     ],
     "noiseSummary": [
-      "英伟达事件的重复转述、行情欢呼与模因",
-      "缺少文字上下文的单链接或图片帖",
-      "抽卡、交易赛、会议报名等促销内容",
-      "单一价格点位和无依据短线喊单",
-      "与研究无关的私人生活记录",
-      "重复活动提醒与低信息回复"
+      "英伟达事件的重复行情截图与盈亏故事",
+      "交易竞赛、空投和活动促销",
+      "无正文的单链接、图片或回复",
+      "私人生活记录与情绪表达",
+      "缺少依据的短线价格喊单",
+      "会议报名、周边抽奖和交易所广告"
     ]
   }
 }
