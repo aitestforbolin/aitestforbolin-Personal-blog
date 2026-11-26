@@ -1,28 +1,28 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "codex-web3-20261125-010228Z-rqbjvf",
-  "triggerSha": "23bc7373fb28de018e10b9473716a244c8d2bd9a",
-  "publicationDate": "2026-11-25",
-  "publishedAt": "2026-11-25T09:04:41.096+08:00",
+  "requestId": "codex-web3-20261126-010225Z-d5jw7t",
+  "triggerSha": "43a1b4eab29fb3fb29174c040b199fc7136e3c46",
+  "publicationDate": "2026-11-26",
+  "publishedAt": "2026-11-26T09:05:02.175+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-11-25",
-    "publishedAt": "2026-11-25T09:04:41.096+08:00",
-    "windowStart": "2026-11-24T01:00:44.481770+00:00",
-    "windowEnd": "2026-11-25T01:02:38.291655+00:00",
-    "sourceUpdatedAt": "2026-11-25T01:02:38+00:00",
+    "runDate": "2026-11-26",
+    "publishedAt": "2026-11-26T09:05:02.175+08:00",
+    "windowStart": "2026-11-25T01:02:38.291655+00:00",
+    "windowEnd": "2026-11-26T01:02:35.909925+00:00",
+    "sourceUpdatedAt": "2026-11-26T01:02:35+00:00",
     "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:codex-web3-20261125-010228Z-rqbjvf",
-      "requestId": "codex-web3-20261125-010228Z-rqbjvf",
-      "triggerSha": "23bc7373fb28de018e10b9473716a244c8d2bd9a",
-      "githubRunId": 45522729593,
-      "scheduledAt": "2026-11-25T09:00:00+08:00",
-      "startedAt": "2026-11-25T01:02:37.025608+00:00",
-      "sourceCheckedAt": "2026-11-25T01:02:38.291369+00:00",
-      "sourceUpdatedAt": "2026-11-25T01:02:38+00:00",
-      "completedAt": "2026-11-25T01:02:38.291655+00:00",
+      "runId": "web3-daily-triage:codex-web3-20261126-010225Z-d5jw7t",
+      "requestId": "codex-web3-20261126-010225Z-d5jw7t",
+      "triggerSha": "43a1b4eab29fb3fb29174c040b199fc7136e3c46",
+      "githubRunId": 45732975670,
+      "scheduledAt": "2026-11-26T09:00:00+08:00",
+      "startedAt": "2026-11-26T01:02:34.600769+00:00",
+      "sourceCheckedAt": "2026-11-26T01:02:35.909612+00:00",
+      "sourceUpdatedAt": "2026-11-26T01:02:35+00:00",
+      "completedAt": "2026-11-26T01:02:35.909925+00:00",
       "publishedAt": null
     },
     "executionStatus": {
@@ -30,7 +30,7 @@
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "候选窗口从 2026-11-24 已核验归档的 windowEnd 接续至本次采集回执的 completedAt，并沿用累计 reportedEventIds 去重。来源仅是官网首页最近五条的已观测快照，不代表完整覆盖全部融资事件；本次新增 Rialto 与 Supertake 两项非 M&A 融资事件并完成初筛。",
+    "deduplicationNote": "候选窗口从 2026-11-25 已核验归档的 windowEnd 接续至本次采集回执的 completedAt，并沿用累计 reportedEventIds 去重。来源仅是官网首页最近五条的已观测快照，不代表完整覆盖全部融资事件；本次新增 Lemon 一项非 M&A 融资事件并完成初筛。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -136,135 +136,81 @@
       "crypto-fundraising-xxhh--2026-11--angel",
       "crypto-fundraising-scrypt--2026-11--round-unknown",
       "crypto-fundraising-rialto--2026-11--seed",
-      "crypto-fundraising-supertake--2026-11--seed"
+      "crypto-fundraising-supertake--2026-11--seed",
+      "crypto-fundraising-lemon--2026-11--round-unknown"
     ],
     "counts": {
-      "new": 2,
-      "action": 1,
-      "watch": 1,
-      "stop": 0
+      "new": 1,
+      "action": 0,
+      "watch": 0,
+      "stop": 1
     },
     "projects": [
       {
-        "event_id": "crypto-fundraising-supertake--2026-11--seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/supertake/",
-        "project_name": "Supertake",
-        "decision": "ACTION",
-        "financing": {
-          "amount_usd": 20000000,
-          "round": "Seed",
-          "lead_investors": [
-            "Adjacent"
-          ],
-          "announcement_date": "2026-11-23",
-          "confidence": "high"
-        },
-        "plain_explanation": "Supertake 把用户用自然语言表达的市场观点，转换成可以跟踪、分享或实际投资的股票组合。它更像“AI 主题投资助手”，而不是要求用户自己挑选每只股票。",
-        "mechanism_simple": "用户先描述一个长期判断，AI 代理再选择相关股票、设定权重并持续管理组合。用户可以查看公开观点和模拟组合；连接有资金的券商账户后，才会涉及真实投资。",
-        "project_status": {
-          "category": "new_live_no_token",
-          "token_status": "no_token_found",
-          "note": "产品处于邀请制 Beta，官网可浏览和加入候补名单；未发现原生代币或代币计划。"
-        },
-        "participation": {
-          "available_now": true,
-          "what_user_can_do": "免费加入候补名单，并先浏览公开 Take 或用模拟组合验证一个自己的主题观点；无需立即连接有资金的券商账户。",
-          "requires_real_funds": false,
-          "friction_or_risk": "邀请制可能限制即时体验；若连接真实券商账户，则存在模型判断、组合漂移和本金损失风险。"
-        },
-        "incentives": {
-          "status": "none_found",
-          "types": [],
-          "details": "未发现官方 Points、Season、Token 或 Airdrop；候补名单属于产品准入，不是代币激励。"
-        },
-        "why": [
-          "产品与 AI、宏观经济及科技主题研究高度相关，具备真实个人使用价值。",
-          "加入候补名单、查看公开观点和使用模拟组合可以在不投入资金的情况下验证产品。",
-          "融资和产品状态均可核实，但真实资金自动管理仍需要单独评估安全边界。"
-        ],
-        "next_step": "加入候补名单；若获得 Beta，先用一个现有 AI 基础设施主题创建 Practice Take，只检查组合逻辑，不连接有资金的券商账户。",
-        "recheck_trigger": null,
-        "website_url": "https://supertake.com/",
-        "x_url": "https://x.com/Supertake",
-        "evidence": [
-          {
-            "claim": "官网确认产品将自然语言观点转成由 AI 代理管理、可跟随和分享的投资策略，并提供候补名单与模拟组合。",
-            "url": "https://supertake.com/vision",
-            "source_type": "official_site",
-            "confidence": "high"
-          },
-          {
-            "claim": "官网确认 2,000 万美元 Seed 由 Adjacent 领投，USV 与 Coinbase Ventures 等参与。",
-            "url": "https://supertake.com/vision",
-            "source_type": "official_site",
-            "confidence": "high"
-          },
-          {
-            "claim": "报道确认产品仍为邀请制 Beta，真实使用可连接 Coinbase 或 Robinhood，且团队设置资金与交易限制。",
-            "url": "https://techcrunch.com/2026/11/23/supertake-raises-20m-to-let-ai-agents-turn-your-market-predictions-into-stock-portfolios/",
-            "source_type": "other",
-            "confidence": "high"
-          }
-        ]
-      },
-      {
-        "event_id": "crypto-fundraising-rialto--2026-11--seed",
-        "source_detail_url": "https://crypto-fundraising.info/projects/rialto/",
-        "project_name": "Rialto",
-        "decision": "WATCH",
+        "event_id": "crypto-fundraising-lemon--2026-11--round-unknown",
+        "source_detail_url": "https://crypto-fundraising.info/projects/lemon/",
+        "project_name": "Lemon",
+        "decision": "STOP",
         "financing": {
           "amount_usd": 5000000,
-          "round": "Seed",
+          "round": null,
           "lead_investors": [
-            "Robinhood",
-            "Tandem by Offchain"
+            "Tether"
           ],
-          "announcement_date": "2026-11-24",
-          "confidence": "high"
+          "announcement_date": "2026-11-25",
+          "confidence": "medium"
         },
-        "plain_explanation": "Rialto 是面向 Robinhood Chain 与 Arbitrum 的链上现货交易平台和交易路由器，帮助用户交易加密资产及股票、ETF、商品对应的代币化资产。",
-        "mechanism_simple": "它会从多个链上流动性来源询价，结合自有 PropAMM 做市系统，为订单选择更好的价格和执行路径。用户仍自行托管资产，交易在链上完成。",
+        "plain_explanation": "Lemon 是面向拉丁美洲用户的数字金融应用，把本地货币、美元稳定币、加密资产、支付、收益和 Visa 卡等功能放在一个账户中。Tether 此次投资旨在扩大 USD₮ 与 XAU₮ 的日常使用。",
+        "mechanism_simple": "用户在支持的国家完成注册和身份验证后，可充值本地货币或加密资产，在应用内兑换、储蓄、投资、转账或消费。它是托管型金融应用，使用真实资金时要承担平台、市场和地区监管风险。",
         "project_status": {
           "category": "existing_no_token",
           "token_status": "no_token_found",
-          "note": "平台已于 2026 年 7 月公开上线并已有实际交易量；融资含 token warrants，但项目未确认公开代币发行计划。"
+          "note": "Lemon 2019 年成立，已在阿根廷和秘鲁等市场长期运营并完成多轮融资；未发现原生代币或公开发币计划。"
         },
         "participation": {
           "available_now": true,
-          "what_user_can_do": "连接钱包，在 Rialto 应用中查看报价并交易 Robinhood Chain 上的加密资产或代币化股票；开发者也可申请 Swap API。",
+          "what_user_can_do": "支持地区的用户可下载应用、完成 KYC，并使用稳定币、支付或投资功能；不在支持地区的普通用户缺少可行的低摩擦参与路径。",
           "requires_real_funds": true,
-          "friction_or_risk": "真实体验涉及链上资金、智能合约、流动性、滑点以及代币化证券的地区与监管风险。"
+          "friction_or_risk": "受地区、KYC 与产品可用性限制；真实使用涉及托管、稳定币、收益产品、市场波动和监管风险。"
         },
         "incentives": {
-          "status": "none_found",
-          "types": [],
-          "details": "未发现官方 Points、Season、Testnet、Token 或 Airdrop 活动；融资中的 token warrants 不能视为面向用户的代币承诺。"
+          "status": "unconfirmed",
+          "types": [
+            "other"
+          ],
+          "details": "媒体披露的 1,450 万美元合作包中，约 950 万美元拟用于联合产品激励，但官方尚未公布面向用户的具体资格、时间或规则；这不是代币、积分或空投承诺。"
         },
         "why": [
-          "平台已具备真实交易与路由功能，不是单纯概念项目。",
-          "普通用户当前参与需要投入链上资金，并承担智能合约与代币化资产风险。",
-          "没有官方积分或代币激励，现阶段为捕捉早期机会而投入资金的性价比不足。"
+          "项目是已有规模和多轮融资历史的成熟区域金融应用，本轮融资没有形成新的早期项目窗口。",
+          "未发现官方原生代币、积分、测试网或空投路径，产品激励预算也没有可执行的用户规则。",
+          "当前真实参与依赖支持地区、KYC 和资金投入，不能提供低成本、可验证的早期机会。"
         ],
         "next_step": null,
-        "recheck_trigger": "当 Rialto 官方公布明确的积分/代币参与规则，或开放无需真实资金的模拟交易环境时重新评估。",
-        "website_url": "https://app.rialto.xyz/",
-        "x_url": "https://x.com/rialto_xyz",
+        "recheck_trigger": null,
+        "website_url": "https://lemon.me/en/",
+        "x_url": "https://x.com/lemonapp_ar",
         "evidence": [
           {
-            "claim": "项目公告确认 500 万美元战略 Seed 由 Robinhood 与 Tandem 联合领投，并说明平台面向加密资产和代币化资产交易。",
-            "url": "https://www.globenewswire.com/news-release/2026/11/24/3409754/0/en/rialto-raises-5-million-from-tandem-by-offchain-and-robinhood-to-build-onchain-capital-markets.html",
+            "claim": "Tether 官方确认投资 Lemon，以扩展 USD₮ 与 XAU₮ 在拉丁美洲的日常金融使用；公告未披露投资金额。",
+            "url": "https://tether.io/news/tether-invests-in-argentine-fintech-company-lemon-to-expand-digital-asset-use-cases-across-latin-america/",
             "source_type": "official_blog",
             "confidence": "high"
           },
           {
-            "claim": "融资报道确认该轮为股权加 token warrants，但团队没有确认未来公开发币计划。",
-            "url": "https://www.theblock.co/news/deals/2026-11-24-robinhood-onchain-trading-platform-rialto-funding-446030",
-            "source_type": "other",
+            "claim": "Lemon 官方公告确认收到 Tether 的投资包，并说明合作目标是扩大美元稳定币和 XAU₮ 的使用。",
+            "url": "https://lemon.me/peru/blog/tether-invierte-lemon",
+            "source_type": "official_blog",
             "confidence": "high"
           },
           {
-            "claim": "官方应用提供现货交易入口。",
-            "url": "https://app.rialto.xyz/",
+            "claim": "Forbes Argentina 报道合作包总额为 1,450 万美元，其中 500 万美元为股权投资、950 万美元用于联合产品激励。",
+            "url": "https://www.forbesargentina.com/negocios/tether-invierte-us-145-millones-lemon-ya-prueba-creditos-argentina-n103298",
+            "source_type": "other",
+            "confidence": "medium"
+          },
+          {
+            "claim": "Lemon 官网显示产品提供加密资产、支付和 Visa 卡等真实资金功能，并明确提示投资价值可能波动。",
+            "url": "https://lemon.me/en/",
             "source_type": "official_site",
             "confidence": "high"
           }
