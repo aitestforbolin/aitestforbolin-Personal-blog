@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
   "status": "success",
-  "reportDate": "2026-11-26",
-  "generatedAt": "2026-11-26T09:04:13.228+08:00",
-  "sourceGeneratedAt": "2026-11-26T01:01:42.460104+00:00",
-  "sourcePostCount": 120,
+  "reportDate": "2026-11-27",
+  "generatedAt": "2026-11-27T09:01:44.399+08:00",
+  "sourceGeneratedAt": "2026-11-27T00:58:56.487247+00:00",
+  "sourcePostCount": 107,
   "sourceListCount": 4,
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "x-intelligence:codex-x-20261126-xo31nro2-yzu73tcn",
-    "requestId": "codex-x-20261126-xo31nro2-yzu73tcn",
-    "triggerSha": "a8c2a94b42fab48b148357470fb0a96652730aa3",
-    "githubRunId": 45732869949,
-    "scheduledAt": "2026-11-26T01:00:00Z",
-    "startedAt": "2026-11-26T01:01:42.459585+00:00",
-    "sourceCheckedAt": "2026-11-26T01:01:52.229163+00:00",
-    "sourceUpdatedAt": "2026-11-26T00:57:05+00:00",
-    "completedAt": "2026-11-26T01:01:52.229214+00:00",
-    "publishedAt": "2026-11-26T09:04:13.228+08:00"
+    "runId": "x-intelligence:codex-x-20261127-oqiqtfv9-qta1rcin",
+    "requestId": "codex-x-20261127-oqiqtfv9-qta1rcin",
+    "triggerSha": "62d93e268ecf871d32dc0f085ef21ae916f6e7c8",
+    "githubRunId": 45919878990,
+    "scheduledAt": "2026-11-27T01:00:00Z",
+    "startedAt": "2026-11-27T00:58:56.481879+00:00",
+    "sourceCheckedAt": "2026-11-27T00:59:05.499192+00:00",
+    "sourceUpdatedAt": "2026-11-27T00:23:55+00:00",
+    "completedAt": "2026-11-27T00:59:05.499239+00:00",
+    "publishedAt": "2026-11-27T09:01:44.399+08:00"
   },
   "executionStatus": {
     "collection": "success",
@@ -26,397 +26,410 @@
       "status": "success"
     }
   },
-  "overview": "过去 24 小时，宏观压力重新成为风险资产主线：美国 PCE 通胀高于预期，同时市场关注新一轮 301 关税提案。AI 产业则出现两极叙事——SpaceX 获批推进轨道计算卫星，英伟达、软银和高杠杆 AI 资产继续承受回撤与融资压力。加密侧，BTC 在 5.6 万美元附近防守，机构需求、资金费率和成本线给出相互矛盾的底部信号；与此同时，工资入链、Aave App 和代币化股票扩张显示链上金融基础设施仍在推进。",
+  "overview": "过去 24 小时，风险资产的主线从“是否见底”转向“去杠杆是否真正结束”。Galaxy 撤回比特币熊市结束判断，美国现货 BTC ETF 持续净流出，链上实现亏损升至 FTX 崩盘以来高位；同时，多家加密财库公司疑似为偿债和补充抵押品出售资产。与防御情绪并行的是链上金融产品继续扩张：代币化股票开始叠加最高 4 倍杠杆，交易平台加速上线 24/7 传统资产永续。AI 侧则出现资本密集扩张与估值压力并存，Anthropic 破发、Prometheus 押注实体制造，而 SpaceX 轨道计算进入带期限的执行阶段。",
   "homeHighlights": [
-    "美国 PCE 高于预期并叠加新关税提案，风险资产流动性压力上升。",
-    "SpaceX 获批部署轨道计算模块，AI 数据中心叙事开始进入太空。",
-    "Coinbase Wallet 上线 USDC 工资直存，链上账户进一步靠近日常金融入口。",
-    "BTC 跌至熊市新低附近，但资金费率尚未显示极端空头拥挤。"
+    "Galaxy 撤回比特币熊市结束判断，ETF 流出与链上亏损共同指向尚未完成的去杠杆。",
+    "多家加密财库公司疑似卖币偿债，溢价融资飞轮开始反向运转。",
+    "代币化股票叠加链上杠杆和全天候交易，产品扩张快于流动性与风险框架成熟。",
+    "Anthropic 破发与巨额算力承诺凸显 AI 收入增长和资本回报之间的张力。",
+    "1Password 后台遭入侵但保险库未受影响，事件再次暴露开发者账号和发布链风险。"
   ],
   "topics": [
     {
-      "title": "PCE 高于预期并叠加新一轮关税提案",
+      "title": "BTC 底部判断转弱，ETF 与链上数据继续施压",
       "importance": "high",
-      "summary": "FORAB 转述美国 10 月整体 PCE 为 3.8%、核心 PCE 为 3.3%，核心值高于 3.2% 的预期；同帖称美国依据 301 条款提议对 14 个经济体加征关税。市场账号据此上调加息和流动性收紧预期。",
-      "whyItMatters": "通胀与关税若同时抬升，会增加利率维持高位的概率，并通过美元、融资成本和风险偏好影响美股与加密资产。",
+      "summary": "Galaxy 研究主管撤回 10 月“熊市已结束”的判断，称 13 个底部信号仅满足 2 个；若日线跌破 58,525 美元，将视为向更低底部下探的信号。同期，美国现货 BTC ETF 在 11 月 9 日至 25 日累计净流出约 41.10 亿美元，链上实现亏损升至 2022 年 FTX 崩盘以来高位。",
+      "whyItMatters": "价格、机构资金流和链上亏损首次较一致地指向风险仍未释放完毕；5.32 万美元全网平均成本线成为下一项关键验证。",
       "facts": [
-        "PCE 数字和预期差来自 FORAB 的数据转述。",
-        "关税覆盖范围同样来自帖子摘要，信息包未包含正式政策文件。"
+        "Galaxy 将最近支撑区间列为 48,400 至 53,200 美元，深熊情景区间为 29,100 至 46,100 美元。",
+        "美国现货 BTC ETF 连续多个交易日流出，IBIT 占近期流出的大部分。",
+        "Glassnode 数据转述称过去 20 个交易日美国现货 ETF 累计净流出约 43 亿美元。"
       ],
       "interpretations": [
-        "交易账号普遍将其理解为风险资产进一步脆弱的催化剂。",
-        "正式税率、豁免和实施时间仍需等待官方文本。"
+        "按时间长度，本轮熊市可能接近后期；按回撤深度与估值，本轮仍未达到历史极端。",
+        "集中割肉常见于熊市后期，但美国买盘缺席使其还不能单独证明底部。"
       ],
       "authors": [
-        "_FORAB",
-        "octopusycc"
-      ],
-      "sourceUrls": [
-        "https://x.com/_FORAB/status/2125595459507175924",
-        "https://x.com/octopusycc/status/2125595388514316510"
-      ],
-      "sourceCount": 2,
-      "confidence": "medium"
-    },
-    {
-      "title": "SpaceX 获批建设轨道计算卫星星座",
-      "importance": "high",
-      "summary": "FCC 主席 Brendan Carr 的帖子称，FCC 已批准 SpaceX 最多部署 100 万颗轨道计算模块，用于建设太空数据中心；BlockBeats 进一步转述 Starmind、太阳能供电、激光链路及英伟达算力系统等计划细节。",
-      "whyItMatters": "若计划推进，AI 基础设施的约束将从地面电力、土地和冷却，延伸到发射能力、太空硬件可靠性与频谱监管。",
-      "facts": [
-        "100 万颗轨道计算模块的批准信息来自 FCC 主席账号。",
-        "具体卫星规格、英伟达合作和发射节奏来自 BlockBeats 的综合转述。"
-      ],
-      "interpretations": [
-        "监管批准不等于按规模完成部署；100 万颗更接近长期上限而非短期产能。",
-        "该计划把 AI 资本开支叙事从数据中心进一步推向能源与航天产业链。"
-      ],
-      "authors": [
-        "BrendanCarrFCC",
+        "TechFlowPost",
         "BlockBeatsAsia"
       ],
       "sourceUrls": [
-        "https://x.com/BrendanCarrFCC/status/2125623026918002860",
-        "https://x.com/BlockBeatsAsia/status/2125726229148123165"
+        "https://x.com/TechFlowPost/status/2125986690292695498",
+        "https://x.com/BlockBeatsAsia/status/2125763759977492979",
+        "https://x.com/TechFlowPost/status/2125910796534444419",
+        "https://x.com/BlockBeatsAsia/status/2125834164641611896"
       ],
       "sourceCount": 2,
       "confidence": "high"
     },
     {
-      "title": "工资直存与移动端借贷推动链上账户日常化",
+      "title": "加密财库融资飞轮开始反向去杠杆",
       "importance": "high",
-      "summary": "Coinbase Wallet 宣布支持用户将全部或部分工资以 USDC 直接存入 Base，且不收存入费用；Aave App 也结束候补名单，向 iOS 和 Android 用户全面开放。",
-      "whyItMatters": "工资、储蓄、收益和借贷正在汇入同一个链上账户，竞争焦点从交易入口扩展到持续性资金流和日常金融关系。",
+      "summary": "Kairos Research 的链上分析经 BlockBeats 转述称，五家 mNAV 低于 1 的加密财库公司过去数周疑似合计出售约 410 BTC、5.73 万 ETH 和 98.6 万 SOL，估值约 2.03 亿美元；部分出售被解释为偿还 Aave 借款或拉开与清算线的距离。",
+      "whyItMatters": "当股价跌破每股净资产价值后，增发买币不再增厚持币量；币价下跌、抵押品缩水和融资困难会令原本的正向飞轮逆转。",
       "facts": [
-        "工资直存信息来自 Coinbase Wallet 官方账号。",
-        "Aave App 全面开放来自 Aave 官方帖，经 Base 转发。"
+        "链上转移为疑似出售线索，实际成交量仍需公司披露确认。",
+        "被点名公司包括 Silvia、Bit Digital、BTCS、Upexi 和 Solana Company。",
+        "相关季度报告披露了季后事项，但部分报告未提到这些疑似出售。"
       ],
       "interpretations": [
-        "工资入链能否形成稳定余额取决于地区覆盖、雇主接入和用户对稳定币风险的接受度。"
+        "财库股研究需要同时检查 mNAV、抵押比例、债务期限和币价清算敏感度。",
+        "管理层长期看多不妨碍贷款条款在短期迫使其卖出资产。"
       ],
       "authors": [
-        "CoinbaseWallet",
-        "base",
-        "aave"
+        "BlockBeatsAsia",
+        "Kairos_Res",
+        "nbblock"
       ],
       "sourceUrls": [
-        "https://x.com/CoinbaseWallet/status/2125605435097198999",
-        "https://x.com/base/status/2125608182160695607",
-        "https://x.com/aave/status/2125626795768615030"
+        "https://x.com/BlockBeatsAsia/status/2125798203702509955",
+        "https://x.com/nbblock/status/2125970165636677754"
       ],
-      "sourceCount": 3,
+      "sourceCount": 2,
+      "confidence": "medium"
+    },
+    {
+      "title": "代币化股票进入杠杆化与全天候交易阶段",
+      "importance": "high",
+      "summary": "xStocks 与 Morpho、OKX Wallet 在 X Layer 推出代币化股票一键做多，SPYx、QQQx、NVDAx、TSLAx 等最高可用 4 倍杠杆；Variational 上线 BABA 最高 20 倍杠杆永续，币安也预告小米及港股相关 24/7 永续产品。Base 转发的生态数据称，链上代币化股票交易中超过四分之一发生在 Base。",
+      "whyItMatters": "代币化股票正在从现货映射资产转为借贷、保证金和永续合约组件，但杠杆扩张可能快于底层流动性、赎回机制与跨时区定价能力。",
+      "facts": [
+        "xStocks 头寸采用隔离风险参数，并附带部分流动性奖励。",
+        "Variational 明确提示上线不等于背书，产品对美国、加拿大及受限地区不可用。",
+        "Base 生态帖子还称上月有 2.59 亿美元加密卡消费在 Base 结算、未偿贷款约 21 亿美元。"
+      ],
+      "interpretations": [
+        "24/7 交易是产品优势，也会在传统市场休市时放大预言机和流动性风险。",
+        "生态方强调交易规模，社区传播则以成交截图反驳“没有流动性”，两者都不足以证明长尾资产可承载大额退出。"
+      ],
+      "authors": [
+        "xStocksFi",
+        "Morpho",
+        "variational_io",
+        "binancezh",
+        "base",
+        "XenBH"
+      ],
+      "sourceUrls": [
+        "https://x.com/xStocksFi/status/2125906506105123091",
+        "https://x.com/xStocksFi/status/2125875833080345043",
+        "https://x.com/variational_io/status/2126030975033606150",
+        "https://x.com/binancezh/status/2125904111078134104",
+        "https://x.com/base/status/2125932237803929646"
+      ],
+      "sourceCount": 5,
       "confidence": "high"
     },
     {
-      "title": "代币化股票扩展到抵押品与更多链上市场",
+      "title": "USDT 储备缓冲面临市场价格压力，但“17% 暴雷线”过度简化",
       "importance": "high",
-      "summary": "Base 宣布新增 27 只具备流动性的代币化股票，并称已有 200 多个团队参与相关产品竞赛；Frankencoin 社区接纳 SPCXx 作为铸造 ZCHF 的抵押品，Otomate 则称可在 Ink 上直接交换 1,500 多种 xStocks 资产。",
-      "whyItMatters": "代币化股票正在从单纯交易标的转变为借贷抵押品和多链金融组件，可组合性开始超过传统券商账户。",
+      "summary": "BlockBeats 根据 Tether 9 月底披露数据测算：储备资产约 1,914.51 亿美元、负债约 1,834.96 亿美元，缓冲约 79.55 亿美元；黄金和 BTC 合计约 274.52 亿美元。按 11 月 26 日价格重估，这两项资产较季末缩水约 49.13 亿美元，但 Tether 仍持续获得美债利息及经营利润。",
+      "whyItMatters": "黄金与 BTC 同跌会侵蚀会计缓冲，却不能仅凭单一价格跌幅推导即时挤兑风险；流动性、调仓、利润留存和赎回节奏同样关键。",
       "facts": [
-        "Base 的 27 只资产和团队数量来自官方账号。",
-        "SPCXx 抵押品与 Ink 资产数量来自项目方帖子，经 xStocks 转发。",
-        "Base 明确提示代币化股票仅面向美国以外的合资格地区。"
+        "黄金和 BTC 合计仅占披露储备约 14.3%，但名义价值约为季末缓冲的 3.45 倍。",
+        "Tether 披露前三季度净经营利润约 45 亿美元，第三季度约 15 亿美元。",
+        "压力测试假设持仓、其他资产和负债均不变，实际情况可能变化。"
       ],
       "interpretations": [
-        "资产数量增加并不等于流动性均匀，长尾资产的价差、赎回与法律权利仍需逐项检查。"
+        "“黄金再跌 17% 即暴雷”适合作为静态压力测试，不是倒计时。",
+        "即便某一时点储备市值低于负债，实际兑付还取决于可变现资产结构与赎回规模。"
       ],
       "authors": [
-        "base",
-        "frankencoinzchf",
-        "otomate_trade",
-        "xStocksFi"
+        "BlockBeatsAsia"
       ],
       "sourceUrls": [
-        "https://x.com/base/status/2125521661382529319",
-        "https://x.com/base/status/2125561210632351835",
-        "https://x.com/frankencoinzchf/status/2125652469631820041",
-        "https://x.com/otomate_trade/status/2125265214413357423"
+        "https://x.com/BlockBeatsAsia/status/2125884768575255003",
+        "https://x.com/BlockBeatsAsia/status/2125912449929150944"
       ],
-      "sourceCount": 4,
+      "sourceCount": 1,
       "confidence": "medium"
     },
     {
-      "title": "BTC 在 5.6 万美元附近防守，底部信号相互矛盾",
+      "title": "AI 资本开支扩张与上市估值压力同时上升",
       "importance": "high",
-      "summary": "市场账号称 BTC 继续防守 5.6 万美元；BlockBeats 指出主流永续资金费率仍大致中性，尚未出现典型的极端空头拥挤。另一篇转述 21Shares 研究称，全市场已实现价格约 5.32 万美元，历史折价模型对应的潜在底部约为 4.38 万美元。",
-      "whyItMatters": "价格已显著回撤，但衍生品情绪尚未完全投降，意味着底部既可能正在形成，也可能还缺少最后一轮去杠杆。",
+      "summary": "BlockBeats 称 Anthropic 上市后第 4 个交易日跌破 83 美元发行价，较首日盘中高点回落约 28%；市场同时关注其三季度收入、转亏及约 9000 亿美元算力与租赁承诺。另一端，贝索斯重返创业一线，Prometheus 累计融资被报道超过 180 亿美元，目标是面向实体制造的工程模型。",
+      "whyItMatters": "AI 的约束正从模型能力转向单位收入的算力成本、长期租赁承诺和真实行业生产率，资本市场会更严格地区分增长与可持续利润。",
       "facts": [
-        "资金费率观察来自 BlockBeats 对 Coinglass 数据的转述。",
-        "5.32 万美元成本线和 4.38 万美元情景来自 21Shares 研究转述。",
-        "BlockBeats 另称财富管理渠道仍通过 ETF 配置 BTC。"
+        "Anthropic 破发、财务数据和目标价均来自 BlockBeats 的市场转述。",
+        "Prometheus 的融资规模与方向来自 TechFlow 对专访的摘要。",
+        "Venice 的收入增长故事同时因隐私争议、关联钱包转币和大户解除质押遭遇信任冲击。"
       ],
       "interpretations": [
-        "中性资金费率可以表示韧性，也可以表示多头尚未完成出清。",
-        "历史均线和实现价格只提供情景区间，不能精确预测底部。"
+        "实体制造可能提供比聊天产品更大的长期市场，但数据获取和工程验证难度也更高。",
+        "AI 相关收入或协议回购不能自动消除治理、隐私和代币集中度风险。"
       ],
       "authors": [
         "BlockBeatsAsia",
-        "octopusycc",
-        "TechFlowPost"
-      ],
-      "sourceUrls": [
-        "https://x.com/BlockBeatsAsia/status/2125491760839405599",
-        "https://x.com/BlockBeatsAsia/status/2125417398719397943",
-        "https://x.com/BlockBeatsAsia/status/2125566419949539517",
-        "https://x.com/TechFlowPost/status/2125535829527535970"
-      ],
-      "sourceCount": 3,
-      "confidence": "medium"
-    },
-    {
-      "title": "AI 资产回撤重新聚焦投资回报与融资压力",
-      "importance": "high",
-      "summary": "BlockBeats 称英伟达较高点已下跌约 35%，黄仁勋复职带来的乐观情绪快速消退；FORAB 称软银单日下跌 13.14%，并把回撤与高杠杆 AI 投资、设备采购及项目终止担忧联系起来。Ray Dalio 的采访转述则警告，伟大技术未必是伟大投资。",
-      "whyItMatters": "AI 需求仍可增长，但利率、债务融资、客户资本开支回报和资产持有人杠杆决定了股票能否承受估值重置。",
-      "facts": [
-        "英伟达回撤和估值数据来自 BlockBeats 转述。",
-        "软银跌幅及相关项目争议来自 FORAB 转述。",
-        "Dalio 观点来自 TechFlow 的采访摘要。"
-      ],
-      "interpretations": [
-        "多头认为历史上 AI 板块曾在类似恐慌后恢复，空头则强调现金需求与去杠杆可能形成反向循环。"
-      ],
-      "authors": [
-        "BlockBeatsAsia",
-        "_FORAB",
         "TechFlowPost",
         "nbblock"
       ],
       "sourceUrls": [
-        "https://x.com/BlockBeatsAsia/status/2125602711135752398",
-        "https://x.com/_FORAB/status/2125401839478972693",
-        "https://x.com/TechFlowPost/status/2125540824771420381",
-        "https://x.com/nbblock/status/2125542771721425141"
+        "https://x.com/BlockBeatsAsia/status/2125844988680675748",
+        "https://x.com/TechFlowPost/status/2125938503003361724",
+        "https://x.com/BlockBeatsAsia/status/2125923775828971779",
+        "https://x.com/nbblock/status/2125844792433369341"
       ],
-      "sourceCount": 4,
+      "sourceCount": 3,
       "confidence": "medium"
     },
     {
-      "title": "美国机构被曝遭入侵，前沿模型安全担忧升温",
+      "title": "GPT-6.2 用量计费修正，提高实际额度消耗",
       "importance": "high",
-      "summary": "FORAB 转述称美国财政部 FinCEN、CIA 和国家情报总监办公室系统在同一天遭入侵；其另一帖援引 Axios 称 OpenAI 和 Anthropic 均拥有因安全担忧而未发布的强模型。",
-      "whyItMatters": "政府金融情报系统被攻破与高能力模型的滥用风险同时出现，会推动模型发布门槛、关键基础设施防护和网络安全监管升级。",
+      "summary": "OpenAI 产品负责人 Thibault Sottiaux 表示，GPT-6.2 发布时出现用量折扣错误，修复后，同样任务相较上周会让 Astra 用户快约 40%、Sol 用户快约 25% 达到用量上限；过去差额不会追收，并向 Go、Plus、Pro 和 Business 用户增加一次可储存重置。",
+      "whyItMatters": "这不是模型能力变化，但会直接改变高频用户的成本和工作流容量规划，应避免把发布首周的额度体验当作长期基准。",
       "facts": [
-        "FinCEN 遭入侵的引用上下文来自记者 Catherine Rampell 的帖子。",
-        "CIA、国家情报办公室和未发布模型细节均为 FORAB 的媒体转述，信息包没有机构公告全文。"
+        "受影响的是 GPT-6.2 Astra 与 Sol，其他模型未受影响。",
+        "官方账号随后确认 banked reset 已上线。"
       ],
       "interpretations": [
-        "攻击频率上升不能仅凭时间相关性归因于 AI。",
-        "未发布模型的能力与风险描述来自匿名知情人士，需谨慎对待。"
+        "用户感受到的‘模型变贵’来自额度核算修正，而非追溯收费。",
+        "在固定订阅下，复杂任务应重新评估 Astra 与 Sol 的分工。"
       ],
       "authors": [
-        "crampell",
+        "thsottiaux"
+      ],
+      "sourceUrls": [
+        "https://x.com/thsottiaux/status/2125784147889393806",
+        "https://x.com/thsottiaux/status/2125853628250599730"
+      ],
+      "sourceCount": 1,
+      "confidence": "high"
+    },
+    {
+      "title": "1Password 事件暴露开发账号与发布链风险",
+      "importance": "high",
+      "summary": "1Password 官方称，攻击者进入部分后台系统并取得一部分用户的姓名和邮箱等账户信息；客户保险库内容、密码、密钥及凭据没有被访问。FORAB 的转述进一步称事件与员工 GitHub 账号被盗、恶意代码进入后台和内部源代码外泄有关。",
+      "whyItMatters": "即使端到端加密保护了核心秘密，开发者身份、代码仓库和自动发布系统仍可成为供应链攻击入口，并被用于后续精准钓鱼。",
+      "facts": [
+        "保险库未受影响来自 1Password 官方引用帖。",
+        "后台访问和有限账户信息泄露由官方确认。",
+        "员工 GitHub 账号、源代码和发布系统细节来自二手转述，信息包未附完整调查报告。"
+      ],
+      "interpretations": [
+        "用户当前更实际的风险是针对姓名、邮箱和品牌信任的钓鱼攻击。",
+        "组织应把开发者账号、代码签名和发布权限视为与生产凭据同等级的安全边界。"
+      ],
+      "authors": [
+        "1Password",
         "_FORAB"
       ],
       "sourceUrls": [
-        "https://x.com/crampell/status/2125418241728114973",
-        "https://x.com/_FORAB/status/2125490172544630850",
-        "https://x.com/_FORAB/status/2125565453435322773"
+        "https://x.com/1Password/status/2125642686443258030",
+        "https://x.com/_FORAB/status/2125765631555588386"
       ],
       "sourceCount": 2,
-      "confidence": "low"
+      "confidence": "high"
     },
     {
-      "title": "ORIPA 首轮运行暴露高热度与基础设施压力",
+      "title": "SpaceX 轨道计算从愿景进入带期限的执行阶段",
       "importance": "medium",
-      "summary": "多名社区用户披露 ORIPA 白名单轮开包、融化、铸币和质押体验；部分用户称网站卡顿、质押失败或延迟，另有帖子根据卡池返还率和铸币曲线讨论实际成本。",
-      "whyItMatters": "ORIPA 把实体卡牌抽取、代币补贴与质押分红结合，首轮数据可用于检验其需求是否来自产品乐趣还是早期低成本代币激励。",
+      "summary": "FORAB 称 FCC 许可要求 SpaceX 在 2033 年 11 月 25 日前至少让一颗数据中心卫星投入运行，并在 2040 年底前完成获批规模的部署；设想中的卫星使用太阳能计算，并通过激光链路接入 Starlink。同期 SpaceX 宣布向数百万美国儿童承诺赠送一股公司股票，马斯克进一步强调多行星和太空能源的长期估值叙事。",
+      "whyItMatters": "明确期限将把注意力从百万颗卫星的宏大上限转向首颗可运行系统、发射成本、能源效率和数据回传能力。",
       "facts": [
-        "项目流程和收益数据均来自参与者自述，并非经审计结果。",
-        "社区分析称卡池按约 0.85 RTP 设计，并存在随累计亏损提高的铸币成本曲线。",
-        "用户普遍报告前端和质押承载能力不足。"
+        "部署期限和技术路径来自 FORAB 的转述，信息包没有 FCC 许可全文。",
+        "赠股承诺来自 SpaceX 官方引用帖；额外赠股与具体账户机制来自二手解读。",
+        "马斯克关于长期价值的表述是愿景和推演，不是财务预测。"
       ],
       "interpretations": [
-        "早期高年化可能来自低成本筹码与短期分红，不能外推到公开轮。",
-        "实体卡牌体验可能提高留存，但负期望抽卡也可能加速用户亏损。"
+        "2033 年首颗运行目标比 2040 年全部部署更适合作为近期验证节点。",
+        "向儿童分配股票同时具有资本普惠、品牌建设和政策叙事功能。"
       ],
       "authors": [
-        "0xYond",
-        "0xSleepinRain",
-        "0xStudy",
-        "Benjieming1Q84"
+        "SpaceX",
+        "elonmusk",
+        "_FORAB"
       ],
       "sourceUrls": [
-        "https://x.com/0xYond/status/2125587623049933249",
-        "https://x.com/0xSleepinRain/status/2125591572771446925",
-        "https://x.com/0xStudy/status/2125562599974789196",
-        "https://x.com/Benjieming1Q84/status/2125605543633191133"
+        "https://x.com/_FORAB/status/2125862467788275878",
+        "https://x.com/SpaceX/status/2125671356339499494",
+        "https://x.com/_FORAB/status/2125775875937546553",
+        "https://x.com/_FORAB/status/2125872180919783745"
       ],
-      "sourceCount": 4,
+      "sourceCount": 3,
       "confidence": "medium"
     },
     {
-      "title": "链上项目收入与估值错配受到关注",
+      "title": "加密卡牌从抽卡热潮转向流动性与分发竞争",
       "importance": "medium",
-      "summary": "BlockBeats 根据 DefiLlama 数据称，具备收入数据的项目中超过 72% 日收入不足 100 美元；其中 333 个零收入或低收入项目的可查流通市值合计约 175.92 亿美元。该账号随后更正了缺失收入数据项目的统计口径。",
-      "whyItMatters": "熊市环境下，市场会更重视真实收入、代币价值捕获和融资可持续性，低收入高估值项目面临重新定价。",
+      "summary": "社区长文认为 Crypto × TCG 在流动性收紧下将从“抽卡可盈利”转向补跌和负期望，Cards 与 Renaiss 的竞争将分别围绕卡池供给深度和 Binance Wallet 等分发入口展开。ORIPA 相关讨论则继续强调约 0.85 的卡池返还、手续费与质押分红对后续参与者的不利结构。",
+      "whyItMatters": "当卡牌升值不再覆盖抽卡损耗，项目能否转型为卡池流动性、交易和分发基础设施，将决定其是否跨越周期。",
       "facts": [
-        "统计按母项目去重后涉及 7,210 个项目，其中 1,929 个具备收入数据。",
-        "缺少收入数据不等于零收入；更正帖指出 BTC、ETH、SOL 被桥或基金会条目重复计入的口径问题。"
+        "周期判断和 Cards、Renaiss 对比来自社区作者分析。",
+        "ORIPA 的返还率、回购折价和质押收益来自参与者估算，未经审计。",
+        "部分用户明确表示样本拉长后，除非早期中奖并停止，否则最终大概率亏损。"
       ],
       "interpretations": [
-        "市值与日收入的简单比值不能替代完整估值，但能作为识别商业模式薄弱项目的初筛信号。"
+        "收藏需求、投机需求和社交身份需求可以共存，但它们对流动性周期的敏感度不同。",
+        "短期负期望不排除基础设施长期价值，但代币与产品价值需要分开判断。"
       ],
       "authors": [
-        "BlockBeatsAsia"
+        "0xSleepinRain",
+        "spark888",
+        "0xStudy"
       ],
       "sourceUrls": [
-        "https://x.com/BlockBeatsAsia/status/2125505124806328770",
-        "https://x.com/BlockBeatsAsia/status/2125525582620541371"
+        "https://x.com/0xSleepinRain/status/2125891945923047853",
+        "https://x.com/0xSleepinRain/status/2125893007644000369",
+        "https://x.com/spark888/status/2125800181258195178"
       ],
-      "sourceCount": 1,
+      "sourceCount": 3,
       "confidence": "medium"
     }
   ],
   "watchlist": [
     {
-      "signal": "PCE 与 301 关税的正式政策文件",
-      "reason": "核对具体税率、经济体、豁免和实施日期，判断通胀与利率影响。",
-      "authors": [
-        "_FORAB"
-      ],
-      "sourceUrls": [
-        "https://x.com/_FORAB/status/2125595459507175924"
-      ]
-    },
-    {
-      "signal": "Starmind 的部署许可、卫星规格与发射进度",
-      "reason": "区分 FCC 长期授权上限与 SpaceX 实际建设资本开支。",
-      "authors": [
-        "BrendanCarrFCC",
-        "BlockBeatsAsia"
-      ],
-      "sourceUrls": [
-        "https://x.com/BrendanCarrFCC/status/2125623026918002860",
-        "https://x.com/BlockBeatsAsia/status/2125726229148123165"
-      ]
-    },
-    {
-      "signal": "Coinbase Wallet 工资直存的地区覆盖和留存",
-      "reason": "观察工资入链能否形成持续 USDC 余额，而非一次性转入。",
-      "authors": [
-        "CoinbaseWallet"
-      ],
-      "sourceUrls": [
-        "https://x.com/CoinbaseWallet/status/2125605435097198999"
-      ]
-    },
-    {
-      "signal": "BTC 的 5.32 万美元成本线与资金费率",
-      "reason": "验证价格接近成本线时是否出现机构买入、负资金费率和真正去杠杆。",
-      "authors": [
-        "BlockBeatsAsia"
-      ],
-      "sourceUrls": [
-        "https://x.com/BlockBeatsAsia/status/2125417398719397943",
-        "https://x.com/BlockBeatsAsia/status/2125491760839405599"
-      ]
-    },
-    {
-      "signal": "黄仁勋 12 月听证会及英伟达合规风险",
-      "reason": "复职已无法单独支撑估值，出口限制和政府关系将成为下一催化剂。",
+      "signal": "BTC 是否跌破 58,525 美元并测试 5.32 万美元成本线",
+      "reason": "这是 Galaxy 深熊情景与全网平均持仓成本共同指向的验证区域。",
       "authors": [
         "BlockBeatsAsia",
         "TechFlowPost"
       ],
       "sourceUrls": [
-        "https://x.com/BlockBeatsAsia/status/2125602711135752398",
-        "https://x.com/TechFlowPost/status/2125429908977451303"
+        "https://x.com/BlockBeatsAsia/status/2125763759977492979",
+        "https://x.com/TechFlowPost/status/2125910796534444419"
       ]
     },
     {
-      "signal": "FinCEN 入侵的影响范围",
-      "reason": "确认是否涉及可疑交易报告、银行报送中断和数据泄露。",
+      "signal": "IBIT 与美国现货 ETF 的连续流出是否结束",
+      "reason": "机构资金回流是验证价格企稳的重要条件。",
       "authors": [
-        "crampell"
+        "BlockBeatsAsia"
       ],
       "sourceUrls": [
-        "https://x.com/crampell/status/2125418241728114973"
+        "https://x.com/BlockBeatsAsia/status/2125834164641611896"
       ]
     },
     {
-      "signal": "ORIPA 早鸟轮的系统承载和真实回本率",
-      "reason": "观察脱离白名单低成本筹码后，产品需求和质押分红是否持续。",
+      "signal": "加密财库公司的正式出售与抵押披露",
+      "reason": "确认链上转移是否为真实卖出，以及剩余资产距清算线多远。",
       "authors": [
-        "0xYond",
-        "0xSleepinRain"
+        "BlockBeatsAsia"
       ],
       "sourceUrls": [
-        "https://x.com/0xYond/status/2125587623049933249",
-        "https://x.com/0xSleepinRain/status/2125591572771446925"
+        "https://x.com/BlockBeatsAsia/status/2125798203702509955"
       ]
     },
     {
-      "signal": "Anthropic 人才流向与治理回应",
-      "reason": "一名员工宣布转投 OpenAI，Dario Amodei 公开否认向 AI 让渡人类自主权；关注是否形成更广泛的人才或声誉压力。",
+      "signal": "代币化股票杠杆产品的流动性和清算表现",
+      "reason": "观察传统市场休市期间的价差、预言机与隔离仓风险。",
       "authors": [
-        "trq212",
-        "DarioAmodei",
+        "xStocksFi",
+        "Morpho"
+      ],
+      "sourceUrls": [
+        "https://x.com/xStocksFi/status/2125875833080345043"
+      ]
+    },
+    {
+      "signal": "Tether 四季度利润、储备调仓与赎回数据",
+      "reason": "替代静态价格压力测试，判断实际储备缓冲变化。",
+      "authors": [
+        "BlockBeatsAsia"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2125884768575255003"
+      ]
+    },
+    {
+      "signal": "Anthropic 单位收入的算力成本与租赁承诺",
+      "reason": "决定高速收入增长能否转化为可持续利润。",
+      "authors": [
+        "BlockBeatsAsia"
+      ],
+      "sourceUrls": [
+        "https://x.com/BlockBeatsAsia/status/2125844988680675748"
+      ]
+    },
+    {
+      "signal": "1Password 调查报告与供应链修复",
+      "reason": "确认 GitHub 账号、源代码和自动发布系统受影响的确切范围。",
+      "authors": [
+        "1Password",
         "_FORAB"
       ],
       "sourceUrls": [
-        "https://x.com/trq212/status/2125675533761671405",
-        "https://x.com/DarioAmodei/status/2125656399392690605",
-        "https://x.com/_FORAB/status/2125752713564897552"
+        "https://x.com/1Password/status/2125642686443258030",
+        "https://x.com/_FORAB/status/2125765631555588386"
+      ]
+    },
+    {
+      "signal": "SpaceX 首颗轨道计算卫星的许可与工程里程碑",
+      "reason": "用可执行节点检验百万颗部署上限背后的真实进度。",
+      "authors": [
+        "_FORAB"
+      ],
+      "sourceUrls": [
+        "https://x.com/_FORAB/status/2125862467788275878"
       ]
     }
   ],
   "disagreements": [
     {
-      "topic": "BTC 是否接近阶段性底部",
+      "topic": "BTC 是熊市尾声还是仍处主跌段",
       "positions": [
-        "历史均线、实现价格和机构配置观点认为当前估值逐渐具备吸引力。",
-        "资金费率仍中性、趋势仍偏空，说明市场可能尚未完成最后的恐慌和去杠杆。"
+        "按时间长度，本轮熊市已接近或超过部分历史周期，集中割肉可能代表后期出清。",
+        "按回撤深度、均线、ETF 资金流和估值模型，市场仍未达到历史极端底部。"
       ],
       "sourceUrls": [
-        "https://x.com/TechFlowPost/status/2125535829527535970",
-        "https://x.com/BlockBeatsAsia/status/2125417398719397943",
-        "https://x.com/BlockBeatsAsia/status/2125491760839405599"
+        "https://x.com/TechFlowPost/status/2125986690292695498",
+        "https://x.com/BlockBeatsAsia/status/2125763759977492979",
+        "https://x.com/TechFlowPost/status/2125910796534444419"
       ]
     },
     {
-      "topic": "AI 回撤是周期性买点还是泡沫去杠杆开端",
+      "topic": "USDT 储备是否接近危险线",
       "positions": [
-        "多头用 2025 年 DeepSeek、数据中心订单和关税冲击后的恢复说明当前恐慌可能再次提供买点。",
-        "Dalio 与市场空头强调高利率、集中持仓和杠杆变现可能形成长期反向循环。"
+        "黄金与 BTC 同跌已显著侵蚀季末超额储备，继续下跌会缩小缓冲。",
+        "固定跌幅推导忽略美债利息、季度利润、调仓和赎回流动性，不能等同于暴雷倒计时。"
       ],
       "sourceUrls": [
-        "https://x.com/nbblock/status/2125542771721425141",
-        "https://x.com/TechFlowPost/status/2125540824771420381",
-        "https://x.com/BlockBeatsAsia/status/2125602711135752398"
+        "https://x.com/BlockBeatsAsia/status/2125884768575255003",
+        "https://x.com/BlockBeatsAsia/status/2125912449929150944"
       ]
     },
     {
-      "topic": "黄仁勋回归是否由政府推动",
+      "topic": "代币化股票是否已经具备可用流动性",
       "positions": [
-        "黄仁勋在全员会转述中否认因美国政府最高层施压而复职。",
-        "FORAB 转述特朗普采访称其亲自推动黄仁勋回归，并考虑进一步保护措施。"
+        "项目方以交易规模、借贷接入和最高 4 倍杠杆证明资产正在获得实际用途。",
+        "社交媒体成交展示不能证明长尾资产可承载机构规模，杠杆反而可能放大休市时段的流动性缺口。"
       ],
       "sourceUrls": [
-        "https://x.com/TechFlowPost/status/2125429908977451303",
-        "https://x.com/_FORAB/status/2125404744827261109"
+        "https://x.com/xStocksFi/status/2125951231420158238",
+        "https://x.com/xStocksFi/status/2125875833080345043",
+        "https://x.com/base/status/2125932237803929646"
       ]
     },
     {
-      "topic": "ORIPA 是有产品需求的卡牌经济还是负期望抽卡",
+      "topic": "AI 高投入是下一阶段扩张还是资本回报恶化",
       "positions": [
-        "参与者认为实体卡牌、开包乐趣和质押分红带来真实产品体验。",
-        "卡池约 0.85 RTP、系统卡顿和早期筹码优势意味着公开用户可能面临更差收益。"
+        "Prometheus 押注实体制造、推理算力市场扩张，说明 AI 正进入更大的真实产业。",
+        "Anthropic 破发、巨额租赁承诺和 Venice 信任危机显示收入增长未必转化为股东或代币持有人回报。"
       ],
       "sourceUrls": [
-        "https://x.com/0xYond/status/2125587623049933249",
-        "https://x.com/0xSleepinRain/status/2125591572771446925",
-        "https://x.com/0xStudy/status/2125562599974789196"
+        "https://x.com/TechFlowPost/status/2125938503003361724",
+        "https://x.com/BlockBeatsAsia/status/2125844988680675748",
+        "https://x.com/BlockBeatsAsia/status/2125923775828971779"
+      ]
+    },
+    {
+      "topic": "加密卡牌是可持续基础设施还是负期望抽卡",
+      "positions": [
+        "卡池流动性、交易分发和交易所入口可能沉淀为长期基础设施。",
+        "在流动性收紧和约 0.85 返还结构下，频繁抽卡对大多数用户仍是负期望。"
+      ],
+      "sourceUrls": [
+        "https://x.com/0xSleepinRain/status/2125891945923047853",
+        "https://x.com/spark888/status/2125800181258195178"
       ]
     }
   ],
   "noiseSummary": [
-    "交易所竞赛、直播和空投促销",
-    "英伟达私生活及预测市场八卦",
-    "单一价格点位和短线喊单",
-    "无正文的图片、链接和回复",
-    "私人生活记录与情绪表达",
-    "邀请码倒卖与抽奖活动",
-    "重复交易盈亏故事"
+    "交易所空投、积分和交易赛促销",
+    "无正文图片与低信息回复",
+    "短线点位喊单和个人盈亏故事",
+    "节日问候与生态口号",
+    "个人生活、健康和情绪记录",
+    "抽奖、周边与邀请码推广",
+    "缺乏上下文的合作预告"
   ]
 }
