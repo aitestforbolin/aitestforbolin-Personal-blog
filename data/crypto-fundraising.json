@@ -1,71 +1,71 @@
 {
-  "updated_at": "2026-11-26T01:02:35+00:00",
+  "updated_at": "2026-11-27T00:59:00+00:00",
   "source": "Crypto-Fundraising",
   "source_url": "https://crypto-fundraising.info/",
   "selection": "homepage_recent_fundraising_events",
   "projects": [
     {
-      "id": "crypto-fundraising-lemon",
+      "id": "crypto-fundraising-cournot",
       "source_rank": 1,
+      "name": "Cournot",
+      "round": null,
+      "announced_month": "2026-11",
+      "amount_usd": 5000000,
+      "detail_url": "https://crypto-fundraising.info/projects/cournot/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-lemon",
+      "source_rank": 2,
       "name": "Lemon",
       "round": null,
       "announced_month": "2026-11",
       "amount_usd": null,
       "detail_url": "https://crypto-fundraising.info/projects/lemon/",
+      "is_new": false
+    },
+    {
+      "id": "crypto-fundraising-sequent",
+      "source_rank": 3,
+      "name": "Sequent",
+      "round": "Pre-seed",
+      "announced_month": "2026-11",
+      "amount_usd": 2200000,
+      "detail_url": "https://crypto-fundraising.info/projects/sequent/",
+      "is_new": true
+    },
+    {
+      "id": "crypto-fundraising-ulys",
+      "source_rank": 4,
+      "name": "Ulys",
+      "round": null,
+      "announced_month": "2026-11",
+      "amount_usd": 4000000,
+      "detail_url": "https://crypto-fundraising.info/projects/ulys/",
       "is_new": true
     },
     {
       "id": "crypto-fundraising-rialto",
-      "source_rank": 2,
+      "source_rank": 5,
       "name": "Rialto",
       "round": "Seed",
       "announced_month": "2026-11",
       "amount_usd": 5000000,
       "detail_url": "https://crypto-fundraising.info/projects/rialto/",
       "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-kairo",
-      "source_rank": 3,
-      "name": "Kairo",
-      "round": "M&A",
-      "announced_month": "2026-11",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/kairo/",
-      "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-lulo",
-      "source_rank": 4,
-      "name": "Lulo",
-      "round": "M&A",
-      "announced_month": "2026-11",
-      "amount_usd": null,
-      "detail_url": "https://crypto-fundraising.info/projects/lulo/",
-      "is_new": false
-    },
-    {
-      "id": "crypto-fundraising-supertake",
-      "source_rank": 5,
-      "name": "Supertake",
-      "round": "Seed",
-      "announced_month": "2026-11",
-      "amount_usd": 20000000,
-      "detail_url": "https://crypto-fundraising.info/projects/supertake/",
-      "is_new": false
     }
   ],
   "executionLineage": {
     "schemaVersion": 2,
-    "runId": "web3-daily-triage:codex-web3-20261126-010225Z-d5jw7t",
-    "requestId": "codex-web3-20261126-010225Z-d5jw7t",
-    "triggerSha": "43a1b4eab29fb3fb29174c040b199fc7136e3c46",
-    "githubRunId": 45732975670,
-    "scheduledAt": "2026-11-26T09:00:00+08:00",
-    "startedAt": "2026-11-26T01:02:34.600769+00:00",
-    "sourceCheckedAt": "2026-11-26T01:02:35.909612+00:00",
-    "sourceUpdatedAt": "2026-11-26T01:02:35+00:00",
-    "completedAt": "2026-11-26T01:02:35.909925+00:00",
+    "runId": "web3-daily-triage:codex-web3-20261127-005801Z-oli85y",
+    "requestId": "codex-web3-20261127-005801Z-oli85y",
+    "triggerSha": "415cbfbfc2c70eb2006838f4762fc1e5bbe279ac",
+    "githubRunId": 45919885894,
+    "scheduledAt": "2026-11-27T09:00:00+08:00",
+    "startedAt": "2026-11-27T00:58:58.601120+00:00",
+    "sourceCheckedAt": "2026-11-27T00:59:00.552360+00:00",
+    "sourceUpdatedAt": "2026-11-27T00:59:00+00:00",
+    "completedAt": "2026-11-27T00:59:00.552744+00:00",
     "publishedAt": null
   }
 }
