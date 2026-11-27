@@ -3,7 +3,7 @@
   "automation": "web3-daily-triage",
   "runId": "web3-daily-triage:codex-web3-20261127-005801Z-oli85y",
   "requestId": "codex-web3-20261127-005801Z-oli85y",
-  "result": "in_progress",
+  "result": "success",
   "lineage": {
     "triggerType": "push",
     "triggerSha": "415cbfbfc2c70eb2006838f4762fc1e5bbe279ac",
@@ -40,7 +40,13 @@
       "commitSha": "7125a8b4995c6056fa7bb770dba7290976cb214c"
     },
     "notification": {
-      "status": "not_run"
+      "status": "success",
+      "completedAt": "2026-11-27T09:04:43.971+08:00",
+      "details": {
+        "provider": "Gmail",
+        "messageId": "1a21a8845964b036",
+        "recipient": "laibocszd@gmail.com"
+      }
     }
   }
 }
