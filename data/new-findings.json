@@ -1,3 +1,111 @@
 {
-  "editions": []
+  "editions": [
+    {
+      "id": "2026-11-27-01",
+      "date": "2026-11-27",
+      "items": [
+        {
+          "id": "unpaywall-open-paper-copy",
+          "category": "服务与工具",
+          "title": "论文遇到付费墙，可以先找公开副本",
+          "summary": "Unpaywall 会用论文 DOI 查找可免费阅读的版本，例如作者存入大学资料库的稿件。",
+          "evidence": "官方确认",
+          "details": [
+            "在浏览器打开论文页面。如果扩展找到公开副本，页面侧边会出现绿色标记。点击后到提供副本的期刊或资料库阅读。",
+            "下载前看一下版本。如果要引用页码或核对修订，留意找到的是预印本、作者修改后的稿件，还是出版社的正式版本。"
+          ],
+          "sources": [
+            {
+              "title": "OpenAlex 帮助中心：Unpaywall 扩展及开放版本",
+              "url": "https://help.openalex.org/access/unpaywall/"
+            },
+            {
+              "title": "OpenAlex：开放获取副本与版本",
+              "url": "https://help.openalex.org/data/works/open-access/"
+            }
+          ]
+        },
+        {
+          "id": "duckdb-browser-query-parquet",
+          "category": "服务与工具",
+          "title": "不用装数据库，也能在浏览器里查 Parquet",
+          "summary": "用 DuckDB 在线工作台打开数据文件，就能用 SQL 看列名、筛选记录或导出结果。",
+          "evidence": "官方确认",
+          "details": [
+            "先打开官方在线工作台，用内置数据练习。要检查自己的文件，可以拖进工作台，再用项目文档里的 Parquet 查询示例把结果限制在几行。",
+            "整个工作台以 WebAssembly 在浏览器中运行。预览大文件时，先选必要的列和行，再扩大查询。"
+          ],
+          "sources": [
+            {
+              "title": "DuckDB：在线工作台及内置数据",
+              "url": "https://duckdb.org/2026/04/13/announcing-duckdb-152"
+            },
+            {
+              "title": "DuckDB：Parquet 查询示例",
+              "url": "https://duckdb.org/docs/current/data/parquet/overview"
+            }
+          ]
+        },
+        {
+          "id": "firefox-on-device-translation",
+          "category": "服务与工具",
+          "title": "Firefox 可以在本机翻译网页",
+          "summary": "下载相应的语言文件后，支持的网页文字可以在设备上翻译，翻译文本不必送到云端。",
+          "evidence": "官方确认",
+          "details": [
+            "打开一篇外文网页，在翻译面板选择源语言和目标语言。首次使用要下载语言文件；之后，已经载入的内容可以离线翻译。",
+            "主要处理网页文字。图片和视频中的文字需要其他方法。"
+          ],
+          "sources": [
+            {
+              "title": "Mozilla：Firefox 网页翻译与语言设置",
+              "url": "https://support.mozilla.org/zh-CN/kb/website-translation"
+            }
+          ]
+        },
+        {
+          "id": "software-heritage-cite-public-code",
+          "category": "新基础设施",
+          "title": "引用开源代码时，可以固定到存档中的具体版本",
+          "summary": "Software Heritage 给公开源代码和版本历史留下可在论文、文档或复现说明中引用的标识。",
+          "evidence": "官方确认",
+          "details": [
+            "先按公开仓库网址查有没有存档。需要收录时，可用项目的 Save Code Now 提交公开仓库地址。完成后，从存档页面的永久链接取出 SWHID。",
+            "要让读者找到你实际用的版本，可以引用对应的修订或目录标识。归档内容会公开，提交前检查仓库和历史记录。"
+          ],
+          "sources": [
+            {
+              "title": "Software Heritage：怎样归档和引用代码",
+              "url": "https://www.softwareheritage.org/how-to-archive-reference-code/"
+            },
+            {
+              "title": "Software Heritage：提交归档与获取 SWHID",
+              "url": "https://github.com/SoftwareHeritage/swhapguide/blob/master/SwhapGuide-GitHub-CLI.md"
+            }
+          ]
+        },
+        {
+          "id": "loc-by-the-people-transcribe-one-page",
+          "category": "机会",
+          "title": "可以从一页手稿开始，给图书馆做线上志愿工作",
+          "summary": "美国国会图书馆的 By the People 项目开放历史手稿转录，按自己的时间参加。",
+          "evidence": "官方确认",
+          "details": [
+            "从馆方的活动列表选一个感兴趣的主题，再挑一页手稿转录。转录可直接开始，注册后也能复核其他人的转录。",
+            "这是自愿参与的馆藏整理项目，适合想花零碎时间练习阅读原始资料的人。"
+          ],
+          "sources": [
+            {
+              "title": "美国国会图书馆：By the People 项目说明",
+              "url": "https://ask.loc.gov/crowd/faq/401448"
+            },
+            {
+              "title": "美国国会图书馆：可参与的材料和活动",
+              "url": "https://ask.loc.gov/crowd/faq/414615"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
