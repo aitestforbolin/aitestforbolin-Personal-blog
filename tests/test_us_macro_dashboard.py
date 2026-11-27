@@ -5,6 +5,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "update_us_macro_dashboard.py"
@@ -51,6 +52,30 @@ class USMacroDashboardTests(unittest.TestCase):
     @staticmethod
     def cards(payload):
         return {card["id"]: card for group in payload["groups"] for card in group["cards"]}
+
+    def test_headline_pce_uses_official_release_and_keeps_last_value_on_failure(self):
+        path = "/news/2026/personal-income-and-outlays-october-2026"
+        product = f'<a href="{path}">Current Release</a>'
+        release = """
+            <p>EMBARGOED UNTIL RELEASE AT 8:30 a.m. EST, Wednesday, November 25, 2026</p>
+            <h1>Personal Income and Outlays, October 2026</h1>
+            <p>From the preceding month, the <b>PCE price index</b> for October
+               decreased 0.2 percent. Excluding food and energy, it increased 0.1 percent.</p>
+            <p>From the same month one year ago, the PCE price index for October
+               increased 3.8 percent.</p>
+        """
+        dashboard = updater.make_dashboard()
+        with patch.object(updater, "fetch_bea_page", side_effect=[product, release] * 2):
+            self.assertTrue(updater.refresh_headline_pce(dashboard, "2026-11-27"))
+            self.assertFalse(updater.refresh_headline_pce(dashboard, "2026-11-27"))
+        value = dashboard["headlinePce"]
+        self.assertEqual(value["period"], "2026年10月")
+        self.assertEqual(value["releaseDate"], "2026-11-25")
+        self.assertEqual(value["sourceUrl"], updater.BEA_ORIGIN + path)
+        self.assertEqual(value["rows"], [{"label": "MoM", "actual": "-0.2%"}, {"label": "YoY", "actual": "3.8%"}])
+        with patch.object(updater, "fetch_bea_page", side_effect=OSError("unavailable")):
+            self.assertFalse(updater.refresh_headline_pce(dashboard, "2026-11-27"))
+        self.assertEqual(dashboard["headlinePce"], value)
 
     def test_layout_contains_only_forex_factory_supported_rows(self):
         payload = updater.make_dashboard()

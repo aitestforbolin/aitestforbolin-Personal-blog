@@ -15,10 +15,8 @@
       title: "通胀",
       metrics: [
         { id: "cpi", row: "MoM", label: "CPI", basis: "环比" },
-        { id: "core-cpi", row: "MoM", label: "核心 CPI", basis: "环比" },
         { id: "ppi", row: "MoM", label: "PPI", basis: "环比" },
-        { id: "core-ppi", row: "MoM", label: "核心 PPI", basis: "环比" },
-        { id: "core-pce", row: "MoM", label: "核心 PCE", basis: "环比" },
+        { id: "headline-pce", row: "MoM", label: "PCE", basis: "环比" },
       ],
     },
     {
@@ -188,6 +186,14 @@
   function renderHome(data) {
     const cards = new Map(data.groups.flatMap((group) => group.cards || []).map((card) => [card.id, card]));
     const states = new Map(data.summary.map((item) => [item.id, item]));
+    if (data.headlinePce) cards.set("headline-pce", data.headlinePce);
+    const pceYoY = numericValue(data.headlinePce?.rows?.find((row) => row.label === "YoY")?.actual);
+    states.delete("inflation");
+    if (pceYoY !== null) {
+      states.set("inflation", pceYoY > 2
+        ? { state: "压力偏高", tone: "weakening" }
+        : { state: "接近目标", tone: "cooling" });
+    }
     homeRoot.querySelector("[data-us-macro-home-grid]").innerHTML = HOME_GROUPS.map((group) => {
       const state = states.get(group.id);
       const badge = state?.state && state.state !== "待更新"

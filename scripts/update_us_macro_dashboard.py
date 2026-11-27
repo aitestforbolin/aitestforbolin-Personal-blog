@@ -6,9 +6,12 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 from copy import deepcopy
 from datetime import datetime
+from html import unescape
 from pathlib import Path
+from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -70,6 +73,80 @@ LAYOUT = [
         ("industrial-production", "Industrial Production", ["Industrial Production m/m"]),
     ]),
 ]
+
+
+BEA_ORIGIN = "https://www.bea.gov"
+BEA_PCE_URL = f"{BEA_ORIGIN}/data/personal-consumption-expenditures-price-index"
+
+
+def fetch_bea_page(url: str) -> str:
+    request = Request(url, headers={"User-Agent": "personal-site-macro/2.0 (+https://github.com/)"})
+    with urlopen(request, timeout=12) as response:
+        return response.read().decode("utf-8")
+
+
+def parse_headline_pce(release_html: str, source_url: str) -> dict:
+    text = " ".join(unescape(re.sub(r"<[^>]+>", " ", release_html)).split())
+    period = re.search(r"Personal Income and Outlays,\s+([A-Za-z]+ \d{4})", text, re.I)
+    release = re.search(r"EMBARGOED UNTIL RELEASE AT [^,]+,\s+\w+,\s+([A-Za-z]+ \d{1,2}, \d{4})", text, re.I)
+    if not period or not release:
+        raise ValueError("BEA PCE release date or statistical period is missing")
+
+    def rate(window: str) -> str:
+        match = re.search(
+            rf"From the {window},\s+the PCE price index for [A-Za-z]+\s+"
+            r"(?:(increased|decreased|rose|fell)\s+(\d+(?:\.\d+)?)\s+percent"
+            r"|(?:was unchanged|was flat|remained unchanged|remained flat)\b)",
+            text, re.I,
+        )
+        if not match:
+            raise ValueError(f"BEA headline PCE change from the {window} is missing")
+        direction, value = match.groups()
+        if value is None:
+            return "0.0%"
+        sign = "-" if direction.lower() in {"decreased", "fell"} else ""
+        return f"{sign}{value}%"
+
+    month = datetime.strptime(period[1], "%B %Y")
+    release_date = datetime.strptime(release[1], "%B %d, %Y").date().isoformat()
+    return {
+        "id": "headline-pce",
+        "period": f"{month.year}年{month.month}月",
+        "releaseDate": release_date,
+        "source": "BEA",
+        "sourceUrl": source_url,
+        "rows": [
+            {"label": "MoM", "actual": rate("preceding month")},
+            {"label": "YoY", "actual": rate("same month one year ago")},
+        ],
+    }
+
+
+def refresh_headline_pce(dashboard: dict, fetched_at: str) -> bool:
+    try:
+        product = fetch_bea_page(BEA_PCE_URL)
+        link = re.search(
+            r"""href=["'](?:https://www\.bea\.gov)?(/news/\d{4}/personal-income-and-outlays-[a-z-]+-\d{4})/?["']""",
+            product,
+        )
+        if not link:
+            raise ValueError("BEA headline PCE release link is missing")
+        source_url = BEA_ORIGIN + link[1]
+        observation = parse_headline_pce(fetch_bea_page(source_url), source_url)
+        if observation["releaseDate"] > fetched_at[:10]:
+            raise ValueError("BEA headline PCE release date is in the future")
+    except (OSError, ValueError) as error:
+        print(f"warning: BEA headline PCE refresh unavailable; keeping saved value: {error}")
+        return False
+
+    previous = dashboard.get("headlinePce") or {}
+    if observation["releaseDate"] < (previous.get("releaseDate") or ""):
+        return False
+    print(f"verified BEA headline PCE for {observation['period']}")
+    if observation == previous:
+        return False
+    dashboard["headlinePce"] = observation
+    return True
 
 
 def load_json(path: Path, default=None):
@@ -259,6 +336,7 @@ def main() -> int:
     parser.add_argument("--dashboard", type=Path, default=DEFAULT_DASHBOARD)
     parser.add_argument("--history", type=Path, default=DEFAULT_HISTORY)
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--refresh-pce", action="store_true", help="refresh headline PCE from BEA")
     args = parser.parse_args()
     calendar = load_json(args.calendar)
     if not isinstance(calendar, list):
@@ -267,14 +345,16 @@ def main() -> int:
     history = load_json(args.history, {"schemaVersion": "1.0", "observations": []})
     fetched_at = datetime.now(ZoneInfo("Asia/Shanghai")).replace(microsecond=0).isoformat()
     updates = sum(apply_released_event(dashboard, history, event, fetched_at) for event in sorted(calendar, key=lambda item: item.get("date", "")) if isinstance(event, dict))
+    pce_changed = args.refresh_pce and refresh_headline_pce(dashboard, fetched_at)
     before_derived_state = derived_state(dashboard)
     refresh_trends(dashboard, history)
     refresh_summary(dashboard)
     derived_changed = derived_state(dashboard) != before_derived_state
-    if not updates and not migrated and not derived_changed:
+    if not (updates or migrated or derived_changed or pce_changed):
         print("no new released Forex Factory macro values; dashboard unchanged")
         return 0
-    dates = [card.get("releaseDate") for card in card_lookup(dashboard).values() if card.get("releaseDate")]
+    cards = [*card_lookup(dashboard).values(), dashboard.get("headlinePce") or {}]
+    dates = [card["releaseDate"] for card in cards if card.get("releaseDate")]
     dashboard["generatedAt"], dashboard["asOf"] = fetched_at, max(dates) if dates else None
     dashboard["dataQuality"]["fetchedAt"] = fetched_at
     if args.dry_run:
