@@ -1,3 +1,119 @@
 {
-  "editions": []
+  "editions": [
+    {
+      "id": "2026-11-27-02",
+      "date": "2026-11-27",
+      "items": [
+        {
+          "id": "gemini-app-tasks-public-research",
+          "category": "Q1｜AI 工具",
+          "title": "原来可以直接在 Gemini 应用里安排定时查资料",
+          "summary": "在支持的地区和账号中，Gemini 的「任务」可按时间运行。定时收集公开资料，可以先用应用内功能试跑。",
+          "evidence": "官方确认",
+          "details": [
+            "合资格的 Google AI Pro 或 Ultra 账号可以安排指定时间、Gmail 条件或主题触发。账户设置里需要开启活动记录。功能是否可用，以应用里是否出现「任务」入口为准。",
+            "第一步可交给它一个具体任务，例如每周在固定时间查看三家机构的公开公告，返回发布日期、变化和原文链接。拿结果对照人工搜集，核对漏项与重复。"
+          ],
+          "sources": [
+            {
+              "title": "Google：创建和管理 Gemini 任务排程",
+              "url": "https://support.google.com/gemini/answer/17094710?hl=zh-Hans"
+            },
+            {
+              "title": "Google：在 Gemini 应用中管理任务和工作流",
+              "url": "https://support.google.com/gemini/answer/17094507?hl=zh-Hans"
+            }
+          ]
+        },
+        {
+          "id": "mac-mirror-selected-nearby-iphone",
+          "category": "Q3｜Apple 设备",
+          "title": "有两台 iPhone，Mac 可以选一台来镜像",
+          "summary": "兼容设备登录同一 Apple 账号并在附近时，Mac 可以切换镜像对象，从电脑查看选中手机的 App 和通知。",
+          "evidence": "官方确认",
+          "details": [
+            "需要支持 iPhone 镜像的 Mac 和至少 macOS Sequoia 15，iPhone 至少 iOS 18。两台设备使用同一 Apple 账号和双重认证，开启 Wi‑Fi、蓝牙，手机保持锁定并位于附近。",
+            "打开 Mac 上的 iPhone 镜像应用，按 Apple 的版本对应说明切换。Mac 检测到多台可用 iPhone 时才会出现选择。"
+          ],
+          "sources": [
+            {
+              "title": "Apple：iPhone 镜像条件和切换设备",
+              "url": "https://support.apple.com/en-au/120421"
+            },
+            {
+              "title": "Apple 用户指南：在 Mac 控制 iPhone",
+              "url": "https://support.apple.com/en-gb/guide/mac-help/mchl444d53a6/26/mac/26"
+            }
+          ]
+        },
+        {
+          "id": "github-actions-dispatch-run-receipt",
+          "category": "Q7｜定时工作流",
+          "title": "触发 GitHub Actions 时，可以直接拿到本次运行链接",
+          "summary": "调用 workflow_dispatch 时请求运行详情，触发端就能把回执直接连到本次运行。",
+          "evidence": "官方确认",
+          "details": [
+            "对于支持该参数的调用，使用 return_run_details 获取 workflow_run_id 和网页链接。记录 ID 后，可以沿着这一条运行看执行和发布状态。",
+            "先在非发布工作流试一次，校对回执链接与实际运行。收到运行 ID 表示已建立本次运行，最终结果仍看后续状态。"
+          ],
+          "sources": [
+            {
+              "title": "GitHub：触发工作流时返回运行 ID",
+              "url": "https://github.blog/changelog/2026-02-19-workflow-dispatch-api-now-returns-run-ids/"
+            },
+            {
+              "title": "GitHub REST API：工作流接口",
+              "url": "https://docs.github.com/en/rest/actions/workflows?apiVersion=2022-11-28"
+            }
+          ]
+        },
+        {
+          "id": "google-drive-encrypted-dated-backups",
+          "category": "Q8｜现有资源用法",
+          "title": "用已有的 Google Drive 做一份加密备份",
+          "summary": "用 rclone 的本地加密层，把带日期的副本单向复制到 Google Drive，方便单独恢复某一版。",
+          "evidence": "官方确认",
+          "details": [
+            "从一个测试文件夹开始，先建带日期的副本，再通过 rclone crypt 包装 Drive 目标，用 copy 上传。copy 不会因为本地删除文件而删除云端副本，使用带日期的文件名还能避免同名覆盖。",
+            "验收时下载并解密一份样本，确认内容能恢复。把恢复所需的加密设置和口令放在另一处。"
+          ],
+          "sources": [
+            {
+              "title": "rclone：本地加密与恢复条件",
+              "url": "https://rclone.org/crypt/"
+            },
+            {
+              "title": "rclone：copy 的复制与删除行为",
+              "url": "https://rclone.org/commands/rclone_copy/"
+            },
+            {
+              "title": "rclone：连接 Google Drive",
+              "url": "https://rclone.org/drive/"
+            }
+          ]
+        },
+        {
+          "id": "buzz-nvidia-local-transcription",
+          "category": "Q6｜闲置设备",
+          "title": "旧显卡可以试跑本地录音转写",
+          "summary": "开源桌面工具 Buzz 支持离线转写。其文档建议，有 6 GB 或以上显存的 NVIDIA 显卡可以试 Faster Whisper。",
+          "evidence": "官方确认",
+          "details": [
+            "安装官方发行版并准备模型后，用一段十分钟的录音在本机试转写。Windows 可参考 Buzz 的 CUDA 加速说明。",
+            "比较实际耗时和专有名词错误率。需要保留句子时间戳时，可以输出字幕文件。硬件、录音语言和模型选择都会影响结果。"
+          ],
+          "sources": [
+            {
+              "title": "Buzz：离线转写与输出格式",
+              "url": "https://chidiwilliams.github.io/buzz/docs"
+            },
+            {
+              "title": "Buzz：显存、模型选择与 CUDA 加速",
+              "url": "https://chidiwilliams.github.io/buzz/docs/faq"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
