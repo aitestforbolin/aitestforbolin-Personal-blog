@@ -9,7 +9,7 @@
       content="用15项核心指标记录美国通胀、就业、消费与经济活动的当前状态。"
     />
     <link rel="stylesheet" href="../styles.css?v=20260819-us-macro-1" />
-    <link rel="stylesheet" href="us-macro.css?v=20260819-3" />
+    <link rel="stylesheet" href="us-macro.css?v=20261127-detail" />
   </head>
   <body>
     <header class="site-header">
@@ -35,7 +35,7 @@
           <p class="eyebrow">US Macro Core Dashboard</p>
           <h1>美国宏观核心数据</h1>
           <p class="us-macro-intro">
-            这里不追求实时，而是长期保留每项指标的最新一期。每次打开，先看四个状态，再查看具体数据。
+            查看各项指标的最新公布值、市场预期、前值和趋势。
           </p>
         </div>
         <div class="us-macro-asof">
@@ -44,18 +44,9 @@
         </div>
       </header>
 
-      <section class="us-macro-summary-panel" aria-labelledby="macro-state-title">
-        <div class="us-macro-section-head">
-          <span>00</span>
-          <div>
-            <p class="eyebrow">Current State</p>
-            <h2 id="macro-state-title">现在的美国经济</h2>
-          </div>
-        </div>
-        <div class="us-macro-summary-grid" data-us-macro-summary aria-live="polite"></div>
-      </section>
-
-      <div data-us-macro-groups></div>
+      <div data-us-macro-groups>
+        <p role="status">正在载入指标明细…</p>
+      </div>
 
       <footer class="us-macro-method">
         <strong>阅读方法</strong>
@@ -69,6 +60,6 @@
     <footer class="site-footer">
       <p>© 2026 Bolin Brief · Independent notes from Asia / Shanghai.</p>
     </footer>
-    <script src="us-macro.js?v=20260917-ff-1"></script>
+    <script src="us-macro.js?v=20261127-detail"></script>
   </body>
 </html>

@@ -79,16 +79,6 @@
     return "is-flat";
   }
 
-  function summaryCard(item) {
-    return `
-      <article class="us-macro-state" data-tone="${escapeHtml(item.tone)}">
-        <span class="us-macro-state-label">${escapeHtml(item.label)}</span>
-        <strong>${escapeHtml(item.state)}</strong>
-        <p>${escapeHtml(item.detail)}</p>
-      </article>
-    `;
-  }
-
   function metricCard(card) {
     const rows = (card.rows || []).map((row) => `
       <div class="us-macro-row">
@@ -125,8 +115,6 @@
 
   function renderPage(data) {
     pageRoot.querySelector("[data-us-macro-updated]").textContent = formatDate(data.asOf);
-    pageRoot.querySelector("[data-us-macro-summary]").innerHTML =
-      (data.summary || []).map(summaryCard).join("");
     pageRoot.querySelector("[data-us-macro-groups]").innerHTML =
       (data.groups || []).map((group) => `
         <section class="us-macro-group" id="group-${escapeHtml(group.id)}">
@@ -220,15 +208,18 @@
       return response.json();
     })
     .then((data) => {
-      if (!Array.isArray(data.summary) || !Array.isArray(data.groups)) {
+      if (!Array.isArray(data.groups) || (homeRoot && !Array.isArray(data.summary))) {
         throw new Error("invalid macro dashboard payload");
       }
       if (pageRoot) renderPage(data);
       if (homeRoot) renderHome(data);
     })
     .catch(() => {
-      const message = "<p>宏观看板暂时无法载入，请稍后刷新。</p>";
-      if (pageRoot) pageRoot.querySelector("[data-us-macro-summary]").innerHTML = message;
+      if (pageRoot) {
+        pageRoot.querySelector("[data-us-macro-updated]").textContent = "—";
+        pageRoot.querySelector("[data-us-macro-groups]").innerHTML =
+          '<p role="status">宏观数据暂时无法载入，请稍后刷新。</p>';
+      }
       if (homeRoot) {
         homeRoot.querySelector("[data-us-macro-home-grid]").innerHTML =
           '<p class="us-macro-home-status" role="status">宏观数据暂时无法载入，请稍后刷新。</p>';

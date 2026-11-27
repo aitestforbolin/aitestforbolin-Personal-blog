@@ -1,7 +1,6 @@
 :root {
   --macro-cooling: #315f52;
   --macro-weakening: #8a4f3d;
-  --macro-expanding: #45617a;
   --macro-card: rgba(255, 253, 248, 0.78);
 }
 
@@ -53,7 +52,6 @@
   text-transform: uppercase;
 }
 
-.us-macro-summary-panel,
 .us-macro-group {
   padding: 58px 0;
   border-bottom: 1px solid var(--line);
@@ -84,47 +82,6 @@
   color: var(--muted);
   line-height: 1.65;
 }
-
-.us-macro-summary-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-  margin-left: 70px;
-}
-
-.us-macro-state {
-  min-height: 164px;
-  padding: 20px;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: var(--macro-card);
-}
-
-.us-macro-state-label {
-  display: block;
-  margin-bottom: 20px;
-  color: var(--muted);
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-}
-
-.us-macro-state strong {
-  display: block;
-  margin-bottom: 12px;
-  font-size: 1.05rem;
-  line-height: 1.4;
-}
-
-.us-macro-state p {
-  color: var(--muted);
-  font-size: 0.84rem;
-  line-height: 1.55;
-}
-
-.us-macro-state[data-tone="cooling"] strong { color: var(--macro-cooling); }
-.us-macro-state[data-tone="weakening"] strong { color: var(--macro-weakening); }
-.us-macro-state[data-tone="expanding"] strong { color: var(--macro-expanding); }
 
 .us-macro-card-grid {
   display: grid;
@@ -420,10 +377,6 @@
 }
 
 @media (max-width: 920px) {
-  .us-macro-summary-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .us-macro-card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -450,14 +403,9 @@
     gap: 10px;
   }
 
-  .us-macro-summary-grid,
   .us-macro-card-grid {
     grid-template-columns: 1fr;
     margin-left: 0;
-  }
-
-  .us-macro-state {
-    min-height: 0;
   }
 
   .us-macro-card {
