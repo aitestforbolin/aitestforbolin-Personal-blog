@@ -1,48 +1,44 @@
 {
   "schemaVersion": 2,
   "automation": "x-intelligence",
-  "runId": "x-intelligence:codex-x-20261126-xo31nro2-yzu73tcn",
-  "requestId": "codex-x-20261126-xo31nro2-yzu73tcn",
-  "result": "success",
+  "runId": "x-intelligence:codex-x-20261127-oqiqtfv9-qta1rcin",
+  "requestId": "codex-x-20261127-oqiqtfv9-qta1rcin",
+  "result": "in_progress",
   "lineage": {
     "triggerType": "push",
-    "triggerSha": "a8c2a94b42fab48b148357470fb0a96652730aa3",
-    "githubRunId": 45732869949,
+    "triggerSha": "62d93e268ecf871d32dc0f085ef21ae916f6e7c8",
+    "githubRunId": 45919878990,
     "githubRunAttempt": 1
   },
   "timestamps": {
-    "scheduledAt": "2026-11-26T01:00:00Z",
-    "startedAt": "2026-11-26T01:01:42.459585+00:00",
-    "sourceCheckedAt": "2026-11-26T01:01:52.229163+00:00",
-    "sourceUpdatedAt": "2026-11-26T00:57:05+00:00",
-    "completedAt": "2026-11-26T01:01:52.229214+00:00",
-    "publishedAt": "2026-11-26T09:04:13.228+08:00"
+    "scheduledAt": "2026-11-27T01:00:00Z",
+    "startedAt": "2026-11-27T00:58:56.481879+00:00",
+    "sourceCheckedAt": "2026-11-27T00:59:05.499192+00:00",
+    "sourceUpdatedAt": "2026-11-27T00:23:55+00:00",
+    "completedAt": "2026-11-27T00:59:05.499239+00:00",
+    "publishedAt": null
   },
   "legacyRequestedAt": null,
   "stages": {
     "collection": {
       "status": "success",
-      "completedAt": "2026-11-26T01:01:52.229214+00:00",
+      "completedAt": "2026-11-27T00:59:05.499239+00:00",
       "details": {
         "listsRequested": 4,
         "listsCompleted": 4,
-        "postCount": 120,
-        "estimatedCostUsd": 0.0676
+        "postCount": 107,
+        "estimatedCostUsd": 0.0636
       }
     },
     "validation": {
       "status": "success",
-      "completedAt": "2026-11-26T01:01:52.229214+00:00"
+      "completedAt": "2026-11-27T00:59:05.499239+00:00"
     },
     "publication": {
-      "status": "success",
-      "commitSha": "2001d0192b3d89685536c04af38284aac76631a0"
+      "status": "not_run"
     },
     "notification": {
-      "status": "success",
-      "provider": "gmail",
-      "messageId": "1a215625009d98f9",
-      "completedAt": "2026-11-26T01:05:06.005Z"
+      "status": "not_run"
     }
   }
 }
