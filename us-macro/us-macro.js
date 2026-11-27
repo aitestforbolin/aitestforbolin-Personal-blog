@@ -9,6 +9,42 @@
     ? "../data/us-macro-dashboard.json?v=20260917-ff-1"
     : "data/us-macro-dashboard.json?v=20260917-ff-1";
 
+  const HOME_GROUPS = [
+    {
+      id: "inflation",
+      title: "通胀",
+      metrics: [
+        { id: "cpi", row: "MoM", label: "CPI", basis: "环比" },
+        { id: "core-cpi", row: "MoM", label: "核心 CPI", basis: "环比" },
+        { id: "ppi", row: "MoM", label: "PPI", basis: "环比" },
+        { id: "core-ppi", row: "MoM", label: "核心 PPI", basis: "环比" },
+        { id: "core-pce", row: "MoM", label: "核心 PCE", basis: "环比" },
+      ],
+    },
+    {
+      id: "activity",
+      title: "经济增长",
+      metrics: [
+        { id: "retail-sales", row: "Retail Sales m/m", label: "零售销售", basis: "名义环比" },
+        { id: "core-retail-sales", row: "Core Retail Sales m/m", label: "核心零售销售", basis: "环比" },
+        { id: "real-gdp", row: "GDP q/q", label: "实际 GDP", basis: "年化环比" },
+      ],
+    },
+    {
+      id: "employment",
+      title: "就业",
+      metrics: [
+        { id: "nfp", row: "Non-Farm Employment Change", label: "非农新增", unit: "people" },
+        { id: "unemployment", row: "Unemployment Rate", label: "失业率" },
+        { id: "earnings", row: "MoM", label: "平均时薪", basis: "环比" },
+      ],
+    },
+  ];
+  const peopleFormatter = new Intl.NumberFormat("zh-CN", {
+    maximumFractionDigits: 4,
+    signDisplay: "exceptZero",
+  });
+
   function escapeHtml(value) {
     return String(value ?? "")
       .replaceAll("&", "&amp;")
@@ -113,11 +149,63 @@
       (data.dataQuality?.warnings || []).join(" ");
   }
 
+  function homeMetricValue(actual, metric) {
+    if (metric.unit === "people") {
+      const thousands = String(actual ?? "").trim().match(/^([+-]?\d[\d,]*(?:\.\d+)?)k$/i);
+      if (thousands) {
+        const people = Number(thousands[1].replaceAll(",", "")) / 10;
+        return `${peopleFormatter.format(people)} 万人`;
+      }
+    }
+    if (metric.basis && /^(?:\d+\.?\d*|\.\d+)%$/.test(String(actual)) && numericValue(actual) > 0) {
+      return `+${displayValue(actual)}`;
+    }
+    return displayValue(actual);
+  }
+
+  function homeMetricPeriod(card) {
+    if (card?.period) return `<span class="us-macro-home-period">${escapeHtml(card.period)}</span>`;
+    const release = /^(\d{4})-(\d{2})-(\d{2})$/.exec(card?.releaseDate ?? "");
+    if (!release) return "";
+    const [date, , month, day] = release;
+    return `<time class="us-macro-home-period" datetime="${date}" title="${formatDate(date)}公布">${Number(month)}月${Number(day)}日公布</time>`;
+  }
+
+  function homeMetricRow(metric, card) {
+    const actual = card?.rows?.find((row) => row.label === metric.row)?.actual;
+    const basis = metric.basis ? `<small>${metric.basis}</small>` : "";
+    return `
+      <div class="us-macro-home-row">
+        <dt><span>${metric.label}</span>${basis}</dt>
+        <dd>
+          <strong>${homeMetricValue(actual, metric)}</strong>
+          ${actual != null && actual !== "" ? homeMetricPeriod(card) : ""}
+        </dd>
+      </div>
+    `;
+  }
+
   function renderHome(data) {
-    homeRoot.querySelector("[data-us-macro-summary]").innerHTML =
-      (data.summary || []).map(summaryCard).join("");
-    homeRoot.querySelector("[data-us-macro-updated]").textContent =
-      `数据截至 ${formatDate(data.asOf)}`;
+    const cards = new Map(data.groups.flatMap((group) => group.cards || []).map((card) => [card.id, card]));
+    const states = new Map(data.summary.map((item) => [item.id, item]));
+    homeRoot.querySelector("[data-us-macro-home-grid]").innerHTML = HOME_GROUPS.map((group) => {
+      const state = states.get(group.id);
+      const badge = state?.state && state.state !== "待更新"
+        ? `<span class="us-macro-home-badge" data-tone="${escapeHtml(state.tone)}">${escapeHtml(state.state)}</span>`
+        : "";
+      return `
+        <article class="us-macro-home-card">
+          <header class="us-macro-home-card-head">
+            <h3>${group.title}</h3>
+            ${badge}
+          </header>
+          <dl>${group.metrics.map((metric) => homeMetricRow(metric, cards.get(metric.id))).join("")}</dl>
+        </article>
+      `;
+    }).join("");
+    if (data.asOf) {
+      homeRoot.querySelector("[data-us-macro-updated]").textContent = `数据截至 ${formatDate(data.asOf)}`;
+    }
   }
 
   fetch(DATA_URL, { cache: "no-store" })
@@ -135,6 +223,9 @@
     .catch(() => {
       const message = "<p>宏观看板暂时无法载入，请稍后刷新。</p>";
       if (pageRoot) pageRoot.querySelector("[data-us-macro-summary]").innerHTML = message;
-      if (homeRoot) homeRoot.querySelector("[data-us-macro-summary]").innerHTML = message;
+      if (homeRoot) {
+        homeRoot.querySelector("[data-us-macro-home-grid]").innerHTML =
+          '<p class="us-macro-home-status" role="status">宏观数据暂时无法载入，请稍后刷新。</p>';
+      }
     });
 })();

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="editorial-refresh.css?v=20260918-home-order-1" />
     <link rel="stylesheet" href="home-market-widget.css?v=20260917-5" />
     <link rel="stylesheet" href="home-fundraising.css?v=20260918-no-row-actions-1" />
-    <link rel="stylesheet" href="us-macro/us-macro.css?v=20260819-3" />
+    <link rel="stylesheet" href="us-macro/us-macro.css?v=20261127-home-metrics" />
   <link rel="stylesheet" href="world-notes/world-notes.css?v=20261113-images">
 </head>
   <body>
@@ -208,6 +208,25 @@
       </section>
 
       <section
+        class="section us-macro-home"
+        id="us-macro"
+        aria-labelledby="us-macro-title"
+        data-us-macro-home
+      >
+        <div class="us-macro-home-head">
+          <div>
+            <p class="eyebrow">US Macro Core Dashboard</p>
+            <h2 id="us-macro-title">美国宏观核心数据</h2>
+          </div>
+          <a class="button secondary" href="us-macro/">查看15项指标</a>
+        </div>
+        <div class="us-macro-home-grid" data-us-macro-home-grid aria-live="polite">
+          <p class="us-macro-home-status">正在载入美国宏观数据…</p>
+        </div>
+        <p class="us-macro-home-footer" data-us-macro-updated></p>
+      </section>
+
+      <section
         class="section tech-events"
         id="tech-events"
         aria-labelledby="tech-events-title"
@@ -239,29 +258,6 @@
             正在载入财报日程...
           </div>
           <div class="tech-event-list" data-tech-events-list></div>
-        </div>
-      </section>
-
-      <section
-        class="section us-macro-home"
-        id="us-macro"
-        aria-labelledby="us-macro-title"
-        data-us-macro-home
-      >
-        <div class="us-macro-home-head">
-          <div>
-            <p class="eyebrow">US Macro Core Dashboard</p>
-            <h2 id="us-macro-title">美国宏观核心数据</h2>
-            <p>长期保留通胀、就业、消费与经济活动的最新一期，不因公布超过48小时而消失。</p>
-          </div>
-          <a class="button secondary" href="us-macro/">查看15项指标</a>
-        </div>
-        <div class="us-macro-summary-grid" data-us-macro-summary aria-live="polite">
-          <p>正在载入美国宏观状态…</p>
-        </div>
-        <div class="us-macro-home-footer">
-          <span data-us-macro-updated>正在读取数据日期…</span>
-          <span>按数据公布更新 · 非实时</span>
         </div>
       </section>
 
@@ -382,7 +378,7 @@
     <script src="macro-calendar-model.js?v=20260916-ff-us-only-1"></script>
     <script src="macro-calendar.js?v=20261010-actual-recovery-1"></script>
     <script src="home-fundraising.js?v=20260918-no-row-actions-1"></script>
-    <script src="us-macro/us-macro.js?v=20260917-ff-1"></script>
+    <script src="us-macro/us-macro.js?v=20261127-home-metrics"></script>
   <script src="world-notes/world-notes.js?v=20261113-images" defer></script>
 </body>
 </html>
