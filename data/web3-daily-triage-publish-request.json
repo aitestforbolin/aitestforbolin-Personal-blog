@@ -1,28 +1,28 @@
 {
   "schemaVersion": 1,
   "kind": "web3",
-  "requestId": "codex-web3-20261126-010225Z-d5jw7t",
-  "triggerSha": "43a1b4eab29fb3fb29174c040b199fc7136e3c46",
-  "publicationDate": "2026-11-26",
-  "publishedAt": "2026-11-26T09:05:02.175+08:00",
+  "requestId": "codex-web3-20261127-005801Z-oli85y",
+  "triggerSha": "415cbfbfc2c70eb2006838f4762fc1e5bbe279ac",
+  "publicationDate": "2026-11-27",
+  "publishedAt": "2026-11-27T09:02:04.625+08:00",
   "payload": {
     "schemaVersion": 1,
-    "runDate": "2026-11-26",
-    "publishedAt": "2026-11-26T09:05:02.175+08:00",
-    "windowStart": "2026-11-25T01:02:38.291655+00:00",
-    "windowEnd": "2026-11-26T01:02:35.909925+00:00",
-    "sourceUpdatedAt": "2026-11-26T01:02:35+00:00",
+    "runDate": "2026-11-27",
+    "publishedAt": "2026-11-27T09:02:04.625+08:00",
+    "windowStart": "2026-11-26T01:02:35.909925+00:00",
+    "windowEnd": "2026-11-27T00:59:00.552744+00:00",
+    "sourceUpdatedAt": "2026-11-27T00:59:00+00:00",
     "status": "success",
     "executionLineage": {
-      "runId": "web3-daily-triage:codex-web3-20261126-010225Z-d5jw7t",
-      "requestId": "codex-web3-20261126-010225Z-d5jw7t",
-      "triggerSha": "43a1b4eab29fb3fb29174c040b199fc7136e3c46",
-      "githubRunId": 45732975670,
-      "scheduledAt": "2026-11-26T09:00:00+08:00",
-      "startedAt": "2026-11-26T01:02:34.600769+00:00",
-      "sourceCheckedAt": "2026-11-26T01:02:35.909612+00:00",
-      "sourceUpdatedAt": "2026-11-26T01:02:35+00:00",
-      "completedAt": "2026-11-26T01:02:35.909925+00:00",
+      "runId": "web3-daily-triage:codex-web3-20261127-005801Z-oli85y",
+      "requestId": "codex-web3-20261127-005801Z-oli85y",
+      "triggerSha": "415cbfbfc2c70eb2006838f4762fc1e5bbe279ac",
+      "githubRunId": 45919885894,
+      "scheduledAt": "2026-11-27T09:00:00+08:00",
+      "startedAt": "2026-11-27T00:58:58.601120+00:00",
+      "sourceCheckedAt": "2026-11-27T00:59:00.552360+00:00",
+      "sourceUpdatedAt": "2026-11-27T00:59:00+00:00",
+      "completedAt": "2026-11-27T00:59:00.552744+00:00",
       "publishedAt": null
     },
     "executionStatus": {
@@ -30,7 +30,7 @@
       "validation": "success",
       "publication": "not_run"
     },
-    "deduplicationNote": "候选窗口从 2026-11-25 已核验归档的 windowEnd 接续至本次采集回执的 completedAt，并沿用累计 reportedEventIds 去重。来源仅是官网首页最近五条的已观测快照，不代表完整覆盖全部融资事件；本次新增 Lemon 一项非 M&A 融资事件并完成初筛。",
+    "deduplicationNote": "候选窗口从 2026-11-26 已核验归档的 windowEnd 接续至本次采集回执的 completedAt，并沿用累计 reportedEventIds 去重。历史仅由来源官网首页最近五条的已观测快照累积，不代表完整覆盖全部融资事件；本次 3 项新增事件均为非 M&A 并完成初筛。",
     "reportedEventIds": [
       "crypto-fundraising-ponygo--2026-09--round-unknown",
       "crypto-fundraising-velocity--2026-09--series-a",
@@ -137,81 +137,208 @@
       "crypto-fundraising-scrypt--2026-11--round-unknown",
       "crypto-fundraising-rialto--2026-11--seed",
       "crypto-fundraising-supertake--2026-11--seed",
-      "crypto-fundraising-lemon--2026-11--round-unknown"
+      "crypto-fundraising-lemon--2026-11--round-unknown",
+      "crypto-fundraising-cournot--2026-11--round-unknown",
+      "crypto-fundraising-sequent--2026-11--pre-seed",
+      "crypto-fundraising-ulys--2026-11--round-unknown"
     ],
     "counts": {
-      "new": 1,
-      "action": 0,
-      "watch": 0,
+      "new": 3,
+      "action": 1,
+      "watch": 1,
       "stop": 1
     },
     "projects": [
       {
-        "event_id": "crypto-fundraising-lemon--2026-11--round-unknown",
-        "source_detail_url": "https://crypto-fundraising.info/projects/lemon/",
-        "project_name": "Lemon",
-        "decision": "STOP",
+        "event_id": "crypto-fundraising-cournot--2026-11--round-unknown",
+        "source_detail_url": "https://crypto-fundraising.info/projects/cournot/",
+        "project_name": "Cournot",
+        "decision": "ACTION",
         "financing": {
           "amount_usd": 5000000,
           "round": null,
           "lead_investors": [
-            "Tether"
+            "Paper Ventures",
+            "Beam Foundation"
           ],
-          "announcement_date": "2026-11-25",
+          "announcement_date": "2026-11-26",
           "confidence": "medium"
         },
-        "plain_explanation": "Lemon 是面向拉丁美洲用户的数字金融应用，把本地货币、美元稳定币、加密资产、支付、收益和 Visa 卡等功能放在一个账户中。Tether 此次投资旨在扩大 USD₮ 与 XAU₮ 的日常使用。",
-        "mechanism_simple": "用户在支持的国家完成注册和身份验证后，可充值本地货币或加密资产，在应用内兑换、储蓄、投资、转账或消费。它是托管型金融应用，使用真实资金时要承担平台、市场和地区监管风险。",
+        "plain_explanation": "Cournot 是面向预测市场和 AI 代理的“判断型预言机”：它不只搬运价格，而是分析现实事件的证据，给出可核查的结果或概率。",
+        "mechanism_simple": "系统汇集外部资料，用多次独立推理形成判断，并把关键过程做成可审计、可挑战的记录。普通用户可通过 Cournot 的代理 Skill 提问，收到概率、明确命题和使用过的来源。",
         "project_status": {
           "category": "existing_no_token",
-          "token_status": "no_token_found",
-          "note": "Lemon 2019 年成立，已在阿根廷和秘鲁等市场长期运营并完成多轮融资；未发现原生代币或公开发币计划。"
+          "token_status": "token_announced",
+          "note": "产品和代理 Skill 已上线；官网确认未来网络代币将承担质押、治理和惩罚等作用，但代币尚未发布，细节与时间仍待公布。"
         },
         "participation": {
           "available_now": true,
-          "what_user_can_do": "支持地区的用户可下载应用、完成 KYC，并使用稳定币、支付或投资功能；不在支持地区的普通用户缺少可行的低摩擦参与路径。",
-          "requires_real_funds": true,
-          "friction_or_risk": "受地区、KYC 与产品可用性限制；真实使用涉及托管、稳定币、收益产品、市场波动和监管风险。"
+          "what_user_can_do": "先查看开源 Skill，再在 Codex 或 Claude Code 中安装；每个 IP 有 3 次免费调用，可用一个明确的加密市场事件问题测试结果质量。",
+          "requires_real_funds": false,
+          "friction_or_risk": "需要 Node.js 22.20+；免费次数用完后才涉及预付套餐或每次 0.01 美元的链上支付。概率输出不是投资建议，也可能受来源与模型判断限制。"
         },
         "incentives": {
-          "status": "unconfirmed",
+          "status": "confirmed",
           "types": [
-            "other"
+            "token"
           ],
-          "details": "媒体披露的 1,450 万美元合作包中，约 950 万美元拟用于联合产品激励，但官方尚未公布面向用户的具体资格、时间或规则；这不是代币、积分或空投承诺。"
+          "details": "官方确认网络代币的用途仍将公布，但没有确认发行时间、用户分配、积分或空投；免费调用属于产品试用，不是代币激励。"
         },
         "why": [
-          "项目是已有规模和多轮融资历史的成熟区域金融应用，本轮融资没有形成新的早期项目窗口。",
-          "未发现官方原生代币、积分、测试网或空投路径，产品激励预算也没有可执行的用户规则。",
-          "当前真实参与依赖支持地区、KYC 和资金投入，不能提供低成本、可验证的早期机会。"
+          "产品可以用 3 次免费调用直接验证，试错成本低。",
+          "它与 AI 代理、预测市场和来源核验有真实功能关联，不需要先投入资金。",
+          "代币虽已被官方提及，但参与理由应是验证产品价值，而不是猜测空投。"
+        ],
+        "next_step": "先阅读官方 GitHub Skill 内容，再安装并只用 1 次免费额度测试一个带明确截止时间的加密市场问题；不连接钱包、不购买调用包。",
+        "recheck_trigger": null,
+        "website_url": "https://cournot.ai/",
+        "x_url": "https://x.com/CournotProtocol",
+        "evidence": [
+          {
+            "claim": "官网说明 Cournot Intelligence Skill 可在 Codex/Claude Code 中安装，每个账户先获得免费调用，之后才按次付费；同时确认网络代币用途仍待公布。",
+            "url": "https://cournot.ai/",
+            "source_type": "official_site",
+            "confidence": "high"
+          },
+          {
+            "claim": "官方 GitHub 仓库提供安装、调用、免费额度、付费边界与凭证安全说明。",
+            "url": "https://github.com/Cournot-AI/cournot-skills",
+            "source_type": "official_site",
+            "confidence": "high"
+          },
+          {
+            "claim": "融资报道援引项目官方公告，确认 500 万美元由 Paper Ventures 与 Beam Foundation 联合领投。",
+            "url": "https://coinness.com/en/news/1177023",
+            "source_type": "other",
+            "confidence": "medium"
+          }
+        ]
+      },
+      {
+        "event_id": "crypto-fundraising-ulys--2026-11--round-unknown",
+        "source_detail_url": "https://crypto-fundraising.info/projects/ulys/",
+        "project_name": "Ulys",
+        "decision": "WATCH",
+        "financing": {
+          "amount_usd": 4000000,
+          "round": null,
+          "lead_investors": [
+            "Streamlined Ventures"
+          ],
+          "announcement_date": "2026-11-25",
+          "confidence": "high"
+        },
+        "plain_explanation": "Ulys 是一款带 AI 助手的非托管投资应用。用户可以用自然语言描述投资观点，由它研究并组合股票、ETF、商品和加密资产，最终交易仍需用户确认。",
+        "mechanism_simple": "AI 先把用户的观点转成一篮子资产并展示理由、来源、金额和费用；用户确认后才在链上钱包执行。应用还提供条件单、转账和 USDC 收益功能。",
+        "project_status": {
+          "category": "existing_no_token",
+          "token_status": "no_token_found",
+          "note": "应用已经正式上线并有既往融资；未发现 Ulys 原生代币或官方发币计划。"
+        },
+        "participation": {
+          "available_now": false,
+          "what_user_can_do": "支持地区的 iOS 用户可下载应用、创建非托管钱包并参加 Season One；官方国家列表未包含中国大陆或香港，因此当前对用户缺少稳定、合规的直接参与路径。",
+          "requires_real_funds": true,
+          "friction_or_risk": "积分主要来自活跃、交易、持仓和邀请，实际参与涉及地区限制、真实资金、链上资产、第三方协议和 AI 判断风险。"
+        },
+        "incentives": {
+          "status": "confirmed",
+          "types": [
+            "points",
+            "season",
+            "campaign"
+          ],
+          "details": "官方 Season One 已上线：活跃天数、交易、持仓和邀请可获得积分；尚未确认积分可兑换代币，也未公布结束日期。"
+        },
+        "why": [
+          "产品和 Season One 都已真实上线，积分路径不是社区猜测。",
+          "中国大陆和香港不在官方支持地区名单内，当前无法形成可靠的低摩擦参与路径。",
+          "积分没有明确的代币或兑换承诺，而有效积累通常需要交易、持仓或拉新。"
+        ],
+        "next_step": null,
+        "recheck_trigger": "当 Ulys 官方加入中国大陆或香港支持列表，或明确公布 Season One 积分的兑换权益、代币关系或结束日期时重新评估。",
+        "website_url": "https://ulys.ai/",
+        "x_url": "https://x.com/Ulys_AI",
+        "evidence": [
+          {
+            "claim": "Ulys 官网说明产品可用自然语言生成资产篮子，交易前必须由用户确认，钱包为非托管，并披露地区和资产可用性限制。",
+            "url": "https://ulys.ai/",
+            "source_type": "official_site",
+            "confidence": "high"
+          },
+          {
+            "claim": "官方 Season One 页面确认积分已上线，活跃、交易、持仓和邀请均可累积积分，并列出支持国家和地区。",
+            "url": "https://ulys.ai/SeasonOne",
+            "source_type": "official_blog",
+            "confidence": "high"
+          },
+          {
+            "claim": "公司发布的融资公告确认新增 400 万美元由 Streamlined Ventures 领投，总融资额达到 1,700 万美元。",
+            "url": "https://www.theblock.co/press-releases/ai-investing-app-ulys-reaches-17-million-in-total-funding-446731",
+            "source_type": "official_blog",
+            "confidence": "high"
+          }
+        ]
+      },
+      {
+        "event_id": "crypto-fundraising-sequent--2026-11--pre-seed",
+        "source_detail_url": "https://crypto-fundraising.info/projects/sequent/",
+        "project_name": "Sequent",
+        "decision": "STOP",
+        "financing": {
+          "amount_usd": 2200000,
+          "round": "Pre-seed",
+          "lead_investors": [
+            "Frachtis",
+            "Metaplanet"
+          ],
+          "announcement_date": "2026-11-25",
+          "confidence": "high"
+        },
+        "plain_explanation": "Sequent 为软件和智能合约开发者提供 AI 辅助的形式化验证工具 Alan，用数学证明检查代码是否始终遵守预先设定的安全规则。",
+        "mechanism_simple": "开发者先定义代码必须满足的规则，Alan 用 AI 草拟数学规格并寻找证明，再由不依赖 AI 的 HOL4 检查器逐步验证；失败时返回反例。",
+        "project_status": {
+          "category": "new_live_no_token",
+          "token_status": "no_token_found",
+          "note": "Alan 已进入早期访问并有 Curve 这一付费客户；未发现原生代币或发币计划。"
+        },
+        "participation": {
+          "available_now": false,
+          "what_user_can_do": "开发者可申请早期访问或阅读公开证明，但有意义的使用需要 Vyper/智能合约代码、专业规格确认和付费计划。",
+          "requires_real_funds": true,
+          "friction_or_risk": "个人计划从每月 99 美元起，且当前主要支持 Vyper；对普通用户没有直接产品路径。形式化证明只覆盖写入规格的性质，不能替代完整安全判断。"
+        },
+        "incentives": {
+          "status": "none_found",
+          "types": [],
+          "details": "未发现官方 Points、Season、Testnet、Campaign、Token 或 Airdrop；早期访问是付费开发工具准入。"
+        },
+        "why": [
+          "产品面向智能合约开发者、安全审计方和团队，普通用户没有相关参与路径。",
+          "早期使用需要专业代码场景和至少每月 99 美元成本。",
+          "融资和技术能力值得行业关注，但没有与用户相关的低成本早期机会或激励。"
         ],
         "next_step": null,
         "recheck_trigger": null,
-        "website_url": "https://lemon.me/en/",
-        "x_url": "https://x.com/lemonapp_ar",
+        "website_url": "https://sequent.inc/",
+        "x_url": "https://x.com/Sequent_Inc",
         "evidence": [
           {
-            "claim": "Tether 官方确认投资 Lemon，以扩展 USD₮ 与 XAU₮ 在拉丁美洲的日常金融使用；公告未披露投资金额。",
-            "url": "https://tether.io/news/tether-invests-in-argentine-fintech-company-lemon-to-expand-digital-asset-use-cases-across-latin-america/",
+            "claim": "Sequent 官方确认 220 万美元 Pre-seed 由 Frachtis 与 Metaplanet 联合领投，并说明 Alan 的工作方式、Curve 客户和定价。",
+            "url": "https://sequent.inc/news/sequent-raises-2-2m/",
             "source_type": "official_blog",
             "confidence": "high"
           },
           {
-            "claim": "Lemon 官方公告确认收到 Tether 的投资包，并说明合作目标是扩大美元稳定币和 XAU₮ 的使用。",
-            "url": "https://lemon.me/peru/blog/tether-invierte-lemon",
-            "source_type": "official_blog",
-            "confidence": "high"
-          },
-          {
-            "claim": "Forbes Argentina 报道合作包总额为 1,450 万美元，其中 500 万美元为股权投资、950 万美元用于联合产品激励。",
-            "url": "https://www.forbesargentina.com/negocios/tether-invierte-us-145-millones-lemon-ya-prueba-creditos-argentina-n103298",
-            "source_type": "other",
-            "confidence": "medium"
-          },
-          {
-            "claim": "Lemon 官网显示产品提供加密资产、支付和 Visa 卡等真实资金功能，并明确提示投资价值可能波动。",
-            "url": "https://lemon.me/en/",
+            "claim": "Alan 官方页面确认产品处于早期访问，核心用途是为开发代码生成可机器复核的形式化证明。",
+            "url": "https://sequent.inc/alan/",
             "source_type": "official_site",
+            "confidence": "high"
+          },
+          {
+            "claim": "官方发布的 Verifereum 1.2.0 说明当前技术主要服务 EVM/Vyper 等专业开发场景。",
+            "url": "https://sequent.inc/news/verifereum-1-2-0/",
+            "source_type": "official_blog",
             "confidence": "high"
           }
         ]
